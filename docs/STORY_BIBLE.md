@@ -1,338 +1,352 @@
-# THE SUNDERED CROWN — Story Bible
+# THE CROWN OF HORNS — Story Bible
+### A Forgotten Realms saga for the Sword Coast (D&D 5e)
 
 > Working title. A single-protagonist, party-based isometric CRPG in the lineage of
-> Baldur's Gate, Planescape: Torment, and Pathfinder: Kingmaker. This bible is the
-> canonical reference for the world, the central conflict, the cast, and the act
-> structure. Everything the game ships — every dialogue node, quest, and dungeon —
-> should be traceable back to something here.
+> Baldur's Gate, set in the **Forgotten Realms** on the **Sword Coast**, c. 1486 DR.
+> Uses 5e rules (SRD-open) over canon FR lore. This bible is the canonical reference for
+> the world, the central conflict, the cast, and the act structure.
+>
+> **IP note:** 5e *mechanics* are open (SRD 5.1, CC-BY-4.0). The Forgotten Realms
+> *setting and named IP* (deities, Baldur's Gate, the Crown of Horns, factions) are
+> Wizards of the Coast's. Fine for a personal/prototype build; a commercial release
+> needs a license or original renames. All names below are easy to swap (they're data).
 
 ---
 
 ## 1. PREMISE IN ONE BREATH
 
-A generation ago, the artifact that bound nine city-states into a single just realm
-shattered. You are one of the **Lantern-Touched** — a person who, on the night of
-the Sundering, was infused with a shard of that broken power and has carried a slow,
-spreading light (and a slow death) ever since. Now a man who calls himself **the
-Mender** is gathering the Lantern-Touched to *reforge the Crown* — a miracle that
-would end war, hunger, and grief forever. The catch he does not advertise: reforging
-the Crown means fusing the souls of every Lantern-Touched into it. Including yours.
+In the afterlife of the Realms, souls who served no god — the **Faithless** — are
+mortared alive into the **Wall of the Faithless** in Kelemvor's City of Judgment, and
+left to slowly dissolve into nothing. Most mortals never think about it. **Aldric Morn**
+did. Once the most decorated **Doomguide of Kelemvor** on the Sword Coast, he watched his
+godless daughter die and be sentenced to the Wall — and he broke. Now he is hunting the
+**Crown of Horns**, the relic that still holds a shard of the dead god **Myrkul's**
+divinity, so he can seize the throne of the dead, depose Kelemvor, and tear the Wall down
+forever.
 
-You can help him save the world by dying. You can stop him and leave the world
-broken. Or you can find the third thing nobody believes is possible.
+He is right that the Wall is an atrocity. His method — harvesting the soul-light of the
+living by the thousands to fuel an apotheosis — will drown the Sword Coast in murder and
+unbind death itself. You know the stakes better than anyone: in the prologue, **you die.**
+You stood in the Fugue Plane, you saw the Wall, and something pulled you back. You are
+**Returned** — marked, half in both worlds, the one soul who has seen what Aldric is
+fighting for and what it will cost.
 
-**Themes:** the price of utopia; grief as a political force; whether a just order is
-worth the people ground beneath it; what you owe the dead.
+**Themes:** the justice of the gods; what we owe the dead and the godless; whether an
+evil institution justifies any means to end it; grief weaponized into ambition.
 
 ---
 
-## 2. THE WORLD: THE CONCORD OF AEVYN
+## 2. THE WORLD: THE SWORD COAST, c. 1486 DR
 
-Aevyn is a temperate, late-medieval realm of river valleys, ash-grey moors, and old
-god-roads. Two hundred years ago, nine quarreling city-states ended a century of war
-by forging the **Ninefold Crown** — not a hat but a *covenant engine*: nine
-soul-lanterns set in a ring, each holding the bound will of a founding ruler who gave
-their life to it. The Crown enforced the **Concord**: oaths sworn under it could not
-be broken, borders could not be crossed in war, and a shared light kept the worst of
-the old magics asleep.
+Classic Realms. The action runs the road from **Baldur's Gate** north toward the
+**Fields of the Dead**, with detours to **Candlekeep**, **Elturel**, and finally beyond
+the living world into the **Fugue Plane**.
 
-**The Sundering (28 years ago):** The Crown shattered during the Coronation of the
-Tenth Warden. Nobody agrees why. The nine Lanterns scattered. The bound magic that
-had been *sleeping* woke up — wells of raw power called **ashfire** now bleed into
-the world at the old fracture lines, twisting land and people. Children born that
-night across the realm — the **Lantern-Touched** — carry shards of the Crown's light
-in their chests. They are revered, feared, hunted, and dying young.
+### Key locations
+- **Baldur's Gate** — sprawling, stratified port-metropolis. Ruled by the **Council of
+  Four** (the Grand Dukes) and patrolled by the mercenary **Flaming Fist**. Upper City
+  patriars, Lower City guilds, the Outer City slums. Your hub for Act I. Corruption,
+  intrigue, and the Guild (thieves) everywhere.
+- **Candlekeep** — the legendary fortress-library on a crag above the Sea of Swords.
+  Admission costs a book not already in its collection. Holds the lore that explains the
+  Crown of Horns — and a secret about you. (Act II.)
+- **Elturel** — the city of the **Companion**, a second sun bound over it by the church
+  of **Torm**. Theocratic, radiant, watched. The Order of the Gauntlet's stronghold.
+- **The Fields of the Dead** — vast battlefield-plains north of the Gate, seeded with
+  centuries of war-dead. Aldric's harvest begins here; the dead do not rest.
+- **The Fugue Plane / the City of Judgment** — the waystation of the dead, ruled by
+  **Kelemvor**. The **Wall of the Faithless** rings it. The finale.
 
-### The Nine (now)
-Three matter most for the main path; the rest are content reservoirs.
-- **Highmarrow** — the old capital, now a theocratic city run by the **Ember Wardens**
-  who claim to guard the Crown's memory. Beautiful, rotten, surveillance-heavy.
-- **Saltmarch** — a free port and thieves' republic in the river delta. Where the
-  game opens. Pragmatic, plural, dangerous.
-- **The Cindermoor** — a blasted ashfire wasteland where a Lantern fell; home to the
-  **Ashborn**, people remade by the light. Frontier, mutants, miracles.
-- Reservoir cities (for DLC/expansion): Vael, the Glass Library; Dunmar, the iron
-  fortress-state; the drowned city of Lyre; the monastic Thornholt; nomadic Karn;
-  and the sealed, silent Tenth seat — **the empty chair the Crown was being given to**.
+### The gods who matter
+- **Kelemvor Lyonsbane** — god of the dead and of death; stern, just, *bound by cosmic
+  law he did not write* (the Wall predates him). The story's reluctant "antagonist god."
+- **Myrkul** — the previous god of death, slain in the Time of Troubles. His residual
+  power lingers in the **Crown of Horns** — the prize.
+- **Jergal** — the scribe of the dead, eldest death-power, who once *ceded* godhood
+  voluntarily. He watches, neutral, and may be the key to the third path.
+- **Helm**, **Tyr**, **Torm**, **Ilmater** (the Triad of justice/mercy) — the lawful
+  gods whose clergy split over whether the Wall is just.
+- **Mystra** (the Weave / magic), **Tymora** (luck), **Mask** (shadows/thieves),
+  **Shar** (loss, the dark). Background pantheon for companions and flavor.
 
 ### Magic
-Soft-magic flavor, hard-magic rules. Spellcasting works on the 5e/OGL chassis in the
-codebase. In-fiction, all "arcane" magic is borrowed Crown-light; **ashfire** is that
-same light unbound and hungry. The Lantern-Touched can do impossible things briefly,
-at the cost of burning their own remaining lifespan.
+Standard 5e arcane/divine over the **Weave** (Mystra's gift). Aldric's death-magic
+*tears* the Weave — a recurring danger Lyseira (companion) frets over.
 
 ---
 
-## 3. THE PROTAGONIST
+## 3. THE PROTAGONIST — "the Returned"
 
-Player-created (race/class/background via the codebase's ScriptableObjects), but
-**fixed in one way**: you are Lantern-Touched. You have ~one year to live as the
-shard consumes you, unless the Crown is reforged (which also kills you, just usefully)
-— or unless you find another way. This ticking clock is thematic, not a literal fail
-timer; it justifies why *you* can't just walk away.
+Player-created via the character-creation system (race/class/background/abilities, full
+5e). Fixed in one way: in the prologue **you die and come back.** Mechanically you gain
+the **Returned** trait — you can perceive spirits, the recently dead linger near you, and
+the Wall has, in a sense, your name on it. Aldric's first great ritual is what yanked your
+soul back across the boundary; he doesn't yet know it worked, or who you are.
 
-Recommended **Backgrounds** (each unlocks unique dialogue + a starting contact):
-- **Warden's Ward** — raised inside Highmarrow's order; knows its secrets and lies.
-- **Ash-runner** — smuggler out of Saltmarch; owes dangerous people.
-- **Cindermoor Foundling** — born in the wasteland; the Ashborn call you kin.
-- **The Unremembered** — Planescape-style amnesiac; you woke after the Sundering with
-  no past and a Lantern already burning. (Highest-mystery path.)
-
----
-
-## 4. THE CENTRAL VILLAIN: THE MENDER (Corin Vale)
-
-> The best villains are *right about the problem and wrong about the price.* The
-> Mender should make players hesitate before every blow.
-
-**Who he is:** Corin Vale was the **Tenth Warden** — the man the Crown was being given
-to the night it shattered. He held it as it broke. He watched it kill his husband,
-who was the Ninth Lantern's living bearer, and he has spent 28 years building the
-means to put it back together. He is gentle, funny, exhausted, and absolutely certain.
-He does not rant. He brings you tea. He grieves for the people he is going to sacrifice
-and does it anyway, because he has done the math and a few thousand deaths buys an
-eternity without war.
-
-**His philosophy (steelman it):** "Suffering is not noble. Order is not tyranny if it
-is *just*. I can give every child after us a world without the Sundering. The cost is
-us — the ones already dying. We were always going to die. Let it *mean* something."
-
-**His method:** Reforging needs the nine Lanterns *and* enough Lantern-Touched souls
-to re-bind them. He recovers Lanterns across the acts (sometimes before you, sometimes
-racing you) and gathers the Touched into a "Choir" — willing martyrs, many of them
-genuinely at peace with it. That's the gut-punch: **his followers are not brainwashed.
-They volunteered.**
-
-**The turn:** Mid-game reveal — the original Crown did **not** shatter by accident.
-The founding rulers bound into it *chose to break it* rather than let it become what
-it was becoming: a thing that ended war by ending *will*. The Concord's "peace" was
-the early symptom of a world slowly losing the ability to choose. Corin either doesn't
-know this, or knows and believes a *controlled* refounding can avoid it. Discovering
-the truth is the spine of Act III.
-
-**The tragedy ending:** It is fully possible to *help* Corin succeed, believe you did
-the right thing, and be correct that it ends war — at the cost the game has shown you.
-No cackling. The game lets you choose utopia-by-atrocity with eyes open.
+**Backgrounds (each unlocks unique dialogue + a starting contact):**
+- **Candlekeep Acolyte** — raised among the monks; knows lore and a buried secret.
+- **Flaming Fist Deserter** — ex-mercenary of Baldur's Gate; contacts and enemies in
+  the Fist.
+- **Doomguide's Ward** — you served Kelemvor's church *under Aldric* before his fall.
+  Highest-intimacy path with the villain.
+- **The Nameless** (Planescape-style) — you woke after your death with no memory; the
+  Wall remembers you even if you don't.
 
 ---
 
-## 5. THE SECOND ANTAGONIST: THE WARDEN-MOTHER (Seraphine Auld)
+## 4. THE CENTRAL VILLAIN — ALDRIC MORN, the Doomguide Who Said No
 
-The visible opposition for Acts I–II, and a *false* one. **Seraphine Auld** runs the
-Ember Wardens in Highmarrow. She hunts the Lantern-Touched, brands the Mender a
-heretic, and burns ashfire-touched villages "to stop the spread." She is the
-authoritarian boot the player instinctively hates — and she is, infuriatingly, also
-trying to prevent the reforging, because she knows (from sealed Warden archives) the
-truth about why the Crown was broken.
+> Right about the atrocity. Monstrous about the cure. He should make players grieve for
+> the man even as they cut him down.
 
-She would rather rule a broken world than free a perfect one. She is willing to commit
-atrocities to keep the Lanterns *apart forever.* Late game, you can ally with her
-against Corin while despising her — the Icewind Dale / BG2 "lesser evil" tension. Or
-expose her hypocrisy and shatter the Wardens entirely.
+**Who he is:** For forty years, Aldric Morn was the Sword Coast's finest **Doomguide of
+Kelemvor** — the clergy who give the dead their due, lay the restless, and *believe in
+the order of death.* He buried plague-villages with his own hands and never wavered. Then
+his daughter **Maerin**, who loved no god, died of the same plague — and Aldric followed
+a vision to the City of Judgment and watched his own god's law mortar her into the Wall of
+the Faithless to dissolve. He begged Kelemvor. Kelemvor, bound by cosmic law older than
+himself, refused.
 
-**The third force:** **The Hollow** — what people become in deep ashfire when their
-will burns out. Not a faction with a plan; an environmental dread and a moral preview
-of what the reforged Crown does at scale. Every Hollow you fight was someone Corin
-would call "saved."
+**His cause (steelman it, hard):** "I served death faithfully and death spat on my child
+for the crime of believing in nothing. The Wall is not justice — it is the oldest cruelty
+in the multiverse, and every god permits it. I will not pray to better masters. I will
+*become* the master and I will tear it down with my hands." Players who learn FR lore will
+know: **he is not wrong about the Wall.** That's the knife.
+
+**His method:** To depose a god of death you must *become* one. The **Crown of Horns**
+holds Myrkul's leftover divinity; to claim and ignite it, Aldric must feed it
+soul-light — the living, by the thousands, their deaths timed and ritualized across the
+Sword Coast. He has convinced himself the math is holy: a few thousand now to free the
+*infinite* dead forever. He recruits genuine idealists — Doomguides who also broke over
+the Wall, grieving families, the godless who fear their own fate. **His followers are not
+duped. They believe.**
+
+**The turn (Act II–III):** Two truths land. First, the Crown of Horns is not a tool —
+it is **Myrkul**, patient and parasitic, *letting* Aldric do this so the cruelest of the
+Dead Three can ride a sympathetic martyr back to godhood. Aldric the abolitionist is the
+mask Myrkul wears. Second: **you, the Returned, are the flaw in the ritual** — your
+yanked-back soul left a crack in the boundary, and you are the only lever that can either
+complete Aldric's ascension or unmake it. Discovering whether Aldric *knows* he's being
+ridden — and whether he'd care — is Act III's spine.
+
+**The tragedy option:** You can help Aldric win, abolish the Wall, and be *correct* that
+countless godless souls are freed — at the cost of a Sword Coast of corpses and a new god
+of death wearing a dead tyrant's crown. No cackling. The game lets you choose abolition-
+by-atrocity with your eyes open.
+
+---
+
+## 5. THE SECOND ANTAGONIST — SISTER VAYLE, the Wall's Defender
+
+The visible opposition for Acts I–II, and a *true believer* rather than a villain.
+**High Doomguide Sister Vayle** leads Kelemvor's church on the Sword Coast. She hunts
+Aldric as a heretic and apostate, and she will burn villages, detain the Returned (you),
+and sacrifice innocents to keep the Crown of Horns from being found — because she has read
+what you have not: **the last time a mortal tried to reform death, it loosed something
+worse.** She defends the Wall not from cruelty but from terror of the alternative. Late
+game you can ally with her against Aldric while loathing what she protects — the BG2 /
+Icewind Dale "lesser evil" tension — or shatter Kelemvor's church and gamble on the new order.
+
+**The third power — JERGAL.** The eldest death-god, who once gave up godhood willingly
+because he was *bored of it,* watches the whole affair with dry, patient amusement. He is
+not a faction; he is the door to the **third path**: not Aldric's apotheosis, not Vayle's
+status quo, but a true reform of the afterlife paid for honestly. Reaching him is the
+hidden golden route. He lies by omission and grieves nothing, which is its own horror.
+
+**Environmental dread — the Unbound Dead.** Where Aldric's harvest tears the boundary,
+the dead don't pass on — they come back wrong. Every Unbound horror you fight was a person
+Aldric would call "saved." A moral preview of victory.
 
 ---
 
 ## 6. COMPANIONS
 
-Six recruitable companions + one secret. Each has: a combat identity, a **secret**, a
-**personal quest** that detonates in Act II–III, an **approval axis** (tracked via
-`companion.<id>.approval` in GameFlags), and a stance on the central question that can
-*change*. At least two are romanceable; at least one can permanently leave or betray
-you based on choices.
+Seven recruitable companions (six + one secret). Each: a 5e build identity, a **secret**,
+a **personal quest** detonating Act II–III, an **approval axis**
+(`companion.<id>.approval`), a stance on the central question that can *shift*, and FR
+faction ties. At least two romanceable; at least one can leave or betray you.
 
-### 6.1 SABLE — the ex-Warden knight (Fighter/Paladin)
-- **Hook:** Found in Saltmarch's stocks, condemned by her own order. She executed a
-  Lantern-Touched child on Seraphine's order and deserted the next morning.
-- **Secret:** The child didn't die. Sable hid her. That child is now in Corin's Choir,
-  *volunteering* to die — and Sable will do anything to stop a sacrifice the girl wants.
-- **Personal quest:** "The Mercy She Owes" — track the girl across two acts; ends in a
-  choice between Sable's guilt and the girl's agency.
-- **Approval:** Gains on honesty, protecting innocents, hard accountability. Loses on
-  cruelty, abandoning people, mockery of duty.
-- **Romance:** Slow-burn, built on earned trust. Betrayal path if you side fully with
-  the Wardens.
+### 6.1 SISTER GARROW — the Doomguide who stayed (Cleric of Kelemvor)
+- **Hook:** A grim, kind Doomguide who did *not* follow Aldric, found laying the
+  restless dead near the Fields. Your living rebuttal to the villain.
+- **Secret:** She agrees the Wall is monstrous. She stays because she believes Aldric's
+  cure damns more souls than the Wall ever could — and she's terrified she's a coward.
+- **Personal quest:** "The Office of the Dead" — lay her own mentor, now Unbound by
+  Aldric's harvest. Ends on whether faith can survive doubt.
+- **Approval:** mercy, honoring the dead, hard moral courage. Loses on desecration,
+  cruelty, glib nihilism. **Romance:** slow, weighty.
 
-### 6.2 QUILL — the Glass Library archivist (Wizard)
-- **Hook:** A nervous, over-caffeinated scholar smuggling forbidden Warden archives.
-- **Secret:** Quill already read the sealed truth — *why* the Crown was broken — and
-  has been too frightened to tell anyone, including you. The reveal lands harder
-  because a companion withheld it.
-- **Personal quest:** "The Footnote That Ends the World" — recover the rest of the
-  archive from the drowned library of Lyre.
-- **Approval:** Curiosity, mercy to knowledge-bearers, choosing truth over comfort.
-- **Romance:** Yes. Banter-heavy, Minsc-energy comic relief that turns devastating.
+### 6.2 ROEN ALLEYWIND — the Harper spy (Bard / Rogue)
+- **Hook:** A charming Harper fixer in Baldur's Gate who "recruits" you for the secret
+  network. Wit, lockpicks, and a thousand contacts.
+- **Secret:** The Harpers ordered him to *use and discard* you (you're a security risk —
+  a soul with a hole in it). He's stopped reporting. The reveal: a companion's been
+  handling you.
+- **Personal quest:** "The Song That Names You" — untangle a Harper purge; choose loyalty
+  to the network or to the party. **Romance:** yes; banter-forward, turns sincere.
 
-### 6.3 BROR ASH-EATEN — the Ashborn berserker (Barbarian)
-- **Hook:** A Cindermoor native, half-remade by ashfire — embers under the skin.
-- **Secret:** He is *further gone* than he admits; the Hollow is taking him by inches.
-  He's looking for a worthy death before he loses himself.
-- **Personal quest:** "Before the Light Takes Me" — find a cure, accept his end, or
-  (dark) deliver him to Corin's Choir as a willing soul.
-- **Approval:** Courage, blunt honesty, respect for the Ashborn. Loses on cowardice,
-  pity, lies.
-- **Tragedy:** If ignored, he Hollows mid-Act-III and you fight him.
+### 6.3 VARRA — the tiefling warlock (Warlock)
+- **Hook:** Acid-tongued infernal-blooded warlock hiding from her own patron.
+- **Secret:** Her patron is a death-power circling the Crown of Horns — possibly **Mask**,
+  possibly Myrkul's agent. Her pact may be a leash Aldric can yank. The comic-relief
+  companion who becomes a plot bomb.
+- **Personal quest:** "The Fine Print" — renegotiate or break her pact at terrible cost.
+- **Approval:** audacity, loyalty under pressure, gallows humor. Loses on sanctimony.
 
-### 6.4 LADY VESPER — the Saltmarch spymaster (Rogue/Bard)
-- **Hook:** Charming crime-republic powerbroker who "sponsors" you — for her own ends.
-- **Secret:** She is one of Corin's oldest agents, *and* she's playing him; she wants
-  a Lantern for herself to make Saltmarch untouchable. Triple agent.
-- **Personal quest:** "Everyone's Strings" — a web of betrayals where you decide whose
-  knife ends up in whose back. Can be turned into a true ally or made your nemesis.
-- **Approval:** Pragmatism, wit, results. Loses on naïveté and self-righteousness.
-- **Romance:** Yes — transactional turning genuine, or never genuine at all (player-read).
+### 6.4 THODRIC IRONHAND — the exiled shieldbearer (Fighter)
+- **Hook:** A clan-exiled dwarf of the Sword Coast hills, selling his axe and his grudge.
+- **Secret:** His clan didn't exile him for failure — they exiled him because he survived
+  an Unbound attack that should have killed him, and they think he came back *wrong.*
+  He's quietly afraid they're right.
+- **Personal quest:** "Stone Remembers" — return to his hold; reckon with what crawled out
+  of the deep. Tragedy path: he Unbinds and you fight him.
+- **Approval:** courage, oaths kept, blunt honesty. Loses on cowardice, broken word.
 
-### 6.5 BROTHER OKE — the heretic priest (Cleric)
-- **Hook:** Excommunicated Ember Warden chaplain who now ministers to ashfire victims.
-- **Secret:** He still hears the Crown — a *voice* he believes is the bound founders
-  begging not to be reassembled. Is it divine truth, or is he going Hollow in the mind?
-  The game never fully confirms which.
-- **Personal quest:** "The Choir of the Unmade" — follow the voice to a buried Lantern.
-- **Approval:** Faith tempered by mercy, listening, doubt held honestly. Loses on
-  nihilism and zealotry alike.
+### 6.5 LYSEIRA — the Mystran wizard (Wizard)
+- **Hook:** A precise, anxious elf wizard tracking the **Weave** damage radiating from
+  Aldric's rituals; she fears death-magic on this scale could *wound Mystra herself.*
+- **Secret:** She has already privately concluded that *both* Aldric and Vayle are
+  catastrophes — and has been quietly assembling a way to do what Jergal hints at. She
+  withheld it because she didn't trust you yet.
+- **Personal quest:** "Threads" — repair a tear in the Weave at the Fields of the Dead.
+- **Approval:** curiosity, restraint, truth over comfort. **Romance:** yes; cerebral.
 
-### 6.6 KESTREL — the child prodigy ranger (Ranger)
-- **Hook:** A Lantern-Touched teenager, fiercely competent, hiding how little time she
-  has. The party's heart and the stakes made personal.
-- **Secret:** She has *months*, not years. She has already decided to join Corin's
-  Choir and is traveling with you to see the world before she does.
-- **Personal quest:** "One Good Year" — the player's choices determine whether she
-  changes her mind. There is no clean win; only the one you can live with.
-- **Approval:** Kindness, letting her be capable, honesty about death.
+### 6.6 MAERIN — the girl from the Wall (Ranger / undead-touched) — *the stakes, embodied*
+- **Hook:** A fierce teenage spirit you can pull *out* of the Wall in Act II — Aldric's
+  own dead daughter, the reason for all of this. She does not want to be his excuse.
+- **Secret:** She is fading; her soul is half-dissolved and time is short. And she has her
+  own opinion about whether the world should burn to save her.
+- **Personal quest:** "Not Your Reason" — the most direct line to Aldric's heart; her
+  choices can break him, redeem him, or harden him. No clean win.
 
-### 6.7 (SECRET) THE NINTH — Corin's dead husband's Lantern, now... awake
-- A late companion: a Lantern that speaks, carrying the imprint of the Ninth founder
-  *and* of Corin's husband. Recruiting it is the key to the "third path" ending. It
-  argues, lies, and grieves. The Planescape-style philosophical companion.
+### 6.7 (SECRET) THE CROWN-VOICE — Myrkul, whispering
+- A late "companion": once you near the Crown of Horns, it *speaks* — patient, reasonable,
+  monstrous. The Planescape-style philosophical companion who is also the final enemy.
+  Listening to it grants power and lies in equal measure. Recruiting Jergal's counsel is
+  the only safe counterweight.
 
 ---
 
-## 7. FACTIONS & REPUTATION
+## 7. FACTIONS & REPUTATION  (`faction.<id>.reputation`)
 
-Tracked as `faction.<id>.reputation` ints. Reputation gates content, prices, allies,
-and the finale's available alliances.
-
-| Faction | Wants | If you help | If you cross |
+| Faction | Wants | Help them → | Cross them → |
 |---|---|---|---|
-| **The Mender's Choir** | Reforge the Crown via sacrifice | Resources, Lanterns, the "good" utopia ending | They mourn you and proceed without you |
-| **Ember Wardens** | Keep Lanterns apart forever; control | Authority, the "order" ending, lesser-evil alliance | Hunted across every city |
-| **Saltmarch Republic** | Profit, independence | Money, safehouses, Vesper | Bounties, closed doors |
-| **The Ashborn** | Survival, dignity, a cure | Bror, Cindermoor passage, Hollow lore | Frontier turns hostile |
-| **The Unbroken** (hidden) | The third path — *unmake* the Crown forever | The freedom ending | Locked out of the best ending |
+| **Church of Kelemvor (Doomguides)** | Stop Aldric; preserve the order of death | Authority, the "status quo" ending, Vayle alliance | Hunted as apostate |
+| **Aldric's Choir of the Unwalled** | Tear down the Wall by any means | Resources, the abolition ending | They mourn you, proceed |
+| **The Harpers** | Contain the threat quietly; protect the innocent | Intel, safehouses, Roen | Burned contacts, purge |
+| **The Flaming Fist (Baldur's Gate)** | Order and coin in the Gate | Muscle, city access | Bounties, closed gates |
+| **Order of the Gauntlet (Elturel)** | Smite evil; defend Elturel | Holy allies, Elturel routes | Righteous enemies |
+| **The Zhentarim** | Profit from chaos | Black-market power, deniable aid | Knives in alleys |
 
 ---
 
 ## 8. ACT STRUCTURE
 
-### PROLOGUE — "The Light You Carry" (Saltmarch)
-Tutorial + tone. Your Lantern flares publicly during a Warden raid, marking you. You
-escape into Saltmarch's underbelly, recruit your first companion (Sable or Vesper by
-background), and Vesper "hires" you to retrieve a stolen relic — which turns out to be
-a **Lantern fragment**. First taste of combat, dialogue, and the clock.
-**Dungeon:** The Tidewrack — a flooded smuggler-warren under the docks.
+### PROLOGUE — "What the Dead Owe" (Baldur's Gate → the Fugue, briefly)
+Tutorial + the death. You're caught in Aldric's first harvest beneath Baldur's Gate; you
+**die**, glimpse the City of Judgment and the Wall, and are wrenched back — Returned.
+First combat, first companion (Garrow or Roen by background), first taste of the clock.
+**Dungeon:** the Undercellars / Cinderhaunt beneath the Gate — a harvest-site crawling
+with the freshly Unbound.
 
-### ACT I — "Three Lights" (Saltmarch → the road → Cindermoor)
-Establish the chase: Corin, Seraphine, and you are all hunting the scattered Lanterns.
-Recruit Quill, Bror, Brother Oke. Learn the Choir is full of *willing* martyrs (the
-first time the easy villain framing breaks). Acquire the **first Lantern** — and have
-to decide whether to give it to Corin (who asks gently and honestly) or keep it.
-**Hub:** Saltmarch (rich, reactive). **Dungeons:** The Cindermoor Reliquary; the
-ash-drowned village of Hollowmere (first Hollow encounter).
-**Act climax:** Seraphine burns Hollowmere to deny you the Lantern. You see her
-"lesser evil" in full.
+### ACT I — "The Gilded Gate" (Baldur's Gate hub)
+Establish the chase: Aldric, Vayle, and you all want the Crown of Horns' location.
+Recruit Roen, Varra, Thodric, Lyseira. Learn Aldric's Choir is full of *true believers*
+(the first time the easy-villain frame cracks). Maneuver among Flaming Fist, Harpers, and
+the Guild to reach a clue locked in Candlekeep.
+**Hub:** Baldur's Gate (deeply reactive). **Dungeons:** the Counting House heist; the
+Fields of the Dead harvest-site (first big Unbound battle).
+**Act climax:** Vayle burns a harvest-village to deny Aldric — and you see her "lesser
+evil" whole.
 
-### ACT II — "The Sealed Truth" (Highmarrow + Lyre)
-Infiltration act. Penetrate Highmarrow to reach the Warden archives; or break into
-the drowned library of Lyre via Quill's quest. Uncover **the turn**: the Crown was
-broken *on purpose* to save the world's will. Companion personal quests detonate here
-(Sable's girl, Bror's Hollowing, Vesper's triple-cross, Kestrel's months).
-**Hubs:** Highmarrow (oppressive, vertical, surveillance gameplay). **Dungeons:** the
-Warden Vault; the Drowned Library of Lyre (puzzle-heavy, lore-dense, Planescape-tone).
-**Act climax:** You confront Corin with the truth. He is unshaken — or shaken in a way
-that makes him *more* dangerous. A companion may die or leave depending on choices.
+### ACT II — "The Book and the Wall" (Candlekeep + the Fugue Plane)
+Lore + infiltration. Buy your way into Candlekeep; uncover **the turn** — the Crown is
+Myrkul, and *you* are the crack in the ritual. Then a perilous descent to the City of
+Judgment, where you can **pull Maerin from the Wall.** Companion quests detonate (Garrow's
+mentor, Thodric's hold, Lyseira's secret, Varra's pact, Maerin's grief).
+**Hubs:** Candlekeep (lore-dense, Planescape tone). **Dungeons:** the Fugue waystation;
+the Wall itself.
+**Act climax:** You confront Aldric with the truth that Myrkul rides him. He is unshaken —
+or shaken in a way that makes him *more* dangerous. A companion may die or leave.
 
-### ACT III — "The Empty Chair" (the Tenth Seat)
-Convergence. Corin has eight Lanterns and a full Choir; he marches on the sealed Tenth
-Seat to reforge. You pick your alliance(s): Choir, Wardens, Ashborn, the Unbroken,
-or go it alone. Recruit/awaken **the Ninth**. Final companion reckonings. The clock on
-your own Lantern reaches its end — the finale *is* your death, the only question is what
-it buys.
-**Dungeon/finale:** The Coronation Hall beneath the Tenth Seat — a multi-stage gauntlet
-that reconfigures based on your alliances and which Lanterns you hold.
+### ACT III — "The Crown of Horns" (the City of Judgment)
+Convergence. Aldric has the Crown and a full Choir; the harvest peaks; the Sword Coast
+bleeds. Pick alliances (Kelemvor's church, the Choir, the Harpers, Jergal's hidden road)
+and seek Jergal's counsel. Final companion reckonings. Your Returned soul reaches its
+crisis — the finale *is* the resolution of your half-death.
+**Finale:** the Court of the Dead beneath the City of Judgment — a staged gauntlet that
+reconfigures by your alliances and whether you carry the Crown, Jergal's word, or Maerin.
 
-### ENDINGS (at least five, mix-and-matchable via GameFlags)
-1. **The Reforging (utopia-by-atrocity):** Help Corin. War ends forever. So does, slowly,
-   free will. Epilogue is beautiful and horrifying.
-2. **The Wardens' Order:** Side with Seraphine. Lanterns kept apart by an iron police
-   state. The world stays broken but *awake*. You die a hunted hero or a hated tyrant.
-3. **The Unmaking (freedom):** The third path — destroy the Lanterns forever with the
-   Ninth's help. The world loses its miracle and its leash. Hard, hopeful, costly.
-4. **The Usurpation:** Take the Crown yourself. Branches by your accumulated choices
-   into anything from a benevolent steward to the next thing that must be broken.
-5. **The Long Year:** Refuse all of it; spend your last months on the small, human good
-   in front of you. The "Planescape" ending — the world goes on, unfixed, and you mattered
-   to a handful of people. Quiet. Earned. Devastating.
+### ENDINGS (five+, mix-and-match by GameFlags)
+1. **Abolition-by-Atrocity:** Aldric (and Myrkul) ascend; the Wall falls; the godless are
+   freed; the living paid in oceans of blood and death itself is unbound. Beautiful, wrong.
+2. **The Doomguide's Peace (status quo):** Side with Vayle/Kelemvor. Aldric falls, the Wall
+   stands, the order of death endures — and you carry that you defended an atrocity.
+3. **Jergal's Bargain (the third path):** With Jergal and Lyseira, depose neither god but
+   *rewrite* the law of the Faithless honestly — the Wall ends without a tyrant's crown.
+   Hardest to reach; the golden ending.
+4. **The Returned Throne:** Claim the Crown of Horns yourself. Branches by your choices
+   from a merciful new judge of the dead to the next thing that must be thrown down.
+5. **Mortal Measure (Planescape ending):** Refuse the crown and the cause both; spend your
+   borrowed time on the small, human good in front of you, and let gods be gods. Quiet,
+   costly, earned.
 
 Each ending has per-companion and per-faction epilogue slides keyed off flags, BG-style.
 
 ---
 
-## 9. SAMPLE DIALOGUE (maps 1:1 to the DialogueGraph asset format)
+## 9. SAMPLE DIALOGUE (maps 1:1 to the DialogueGraph format)
 
-A first meeting with **Corin/the Mender**, showing conditions, a skill check, approval,
-and flag effects. See `docs/CONTENT_PIPELINE.md` for how to enter this in the inspector.
+First meeting with **Aldric**, late Act I — honesty, a skill check, approval, flags.
+See `docs/CONTENT_PIPELINE.md` for entry steps; `Content/SwordCoastContent.cs` builds a
+version of this in code for the prologue.
 
 ```
-NODE corin.intro.0  (speaker: The Mender)
-  text: "You look like someone who's been running. Sit. The tea's real — that's
-         rarer than the Crown these days."
-  onEnter: SET corin.met = true
-  → auto: corin.intro.1
+NODE aldric.intro.0  (speaker: Aldric Morn)
+  text: "You came back. Few do. I felt the boundary tear when you crossed it — like a
+         bell rung in an empty cathedral. Sit. You of all people deserve the truth."
+  onEnter: SET aldric.met = true
+  → auto: aldric.intro.1
 
-NODE corin.intro.1  (speaker: The Mender)
-  text: "I'm told you carry a Lantern's shard. So do I. So did everyone I've ever
-         loved. I mean to give it back — all of it. Will you help me?"
+NODE aldric.intro.1  (speaker: Aldric Morn)
+  text: "My god mortars children into a wall for the crime of doubt, and calls it law.
+         I mean to end it. Tell me you saw the Wall and feel otherwise."
   choices:
-    1. "Give it back how, exactly?"                         → corin.intro.truth
-    2. [INSIGHT DC 15] "You're grieving someone."           → corin.intro.grief
-         (checkAbility: Wisdom, checkDC: 15, failNode: corin.intro.deflect)
-    3. "Whatever you're selling, I'm not buying."           → corin.intro.refuse
-         effects: ADD companion.sable.approval +5
-    4. [Warden's Ward bg] "The order says you're a heretic." → corin.intro.warden
-         conditions: REQUIRE bg.wardensward == true
+    1. "I saw it. It was monstrous. That doesn't make YOUR way right."  → aldric.intro.spar
+         effects: ADD companion.garrow.approval +5
+    2. [INSIGHT DC 16] "Something is wearing you, Doomguide."           → aldric.intro.crown
+         (Wisdom DC16, fail → aldric.intro.deflect)
+    3. "How many of the living die to free the dead?"                   → aldric.intro.cost
+    4. [Doomguide's Ward bg] "You taught me the rites. Now you spit on them." → aldric.intro.ward
+         conditions: REQUIRE bg.doomguide_ward == true
 
-NODE corin.intro.truth  (speaker: The Mender)
-  text: "By reforging the Crown. It needs nine Lanterns... and souls to bind them.
-         Mine. Theirs. Perhaps yours, if you choose it. No one is taken who does not
-         offer. I won't lie to you — that's the one thing I have left."
-  onEnter: SET corin.knows_cost_revealed = true
+NODE aldric.intro.cost  (speaker: Aldric Morn)
+  text: "Thousands. I have counted every one and I will answer for them. Against an
+         eternity of the Faithless dissolving into nothing, it is the smallest price
+         ever asked for the largest mercy. You think me a monster. I think me late."
+  onEnter: SET aldric.cost_revealed = true
   choices:
-    1. "You're asking people to die for a hat."             → corin.intro.spar
-         effects: ADD companion.bror.approval +3
-    2. "...How many have already said yes?"                 → corin.intro.choir
+    1. "Maerin wouldn't want this."   → aldric.intro.maerin  (cond: REQUIRE maerin.recruited)
+    2. "Then we're enemies."          → aldric.intro.break   (effects: ADD faction.kelemvor.reputation +5)
 ```
 
-This is the texture target: villains who are honest, choices that cost something, and
-checks/flags that ripple outward.
+Texture target: an honest, grieving villain; choices that cost; checks and flags that
+ripple into approval, reputation, and which of the five endings you can still reach.
 
 ---
 
-## 10. CONTENT BACKLOG (what to author against this bible)
+## 10. CONTENT BACKLOG
 
-- **~6 hub maps**, **~14 dungeons/encounter maps** for the main path.
-- **7 companions** × (recruitment convo + ~4 banter sets + personal quest arc + 5 ending
-  slides) — your single biggest writing cost; budget accordingly.
-- **~40 main-path dialogue graphs**, **~60 side**; **~30 quests** (12 main, 18 side).
-- A **bestiary** of ~20 enemy archetypes (Warden soldiers, Choir zealots, Hollow,
-  ashfire beasts, Ashborn raiders, constructs).
-- **Reputation/flag matrix** so the five endings actually diverge. Maintain it as a
-  spreadsheet keyed to the GameFlags constants.
+- **~6 hub/region maps** (Baldur's Gate districts, Candlekeep, Elturel, Fields of the Dead,
+  Fugue Plane, City of Judgment) and **~14 dungeons/encounter maps** for the main path.
+- **7 companions** × (recruit convo + ~4 banter sets + personal quest arc + 5 ending
+  slides) — the biggest writing cost.
+- **~40 main + ~60 side dialogue graphs**; **~30 quests** (12 main, 18 side).
+- **Bestiary ~22**: Flaming Fist, Choir cultists, Doomguide knights, the **Unbound**
+  (zombies/wraiths/wights gone wrong), Fugue shades, devils sniffing at the Crown.
+- A **flag/reputation matrix** spreadsheet so the five endings truly diverge.
 
-> Start small: ship the **Prologue + Act I as a vertical slice** before writing Act III.
-> One reactive hub (Saltmarch) and three dungeons proves the whole machine.
+> Ship the **Prologue + Act I (Baldur's Gate) as the vertical slice** before writing
+> Act III. One reactive hub and three dungeons proves the whole machine.
 ```
 ```

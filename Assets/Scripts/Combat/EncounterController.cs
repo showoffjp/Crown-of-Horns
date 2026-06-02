@@ -22,13 +22,40 @@ namespace SunderedCrown.Combat
         {
             _turns = TurnManager.Instance;
             _turns.OnTurnStarted += HandleTurnStarted;
+            _turns.OnCombatEnded += AwardExperience;
             if (autoStartOnPlay)
                 _turns.StartCombat(FindObjectsByType<GridUnit>(FindObjectsSortMode.None));
         }
 
         void OnDestroy()
         {
-            if (_turns != null) _turns.OnTurnStarted -= HandleTurnStarted;
+            if (_turns != null)
+            {
+                _turns.OnTurnStarted -= HandleTurnStarted;
+                _turns.OnCombatEnded -= AwardExperience;
+            }
+        }
+
+        /// <summary>On victory, pool defeated enemies' XP and split it among the survivors.</summary>
+        private void AwardExperience()
+        {
+            int pool = 0;
+            var survivors = new List<GridUnit>();
+            foreach (var u in _turns.TurnOrder)
+            {
+                bool friendly = u.faction == Faction.Player || u.faction == Faction.Ally;
+                if (u.faction == Faction.Enemy && !u.Sheet.IsAlive) pool += u.Sheet.experienceValue;
+                else if (friendly && u.Sheet.IsAlive) survivors.Add(u);
+            }
+            if (pool <= 0 || survivors.Count == 0) return;
+
+            int each = Mathf.Max(1, pool / survivors.Count);
+            foreach (var u in survivors)
+            {
+                int levels = Progression.AwardExperience(u.Sheet, each);
+                _turns.Log($"{u.Sheet.displayName} gains {each} XP" +
+                           (levels > 0 ? $" and reaches level {u.Sheet.level}!" : "."));
+            }
         }
 
         private void HandleTurnStarted(GridUnit unit)

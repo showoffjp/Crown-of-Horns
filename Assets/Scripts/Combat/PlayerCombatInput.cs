@@ -29,6 +29,9 @@ namespace SunderedCrown.Combat
             if (worldCamera == null) worldCamera = Camera.main;
         }
 
+        /// <summary>Arm an ability by index (called by the HUD ability bar buttons).</summary>
+        public void Arm(int index) => SelectedAbilityIndex = Mathf.Max(0, index);
+
         public AbilityDefinition SelectedAbility(GridUnit active)
         {
             if (active == null) return null;

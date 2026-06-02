@@ -45,6 +45,10 @@ namespace SunderedCrown.Characters
         public RaceDefinition raceDef;
         public AbilityScores abilities = new AbilityScores();
         public int level = 1;
+        public int experience = 0;
+
+        [Tooltip("XP this creature is worth when defeated (enemies).")]
+        public int experienceValue = 0;
 
         [Header("Vitals")]
         public int maxHitPoints = 1;

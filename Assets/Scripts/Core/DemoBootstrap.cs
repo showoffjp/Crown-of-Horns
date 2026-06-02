@@ -32,7 +32,7 @@ namespace SunderedCrown.Core
             var combatGO = new GameObject("CombatManager");
             combatGO.AddComponent<TurnManager>();
             combatGO.AddComponent<EncounterController>();
-            combatGO.AddComponent<DebugCombatHUD>();
+            combatGO.AddComponent<CombatHUD>();   // real uGUI HUD (swap to DebugCombatHUD for IMGUI)
             var input = combatGO.AddComponent<PlayerCombatInput>();
 
             // --- Camera ---
@@ -109,13 +109,13 @@ namespace SunderedCrown.Core
 
             // --- Enemies (red) ---
             var fiendA = Spawn("Ashfiend A", Faction.Enemy, new Vector2Int(12, 6), Color.red, grid, monster, human, 14, 13);
-            fiendA.Sheet.knownAbilities.Add(venomClaw); fiendA.Sheet.equippedWeaponAbility = venomClaw;
+            fiendA.Sheet.knownAbilities.Add(venomClaw); fiendA.Sheet.equippedWeaponAbility = venomClaw; fiendA.Sheet.experienceValue = 100;
 
             var fiendB = Spawn("Ashfiend B", Faction.Enemy, new Vector2Int(13, 9), Color.red, grid, monster, human, 14, 13);
-            fiendB.Sheet.knownAbilities.Add(claw); fiendB.Sheet.equippedWeaponAbility = claw;
+            fiendB.Sheet.knownAbilities.Add(claw); fiendB.Sheet.equippedWeaponAbility = claw; fiendB.Sheet.experienceValue = 100;
 
             var fiendC = Spawn("Cinder-Hound", Faction.Enemy, new Vector2Int(11, 10), new Color(0.8f,0.2f,0.1f), grid, monster, human, 13, 11);
-            fiendC.Sheet.knownAbilities.Add(claw); fiendC.Sheet.equippedWeaponAbility = claw;
+            fiendC.Sheet.knownAbilities.Add(claw); fiendC.Sheet.equippedWeaponAbility = claw; fiendC.Sheet.experienceValue = 75;
 
             Debug.Log("[Demo] Skirmish ready. 1/2 = arm ability, click to move/target, Space ends turn. " +
                       "Try Lyra: press 2 to arm Fireball, click an enemy cluster.");

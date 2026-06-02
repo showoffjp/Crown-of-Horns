@@ -20,7 +20,7 @@ namespace SunderedCrown.CameraRig
         public float minZoom = 3f;
         public float maxZoom = 12f;
 
-        [Header("Bounds (world XY); zero size = unbounded)")]
+        [Header("Bounds in world XY; zero size = unbounded")]
         public Vector2 minBounds;
         public Vector2 maxBounds;
 
