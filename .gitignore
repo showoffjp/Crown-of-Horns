@@ -1,0 +1,36 @@
+# Unity-generated (rebuilt on open — never commit)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset meta files for ignored folders
+!/[Aa]ssets/**/*.meta
+
+# IDE / OS
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.suo
+*.unityproj
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.apk
+*.aab
+*.app
+*.exe
+*.unitypackage
+
+# Crash reports
+sysinfo.txt
+crashlytics-build.properties
