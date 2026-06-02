@@ -1,19 +1,24 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
+using SunderedCrown.Characters;
 using SunderedCrown.Grid;
 
 namespace SunderedCrown.Combat
 {
     /// <summary>
-    /// Mouse control for the active player unit's turn:
-    ///   • Left-click an empty tile  → path there, spending movement budget.
-    ///   • Left-click an adjacent enemy → attack with the first known ability.
-    ///   • Press Space / End Turn button → pass the turn.
-    /// Deliberately minimal; replace with your UI's action bar later.
+    /// Mouse + hotkey control for the active player unit's turn:
+    ///   • Number keys 1..9 → select which known ability is "armed".
+    ///   • Left-click an empty tile → path there (spends movement).
+    ///   • Left-click a valid target → use the armed ability (attack / heal / spell).
+    ///   • Space → end turn.
+    /// The armed ability's targeting mode decides what counts as a valid click
+    /// (enemy for damage, ally/self for heals, area-burst centers on the click).
     /// </summary>
     public class PlayerCombatInput : MonoBehaviour
     {
         public Camera worldCamera;
+        public int SelectedAbilityIndex { get; private set; } = 0;
+
         private TurnManager _turns;
         private GridSystem _grid;
 
@@ -24,6 +29,14 @@ namespace SunderedCrown.Combat
             if (worldCamera == null) worldCamera = Camera.main;
         }
 
+        public AbilityDefinition SelectedAbility(GridUnit active)
+        {
+            if (active == null) return null;
+            var known = active.Sheet.knownAbilities;
+            if (known.Count == 0) return active.Sheet.DefaultAttack;
+            return known[Mathf.Clamp(SelectedAbilityIndex, 0, known.Count - 1)];
+        }
+
         void Update()
         {
             if (_turns == null || !_turns.InCombat) return;
@@ -32,44 +45,41 @@ namespace SunderedCrown.Combat
             if (active == null || active.IsMoving) return;
             if (active.faction != Faction.Player && active.faction != Faction.Ally) return;
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _turns.NextTurn();
-                return;
-            }
+            // Hotkeys 1..9 select abilities.
+            for (int i = 0; i < 9; i++)
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i) && i < active.Sheet.knownAbilities.Count)
+                    SelectedAbilityIndex = i;
 
-            if (Input.GetMouseButtonDown(0))
-                HandleClick(active);
+            if (Input.GetKeyDown(KeyCode.Space)) { _turns.NextTurn(); return; }
+
+            if (Input.GetMouseButtonDown(0)) HandleClick(active);
         }
 
         private void HandleClick(GridUnit active)
         {
             Vector3 world = worldCamera.ScreenToWorldPoint(Input.mousePosition);
             world.z = 0;
-            Vector2Int coord = _grid.WorldToGrid(world);
-            var cell = _grid.GetCell(coord);
+            var cell = _grid.GetCell(_grid.WorldToGrid(world));
             if (cell == null) return;
 
-            // Clicked an occupied cell → maybe an attack.
-            if (cell.occupant is GridUnit target && target != active)
+            var ability = SelectedAbility(active);
+
+            // Clicked a unit → try to use the armed ability on it.
+            if (cell.occupant is GridUnit clicked)
             {
-                if (target.faction == Faction.Enemy &&
-                    GridSystem.ManhattanDistance(active.Cell, target.Cell) <= 1 &&
-                    _turns.TrySpendAction())
-                {
-                    var ability = active.Sheet.knownAbilities.FirstOrDefault();
-                    if (ability != null)
-                    {
-                        var result = AttackResolver.Resolve(active.Sheet, target.Sheet, ability);
-                        AttackResolver.Apply(target.Sheet, result);
-                        _turns.Log(result.log);
-                        if (!target.Sheet.IsAlive) _turns.Log($"{target.Sheet.displayName} falls!");
-                    }
-                }
+                if (ability != null && IsValidTarget(active, clicked, ability))
+                    AbilityRunner.TryUse(_turns, active, clicked, ability, AllUnits());
                 return;
             }
 
-            // Clicked an empty walkable cell → move there within budget.
+            // Self-targeted ability cast on empty ground? Allow self-cast.
+            if (ability != null && ability.targeting == TargetingMode.Self)
+            {
+                AbilityRunner.TryUse(_turns, active, active, ability, AllUnits());
+                return;
+            }
+
+            // Empty walkable cell → move there within the movement budget.
             if (cell.IsFree)
             {
                 var path = Pathfinding.FindPath(_grid, active.Cell, cell);
@@ -80,6 +90,27 @@ namespace SunderedCrown.Combat
                 _turns.TrySpendMovement(path.Count);
                 StartCoroutine(active.FollowPath(path));
             }
+        }
+
+        private bool IsValidTarget(GridUnit caster, GridUnit clicked, AbilityDefinition ab)
+        {
+            bool clickedIsFriendly = clicked.faction == Faction.Player || clicked.faction == Faction.Ally;
+            return ab.targeting switch
+            {
+                TargetingMode.SingleEnemy => clicked.faction == Faction.Enemy,
+                TargetingMode.SingleAlly  => clickedIsFriendly,
+                TargetingMode.Self        => clicked == caster,
+                TargetingMode.AnyTile     => true,
+                TargetingMode.AreaBurst   => true, // burst can be centered on anyone
+                _ => false
+            };
+        }
+
+        private List<GridUnit> AllUnits()
+        {
+            var list = new List<GridUnit>();
+            foreach (var u in _turns.TurnOrder) list.Add(u);
+            return list;
         }
     }
 }

@@ -56,6 +56,8 @@ namespace SunderedCrown.Combat
             foreach (var r in rolled)
             {
                 _order.Add(r.unit);
+                // Treat the start of combat like a short rest: refresh spell slots.
+                r.unit.Sheet.spellSlots.RestoreAll();
                 Log($"  {r.unit.Sheet.displayName} rolls initiative {r.init}.");
             }
 
@@ -70,7 +72,12 @@ namespace SunderedCrown.Combat
         {
             if (!InCombat) return;
 
-            if (ActiveUnit != null) OnTurnEnded?.Invoke(ActiveUnit);
+            if (ActiveUnit != null)
+            {
+                // End-of-turn: count down status effect durations.
+                ActiveUnit.Sheet.TickEndOfTurn();
+                OnTurnEnded?.Invoke(ActiveUnit);
+            }
 
             if (CheckEndConditions()) { EndCombat(); return; }
 
@@ -87,10 +94,27 @@ namespace SunderedCrown.Combat
 
         private void BeginTurnFor(GridUnit unit)
         {
+            // Start-of-turn: apply damage-over-time (Burning, Poisoned-as-DoT, etc.).
+            int dot = unit.Sheet.TickStartOfTurn();
+            if (dot > 0)
+            {
+                Log($"  {unit.Sheet.displayName} takes {dot} damage from ongoing effects.");
+                if (!unit.Sheet.IsAlive) { Log($"{unit.Sheet.displayName} succumbs!"); NextTurn(); return; }
+            }
+
             MovementRemaining = unit.Sheet.SpeedTiles;
-            ActionAvailable = true;
-            BonusActionAvailable = true;
-            Log($"▶ {unit.Sheet.displayName}'s turn ({unit.faction}).");
+            ActionAvailable = !unit.Sheet.IsIncapacitated;
+            BonusActionAvailable = !unit.Sheet.IsIncapacitated;
+
+            if (unit.Sheet.IsIncapacitated)
+            {
+                MovementRemaining = 0;
+                Log($"▶ {unit.Sheet.displayName} is incapacitated and loses the turn.");
+            }
+            else
+            {
+                Log($"▶ {unit.Sheet.displayName}'s turn ({unit.faction}).");
+            }
             OnTurnStarted?.Invoke(unit);
         }
 

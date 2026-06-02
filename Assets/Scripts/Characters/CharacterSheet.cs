@@ -2,14 +2,37 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SunderedCrown.Stats;
+using SunderedCrown.Combat;
+using SunderedCrown.Items;
 
 namespace SunderedCrown.Characters
 {
+    /// <summary>Spell slots by level (index 1..9; index 0 unused / at-will).</summary>
+    [Serializable]
+    public class SpellSlots
+    {
+        public int[] max = new int[10];
+        public int[] current = new int[10];
+
+        public bool Has(int level) => level <= 0 || (level < 10 && current[level] > 0);
+
+        public bool Spend(int level)
+        {
+            if (level <= 0) return true;          // cantrips / weapon attacks: free
+            if (level < 10 && current[level] > 0) { current[level]--; return true; }
+            return false;
+        }
+
+        public void RestoreAll()
+        {
+            for (int i = 0; i < 10; i++) current[i] = max[i];
+        }
+    }
+
     /// <summary>
-    /// The runtime state of one creature (player, companion, or enemy).
-    /// This is a plain serializable C# object — NOT a MonoBehaviour — so it can be
-    /// saved/loaded, copied, and unit-tested without a Unity scene. A GridUnit
-    /// MonoBehaviour wraps it for the on-map representation.
+    /// The runtime state of one creature. Plain serializable POCO (not a MonoBehaviour)
+    /// so it saves/loads and unit-tests cleanly. A GridUnit wraps it on the map.
+    /// Now includes spell slots, equipment, and active status effects.
     /// </summary>
     [Serializable]
     public class CharacterSheet
@@ -28,60 +51,148 @@ namespace SunderedCrown.Characters
         public int currentHitPoints = 1;
         public int baseArmorClass = 10;
 
+        [Header("Resources")]
+        public SpellSlots spellSlots = new SpellSlots();
+
         [Header("Loadout")]
         public List<AbilityDefinition> knownAbilities = new List<AbilityDefinition>();
+        [Tooltip("Equipped weapon supplies the default attack ability.")]
+        public AbilityDefinition equippedWeaponAbility;
+        [Tooltip("Flat AC from worn armor + shield (computed by the equipment system).")]
+        public int armorClassFromGear = 0;
+
+        [NonSerialized] public List<EffectInstance> activeEffects = new List<EffectInstance>();
 
         public bool IsAlive => currentHitPoints > 0;
 
         // ---- Derived stats (5e math) -------------------------------------
 
-        /// <summary>Proficiency bonus scales with level: +2 at 1-4, +3 at 5-8, etc.</summary>
         public int ProficiencyBonus => 2 + (level - 1) / 4;
-
         public int Modifier(Ability ability) => abilities.Modifier(ability);
 
-        /// <summary>Movement budget in tiles for one turn.</summary>
-        public int SpeedTiles => raceDef != null ? raceDef.baseSpeedTiles : 6;
+        public int SpeedTiles
+        {
+            get
+            {
+                int speed = raceDef != null ? raceDef.baseSpeedTiles : 6;
+                foreach (var e in activeEffects) speed += e.def != null ? e.def.speedModifier : 0;
+                return Mathf.Max(0, speed);
+            }
+        }
 
-        /// <summary>AC = base + Dex modifier (armor systems can override base later).</summary>
-        public int ArmorClass => baseArmorClass + Modifier(Ability.Dexterity);
+        public int ArmorClass
+        {
+            get
+            {
+                int ac = baseArmorClass + armorClassFromGear + Modifier(Ability.Dexterity);
+                foreach (var e in activeEffects) ac += e.def != null ? e.def.armorClassModifier : 0;
+                return ac;
+            }
+        }
 
         public int InitiativeModifier => Modifier(Ability.Dexterity);
 
         public Ability SpellcastingAbility =>
             classDef != null ? classDef.spellcastingAbility : Ability.Intelligence;
 
-        // ---- Mutations ---------------------------------------------------
+        // ---- Status-effect queries ---------------------------------------
 
-        public void TakeDamage(int amount)
+        public bool HasCondition(Condition c)
         {
+            foreach (var e in activeEffects) if (e.def != null && e.def.condition == c) return true;
+            return false;
+        }
+
+        public bool IsIncapacitated
+        {
+            get { foreach (var e in activeEffects) if (e.def != null && e.def.incapacitates) return true; return false; }
+        }
+
+        public bool GrantsAdvantageToAttackers
+        {
+            get { foreach (var e in activeEffects) if (e.def != null && e.def.attackersHaveAdvantage) return true; return false; }
+        }
+
+        public bool AttacksAtDisadvantage
+        {
+            get
+            {
+                foreach (var e in activeEffects)
+                    if (e.def != null && (e.def.bearerAttacksDisadvantage || e.def.incapacitates)) return true;
+                return false;
+            }
+        }
+
+        /// <summary>Sum of flat to-hit modifiers from effects (Blessed, etc.).</summary>
+        public int EffectAttackModifier
+        {
+            get { int m = 0; foreach (var e in activeEffects) if (e.def != null) m += e.def.attackRollModifier; return m; }
+        }
+
+        // ---- Status-effect mutations -------------------------------------
+
+        public void AddEffect(StatusEffectDefinition def, int rounds, string sourceId)
+        {
+            if (def == null) return;
+            // Refresh duration if the same effect is already present.
+            foreach (var e in activeEffects)
+                if (e.def == def) { e.remainingRounds = Mathf.Max(e.remainingRounds, rounds); return; }
+            activeEffects.Add(new EffectInstance(def, rounds, sourceId));
+        }
+
+        public void RemoveCondition(Condition c) =>
+            activeEffects.RemoveAll(e => e.def != null && e.def.condition == c);
+
+        /// <summary>Start of turn: apply DoT. Returns total damage dealt this tick.</summary>
+        public int TickStartOfTurn()
+        {
+            int total = 0;
+            foreach (var e in activeEffects)
+            {
+                if (e.def != null && !string.IsNullOrWhiteSpace(e.def.damageOverTimeDice))
+                {
+                    int dmg = Dice.Roll(e.def.damageOverTimeDice);
+                    TakeDamage(dmg);
+                    total += dmg;
+                }
+            }
+            return total;
+        }
+
+        /// <summary>End of turn: count down durations and drop expired effects.</summary>
+        public void TickEndOfTurn()
+        {
+            for (int i = activeEffects.Count - 1; i >= 0; i--)
+            {
+                activeEffects[i].remainingRounds--;
+                if (activeEffects[i].remainingRounds <= 0) activeEffects.RemoveAt(i);
+            }
+        }
+
+        // ---- Vitals ------------------------------------------------------
+
+        public void TakeDamage(int amount) =>
             currentHitPoints = Mathf.Max(0, currentHitPoints - Mathf.Max(0, amount));
-        }
 
-        public void Heal(int amount)
-        {
+        public void Heal(int amount) =>
             currentHitPoints = Mathf.Min(maxHitPoints, currentHitPoints + Mathf.Max(0, amount));
-        }
 
-        /// <summary>
-        /// Compute and assign max HP from class hit die + Con modifier across levels.
-        /// Call once after setting class/race/abilities/level at creation.
-        /// </summary>
         public void RecalculateMaxHitPoints()
         {
             if (classDef == null) { maxHitPoints = Math.Max(1, currentHitPoints); return; }
-
             int conMod = Modifier(Ability.Constitution);
-            // Level 1: full hit die + Con. Subsequent levels: average + Con.
             int hp = classDef.hitDie + conMod;
             for (int lvl = 2; lvl <= level; lvl++)
                 hp += classDef.AverageHitDieGain + conMod;
-
             maxHitPoints = Math.Max(1, hp);
             currentHitPoints = maxHitPoints;
         }
 
-        /// <summary>Roll initiative for combat ordering.</summary>
         public int RollInitiative() => Dice.D20() + InitiativeModifier;
+
+        /// <summary>The ability used for a basic attack (equipped weapon, else first known).</summary>
+        public AbilityDefinition DefaultAttack =>
+            equippedWeaponAbility != null ? equippedWeaponAbility
+            : (knownAbilities.Count > 0 ? knownAbilities[0] : null);
     }
 }

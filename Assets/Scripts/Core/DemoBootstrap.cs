@@ -8,13 +8,14 @@ using SunderedCrown.UI;
 namespace SunderedCrown.Core
 {
     /// <summary>
-    /// ONE-CLICK PLAYABLE DEMO. Put this single component on an empty GameObject
-    /// in a fresh scene and press Play — it builds a grid, spawns a small party and
-    /// some enemies as colored cubes, wires the camera + HUD, and starts a
-    /// turn-based skirmish. No prefabs, no ScriptableObject assets required.
+    /// ONE-CLICK PLAYABLE DEMO. Put this on an empty GameObject in a fresh scene and
+    /// press Play. It builds a grid, spawns a party (fighter, wizard, cleric) and
+    /// enemies as colored cubes, wires camera + HUD, and starts a turn-based fight
+    /// that now showcases spell slots, AoE saving-throw spells, healing, and status
+    /// conditions — with zero prefabs or data assets.
     ///
-    /// It exists so you can SEE the architecture working on day one. Once you have
-    /// real art and data assets, delete this and spawn from your encounter data.
+    /// Controls: 1..9 arm an ability · click a tile to move · click a valid target to
+    /// use the armed ability · Space ends the turn.
     /// </summary>
     public class DemoBootstrap : MonoBehaviour
     {
@@ -23,7 +24,7 @@ namespace SunderedCrown.Core
             // --- Grid ---
             var gridGO = new GameObject("GridSystem");
             var grid = gridGO.AddComponent<GridSystem>();
-            grid.width = 14; grid.height = 14;
+            grid.width = 16; grid.height = 16;
             grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
 
@@ -34,7 +35,7 @@ namespace SunderedCrown.Core
             combatGO.AddComponent<DebugCombatHUD>();
             var input = combatGO.AddComponent<PlayerCombatInput>();
 
-            // --- Camera (orthographic, centered on the field) ---
+            // --- Camera ---
             var cam = Camera.main;
             if (cam == null)
             {
@@ -43,46 +44,114 @@ namespace SunderedCrown.Core
                 cam = camGO.AddComponent<Camera>();
             }
             cam.orthographic = true;
-            cam.orthographicSize = 6f;
-            cam.transform.position = grid.GridToWorld(7, 7) + new Vector3(0, 0, -10);
+            cam.orthographicSize = 7f;
+            cam.transform.position = grid.GridToWorld(8, 8) + new Vector3(0, 0, -10);
             if (cam.GetComponent<SunderedCrown.CameraRig.IsometricCameraController>() == null)
                 cam.gameObject.AddComponent<SunderedCrown.CameraRig.IsometricCameraController>();
             input.worldCamera = cam;
 
-            // --- A shared "longsword" ability built in code for the demo ---
-            var sword = ScriptableObject.CreateInstance<AbilityDefinition>();
-            sword.abilityName = "Longsword"; sword.damageDice = "1d8";
-            sword.damageType = DamageType.Slashing; sword.rangeTiles = 1;
+            // --- Status effects (built in code for the demo) ---
+            var poisoned = ScriptableObject.CreateInstance<StatusEffectDefinition>();
+            poisoned.effectName = "Poisoned"; poisoned.condition = Condition.Poisoned;
+            poisoned.durationRounds = 3; poisoned.bearerAttacksDisadvantage = true;
 
-            var bow = ScriptableObject.CreateInstance<AbilityDefinition>();
-            bow.abilityName = "Shortbow"; bow.damageDice = "1d6";
-            bow.damageType = DamageType.Piercing; bow.rangeTiles = 6;
+            var burning = ScriptableObject.CreateInstance<StatusEffectDefinition>();
+            burning.effectName = "Burning"; burning.condition = Condition.Burning;
+            burning.durationRounds = 2; burning.damageOverTimeDice = "1d6";
+            burning.damageOverTimeType = DamageType.Fire;
 
-            // Minimal class/race so HP math works.
-            var fighter = ScriptableObject.CreateInstance<ClassDefinition>();
-            fighter.className = "Fighter"; fighter.hitDie = 10; fighter.primaryAbility = Ability.Strength;
-            var human = ScriptableObject.CreateInstance<RaceDefinition>();
-            human.raceName = "Human"; human.baseSpeedTiles = 6;
+            // --- Abilities ---
+            var longsword = MakeAbility("Longsword", "1d8", DamageType.Slashing, range: 1);
+            var mace      = MakeAbility("Mace", "1d6", DamageType.Bludgeoning, range: 1);
 
-            // --- Spawn party (blue) ---
-            SpawnUnit("Sable",  Faction.Player, new Vector2Int(2, 3), Color.blue, grid, fighter, human, sword, 16, 15);
-            SpawnUnit("Garrick", Faction.Ally,  new Vector2Int(2, 5), Color.cyan, grid, fighter, human, bow, 14, 12);
+            var firebolt  = MakeAbility("Firebolt", "1d10", DamageType.Fire, range: 12);
+            firebolt.description = "Cantrip. Ranged spell attack.";
 
-            // --- Spawn enemies (red) ---
-            SpawnUnit("Ashfiend A", Faction.Enemy, new Vector2Int(10, 4), Color.red, grid, fighter, human, sword, 13, 11);
-            SpawnUnit("Ashfiend B", Faction.Enemy, new Vector2Int(11, 6), Color.red, grid, fighter, human, sword, 13, 11);
+            var fireball  = MakeAbility("Fireball", "8d6", DamageType.Fire, range: 10);
+            fireball.isAttackRoll = false; fireball.saveAbility = Ability.Dexterity;
+            fireball.saveForHalf = true; fireball.spellSlotLevel = 3;
+            fireball.targeting = TargetingMode.AreaBurst; fireball.areaRadiusTiles = 3;
+            fireball.addAbilityModToDamage = false;
+            fireball.appliedEffect = burning; fireball.appliedEffectRounds = 2;
 
-            Debug.Log("[Demo] Skirmish ready. Click a tile to move, click an adjacent enemy to attack, Space to end turn.");
+            var healingWord = MakeAbility("Healing Word", "1d4", DamageType.Radiant, range: 6);
+            healingWord.isHeal = true; healingWord.healDice = "1d4"; healingWord.cost = ActionCost.BonusAction;
+            healingWord.spellSlotLevel = 1; healingWord.targeting = TargetingMode.SingleAlly;
+
+            var venomClaw = MakeAbility("Venom Claw", "1d6", DamageType.Piercing, range: 1);
+            venomClaw.appliedEffect = poisoned; venomClaw.appliedEffectRounds = 3;
+
+            var claw = MakeAbility("Claw", "1d8", DamageType.Slashing, range: 1);
+
+            // --- Class/race scaffolding so HP math works ---
+            var fighter = MakeClass("Fighter", 10, Ability.Strength);
+            var wizard  = MakeClass("Wizard", 6, Ability.Intelligence, caster: true, Ability.Intelligence);
+            var cleric  = MakeClass("Cleric", 8, Ability.Wisdom, caster: true, Ability.Wisdom);
+            var monster = MakeClass("Monster", 8, Ability.Strength);
+            var human   = MakeRace("Human", 6);
+
+            // --- Party (blue/cyan) ---
+            var sable = Spawn("Sable", Faction.Player, new Vector2Int(2, 6), Color.blue, grid, fighter, human, 16, 14);
+            sable.Sheet.knownAbilities.Add(longsword); sable.Sheet.equippedWeaponAbility = longsword;
+
+            var lyra = Spawn("Lyra", Faction.Player, new Vector2Int(2, 8), new Color(0.4f,0.4f,1f), grid, wizard, human, 9, 12);
+            lyra.Sheet.knownAbilities.Add(firebolt);   // index 0 = default armed
+            lyra.Sheet.knownAbilities.Add(fireball);   // press 2 to arm
+            lyra.Sheet.abilities.Set(Ability.Intelligence, 17);
+            lyra.Sheet.spellSlots.max[3] = 2;
+
+            var oke = Spawn("Brother Oke", Faction.Ally, new Vector2Int(3, 7), Color.cyan, grid, cleric, human, 12, 14);
+            oke.Sheet.knownAbilities.Add(mace);
+            oke.Sheet.knownAbilities.Add(healingWord); // press 2 to arm
+            oke.Sheet.equippedWeaponAbility = mace;
+            oke.Sheet.abilities.Set(Ability.Wisdom, 16);
+            oke.Sheet.spellSlots.max[1] = 3;
+
+            // --- Enemies (red) ---
+            var fiendA = Spawn("Ashfiend A", Faction.Enemy, new Vector2Int(12, 6), Color.red, grid, monster, human, 14, 13);
+            fiendA.Sheet.knownAbilities.Add(venomClaw); fiendA.Sheet.equippedWeaponAbility = venomClaw;
+
+            var fiendB = Spawn("Ashfiend B", Faction.Enemy, new Vector2Int(13, 9), Color.red, grid, monster, human, 14, 13);
+            fiendB.Sheet.knownAbilities.Add(claw); fiendB.Sheet.equippedWeaponAbility = claw;
+
+            var fiendC = Spawn("Cinder-Hound", Faction.Enemy, new Vector2Int(11, 10), new Color(0.8f,0.2f,0.1f), grid, monster, human, 13, 11);
+            fiendC.Sheet.knownAbilities.Add(claw); fiendC.Sheet.equippedWeaponAbility = claw;
+
+            Debug.Log("[Demo] Skirmish ready. 1/2 = arm ability, click to move/target, Space ends turn. " +
+                      "Try Lyra: press 2 to arm Fireball, click an enemy cluster.");
         }
 
-        private void SpawnUnit(string name, Faction faction, Vector2Int coord, Color color,
-            GridSystem grid, ClassDefinition cls, RaceDefinition race, AbilityDefinition atk, int str, int dexAc)
+        // ---- tiny code-only asset factories (replace with real assets later) ----
+
+        private AbilityDefinition MakeAbility(string name, string dice, DamageType type, int range)
+        {
+            var a = ScriptableObject.CreateInstance<AbilityDefinition>();
+            a.abilityName = name; a.damageDice = dice; a.damageType = type; a.rangeTiles = range;
+            return a;
+        }
+
+        private ClassDefinition MakeClass(string name, int hitDie, Ability primary, bool caster = false, Ability castStat = Ability.Intelligence)
+        {
+            var c = ScriptableObject.CreateInstance<ClassDefinition>();
+            c.className = name; c.hitDie = hitDie; c.primaryAbility = primary;
+            c.isSpellcaster = caster; c.spellcastingAbility = castStat;
+            return c;
+        }
+
+        private RaceDefinition MakeRace(string name, int speed)
+        {
+            var r = ScriptableObject.CreateInstance<RaceDefinition>();
+            r.raceName = name; r.baseSpeedTiles = speed;
+            return r;
+        }
+
+        private GridUnit Spawn(string name, Faction faction, Vector2Int coord, Color color,
+            GridSystem grid, ClassDefinition cls, RaceDefinition race, int str, int con)
         {
             var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
             go.name = name;
             go.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-            var rend = go.GetComponent<Renderer>();
-            rend.material.color = color;
+            go.GetComponent<Renderer>().material.color = color;
 
             var unit = go.AddComponent<GridUnit>();
             unit.faction = faction;
@@ -90,19 +159,14 @@ namespace SunderedCrown.Core
 
             var sheet = new CharacterSheet
             {
-                displayName = name,
-                classDef = cls,
-                raceDef = race,
-                level = 3,
-                baseArmorClass = 14
+                displayName = name, classDef = cls, raceDef = race, level = 3, baseArmorClass = 13
             };
             sheet.abilities.Set(Ability.Strength, str);
-            sheet.abilities.Set(Ability.Dexterity, 14);
-            sheet.abilities.Set(Ability.Constitution, dexAc);
-            sheet.knownAbilities.Add(atk);
+            sheet.abilities.Set(Ability.Dexterity, 13);
+            sheet.abilities.Set(Ability.Constitution, con);
             sheet.RecalculateMaxHitPoints();
-
             unit.Sheet = sheet;
+            return unit;
         }
     }
 }

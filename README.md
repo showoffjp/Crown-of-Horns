@@ -16,7 +16,12 @@ for an honest scope plan.
 - **Turn-based combat**: initiative, the 5e action economy (move/action/bonus), win/loss
   (`Combat/TurnManager.cs`)
 - **5e/OGL-style rules**: ability scores, modifiers, proficiency, AC, HP, d20 attacks
-  vs AC and saving throws, crits (`Stats/`, `Characters/`, `Combat/AttackResolver.cs`)
+  vs AC and saving throws (with save-for-half), crits (`Stats/`, `Characters/`,
+  `Combat/AttackResolver.cs`)
+- **Spells & resources**: spell slots, **healing**, **area-burst** spells, and a single
+  validated `AbilityRunner` for using any ability (range/slot/action checks + AoE)
+- **Status effects / conditions**: data-driven (Poisoned, Prone, Burning DoT, Blessed…)
+  with duration, damage-over-time, and advantage/disadvantage (`Combat/StatusEffect.cs`)
 - **Data-driven content** via ScriptableObjects: classes, races, abilities/spells,
   items, **branching dialogue graphs**, and **quests**
 - **Story-state brain** (`Core/GameFlags.cs`): one flag store driving dialogue
