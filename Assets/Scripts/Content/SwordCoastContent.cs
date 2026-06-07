@@ -3,6 +3,7 @@ using UnityEngine;
 using SunderedCrown.Characters;
 using SunderedCrown.Combat;
 using SunderedCrown.Dialogue;
+using SunderedCrown.Items;
 using SunderedCrown.Quests;
 using SunderedCrown.Stats;
 
@@ -22,6 +23,7 @@ namespace SunderedCrown.Content
         public readonly List<BackgroundDefinition> Backgrounds = new();
         public readonly Dictionary<string, AbilityDefinition> Abilities = new();
         public readonly Dictionary<string, StatusEffectDefinition> Effects = new();
+        public readonly Dictionary<string, ItemDefinition> Items = new();
 
         public DialogueGraph PrologueDialogue { get; private set; }
         public Quest FirstQuest { get; private set; }
@@ -30,11 +32,47 @@ namespace SunderedCrown.Content
         {
             BuildEffects();
             BuildAbilities();
+            BuildItems();
             BuildRaces();
             BuildClasses();
             BuildBackgrounds();
             BuildPrologueDialogue();
             BuildFirstQuest();
+        }
+
+        // ---- items (registered in ItemDatabase for the inventory/loot systems) ----
+        private void BuildItems()
+        {
+            Items["longsword"]     = Item("longsword", "Longsword", ItemKind.Weapon, EquipSlot.MainHand, value: 15, weaponDamage: "1d8", wType: DamageType.Slashing);
+            Items["greataxe"]      = Item("greataxe", "Greataxe", ItemKind.Weapon, EquipSlot.MainHand, value: 30, weaponDamage: "1d12", wType: DamageType.Slashing);
+            Items["leather_armor"] = Item("leather_armor", "Leather Armor", ItemKind.Armor, EquipSlot.Body, value: 10, ac: 1);
+            Items["chain_shirt"]   = Item("chain_shirt", "Chain Shirt", ItemKind.Armor, EquipSlot.Body, value: 50, ac: 3);
+            Items["smuggled_dagger"] = Item("smuggled_dagger", "Smuggled Dagger", ItemKind.Weapon, EquipSlot.MainHand, value: 8, weaponDamage: "1d4", wType: DamageType.Piercing);
+            // ---- equipment variety (loot / vendor pool) ----
+            Items["warhammer"]    = Item("warhammer", "Warhammer", ItemKind.Weapon, EquipSlot.MainHand, value: 18, weaponDamage: "1d8", wType: DamageType.Bludgeoning);
+            Items["rapier"]       = Item("rapier", "Rapier", ItemKind.Weapon, EquipSlot.MainHand, value: 28, weaponDamage: "1d8", wType: DamageType.Piercing);
+            Items["greatsword"]   = Item("greatsword", "Greatsword", ItemKind.Weapon, EquipSlot.MainHand, value: 55, weaponDamage: "2d6", wType: DamageType.Slashing);
+            Items["half_plate"]   = Item("half_plate", "Half Plate", ItemKind.Armor, EquipSlot.Body, value: 90, ac: 5);
+            Items["wooden_shield"] = Item("wooden_shield", "Wooden Shield", ItemKind.Armor, EquipSlot.OffHand, value: 12, ac: 2);
+            Items["iron_helm"]    = Item("iron_helm", "Iron Helm", ItemKind.Armor, EquipSlot.Head, value: 22, ac: 1);
+            Items["ring_protection"] = Item("ring_protection", "Ring of Protection", ItemKind.Armor, EquipSlot.Trinket, value: 140, ac: 1);
+            var potion = Item("healing_potion", "Potion of Healing", ItemKind.Consumable, EquipSlot.None, value: 25, stackable: true);
+            potion.useEffect = Abilities["cure_wounds"];
+            Items["healing_potion"] = potion;
+            Items["cinderhaunt_key"] = Item("cinderhaunt_key", "Cinderhaunt Key", ItemKind.Quest, EquipSlot.None, value: 0);
+
+            foreach (var it in Items.Values) ItemDatabase.Register(it);
+        }
+
+        private ItemDefinition Item(string id, string name, ItemKind kind, EquipSlot slot,
+            int value, string weaponDamage = "1d4", DamageType wType = DamageType.Bludgeoning,
+            int ac = 0, bool stackable = false)
+        {
+            var it = ScriptableObject.CreateInstance<ItemDefinition>();
+            it.itemId = id; it.displayName = name; it.kind = kind; it.slot = slot;
+            it.valueGold = value; it.weaponDamage = weaponDamage; it.weaponDamageType = wType;
+            it.armorClassBonus = ac; it.stackable = stackable;
+            return it;
         }
 
         // ---- effects ----
@@ -46,6 +84,10 @@ namespace SunderedCrown.Content
             Effects["burning"] = burning;
             Effects["frightened"] = Effect("Frightened", Condition.Frightened, 2, bearerDisadv: true);
             Effects["blessed"] = Effect("Blessed", Condition.Blessed, 3, beneficial: true, atkMod: 2);
+            var slowed = Effect("Slowed", Condition.None, 2);
+            slowed.speedModifier = -2; Effects["slowed"] = slowed;
+            var paralyzed = Effect("Held", Condition.Incapacitated, 2);
+            paralyzed.incapacitates = true; paralyzed.attackersHaveAdvantage = true; Effects["paralyzed"] = paralyzed;
         }
 
         // ---- abilities (weapons + a few iconic spells) ----
@@ -75,6 +117,72 @@ namespace SunderedCrown.Content
 
             var claw = Weapon("Rotting Claw", "1d6", DamageType.Slashing, 1);
             claw.appliedEffect = Effects["poisoned"]; Abilities["rotting_claw"] = claw;
+
+            // ---- additional weapons & maneuvers for fleshed-out class kits ----
+            Abilities["javelin"] = Weapon("Javelin", "1d6", DamageType.Piercing, 6);   // thrown
+            Abilities["shortsword"] = Weapon("Shortsword", "1d6", DamageType.Piercing, 1);
+
+            var secondWind = Spell("Second Wind", "1d10", DamageType.Radiant, range: 0, slot: 0, attack: false);
+            secondWind.isHeal = true; secondWind.healDice = "1d10"; secondWind.targeting = TargetingMode.Self;
+            secondWind.cost = ActionCost.BonusAction; secondWind.addAbilityModToDamage = false;
+            Abilities["second_wind"] = secondWind;
+
+            // ---- additional spells ----
+            var rayOfFrost = Spell("Ray of Frost", "1d8", DamageType.Cold, range: 10, slot: 0, attack: true);
+            rayOfFrost.appliedEffect = Effects["slowed"]; Abilities["ray_of_frost"] = rayOfFrost;
+
+            var sacredFlame = Spell("Sacred Flame", "1d8", DamageType.Radiant, range: 10, slot: 0, attack: false);
+            sacredFlame.saveAbility = Ability.Dexterity; sacredFlame.addAbilityModToDamage = false;
+            Abilities["sacred_flame"] = sacredFlame;
+
+            var guidingBolt = Spell("Guiding Bolt", "4d6", DamageType.Radiant, range: 12, slot: 1, attack: true);
+            guidingBolt.addAbilityModToDamage = false; Abilities["guiding_bolt"] = guidingBolt;
+
+            var healingWord = Spell("Healing Word", "1d4", DamageType.Radiant, range: 6, slot: 1, attack: false);
+            healingWord.isHeal = true; healingWord.healDice = "1d4"; healingWord.targeting = TargetingMode.SingleAlly;
+            healingWord.cost = ActionCost.BonusAction; Abilities["healing_word"] = healingWord;
+
+            var thunderwave = Spell("Thunderwave", "2d8", DamageType.Thunder, range: 1, slot: 1, attack: false);
+            thunderwave.saveAbility = Ability.Constitution; thunderwave.saveForHalf = true;
+            thunderwave.targeting = TargetingMode.AreaBurst; thunderwave.areaRadiusTiles = 2;
+            thunderwave.addAbilityModToDamage = false; Abilities["thunderwave"] = thunderwave;
+
+            // ---- higher-level unlocks (for deeper class kits) ----
+            var holdPerson = Spell("Hold Person", "", DamageType.Psychic, range: 8, slot: 2, attack: false);
+            holdPerson.saveAbility = Ability.Wisdom; holdPerson.damageDice = "";
+            holdPerson.appliedEffect = Effects["paralyzed"]; Abilities["hold_person"] = holdPerson;
+
+            var spiritualWeapon = Spell("Spiritual Weapon", "1d8", DamageType.Force, range: 8, slot: 2, attack: true);
+            spiritualWeapon.cost = ActionCost.BonusAction; Abilities["spiritual_weapon"] = spiritualWeapon;
+
+            var iceStorm = Spell("Ice Storm", "4d6", DamageType.Cold, range: 12, slot: 4, attack: false);
+            iceStorm.saveAbility = Ability.Dexterity; iceStorm.saveForHalf = true;
+            iceStorm.targeting = TargetingMode.AreaBurst; iceStorm.areaRadiusTiles = 2;
+            iceStorm.appliedEffect = Effects["slowed"]; iceStorm.addAbilityModToDamage = false;
+            Abilities["ice_storm"] = iceStorm;
+
+            var coneOfCold = Spell("Cone of Cold", "8d8", DamageType.Cold, range: 6, slot: 5, attack: false);
+            coneOfCold.saveAbility = Ability.Constitution; coneOfCold.saveForHalf = true;
+            coneOfCold.targeting = TargetingMode.AreaBurst; coneOfCold.areaRadiusTiles = 3;
+            coneOfCold.addAbilityModToDamage = false; Abilities["cone_of_cold"] = coneOfCold;
+
+            var flameStrike = Spell("Flame Strike", "8d6", DamageType.Fire, range: 12, slot: 5, attack: false);
+            flameStrike.saveAbility = Ability.Dexterity; flameStrike.saveForHalf = true;
+            flameStrike.targeting = TargetingMode.AreaBurst; flameStrike.areaRadiusTiles = 2;
+            flameStrike.appliedEffect = Effects["burning"]; flameStrike.addAbilityModToDamage = false;
+            Abilities["flame_strike"] = flameStrike;
+
+            var cure3 = Spell("Cure Wounds III", "3d8", DamageType.Radiant, range: 1, slot: 3, attack: false);
+            cure3.isHeal = true; cure3.healDice = "3d8"; cure3.targeting = TargetingMode.SingleAlly;
+            Abilities["cure_wounds_3"] = cure3;
+
+            // ---- martial high-level strikes (single-target power, no friendly-fire) ----
+            Abilities["heavy_strike"] = Weapon("Heavy Strike", "2d8", DamageType.Slashing, 1);   // Fighter
+            var brutal = Weapon("Brutal Strike", "2d6", DamageType.Slashing, 1);                  // Barbarian
+            brutal.appliedEffect = Effects["frightened"]; Abilities["brutal_strike"] = brutal;
+            var sneak = Weapon("Sneak Attack", "3d6", DamageType.Piercing, 1);                    // Rogue
+            Abilities["sneak_attack"] = sneak;
+            Abilities["hunters_volley"] = Weapon("Hunter's Volley", "2d6", DamageType.Piercing, 8); // Ranger ranged
         }
 
         // ---- races ----
@@ -97,12 +205,23 @@ namespace SunderedCrown.Content
         // ---- classes ----
         private void BuildClasses()
         {
-            Classes.Add(Class("Fighter", 10, Ability.Strength, Abilities["longsword"]));
-            Classes.Add(Class("Wizard", 6, Ability.Intelligence, Abilities["firebolt"], caster: true, cast: Ability.Intelligence));
-            Classes.Add(Class("Cleric", 8, Ability.Wisdom, Abilities["mace"], caster: true, cast: Ability.Wisdom));
-            Classes.Add(Class("Rogue", 8, Ability.Dexterity, Abilities["dagger"]));
-            Classes.Add(Class("Ranger", 10, Ability.Dexterity, Abilities["shortbow"]));
-            Classes.Add(Class("Barbarian", 12, Ability.Strength, Abilities["greataxe"]));
+            // Each class now unlocks new abilities as it levels (startingAbilities is a per-level list).
+            Classes.Add(Class("Fighter", 10, Ability.Strength,
+                new[] { Abilities["longsword"], Abilities["second_wind"], Abilities["javelin"], Abilities["greataxe"], Abilities["heavy_strike"] }));
+            Classes.Add(Class("Wizard", 6, Ability.Intelligence,
+                new[] { Abilities["firebolt"], Abilities["ray_of_frost"], Abilities["thunderwave"], Abilities["fireball"],
+                        Abilities["ice_storm"], Abilities["cone_of_cold"] },
+                caster: true, cast: Ability.Intelligence));
+            Classes.Add(Class("Cleric", 8, Ability.Wisdom,
+                new[] { Abilities["mace"], Abilities["cure_wounds"], Abilities["bless"], Abilities["guiding_bolt"], Abilities["sacred_flame"],
+                        Abilities["hold_person"], Abilities["spiritual_weapon"], Abilities["cure_wounds_3"], Abilities["flame_strike"] },
+                caster: true, cast: Ability.Wisdom));
+            Classes.Add(Class("Rogue", 8, Ability.Dexterity,
+                new[] { Abilities["dagger"], Abilities["shortbow"], Abilities["shortsword"], Abilities["sneak_attack"] }));
+            Classes.Add(Class("Ranger", 10, Ability.Dexterity,
+                new[] { Abilities["shortbow"], Abilities["dagger"], Abilities["longsword"], Abilities["hunters_volley"] }));
+            Classes.Add(Class("Barbarian", 12, Ability.Strength,
+                new[] { Abilities["greataxe"], Abilities["javelin"], Abilities["brutal_strike"] }));
         }
 
         // ---- backgrounds ----
@@ -224,11 +343,17 @@ namespace SunderedCrown.Content
 
         private ClassDefinition Class(string name, int hitDie, Ability primary, AbilityDefinition starting,
             bool caster = false, Ability cast = Ability.Intelligence)
+            => Class(name, hitDie, primary, new[] { starting }, caster, cast);
+
+        /// <summary>Build a class whose <c>startingAbilities</c> array is a per-level unlock list: index 0 is
+        /// known at creation, index 1 unlocks at level 2, and so on (see Progression).</summary>
+        private ClassDefinition Class(string name, int hitDie, Ability primary, AbilityDefinition[] kit,
+            bool caster = false, Ability cast = Ability.Intelligence)
         {
             var c = ScriptableObject.CreateInstance<ClassDefinition>();
             c.className = name; c.hitDie = hitDie; c.primaryAbility = primary;
             c.isSpellcaster = caster; c.spellcastingAbility = cast;
-            c.startingAbilities = new[] { starting };
+            c.startingAbilities = kit;
             return c;
         }
 

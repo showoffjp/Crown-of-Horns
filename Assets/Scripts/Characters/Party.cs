@@ -34,6 +34,14 @@ namespace SunderedCrown.Characters
             if (active.Count < maxActive) active.Add(member);
         }
 
+        /// <summary>Permanently remove a member from the roster and the field (the Breach, death, departure).</summary>
+        public void Remove(CharacterSheet member)
+        {
+            if (member == null) return;
+            roster.Remove(member);
+            active.Remove(member);
+        }
+
         public bool SetActive(CharacterSheet member, bool makeActive)
         {
             if (makeActive)

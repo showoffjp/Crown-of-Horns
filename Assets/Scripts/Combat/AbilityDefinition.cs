@@ -55,5 +55,11 @@ namespace SunderedCrown.Characters
         public Combat.StatusEffectDefinition appliedEffect;
         [Tooltip("Duration in rounds for the applied effect; 0 uses the effect's own default.")]
         public int appliedEffectRounds = 0;
+
+        [Header("VFX (Resources/FX/<name>/ frames; blank = auto by damage type)")]
+        [Tooltip("Effect played at the caster when used (e.g. a cast flourish).")]
+        public string castVfx = "";
+        [Tooltip("Effect played on each target hit. Blank = auto-pick by damage type.")]
+        public string hitVfx = "";
     }
 }

@@ -34,6 +34,33 @@ namespace SunderedCrown.Grid
         {
             _grid = GridSystem.Instance;
             PlaceAt(_grid.GetCell(startCoord));
+            TryApplySprite();
+        }
+
+        /// <summary>
+        /// If an art pack provides a sprite named after this unit (Resources/Sprites/&lt;name&gt;),
+        /// show it as a billboard and hide the placeholder cube. No art → keep the cube. This is how
+        /// the game goes from prototype cubes to a real CRPG look just by dropping in art.
+        /// </summary>
+        private void TryApplySprite()
+        {
+            string id = (Sheet != null && !string.IsNullOrEmpty(Sheet.displayName)) ? Sheet.displayName : name;
+            var sprite = SunderedCrown.Rendering.WorldArt.Sprite(id);
+            if (sprite == null) return;
+
+            var mesh = GetComponent<MeshRenderer>();
+            if (mesh != null) mesh.enabled = false; // hide the cube
+            var col = GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+
+            var go = new GameObject("Sprite");
+            go.transform.SetParent(transform, false);
+            // The unit cube is scaled to 0.6; counter it so the sprite reads at ~1 tile, lifted a touch.
+            go.transform.localScale = Vector3.one * (1f / 0.6f);
+            go.transform.localPosition = new Vector3(0, 0.25f, -0.2f);
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sprite = sprite;
+            sr.sortingOrder = 10;
         }
 
         /// <summary>Instantly occupy a cell (used at spawn and after teleports).</summary>

@@ -33,6 +33,7 @@ namespace SunderedCrown.Core
             combatGO.AddComponent<TurnManager>();
             combatGO.AddComponent<EncounterController>();
             combatGO.AddComponent<CombatHUD>();   // real uGUI HUD (swap to DebugCombatHUD for IMGUI)
+            combatGO.AddComponent<SunderedCrown.UI.UnitNameplates>(); // floating names + HP bars (toggle N)
             var input = combatGO.AddComponent<PlayerCombatInput>();
 
             // --- Camera ---

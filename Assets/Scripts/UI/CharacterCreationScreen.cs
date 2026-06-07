@@ -48,7 +48,9 @@ namespace SunderedCrown.UI
             GUILayout.Label(RaceSummary(races[_race]));
 
             Selector("Class", classes[_class].className, ref _class, classes.Count);
+            GUILayout.Label(ClassSummary(classes[_class]));
             Selector("Background", backgrounds.Count > 0 ? backgrounds[_bg].backgroundName : "—", ref _bg, Math.Max(1, backgrounds.Count));
+            if (backgrounds.Count > 0) GUILayout.Label(BackgroundSummary(backgrounds[_bg]));
 
             GUILayout.Space(8);
             int spent = CharacterBuilder.PointsSpent(_scores);
@@ -57,6 +59,9 @@ namespace SunderedCrown.UI
 
             foreach (Ability a in Enum.GetValues(typeof(Ability)))
                 AbilityRow(a, races[_race]);
+
+            GUILayout.Space(6);
+            if (GUILayout.Button("🎲  Randomize (quick start)")) RandomizeAll();
 
             GUILayout.Space(10);
             bool legal = CharacterBuilder.IsLegalPointBuy(_scores);
@@ -93,6 +98,20 @@ namespace SunderedCrown.UI
             GUILayout.EndHorizontal();
         }
 
+        /// <summary>Quick-start: random race/class/background and a legal point-buy spread (the standard array,
+        /// which costs exactly the 27-point budget) with the class's primary stat highest.</summary>
+        private void RandomizeAll()
+        {
+            _race = UnityEngine.Random.Range(0, races.Count);
+            _class = UnityEngine.Random.Range(0, classes.Count);
+            if (backgrounds.Count > 0) _bg = UnityEngine.Random.Range(0, backgrounds.Count);
+            var prim = classes[_class].primaryAbility;
+            int[] spread = { 14, 13, 12, 10, 8 };
+            int si = 0;
+            foreach (Ability a in Enum.GetValues(typeof(Ability)))
+                _scores.Set(a, a == prim ? 15 : spread[Mathf.Min(si++, spread.Length - 1)]);
+        }
+
         // A copy of the scores with one ability bumped +1, for affordability checks.
         private AbilityScores WithBump(Ability a)
         {
@@ -123,5 +142,30 @@ namespace SunderedCrown.UI
 
         private string RaceSummary(RaceDefinition r) =>
             r == null ? "" : $"   Speed {r.baseSpeedTiles} tiles. {r.description}";
+
+        /// <summary>A one-line "what this class plays like" hint — primary stat, role, and how its kit grows —
+        /// so class choice is informed now that kits unlock new abilities by level.</summary>
+        private string ClassSummary(SunderedCrown.Characters.ClassDefinition c)
+        {
+            if (c == null) return "";
+            string prim = c.primaryAbility.ToString().Substring(0, 3).ToUpper();
+            string role = c.isSpellcaster ? "spellcaster" : "martial";
+            var kit = c.startingAbilities;
+            string starts = (kit != null && kit.Length > 0 && kit[0] != null) ? kit[0].abilityName : "—";
+            var grow = new System.Collections.Generic.List<string>();
+            if (kit != null) for (int i = 1; i < kit.Length && grow.Count < 3; i++) if (kit[i] != null) grow.Add(kit[i].abilityName);
+            string grows = grow.Count > 0 ? $" · grows into {string.Join(", ", grow)}" : "";
+            return $"   <color=#9cd1e8>{prim}</color> · {role} · <color=#caa>d{c.hitDie} HD</color> (~{c.AverageHitDieGain} HP/lvl). " +
+                   $"Starts with <b>{starts}</b>{grows}.";
+        }
+
+        private string BackgroundSummary(SunderedCrown.Characters.BackgroundDefinition b)
+        {
+            if (b == null) return "";
+            string skills = (b.skillProficiencies != null && b.skillProficiencies.Length > 0)
+                ? "Skills: " + string.Join(", ", b.skillProficiencies) + ". " : "";
+            string feat = string.IsNullOrEmpty(b.featureName) ? "" : $"<color=#cba>{b.featureName}</color> — ";
+            return $"   <color=#999><i>{feat}{skills}{b.description}</i></color>";
+        }
     }
 }

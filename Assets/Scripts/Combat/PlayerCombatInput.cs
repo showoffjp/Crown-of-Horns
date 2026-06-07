@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SunderedCrown.Characters;
 using SunderedCrown.Grid;
+using SunderedCrown.Items;
 
 namespace SunderedCrown.Combat
 {
@@ -18,6 +20,8 @@ namespace SunderedCrown.Combat
     {
         public Camera worldCamera;
         public int SelectedAbilityIndex { get; private set; } = 0;
+        public bool HelpPending { get; private set; }
+        public bool ShovePending { get; private set; }
 
         private TurnManager _turns;
         private GridSystem _grid;
@@ -31,6 +35,45 @@ namespace SunderedCrown.Combat
 
         /// <summary>Arm an ability by index (called by the HUD ability bar buttons).</summary>
         public void Arm(int index) => SelectedAbilityIndex = Mathf.Max(0, index);
+
+        /// <summary>Enter Help-targeting mode: the next click on an adjacent ally aids them (HUD button + key T).</summary>
+        public void BeginHelp()
+        {
+            if (_turns != null && _turns.ActionAvailable) { ShovePending = false; HelpPending = true; _turns.Log("🤝 Help: click an adjacent ally."); }
+        }
+
+        /// <summary>Enter Shove-targeting mode: the next click on an adjacent enemy shoves them (HUD button + key V).</summary>
+        public void BeginShove()
+        {
+            if (_turns != null && _turns.ActionAvailable) { HelpPending = false; ShovePending = true; _turns.Log("🪨 Shove: click an adjacent enemy."); }
+        }
+
+        /// <summary>Quaff the first healing consumable in the party stash on the active unit, spending the
+        /// action. HUD button + key Q. Returns false if there's nothing to drink or no action left.</summary>
+        public bool TryQuaff()
+        {
+            var active = _turns != null ? _turns.ActiveUnit : null;
+            if (active == null || !_turns.InCombat) return false;
+            if (active.faction != Faction.Player && active.faction != Faction.Ally) return false;
+            if (!_turns.ActionAvailable) { _turns.Log("No action left to quaff a potion."); return false; }
+
+            var inv = Party.Instance != null ? Party.Instance.inventory : null;
+            if (inv == null) return false;
+            foreach (var st in inv.stacks)
+            {
+                var def = ItemDatabase.Get(st.itemId);
+                if (def != null && def.kind == ItemKind.Consumable && def.useEffect != null && def.useEffect.isHeal)
+                {
+                    _turns.TrySpendAction();
+                    _turns.Log($"🧪 {active.Sheet.displayName} quaffs {def.displayName}.");
+                    AbilityRunner.ApplyOne(_turns, active, active, def.useEffect);
+                    inv.Remove(st.itemId, 1);
+                    return true;
+                }
+            }
+            _turns.Log("No healing draught in the pack.");
+            return false;
+        }
 
         public AbilityDefinition SelectedAbility(GridUnit active)
         {
@@ -55,6 +98,27 @@ namespace SunderedCrown.Combat
 
             if (Input.GetKeyDown(KeyCode.Space)) { _turns.NextTurn(); return; }
 
+            // Dodge / Defend (G for Guard — D is the camera pan): spend the action to make attacks
+            // against you disadvantaged until your next turn.
+            if (Input.GetKeyDown(KeyCode.G)) { _turns.TryDodge(); return; }
+
+            // Dash (F): spend the action for extra movement equal to your speed this turn.
+            if (Input.GetKeyDown(KeyCode.F)) { _turns.TryDash(); return; }
+
+            // Disengage (X): spend the action so this turn's movement draws no opportunity attacks.
+            if (Input.GetKeyDown(KeyCode.X)) { _turns.TryDisengage(); return; }
+
+            // Help (T): arm help-targeting; the next click on an adjacent ally aids them.
+            if (Input.GetKeyDown(KeyCode.T)) { BeginHelp(); return; }
+
+            // Shove (V): arm shove-targeting; the next click on an adjacent enemy pushes them back.
+            if (Input.GetKeyDown(KeyCode.V)) { BeginShove(); return; }
+
+            // Quaff (Q): drink a healing potion from the party stash, spending the action.
+            if (Input.GetKeyDown(KeyCode.Q)) { TryQuaff(); return; }
+
+            if ((HelpPending || ShovePending) && Input.GetKeyDown(KeyCode.Escape)) { HelpPending = ShovePending = false; return; }
+
             if (Input.GetMouseButtonDown(0)) HandleClick(active);
         }
 
@@ -64,6 +128,33 @@ namespace SunderedCrown.Combat
             world.z = 0;
             var cell = _grid.GetCell(_grid.WorldToGrid(world));
             if (cell == null) return;
+
+            // Help-targeting mode: the click must land on an adjacent living ally (not yourself).
+            if (HelpPending)
+            {
+                HelpPending = false;
+                if (cell.occupant is GridUnit ally && ally != active && ally.Sheet.IsAlive &&
+                    (ally.faction == Faction.Player || ally.faction == Faction.Ally) &&
+                    GridSystem.ManhattanDistance(active.Cell, ally.Cell) <= 1)
+                    _turns.TryHelp(ally);
+                else
+                    _turns.Log("🤝 Help needs an adjacent ally.");
+                return;
+            }
+
+            // Shove-targeting mode: the click must land on an adjacent enemy with room behind them.
+            if (ShovePending)
+            {
+                ShovePending = false;
+                if (cell.occupant is GridUnit foe && foe.faction == Faction.Enemy && foe.Sheet.IsAlive &&
+                    GridSystem.ManhattanDistance(active.Cell, foe.Cell) <= 1)
+                {
+                    if (!_turns.TryShove(active, foe)) _turns.Log("🪨 No room to shove them there.");
+                }
+                else
+                    _turns.Log("🪨 Shove needs an adjacent enemy.");
+                return;
+            }
 
             var ability = SelectedAbility(active);
 
@@ -91,8 +182,16 @@ namespace SunderedCrown.Combat
                     path = path.GetRange(0, _turns.MovementRemaining);
                 if (path.Count == 0) return;
                 _turns.TrySpendMovement(path.Count);
-                StartCoroutine(active.FollowPath(path));
+                var startCell = active.Cell;
+                StartCoroutine(MoveThenReact(active, path, startCell));
             }
+        }
+
+        /// <summary>Walk the path, then resolve any opportunity attacks the move provoked.</summary>
+        private IEnumerator MoveThenReact(GridUnit unit, List<GridCell> path, GridCell startCell)
+        {
+            yield return StartCoroutine(unit.FollowPath(path));
+            Reactions.OnMoveCompleted(_turns, unit, startCell);
         }
 
         private bool IsValidTarget(GridUnit caster, GridUnit clicked, AbilityDefinition ab)

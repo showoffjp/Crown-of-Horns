@@ -34,6 +34,15 @@ namespace SunderedCrown.CameraRig
             HandleZoom();
         }
 
+        private Vector3? _focusTarget;
+
+        /// <summary>Ask the camera to glide to center on a world position (e.g. the active combatant). Cancelled
+        /// the moment the player pans manually.</summary>
+        public void FocusOn(Vector3 world)
+        {
+            _focusTarget = new Vector3(world.x, world.y, transform.position.z);
+        }
+
         private void HandlePan()
         {
             Vector3 move = Vector3.zero;
@@ -49,7 +58,23 @@ namespace SunderedCrown.CameraRig
                 if (m.y >= Screen.height - edgeScrollMargin) move.y += 1;
             }
 
-            if (move == Vector3.zero) return;
+            if (move == Vector3.zero)
+            {
+                // No manual input: glide toward a focus target if one's set.
+                if (_focusTarget.HasValue)
+                {
+                    var p = Vector3.Lerp(transform.position, _focusTarget.Value, 6f * Time.deltaTime);
+                    if (maxBounds != minBounds)
+                    {
+                        p.x = Mathf.Clamp(p.x, minBounds.x, maxBounds.x);
+                        p.y = Mathf.Clamp(p.y, minBounds.y, maxBounds.y);
+                    }
+                    transform.position = p;
+                    if ((transform.position - _focusTarget.Value).sqrMagnitude < 0.0004f) _focusTarget = null;
+                }
+                return;
+            }
+            _focusTarget = null; // player took control
             Vector3 pos = transform.position + move.normalized * panSpeed * Time.deltaTime;
 
             if (maxBounds != minBounds)

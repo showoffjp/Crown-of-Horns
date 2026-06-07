@@ -64,8 +64,29 @@ namespace SunderedCrown.Characters
         public AbilityDefinition equippedWeaponAbility;
         [Tooltip("Flat AC from worn armor + shield (computed by the equipment system).")]
         public int armorClassFromGear = 0;
+        public Items.Equipment equipment = new Items.Equipment();
+
+        [Header("Loot (what this creature drops when defeated)")]
+        public List<ItemDefinition> loot = new List<ItemDefinition>();
+        public int lootGold = 0;
 
         [NonSerialized] public List<EffectInstance> activeEffects = new List<EffectInstance>();
+
+        /// <summary>The 5e Dodge action: set when the unit Defends, cleared at the start of its next turn.
+        /// While true, attack rolls against this unit are made at disadvantage.</summary>
+        [NonSerialized] public bool IsDodging = false;
+
+        /// <summary>The 5e Help action: an ally granted this makes its next attack roll with advantage.
+        /// Consumed the next time this unit makes an attack-roll ability.</summary>
+        [NonSerialized] public bool HasHelpAdvantage = false;
+
+        /// <summary>The 5e Disengage action: while set, moving away from melee does not provoke opportunity
+        /// attacks. Set when the unit Disengages, cleared at the start of its next turn.</summary>
+        [NonSerialized] public bool IsDisengaging = false;
+
+        /// <summary>The round number in which this unit last spent its reaction (opportunity attack). One
+        /// reaction per round; 0 means none used yet. Compared against TurnManager.RoundNumber.</summary>
+        [NonSerialized] public int lastReactionRound = 0;
 
         public bool IsAlive => currentHitPoints > 0;
 
@@ -198,5 +219,34 @@ namespace SunderedCrown.Characters
         public AbilityDefinition DefaultAttack =>
             equippedWeaponAbility != null ? equippedWeaponAbility
             : (knownAbilities.Count > 0 ? knownAbilities[0] : null);
+
+        /// <summary>
+        /// A combat-ready copy of this sheet (for the Echoes — twisted mirrors of the party).
+        /// Shares the immutable ScriptableObject refs (class/race/abilities) but gets a fresh id,
+        /// fresh resources, and full HP. Does NOT copy active effects or loot.
+        /// </summary>
+        public CharacterSheet Clone()
+        {
+            var c = new CharacterSheet
+            {
+                id = Guid.NewGuid().ToString(),
+                displayName = displayName,
+                classDef = classDef,
+                raceDef = raceDef,
+                level = level,
+                baseArmorClass = baseArmorClass,
+                armorClassFromGear = armorClassFromGear,
+                experienceValue = experienceValue,
+                lootGold = lootGold,
+                equippedWeaponAbility = equippedWeaponAbility,
+                knownAbilities = new List<AbilityDefinition>(knownAbilities),
+            };
+            foreach (Ability a in Enum.GetValues(typeof(Ability))) c.abilities.Set(a, abilities.Get(a));
+            Array.Copy(spellSlots.max, c.spellSlots.max, 10);
+            Array.Copy(spellSlots.current, c.spellSlots.current, 10);
+            c.maxHitPoints = maxHitPoints;
+            c.currentHitPoints = maxHitPoints;
+            return c;
+        }
     }
 }

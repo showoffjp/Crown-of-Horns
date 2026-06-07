@@ -24,12 +24,30 @@ namespace SunderedCrown.Core
             DontDestroyOnLoad(gameObject);
         }
 
+        private string _toast = "";
+        private float _toastUntil;
+
         void Update()
         {
             if (Input.GetKeyDown(quickSaveKey))
+            {
                 SaveSystem.Save(quickSlot, UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+                Toast("💾 Quick-saved.");
+            }
             if (Input.GetKeyDown(quickLoadKey))
-                SaveSystem.Load(quickSlot);
+            {
+                if (SaveSystem.Exists(quickSlot)) { SaveSystem.Load(quickSlot); Toast("↺ Quick-loaded."); }
+                else Toast("↺ No quick-save yet.");
+            }
+        }
+
+        private void Toast(string msg) { _toast = msg; _toastUntil = Time.unscaledTime + 1.6f; }
+
+        void OnGUI()
+        {
+            if (Time.unscaledTime > _toastUntil || string.IsNullOrEmpty(_toast)) return;
+            var style = new GUIStyle(GUI.skin.box) { fontSize = 14, alignment = TextAnchor.MiddleCenter };
+            GUI.Label(new Rect(Screen.width / 2f - 90, 12, 180, 28), _toast, style);
         }
     }
 }

@@ -35,7 +35,8 @@ namespace SunderedCrown.Combat
     /// </summary>
     public static class AttackResolver
     {
-        public static AttackResult Resolve(CharacterSheet attacker, CharacterSheet target, AbilityDefinition ability)
+        public static AttackResult Resolve(CharacterSheet attacker, CharacterSheet target, AbilityDefinition ability,
+            bool extraAdvantage = false, int targetAcBonus = 0)
         {
             var r = new AttackResult { damageType = ability.damageType, sourceId = attacker.id };
 
@@ -60,9 +61,12 @@ namespace SunderedCrown.Combat
 
             if (ability.isAttackRoll)
             {
-                // Advantage/disadvantage from conditions (they cancel out).
-                r.advantage = target.GrantsAdvantageToAttackers && !attacker.AttacksAtDisadvantage;
-                r.disadvantage = attacker.AttacksAtDisadvantage && !target.GrantsAdvantageToAttackers;
+                // Advantage/disadvantage from conditions (they cancel out). The Dodge action makes attacks
+                // against the dodger a source of disadvantage, just like the attacker's own conditions.
+                bool advSource = target.GrantsAdvantageToAttackers || attacker.HasHelpAdvantage || extraAdvantage;
+                bool disadvSource = attacker.AttacksAtDisadvantage || target.IsDodging;
+                r.advantage = advSource && !disadvSource;
+                r.disadvantage = disadvSource && !advSource;
                 r.attackRoll = r.advantage ? Dice.D20Advantage()
                              : r.disadvantage ? Dice.D20Disadvantage()
                              : Dice.D20();
@@ -70,7 +74,7 @@ namespace SunderedCrown.Combat
                 r.critical = r.attackRoll == 20;
                 bool autoMiss = r.attackRoll == 1;
                 r.totalToHit = r.attackRoll + abilityMod + attacker.ProficiencyBonus + attacker.EffectAttackModifier;
-                r.targetAC = target.ArmorClass;
+                r.targetAC = target.ArmorClass + targetAcBonus; // cover adds to effective AC
                 r.hit = !autoMiss && (r.critical || r.totalToHit >= r.targetAC);
                 effectShouldLand = r.hit;
             }

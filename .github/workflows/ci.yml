@@ -1,0 +1,90 @@
+name: CI
+
+# Tier 0 of ROADMAP.md — the safety net.
+# Two layers:
+#   1. repo-hygiene  — pure bash, runs on every push/PR with no secrets. Catches asset
+#                      manifest drift and missing Git LFS rules (DESIGN pillar III: one
+#                      coherent project). This is the part that works TODAY.
+#   2. unity-tests   — compiles the project and runs EditMode tests via game-ci. Requires
+#                      a UNITY_LICENSE secret; skips cleanly until you add one, so CI is
+#                      never red just because the license isn't wired yet.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+jobs:
+  repo-hygiene:
+    name: Repo hygiene (no Unity needed)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Asset manifest is up to date
+        run: |
+          cp Assets/asset-manifest.csv /tmp/committed-manifest.csv
+          bash tools/generate-asset-manifest.sh >/dev/null
+          if ! diff -q /tmp/committed-manifest.csv Assets/asset-manifest.csv >/dev/null; then
+            echo "::error::asset-manifest.csv is stale. Run 'bash tools/generate-asset-manifest.sh' and commit the result."
+            diff /tmp/committed-manifest.csv Assets/asset-manifest.csv || true
+            exit 1
+          fi
+          echo "Asset manifest matches committed copy."
+
+      - name: Git LFS rules cover core binary types
+        run: |
+          miss=0
+          for ext in png jpg jpeg psd fbx blend wav mp3 ogg anim mp4; do
+            if ! grep -qE "^\*\.$ext[[:space:]]+filter=lfs" .gitattributes; then
+              echo "::error::.gitattributes is missing a Git LFS rule for *.$ext"
+              miss=1
+            fi
+          done
+          [ "$miss" = 0 ] && echo "All core binary types are routed to Git LFS."
+          exit $miss
+
+      - name: C# structural check (brace balance + namespace)
+        run: bash tools/check-cs-structure.sh
+
+  unity-tests:
+    name: Unity EditMode tests
+    runs-on: ubuntu-latest
+    # The project now carries Packages/manifest.json + ProjectSettings, so this compiles
+    # the game and runs the EditMode suites under Assets/Tests/. It self-skips until a
+    # UNITY_LICENSE secret exists, so CI stays green until you wire one (see docs/CI.md).
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Check for Unity license
+        id: license
+        run: |
+          if [ -n "${{ secrets.UNITY_LICENSE }}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::UNITY_LICENSE secret not set — skipping Unity tests. See docs/CI.md to enable."
+          fi
+
+      - name: Cache Library
+        if: steps.license.outputs.present == 'true'
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-
+
+      - name: Run EditMode + PlayMode tests
+        if: steps.license.outputs.present == 'true'
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          testMode: all
+          githubToken: ${{ secrets.GITHUB_TOKEN }}

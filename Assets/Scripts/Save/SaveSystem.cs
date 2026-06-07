@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using SunderedCrown.Core;
 using SunderedCrown.Quests;
+using SunderedCrown.Stats;
 
 namespace SunderedCrown.Save
 {
@@ -36,7 +37,18 @@ namespace SunderedCrown.Save
             public List<int> questStatuses = new List<int>();
 
             public int partyGold;
+
+            // The hero's build (so Continue can reconstruct the protagonist). The roster is
+            // rebuilt from the companion.<id>.recruited / .lost flags above.
+            public string heroName;
+            public string heroClass;
+            public string heroRace;
+            public int heroLevel = 1;
+            public List<int> heroScores = new List<int>(); // STR, DEX, CON, INT, WIS, CHA
         }
+
+        /// <summary>The most recently loaded data — read by the bootstrapper to reconstruct the hero.</summary>
+        public static SaveData Last { get; private set; }
 
         private static string SaveDir => Path.Combine(Application.persistentDataPath, "saves");
         private static string PathFor(string slot) => Path.Combine(SaveDir, $"{slot}.json");
@@ -62,7 +74,20 @@ namespace SunderedCrown.Save
                 }
 
             if (Characters.Party.Instance != null)
+            {
                 data.partyGold = Characters.Party.Instance.inventory.gold;
+
+                // Capture the hero (the first active member = the Player leader).
+                if (Characters.Party.Instance.active.Count > 0)
+                {
+                    var h = Characters.Party.Instance.active[0];
+                    data.heroName = h.displayName;
+                    data.heroClass = h.classDef != null ? h.classDef.className : "";
+                    data.heroRace = h.raceDef != null ? h.raceDef.raceName : "";
+                    data.heroLevel = h.level;
+                    foreach (Ability a in Enum.GetValues(typeof(Ability))) data.heroScores.Add(h.abilities.Get(a));
+                }
+            }
 
             File.WriteAllText(PathFor(slot), JsonUtility.ToJson(data, true));
             Debug.Log($"[Save] Wrote slot '{slot}' to {PathFor(slot)}");
@@ -74,6 +99,7 @@ namespace SunderedCrown.Save
             if (!File.Exists(path)) { Debug.LogWarning($"[Save] No save at {path}"); return false; }
 
             var data = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
+            Last = data;
 
             var flags = new GameFlags();
             for (int i = 0; i < data.boolKeys.Count; i++) flags.bools[data.boolKeys[i]] = data.boolValues[i];
@@ -96,5 +122,27 @@ namespace SunderedCrown.Save
         }
 
         public static bool Exists(string slot) => File.Exists(PathFor(slot));
+
+        public static void Delete(string slot)
+        {
+            var p = PathFor(slot);
+            if (File.Exists(p)) { File.Delete(p); Debug.Log($"[Save] Deleted slot '{slot}'."); }
+        }
+
+        /// <summary>Lightweight slot summary for a save-slot menu — no global state touched.</summary>
+        public struct SlotMeta { public bool exists; public string heroName; public int heroLevel; public string sceneName; public string savedAtUtc; }
+
+        public static SlotMeta Peek(string slot)
+        {
+            var p = PathFor(slot);
+            if (!File.Exists(p)) return new SlotMeta { exists = false };
+            try
+            {
+                var d = JsonUtility.FromJson<SaveData>(File.ReadAllText(p));
+                return new SlotMeta { exists = true, heroName = d.heroName, heroLevel = d.heroLevel,
+                                      sceneName = d.sceneName, savedAtUtc = d.savedAtUtc };
+            }
+            catch { return new SlotMeta { exists = false }; }
+        }
     }
 }
