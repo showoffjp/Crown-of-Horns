@@ -1070,53 +1070,90 @@ path,category,type,size,size_bytes,lfs
 "Assets/RPG Effect All Free/Free/Part 36/1782.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1783.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1784.png",uncategorized,png,131B,131,yes
-"Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,8.1KB,8283,no
-"Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,7.9KB,8007,no
-"Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,7.7KB,7863,no
-"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",uncategorized,png,8.3KB,8402,no
-"Assets/Resources/Portraits/A girl in the Wall.png",uncategorized,png,9.2KB,9419,no
-"Assets/Resources/Portraits/Aldric Morn.png",uncategorized,png,7.7KB,7824,no
-"Assets/Resources/Portraits/Brother Sere.png",uncategorized,png,8.4KB,8544,no
-"Assets/Resources/Portraits/Collector Vane.png",uncategorized,png,9.1KB,9235,no
-"Assets/Resources/Portraits/Ferryman.png",uncategorized,png,6.3KB,6421,no
-"Assets/Resources/Portraits/Flaming Fist.png",uncategorized,png,5.6KB,5725,no
-"Assets/Resources/Portraits/Garrow.png",uncategorized,png,8.0KB,8157,no
-"Assets/Resources/Portraits/Harper Handler.png",uncategorized,png,5.5KB,5591,no
-"Assets/Resources/Portraits/Hensley, dying.png",uncategorized,png,6.1KB,6194,no
-"Assets/Resources/Portraits/Herald of the Gate.png",uncategorized,png,7.2KB,7345,no
-"Assets/Resources/Portraits/High Lord Aelryth.png",uncategorized,png,5.8KB,5897,no
-"Assets/Resources/Portraits/Ilfaeril.png",uncategorized,png,4.6KB,4643,no
-"Assets/Resources/Portraits/Justiciar Veld.png",uncategorized,png,8.0KB,8171,no
-"Assets/Resources/Portraits/Maerin.png",uncategorized,png,7.2KB,7284,no
-"Assets/Resources/Portraits/Mhaere.png",uncategorized,png,6.5KB,6609,no
-"Assets/Resources/Portraits/Mother Cass.png",uncategorized,png,8.9KB,9028,no
-"Assets/Resources/Portraits/NPC.png",uncategorized,png,6.4KB,6504,no
-"Assets/Resources/Portraits/Naeve.png",uncategorized,png,6.9KB,7042,no
-"Assets/Resources/Portraits/Old Davyn.png",uncategorized,png,8.9KB,9038,no
-"Assets/Resources/Portraits/Quill.png",uncategorized,png,6.9KB,7009,no
-"Assets/Resources/Portraits/Roen Alleywind.png",uncategorized,png,8.6KB,8766,no
-"Assets/Resources/Portraits/Roen.png",uncategorized,png,7.1KB,7252,no
-"Assets/Resources/Portraits/Sable.png",uncategorized,png,7.9KB,8045,no
-"Assets/Resources/Portraits/Sergeant Kallia.png",uncategorized,png,8.9KB,9069,no
-"Assets/Resources/Portraits/Sister Garrow.png",uncategorized,png,9.8KB,9976,no
-"Assets/Resources/Portraits/Tally.png",uncategorized,png,5.6KB,5660,no
-"Assets/Resources/Portraits/Tamsin.png",uncategorized,png,6.1KB,6150,no
-"Assets/Resources/Portraits/The Pale Cantor.png",uncategorized,png,8.1KB,8255,no
-"Assets/Resources/Portraits/The Returned.png",uncategorized,png,6.2KB,6299,no
-"Assets/Resources/Portraits/The unclaimed.png",uncategorized,png,6.5KB,6565,no
-"Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,6.3KB,6350,no
-"Assets/Resources/Portraits/Varra.png",uncategorized,png,6.9KB,6968,no
-"Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,8.7KB,8897,no
-"Assets/Resources/Sprites/Ally.png",uncategorized,png,3.7KB,3689,no
-"Assets/Resources/Sprites/Enemy.png",uncategorized,png,4.0KB,4013,no
-"Assets/Resources/Sprites/Garrow.png",uncategorized,png,5.4KB,5487,no
-"Assets/Resources/Sprites/Ilfaeril.png",uncategorized,png,3.3KB,3343,no
-"Assets/Resources/Sprites/Maerin.png",uncategorized,png,4.9KB,4923,no
-"Assets/Resources/Sprites/Mhaere.png",uncategorized,png,4.5KB,4577,no
-"Assets/Resources/Sprites/Naeve.png",uncategorized,png,4.6KB,4702,no
-"Assets/Resources/Sprites/Neutral.png",uncategorized,png,4.7KB,4763,no
-"Assets/Resources/Sprites/Player.png",uncategorized,png,4.1KB,4196,no
-"Assets/Resources/Sprites/Quill.png",uncategorized,png,4.3KB,4354,no
-"Assets/Resources/Sprites/Sable.png",uncategorized,png,5.3KB,5384,no
-"Assets/Resources/Sprites/Tamsin.png",uncategorized,png,4.2KB,4285,no
-"Assets/Resources/Sprites/Varra.png",uncategorized,png,4.5KB,4507,no
+"Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,8.0KB,8183,no
+"Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,7.7KB,7870,no
+"Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,8.0KB,8160,no
+"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",uncategorized,png,8.7KB,8851,no
+"Assets/Resources/Portraits/A girl in the Wall.png",uncategorized,png,9.3KB,9517,no
+"Assets/Resources/Portraits/Aldric Morn.png",uncategorized,png,7.9KB,8041,no
+"Assets/Resources/Portraits/Brother Sere.png",uncategorized,png,8.3KB,8473,no
+"Assets/Resources/Portraits/Collector Vane.png",uncategorized,png,9.2KB,9387,no
+"Assets/Resources/Portraits/Ferryman.png",uncategorized,png,6.6KB,6735,no
+"Assets/Resources/Portraits/Flaming Fist.png",uncategorized,png,6.1KB,6235,no
+"Assets/Resources/Portraits/Garrow.png",uncategorized,png,8.5KB,8615,no
+"Assets/Resources/Portraits/Harper Handler.png",uncategorized,png,5.7KB,5832,no
+"Assets/Resources/Portraits/Hensley, dying.png",uncategorized,png,6.3KB,6423,no
+"Assets/Resources/Portraits/Herald of the Gate.png",uncategorized,png,7.7KB,7874,no
+"Assets/Resources/Portraits/High Lord Aelryth.png",uncategorized,png,6.2KB,6264,no
+"Assets/Resources/Portraits/Ilfaeril.png",uncategorized,png,4.8KB,4878,no
+"Assets/Resources/Portraits/Justiciar Veld.png",uncategorized,png,8.5KB,8650,no
+"Assets/Resources/Portraits/Maerin.png",uncategorized,png,7.0KB,7168,no
+"Assets/Resources/Portraits/Mhaere.png",uncategorized,png,6.6KB,6703,no
+"Assets/Resources/Portraits/Mother Cass.png",uncategorized,png,9.2KB,9390,no
+"Assets/Resources/Portraits/NPC.png",uncategorized,png,6.5KB,6594,no
+"Assets/Resources/Portraits/Naeve.png",uncategorized,png,7.0KB,7096,no
+"Assets/Resources/Portraits/Old Davyn.png",uncategorized,png,8.9KB,9040,no
+"Assets/Resources/Portraits/Quill.png",uncategorized,png,7.0KB,7143,no
+"Assets/Resources/Portraits/Roen Alleywind.png",uncategorized,png,8.8KB,8991,no
+"Assets/Resources/Portraits/Roen.png",uncategorized,png,7.3KB,7411,no
+"Assets/Resources/Portraits/Sable.png",uncategorized,png,8.0KB,8126,no
+"Assets/Resources/Portraits/Sergeant Kallia.png",uncategorized,png,9.5KB,9671,no
+"Assets/Resources/Portraits/Sister Garrow.png",uncategorized,png,11KB,10577,no
+"Assets/Resources/Portraits/Tally.png",uncategorized,png,5.7KB,5826,no
+"Assets/Resources/Portraits/Tamsin.png",uncategorized,png,6.2KB,6277,no
+"Assets/Resources/Portraits/The Pale Cantor.png",uncategorized,png,8.3KB,8482,no
+"Assets/Resources/Portraits/The Returned.png",uncategorized,png,7.6KB,7705,no
+"Assets/Resources/Portraits/The unclaimed.png",uncategorized,png,7.1KB,7193,no
+"Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,6.5KB,6566,no
+"Assets/Resources/Portraits/Varra.png",uncategorized,png,7.0KB,7088,no
+"Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,8.9KB,9104,no
+"Assets/Resources/Sprites/A Sorrow of the Unmade.png",uncategorized,png,6.0KB,6053,no
+"Assets/Resources/Sprites/Ally.png",uncategorized,png,3.5KB,3563,no
+"Assets/Resources/Sprites/Arcane Sentinel.png",uncategorized,png,5.6KB,5691,no
+"Assets/Resources/Sprites/Arcanist Revenant.png",uncategorized,png,5.7KB,5738,no
+"Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",uncategorized,png,5.9KB,5958,no
+"Assets/Resources/Sprites/Choir Herald.png",uncategorized,png,5.4KB,5522,no
+"Assets/Resources/Sprites/Cinder-Hound.png",uncategorized,png,5.3KB,5338,no
+"Assets/Resources/Sprites/Contract-Devil.png",uncategorized,png,6.6KB,6683,no
+"Assets/Resources/Sprites/Crown-War Revenant.png",uncategorized,png,6.2KB,6302,no
+"Assets/Resources/Sprites/Damned Shade.png",uncategorized,png,6.3KB,6380,no
+"Assets/Resources/Sprites/Doomguide Enforcer.png",uncategorized,png,5.2KB,5315,no
+"Assets/Resources/Sprites/Doomguide Interrogator.png",uncategorized,png,5.0KB,5096,no
+"Assets/Resources/Sprites/Doomguide Knight.png",uncategorized,png,5.6KB,5665,no
+"Assets/Resources/Sprites/Echo of the Verdict.png",uncategorized,png,5.0KB,5072,no
+"Assets/Resources/Sprites/Enemy.png",uncategorized,png,4.1KB,4157,no
+"Assets/Resources/Sprites/Garrow.png",uncategorized,png,5.1KB,5194,no
+"Assets/Resources/Sprites/God-Touched Horror.png",uncategorized,png,5.1KB,5166,no
+"Assets/Resources/Sprites/Ilfaeril.png",uncategorized,png,3.1KB,3140,no
+"Assets/Resources/Sprites/Imp of the Fine Print.png",uncategorized,png,4.1KB,4136,no
+"Assets/Resources/Sprites/Justiciar Veld.png",uncategorized,png,6.1KB,6155,no
+"Assets/Resources/Sprites/Kelemvorite Zealot.png",uncategorized,png,5.3KB,5425,no
+"Assets/Resources/Sprites/Maerin.png",uncategorized,png,4.6KB,4612,no
+"Assets/Resources/Sprites/Mhaere.png",uncategorized,png,4.2KB,4296,no
+"Assets/Resources/Sprites/Mythallar Ward.png",uncategorized,png,6.2KB,6314,no
+"Assets/Resources/Sprites/Naeve.png",uncategorized,png,4.4KB,4455,no
+"Assets/Resources/Sprites/Netherese War-Construct.png",uncategorized,png,6.1KB,6160,no
+"Assets/Resources/Sprites/Neutral.png",uncategorized,png,4.5KB,4565,no
+"Assets/Resources/Sprites/Player.png",uncategorized,png,3.9KB,3986,no
+"Assets/Resources/Sprites/Quill, the Broker.png",uncategorized,png,4.8KB,4912,no
+"Assets/Resources/Sprites/Quill.png",uncategorized,png,4.2KB,4230,no
+"Assets/Resources/Sprites/Sable.png",uncategorized,png,5.0KB,5046,no
+"Assets/Resources/Sprites/Shadow-Bound Sentinel.png",uncategorized,png,5.5KB,5630,no
+"Assets/Resources/Sprites/Sorrow-wraith.png",uncategorized,png,6.1KB,6239,no
+"Assets/Resources/Sprites/Spellplague Aberration.png",uncategorized,png,6.1KB,6236,no
+"Assets/Resources/Sprites/Tamsin.png",uncategorized,png,4.0KB,4020,no
+"Assets/Resources/Sprites/Templar Inquisitor.png",uncategorized,png,4.6KB,4704,no
+"Assets/Resources/Sprites/The Avatar of Bone.png",uncategorized,png,5.7KB,5741,no
+"Assets/Resources/Sprites/The First Unmade.png",uncategorized,png,4.7KB,4761,no
+"Assets/Resources/Sprites/The Herald of the Unmade.png",uncategorized,png,4.7KB,4748,no
+"Assets/Resources/Sprites/The Hollow Cantor.png",uncategorized,png,5.1KB,5196,no
+"Assets/Resources/Sprites/The Mythallar Colossus.png",uncategorized,png,6.0KB,6090,no
+"Assets/Resources/Sprites/The Pale Cantor.png",uncategorized,png,5.2KB,5251,no
+"Assets/Resources/Sprites/The Unbound Maw.png",uncategorized,png,5.4KB,5493,no
+"Assets/Resources/Sprites/The Unbound.png",uncategorized,png,5.2KB,5278,no
+"Assets/Resources/Sprites/Unmade Aberration.png",uncategorized,png,5.5KB,5604,no
+"Assets/Resources/Sprites/Unmaking Acolyte.png",uncategorized,png,5.9KB,5966,no
+"Assets/Resources/Sprites/Unmaking Zealot.png",uncategorized,png,5.2KB,5255,no
+"Assets/Resources/Sprites/Varra.png",uncategorized,png,4.3KB,4323,no
+"Assets/Resources/Sprites/Vengeful Shade.png",uncategorized,png,6.8KB,6962,no
+"Assets/Resources/Sprites/Weave-wraith.png",uncategorized,png,6.5KB,6645,no
