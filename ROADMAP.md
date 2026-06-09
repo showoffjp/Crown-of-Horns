@@ -57,8 +57,10 @@ that dilutes the throughline. Work top-down; check items off as they land.
       Verdict** (spared/passed) and **Netheril's fall** back to you, built live from the flags,
       CI-validated, 10 EditMode tests. **Extended in v3.64.1**: both echoes now also name **the
       Breach** — pulling Maerin from the Wall vs. the counted restraint of leaving her (the decline
-      now leaves a trace, `fugue.left_maerin`, closing a reactivity gap). *Next callback targets:
-      Aldric's fate, the Lady's riddle.*
+      now leaves a trace, `fugue.left_maerin`, closing a reactivity gap). **Extended again in v3.64.2**:
+      a third echo (*A Keeper of the Bone Crown*) names **Aldric's fate** at the forge where Myrkul's
+      skull becomes the Crown he carries — `SimpleEra` gained a second echo slot (`echoGraph2`) to host
+      it. 16 EditMode tests. *Next callback targets: the Lady's riddle, Garrow's verdict at the Court.*
 
 ## Tier 4 — Systems polish (only what serves theme)
 - [ ] **Tactical depth that reads** — surface flanking/OA/cover cues in the HUD so players

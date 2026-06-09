@@ -49,6 +49,7 @@ namespace SunderedCrown.Core
 
             // Cross-era echoes (the world naming an upstream choice) — pure static builders, validate them too.
             Add("era.echo_toot", EraEchoes.TimeOfTroubles());
+            Add("era.echo_toot_crown", EraEchoes.CrownBearer());
             Add("era.echo_spellplague", EraEchoes.Spellplague());
 
             graphCount = graphs.Count;

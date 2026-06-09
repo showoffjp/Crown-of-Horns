@@ -139,5 +139,70 @@ namespace SunderedCrown.Content
             g.nodes.Add(new DialogueNode { id = "close", speaker = "A Half-Unmade Voice", text = close });
             return g;
         }
+
+        // ---- The Time of Troubles, second echo: the forge where Myrkul's skull becomes the Crown of Horns.
+        //      Calls back to ALDRIC MORN — the gentle bearer you met over tea — and what you saw in him. The
+        //      Crown the keeper is hammering here is, downriver, the relic on Aldric's shelf. ----
+        public static DialogueGraph CrownBearer()
+        {
+            var f = GameFlags.Current;
+            var g = ScriptableObject.CreateInstance<DialogueGraph>();
+            g.conversationId = "toot.crown_echo"; g.startNodeId = "0";
+
+            g.nodes.Add(new DialogueNode
+            {
+                id = "0", speaker = "A Keeper of the Bone Crown",
+                text = "Careful where you step, pilgrim — that is not a forge-fire's heat you feel. It is *attention.* " +
+                       "They are beating a god's skull thin and curved, and the god is still *in* it — still awake, " +
+                       "still choosing. Most who come here feel only the cold. You feel the *looking.* You've felt it " +
+                       "before, haven't you. Somewhere far downriver of this hammer.",
+                onEnter = new[] { new FlagClause { key = "toot.crown_echo_seen", op = FlagOp.SetTrue } },
+                choices = new[]
+                {
+                    Go("close"),
+                    new DialogueChoice { text = "I've felt it. On a gentle man's shelf.", nextNodeId = "close" }
+                }
+            });
+
+            // Branch on what you learned of Aldric over tea (most-specific reading first).
+            string close =
+                f.GetBool("aldric.crown_doubt_planted")
+                    ? "Then you already know the secret this whole forge is built to keep: it is not a tool. You sat " +
+                      "across a tea-table from a kind man who called it a *means* — and something behind his eyes " +
+                      "disagreed, and you *caught* it. Trust that more than his kindness. The Crown does not want a " +
+                      "villain; villains are loud. It wants exactly what he is — a grieving, gentle, *certain* hand " +
+                      "that will carry it to the Wall believing the whole way that it holds the leash. You saw the " +
+                      "leash for what it was. Whatever else you do, downriver: do not unsee it."
+              : f.GetBool("aldric.named_monster")
+                    ? "Then you have already passed a verdict on the hand that will carry this — named the man a " +
+                      "*monster* across a cooling cup of tea. Perhaps you were right about his deeds. But the thing " +
+                      "they are hammering here is not *in* him; it is in the crown, and the crown is patient enough " +
+                      "to let you spend all your certainty on the grieving fool while it picks the lock behind his " +
+                      "eyes. Aim better, traveller. Hate the relic — not the hand it chose precisely for being kind."
+              : f.GetBool("aldric.grief_seen")
+                    ? "Then you have already met the hand it is shaping itself to fit — a father who followed his " +
+                      "girl into the grey and watched a god wall her in. You saw the grief beneath the heresy; good. " +
+                      "But understand: what I am forging here saw it too. Love the size of his is not a weakness the " +
+                      "Crown exploits — it is the *door* the Crown was built to walk through. Watch that gentle man, " +
+                      "downriver. Watch what he carries more."
+              : f.GetBool("aldric.cost_revealed")
+                    ? "Then you have already done the one thing his crusade fears — made him say the number aloud. He " +
+                      "counts his dead; grant him that, it is more than most butchers manage. But the thing in this " +
+                      "crown keeps a *different* ledger, and his arithmetic is not its arithmetic. He believes he is " +
+                      "paying thousands for a mercy. He has not yet been shown the line where the price is *him.* You " +
+                      "have stood at this forge and seen the skull still choosing. Carry that downriver."
+              : f.GetBool("aldric.met")
+                    ? "Then somewhere downriver you have already shared a roof with the bearer this crown is being " +
+                      "shaped to fit — a soft-spoken man who calls a *god* a tool, and means it. Remember the weight " +
+                      "of his voice when next you feel the looking. The hammer here and the whisper there are the " +
+                      "same throat. You are the one soul who has stood at both ends of it."
+              : "Then carry only this back down the road you came: somewhere ahead, a gentle hand will be offered " +
+                "this very crown and told it is a *means* — a tool, a key, the smallest evil for the largest mercy. " +
+                "Whoever tells them that will believe it, and the crown will let them. When you meet that hand, " +
+                "remember you once stood at the forge and heard the skull still *choosing.*";
+
+            g.nodes.Add(new DialogueNode { id = "close", speaker = "A Keeper of the Bone Crown", text = close });
+            return g;
+        }
     }
 }

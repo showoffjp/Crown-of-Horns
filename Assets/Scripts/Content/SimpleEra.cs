@@ -39,6 +39,11 @@ namespace SunderedCrown.Content
         public string echoLabel = "An Echo of an Older Choice";
         public System.Func<DialogueGraph> echoGraph;
 
+        // A second, independent echo slot — an era may name more than one upstream thread (e.g. the Time of
+        // Troubles speaks both the Crown Wars Verdict and the fate of the Crown's gentle bearer). Same rules.
+        public string echoLabel2 = "Another Echo of an Older Choice";
+        public System.Func<DialogueGraph> echoGraph2;
+
         // Optional extra "miniboss" fight — a second combat exit, available until its done-flag is set.
         public string bonusFightId;
         public string bonusFightLabel = "An optional fight";
@@ -99,6 +104,17 @@ namespace SunderedCrown.Content
                 {
                     var it = MakeMarker(grid, echoLabel, new Vector2Int(8, 3), new Color(0.55f, 0.5f, 0.45f));
                     it.kind = InteractionKind.Talk; it.dialogue = eg;
+                }
+            }
+
+            // A second cross-era echo (independent of the first) — same contract, different thread.
+            if (echoGraph2 != null)
+            {
+                var eg2 = echoGraph2();
+                if (eg2 != null)
+                {
+                    var it = MakeMarker(grid, echoLabel2, new Vector2Int(4, 4), new Color(0.78f, 0.74f, 0.66f));
+                    it.kind = InteractionKind.Talk; it.dialogue = eg2;
                 }
             }
 

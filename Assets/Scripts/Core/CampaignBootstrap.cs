@@ -827,6 +827,7 @@ namespace SunderedCrown.Core
             era.fightId = "toot"; era.fightLabel = "Cut through the avatar-touched (battle)";
             era.witnessNameMatch = "Garrow"; era.witnessGraph = EraWitness.GarrowTimeOfTroubles;
             era.echoLabel = "A Grey Gravedigger at the Low Ground"; era.echoGraph = EraEchoes.TimeOfTroubles;
+            era.echoLabel2 = "A Keeper of the Bone Crown"; era.echoGraph2 = EraEchoes.CrownBearer;
             era.bonusFightId = "toot_avatar";
             era.bonusFightLabel = "Face the Avatar of Bone (optional miniboss)";
             era.bonusFightDoneFlag = "toot.avatar_down";

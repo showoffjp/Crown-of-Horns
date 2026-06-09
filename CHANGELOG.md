@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v3.64.2 — *"The Skull Still Choosing"* — Aldric's fate, named at the forge
+
+> The third cross-era callback, and the tightest loop in the saga: the **Time of Troubles** is the year
+> Myrkul dies and his skull is beaten into the **Crown of Horns** — the very relic the gentle heretic
+> **Aldric Morn** carries on his shelf in Act I. A new echo at that forge names what *you* saw of Aldric
+> over tea, and turns it into a warning about the thing inside the crown.
+
+- ⚒️ **A Keeper of the Bone Crown** (second echo in the Time of Troubles) reads your Act-I read of Aldric
+  back to you, most-specific-first:
+  - **Sensed the Crown using him** (`aldric.crown_doubt_planted`): "you caught the leash for what it was —
+    do not unsee it."
+  - **Named him a monster** (`aldric.named_monster`): "hate the relic, not the hand it chose for being kind."
+  - **Saw the grieving father** (`aldric.grief_seen`): "love the size of his is the *door* the Crown was built
+    to walk through."
+  - **Made him say the count** (`aldric.cost_revealed`): "the crown keeps a *different* ledger… the line where
+    the price is *him.*"
+  - **Merely met him** (`aldric.met`): "the hammer here and the whisper there are the same throat."
+  - **Never met him**: pure foreshadow — "a gentle hand will be offered this very crown and told it is a *means.*"
+- 🧱 **Reusable plumbing:** `SimpleEra` now supports a **second independent echo slot** (`echoGraph2` /
+  `echoLabel2`), so any era can name more than one upstream thread. The Spellplague can pick up a second echo
+  later for free.
+- 🛡️ **Validated + tested:** the new graph is registered in `ContentValidator` (`era.echo_toot_crown`) and
+  `EraEchoesTests` grows to **16 tests** (every branch + priority ordering). **29 suites · ~201 tests.**
+  Structural check green (165 C# files).
+
+---
+
 ## 🕯️ v3.64.1 — *"The Pulled and the Paid"* — the Breach, named downstream
 
 > A direct extension of v3.64.0's cross-era callbacks: the single heaviest choice in the game — the

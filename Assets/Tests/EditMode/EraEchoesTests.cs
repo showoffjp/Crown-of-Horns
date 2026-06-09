@@ -136,5 +136,61 @@ namespace SunderedCrown.Tests.EditMode
             StringAssert.Contains("thank a soul for restraint", CloseText(EraEchoes.Spellplague()),
                 "declining the Wall should be thanked by the soul that would have been the cost");
         }
+
+        // ---------- The Crown Bearer (Aldric, named at the forge) ----------
+
+        [Test]
+        public void CrownBearer_MarksSeen_AndForeshadowsWhenAldricUnmet()
+        {
+            var g = EraEchoes.CrownBearer();
+            Assert.IsTrue(SetsFlag(g, "0", "toot.crown_echo_seen"), "echo should set toot.crown_echo_seen on enter");
+            StringAssert.Contains("a gentle hand will be offered", CloseText(g),
+                "with Aldric unmet, the keeper foreshadows the bearer instead of naming the meeting");
+        }
+
+        [Test]
+        public void CrownBearer_NamesTheCrownDoubt_WhenPlanted()
+        {
+            GameFlags.Current.SetBool("aldric.crown_doubt_planted", true);
+            StringAssert.Contains("do not unsee it", CloseText(EraEchoes.CrownBearer()),
+                "sensing the Crown using Aldric should be paid off at the forge as the confirmed leash");
+        }
+
+        [Test]
+        public void CrownBearer_NamesTheMonsterVerdict()
+        {
+            GameFlags.Current.SetBool("aldric.named_monster", true);
+            StringAssert.Contains("Hate the relic", CloseText(EraEchoes.CrownBearer()),
+                "having damned Aldric, the keeper should redirect that certainty at the relic");
+        }
+
+        [Test]
+        public void CrownBearer_NamesTheGriefSeen()
+        {
+            GameFlags.Current.SetBool("aldric.grief_seen", true);
+            StringAssert.Contains("the *door* the Crown was built to walk through", CloseText(EraEchoes.CrownBearer()),
+                "having seen the father, the keeper names the grief as the Crown's chosen door");
+        }
+
+        [Test]
+        public void CrownBearer_NamesTheCostRevealed()
+        {
+            GameFlags.Current.SetBool("aldric.cost_revealed", true);
+            StringAssert.Contains("a *different* ledger", CloseText(EraEchoes.CrownBearer()),
+                "having made Aldric say the count, the keeper names the Crown's separate ledger");
+        }
+
+        [Test]
+        public void CrownBearer_FallsBackToMet_AndPrioritisesDoubt()
+        {
+            GameFlags.Current.SetBool("aldric.met", true);
+            StringAssert.Contains("both ends of it", CloseText(EraEchoes.CrownBearer()),
+                "a bare meeting should still be named (the same throat, both ends)");
+
+            // The crown-doubt reading outranks a bare meeting when both are set.
+            GameFlags.Current.SetBool("aldric.crown_doubt_planted", true);
+            StringAssert.Contains("do not unsee it", CloseText(EraEchoes.CrownBearer()),
+                "crown_doubt_planted should take priority over the generic met fallback");
+        }
     }
 }
