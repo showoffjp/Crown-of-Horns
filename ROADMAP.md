@@ -55,7 +55,10 @@ that dilutes the throughline. Work top-down; check items off as they land.
       **Done in v3.64.0** (`EraEchoes` + `SimpleEra.echoGraph`): a grey gravedigger in the
       Time of Troubles and a half-unmade soul in the Spellplague both speak the **Crown Wars
       Verdict** (spared/passed) and **Netheril's fall** back to you, built live from the flags,
-      CI-validated, 8 new EditMode tests. *Next callback targets: the Fugue's Maerin choice.*
+      CI-validated, 10 EditMode tests. **Extended in v3.64.1**: both echoes now also name **the
+      Breach** — pulling Maerin from the Wall vs. the counted restraint of leaving her (the decline
+      now leaves a trace, `fugue.left_maerin`, closing a reactivity gap). *Next callback targets:
+      Aldric's fate, the Lady's riddle.*
 
 ## Tier 4 — Systems polish (only what serves theme)
 - [ ] **Tactical depth that reads** — surface flanking/OA/cover cues in the HUD so players

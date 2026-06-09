@@ -67,6 +67,22 @@ namespace SunderedCrown.Tests.EditMode
                 "witnessing Netheril's fall should add the second callback thread");
         }
 
+        [Test]
+        public void TimeOfTroubles_NamesTheBreach_PulledVsLeft()
+        {
+            StringAssert.DoesNotContain("trade-death", CloseText(EraEchoes.TimeOfTroubles()),
+                "no Breach thread before the Wall choice");
+
+            GameFlags.Current.SetBool("fugue.pull_maerin", true);
+            StringAssert.Contains("balanced the books", CloseText(EraEchoes.TimeOfTroubles()),
+                "pulling a soul from the Wall should be named back as a trade-death");
+
+            FreshFlags();
+            GameFlags.Current.SetBool("fugue.left_maerin", true);
+            StringAssert.Contains("did the arithmetic", CloseText(EraEchoes.TimeOfTroubles()),
+                "declining the Wall should be named back as counted restraint");
+        }
+
         // ---------- Spellplague ----------
 
         [Test]
@@ -103,6 +119,22 @@ namespace SunderedCrown.Tests.EditMode
             GameFlags.Current.SetBool("netheril.arrived", true);
             StringAssert.Contains("fell once before", CloseText(EraEchoes.Spellplague()),
                 "witnessing Netheril should surface the returned-shades callback");
+        }
+
+        [Test]
+        public void Spellplague_NamesTheBreach_PulledVsLeft()
+        {
+            StringAssert.DoesNotContain("one soul in", CloseText(EraEchoes.Spellplague()),
+                "no Breach thread before the Wall choice");
+
+            GameFlags.Current.SetBool("fugue.pull_maerin", true);
+            StringAssert.Contains("The pulled and the paid", CloseText(EraEchoes.Spellplague()),
+                "pulling a soul from the Wall should echo in the blue fire as one-out-one-in");
+
+            FreshFlags();
+            GameFlags.Current.SetBool("fugue.left_maerin", true);
+            StringAssert.Contains("thank a soul for restraint", CloseText(EraEchoes.Spellplague()),
+                "declining the Wall should be thanked by the soul that would have been the cost");
         }
     }
 }

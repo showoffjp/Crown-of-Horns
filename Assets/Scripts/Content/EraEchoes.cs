@@ -65,6 +65,18 @@ namespace SunderedCrown.Content
                          "swore he watched a city of magic fall out of the blue and break. You have the same eyes. " +
                          "Whatever you saw burn back then, friend, you are still carrying the soot of it.";
 
+            // A third thread — the Breach. The gravedigger knows a trade-death when he sees one carried.
+            if (f.GetBool("fugue.pull_maerin"))
+                close += "\n\nAnd you have the other look, too — the one a soul wears after the Wall has taken " +
+                         "someone *for* them. I have buried trade-deaths. The Wall never gives without taking; you " +
+                         "reached in and it balanced the books on someone you loved. I'll not call that wrong. I'll " +
+                         "only say — dig deep for that one when you get home. Some graves you owe more than dirt.";
+            else if (f.GetBool("fugue.left_maerin"))
+                close += "\n\nAnd you have the rarer look — a soul who stood at the Wall, was offered a life, and " +
+                         "*did the arithmetic out loud.* Most can't. They see one face and stop counting the cost. " +
+                         "You counted, and you walked. I've no grave to dig for restraint, friend — but I would dig " +
+                         "one for yours if the ground allowed it. It deserves a marker.";
+
             g.nodes.Add(new DialogueNode { id = "close", speaker = "A Grey Gravedigger", text = close });
             return g;
         }
@@ -111,6 +123,18 @@ namespace SunderedCrown.Content
                          "silence where every spell went out at once. They speak of it like it was yesterday. To them, " +
                          "with cause unstitched in here, perhaps it *is.* You were there for that too. Of course you were. " +
                          "You are the one soul this whole burning age keeps handing its grief to.";
+
+            // The Breach callback — one soul out, one soul in; the Wall's only honest law, felt even here.
+            if (f.GetBool("fugue.pull_maerin"))
+                close += "\n\nYou've done this before, haven't you — reached into the grey and *taken one back.* I felt " +
+                         "the ripple of it, even in here. One soul out, one soul in; the Wall's only honest law. Whoever " +
+                         "you traded for is somewhere in this fire too, scratched out so another could stay written. " +
+                         "Carry them both. The pulled and the paid. That is the whole weight of being able to reach.";
+            else if (f.GetBool("fugue.left_maerin"))
+                close += "\n\nYou've stood where I'm standing, too — close enough to the Wall to pull one free, and you " +
+                         "*didn't,* because you saw the second name the price would write. I'd have begged you to save me. " +
+                         "I'd also have been the cost. The undone don't get to thank a soul for restraint... but I will " +
+                         "anyway. Someone should, before the fire takes the word.";
 
             g.nodes.Add(new DialogueNode { id = "close", speaker = "A Half-Unmade Voice", text = close });
             return g;

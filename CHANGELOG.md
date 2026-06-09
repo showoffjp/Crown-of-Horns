@@ -11,6 +11,27 @@
 
 ---
 
+## 🕯️ v3.64.1 — *"The Pulled and the Paid"* — the Breach, named downstream
+
+> A direct extension of v3.64.0's cross-era callbacks: the single heaviest choice in the game — the
+> **Breach** at the Wall of the Faithless — now echoes in the late eras, the same way the Crown Wars
+> Verdict does. Also closes a reactivity gap: *walking away* from the Wall was previously invisible.
+
+- ⚖️ **The Breach echoes forward.** Both late-era figures (the Time of Troubles **gravedigger** and the
+  Spellplague **half-unmade soul**) now layer a third conditional thread on top of the Verdict + Netheril
+  ones, keyed to what you did at the Wall:
+  - **Pulled Maerin free** (`fugue.pull_maerin`): named as a *trade-death* — "the Wall never gives without
+    taking… carry them both, the pulled and the paid."
+  - **Walked away** (`fugue.left_maerin`): named as counted restraint — "you did the arithmetic out loud…
+    it deserves a marker," and the soul that *would have been the cost* thanks you for it.
+- 🩹 **Closed a reactivity gap (ROADMAP Tier 3 "every major choice leaves a trace"):** declining to pull
+  Maerin set **no flag** before — the restraint was unwitnessed. It now sets `fugue.left_maerin`, so the
+  choice is reactable (and is, immediately, by both echoes).
+- 🛡️ **Tests:** `EraEchoesTests` grows to **10 tests** (added pulled/left/neither coverage for both eras).
+  **29 suites · ~195 tests.** Structural check green (165 C# files).
+
+---
+
 ## ⏳ v3.64.0 — *"The Source Remembers"* — Cross-Era Callbacks (the time-travel earns its keep)
 
 > *A choice in -10,000 DR, spoken aloud in 1385 DR.* The saga's whole conceit is that you walk the
