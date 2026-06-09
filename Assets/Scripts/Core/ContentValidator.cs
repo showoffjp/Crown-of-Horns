@@ -47,6 +47,10 @@ namespace SunderedCrown.Core
             Add("era.garrow_toot", EraWitness.GarrowTimeOfTroubles());
             Add("era.varra_spellplague", EraWitness.VarraSpellplague());
 
+            // Cross-era echoes (the world naming an upstream choice) — pure static builders, validate them too.
+            Add("era.echo_toot", EraEchoes.TimeOfTroubles());
+            Add("era.echo_spellplague", EraEchoes.Spellplague());
+
             graphCount = graphs.Count;
             nodeCount = 0;
             foreach (var (label, g) in graphs)

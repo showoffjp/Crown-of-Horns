@@ -34,6 +34,11 @@ namespace SunderedCrown.Content
         public string witnessNameMatch;
         public System.Func<DialogueGraph> witnessGraph;
 
+        // Optional cross-era "echo" beat — the world naming an upstream choice (EraEchoes). Always placed
+        // (it's the world, not a companion), as long as the builder is wired and returns a graph.
+        public string echoLabel = "An Echo of an Older Choice";
+        public System.Func<DialogueGraph> echoGraph;
+
         // Optional extra "miniboss" fight — a second combat exit, available until its done-flag is set.
         public string bonusFightId;
         public string bonusFightLabel = "An optional fight";
@@ -84,6 +89,17 @@ namespace SunderedCrown.Content
                 var it = MakeMarker(grid, witnessNameMatch + " — here, now", new Vector2Int(11, 5),
                     new Color(0.7f, 0.7f, 0.78f));
                 it.kind = InteractionKind.Talk; it.dialogue = witnessGraph();
+            }
+
+            // A cross-era echo — the world speaking your upstream choice back to you (Pillar V).
+            if (echoGraph != null)
+            {
+                var eg = echoGraph();
+                if (eg != null)
+                {
+                    var it = MakeMarker(grid, echoLabel, new Vector2Int(8, 3), new Color(0.55f, 0.5f, 0.45f));
+                    it.kind = InteractionKind.Talk; it.dialogue = eg;
+                }
             }
 
             // Optional miniboss — a second combat marker, available until you've put it down.

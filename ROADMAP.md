@@ -50,8 +50,12 @@ that dilutes the throughline. Work top-down; check items off as they land.
       trace (keepsake, deed, reactive line, or ending slide). Find the gaps. Pillar II.
 - [ ] **Ending-slide audit** — confirm each of the six endings reads back *every* major
       thread (`EndingResolver`). Pillar II. *The finale is the payoff for permanence.*
-- [ ] **Cross-era callbacks** — a choice in Netheril should be *named* later in the
+- [x] **Cross-era callbacks** — a choice in Netheril should be *named* later in the
       Spellplague. Time-travel earns its keep when the past talks to the future. Pillar V.
+      **Done in v3.64.0** (`EraEchoes` + `SimpleEra.echoGraph`): a grey gravedigger in the
+      Time of Troubles and a half-unmade soul in the Spellplague both speak the **Crown Wars
+      Verdict** (spared/passed) and **Netheril's fall** back to you, built live from the flags,
+      CI-validated, 8 new EditMode tests. *Next callback targets: the Fugue's Maerin choice.*
 
 ## Tier 4 — Systems polish (only what serves theme)
 - [ ] **Tactical depth that reads** — surface flanking/OA/cover cues in the HUD so players

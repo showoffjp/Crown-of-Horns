@@ -11,6 +11,33 @@
 
 ---
 
+## ⏳ v3.64.0 — *"The Source Remembers"* — Cross-Era Callbacks (the time-travel earns its keep)
+
+> *A choice in -10,000 DR, spoken aloud in 1385 DR.* The saga's whole conceit is that you walk the
+> hinge-points of history — so a verdict at the source should be **named** downstream, with its cost
+> made visible. ROADMAP Tier 3 ("no choice forgotten") / DESIGN pillar V. **The last open Tier-3
+> reactivity item lands.**
+
+- 🪦 **New `EraEchoes` content** — the *world itself* (not a companion) reacting to an upstream choice:
+  - **Time of Troubles (1358 DR):** a **grey gravedigger** working the godless dead while the gods bleed
+    speaks the **Crown Wars Verdict** back to you. Argue the damnation *down* (`crownwars.verdict_spared`)
+    and the unclaimed get a resting-place "because of that single afternoon — the Wall was only ever a
+    wall, never a furnace." Let it *pass* (`crownwars.verdict_passed`) and "the source remembers, even
+    when the river forgets."
+  - **Spellplague (1385 DR):** a **half-unmade soul** in the blue fire — held together only by being
+    *witnessed* — thanks you (spared) or forgives you (passed) for that same verdict, ten thousand years on.
+  - Both echoes append a **second thread** if you witnessed **Netheril's fall** (`netheril.cleared/arrived`)
+    — the soot of the first apocalypse, the returned shades who "fell once before."
+- 🧩 **Reusable wiring:** `SimpleEra.echoGraph` (+`echoLabel`) places the beat as a Talk marker, mirroring
+  the existing `witnessGraph` pattern; `CampaignBootstrap` wires both late eras. Built **live from the
+  flags**, with a graceful neutral fallback if you witnessed neither upstream era.
+- 🛡️ **CI-guarded:** both echo graphs registered in `ContentValidator` (broken-reference gate) and a new
+  **`EraEchoesTests`** EditMode suite (**8 tests**) locks each branch — spared / passed / default /
+  Netheril-thread — so the no-compiler sandbox still guards the reactivity. **29 suites · ~193 tests.**
+- 🟢 Structural check green (**165 C# files**). Roadmap Tier 3 reactivity is now complete.
+
+---
+
 ## 🎨 v3.63.0 — *"Status & Ledger"* — Condition Icons + Asset License Ledger (ASSETS)
 
 - ☠️ Added a **12-icon status-effect set** mapped **1:1 to the `Condition` enum** (poisoned, prone,

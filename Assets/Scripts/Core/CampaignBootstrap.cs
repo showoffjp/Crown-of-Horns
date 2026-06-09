@@ -826,6 +826,7 @@ namespace SunderedCrown.Core
             era.examineText = "They are beating a god's skull into a crown of horns. The Crown-Voice that has whispered to you all this way — it is not a tool. It is Myrkul, and it has been riding the road in your pack.";
             era.fightId = "toot"; era.fightLabel = "Cut through the avatar-touched (battle)";
             era.witnessNameMatch = "Garrow"; era.witnessGraph = EraWitness.GarrowTimeOfTroubles;
+            era.echoLabel = "A Grey Gravedigger at the Low Ground"; era.echoGraph = EraEchoes.TimeOfTroubles;
             era.bonusFightId = "toot_avatar";
             era.bonusFightLabel = "Face the Avatar of Bone (optional miniboss)";
             era.bonusFightDoneFlag = "toot.avatar_down";
@@ -849,6 +850,7 @@ namespace SunderedCrown.Core
             era.examineText = "Blue fire pours from a tear in the sky, and the ground floats where it forgot to be ground. Here cause does not reliably precede effect. Here the Unmade comes closest to winning.";
             era.fightId = "spellplague"; era.fightLabel = "Fight through the blue fire (battle)";
             era.witnessNameMatch = "Varra"; era.witnessGraph = EraWitness.VarraSpellplague;
+            era.echoLabel = "A Half-Unmade Voice in the Blue Fire"; era.echoGraph = EraEchoes.Spellplague;
             era.bonusFightId = "spellplague_herald";
             era.bonusFightLabel = "Face the Herald of the Unmade (optional miniboss)";
             era.bonusFightDoneFlag = "spellplague.herald_down";
