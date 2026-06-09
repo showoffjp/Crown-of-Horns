@@ -37,6 +37,7 @@ built to deliver. Read in order, or dive where you like.
 | 🚀 | [`20_PITCH_AND_VERTICAL_SLICE.md`](20_PITCH_AND_VERTICAL_SLICE.md) | The **pitch one-pager** + the **1-hour vertical-slice spec** + honest scope/budget/risk |
 | 🎬 | [`21_ACT_ONE_SCRIPT.md`](21_ACT_ONE_SCRIPT.md) | **Act I, scene by scene** (Prologue + 3 chapters) — the vertical-slice content |
 | 🎭 | [`22_THE_LADY_IN_THE_MARGINS.md`](22_THE_LADY_IN_THE_MARGINS.md) | The **fifth-dimensional riddler** (G-Man/Gaunter-tier), her huge twist, **the Vault of Tens** riddle room, and **20 original riddles** |
+| 🧱 | [`23_THE_WALL_IS_THE_WORLD.md`](23_THE_WALL_IS_THE_WORLD.md) | **Second-wave twists** — the Wall as the *strata of dead worlds*, the recycled Maerin, the Brick, and the roster of nine new fair-clued reveals with engine-cost notes |
 
 > The top-level [`../STORY_BIBLE.md`](../STORY_BIBLE.md) is the **quick reference** (one-page
 > overview + tables). *This* library is the deep water.
