@@ -34,3 +34,7 @@ Thumbs.db
 # Crash reports
 sysinfo.txt
 crashlytics-build.properties
+
+# Python bytecode from the asset-generation tools
+__pycache__/
+*.pyc
