@@ -20,6 +20,7 @@
 # still governs all real art. Replace these with real sprites (same names) any time.
 Assets/Resources/Sprites/*.png   -filter -diff -merge -text
 Assets/Resources/Portraits/*.png -filter -diff -merge -text
+docs/art-preview/*.png           -filter -diff -merge -text
 
 # Treat Unity YAML assets as text (better merges)
 *.unity   text
