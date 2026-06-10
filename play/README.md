@@ -24,6 +24,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `autobattle.js` | Auto-resolves the base encounter 2000× — clean, terminating. |
 | `smoke.js` | Boots `crown_combat.html` under a stubbed DOM and auto-plays 400 full games through the UI. **0 errors.** |
 | `analyze.js` | Monte-Carlos the engine and writes **`balance_report.html`** — per-hero hit% / DPR vs armor class, time-to-kill, and the balance oracle. |
+| `run-all.js` | One command — runs all gates + reports; exits non-zero on any failure (used by CI). |
 
 ## Finding
 `CombatBalance`'s reference duel (Hero vs Brute) wins **~95%**, flagging **HIGH** — outside its own

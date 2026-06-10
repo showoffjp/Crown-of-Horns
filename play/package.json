@@ -1,0 +1,10 @@
+{
+  "name": "crown-of-horns-combat-slice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Headless, browser-playable slice of the Crown of Horns combat engine.",
+  "scripts": {
+    "test": "node run-all.js",
+    "report": "node analyze.js"
+  }
+}
