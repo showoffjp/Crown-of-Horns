@@ -26,6 +26,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `analyze.js` | Monte-Carlos the engine and writes **`balance_report.html`** — per-hero hit% / DPR vs armor class, time-to-kill, and the balance oracle. |
 | `endings.test.js` | Ports `EndingResolverTests` — proves choices gate the endings (incl. the two golden roads) per your Unity tests. **7/7.** |
 | `items.test.js` | Ports `InventoryTests` + `ItemDatabaseTests` — stacking, removal, gold floor, change events, id registry. **14/14.** |
+| `progression.test.js` | Ports `ProgressionTests` — 5e XP table, single/multi level-ups, level-20 cap, level-up event. **9/9.** |
 | `run-all.js` | One command — runs all gates + reports; exits non-zero on any failure (used by CI). |
 
 ## Finding
