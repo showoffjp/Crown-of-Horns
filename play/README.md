@@ -29,8 +29,9 @@ Proof that the combat engine works, runnable **without Unity**.
 | `progression.test.js` | Ports `ProgressionTests` — 5e XP table, single/multi level-ups, level-20 cap, level-up event. **9/9.** |
 | `run-all.js` | One command — runs all gates + reports; exits non-zero on any failure (used by CI). |
 
-## Finding
-`CombatBalance`'s reference duel (Hero vs Brute) wins **~95%**, flagging **HIGH** — outside its own
-55–85% design band. Port hit-rates are exact vs 5e math, so it's a real observation about the
-reference sheets (the "Hero" out-classes the "Brute" on AC, HP, Str *and* weapon die at once),
-not a port bug.
+## Finding — found *and fixed*
+`CombatBalance`'s reference duel originally won **~95%**, flagging **HIGH** — outside its own
+55–85% design band (the "Hero" out-classed the "Brute" on AC, HP, Str *and* weapon die at once).
+Because the port is seed-faithful, we searched the Brute's stat-space headlessly and retuned it
+(Str 14→16, HP 22→34): the canary now prints **Hero 70% [OK] · Duelist 53% [OK]** — and the Unity
+build will print exactly those numbers.

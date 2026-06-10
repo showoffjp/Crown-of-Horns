@@ -32,10 +32,10 @@ namespace SunderedCrown.Combat
         /// <summary>Run a couple of representative matchups over many seeds and return a win-rate report.</summary>
         public static string Report(int trials = 400)
         {
-            int p1 = WinRate(Sheet("Hero", 16, 16, 28), Sheet("Brute", 14, 13, 22),
+            int p1 = WinRate(Sheet("Hero", 16, 16, 28), Sheet("Brute", 16, 13, 34),
                              Weapon("Longsword", "1d8"), Weapon("Club", "1d6"), trials);
             // A glass cannon (hits hard, frail, lightly armored) vs the same brute — should be a coin-flip-ish.
-            int p2 = WinRate(Sheet("Duelist", 18, 14, 20), Sheet("Brute", 14, 13, 22),
+            int p2 = WinRate(Sheet("Duelist", 18, 14, 20), Sheet("Brute", 16, 13, 34),
                              Weapon("Rapier", "1d10"), Weapon("Club", "1d6"), trials);
 
             string v1 = (p1 >= 55 && p1 <= 85) ? "OK" : p1 > 85 ? "HIGH" : "LOW";

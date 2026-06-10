@@ -100,13 +100,18 @@ namespace SunderedCrown.Core
             input.worldCamera = cam;
 
             // Set prologue.cleared on victory (completes the quest's second objective).
-            _turns.OnCombatEnded += () =>
+            // One-shot: unsubscribe on first fire so it can't linger past this combat and
+            // mark the flag when some later battle ends.
+            System.Action onPrologueEnd = null;
+            onPrologueEnd = () =>
             {
+                _turns.OnCombatEnded -= onPrologueEnd;
                 bool win = false;
                 foreach (var u in _turns.TurnOrder)
                     if ((u.faction == Faction.Player || u.faction == Faction.Ally) && u.Sheet.IsAlive) win = true;
                 if (win) GameFlags.Current.SetBool("prologue.cleared", true);
             };
+            _turns.OnCombatEnded += onPrologueEnd;
 
             yield return null; // let component Start() methods run (HUD canvas, etc.)
 

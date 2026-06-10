@@ -37,8 +37,8 @@ const rows=heroes.map(h=>{
 });
 
 // CombatBalance oracle (exact)
-const p1=CombatBalance.WinRate(Sheet("Hero",16,16,28),Sheet("Brute",14,13,22),Weapon("Longsword","1d8"),Weapon("Club","1d6"),400);
-const p2=CombatBalance.WinRate(Sheet("Duelist",18,14,20),Sheet("Brute",14,13,22),Weapon("Rapier","1d10"),Weapon("Club","1d6"),400);
+const p1=CombatBalance.WinRate(Sheet("Hero",16,16,28),Sheet("Brute",16,13,34),Weapon("Longsword","1d8"),Weapon("Club","1d6"),400);
+const p2=CombatBalance.WinRate(Sheet("Duelist",18,14,20),Sheet("Brute",16,13,34),Weapon("Rapier","1d10"),Weapon("Club","1d6"),400);
 const band=(p,lo,hi)=> p>=lo&&p<=hi?"OK":p>hi?"HIGH":"LOW";
 
 // ---- emit HTML ----

@@ -114,6 +114,14 @@ namespace SunderedCrown.Core
 
         private void Autosave() => SunderedCrown.Save.SaveSystem.Save(SaveSlot, "campaign");
 
+        void OnDestroy()
+        {
+            // DefeatScreen destroys and rebuilds this bootstrap while GameFlags.Current and the
+            // Party singleton live on. Without this, the dead instance's OnFlagChanged keeps
+            // firing and can recruit stale, old-run companion sheets into the next playthrough.
+            GameFlags.Current.OnFlagChanged -= OnFlagChanged;
+        }
+
         /// <summary>Build the companion roster sheets (without recruiting them).</summary>
         private void BuildCompanions()
         {

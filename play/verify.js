@@ -6,9 +6,9 @@ let rolls = []; for (let i = 0; i < 10; i++) rolls.push(Dice.D20());
 console.log("  " + rolls.join(", "));
 
 function report(trials) {
-  const p1 = CombatBalance.WinRate(Sheet("Hero", 16, 16, 28), Sheet("Brute", 14, 13, 22),
+  const p1 = CombatBalance.WinRate(Sheet("Hero", 16, 16, 28), Sheet("Brute", 16, 13, 34),
                                    Weapon("Longsword", "1d8"), Weapon("Club", "1d6"), trials);
-  const p2 = CombatBalance.WinRate(Sheet("Duelist", 18, 14, 20), Sheet("Brute", 14, 13, 22),
+  const p2 = CombatBalance.WinRate(Sheet("Duelist", 18, 14, 20), Sheet("Brute", 16, 13, 34),
                                    Weapon("Rapier", "1d10"), Weapon("Club", "1d6"), trials);
   const v1 = (p1 >= 55 && p1 <= 85) ? "OK" : p1 > 85 ? "HIGH" : "LOW";
   const v2 = (p2 >= 35 && p2 <= 70) ? "OK" : p2 > 70 ? "HIGH" : "LOW";
