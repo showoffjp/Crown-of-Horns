@@ -23,6 +23,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `diagnose.js` | Per-swing hit-rates match hand-computed 5e math (65% / 45%). |
 | `autobattle.js` | Auto-resolves the base encounter 2000× — clean, terminating. |
 | `smoke.js` | Boots `crown_combat.html` under a stubbed DOM and auto-plays 400 full games through the UI. **0 errors.** |
+| `analyze.js` | Monte-Carlos the engine and writes **`balance_report.html`** — per-hero hit% / DPR vs armor class, time-to-kill, and the balance oracle. |
 
 ## Finding
 `CombatBalance`'s reference duel (Hero vs Brute) wins **~95%**, flagging **HIGH** — outside its own
