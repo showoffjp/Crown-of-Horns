@@ -28,6 +28,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `items.test.js` | Ports `InventoryTests` + `ItemDatabaseTests` — stacking, removal, gold floor, change events, id registry. **14/14.** |
 | `progression.test.js` | Ports `ProgressionTests` — 5e XP table, single/multi level-ups, level-20 cap, level-up event. **9/9.** |
 | `run-all.js` | One command — runs all gates + reports; exits non-zero on any failure (used by CI). |
+| `retune.js` | Design-space search that derived the Brute retune (Str16/AC13/HP34) — reruns the seeded duels over candidate stat-lines and picks the one centred in both bands. |
 
 ## Finding — found *and fixed*
 `CombatBalance`'s reference duel originally won **~95%**, flagging **HIGH** — outside its own
