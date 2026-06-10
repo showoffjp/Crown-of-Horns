@@ -25,7 +25,7 @@ namespace SunderedCrown.Combat
             _turns.OnTurnStarted += HandleTurnStarted;
             _turns.OnCombatEnded += HandleCombatEnded;
             if (autoStartOnPlay)
-                _turns.StartCombat(FindObjectsByType<GridUnit>(FindObjectsSortMode.None));
+                _turns.StartCombat(FindObjectsByType<GridUnit>());
         }
 
         void OnDestroy()

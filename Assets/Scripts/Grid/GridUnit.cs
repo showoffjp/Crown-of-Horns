@@ -67,7 +67,7 @@ namespace SunderedCrown.Grid
         public void PlaceAt(GridCell cell)
         {
             if (cell == null) return;
-            if (Cell != null && Cell.occupant == this) Cell.occupant = null;
+            if (Cell != null && (object)Cell.occupant == this) Cell.occupant = null;
             Cell = cell;
             cell.occupant = this;
             transform.position = SortedWorld(_grid.GridToWorld(cell.x, cell.y));
@@ -84,7 +84,7 @@ namespace SunderedCrown.Grid
 
             foreach (var step in path)
             {
-                if (Cell != null && Cell.occupant == this) Cell.occupant = null;
+                if (Cell != null && (object)Cell.occupant == this) Cell.occupant = null;
                 Vector3 target = SortedWorld(_grid.GridToWorld(step.x, step.y));
                 while ((transform.position - target).sqrMagnitude > 0.0001f)
                 {

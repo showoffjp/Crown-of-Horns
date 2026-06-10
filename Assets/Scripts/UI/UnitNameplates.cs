@@ -22,7 +22,7 @@ namespace SunderedCrown.UI
         {
             if (Input.GetKeyDown(toggleKey)) show = !show;
             // Refresh the unit list once per frame (cheap at this scale; avoids per-OnGUI churn).
-            _units = FindObjectsByType<GridUnit>(FindObjectsSortMode.None);
+            _units = FindObjectsByType<GridUnit>();
         }
 
         void OnGUI()

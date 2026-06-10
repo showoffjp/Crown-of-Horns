@@ -34,7 +34,7 @@ namespace SunderedCrown.World
         {
             _grid = GridSystem.Instance;
             if (worldCamera == null) worldCamera = Camera.main;
-            _interactables.AddRange(FindObjectsByType<Interactable>(FindObjectsSortMode.None));
+            _interactables.AddRange(FindObjectsByType<Interactable>());
 
             // Skill checks in hub dialogue use the leader's modifiers.
             if (DialogueRunner.Instance != null && Leader != null)
