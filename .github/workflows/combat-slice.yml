@@ -7,9 +7,9 @@ name: Combat slice
 
 on:
   push:
-    paths: ["play/**", ".github/workflows/combat-slice.yml"]
+    paths: ["play/**", "Assets/Scripts/**", ".github/workflows/combat-slice.yml"]
   pull_request:
-    paths: ["play/**", ".github/workflows/combat-slice.yml"]
+    paths: ["play/**", "Assets/Scripts/**", ".github/workflows/combat-slice.yml"]
 
 permissions:
   contents: read
