@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crown of Horns — Skirmish</title>
+<style>
+  :root{ --gold:#c9a24b; --gold2:#e7c873; --ink:#0c0b10; --panel:#16141d; --panel2:#1e1b27;
+         --blood:#9b2d2d; --line:#2a2636; --text:#d8d2c2; --dim:#8a8198; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 700px at 50% -10%, #241f30 0%, #0c0b10 70%);
+       color:#d8d2c2;font:14px/1.5 "Iowan Old Style","Palatino Linotype",Georgia,serif;}
+  header{display:flex;align-items:baseline;gap:14px;padding:14px 22px;border-bottom:1px solid #2a2636}
+  header h1{margin:0;font-size:22px;letter-spacing:.5px;color:#e7c873;font-weight:600}
+  header .sub{color:#8a8198;font-size:12px;font-style:italic}
+  .wrap{display:flex;gap:18px;padding:18px 22px;align-items:flex-start;flex-wrap:wrap}
+  canvas{background:#0f0d15;border:1px solid #2a2636;border-radius:8px;box-shadow:0 10px 40px #0008, inset 0 0 60px #0006;cursor:pointer}
+  .side{width:330px;display:flex;flex-direction:column;gap:14px}
+  .card{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-radius:8px;padding:12px 14px}
+  .card h2{margin:0 0 8px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#c9a24b;font-weight:600}
+  .init-row{display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:5px;font-size:13px}
+  .init-row.active{background:#2a2636;outline:1px solid #c9a24b55}
+  .init-row.dead{opacity:.35;text-decoration:line-through}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .init-row .nm{flex:1}
+  .init-row .hp{font-variant-numeric:tabular-nums;color:#8a8198;font-size:12px}
+  .log{height:210px;overflow:auto;font-size:12.5px;display:flex;flex-direction:column-reverse}
+  .log p{margin:2px 0;padding-left:10px;border-left:2px solid #2a2636}
+  .log .hit{border-color:#c9a24b;color:#e7c873}
+  .log .crit{border-color:#e7c873;color:#ffe9a8;font-weight:600}
+  .log .miss{border-color:#3a3550;color:#8a8198}
+  .log .dmg{border-color:#9b2d2d;color:#e0a0a0}
+  .log .turn{border-color:#4a6b8a;color:#9fc0e0}
+  .log .sys{border-color:#5a4a7a;color:#b9a8e0}
+  .btns{display:flex;gap:8px}
+  button{font:inherit;font-size:13px;background:linear-gradient(#26212f,#1a1622);color:#e7c873;border:1px solid #c9a24b66;
+          padding:9px 14px;border-radius:6px;cursor:pointer}
+  button:hover{border-color:#c9a24b;background:linear-gradient(#2e2838,#211b2c)}
+  button:disabled{opacity:.4;cursor:default}
+  .hint{color:#8a8198;font-size:12px;font-style:italic;min-height:18px}
+  .sel{font-size:12.5px;color:#b8b0c4}
+  .sel b{color:#e7c873}
+  .overlay{position:fixed;inset:0;background:#0c0b10dd;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9}
+  .overlay h2{font-size:40px;margin:0;letter-spacing:2px}
+  .win h2{color:#e7c873}.lose h2{color:#9b2d2d}
+  .foot{padding:6px 22px 22px;color:#6e6680;font-size:11.5px}
+  code{color:#c9a24b}
+</style>
+</head>
+<body>
+<header>
+  <h1>Crown of Horns</h1>
+  <span class="sub">Skirmish — a headless slice of the real combat engine (no Unity required)</span>
+</header>
+
+<div class="wrap">
+  <canvas id="board" width="672" height="540"></canvas>
+  <div class="side">
+    <div class="card">
+      <h2>Initiative</h2>
+      <div id="init"></div>
+    </div>
+    <div class="card">
+      <h2>Selected</h2>
+      <div id="sel" class="sel">—</div>
+      <div class="hint" id="hint"></div>
+      <div class="btns" style="margin-top:10px">
+        <button id="endTurn">End Turn</button>
+        <button id="restart">Restart</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Chronicle</h2>
+      <div class="log" id="log"></div>
+    </div>
+  </div>
+</div>
+<div class="foot">
+  Engine ported 1:1 from <code>AttackResolver.cs</code> · <code>Dice.cs</code> · <code>CharacterSheet.cs</code>.
+  d20 + ability mod + proficiency vs Armor Class; nat 20 crits (double dice); nat 1 auto-misses.
+  Click a <span style="color:#c9a24b">glowing tile</span> to move, click an <span style="color:#9b2d2d">enemy in reach</span> to strike.
+</div>
+
+<div class="overlay" id="over"><h2 id="overTitle"></h2><button onclick="newGame()">Fight Again</button></div>
+
+<script>
+// ===========================================================================
+//  REAL ENGINE — ported 1:1 from the Unity C# (Dice / Abilities / Sheet / AttackResolver)
+// ===========================================================================
+class DotNetRandom{ // .NET System.Random, exact — so rolls are honest 5e dice
+  constructor(s){this.init(s)}
+  init(Seed){const MBIG=2147483647,MSEED=161803398;this.S=new Array(56).fill(0);
+    let sub=(Seed===-2147483648)?2147483647:Math.abs(Seed);let mj=MSEED-sub;this.S[55]=mj;let mk=1;
+    for(let i=1;i<55;i++){let ii=(21*i)%55;this.S[ii]=mk;mk=mj-mk;if(mk<0)mk+=MBIG;mj=this.S[ii];}
+    for(let k=1;k<5;k++)for(let i=1;i<56;i++){this.S[i]-=this.S[1+(i+30)%55];if(this.S[i]<0)this.S[i]+=MBIG;}
+    this.inext=0;this.inextp=21;}
+  samp(){const MBIG=2147483647;let a=this.inext,b=this.inextp;if(++a>=56)a=1;if(++b>=56)b=1;
+    let r=this.S[a]-this.S[b];if(r===MBIG)r--;if(r<0)r+=MBIG;this.S[a]=r;this.inext=a;this.inextp=b;return r;}
+  sample(){return this.samp()*(1/2147483647);}
+  next(min,max){return Math.floor(this.sample()*(max-min))+min;}
+}
+const Dice={ _r:new DotNetRandom((Math.random()*1e9)|0),
+  Seed(s){this._r=new DotNetRandom(s);},
+  Roll(sides){return this._r.next(1,sides+1);},
+  D20(){return this.Roll(20);},
+  D20Adv(){return Math.max(this.Roll(20),this.Roll(20));},
+  D20Dis(){return Math.min(this.Roll(20),this.Roll(20));},
+  Notation(n){const m=/^\s*(\d+)d(\d+)\s*([+-]\s*\d+)?\s*$/.exec(n);const c=+m[1],s=+m[2];
+    let mod=m[3]?+m[3].replace(/\s/g,''):0;let t=0;for(let i=0;i<c;i++)t+=this.Roll(s);return t+mod;}
+};
+const mod = v => Math.floor((v-10)/2);
+
+// AttackResolver.Resolve — attack-roll path with crit + ability-mod-to-damage
+function resolve(att, def, abilityMod){
+  const r={};
+  r.roll = Dice.D20();
+  r.crit = r.roll===20; const autoMiss = r.roll===1;
+  r.total = r.roll + abilityMod + att.prof;
+  r.ac = def.AC;
+  r.hit = !autoMiss && (r.crit || r.total >= r.ac);
+  r.dmg = 0;
+  if(r.hit){ let d=Dice.Notation(att.weapon.dice); if(r.crit) d+=Dice.Notation(att.weapon.dice);
+             d+=abilityMod; r.dmg=Math.max(0,d); }
+  return r;
+}
+
+// ===========================================================================
+//  ENCOUNTER — the real cast
+// ===========================================================================
+const COLS=12, ROWS=9, TILE=44, PAD={x:18,y:18};
+let units, order, turnIdx, selected, reachable, floats, blocked, gameOver;
+
+function makeUnit(o){
+  const u=Object.assign({hasMoved:false,hasActed:false,fx:0,fy:0},o);
+  u.maxHP=o.hp; u.hp=o.hp;
+  u.prof = 2 + Math.floor((o.level-1)/4);
+  Object.defineProperty(u,'AC',{get(){return o.baseAC + mod(u.dex);}});
+  Object.defineProperty(u,'atkMod',{get(){return mod(u[u.primary]);}});
+  Object.defineProperty(u,'initMod',{get(){return mod(u.dex);}});
+  Object.defineProperty(u,'alive',{get(){return u.hp>0;}});
+  return u;
+}
+function roster(){
+  return [
+    makeUnit({name:"Sister Garrow", side:"hero", x:1,y:2, str:15,dex:12,con:14, baseAC:16, hp:30, level:5, speed:5, primary:"str", weapon:{name:"Warpriest's Maul",dice:"1d8"}, col:"#e7c873", glyph:"✛"}),
+    makeUnit({name:"Roen Alleywind", side:"hero", x:1,y:4, str:12,dex:18,con:12, baseAC:15, hp:24, level:5, speed:7, primary:"dex", weapon:{name:"Twin Rapiers",dice:"1d8"}, col:"#7fd0a0", glyph:"⚔"}),
+    makeUnit({name:"Varra", side:"hero", x:1,y:6, str:17,dex:12,con:16, baseAC:17, hp:38, level:5, speed:5, primary:"str", weapon:{name:"Greataxe",dice:"1d12"}, col:"#6fa8dc", glyph:"⛏"}),
+
+    makeUnit({name:"The Returned", side:"foe", x:9,y:1, str:13,dex:10,con:12, baseAC:12, hp:15, level:2, speed:4, primary:"str", weapon:{name:"Rotting Claw",dice:"1d6"}, col:"#9b2d2d", glyph:"☠"}),
+    makeUnit({name:"The Returned", side:"foe", x:10,y:3, str:13,dex:10,con:12, baseAC:12, hp:15, level:2, speed:4, primary:"str", weapon:{name:"Rotting Claw",dice:"1d6"}, col:"#9b2d2d", glyph:"☠"}),
+    makeUnit({name:"The Returned", side:"foe", x:10,y:6, str:13,dex:10,con:12, baseAC:12, hp:15, level:2, speed:4, primary:"str", weapon:{name:"Rotting Claw",dice:"1d6"}, col:"#9b2d2d", glyph:"☠"}),
+    makeUnit({name:"The Returned", side:"foe", x:9,y:8, str:13,dex:10,con:12, baseAC:12, hp:15, level:2, speed:4, primary:"str", weapon:{name:"Rotting Claw",dice:"1d6"}, col:"#9b2d2d", glyph:"☠"}),
+    makeUnit({name:"The Last Returned", side:"foe", x:11,y:4, str:16,dex:12,con:16, baseAC:15, hp:40, level:4, speed:5, primary:"str", weapon:{name:"Crown-Shard",dice:"1d10"}, col:"#b06fd0", glyph:"♛"}),
+  ];
+}
+
+// ---- grid helpers ----
+const key=(x,y)=>x+","+y;
+const cheb=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
+function occupied(x,y){return units.find(u=>u.alive && u.x===x && u.y===y);}
+function inBounds(x,y){return x>=0&&y>=0&&x<COLS&&y<ROWS;}
+function passable(x,y,self){return inBounds(x,y)&&!blocked.has(key(x,y))&&!(occupied(x,y)&&occupied(x,y)!==self);}
+
+// BFS reachable tiles within speed (8-connected, Chebyshev steps)
+function computeReachable(u){
+  const seen=new Map(); seen.set(key(u.x,u.y),0); const q=[[u.x,u.y,0]]; const out=new Set();
+  while(q.length){ const [x,y,d]=q.shift();
+    if(d>=u.speed) continue;
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){ if(!dx&&!dy)continue;
+      const nx=x+dx,ny=y+dy,k=key(nx,ny);
+      if(!passable(nx,ny,u))continue;
+      if(seen.has(k)&&seen.get(k)<=d+1)continue;
+      seen.set(k,d+1); out.add(k); q.push([nx,ny,d+1]); } }
+  return out;
+}
+// BFS path step toward a target tile (returns next cell to step to, up to `speed` steps along shortest path)
+function stepToward(u, tx, ty){
+  // BFS from unit; reconstruct path to the reachable cell nearest (adjacent) to target
+  const prev=new Map(); const seen=new Set([key(u.x,u.y)]); const q=[[u.x,u.y]];
+  let best=null, bestD=1e9;
+  while(q.length){ const [x,y]=q.shift(); const dToTarget=Math.max(Math.abs(x-tx),Math.abs(y-ty));
+    if(dToTarget<bestD){bestD=dToTarget;best=key(x,y);}
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){ if(!dx&&!dy)continue;
+      const nx=x+dx,ny=y+dy,k=key(nx,ny);
+      if(seen.has(k))continue; if(!passable(nx,ny,u))continue;
+      seen.add(k); prev.set(k,key(x,y)); q.push([nx,ny]); } }
+  // walk back from best to find path, then take up to `speed` steps
+  const path=[]; let cur=best;
+  while(cur && cur!==key(u.x,u.y)){ path.unshift(cur); cur=prev.get(cur); }
+  const steps=path.slice(0,u.speed);
+  if(steps.length){ const [nx,ny]=steps[steps.length-1].split(",").map(Number); return {x:nx,y:ny}; }
+  return {x:u.x,y:u.y};
+}
+
+// ===========================================================================
+//  GAME FLOW
+// ===========================================================================
+const $=id=>document.getElementById(id);
+function log(msg,cls){ const p=document.createElement("p"); p.className=cls||""; p.textContent=msg; $("log").prepend(p); }
+
+function newGame(){
+  units=roster();
+  blocked=new Set(["5,1","6,1","5,4","6,5","5,7","6,7","4,3","7,2","7,6"]); // rubble of the old shrine
+  floats=[]; gameOver=false; $("over").style.display="none"; $("log").innerHTML="";
+  // initiative: d20 + dex mod, ties by dex mod  (TurnManager.cs)
+  const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
+  rolled.sort((a,b)=> b.init-a.init || b.u.initMod-a.u.initMod);
+  order=rolled.map(r=>r.u);
+  log("The shrine of the Sundered Crown — three pilgrims against the Returned.","sys");
+  rolled.forEach(r=>log(`  ${r.u.name} rolls initiative ${r.init}.`,"sys"));
+  turnIdx=-1; nextTurn();
+}
+
+function nextTurn(){
+  if(checkEnd())return;
+  let guard=0;
+  do{ turnIdx=(turnIdx+1)%order.length; } while(!order[turnIdx].alive && ++guard<order.length*2);
+  const u=order[turnIdx];
+  u.hasMoved=false; u.hasActed=false;
+  selected=u; reachable=computeReachable(u);
+  log(`— ${u.name}'s turn —`,"turn");
+  renderSide();
+  if(u.side==="foe"){ setTimeout(enemyTurn, 520); }
+}
+
+function endTurn(){ if(gameOver)return; const u=order[turnIdx]; if(u.side!=="hero")return; nextTurn(); }
+
+function doMove(u, x, y){
+  u.x=x; u.y=y; u.hasMoved=true; reachable=new Set(); renderSide();
+}
+function doAttack(att, def){
+  const r=resolve(att, def, att.atkMod);
+  att.hasActed=true;
+  const tag=`(d20 ${r.roll}${att.atkMod>=0?"+":""}${att.atkMod}+${att.prof}=${r.total} vs AC ${r.ac})`;
+  if(!r.hit){ log(`${att.name}'s ${att.weapon.name} misses ${def.name} ${tag}.`,"miss"); spawnFloat(def,"miss","#8a8198"); }
+  else{
+    def.hp=Math.max(0,def.hp-r.dmg);
+    if(r.crit){ log(`${att.name}'s ${att.weapon.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit"); spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8"); }
+    else{ log(`${att.name}'s ${att.weapon.name} hits ${def.name} for ${r.dmg} ${tag}.`,"hit"); spawnFloat(def,"-"+r.dmg,"#e0a0a0"); }
+    if(!def.alive) log(`${def.name} falls.`,"dmg");
+  }
+  renderSide();
+  if(att.side==="hero"){ reachable=new Set(); if(checkEnd())return; }
+}
+
+function spawnFloat(u,text,col){ floats.push({x:u.x,y:u.y,text,col,t:0}); }
+
+function enemyTurn(){
+  const u=order[turnIdx]; if(!u.alive||gameOver){ nextTurn(); return; }
+  // target nearest living hero
+  const heroes=units.filter(h=>h.side==="hero"&&h.alive);
+  if(!heroes.length){ checkEnd(); return; }
+  let tgt=heroes.reduce((a,b)=> cheb(u,b)<cheb(u,a)?b:a);
+  // move adjacent if not already
+  if(cheb(u,tgt)>1){ const s=stepToward(u,tgt.x,tgt.y); doMove(u,s.x,s.y); }
+  setTimeout(()=>{
+    if(cheb(u,tgt)<=1 && u.alive && tgt.alive) doAttack(u,tgt);
+    setTimeout(nextTurn, 480);
+  }, 360);
+}
+
+function checkEnd(){
+  const heroes=units.some(u=>u.side==="hero"&&u.alive);
+  const foes=units.some(u=>u.side==="foe"&&u.alive);
+  if(heroes&&foes) return false;
+  gameOver=true;
+  const win=heroes;
+  const o=$("over"); o.className="overlay "+(win?"win":"lose"); o.style.display="flex";
+  $("overTitle").textContent= win? "The Returned are put to rest." : "The shrine claims three more.";
+  log(win?"Victory.":"Defeat.","sys");
+  return true;
+}
+
+// ===========================================================================
+//  INPUT
+// ===========================================================================
+const cvs=$("board"), ctx=cvs.getContext("2d");
+cvs.addEventListener("click", e=>{
+  if(gameOver)return; const u=order[turnIdx]; if(!u||u.side!=="hero")return;
+  const rect=cvs.getBoundingClientRect();
+  const mx=(e.clientX-rect.left)*(cvs.width/rect.width), my=(e.clientY-rect.top)*(cvs.height/rect.height);
+  const x=Math.floor((mx-PAD.x)/TILE), y=Math.floor((my-PAD.y)/TILE);
+  if(!inBounds(x,y))return;
+  const target=occupied(x,y);
+  if(target && target.side==="foe" && target.alive && !u.hasActed && cheb(u,target)<=1){ doAttack(u,target); return; }
+  if(!target && !u.hasMoved && reachable.has(key(x,y))){ doMove(u,x,y); return; }
+});
+$("endTurn").onclick=endTurn;
+$("restart").onclick=newGame;
+
+// ===========================================================================
+//  RENDER
+// ===========================================================================
+function renderSide(){
+  // initiative tracker
+  const box=$("init"); box.innerHTML="";
+  order.forEach((u,i)=>{ const row=document.createElement("div");
+    row.className="init-row"+(i===turnIdx?" active":"")+(u.alive?"":" dead");
+    row.innerHTML=`<span class="dot" style="background:${u.col}"></span><span class="nm">${u.name}</span><span class="hp">${u.hp}/${u.maxHP}</span>`;
+    box.appendChild(row); });
+  // selected panel
+  const u=order[turnIdx];
+  if(u){ $("sel").innerHTML=`<b>${u.name}</b> &nbsp; AC ${u.AC} · HP ${u.hp}/${u.maxHP} · ${u.weapon.name} (${u.weapon.dice}${u.atkMod>=0?"+":""}${u.atkMod})<br>to-hit +${u.atkMod+u.prof} · move ${u.speed}`;
+    $("hint").textContent = u.side==="hero"
+      ? (u.hasActed? "Attacked. End your turn." : u.hasMoved? "Click an enemy in reach to strike, or End Turn." : "Click a glowing tile to move, or an enemy in reach to strike.")
+      : "The Returned stir…";
+  }
+  $("endTurn").disabled = !u || u.side!=="hero";
+}
+
+function draw(){
+  ctx.clearRect(0,0,cvs.width,cvs.height);
+  // tiles
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
+    const px=PAD.x+x*TILE, py=PAD.y+y*TILE;
+    const isBlock=blocked.has(key(x,y));
+    ctx.fillStyle = isBlock? "#1a1622" : ((x+y)%2? "#14121b":"#171520");
+    ctx.fillRect(px,py,TILE-2,TILE-2);
+    if(reachable && reachable.has(key(x,y))){
+      ctx.fillStyle="#c9a24b22"; ctx.fillRect(px,py,TILE-2,TILE-2);
+      ctx.strokeStyle="#c9a24b66"; ctx.strokeRect(px+1.5,py+1.5,TILE-5,TILE-5);
+    }
+    if(isBlock){ ctx.fillStyle="#2a2433"; ctx.beginPath(); ctx.arc(px+TILE/2-1,py+TILE/2-1,7,0,7); ctx.fill(); }
+  }
+  // melee-threat highlight for selected hero
+  const sel=order&&order[turnIdx];
+  if(sel&&sel.side==="hero"&&!sel.hasActed){
+    units.filter(t=>t.side==="foe"&&t.alive&&cheb(sel,t)<=1).forEach(t=>{
+      const px=PAD.x+t.x*TILE, py=PAD.y+t.y*TILE;
+      ctx.strokeStyle="#9b2d2d"; ctx.lineWidth=2; ctx.strokeRect(px+1,py+1,TILE-4,TILE-4); ctx.lineWidth=1;
+    });
+  }
+  // units
+  units.filter(u=>u.alive).forEach(u=>{
+    const px=PAD.x+u.x*TILE+TILE/2-1, py=PAD.y+u.y*TILE+TILE/2-1;
+    if(sel===u){ ctx.strokeStyle="#e7c873"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(px,py,TILE/2-3,0,7); ctx.stroke(); ctx.lineWidth=1; }
+    ctx.fillStyle=u.col; ctx.beginPath(); ctx.arc(px,py,TILE/2-7,0,7); ctx.fill();
+    ctx.fillStyle="#0c0b10"; ctx.font="16px serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.fillText(u.glyph,px,py+1);
+    // hp bar
+    const w=TILE-12, h=4, bx=px-w/2, by=py+TILE/2-9;
+    ctx.fillStyle="#000a"; ctx.fillRect(bx,by,w,h);
+    ctx.fillStyle = u.side==="hero"?"#7fd0a0":"#c9554d";
+    ctx.fillRect(bx,by,w*Math.max(0,u.hp/u.maxHP),h);
+  });
+  // floating combat text
+  for(let i=floats.length-1;i>=0;i--){ const f=floats[i]; f.t+=0.016;
+    const px=PAD.x+f.x*TILE+TILE/2-1, py=PAD.y+f.y*TILE+TILE/2-1 - f.t*26;
+    ctx.globalAlpha=Math.max(0,1-f.t/1.1); ctx.fillStyle=f.col; ctx.font="bold 15px serif"; ctx.textAlign="center";
+    ctx.fillText(f.text,px,py); ctx.globalAlpha=1;
+    if(f.t>1.1) floats.splice(i,1);
+  }
+  requestAnimationFrame(draw);
+}
+
+newGame();
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
