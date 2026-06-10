@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v3.65.0 — *"The Odds Made Plain"* — Unity 6.4, the verified slice, and combat forecasts
+
+> The engine moves to **Unity 6000.4.9f1**, the codebase gets its first full audit, and the game
+> learns to tell you the truth before you swing: an **XCOM-style forecast** — hit %, crit %, expected
+> damage, kill % — on every target, computed from the same math the dice roll. Alongside it, the
+> combat and narrative cores now run **outside Unity** in a browser-playable slice, pinned by 100+
+> ported tests so nothing can drift silently again.
+
+- 🎯 **Attack forecasts** (`AttackForecast`): analytic hit/crit/damage/lethal preview mirroring
+  `AttackResolver` exactly — proven by a Monte-Carlo cross-check (40k seeded rolls per matchup) in
+  `AttackForecastTests`. Toggleable via the new `ShowHitChance` setting.
+- 🎛️ **QoL settings**: `ShowHitChance`, `ConfirmEndTurn`, `AutoEndTurn`, `AutosaveEnabled` (the
+  campaign autosave now respects it), and `ScreenShake` — PlayerPrefs-persisted like the rest.
+- 🧭 **Unity 6.4 migration**: every deprecated lookup replaced (`FindAnyObjectByType`, no-arg
+  `FindObjectsByType`, `GetInstanceID` dropped), both `CS0252` reference-comparison warnings fixed,
+  `ProjectVersion.txt` → 6000.4.9f1 so CI tests on the engine the project ships on.
+- 🩺 **The audit**: `CampaignBootstrap` no longer leaks its `OnFlagChanged` handler across
+  defeat-restarts (zombie handlers could recruit stale companions into a new run); one-shot
+  handlers in `EncounterBuilder`/`PrologueBootstrap`; `BreachDemo` unsubscribes too.
+- ⚖️ **Balance canary retuned**: the reference Brute (Str 16, HP 34) brings the oracle into its own
+  design bands — **Hero 70% [OK] · Duelist 53% [OK]** (was 95/89 HIGH/HIGH).
+- 🕹️ **`play/` — the verified slice**: a browser-playable skirmish (Garrow, Roen, Varra vs the
+  Returned) on a seed-faithful port of the combat rules, plus ports of endings, epilogue,
+  inventory, and progression. **104 ported checks**, a prose-parity gate, a 500-playthrough fuzz,
+  and a 400-game DOM smoke — wired into a new `combat-slice` CI workflow that re-runs whenever
+  `Assets/Scripts/**` changes.
+- 🧪 **Epilogue coverage**: `EpilogueTests` (17 tests) pins the BG2-style payoff — slide gating,
+  quest-outcome priorities, loved-and-lost, the anchor rule, the Chronicle.
+
 ## 👑 v3.64.2 — *"The Skull Still Choosing"* — Aldric's fate, named at the forge
 
 > The third cross-era callback, and the tightest loop in the saga: the **Time of Troubles** is the year
