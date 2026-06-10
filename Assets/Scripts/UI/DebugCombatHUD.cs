@@ -22,7 +22,7 @@ namespace SunderedCrown.UI
         void Start()
         {
             _turns = TurnManager.Instance;
-            _input = FindFirstObjectByType<PlayerCombatInput>();
+            _input = FindAnyObjectByType<PlayerCombatInput>();
             if (_turns != null)
                 _turns.OnCombatLog += msg =>
                 {

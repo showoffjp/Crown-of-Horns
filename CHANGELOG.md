@@ -11,6 +11,110 @@
 
 ---
 
+## 👑 v3.65.0 — *"The Odds Made Plain"* — Unity 6.4, the verified slice, and combat forecasts
+
+> The engine moves to **Unity 6000.4.9f1**, the codebase gets its first full audit, and the game
+> learns to tell you the truth before you swing: an **XCOM-style forecast** — hit %, crit %, expected
+> damage, kill % — on every target, computed from the same math the dice roll. Alongside it, the
+> combat and narrative cores now run **outside Unity** in a browser-playable slice, pinned by 100+
+> ported tests so nothing can drift silently again.
+
+- 🎯 **Attack forecasts** (`AttackForecast`): analytic hit/crit/damage/lethal preview mirroring
+  `AttackResolver` exactly — proven by a Monte-Carlo cross-check (40k seeded rolls per matchup) in
+  `AttackForecastTests`. Toggleable via the new `ShowHitChance` setting.
+- 🎛️ **QoL settings**: `ShowHitChance`, `ConfirmEndTurn`, `AutoEndTurn`, `AutosaveEnabled` (the
+  campaign autosave now respects it), and `ScreenShake` — PlayerPrefs-persisted like the rest.
+- 🧭 **Unity 6.4 migration**: every deprecated lookup replaced (`FindAnyObjectByType`, no-arg
+  `FindObjectsByType`, `GetInstanceID` dropped), both `CS0252` reference-comparison warnings fixed,
+  `ProjectVersion.txt` → 6000.4.9f1 so CI tests on the engine the project ships on.
+- 🩺 **The audit**: `CampaignBootstrap` no longer leaks its `OnFlagChanged` handler across
+  defeat-restarts (zombie handlers could recruit stale companions into a new run); one-shot
+  handlers in `EncounterBuilder`/`PrologueBootstrap`; `BreachDemo` unsubscribes too.
+- ⚖️ **Balance canary retuned**: the reference Brute (Str 16, HP 34) brings the oracle into its own
+  design bands — **Hero 70% [OK] · Duelist 53% [OK]** (was 95/89 HIGH/HIGH).
+- 🕹️ **`play/` — the verified slice**: a browser-playable skirmish (Garrow, Roen, Varra vs the
+  Returned) on a seed-faithful port of the combat rules, plus ports of endings, epilogue,
+  inventory, and progression. **104 ported checks**, a prose-parity gate, a 500-playthrough fuzz,
+  and a 400-game DOM smoke — wired into a new `combat-slice` CI workflow that re-runs whenever
+  `Assets/Scripts/**` changes.
+- 🧪 **Epilogue coverage**: `EpilogueTests` (17 tests) pins the BG2-style payoff — slide gating,
+  quest-outcome priorities, loved-and-lost, the anchor rule, the Chronicle.
+
+## 👑 v3.64.2 — *"The Skull Still Choosing"* — Aldric's fate, named at the forge
+
+> The third cross-era callback, and the tightest loop in the saga: the **Time of Troubles** is the year
+> Myrkul dies and his skull is beaten into the **Crown of Horns** — the very relic the gentle heretic
+> **Aldric Morn** carries on his shelf in Act I. A new echo at that forge names what *you* saw of Aldric
+> over tea, and turns it into a warning about the thing inside the crown.
+
+- ⚒️ **A Keeper of the Bone Crown** (second echo in the Time of Troubles) reads your Act-I read of Aldric
+  back to you, most-specific-first:
+  - **Sensed the Crown using him** (`aldric.crown_doubt_planted`): "you caught the leash for what it was —
+    do not unsee it."
+  - **Named him a monster** (`aldric.named_monster`): "hate the relic, not the hand it chose for being kind."
+  - **Saw the grieving father** (`aldric.grief_seen`): "love the size of his is the *door* the Crown was built
+    to walk through."
+  - **Made him say the count** (`aldric.cost_revealed`): "the crown keeps a *different* ledger… the line where
+    the price is *him.*"
+  - **Merely met him** (`aldric.met`): "the hammer here and the whisper there are the same throat."
+  - **Never met him**: pure foreshadow — "a gentle hand will be offered this very crown and told it is a *means.*"
+- 🧱 **Reusable plumbing:** `SimpleEra` now supports a **second independent echo slot** (`echoGraph2` /
+  `echoLabel2`), so any era can name more than one upstream thread. The Spellplague can pick up a second echo
+  later for free.
+- 🛡️ **Validated + tested:** the new graph is registered in `ContentValidator` (`era.echo_toot_crown`) and
+  `EraEchoesTests` grows to **16 tests** (every branch + priority ordering). **29 suites · ~201 tests.**
+  Structural check green (165 C# files).
+
+---
+
+## 🕯️ v3.64.1 — *"The Pulled and the Paid"* — the Breach, named downstream
+
+> A direct extension of v3.64.0's cross-era callbacks: the single heaviest choice in the game — the
+> **Breach** at the Wall of the Faithless — now echoes in the late eras, the same way the Crown Wars
+> Verdict does. Also closes a reactivity gap: *walking away* from the Wall was previously invisible.
+
+- ⚖️ **The Breach echoes forward.** Both late-era figures (the Time of Troubles **gravedigger** and the
+  Spellplague **half-unmade soul**) now layer a third conditional thread on top of the Verdict + Netheril
+  ones, keyed to what you did at the Wall:
+  - **Pulled Maerin free** (`fugue.pull_maerin`): named as a *trade-death* — "the Wall never gives without
+    taking… carry them both, the pulled and the paid."
+  - **Walked away** (`fugue.left_maerin`): named as counted restraint — "you did the arithmetic out loud…
+    it deserves a marker," and the soul that *would have been the cost* thanks you for it.
+- 🩹 **Closed a reactivity gap (ROADMAP Tier 3 "every major choice leaves a trace"):** declining to pull
+  Maerin set **no flag** before — the restraint was unwitnessed. It now sets `fugue.left_maerin`, so the
+  choice is reactable (and is, immediately, by both echoes).
+- 🛡️ **Tests:** `EraEchoesTests` grows to **10 tests** (added pulled/left/neither coverage for both eras).
+  **29 suites · ~195 tests.** Structural check green (165 C# files).
+
+---
+
+## ⏳ v3.64.0 — *"The Source Remembers"* — Cross-Era Callbacks (the time-travel earns its keep)
+
+> *A choice in -10,000 DR, spoken aloud in 1385 DR.* The saga's whole conceit is that you walk the
+> hinge-points of history — so a verdict at the source should be **named** downstream, with its cost
+> made visible. ROADMAP Tier 3 ("no choice forgotten") / DESIGN pillar V. **The last open Tier-3
+> reactivity item lands.**
+
+- 🪦 **New `EraEchoes` content** — the *world itself* (not a companion) reacting to an upstream choice:
+  - **Time of Troubles (1358 DR):** a **grey gravedigger** working the godless dead while the gods bleed
+    speaks the **Crown Wars Verdict** back to you. Argue the damnation *down* (`crownwars.verdict_spared`)
+    and the unclaimed get a resting-place "because of that single afternoon — the Wall was only ever a
+    wall, never a furnace." Let it *pass* (`crownwars.verdict_passed`) and "the source remembers, even
+    when the river forgets."
+  - **Spellplague (1385 DR):** a **half-unmade soul** in the blue fire — held together only by being
+    *witnessed* — thanks you (spared) or forgives you (passed) for that same verdict, ten thousand years on.
+  - Both echoes append a **second thread** if you witnessed **Netheril's fall** (`netheril.cleared/arrived`)
+    — the soot of the first apocalypse, the returned shades who "fell once before."
+- 🧩 **Reusable wiring:** `SimpleEra.echoGraph` (+`echoLabel`) places the beat as a Talk marker, mirroring
+  the existing `witnessGraph` pattern; `CampaignBootstrap` wires both late eras. Built **live from the
+  flags**, with a graceful neutral fallback if you witnessed neither upstream era.
+- 🛡️ **CI-guarded:** both echo graphs registered in `ContentValidator` (broken-reference gate) and a new
+  **`EraEchoesTests`** EditMode suite (**8 tests**) locks each branch — spared / passed / default /
+  Netheril-thread — so the no-compiler sandbox still guards the reactivity. **29 suites · ~193 tests.**
+- 🟢 Structural check green (**165 C# files**). Roadmap Tier 3 reactivity is now complete.
+
+---
+
 ## 🎨 v3.63.0 — *"Status & Ledger"* — Condition Icons + Asset License Ledger (ASSETS)
 
 - ☠️ Added a **12-icon status-effect set** mapped **1:1 to the `Condition` enum** (poisoned, prone,

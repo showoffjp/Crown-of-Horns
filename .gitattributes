@@ -4,6 +4,7 @@
 # Unity binary assets via Git LFS
 *.png   filter=lfs diff=lfs merge=lfs -text
 *.jpg   filter=lfs diff=lfs merge=lfs -text
+*.jpeg  filter=lfs diff=lfs merge=lfs -text
 *.psd   filter=lfs diff=lfs merge=lfs -text
 *.fbx   filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
@@ -12,6 +13,14 @@
 *.ogg   filter=lfs diff=lfs merge=lfs -text
 *.anim  filter=lfs diff=lfs merge=lfs -text
 *.mp4   filter=lfs diff=lfs merge=lfs -text
+
+# Locally-generated PLACEHOLDER art (tools/gen-placeholder-art.py) — kept as normal
+# git blobs, not LFS. They're a few KB each; LFS buys nothing, and this lets them be
+# committed from environments without LFS push access. The global *.png LFS rule above
+# still governs all real art. Replace these with real sprites (same names) any time.
+Assets/Resources/Sprites/*.png   -filter -diff -merge -text
+Assets/Resources/Portraits/*.png -filter -diff -merge -text
+docs/art-preview/*.png           -filter -diff -merge -text
 
 # Treat Unity YAML assets as text (better merges)
 *.unity   text

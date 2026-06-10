@@ -112,7 +112,15 @@ namespace SunderedCrown.Core
             EnterHub();
         }
 
-        private void Autosave() => SunderedCrown.Save.SaveSystem.Save(SaveSlot, "campaign");
+        private void Autosave() { if (GameSettings.AutosaveEnabled) SunderedCrown.Save.SaveSystem.Save(SaveSlot, "campaign"); }
+
+        void OnDestroy()
+        {
+            // DefeatScreen destroys and rebuilds this bootstrap while GameFlags.Current and the
+            // Party singleton live on. Without this, the dead instance's OnFlagChanged keeps
+            // firing and can recruit stale, old-run companion sheets into the next playthrough.
+            GameFlags.Current.OnFlagChanged -= OnFlagChanged;
+        }
 
         /// <summary>Build the companion roster sheets (without recruiting them).</summary>
         private void BuildCompanions()
@@ -826,6 +834,8 @@ namespace SunderedCrown.Core
             era.examineText = "They are beating a god's skull into a crown of horns. The Crown-Voice that has whispered to you all this way — it is not a tool. It is Myrkul, and it has been riding the road in your pack.";
             era.fightId = "toot"; era.fightLabel = "Cut through the avatar-touched (battle)";
             era.witnessNameMatch = "Garrow"; era.witnessGraph = EraWitness.GarrowTimeOfTroubles;
+            era.echoLabel = "A Grey Gravedigger at the Low Ground"; era.echoGraph = EraEchoes.TimeOfTroubles;
+            era.echoLabel2 = "A Keeper of the Bone Crown"; era.echoGraph2 = EraEchoes.CrownBearer;
             era.bonusFightId = "toot_avatar";
             era.bonusFightLabel = "Face the Avatar of Bone (optional miniboss)";
             era.bonusFightDoneFlag = "toot.avatar_down";
@@ -849,6 +859,7 @@ namespace SunderedCrown.Core
             era.examineText = "Blue fire pours from a tear in the sky, and the ground floats where it forgot to be ground. Here cause does not reliably precede effect. Here the Unmade comes closest to winning.";
             era.fightId = "spellplague"; era.fightLabel = "Fight through the blue fire (battle)";
             era.witnessNameMatch = "Varra"; era.witnessGraph = EraWitness.VarraSpellplague;
+            era.echoLabel = "A Half-Unmade Voice in the Blue Fire"; era.echoGraph = EraEchoes.Spellplague;
             era.bonusFightId = "spellplague_herald";
             era.bonusFightLabel = "Face the Herald of the Unmade (optional miniboss)";
             era.bonusFightDoneFlag = "spellplague.herald_down";

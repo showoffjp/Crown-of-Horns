@@ -85,7 +85,8 @@ namespace SunderedCrown.Content
                             new FlagClause { key = "fugue.pull_maerin", op = FlagOp.SetTrue },
                         }
                     },
-                    new DialogueChoice { text = "...You're right. I won't pay that price.", nextNodeId = "leave" },
+                    new DialogueChoice { text = "...You're right. I won't pay that price.", nextNodeId = "leave",
+                        effects = new[] { new FlagClause { key = "fugue.left_maerin", op = FlagOp.SetTrue } } },
                 }
             });
             m.nodes.Add(new DialogueNode

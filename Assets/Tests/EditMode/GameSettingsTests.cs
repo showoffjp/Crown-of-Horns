@@ -13,6 +13,7 @@ namespace SunderedCrown.Tests.EditMode
     {
         private GameSettings.Difficulty _mode;
         private float _combatSpeed, _uiScale;
+        private bool _hitChance, _confirmEnd, _autoEnd, _autosave, _screenShake;
 
         [SetUp]
         public void SetUp()
@@ -20,6 +21,11 @@ namespace SunderedCrown.Tests.EditMode
             _mode = GameSettings.Mode;
             _combatSpeed = GameSettings.CombatSpeed;
             _uiScale = GameSettings.UiScale;
+            _hitChance = GameSettings.ShowHitChance;
+            _confirmEnd = GameSettings.ConfirmEndTurn;
+            _autoEnd = GameSettings.AutoEndTurn;
+            _autosave = GameSettings.AutosaveEnabled;
+            _screenShake = GameSettings.ScreenShake;
         }
 
         [TearDown]
@@ -28,6 +34,11 @@ namespace SunderedCrown.Tests.EditMode
             GameSettings.Mode = _mode;
             GameSettings.CombatSpeed = _combatSpeed;
             GameSettings.UiScale = _uiScale;
+            GameSettings.ShowHitChance = _hitChance;
+            GameSettings.ConfirmEndTurn = _confirmEnd;
+            GameSettings.AutoEndTurn = _autoEnd;
+            GameSettings.AutosaveEnabled = _autosave;
+            GameSettings.ScreenShake = _screenShake;
         }
 
         [Test]
@@ -83,6 +94,18 @@ namespace SunderedCrown.Tests.EditMode
             Assert.AreNotEqual(story, hard);
             Assert.AreNotEqual(story, normal);
             Assert.AreNotEqual(hard, normal);
+        }
+
+        [Test]
+        public void QoLToggles_AreIndependentlySettable()
+        {
+            GameSettings.ShowHitChance = false;
+            GameSettings.AutoEndTurn = true;
+            GameSettings.AutosaveEnabled = false;
+            Assert.IsFalse(GameSettings.ShowHitChance);
+            Assert.IsTrue(GameSettings.AutoEndTurn);
+            Assert.IsFalse(GameSettings.AutosaveEnabled);
+            Assert.IsTrue(GameSettings.ConfirmEndTurn, "untouched toggle keeps its value");
         }
 
         [Test]

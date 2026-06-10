@@ -44,6 +44,12 @@ namespace SunderedCrown.Core
                       "Pulling her free will cost you Varra — forever.");
         }
 
+        void OnDestroy()
+        {
+            // The demo can be torn down while GameFlags.Current persists - drop the handler.
+            GameFlags.Current.OnFlagChanged -= OnFlag;
+        }
+
         private void OnFlag(string key)
         {
             if (GameFlags.Current.GetBool("companion.maerin.recruited") && !Party.Instance.roster.Contains(_maerin))

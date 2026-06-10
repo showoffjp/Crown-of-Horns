@@ -34,6 +34,16 @@ namespace SunderedCrown.Content
         public string witnessNameMatch;
         public System.Func<DialogueGraph> witnessGraph;
 
+        // Optional cross-era "echo" beat — the world naming an upstream choice (EraEchoes). Always placed
+        // (it's the world, not a companion), as long as the builder is wired and returns a graph.
+        public string echoLabel = "An Echo of an Older Choice";
+        public System.Func<DialogueGraph> echoGraph;
+
+        // A second, independent echo slot — an era may name more than one upstream thread (e.g. the Time of
+        // Troubles speaks both the Crown Wars Verdict and the fate of the Crown's gentle bearer). Same rules.
+        public string echoLabel2 = "Another Echo of an Older Choice";
+        public System.Func<DialogueGraph> echoGraph2;
+
         // Optional extra "miniboss" fight — a second combat exit, available until its done-flag is set.
         public string bonusFightId;
         public string bonusFightLabel = "An optional fight";
@@ -84,6 +94,28 @@ namespace SunderedCrown.Content
                 var it = MakeMarker(grid, witnessNameMatch + " — here, now", new Vector2Int(11, 5),
                     new Color(0.7f, 0.7f, 0.78f));
                 it.kind = InteractionKind.Talk; it.dialogue = witnessGraph();
+            }
+
+            // A cross-era echo — the world speaking your upstream choice back to you (Pillar V).
+            if (echoGraph != null)
+            {
+                var eg = echoGraph();
+                if (eg != null)
+                {
+                    var it = MakeMarker(grid, echoLabel, new Vector2Int(8, 3), new Color(0.55f, 0.5f, 0.45f));
+                    it.kind = InteractionKind.Talk; it.dialogue = eg;
+                }
+            }
+
+            // A second cross-era echo (independent of the first) — same contract, different thread.
+            if (echoGraph2 != null)
+            {
+                var eg2 = echoGraph2();
+                if (eg2 != null)
+                {
+                    var it = MakeMarker(grid, echoLabel2, new Vector2Int(4, 4), new Color(0.78f, 0.74f, 0.66f));
+                    it.kind = InteractionKind.Talk; it.dialogue = eg2;
+                }
             }
 
             // Optional miniboss — a second combat marker, available until you've put it down.

@@ -17,21 +17,20 @@ namespace SunderedCrown.Rendering
     {
         public float scanInterval = 0.5f;
         private float _next;
-        private readonly HashSet<int> _done = new HashSet<int>();
+        private readonly HashSet<GridUnit> _done = new HashSet<GridUnit>();
 
         void Update()
         {
             if (Time.time < _next) return;
             _next = Time.time + scanInterval;
 
-            foreach (var u in FindObjectsByType<GridUnit>(FindObjectsSortMode.None))
+            foreach (var u in FindObjectsByType<GridUnit>())
             {
                 if (u == null) continue;
-                int id = u.GetInstanceID();
-                if (_done.Contains(id)) continue;
+                if (_done.Contains(u)) continue;
 
                 var sprite = Resolve(u);
-                _done.Add(id);              // resolved either way — don't rescan this unit
+                _done.Add(u);               // resolved either way — don't rescan this unit
                 if (sprite != null) Apply(u, sprite);
             }
         }

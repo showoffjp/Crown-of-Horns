@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crown of Horns — Skirmish</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 700px at 50% -10%, #241f30 0%, #0c0b10 70%);
+       color:#d8d2c2;font:14px/1.5 "Iowan Old Style","Palatino Linotype",Georgia,serif;}
+  header{display:flex;align-items:baseline;gap:14px;padding:14px 22px;border-bottom:1px solid #2a2636}
+  header h1{margin:0;font-size:22px;letter-spacing:.5px;color:#e7c873;font-weight:600}
+  header .sub{color:#8a8198;font-size:12px;font-style:italic}
+  .wrap{display:flex;gap:18px;padding:18px 22px;align-items:flex-start;flex-wrap:wrap}
+  .col{display:flex;flex-direction:column;gap:12px}
+  canvas{background:#0f0d15;border:1px solid #2a2636;border-radius:8px;box-shadow:0 10px 40px #0008, inset 0 0 60px #0006;cursor:pointer}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;min-height:42px}
+  .ability{font:inherit;font-size:12.5px;background:linear-gradient(#221d2b,#171320);color:#d8d2c2;border:1px solid #3a3550;
+           padding:7px 11px;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;min-width:96px}
+  .ability small{color:#8a8198;font-size:10.5px}
+  .ability.armed{border-color:#e7c873;background:linear-gradient(#2e2838,#211b2c);box-shadow:0 0 0 1px #c9a24b55}
+  .ability:disabled{opacity:.4;cursor:default}
+  .side{width:330px;display:flex;flex-direction:column;gap:14px}
+  .card{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-radius:8px;padding:12px 14px}
+  .card h2{margin:0 0 8px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#c9a24b;font-weight:600}
+  .init-row{display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:5px;font-size:13px}
+  .init-row.active{background:#2a2636;outline:1px solid #c9a24b55}
+  .init-row.dead{opacity:.35;text-decoration:line-through}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .init-row .nm{flex:1}.init-row .hp{font-variant-numeric:tabular-nums;color:#8a8198;font-size:12px}
+  .conds{font-size:10px;color:#b9a8e0}
+  .log{height:200px;overflow:auto;font-size:12.5px;display:flex;flex-direction:column-reverse}
+  .log p{margin:2px 0;padding-left:10px;border-left:2px solid #2a2636}
+  .log .hit{border-color:#c9a24b;color:#e7c873}.log .crit{border-color:#e7c873;color:#ffe9a8;font-weight:600}
+  .log .miss{border-color:#3a3550;color:#8a8198}.log .dmg{border-color:#9b2d2d;color:#e0a0a0}
+  .log .turn{border-color:#4a6b8a;color:#9fc0e0}.log .sys{border-color:#5a4a7a;color:#b9a8e0}
+  .log .heal{border-color:#4a8a5a;color:#9fe0b0}.log .cond{border-color:#b06fd0;color:#d0a8e8}
+  button.act{font:inherit;font-size:13px;background:linear-gradient(#26212f,#1a1622);color:#e7c873;border:1px solid #c9a24b66;padding:9px 14px;border-radius:6px;cursor:pointer}
+  button.act:hover{border-color:#c9a24b}button.act:disabled{opacity:.4;cursor:default}
+  .hint{color:#8a8198;font-size:12px;font-style:italic;min-height:18px}
+  .sel{font-size:12.5px;color:#b8b0c4}.sel b{color:#e7c873}
+  .overlay{position:fixed;inset:0;background:#0c0b10dd;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9}
+  .overlay h2{font-size:40px;margin:0;letter-spacing:2px}.win h2{color:#e7c873}.lose h2{color:#9b2d2d}
+  .foot{padding:6px 22px 22px;color:#6e6680;font-size:11.5px}code{color:#c9a24b}
+</style>
+</head>
+<body>
+<header>
+  <h1>Crown of Horns</h1>
+  <span class="sub">Skirmish — a headless slice of the real combat engine (no Unity required)</span>
+</header>
+
+<div class="wrap">
+  <div class="col">
+    <canvas id="board" width="616" height="496"></canvas>
+    <div class="bar" id="bar"></div>
+  </div>
+  <div class="side">
+    <div class="card"><h2>Initiative</h2><div id="init"></div></div>
+    <div class="card">
+      <h2>Selected</h2>
+      <div id="sel" class="sel">—</div>
+      <div class="hint" id="hint"></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="act" id="endTurn">End Turn</button>
+        <button class="act" id="fcToggle">ⓘ Forecast: on</button>
+        <button class="act" id="restart">Restart</button>
+      </div>
+    </div>
+    <div class="card"><h2>Chronicle</h2><div class="log" id="log"></div></div>
+  </div>
+</div>
+<div class="foot">
+  Real rules from <code>AttackResolver.cs</code>: d20 + ability mod + proficiency vs AC · nat 20 crits (double dice) · nat 1 auto-misses ·
+  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Live hit/kill **forecast** on every target (toggle below). Verified by 100+ ported tests.
+</div>
+<div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
+
+<script>
+// ===========================================================================
+//  ENGINE — ported from Dice.cs / CharacterSheet.cs / AttackResolver.cs
+// ===========================================================================
+class DotNetRandom{ constructor(s){this.init(s)}
+  init(Seed){const M=2147483647,MS=161803398;this.S=new Array(56).fill(0);
+    let sub=(Seed===-2147483648)?2147483647:Math.abs(Seed);let mj=MS-sub;this.S[55]=mj;let mk=1;
+    for(let i=1;i<55;i++){let ii=(21*i)%55;this.S[ii]=mk;mk=mj-mk;if(mk<0)mk+=M;mj=this.S[ii];}
+    for(let k=1;k<5;k++)for(let i=1;i<56;i++){this.S[i]-=this.S[1+(i+30)%55];if(this.S[i]<0)this.S[i]+=M;}
+    this.a=0;this.b=21;}
+  s(){const M=2147483647;let a=this.a,b=this.b;if(++a>=56)a=1;if(++b>=56)b=1;let r=this.S[a]-this.S[b];
+    if(r===M)r--;if(r<0)r+=M;this.S[a]=r;this.a=a;this.b=b;return r;}
+  sample(){return this.s()/2147483647;} next(mn,mx){return Math.floor(this.sample()*(mx-mn))+mn;}}
+const Dice={_r:new DotNetRandom((Math.random()*1e9)|0),
+  Seed(s){this._r=new DotNetRandom(s)}, Roll(s){return this._r.next(1,s+1)},
+  D20(){return this._r.next(1,21)}, D20Adv(){return Math.max(this._r.next(1,21),this._r.next(1,21))},
+  D20Dis(){return Math.min(this._r.next(1,21),this._r.next(1,21))},
+  Notation(n){const m=/^\s*(\d+)d(\d+)\s*([+-]\s*\d+)?\s*$/.exec(n);const c=+m[1],s=+m[2];
+    let mod=m[3]?+m[3].replace(/\s/g,''):0;let t=0;for(let i=0;i<c;i++)t+=this.Roll(s);return t+mod;}};
+const mod=v=>Math.floor((v-10)/2);
+const Ability=o=>Object.assign({name:"Strike",spellSlotLevel:0,targeting:"enemy",range:1,radius:0,
+  isAttackRoll:true,saveAbility:"dexterity",saveForHalf:false,damageDice:"1d8",dmgType:"slashing",
+  addMod:true,isHeal:false,healDice:"",effect:null,effectRounds:0,extraAdv:false},o);
+
+class Unit{
+  constructor(o){Object.assign(this,o); this.maxHP=o.hp; this.activeEffects=[]; this.hasMoved=false; this.hasActed=false;}
+  get prof(){return 2+Math.floor((this.level-1)/4);}
+  Mod(a){return mod(this[a]);}
+  get atkMod(){return mod(this[this.primary]);}
+  get castMod(){return mod(this[this.cast||"wisdom"]);}
+  get AC(){let ac=this.baseAC+mod(this.dex);for(const e of this.activeEffects)ac+=e.def.armorClassModifier||0;return ac;}
+  get initMod(){return mod(this.dex);}
+  get alive(){return this.hp>0;}
+  get speedNow(){let s=this.speed;for(const e of this.activeEffects)s+=e.def.speedModifier||0;return Math.max(0,s);}
+  get incap(){return this.activeEffects.some(e=>e.def.incapacitates);}
+  get grantsAdv(){return this.activeEffects.some(e=>e.def.attackersHaveAdvantage);}
+  get atkDisadv(){return this.activeEffects.some(e=>e.def.bearerAttacksDisadvantage||e.def.incapacitates);}
+  get effAtkMod(){let m=0;for(const e of this.activeEffects)m+=e.def.attackRollModifier||0;return m;}
+  has(c){return this.activeEffects.some(e=>e.def.condition===c);}
+  add(def,rounds){if(!def)return;for(const e of this.activeEffects)if(e.def===def){e.r=Math.max(e.r,rounds);return;}this.activeEffects.push({def,r:rounds});}
+  tickStart(){let t=0;for(const e of this.activeEffects)if(e.def.damageOverTimeDice){const d=Dice.Notation(e.def.damageOverTimeDice);this.hp=Math.max(0,this.hp-d);t+=d;}return t;}
+  tickEnd(){for(let i=this.activeEffects.length-1;i>=0;i--){if(--this.activeEffects[i].r<=0)this.activeEffects.splice(i,1);}}
+}
+function resolve(att,def,ab){
+  const r={hit:false,crit:false,isHeal:false,dmg:0,heal:0,effect:null,roll:0,total:0,ac:0,adv:false,dis:false};
+  const useCast=ab.spellSlotLevel>0||ab.isHeal||!ab.isAttackRoll;
+  const m=useCast?att.castMod:att.atkMod;
+  if(ab.isHeal){r.isHeal=true;r.hit=true;r.heal=Math.max(0,Dice.Notation(ab.healDice||ab.damageDice)+m);return r;}
+  let land;
+  if(ab.isAttackRoll){
+    const advS=def.grantsAdv||ab.extraAdv, disS=att.atkDisadv||def.IsDodging;
+    r.adv=advS&&!disS; r.dis=disS&&!advS;
+    r.roll=r.adv?Dice.D20Adv():r.dis?Dice.D20Dis():Dice.D20();
+    r.crit=r.roll===20; const miss=r.roll===1;
+    r.total=r.roll+att.atkMod+att.prof+att.effAtkMod; r.ac=def.AC;
+    r.hit=!miss&&(r.crit||r.total>=r.ac); land=r.hit;
+  }else{
+    const dc=8+att.prof+m; const save=Dice.D20()+def.Mod(ab.saveAbility);
+    r.ac=dc; r.total=save; const failed=save<dc; r.hit=failed; land=failed;
+  }
+  if(ab.damageDice){const deal=r.hit||(!ab.isAttackRoll&&ab.saveForHalf);
+    if(deal){let d=Dice.Notation(ab.damageDice);if(r.crit)d+=Dice.Notation(ab.damageDice);
+      if(ab.addMod)d+=(ab.isAttackRoll?att.atkMod:m);if(!r.hit&&ab.saveForHalf)d=Math.trunc(d/2);r.dmg=Math.max(0,d);}}
+  if(ab.effect&&land){r.effect=ab.effect;r.effectRounds=ab.effectRounds>0?ab.effectRounds:ab.effect.durationRounds;}
+  return r;
+}
+
+// XCOM-style preview — same math as AttackForecast.cs (verified in forecast.test.js).
+let showForecast=true;
+function dist(c,s){let cur=[1];if(s<=0)return cur;for(let d=0;d<c;d++){const n=Array(cur.length+s).fill(0);
+  for(let i=0;i<cur.length;i++)if(cur[i]>0)for(let f=1;f<=s;f++)n[i+f]+=cur[i]/s;cur=n;}return cur;}
+function pGE(d,sh,th){let p=0;for(let i=0;i<d.length;i++)if(d[i]>0&&i+sh>=th)p+=d[i];return p;}
+function forecast(att,def,ab){
+  const useCast=ab.spellSlotLevel>0||ab.isHeal||!ab.isAttackRoll;const m=useCast?att.castMod:att.atkMod;
+  const fc={isHeal:!!ab.isHeal,isSave:!ab.isAttackRoll&&!ab.isHeal,hit:0,crit:0,dmg:0,heal:0,kill:0};
+  if(ab.isHeal){fc.heal=Math.max(0,(()=>{const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.healDice||ab.damageDice||"");return x?(+x[1])*((+x[2])+1)/2+(x[3]?+x[3]:0):0;})()+m);fc.hit=1;return fc;}
+  const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");const c=x?+x[1]:0,s=x?+x[2]:0,flat=x&&x[3]?+x[3]:0;
+  const avg=(c&&s)?c*(s+1)/2:0, md=ab.addMod?m:0, hp=Math.max(1,def.hp);
+  if(ab.isAttackRoll){
+    const adv=(ab.extraAdv||def.grantsAdv)&&!(att.atkDisadv||def.IsDodging), dis=(att.atkDisadv||def.IsDodging)&&!(ab.extraAdv||def.grantsAdv);
+    const toHit=att.atkMod+att.prof+att.effAtkMod, ac=def.AC; let hits=0;for(let f=1;f<=20;f++)if(f===20||(f!==1&&f+toHit>=ac))hits++;
+    const p=hits/20, pc=0.05;
+    fc.hit=adv?1-(1-p)**2:dis?p*p:p; fc.crit=adv?1-0.95**2:dis?pc*pc:pc;
+    const hnc=Math.max(0,fc.hit-fc.crit);
+    fc.dmg=Math.max(0,hnc*(avg+flat+md)+fc.crit*(2*(avg+flat)+md));
+    fc.kill=hnc*pGE(dist(c,s),flat+md,hp)+fc.crit*pGE(dist(c*2,s),2*flat+md,hp);
+  } else {
+    const dc=8+att.prof+m, sm=def.Mod?def.Mod(ab.saveAbility):0; let fl=0;for(let f=1;f<=20;f++)if(f+sm<dc)fl++;
+    const pf=fl/20, full=avg+flat+md; fc.hit=pf;
+    fc.dmg=Math.max(0,ab.saveForHalf?pf*full+(1-pf)*Math.floor(full/2):pf*full);
+    const D=dist(c,s),sh=flat+md; fc.kill=pf*pGE(D,sh,hp)+(ab.saveForHalf?(1-pf)*pGE(D,sh,2*hp):0);
+  }
+  return fc;
+}
+function forecastLabel(att,def,ab){const f=forecast(att,def,ab);
+  if(f.isHeal)return `heal ~${Math.round(f.heal)}`;
+  let s=`${Math.round(f.hit*100)}% · ~${Math.round(f.dmg)}`;
+  if(f.kill>0.005)s+=` · ${Math.round(f.kill*100)}%☠`;
+  return s;}
+
+// ===========================================================================
+//  CONDITIONS + CAST KIT  (verified in abilities.js)
+// ===========================================================================
+const Slowed={effectName:"Slowed",condition:"Slowed",speedModifier:-3,durationRounds:2,tint:"#6fa8dc"};
+const Stunned={effectName:"Stunned",condition:"Stunned",incapacitates:true,attackersHaveAdvantage:true,durationRounds:1,tint:"#e7c873"};
+const Frightened={effectName:"Frightened",condition:"Frightened",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#b06fd0"};
+
+const COLS=14,ROWS=10,TILE=44,PAD={x:0,y:0};
+let units,order,turnIdx,reachable,floats,blocked,gameOver,armed;
+
+function H(o){ // hero
+  return new Unit(Object.assign({side:"hero",con:12,level:5,cast:"wisdom"},o));
+}
+function F(o){ return new Unit(Object.assign({side:"foe",con:12,level:2,cast:"wisdom"},o)); }
+
+function roster(){
+  const r=[
+    H({name:"Sister Garrow",x:1,y:2,str:15,dex:12,baseAC:16,hp:30,speed:5,primary:"str",col:"#e7c873",glyph:"✛",
+      kit:[ Ability({name:"Maul",damageDice:"1d8",dmgType:"bludgeoning"}),
+            Ability({name:"Sun's Mending",isHeal:true,healDice:"2d4",targeting:"ally",range:4}),
+            Ability({name:"Searing Light",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"2d6",dmgType:"radiant",addMod:false,targeting:"enemy",range:5}) ]}),
+    H({name:"Roen Alleywind",x:1,y:4,str:12,dex:18,baseAC:15,hp:24,speed:7,primary:"dex",col:"#7fd0a0",glyph:"⚔",
+      kit:[ Ability({name:"Twin Rapiers",damageDice:"1d8",dmgType:"piercing"}),
+            Ability({name:"Hamstring",damageDice:"1d6",dmgType:"slashing",effect:Slowed,effectRounds:2}),
+            Ability({name:"Shadowstep",damageDice:"1d8",dmgType:"piercing",extraAdv:true}) ]}),
+    H({name:"Varra",x:1,y:6,str:17,dex:12,baseAC:17,hp:38,speed:5,primary:"str",col:"#6fa8dc",glyph:"⛏",
+      kit:[ Ability({name:"Greataxe",damageDice:"1d12",dmgType:"slashing"}),
+            Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
+            Ability({name:"Cleave",damageDice:"1d8",dmgType:"slashing",targeting:"selfburst",radius:1}) ]}),
+  ];
+  const claw=()=>Ability({name:"Rotting Claw",damageDice:"1d6",dmgType:"necrotic"});
+  const chill=()=>Ability({name:"Grave Chill",damageDice:"1d4",dmgType:"cold",effect:Slowed,effectRounds:2});
+  [[10,1],[11,3],[11,6],[10,8]].forEach(([x,y])=>r.push(
+    F({name:"The Returned",x,y,str:13,dex:10,baseAC:12,hp:15,speed:4,primary:"str",col:"#9b2d2d",glyph:"☠",kit:[claw(),chill()]})));
+  r.push(F({name:"The Last Returned",x:12,y:4,str:16,dex:12,baseAC:15,hp:40,speed:5,level:4,primary:"str",cast:"wisdom",col:"#b06fd0",glyph:"♛",
+    kit:[ Ability({name:"Crown-Shard",damageDice:"1d10",dmgType:"force"}),
+          Ability({name:"Wail of the Returned",isAttackRoll:false,saveAbility:"wisdom",saveForHalf:true,damageDice:"2d6",dmgType:"psychic",addMod:false,targeting:"selfburst",radius:2,effect:Frightened}) ]}));
+  return r;
+}
+
+// ---- grid ----
+const key=(x,y)=>x+","+y, cheb=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
+const inB=(x,y)=>x>=0&&y>=0&&x<COLS&&y<ROWS;
+function occ(x,y){return units.find(u=>u.alive&&u.x===x&&u.y===y);}
+function passable(x,y,self){return inB(x,y)&&!blocked.has(key(x,y))&&!(occ(x,y)&&occ(x,y)!==self);}
+function computeReachable(u){const seen=new Map([[key(u.x,u.y),0]]);const q=[[u.x,u.y,0]];const out=new Set();
+  while(q.length){const[x,y,d]=q.shift();if(d>=u.speedNow)continue;
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy,k=key(nx,ny);
+      if(!passable(nx,ny,u))continue;if(seen.has(k)&&seen.get(k)<=d+1)continue;seen.set(k,d+1);out.add(k);q.push([nx,ny,d+1]);}}return out;}
+function stepToward(u,t){const prev=new Map();const seen=new Set([key(u.x,u.y)]);const q=[[u.x,u.y]];let best=key(u.x,u.y),bd=cheb(u,t);
+  while(q.length){const[x,y]=q.shift();const d=Math.max(Math.abs(x-t.x),Math.abs(y-t.y));if(d<bd){bd=d;best=key(x,y);}
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy,k=key(nx,ny);
+      if(seen.has(k)||!passable(nx,ny,u))continue;seen.add(k);prev.set(k,key(x,y));q.push([nx,ny]);}}
+  const path=[];let cur=best;while(cur&&cur!==key(u.x,u.y)){path.unshift(cur);cur=prev.get(cur);}
+  const steps=path.slice(0,u.speedNow);if(steps.length){const[nx,ny]=steps[steps.length-1].split(",").map(Number);u.x=nx;u.y=ny;}}
+
+// ===========================================================================
+//  FLOW
+// ===========================================================================
+const $=id=>document.getElementById(id);
+function log(m,c){const p=document.createElement("p");p.className=c||"";p.textContent=m;$("log").prepend(p);}
+function spawnFloat(u,text,col){floats.push({x:u.x,y:u.y,text,col,t:0});}
+
+function newGame(){
+  units=roster();
+  blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
+  floats=[];gameOver=false;armed=null;$("over").style.display="none";$("log").innerHTML="";
+  const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
+  rolled.sort((a,b)=>b.init-a.init||b.u.initMod-a.u.initMod);
+  order=rolled.map(r=>r.u);
+  log("The shrine of the Sundered Crown — three pilgrims against the Returned.","sys");
+  turnIdx=-1;nextTurn();
+}
+function nextTurn(){
+  if(checkEnd())return;
+  let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!order[turnIdx].alive&&++guard<order.length*2);
+  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;
+  // start-of-turn DoT
+  const dot=u.tickStart();
+  if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");u.tickEnd();return setTimeout(nextTurn,400);}}
+  reachable=u.side==="hero"?computeReachable(u):new Set();
+  armed=u.side==="hero"?u.kit[0]:null;
+  log(`— ${u.name}'s turn —`,"turn");
+  if(u.incap){log(`${u.name} is incapacitated and can only wait.`,"cond");u.tickEnd();return setTimeout(nextTurn,500);}
+  renderSide();
+  if(u.side==="foe")setTimeout(enemyTurn,520);
+}
+function endTurn(){if(gameOver)return;const u=order[turnIdx];if(u.side!=="hero")return;u.tickEnd();nextTurn();}
+
+function legalTargets(u,ab){
+  if(!ab)return[];
+  if(ab.targeting==="ally")return units.filter(t=>t.side===u.side&&t.alive&&cheb(u,t)<=ab.range);
+  if(ab.targeting==="selfburst")return[u];
+  return units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=ab.range);
+}
+function applyOne(att,def,ab){
+  const r=resolve(att,def,ab);
+  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");return;}
+  const tag=ab.isAttackRoll?`(d20 ${r.roll}${r.adv?"▲":r.dis?"▼":""} → ${r.total} vs AC ${r.ac})`:`(save ${r.total} vs DC ${r.ac})`;
+  if(r.dmg>0){def.hp=Math.max(0,def.hp-r.dmg);
+    if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");}
+    else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");}
+  } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");}
+  if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");}
+  if(!def.alive)log(`${def.name} falls.`,"dmg");
+}
+function useAbility(att,ab,target){
+  if(ab.targeting==="selfburst"){const hits=units.filter(t=>t.side!==att.side&&t.alive&&cheb(att,t)<=ab.radius);
+    if(!hits.length)return false; log(`${att.name} unleashes ${ab.name}!`,"cond"); hits.forEach(t=>applyOne(att,t,ab));}
+  else{ if(!target)return false; applyOne(att,target,ab); }
+  att.hasActed=true;return true;
+}
+
+function enemyTurn(){
+  const u=order[turnIdx];if(!u.alive||gameOver){u.tickEnd();return nextTurn();}
+  const heroes=units.filter(h=>h.side==="hero"&&h.alive);if(!heroes.length){checkEnd();return;}
+  // boss: Wail if 2+ heroes within radius 2
+  if(u.kit.length>1&&u.kit[1].targeting==="selfburst"){
+    const near=heroes.filter(h=>cheb(u,h)<=u.kit[1].radius).length;
+    if(near>=2){useAbility(u,u.kit[1]);renderSide();u.tickEnd();return setTimeout(()=>{if(!checkEnd())nextTurn();},620);}
+  }
+  let tgt=heroes.reduce((a,b)=>cheb(u,b)<cheb(u,a)?b:a);
+  if(cheb(u,tgt)>1)stepToward(u,tgt);
+  renderSide();
+  setTimeout(()=>{
+    if(u.alive&&cheb(u,tgt)<=1&&tgt.alive){
+      let ab=u.kit[0];
+      if(u.kit[1]&&u.kit[1].effect&&!tgt.has(u.kit[1].effect.condition)&&Dice.Roll(3)===1)ab=u.kit[1];
+      useAbility(u,ab,tgt);
+    }
+    renderSide();u.tickEnd();
+    setTimeout(()=>{if(!checkEnd())nextTurn();},480);
+  },360);
+}
+
+function checkEnd(){
+  const h=units.some(u=>u.side==="hero"&&u.alive), f=units.some(u=>u.side==="foe"&&u.alive);
+  if(h&&f)return false; gameOver=true;
+  const o=$("over");o.className="overlay "+(h?"win":"lose");o.style.display="flex";
+  $("overTitle").textContent=h?"The Returned are put to rest.":"The shrine claims three more.";
+  log(h?"Victory.":"Defeat.","sys");return true;
+}
+
+// ===========================================================================
+//  INPUT + UI
+// ===========================================================================
+const cvs=$("board"),ctx=cvs.getContext("2d");
+cvs.addEventListener("click",e=>{
+  if(gameOver)return;const u=order[turnIdx];if(!u||u.side!=="hero")return;
+  const rect=cvs.getBoundingClientRect();
+  const mx=(e.clientX-rect.left)*(cvs.width/rect.width),my=(e.clientY-rect.top)*(cvs.height/rect.height);
+  const x=Math.floor((mx-PAD.x)/TILE),y=Math.floor((my-PAD.y)/TILE);if(!inB(x,y))return;
+  const target=occ(x,y);
+  // self-burst: click yourself
+  if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){reachable=new Set();renderSide();checkEnd();}return;}
+  // ability on a legal target
+  if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
+    if(useAbility(u,armed,target)){reachable=new Set();renderSide();checkEnd();}return;}
+  // move
+  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){u.x=x;u.y=y;u.hasMoved=true;reachable=new Set();renderSide();return;}
+});
+$("endTurn").onclick=endTurn;$("restart").onclick=newGame;
+$("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
+
+function renderBar(){
+  const bar=$("bar");bar.innerHTML="";const u=order&&order[turnIdx];
+  if(!u||u.side!=="hero"){return;}
+  u.kit.forEach(ab=>{const b=document.createElement("button");b.className="ability"+(armed===ab?" armed":"");
+    b.disabled=u.hasActed;
+    const kind=ab.isHeal?"heal "+(ab.healDice):ab.targeting==="selfburst"?"burst r"+ab.radius+" "+ab.damageDice:
+      ab.isAttackRoll?"atk "+ab.damageDice:"save "+ab.damageDice;
+    b.innerHTML=`${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
+    b.onclick=()=>{armed=ab;renderSide();};bar.appendChild(b);});
+}
+function renderSide(){
+  const box=$("init");box.innerHTML="";
+  order.forEach((u,i)=>{const row=document.createElement("div");
+    row.className="init-row"+(i===turnIdx?" active":"")+(u.alive?"":" dead");
+    const conds=u.activeEffects.map(e=>e.def.condition).join(" ");
+    row.innerHTML=`<span class="dot" style="background:${u.col}"></span><span class="nm">${u.name} ${conds?'<span class=conds>['+conds+']</span>':''}</span><span class="hp">${u.hp}/${u.maxHP}</span>`;
+    box.appendChild(row);});
+  const u=order[turnIdx];
+  if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}`;
+    $("hint").textContent=u.side==="hero"
+      ?(u.hasActed?"Action spent. End your turn.":armed?`${armed.name} armed — click a ${armed.targeting==="ally"?"glowing ally":armed.targeting==="selfburst"?"yourself to unleash it":"target in reach"}, or move first.`:"Pick an ability.")
+      :"The Returned stir…";}
+  $("endTurn").disabled=!u||u.side!=="hero";
+  renderBar();
+}
+
+function draw(){
+  ctx.clearRect(0,0,cvs.width,cvs.height);
+  const sel=order&&order[turnIdx];
+  const targets=sel&&sel.side==="hero"&&!sel.hasActed?legalTargets(sel,armed):[];
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
+    const px=PAD.x+x*TILE,py=PAD.y+y*TILE,isB=blocked.has(key(x,y));
+    ctx.fillStyle=isB?"#1a1622":((x+y)%2?"#14121b":"#171520");ctx.fillRect(px,py,TILE-2,TILE-2);
+    if(reachable&&reachable.has(key(x,y))){ctx.fillStyle="#c9a24b22";ctx.fillRect(px,py,TILE-2,TILE-2);
+      ctx.strokeStyle="#c9a24b55";ctx.strokeRect(px+1.5,py+1.5,TILE-5,TILE-5);}
+    if(isB){ctx.fillStyle="#2a2433";ctx.beginPath();ctx.arc(px+TILE/2-1,py+TILE/2-1,7,0,7);ctx.fill();}
+  }
+  // target highlights
+  targets.forEach(t=>{const px=PAD.x+t.x*TILE,py=PAD.y+t.y*TILE;
+    ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.lineWidth=1;
+    if(showForecast&&armed&&sel){const lbl=forecastLabel(sel,t,armed),w=lbl.length*6;
+      ctx.fillStyle="#0c0b10dd";ctx.fillRect(px+TILE/2-w/2-3,py-14,w+6,13);
+      ctx.fillStyle=armed.targeting==="ally"?"#9fe0b0":"#e7c873";ctx.font="bold 10px monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lbl,px+TILE/2,py-7);}});
+  if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){const px=PAD.x+sel.x*TILE,py=PAD.y+sel.y*TILE;
+    ctx.strokeStyle="#e7c873";ctx.setLineDash([4,3]);ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.setLineDash([]);}
+  units.filter(u=>u.alive).forEach(u=>{
+    const px=PAD.x+u.x*TILE+TILE/2-1,py=PAD.y+u.y*TILE+TILE/2-1;
+    if(sel===u){ctx.strokeStyle="#e7c873";ctx.lineWidth=2;ctx.beginPath();ctx.arc(px,py,TILE/2-3,0,7);ctx.stroke();ctx.lineWidth=1;}
+    ctx.fillStyle=u.col;ctx.beginPath();ctx.arc(px,py,TILE/2-7,0,7);ctx.fill();
+    ctx.fillStyle="#0c0b10";ctx.font="16px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(u.glyph,px,py+1);
+    const w=TILE-12,h=4,bx=px-w/2,by=py+TILE/2-9;ctx.fillStyle="#000a";ctx.fillRect(bx,by,w,h);
+    ctx.fillStyle=u.side==="hero"?"#7fd0a0":"#c9554d";ctx.fillRect(bx,by,w*Math.max(0,u.hp/u.maxHP),h);
+    // condition pips
+    u.activeEffects.forEach((e,i)=>{ctx.fillStyle=e.def.tint||"#b06fd0";ctx.fillRect(bx+i*6,by-5,4,4);});
+  });
+  for(let i=floats.length-1;i>=0;i--){const f=floats[i];f.t+=0.016;
+    const px=PAD.x+f.x*TILE+TILE/2-1,py=PAD.y+f.y*TILE+TILE/2-1-f.t*26;
+    ctx.globalAlpha=Math.max(0,1-f.t/1.2);ctx.fillStyle=f.col;ctx.font="bold 14px serif";ctx.textAlign="center";ctx.fillText(f.text,px,py);ctx.globalAlpha=1;
+    if(f.t>1.2)floats.splice(i,1);}
+  requestAnimationFrame(draw);
+}
+
+newGame();requestAnimationFrame(draw);
+</script>
+</body>
+</html>

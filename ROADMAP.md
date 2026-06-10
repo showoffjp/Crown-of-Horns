@@ -50,8 +50,17 @@ that dilutes the throughline. Work top-down; check items off as they land.
       trace (keepsake, deed, reactive line, or ending slide). Find the gaps. Pillar II.
 - [ ] **Ending-slide audit** — confirm each of the six endings reads back *every* major
       thread (`EndingResolver`). Pillar II. *The finale is the payoff for permanence.*
-- [ ] **Cross-era callbacks** — a choice in Netheril should be *named* later in the
+- [x] **Cross-era callbacks** — a choice in Netheril should be *named* later in the
       Spellplague. Time-travel earns its keep when the past talks to the future. Pillar V.
+      **Done in v3.64.0** (`EraEchoes` + `SimpleEra.echoGraph`): a grey gravedigger in the
+      Time of Troubles and a half-unmade soul in the Spellplague both speak the **Crown Wars
+      Verdict** (spared/passed) and **Netheril's fall** back to you, built live from the flags,
+      CI-validated, 10 EditMode tests. **Extended in v3.64.1**: both echoes now also name **the
+      Breach** — pulling Maerin from the Wall vs. the counted restraint of leaving her (the decline
+      now leaves a trace, `fugue.left_maerin`, closing a reactivity gap). **Extended again in v3.64.2**:
+      a third echo (*A Keeper of the Bone Crown*) names **Aldric's fate** at the forge where Myrkul's
+      skull becomes the Crown he carries — `SimpleEra` gained a second echo slot (`echoGraph2`) to host
+      it. 16 EditMode tests. *Next callback targets: the Lady's riddle, Garrow's verdict at the Court.*
 
 ## Tier 4 — Systems polish (only what serves theme)
 - [ ] **Tactical depth that reads** — surface flanking/OA/cover cues in the HUD so players

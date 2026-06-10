@@ -88,6 +88,7 @@ namespace SunderedCrown.Combat
         {
             if (_reported) return;
             _reported = true;
+            _turns.OnCombatEnded -= HandleEnded; // one-shot: never linger past this battle
             bool win = false;
             foreach (var u in _turns.TurnOrder)
                 if ((u.faction == Faction.Player || u.faction == Faction.Ally) && u.Sheet.IsAlive) win = true;

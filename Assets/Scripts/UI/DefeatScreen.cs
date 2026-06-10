@@ -47,7 +47,7 @@ namespace SunderedCrown.UI
         private void ReloadFromSave()
         {
             _busy = true;
-            var old = FindFirstObjectByType<CampaignBootstrap>();
+            var old = FindAnyObjectByType<CampaignBootstrap>();
             var go = new GameObject("CampaignBootstrap");
             var cb = go.AddComponent<CampaignBootstrap>();
             cb.continueGame = true; // EnsureCore rebuilds the singletons; ContinueGame restores the save
@@ -58,7 +58,7 @@ namespace SunderedCrown.UI
         private void ReturnToTitle()
         {
             _busy = true;
-            var old = FindFirstObjectByType<CampaignBootstrap>();
+            var old = FindAnyObjectByType<CampaignBootstrap>();
             var go = new GameObject("MainMenu");
             go.AddComponent<MainMenu>();
             if (old != null) Destroy(old.gameObject);

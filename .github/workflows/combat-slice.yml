@@ -1,0 +1,28 @@
+name: Combat slice
+
+# Keeps the headless, browser-playable combat slice (play/) honest. The JS engine in
+# play/engine.js is a 1:1 port of the C# combat rules; this runs the ported EditMode
+# assertions, the ability-kit checks, and a DOM smoke test of the playable page so the
+# port can't silently drift from Assets/Scripts. Pure Node, no secrets, no Unity.
+
+on:
+  push:
+    paths: ["play/**", "Assets/Scripts/**", ".github/workflows/combat-slice.yml"]
+  pull_request:
+    paths: ["play/**", "Assets/Scripts/**", ".github/workflows/combat-slice.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify engine port (no Unity needed)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run combat-slice verification (gates + reports)
+        working-directory: play
+        run: node run-all.js

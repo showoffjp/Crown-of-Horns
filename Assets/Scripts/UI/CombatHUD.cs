@@ -50,7 +50,7 @@ namespace SunderedCrown.UI
         void Start()
         {
             _turns = TurnManager.Instance;
-            _input = FindFirstObjectByType<PlayerCombatInput>();
+            _input = FindAnyObjectByType<PlayerCombatInput>();
             BuildFrame();
             if (_turns != null) { _turns.OnCombatLog += AppendLog; _turns.OnTurnStarted += FocusCameraOn; }
         }
@@ -145,7 +145,7 @@ namespace SunderedCrown.UI
 
         private void EnsureEventSystem()
         {
-            if (FindFirstObjectByType<EventSystem>() == null)
+            if (FindAnyObjectByType<EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
                 es.AddComponent<EventSystem>();

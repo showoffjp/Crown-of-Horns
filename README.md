@@ -8,7 +8,7 @@
 <br/>
 
 ![Status](https://img.shields.io/badge/Build-Vertical_Slice_Playable-brightgreen?style=for-the-badge)
-![Release](https://img.shields.io/badge/release-v3.61.0-gold?style=for-the-badge)
+![Release](https://img.shields.io/badge/release-v3.65.0-gold?style=for-the-badge)
 ![Engine](https://img.shields.io/badge/Unity-6_LTS-black?style=for-the-badge&logo=unity)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
 ![Rules](https://img.shields.io/badge/D%26D-5e_SRD_5.1-b51e2e?style=for-the-badge&logo=dungeonsanddragons&logoColor=white)
@@ -17,9 +17,9 @@
 ![Iso](https://img.shields.io/badge/🗺️-Isometric_Grid-teal)
 ![Story](https://img.shields.io/badge/📜-Branching_Narrative-purple)
 ![Party](https://img.shields.io/badge/🛡️-Party_Based-orange)
-![Tests](https://img.shields.io/badge/🧪-28_suites_·_~185_tests-success)
+![Tests](https://img.shields.io/badge/🧪-29_suites_·_~201_tests-success)
 ![CI](https://img.shields.io/badge/CI-repo--hygiene_+_game--ci-blue?logo=githubactions&logoColor=white)
-![Scripts](https://img.shields.io/badge/💾-135_scripts_·_19.7k_LOC-informational)
+![Scripts](https://img.shields.io/badge/💾-165_scripts_·_~20k_LOC-informational)
 
 </div>
 

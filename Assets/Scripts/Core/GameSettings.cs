@@ -21,6 +21,11 @@ namespace SunderedCrown.Core
         private const string K_CombatSpeed = "settings.combatspeed";
         private const string K_FloatText = "settings.floattext";
         private const string K_CamFocus = "settings.camfocus";
+        private const string K_HitChance = "settings.hitchance";
+        private const string K_ConfirmEnd = "settings.confirmendturn";
+        private const string K_AutoEnd = "settings.autoendturn";
+        private const string K_Autosave = "settings.autosave";
+        private const string K_ScreenShake = "settings.screenshake";
 
         public static bool       BanterEnabled       { get; set; } = true;
         public static float      MasterVolume        { get; set; } = 0.8f;   // 0..1
@@ -31,6 +36,11 @@ namespace SunderedCrown.Core
         public static float      CombatSpeed         { get; set; } = 1f;     // 0.5..2.5 — enemy-turn pacing multiplier
         public static bool       ShowFloatingText    { get; set; } = true;   // accessibility: pop combat numbers/words
         public static bool       CameraAutoFocus     { get; set; } = true;   // glide the camera to the active combatant
+        public static bool       ShowHitChance       { get; set; } = true;   // QoL: show the hit/crit/damage forecast on targets
+        public static bool       ConfirmEndTurn      { get; set; } = true;   // QoL: warn before ending a turn with actions unspent
+        public static bool       AutoEndTurn         { get; set; } = false;  // QoL: end the turn automatically once a unit is spent
+        public static bool       AutosaveEnabled     { get; set; } = true;   // QoL: write the campaign autosave at checkpoints
+        public static bool       ScreenShake         { get; set; } = true;   // accessibility: camera shake on big hits
 
         /// <summary>A delay (seconds) scaled by the combat-speed setting — higher speed = shorter waits.
         /// Used to pace enemy turns so combat can be sped up or slowed for comfort.</summary>
@@ -74,6 +84,11 @@ namespace SunderedCrown.Core
             CombatSpeed        = Mathf.Clamp(PlayerPrefs.GetFloat(K_CombatSpeed, 1f), 0.5f, 2.5f);
             ShowFloatingText   = PlayerPrefs.GetInt(K_FloatText, 1) == 1;
             CameraAutoFocus    = PlayerPrefs.GetInt(K_CamFocus, 1) == 1;
+            ShowHitChance      = PlayerPrefs.GetInt(K_HitChance, 1) == 1;
+            ConfirmEndTurn     = PlayerPrefs.GetInt(K_ConfirmEnd, 1) == 1;
+            AutoEndTurn        = PlayerPrefs.GetInt(K_AutoEnd, 0) == 1;
+            AutosaveEnabled    = PlayerPrefs.GetInt(K_Autosave, 1) == 1;
+            ScreenShake        = PlayerPrefs.GetInt(K_ScreenShake, 1) == 1;
             Apply();
         }
 
@@ -88,6 +103,11 @@ namespace SunderedCrown.Core
             PlayerPrefs.SetFloat(K_CombatSpeed, CombatSpeed);
             PlayerPrefs.SetInt(K_FloatText, ShowFloatingText ? 1 : 0);
             PlayerPrefs.SetInt(K_CamFocus, CameraAutoFocus ? 1 : 0);
+            PlayerPrefs.SetInt(K_HitChance, ShowHitChance ? 1 : 0);
+            PlayerPrefs.SetInt(K_ConfirmEnd, ConfirmEndTurn ? 1 : 0);
+            PlayerPrefs.SetInt(K_AutoEnd, AutoEndTurn ? 1 : 0);
+            PlayerPrefs.SetInt(K_Autosave, AutosaveEnabled ? 1 : 0);
+            PlayerPrefs.SetInt(K_ScreenShake, ScreenShake ? 1 : 0);
             PlayerPrefs.Save();
             Apply();
         }
