@@ -112,7 +112,7 @@ namespace SunderedCrown.Core
             EnterHub();
         }
 
-        private void Autosave() => SunderedCrown.Save.SaveSystem.Save(SaveSlot, "campaign");
+        private void Autosave() { if (GameSettings.AutosaveEnabled) SunderedCrown.Save.SaveSystem.Save(SaveSlot, "campaign"); }
 
         void OnDestroy()
         {

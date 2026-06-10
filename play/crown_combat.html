@@ -63,6 +63,7 @@
       <div class="hint" id="hint"></div>
       <div style="display:flex;gap:8px;margin-top:10px">
         <button class="act" id="endTurn">End Turn</button>
+        <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="restart">Restart</button>
       </div>
     </div>
@@ -71,7 +72,7 @@
 </div>
 <div class="foot">
   Real rules from <code>AttackResolver.cs</code>: d20 + ability mod + proficiency vs AC · nat 20 crits (double dice) · nat 1 auto-misses ·
-  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Verified by 39 ported unit tests.
+  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Live hit/kill **forecast** on every target (toggle below). Verified by 100+ ported tests.
 </div>
 <div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
 
@@ -141,6 +142,39 @@ function resolve(att,def,ab){
   if(ab.effect&&land){r.effect=ab.effect;r.effectRounds=ab.effectRounds>0?ab.effectRounds:ab.effect.durationRounds;}
   return r;
 }
+
+// XCOM-style preview — same math as AttackForecast.cs (verified in forecast.test.js).
+let showForecast=true;
+function dist(c,s){let cur=[1];if(s<=0)return cur;for(let d=0;d<c;d++){const n=Array(cur.length+s).fill(0);
+  for(let i=0;i<cur.length;i++)if(cur[i]>0)for(let f=1;f<=s;f++)n[i+f]+=cur[i]/s;cur=n;}return cur;}
+function pGE(d,sh,th){let p=0;for(let i=0;i<d.length;i++)if(d[i]>0&&i+sh>=th)p+=d[i];return p;}
+function forecast(att,def,ab){
+  const useCast=ab.spellSlotLevel>0||ab.isHeal||!ab.isAttackRoll;const m=useCast?att.castMod:att.atkMod;
+  const fc={isHeal:!!ab.isHeal,isSave:!ab.isAttackRoll&&!ab.isHeal,hit:0,crit:0,dmg:0,heal:0,kill:0};
+  if(ab.isHeal){fc.heal=Math.max(0,(()=>{const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.healDice||ab.damageDice||"");return x?(+x[1])*((+x[2])+1)/2+(x[3]?+x[3]:0):0;})()+m);fc.hit=1;return fc;}
+  const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");const c=x?+x[1]:0,s=x?+x[2]:0,flat=x&&x[3]?+x[3]:0;
+  const avg=(c&&s)?c*(s+1)/2:0, md=ab.addMod?m:0, hp=Math.max(1,def.hp);
+  if(ab.isAttackRoll){
+    const adv=(ab.extraAdv||def.grantsAdv)&&!(att.atkDisadv||def.IsDodging), dis=(att.atkDisadv||def.IsDodging)&&!(ab.extraAdv||def.grantsAdv);
+    const toHit=att.atkMod+att.prof+att.effAtkMod, ac=def.AC; let hits=0;for(let f=1;f<=20;f++)if(f===20||(f!==1&&f+toHit>=ac))hits++;
+    const p=hits/20, pc=0.05;
+    fc.hit=adv?1-(1-p)**2:dis?p*p:p; fc.crit=adv?1-0.95**2:dis?pc*pc:pc;
+    const hnc=Math.max(0,fc.hit-fc.crit);
+    fc.dmg=Math.max(0,hnc*(avg+flat+md)+fc.crit*(2*(avg+flat)+md));
+    fc.kill=hnc*pGE(dist(c,s),flat+md,hp)+fc.crit*pGE(dist(c*2,s),2*flat+md,hp);
+  } else {
+    const dc=8+att.prof+m, sm=def.Mod?def.Mod(ab.saveAbility):0; let fl=0;for(let f=1;f<=20;f++)if(f+sm<dc)fl++;
+    const pf=fl/20, full=avg+flat+md; fc.hit=pf;
+    fc.dmg=Math.max(0,ab.saveForHalf?pf*full+(1-pf)*Math.floor(full/2):pf*full);
+    const D=dist(c,s),sh=flat+md; fc.kill=pf*pGE(D,sh,hp)+(ab.saveForHalf?(1-pf)*pGE(D,sh,2*hp):0);
+  }
+  return fc;
+}
+function forecastLabel(att,def,ab){const f=forecast(att,def,ab);
+  if(f.isHeal)return `heal ~${Math.round(f.heal)}`;
+  let s=`${Math.round(f.hit*100)}% · ~${Math.round(f.dmg)}`;
+  if(f.kill>0.005)s+=` · ${Math.round(f.kill*100)}%☠`;
+  return s;}
 
 // ===========================================================================
 //  CONDITIONS + CAST KIT  (verified in abilities.js)
@@ -304,6 +338,7 @@ cvs.addEventListener("click",e=>{
   if(!target&&!u.hasMoved&&reachable.has(key(x,y))){u.x=x;u.y=y;u.hasMoved=true;reachable=new Set();renderSide();return;}
 });
 $("endTurn").onclick=endTurn;$("restart").onclick=newGame;
+$("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 
 function renderBar(){
   const bar=$("bar");bar.innerHTML="";const u=order&&order[turnIdx];
@@ -344,7 +379,10 @@ function draw(){
   }
   // target highlights
   targets.forEach(t=>{const px=PAD.x+t.x*TILE,py=PAD.y+t.y*TILE;
-    ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.lineWidth=1;});
+    ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.lineWidth=1;
+    if(showForecast&&armed&&sel){const lbl=forecastLabel(sel,t,armed),w=lbl.length*6;
+      ctx.fillStyle="#0c0b10dd";ctx.fillRect(px+TILE/2-w/2-3,py-14,w+6,13);
+      ctx.fillStyle=armed.targeting==="ally"?"#9fe0b0":"#e7c873";ctx.font="bold 10px monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lbl,px+TILE/2,py-7);}});
   if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){const px=PAD.x+sel.x*TILE,py=PAD.y+sel.y*TILE;
     ctx.strokeStyle="#e7c873";ctx.setLineDash([4,3]);ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.setLineDash([]);}
   units.filter(u=>u.alive).forEach(u=>{
