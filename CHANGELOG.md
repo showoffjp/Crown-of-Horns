@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.69.0 — *"Every Step Optimal"* — A* pathfinding, proven least-cost
+
+> The grid A* that moves every unit — hub click-to-move and tactical combat alike — is now proven not
+> just *correct* but *optimal*: cross-checked against a brute-force Dijkstra oracle over 3,000 random
+> weighted maps, so it can never quietly return a longer-than-necessary route.
+
+- 🧭 **A* optimality pinned** — `play/pathfind.js` ports `Pathfinding.cs` 1:1 (4-connected, `moveCost`-
+  weighted, Manhattan heuristic, step-onto-occupied-goal-but-never-through-bodies) and ships a Dijkstra
+  oracle. `pathfind.test.js` (8 checks): straight line, wall detour, unreachable, unwalkable/occupied
+  goal, difficult-terrain preference, `start==goal`, **plus a 3,000-map fuzz asserting A* cost == the
+  Dijkstra optimum** (and agreement on unreachability). The fuzz caught an edge case on its first run.
+- 🧪 Headless verification suite now **139 checks** + the 400-game smoke, all green.
+
 ## 👑 v3.68.0 — *"Quests Kept"* — the campaign spine, pinned headless
 
 > Quest progression is the spine of the campaign, and its trickiest behaviour — objectives that complete
