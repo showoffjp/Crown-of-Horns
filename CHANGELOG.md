@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.67.0 — *"The Save Holds"* — pinning the serialization contract
+
+> The least glamorous, most important kind of test: proof that your 20-hour run survives a save/load.
+> `SaveSystem` flattens the story brain (GameFlags) into the parallel key/value lists JsonUtility needs;
+> a one-element desync there would silently corrupt every save. That contract is now nailed down.
+
+- 💾 **Save round-trip pinned** — `play/save.js` + `save.test.js` (CI-gated): `GameFlags → flattened
+  DTO → JSON → back` is lossless across empty state, both bool values, int edges (`0`, `±2³¹`), 250
+  keys with **key/value-list lockstep assertions**, dotted/spaced/unicode keys, re-save freshness, and
+  double-round-trip stability. Plus 3 on-disk `SaveSystemTests` (re-save overwrites not stacks, a
+  200-flag round-trip, int edge values).
+- 🧪 Headless verification suite now **116 checks** + the 400-game smoke, all green.
+
 ## 👑 v3.66.0 — *"The Odds Against"* — threat forecasts, asset tooling, and the state of the game
 
 > The forecast learns to look both ways: alongside "what are my odds of killing it," the HUD can now
