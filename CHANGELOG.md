@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.70.0 — *"Sound and Fury"* — the game finds its voice (placeholder A/V)
+
+> The longest-standing gap finally closed: audio and combat VFX were at 0%, so swings landed in silence
+> over static cubes. Now every hit cracks, every heal chimes, every spell flashes, and each mode has an
+> ambient bed — all fully synthesized in pure Python, no samples, no licenses. Honest placeholders: drop
+> a real clip or frame with the same name to replace any of them.
+
+- 🔊 **14 SFX** (`hit`, `hit_<type>`, `crit`, `miss`, `heal`, `deed`, `levelup`) — stdlib `wave` synthesis.
+- 💥 **9 VFX bursts** (`impact`, `impact_<type>`, `heal`, 6 frames each) — PIL, Sprite-imported, auto-played
+  by `FxSystem` per damage type.
+- 🎵 **7 seamless ambient loops** (`Hub`, `Combat`, `Camp`, `Explore`, `Court`, `Vault`, `Fugue`) — sustained
+  pads, click-free (whole-cycle partials), no melody to grate.
+- Generators live in `tools/gen-placeholder-{sfx,vfx,music}.py`; committed raw (not LFS) with Unity `.meta`.
+  **`tools/asset-check.sh`: 28% → 89%.**
+
 ## 👑 v3.69.0 — *"Every Step Optimal"* — A* pathfinding, proven least-cost
 
 > The grid A* that moves every unit — hub click-to-move and tactical combat alike — is now proven not

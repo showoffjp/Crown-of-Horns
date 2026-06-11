@@ -22,6 +22,13 @@ Assets/Resources/Sprites/*.png   -filter -diff -merge -text
 Assets/Resources/Portraits/*.png -filter -diff -merge -text
 docs/art-preview/*.png           -filter -diff -merge -text
 
+# Locally-generated PLACEHOLDER audio/VFX (tools/gen-placeholder-{sfx,vfx,music}.py) —
+# kept as normal git blobs, not LFS, so they commit from this LFS-push-less environment.
+# Replace with real clips/frames (same names) any time.
+Assets/Resources/SFX/*.wav        -filter -diff -merge -text
+Assets/Resources/Music/*.wav      -filter -diff -merge -text
+Assets/Resources/FX/**/*.png      -filter -diff -merge -text
+
 # Treat Unity YAML assets as text (better merges)
 *.unity   text
 *.asset   text
