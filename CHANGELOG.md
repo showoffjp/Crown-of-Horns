@@ -11,6 +11,17 @@
 
 ---
 
+## 👑 v3.71.0 — *"The Slice Sings"* — WebAudio SFX in the playable demo
+
+> The Unity build found its voice in v3.70.0; now the browser slice matches it. A tiny WebAudio synth
+> speaks the same SFX vocabulary as the Unity placeholders, so the demo *sounds* like the game will —
+> no assets, no autoplay before input.
+
+- 🔉 **Demo SFX**: hit (thud+noise), crit (sweep+crack), miss (whoosh), heal (rising chime), condition
+  (buzz), death (falling tone) — wired into the same events as the floating combat text, with a
+  🔊 on/off toggle. Lazy `AudioContext` on first gesture; graceful no-op where WebAudio is absent
+  (the DOM smoke harness still boots clean: 400 games, 0 errors).
+
 ## 👑 v3.70.1 — *"Their Own Faces"* — companion battle tokens fixed
 
 > A small, real bug surfaced by `tools/asset-check.sh`: the sprite lookup goes `displayName` →
