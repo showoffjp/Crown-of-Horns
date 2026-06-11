@@ -20,6 +20,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `tests.js` | Ports your EditMode suite (DiceTests, AbilityScoresTests, AttackResolverTests, StatusEffectTests). **39/39 green.** |
 | `abilities.js` | The demo's ability kit (heal, save-for-half, Slowed, Stun, Wail, Burning DoT) behaves per the engine. **6/6.** |
 | `forecast.test.js` | Closed-form hit/crit/damage/kill preview + a Monte-Carlo cross-check that the forecast equals the real resolver. **8/8.** |
+| `threat.test.js` | Incoming-damage + down-chance forecast (convolved distributions) vs a Monte-Carlo of the real resolver. **5/5.** |
 | `verify.js` | Reproduces `CombatBalance.Report()` over seeds 0..399 — the engine's own balance oracle. |
 | `diagnose.js` | Per-swing hit-rates match hand-computed 5e math (65% / 45%). |
 | `autobattle.js` | Auto-resolves the base encounter 2000× — clean, terminating. |
