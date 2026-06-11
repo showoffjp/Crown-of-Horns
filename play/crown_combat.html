@@ -176,6 +176,34 @@ function forecastLabel(att,def,ab){const f=forecast(att,def,ab);
   if(f.kill>0.005)s+=` · ${Math.round(f.kill*100)}%☠`;
   return s;}
 
+// Defensive twin — incoming damage + down-chance from foes already in reach (mirrors ThreatForecast.cs).
+function damageDist(att,def,ab){
+  const useCast=ab.spellSlotLevel>0||ab.isHeal||!ab.isAttackRoll;const m=useCast?att.castMod:att.atkMod;
+  const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");const c=x?+x[1]:0,s=x?+x[2]:0,flat=x&&x[3]?+x[3]:0;
+  const md=ab.addMod?m:0;const acc=new Map();const add=(dm,p)=>{if(p<=0)return;if(dm<0)dm=0;acc.set(dm,(acc.get(dm)||0)+p);};
+  if(ab.isAttackRoll){
+    const adv=(ab.extraAdv||def.grantsAdv)&&!(att.atkDisadv||def.IsDodging),dis=(att.atkDisadv||def.IsDodging)&&!(ab.extraAdv||def.grantsAdv);
+    const toHit=att.atkMod+att.prof+att.effAtkMod;let h=0;for(let f=1;f<=20;f++)if(f===20||(f!==1&&f+toHit>=def.AC))h++;
+    const p=h/20,pc=0.05,pHit=adv?1-(1-p)**2:dis?p*p:p,pCrit=adv?1-0.95**2:dis?pc*pc:pc,pHNC=Math.max(0,pHit-pCrit);
+    add(0,1-pHit);const dn=dist(c,s);for(let i=0;i<dn.length;i++)if(dn[i]>0)add(i+flat+md,dn[i]*pHNC);
+    const dc=dist(c*2,s);for(let i=0;i<dc.length;i++)if(dc[i]>0)add(i+2*flat+md,dc[i]*pCrit);
+  } else {
+    const DC=8+att.prof+m,sm=def.Mod?def.Mod(ab.saveAbility):0;let fl=0;for(let f=1;f<=20;f++)if(f+sm<DC)fl++;
+    const pf=fl/20,dn=dist(c,s);for(let i=0;i<dn.length;i++)if(dn[i]>0){const full=i+flat+md;add(full,dn[i]*pf);if(ab.saveForHalf)add(Math.floor(full/2),dn[i]*(1-pf));else add(0,dn[i]*(1-pf));}
+  }
+  let max=0;for(const k of acc.keys())if(k>max)max=k;const arr=new Array(max+1).fill(0);let e=0;
+  for(const[k,v]of acc){arr[k]+=v;e+=k*v;}return{dist:arr,exp:e};
+}
+function conv(a,b){const r=new Array(a.length+b.length-1).fill(0);for(let i=0;i<a.length;i++)if(a[i]>0)for(let j=0;j<b.length;j++)if(b[j]>0)r[i+j]+=a[i]*b[j];return r;}
+function threatLine(def){
+  const foes=units.filter(e=>e.side!==def.side&&e.alive&&cheb(e,def)<=(e.kit[0].range||1));
+  if(!foes.length)return `<span style="color:#7fd0a0">✓ no foes in reach</span>`;
+  let comb=[1],exp=0;for(const e of foes){const d=damageDist(e,def,e.kit[0]);exp+=d.exp;comb=conv(comb,d.dist);}
+  const hp=Math.max(1,def.hp);let down=0;for(let d=hp;d<comb.length;d++)down+=comb[d];
+  const col=down>0.33?"#e0a0a0":down>0.1?"#e7c873":"#b8b0c4";
+  return `<span style="color:${col}">⚠ incoming ~${Math.round(exp)}${down>0.005?` · ${Math.round(down*100)}% down`:""}</span> <span style=color:#6e6680>(${foes.length} in reach)</span>`;
+}
+
 // ===========================================================================
 //  CONDITIONS + CAST KIT  (verified in abilities.js)
 // ===========================================================================
@@ -358,7 +386,8 @@ function renderSide(){
     row.innerHTML=`<span class="dot" style="background:${u.col}"></span><span class="nm">${u.name} ${conds?'<span class=conds>['+conds+']</span>':''}</span><span class="hp">${u.hp}/${u.maxHP}</span>`;
     box.appendChild(row);});
   const u=order[turnIdx];
-  if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}`;
+  if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}`
+      + (u.side==="hero"?`<br>${threatLine(u)}`:"");
     $("hint").textContent=u.side==="hero"
       ?(u.hasActed?"Action spent. End your turn.":armed?`${armed.name} armed — click a ${armed.targeting==="ally"?"glowing ally":armed.targeting==="selfburst"?"yourself to unleash it":"target in reach"}, or move first.`:"Pick an ability.")
       :"The Returned stir…";}
