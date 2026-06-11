@@ -81,5 +81,62 @@ namespace SunderedCrown.Tests.EditMode
             var missing = SaveSystem.Peek("definitely_missing_slot_xyz");
             Assert.IsFalse(missing.exists);
         }
+
+        [Test]
+        public void Resave_OverwritesWithLatestState()
+        {
+            var flags = new GameFlags();
+            flags.SetInt("party.gold", 100);
+            flags.SetBool("door.open", true);
+            GameFlags.Replace(flags);
+            SaveSystem.Save(Slot, "S1");
+
+            // Change state and save the SAME slot again.
+            GameFlags.Current.SetInt("party.gold", 250);
+            GameFlags.Current.SetBool("door.open", false);
+            SaveSystem.Save(Slot, "S2");
+
+            GameFlags.Replace(new GameFlags());
+            Assert.IsTrue(SaveSystem.Load(Slot));
+            Assert.AreEqual(250, GameFlags.Current.GetInt("party.gold"), "re-save must overwrite, not stack");
+            Assert.IsFalse(GameFlags.Current.GetBool("door.open"));
+            Assert.AreEqual("S2", SaveSystem.Last.sceneName);
+        }
+
+        [Test]
+        public void ManyFlags_AllRoundTrip()
+        {
+            var flags = new GameFlags();
+            for (int i = 0; i < 200; i++) { flags.SetBool("b." + i, i % 2 == 0); flags.SetInt("i." + i, i * 7 - 100); }
+            GameFlags.Replace(flags);
+            SaveSystem.Save(Slot, "Many");
+
+            GameFlags.Replace(new GameFlags());
+            Assert.IsTrue(SaveSystem.Load(Slot));
+            for (int i = 0; i < 200; i++)
+            {
+                Assert.AreEqual(i % 2 == 0, GameFlags.Current.GetBool("b." + i), $"bool b.{i}");
+                Assert.AreEqual(i * 7 - 100, GameFlags.Current.GetInt("i." + i), $"int i.{i}");
+            }
+        }
+
+        [Test]
+        public void IntEdgeValues_RoundTrip()
+        {
+            var flags = new GameFlags();
+            flags.SetInt("zero", 0);
+            flags.SetInt("max", int.MaxValue);
+            flags.SetInt("min", int.MinValue);
+            flags.SetInt("neg", -7);
+            GameFlags.Replace(flags);
+            SaveSystem.Save(Slot, "Edge");
+
+            GameFlags.Replace(new GameFlags());
+            Assert.IsTrue(SaveSystem.Load(Slot));
+            Assert.AreEqual(0, GameFlags.Current.GetInt("zero"));
+            Assert.AreEqual(int.MaxValue, GameFlags.Current.GetInt("max"));
+            Assert.AreEqual(int.MinValue, GameFlags.Current.GetInt("min"));
+            Assert.AreEqual(-7, GameFlags.Current.GetInt("neg"));
+        }
     }
 }
