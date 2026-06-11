@@ -64,6 +64,7 @@
       <div style="display:flex;gap:8px;margin-top:10px">
         <button class="act" id="endTurn">End Turn</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
+        <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
       </div>
     </div>
@@ -72,7 +73,7 @@
 </div>
 <div class="foot">
   Real rules from <code>AttackResolver.cs</code>: d20 + ability mod + proficiency vs AC · nat 20 crits (double dice) · nat 1 auto-misses ·
-  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Live hit/kill **forecast** on every target (toggle below). Verified by 100+ ported tests.
+  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Live hit/kill **forecast** on every target · synthesized **SFX** on hits/crits/heals (toggles below). Verified by 139 ported tests.
 </div>
 <div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
 
@@ -267,6 +268,31 @@ const $=id=>document.getElementById(id);
 function log(m,c){const p=document.createElement("p");p.className=c||"";p.textContent=m;$("log").prepend(p);}
 function spawnFloat(u,text,col){floats.push({x:u.x,y:u.y,text,col,t:0});}
 
+// WebAudio SFX — same vocabulary as the Unity AudioSystem placeholders (hit/crit/miss/heal).
+// Lazy-inits on first user gesture (browser autoplay policy); toggleable; no assets needed.
+let sfxOn=true,_ac=null;
+const AC=()=>{ if(typeof AudioContext==="undefined"&&typeof webkitAudioContext==="undefined")return null;
+  if(!_ac)_ac=new (window.AudioContext||window.webkitAudioContext)(); if(_ac.state==="suspended")_ac.resume(); return _ac; };
+function sfx(kind){
+  if(!sfxOn)return; const ac=AC(); if(!ac)return;
+  const t0=ac.currentTime, master=ac.createGain(); master.connect(ac.destination);
+  const tone=(f0,f1,dur,type,vol)=>{const o=ac.createOscillator(),g=ac.createGain();
+    o.type=type;o.frequency.setValueAtTime(f0,t0);if(f1!==f0)o.frequency.exponentialRampToValueAtTime(Math.max(20,f1),t0+dur);
+    g.gain.setValueAtTime(vol,t0);g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+    o.connect(g);g.connect(master);o.start(t0);o.stop(t0+dur);};
+  const noise=(dur,vol,lp)=>{const n=Math.floor(ac.sampleRate*dur),buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
+    const s=ac.createBufferSource();s.buffer=buf;const g=ac.createGain();g.gain.value=vol;
+    const f=ac.createBiquadFilter();f.type="lowpass";f.frequency.value=lp;
+    s.connect(f);f.connect(g);g.connect(master);s.start(t0);};
+  if(kind==="hit"){tone(150,90,0.14,"triangle",0.35);noise(0.08,0.18,900);}
+  else if(kind==="crit"){tone(320,110,0.26,"sawtooth",0.3);noise(0.12,0.25,1600);}
+  else if(kind==="miss"){noise(0.18,0.12,2500);}
+  else if(kind==="heal"){tone(440,880,0.4,"sine",0.22);tone(660,1320,0.4,"sine",0.1);}
+  else if(kind==="cond"){tone(220,180,0.22,"square",0.12);}
+  else if(kind==="fall"){tone(180,55,0.5,"triangle",0.3);}
+}
+
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
@@ -301,14 +327,14 @@ function legalTargets(u,ab){
 }
 function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
-  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");return;}
+  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");sfx("heal");return;}
   const tag=ab.isAttackRoll?`(d20 ${r.roll}${r.adv?"▲":r.dis?"▼":""} → ${r.total} vs AC ${r.ac})`:`(save ${r.total} vs DC ${r.ac})`;
   if(r.dmg>0){def.hp=Math.max(0,def.hp-r.dmg);
-    if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");}
-    else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");}
-  } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");}
-  if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");}
-  if(!def.alive)log(`${def.name} falls.`,"dmg");
+    if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");}
+    else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
+  } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
+  if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");sfx("cond");}
+  if(!def.alive){log(`${def.name} falls.`,"dmg");sfx("fall");}
 }
 function useAbility(att,ab,target){
   if(ab.targeting==="selfburst"){const hits=units.filter(t=>t.side!==att.side&&t.alive&&cheb(att,t)<=ab.radius);
@@ -367,6 +393,7 @@ cvs.addEventListener("click",e=>{
 });
 $("endTurn").onclick=endTurn;$("restart").onclick=newGame;
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
+$("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 
 function renderBar(){
   const bar=$("bar");bar.innerHTML="";const u=order&&order[turnIdx];
