@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.68.0 — *"Quests Kept"* — the campaign spine, pinned headless
+
+> Quest progression is the spine of the campaign, and its trickiest behaviour — objectives that complete
+> the instant a flag flips, completion vs. *failure* precedence when both land at once — lived only in
+> PlayMode, where this repo's CI can't reach. That reactive brain is now pinned in fast headless CI.
+
+- 🧭 **Quest state machine pinned** — `play/quests.js` + `quests.test.js` (15 checks, CI-gated) model
+  `QuestManager`/`Quest`: explicit start (once), objectives that fire only when *their* flag flips true
+  while Active, `completionFlag` → Completed, `failureFlag` → Failed, **failure beats completion when both
+  are true** (the C# checks failure first and `continue`s), Active-only reactions, quest isolation, and
+  export → import across managers (the save path).
+- 🧪 Headless verification suite now **131 checks** + the 400-game smoke, all green.
+
 ## 👑 v3.67.0 — *"The Save Holds"* — pinning the serialization contract
 
 > The least glamorous, most important kind of test: proof that your 20-hour run survives a save/load.
