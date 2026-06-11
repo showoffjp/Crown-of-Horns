@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v3.66.0 — *"The Odds Against"* — threat forecasts, asset tooling, and the state of the game
+
+> The forecast learns to look both ways: alongside "what are my odds of killing it," the HUD can now
+> answer **"what are the odds it kills *me*?"** — exact incoming damage and down-chance from every foe
+> in reach, computed by convolving real damage distributions, not guessed. Plus the operational answer
+> to "what do I need to ship this?": an asset-completeness checker and an evidence-based report.
+
+- 🛡️ **Threat forecasts** (`ThreatForecast`): mean incoming damage and the true probability the target
+  drops this round (miss/crit/save-for-half all modeled). Pinned by `ThreatForecastTests` with a
+  40k-seed Monte-Carlo cross-check against the real resolver, mirrored in `play/threat.js` (CI-gated),
+  and live in the playable demo ("⚠ incoming ~14 · 38% down").
+- 🧰 **`tools/asset-check.sh`**: scans `Resources/` against the exact names the engine loads and reports
+  what's present vs missing per category — run it after dropping in any pack.
+- 🗺️ **`docs/STATE_OF_THE_GAME.md`**: a full flow audit found the game **complete in code** (23/23
+  systems wired, zero stubs, boot → creation → hub → quests → combat → 5 eras → 6 endings); the real
+  remaining gaps are a human Unity run, audio+VFX (0%), and a distributable build.
+
 ## 👑 v3.65.0 — *"The Odds Made Plain"* — Unity 6.4, the verified slice, and combat forecasts
 
 > The engine moves to **Unity 6000.4.9f1**, the codebase gets its first full audit, and the game
