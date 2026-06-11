@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.70.1 — *"Their Own Faces"* — companion battle tokens fixed
+
+> A small, real bug surfaced by `tools/asset-check.sh`: the sprite lookup goes `displayName` →
+> first word → faction, so the two **multi-word** companions never found their own art — **Sister
+> Garrow** and **Roen Alleywind** fought as generic faction silhouettes while their dialogue
+> portraits worked fine.
+
+- 🎭 `tools/alias-companion-tokens.py` copies each one's art to the exact-name token (+ fresh-GUID
+  `.meta`). All six companions now show their own face on the battle map. Idempotent — drop real
+  art with the same name to supersede.
+- 📦 Asset completeness: **89% → 93%** (the two remaining names intentionally resolve via the
+  `Player`/`Enemy` faction tokens — "The Returned" is shared by the hero and a basic foe).
+
 ## 👑 v3.70.0 — *"Sound and Fury"* — the game finds its voice (placeholder A/V)
 
 > The longest-standing gap finally closed: audio and combat VFX were at 0%, so swings landed in silence
