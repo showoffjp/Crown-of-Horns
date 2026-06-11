@@ -1070,6 +1070,67 @@ path,category,type,size,size_bytes,lfs
 "Assets/RPG Effect All Free/Free/Part 36/1782.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1783.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1784.png",uncategorized,png,131B,131,yes
+"Assets/Resources/FX/heal/0.png",uncategorized,png,391B,391,no
+"Assets/Resources/FX/heal/1.png",uncategorized,png,384B,384,no
+"Assets/Resources/FX/heal/2.png",uncategorized,png,385B,385,no
+"Assets/Resources/FX/heal/3.png",uncategorized,png,370B,370,no
+"Assets/Resources/FX/heal/4.png",uncategorized,png,377B,377,no
+"Assets/Resources/FX/heal/5.png",uncategorized,png,422B,422,no
+"Assets/Resources/FX/impact/0.png",uncategorized,png,318B,318,no
+"Assets/Resources/FX/impact/1.png",uncategorized,png,338B,338,no
+"Assets/Resources/FX/impact/2.png",uncategorized,png,427B,427,no
+"Assets/Resources/FX/impact/3.png",uncategorized,png,496B,496,no
+"Assets/Resources/FX/impact/4.png",uncategorized,png,470B,470,no
+"Assets/Resources/FX/impact/5.png",uncategorized,png,483B,483,no
+"Assets/Resources/FX/impact_acid/0.png",uncategorized,png,314B,314,no
+"Assets/Resources/FX/impact_acid/1.png",uncategorized,png,332B,332,no
+"Assets/Resources/FX/impact_acid/2.png",uncategorized,png,464B,464,no
+"Assets/Resources/FX/impact_acid/3.png",uncategorized,png,490B,490,no
+"Assets/Resources/FX/impact_acid/4.png",uncategorized,png,504B,504,no
+"Assets/Resources/FX/impact_acid/5.png",uncategorized,png,535B,535,no
+"Assets/Resources/FX/impact_dark/0.png",uncategorized,png,328B,328,no
+"Assets/Resources/FX/impact_dark/1.png",uncategorized,png,325B,325,no
+"Assets/Resources/FX/impact_dark/2.png",uncategorized,png,460B,460,no
+"Assets/Resources/FX/impact_dark/3.png",uncategorized,png,478B,478,no
+"Assets/Resources/FX/impact_dark/4.png",uncategorized,png,555B,555,no
+"Assets/Resources/FX/impact_dark/5.png",uncategorized,png,502B,502,no
+"Assets/Resources/FX/impact_fire/0.png",uncategorized,png,320B,320,no
+"Assets/Resources/FX/impact_fire/1.png",uncategorized,png,345B,345,no
+"Assets/Resources/FX/impact_fire/2.png",uncategorized,png,468B,468,no
+"Assets/Resources/FX/impact_fire/3.png",uncategorized,png,482B,482,no
+"Assets/Resources/FX/impact_fire/4.png",uncategorized,png,510B,510,no
+"Assets/Resources/FX/impact_fire/5.png",uncategorized,png,546B,546,no
+"Assets/Resources/FX/impact_holy/0.png",uncategorized,png,318B,318,no
+"Assets/Resources/FX/impact_holy/1.png",uncategorized,png,295B,295,no
+"Assets/Resources/FX/impact_holy/2.png",uncategorized,png,460B,460,no
+"Assets/Resources/FX/impact_holy/3.png",uncategorized,png,500B,500,no
+"Assets/Resources/FX/impact_holy/4.png",uncategorized,png,512B,512,no
+"Assets/Resources/FX/impact_holy/5.png",uncategorized,png,551B,551,no
+"Assets/Resources/FX/impact_ice/0.png",uncategorized,png,314B,314,no
+"Assets/Resources/FX/impact_ice/1.png",uncategorized,png,316B,316,no
+"Assets/Resources/FX/impact_ice/2.png",uncategorized,png,435B,435,no
+"Assets/Resources/FX/impact_ice/3.png",uncategorized,png,465B,465,no
+"Assets/Resources/FX/impact_ice/4.png",uncategorized,png,505B,505,no
+"Assets/Resources/FX/impact_ice/5.png",uncategorized,png,522B,522,no
+"Assets/Resources/FX/impact_lightning/0.png",uncategorized,png,322B,322,no
+"Assets/Resources/FX/impact_lightning/1.png",uncategorized,png,313B,313,no
+"Assets/Resources/FX/impact_lightning/2.png",uncategorized,png,461B,461,no
+"Assets/Resources/FX/impact_lightning/3.png",uncategorized,png,473B,473,no
+"Assets/Resources/FX/impact_lightning/4.png",uncategorized,png,553B,553,no
+"Assets/Resources/FX/impact_lightning/5.png",uncategorized,png,524B,524,no
+"Assets/Resources/FX/impact_poison/0.png",uncategorized,png,330B,330,no
+"Assets/Resources/FX/impact_poison/1.png",uncategorized,png,334B,334,no
+"Assets/Resources/FX/impact_poison/2.png",uncategorized,png,450B,450,no
+"Assets/Resources/FX/impact_poison/3.png",uncategorized,png,484B,484,no
+"Assets/Resources/FX/impact_poison/4.png",uncategorized,png,503B,503,no
+"Assets/Resources/FX/impact_poison/5.png",uncategorized,png,494B,494,no
+"Assets/Resources/Music/Camp.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Combat.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Court.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Explore.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Fugue.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Hub.wav",uncategorized,wav,517KB,529244,no
+"Assets/Resources/Music/Vault.wav",uncategorized,wav,517KB,529244,no
 "Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,8.0KB,8183,no
 "Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,7.7KB,7870,no
 "Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,8.0KB,8160,no
@@ -1107,6 +1168,20 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,6.5KB,6566,no
 "Assets/Resources/Portraits/Varra.png",uncategorized,png,7.0KB,7088,no
 "Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,8.9KB,9104,no
+"Assets/Resources/SFX/crit.wav",uncategorized,wav,13KB,12392,no
+"Assets/Resources/SFX/deed.wav",uncategorized,wav,15KB,15038,no
+"Assets/Resources/SFX/heal.wav",uncategorized,wav,20KB,19888,no
+"Assets/Resources/SFX/hit.wav",uncategorized,wav,7.0KB,7100,no
+"Assets/Resources/SFX/hit_acid.wav",uncategorized,wav,11KB,11068,no
+"Assets/Resources/SFX/hit_dark.wav",uncategorized,wav,13KB,13274,no
+"Assets/Resources/SFX/hit_fire.wav",uncategorized,wav,9.6KB,9746,no
+"Assets/Resources/SFX/hit_holy.wav",uncategorized,wav,13KB,13274,no
+"Assets/Resources/SFX/hit_ice.wav",uncategorized,wav,7.8KB,7982,no
+"Assets/Resources/SFX/hit_lightning.wav",uncategorized,wav,5.3KB,5336,no
+"Assets/Resources/SFX/hit_physical.wav",uncategorized,wav,7.0KB,7100,no
+"Assets/Resources/SFX/hit_poison.wav",uncategorized,wav,13KB,13274,no
+"Assets/Resources/SFX/levelup.wav",uncategorized,wav,23KB,22972,no
+"Assets/Resources/SFX/miss.wav",uncategorized,wav,9.6KB,9746,no
 "Assets/Resources/Sprites/A Sorrow of the Unmade.png",uncategorized,png,6.0KB,6053,no
 "Assets/Resources/Sprites/Ally.png",uncategorized,png,3.5KB,3563,no
 "Assets/Resources/Sprites/Arcane Sentinel.png",uncategorized,png,5.6KB,5691,no
