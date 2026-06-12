@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v3.72.0 — *"The Door Out"* — a build path, and the story made explorable
+
+> Two doors open at once: the project can finally **build a player** (it had no scene in Build
+> Settings — Build would have failed), and the narrative engine becomes something you can *hold* —
+> an interactive explorer where you flip what happened in a playthrough and read the epilogue the
+> game would write for you.
+
+- 🚪 **Build path**: `Assets/Scenes/Boot.unity` (minimal empty scene — `GameEntryPoint` spawns
+  everything at runtime), registered in Build Settings; `Assets/Editor/BuildScript.cs` (menu +
+  headless Windows/Linux/macOS builds); `tools/build.sh` for one-command builds. *Honestly flagged:
+  standard formats, but unverified by a real Unity run.*
+- 🎭 **`play/endings_explorer.html`**: ~50 story flags + reputation sliders → the 6 endings
+  lock/unlock live → full prose, your personalized epilogue, the Chronicle. Engine inlined from the
+  byte-parity port at build time (`make-explorer.js`); boots headless in CI (`explorer.test.js`).
+- 🖼️ **`play/cast_gallery.html`**: all 68 portraits & battle tokens, base64-embedded standalone.
+- 🧪 Gates now **140 checks + 2 DOM smokes**, all green.
+
 ## 👑 v3.71.0 — *"The Slice Sings"* — WebAudio SFX in the playable demo
 
 > The Unity build found its voice in v3.70.0; now the browser slice matches it. A tiny WebAudio synth
