@@ -101,6 +101,64 @@ def bestiary():
         f'<button class="chip" data-f="{esc(x)}">{esc(x)}</button>' for x in eras)
     return f'<div class="filters">{chips}</div><div class="mongrid">{"".join(cards)}</div>'
 
+# ----------------------------------------------------------------- Conditions
+COND_ICON = {"Poisoned":"☠️","Prone":"\U0001F938","Stunned":"\U0001F4AB","Incapacitated":"\U0001F6AB",
+ "Restrained":"\U0001F578️","Blinded":"\U0001F441️","Frightened":"\U0001F628","Charmed":"\U0001F49E",
+ "Burning":"\U0001F525","Blessed":"✨","Hasted":"\U0001F3C3","Slowed":"\U0001F40C"}
+def effect_mechanics(e):
+    """Translate the StatusEffectDefinition fields into the game's own plain English (from its tooltips)."""
+    out = []
+    if e["dotDice"]: out.append((f'{e["dotDice"]} {(e["dotType"] or "").lower()} damage at the start of each of its turns', "dot"))
+    if e["incapacitates"]: out.append(("Cannot take actions or move", "bad"))
+    if e["attackersAdvantage"]: out.append(("Attacks against it have advantage", "bad"))
+    if e["bearerDisadvantage"]: out.append(("Its own attacks have disadvantage", "bad"))
+    if e["attackRollMod"]: out.append((f'{e["attackRollMod"]:+d} to its attack rolls', "good" if e["attackRollMod"] > 0 else "bad"))
+    if e["armorClassMod"]: out.append((f'{e["armorClassMod"]:+d} Armor Class', "good" if e["armorClassMod"] > 0 else "bad"))
+    if e["speedMod"]: out.append((f'{e["speedMod"]:+d} movement tiles', "good" if e["speedMod"] > 0 else "bad"))
+    if not out: out.append(("Flavour / vocabulary only — no mechanical change", "dim"))
+    return out
+def conditions():
+    cards = []
+    for e in DATA["effects"]:
+        ico = COND_ICON.get(e["name"], COND_ICON.get(e["condition"], "•"))
+        kind = "beneficial" if e["beneficial"] else "affliction"
+        kcol = "#7fbf76" if e["beneficial"] else "#e0a0a0"
+        mech = "".join(f'<li class="{c}">{esc(t)}</li>' for t, c in effect_mechanics(e))
+        cond = "" if e["condition"] in ("None", e["name"]) else f' · maps to <i>{esc(e["condition"])}</i>'
+        cards.append(f'''<div class="eff">
+          <div class="effh"><span class="ei">{ico}</span><b>{esc(e["name"])}</b>
+            <span class="ek" style="color:{kcol}">{kind}</span></div>
+          <div class="dim">lasts {e["rounds"]} round{"s" if e["rounds"]!=1 else ""}{cond}</div>
+          <ul class="mech">{mech}</ul></div>''')
+    # the full Condition vocabulary, noting which have an authored effect
+    authored = {e["condition"] for e in DATA["effects"]} | {e["name"] for e in DATA["effects"]}
+    chips = "".join(
+        f'<span class="cchip{" live" if c["name"] in authored else ""}">{COND_ICON.get(c["name"],"•")} {esc(c["name"])}'
+        f'{(" — " + esc(c["note"])) if c["note"] else ""}</span>'
+        for c in DATA["conditions"])
+    return (f'<div class="effgrid">{"".join(cards)}</div>'
+            f'<h3 class="glh">The condition vocabulary</h3>'
+            f'<p class="dim">The 5e-style conditions the engine understands. Lit chips have an authored effect above; '
+            f'the rest are reserved for content. Mechanics are read straight from each effect\'s fields.</p>'
+            f'<div class="cvocab">{chips}</div>')
+
+# ----------------------------------------------------------------- Codex
+CAT_ORDER = ["Premise", "Masks", "Companions", "Bestiary", "Lore"]
+CAT_LABEL = {"Premise":"\U0001F56F️ Premise","Masks":"\U0001F3AD The Four Masks","Companions":"\U0001F6E1️ The Company",
+ "Bestiary":"☠ Bestiary","Lore":"\U0001F4DC Lore & History"}
+def codex():
+    cats = sorted({c["category"] for c in DATA["codex"]}, key=lambda x: CAT_ORDER.index(x) if x in CAT_ORDER else 99)
+    chips = '<button class="chip on" data-cf="all">All</button>' + "".join(
+        f'<button class="chip" data-cf="{esc(c)}">{esc(CAT_LABEL.get(c,c))}</button>' for c in cats)
+    cards = []
+    for e in DATA["codex"]:
+        flag = (f'<span class="unlock">unlocks: <code>{esc(e["unlockFlag"])}</code></span>'
+                if e["unlockFlag"] else '<span class="unlock known">known from the start</span>')
+        cards.append(f'''<div class="cdx" data-cat="{esc(e["category"])}">
+          <div class="cdxh"><b>{esc(e["title"])}</b><span class="catpip">{esc(CAT_LABEL.get(e["category"],e["category"]))}</span></div>
+          <p>{esc(e["body"])}</p>{flag}</div>''')
+    return f'<div class="filters">{chips}</div><div class="cdxgrid">{"".join(cards)}</div>'
+
 # ----------------------------------------------------------------- Atlas
 ATLAS = [
  ("Act I — The Gate", "Sword Coast", "You wake Returned in Baldur's Gate. Hear the Herald, take the Cinderhaunt, and clear the prologue — the Wall's first whisper. Recruit Sister Garrow, Roen, Varra.", "prologue.cleared"),
@@ -145,20 +203,40 @@ b{color:#e7c873;font-weight:600}
 .act{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-left:3px solid #c9a24b;border-radius:0 9px 9px 0;padding:12px 16px;margin:10px 0}
 .acth{display:flex;justify-content:space-between;align-items:baseline}.act h3{color:#e7c873;margin:0;font-size:17px}
 .era-tag{color:#8a8198;font-size:11px}.act p{line-height:1.6;margin:8px 0}.gate{font-size:11px;color:#8a8198}code{color:#c9a24b}
-.count{color:#6e6680;font-size:12px;margin-bottom:10px}</style></head><body>
+.count{color:#6e6680;font-size:12px;margin-bottom:10px}
+.effgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.eff{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-radius:9px;padding:12px 14px}
+.effh{display:flex;align-items:center;gap:8px}.ei{font-size:20px}.ek{margin-left:auto;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.mech{margin:8px 0 0;padding-left:18px}.mech li{margin:3px 0;font-size:12.5px}
+.mech li.bad{color:#e0a0a0}.mech li.good{color:#7fbf76}.mech li.dot{color:#f0b46a}.mech li.dim{color:#6e6680;list-style:none;margin-left:-14px}
+.glh{color:#e7c873;font-size:16px;margin:22px 0 2px}
+.cvocab{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.cchip{font-size:12px;background:#141119;color:#6e6680;border:1px solid #221f2a;border-radius:13px;padding:4px 11px}
+.cchip.live{color:#d8d2c2;border-color:#3a3550;background:#1b1826}
+.cdxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.cdx{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-radius:9px;padding:13px 15px}
+.cdxh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.catpip{color:#7b7388;font-size:10.5px;white-space:nowrap}
+.cdx p{line-height:1.6;margin:8px 0;color:#cfc7d8;font-size:13px}
+.unlock{font-size:10.5px;color:#7b7388}.unlock.known{color:#6f9e6a}
+</style></head><body>
 <header><h1>Crown of Horns - Compendium</h1>
 <span class="sub">The in-world reference, generated from the game's actual content. Combat numbers mirror the verified AttackForecast.</span>
 <div class="tabs">
  <button class="tab on" data-t="grim">\U0001F4D6 Grimoire</button>
  <button class="tab" data-t="arm">⚔️ Armory</button>
  <button class="tab" data-t="best">☠ Bestiary</button>
+ <button class="tab" data-t="cond">\U0001F300 Conditions</button>
+ <button class="tab" data-t="codex">\U0001F4D3 Codex</button>
  <button class="tab" data-t="atlas">\U0001F5FA️ Atlas</button>
- <span class="links">also: <a href="crown_combat.html">▶ Combat demo</a><a href="endings_explorer.html">\U0001F3AD Endings explorer</a><a href="cast_gallery.html">\U0001F5BC️ Cast gallery</a></span>
+ <span class="links">also: <a href="crown_combat.html">▶ Combat demo</a><a href="endings_explorer.html">\U0001F3AD Endings explorer</a><a href="dialogue_viewer.html">\U0001F4AC Dialogue</a><a href="cast_gallery.html">\U0001F5BC️ Cast gallery</a></span>
 </div></header>
 <div class="wrap">
  <div class="panel on" id="grim"><div class="count">""" + str(len(DATA["abilities"])) + """ abilities — weapons, cantrips, spells & maneuvers. To-hit shown for a +5 striker.</div>""" + grimoire() + """</div>
  <div class="panel" id="arm"><div class="count">""" + str(len(DATA["items"])) + """ items in the world's loot tables.</div>""" + armory() + """</div>
  <div class="panel" id="best"><div class="count">""" + str(len(DATA["enemies"])) + """ foes across six eras. ~AC and to-hit computed as the engine does (base 13-14 + Dex, Str mod + proficiency).</div>""" + bestiary() + """</div>
+ <div class="panel" id="cond"><div class="count">""" + str(len(DATA["effects"])) + """ authored status effects and the """ + str(len(DATA["conditions"])) + """-condition vocabulary. Mechanics read straight from each StatusEffectDefinition.</div>""" + conditions() + """</div>
+ <div class="panel" id="codex"><div class="count">""" + str(len(DATA["codex"])) + """ Codex entries — the lore journal that fills in as you witness the saga. Each carries the flag that unlocks it in-game.</div>""" + codex() + """</div>
  <div class="panel" id="atlas"><div class="count">The shape of a playthrough — acts, eras, and the flags that gate them.</div>""" + atlas() + """</div>
 </div>
 <script>
@@ -166,10 +244,14 @@ document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){
  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));
  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("on"));
  b.classList.add("on");document.getElementById(b.dataset.t).classList.add("on");};});
-document.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){
- document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));c.classList.add("on");
+document.querySelectorAll(".chip[data-f]").forEach(function(c){c.onclick=function(){
+ document.querySelectorAll(".chip[data-f]").forEach(x=>x.classList.remove("on"));c.classList.add("on");
  var f=c.dataset.f;document.querySelectorAll(".mon").forEach(function(m){
    m.style.display=(f==="all"||m.dataset.era===f)?"":"none";});};});
+document.querySelectorAll(".chip[data-cf]").forEach(function(c){c.onclick=function(){
+ document.querySelectorAll(".chip[data-cf]").forEach(x=>x.classList.remove("on"));c.classList.add("on");
+ var f=c.dataset.cf;document.querySelectorAll(".cdx").forEach(function(m){
+   m.style.display=(f==="all"||m.dataset.cat===f)?"":"none";});};});
 </script></body></html>"""
     dst = os.path.join(ROOT, "play", "compendium.html")
     open(dst, "w").write(page)
