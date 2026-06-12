@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.74.0 — *"Know Them"* — clickable character profiles
+
+> The cast gallery stops being a wall of faces and becomes a who's-who you can read: click any
+> companion or principal for a full character sheet — who they are, what they fight with, the
+> branches of their personal quest, whether you can love them, and who they're bound to.
+
+- 🪪 **12 clickable profiles** (modal: role/class/race, stat chips, 3-paragraph bio, personal-quest
+  outcomes, romance, bonds) — Garrow, Roen, Varra, Naeve, Ilfaeril, Maerin, the Returned, Aldric
+  Morn, Aelryth, Veld, Wrenna, Mother Cass. Authored from the actual content (build functions +
+  EndingResolver + the era scripts). Esc/backdrop to close; mobile layout. Headless-validated.
+- 🖼️ **Portrait note:** real art is gated by the environment's network allowlist (Wikimedia/Met/AIC
+  all 403; only `raw.githubusercontent.com` reachable) and copyrighted "found online" art is refused
+  for a public repo. `tools/fetch-portraits.py` stands ready to cast the party with public-domain
+  masterworks the moment an art host is allowlisted, or any CC0/GitHub pack is named.
+
 ## 👑 v3.73.0 — *"Painted Faces"* — the cast goes painterly, and a masterwork fetcher waits
 
 > The portrait pass: 37 faces step up from labeled tokens to **layered painterly busts** — era-lit
