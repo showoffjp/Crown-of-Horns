@@ -11,6 +11,27 @@
 
 ---
 
+## 👑 v3.80.0 — *"Real Steel"* — actual game art enters the repo
+
+> The art blockade is broken. Dungeon Crawl Stone Soup's **CC0 (public-domain) tileset**
+> lives on GitHub — the one reachable host — and a licensed, curated slice of it is now
+> *in the project as real, reusable game assets.*
+
+- 🎨 **114 CC0 tiles** → `Assets/Resources/Art/DCSS/` — crypt/tomb floors &amp; walls, doors,
+  altars, statues, **36 monster sprites mapped to our bestiary archetypes** (Returned wights &amp;
+  ghouls, sorrow-wraiths, the Hollow Cantor, Kelemvorite templars, Crown-Wars blade-singers,
+  Netherese war-constructs, the Herald of the Unmade…), 6 hero-usable humanoids, and 12 real
+  weapon/armour/potion item icons.
+- ⚖️ **Licensing done right** (`tools/fetch-cc0-tiles.py`): DCSS's LICENSE declares the tiles
+  CC0; the curated `crawl/tiles` reuse project publishes an unknown-license exclusion list —
+  the fetcher downloads that list and **hard-skips anything on it**, then writes
+  `Art/DCSS/LICENSE.md` documenting CC0 + provenance for *every* file (source path table).
+- 🖼️ **`play/gameplay_v2.png`** (`tools/render-gameplay-v2.py`) — the Cinderhaunt rebuilt from
+  the real tiles: lit crypt, the party, the Choir at a necrotic altar, tactical overlays,
+  sprite portraits and real item icons in the HUD. BG1-era fidelity from actual licensed art.
+- 🧪 `cc0_art.test.js` (11 checks: PNG magic on every file, group counts, LICENSE documents
+  every tile, screenshot rendered) wired into CI. Headless suite now **249 checks**, all green.
+
 ## 👑 v3.79.0 — *"The Loop Closed"* — save inspector, saga map & a look at the game
 
 > Close the loop between the explorers, lay the whole campaign out on one page, and — for the
