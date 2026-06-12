@@ -1131,43 +1131,43 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Music/Fugue.wav",uncategorized,wav,517KB,529244,no
 "Assets/Resources/Music/Hub.wav",uncategorized,wav,517KB,529244,no
 "Assets/Resources/Music/Vault.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,8.0KB,8183,no
-"Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,7.7KB,7870,no
-"Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,8.0KB,8160,no
-"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",uncategorized,png,8.7KB,8851,no
-"Assets/Resources/Portraits/A girl in the Wall.png",uncategorized,png,9.3KB,9517,no
-"Assets/Resources/Portraits/Aldric Morn.png",uncategorized,png,7.9KB,8041,no
-"Assets/Resources/Portraits/Brother Sere.png",uncategorized,png,8.3KB,8473,no
-"Assets/Resources/Portraits/Collector Vane.png",uncategorized,png,9.2KB,9387,no
-"Assets/Resources/Portraits/Ferryman.png",uncategorized,png,6.6KB,6735,no
-"Assets/Resources/Portraits/Flaming Fist.png",uncategorized,png,6.1KB,6235,no
-"Assets/Resources/Portraits/Garrow.png",uncategorized,png,8.5KB,8615,no
-"Assets/Resources/Portraits/Harper Handler.png",uncategorized,png,5.7KB,5832,no
-"Assets/Resources/Portraits/Hensley, dying.png",uncategorized,png,6.3KB,6423,no
-"Assets/Resources/Portraits/Herald of the Gate.png",uncategorized,png,7.7KB,7874,no
-"Assets/Resources/Portraits/High Lord Aelryth.png",uncategorized,png,6.2KB,6264,no
-"Assets/Resources/Portraits/Ilfaeril.png",uncategorized,png,4.8KB,4878,no
-"Assets/Resources/Portraits/Justiciar Veld.png",uncategorized,png,8.5KB,8650,no
-"Assets/Resources/Portraits/Maerin.png",uncategorized,png,7.0KB,7168,no
-"Assets/Resources/Portraits/Mhaere.png",uncategorized,png,6.6KB,6703,no
-"Assets/Resources/Portraits/Mother Cass.png",uncategorized,png,9.2KB,9390,no
-"Assets/Resources/Portraits/NPC.png",uncategorized,png,6.5KB,6594,no
-"Assets/Resources/Portraits/Naeve.png",uncategorized,png,7.0KB,7096,no
-"Assets/Resources/Portraits/Old Davyn.png",uncategorized,png,8.9KB,9040,no
-"Assets/Resources/Portraits/Quill.png",uncategorized,png,7.0KB,7143,no
-"Assets/Resources/Portraits/Roen Alleywind.png",uncategorized,png,8.8KB,8991,no
-"Assets/Resources/Portraits/Roen.png",uncategorized,png,7.3KB,7411,no
-"Assets/Resources/Portraits/Sable.png",uncategorized,png,8.0KB,8126,no
-"Assets/Resources/Portraits/Sergeant Kallia.png",uncategorized,png,9.5KB,9671,no
-"Assets/Resources/Portraits/Sister Garrow.png",uncategorized,png,11KB,10577,no
-"Assets/Resources/Portraits/Tally.png",uncategorized,png,5.7KB,5826,no
-"Assets/Resources/Portraits/Tamsin.png",uncategorized,png,6.2KB,6277,no
-"Assets/Resources/Portraits/The Pale Cantor.png",uncategorized,png,8.3KB,8482,no
-"Assets/Resources/Portraits/The Returned.png",uncategorized,png,7.6KB,7705,no
-"Assets/Resources/Portraits/The unclaimed.png",uncategorized,png,7.1KB,7193,no
-"Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,6.5KB,6566,no
-"Assets/Resources/Portraits/Varra.png",uncategorized,png,7.0KB,7088,no
-"Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,8.9KB,9104,no
+"Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,58KB,59354,no
+"Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,76KB,77799,no
+"Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,80KB,81002,no
+"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",uncategorized,png,81KB,82310,no
+"Assets/Resources/Portraits/A girl in the Wall.png",uncategorized,png,58KB,58657,no
+"Assets/Resources/Portraits/Aldric Morn.png",uncategorized,png,86KB,87743,no
+"Assets/Resources/Portraits/Brother Sere.png",uncategorized,png,87KB,88128,no
+"Assets/Resources/Portraits/Collector Vane.png",uncategorized,png,80KB,81764,no
+"Assets/Resources/Portraits/Ferryman.png",uncategorized,png,84KB,85885,no
+"Assets/Resources/Portraits/Flaming Fist.png",uncategorized,png,83KB,84842,no
+"Assets/Resources/Portraits/Garrow.png",uncategorized,png,84KB,85036,no
+"Assets/Resources/Portraits/Harper Handler.png",uncategorized,png,81KB,82505,no
+"Assets/Resources/Portraits/Hensley, dying.png",uncategorized,png,83KB,84241,no
+"Assets/Resources/Portraits/Herald of the Gate.png",uncategorized,png,81KB,82477,no
+"Assets/Resources/Portraits/High Lord Aelryth.png",uncategorized,png,80KB,81429,no
+"Assets/Resources/Portraits/Ilfaeril.png",uncategorized,png,82KB,83956,no
+"Assets/Resources/Portraits/Justiciar Veld.png",uncategorized,png,86KB,87168,no
+"Assets/Resources/Portraits/Maerin.png",uncategorized,png,78KB,79150,no
+"Assets/Resources/Portraits/Mhaere.png",uncategorized,png,83KB,84810,no
+"Assets/Resources/Portraits/Mother Cass.png",uncategorized,png,86KB,87563,no
+"Assets/Resources/Portraits/NPC.png",uncategorized,png,80KB,81477,no
+"Assets/Resources/Portraits/Naeve.png",uncategorized,png,90KB,91419,no
+"Assets/Resources/Portraits/Old Davyn.png",uncategorized,png,80KB,81890,no
+"Assets/Resources/Portraits/Quill.png",uncategorized,png,77KB,78794,no
+"Assets/Resources/Portraits/Roen Alleywind.png",uncategorized,png,81KB,82758,no
+"Assets/Resources/Portraits/Roen.png",uncategorized,png,82KB,83224,no
+"Assets/Resources/Portraits/Sable.png",uncategorized,png,80KB,81332,no
+"Assets/Resources/Portraits/Sergeant Kallia.png",uncategorized,png,85KB,86955,no
+"Assets/Resources/Portraits/Sister Garrow.png",uncategorized,png,81KB,82842,no
+"Assets/Resources/Portraits/Tally.png",uncategorized,png,79KB,80779,no
+"Assets/Resources/Portraits/Tamsin.png",uncategorized,png,79KB,79915,no
+"Assets/Resources/Portraits/The Pale Cantor.png",uncategorized,png,74KB,75288,no
+"Assets/Resources/Portraits/The Returned.png",uncategorized,png,71KB,72219,no
+"Assets/Resources/Portraits/The unclaimed.png",uncategorized,png,57KB,58264,no
+"Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,82KB,83207,no
+"Assets/Resources/Portraits/Varra.png",uncategorized,png,83KB,84432,no
+"Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,80KB,81286,no
 "Assets/Resources/SFX/crit.wav",uncategorized,wav,13KB,12392,no
 "Assets/Resources/SFX/deed.wav",uncategorized,wav,15KB,15038,no
 "Assets/Resources/SFX/heal.wav",uncategorized,wav,20KB,19888,no
