@@ -8,7 +8,7 @@
 <br/>
 
 ![Status](https://img.shields.io/badge/Build-Vertical_Slice_Playable-brightgreen?style=for-the-badge)
-![Release](https://img.shields.io/badge/release-v3.75.0-gold?style=for-the-badge)
+![Release](https://img.shields.io/badge/release-v3.76.0-gold?style=for-the-badge)
 ![Engine](https://img.shields.io/badge/Unity-6_LTS-black?style=for-the-badge&logo=unity)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
 ![Rules](https://img.shields.io/badge/D%26D-5e_SRD_5.1-b51e2e?style=for-the-badge&logo=dungeonsanddragons&logoColor=white)

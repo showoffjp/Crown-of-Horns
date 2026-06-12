@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v3.76.0 — *"The Conversation"* — every branch, mapped and playable
+
+> Expand everything, again: the game's branching dialogue, lifted out of the C# and turned into a
+> readable graph you can study or *play* — without Unity.
+
+- 💬 **Dialogue Tree Viewer** (`play/dialogue_viewer.html`) — every conversation in the game as an
+  auto-laid-out node-link graph: speakers, choice edges, **skill-check edges** (ability + DC, with the
+  fail branch drawn dashed), and the story flags each line sets. Click any node for its full line and
+  effects. Toggle to **Walk** mode and play the conversation — pick choices, roll the checks, and watch
+  the flags the run would set tick over in a live panel.
+- 🧰 `tools/extract-dialogue.py` — brace-aware parser that lifts the real `DialogueGraph` builders
+  (nodes / choices / `FlagClause` conditions+effects / `checkAbility`+`checkDC`+`failNodeId`) into
+  `play/dialogue-data.json`. Reactive witness lines whose text is computed from flags are *marked*,
+  not invented. `tools/make-dialogue-viewer.py` renders the page.
+- 📊 Coverage: **52 conversations · 158 nodes · 147 choices · 13 skill checks**, straight from the source.
+- 🏠 Wired into the hub; `dialogue_viewer.test.js` (20 checks, incl. a parse-only JS compile of the
+  page) added to CI. Headless suite now **180 checks**, all green.
+
 ## 👑 v3.75.0 — *"The Compendium"* — the whole game, browsable
 
 > Expand everything: a generated, data-driven reference for the entire game, and a hub that ties the
