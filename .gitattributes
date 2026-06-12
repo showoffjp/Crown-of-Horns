@@ -28,6 +28,7 @@ docs/art-preview/*.png           -filter -diff -merge -text
 Assets/Resources/SFX/*.wav        -filter -diff -merge -text
 Assets/Resources/Music/*.wav      -filter -diff -merge -text
 Assets/Resources/FX/**/*.png      -filter -diff -merge -text
+play/*.png                        -filter -diff -merge -text
 
 # Treat Unity YAML assets as text (better merges)
 *.unity   text

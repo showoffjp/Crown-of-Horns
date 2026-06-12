@@ -11,6 +11,29 @@
 
 ---
 
+## 👑 v3.79.0 — *"The Loop Closed"* — save inspector, saga map & a look at the game
+
+> Close the loop between the explorers, lay the whole campaign out on one page, and — for the
+> first time — *show* what the final product looks like.
+
+- 💾 **Save Inspector** (`play/save_inspector.html`) — load a real `SaveData` file (or the bundled
+  sample), read &amp; edit every flag / int / quest / hero field / gold, see what it unlocks
+  (decoded against the flag graph + codex), then **export JSON that round-trips back into Unity**
+  byte-for-byte. A one-click **"Open in Endings Explorer →"** stages the flag state (via
+  localStorage) and the Endings page now picks it up on arrival — so a real run drives the real
+  endings. `tools/make-save-inspector.py` + `play/sample-save.json`.
+- 🗺️ **Saga Map** (`play/saga_map.html`) — the whole campaign on one page: the act spine across the
+  eras, the conversations in each act, the flags each sets and gates on, the personal-quest lane,
+  and the Court of the Dead fanning out to the six endings. **Every link deep-jumps into the
+  matching explorer** — conversations into the Dialogue Viewer (`#id`), flags into the Flag Graph
+  (`#key`), endings into the Endings Explorer (the two viewers gained URL-hash routing).
+- 🖼️ **A gameplay mock-up** (`play/gameplay_mockup.png`) — a rendered look at an isometric Cinderhaunt
+  combat encounter with the full HUD (party roster, iso battlefield with move/threat tiles, attack
+  forecast, initiative, ability bar), every value drawn from the real content + verified math.
+  `tools/render-gameplay-mockup.py`.
+- 🧪 `save_inspector.test.js` (17, incl. a loss-free parse↔export round-trip) + `saga_map.test.js`
+  (11, every deep-link resolves to a real conversation/flag). Headless suite now **238 checks**, all green.
+
 ## 👑 v3.78.0 — *"The Wiring"* — the whole saga's flag graph, browsable
 
 > The narrative engine runs on one `GameFlags` brain. This release renders that brain: a

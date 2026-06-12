@@ -575,5 +575,19 @@ $("preset2").onclick=()=>setAll([["companion.roen.recruited",true],["companion.v
  ["quest.garrow.resolved",true],["quest.garrow.recanted",true],["crownwars.verdict_passed",true],["aldric.named_monster",true],
  ["netheril.cleared",true],["pc.true_name",true],["faction.choir.reputation",6]]);
 $("reset").onclick=()=>setAll([]);
-buildFlags();render();
-</script></body></html>
+// If the Save Inspector staged a real save's flag state, apply it on arrival.
+(function importFromSave(){
+  let raw=null; try{ raw=localStorage.getItem("coh.endings.import"); }catch(e){}
+  if(!raw){ buildFlags(); render(); return; }
+  try{ localStorage.removeItem("coh.endings.import"); }catch(e){}
+  let m; try{ m=JSON.parse(raw); }catch(e){ buildFlags(); render(); return; }
+  const pairs=[];
+  for(const k in (m.bools||{})) if(m.bools[k]) pairs.push([k,true]);
+  for(const k in (m.ints||{})) pairs.push([k, m.ints[k]|0]);
+  setAll(pairs);
+  const b=document.createElement("div");
+  b.textContent="↳ Loaded "+pairs.length+" flags from the Save Inspector — these endings reflect that save.";
+  b.style.cssText="background:#13241a;border:1px solid #2c4a32;color:#9fcf96;border-radius:7px;"+
+    "padding:8px 14px;margin:10px 16px;font:13px Georgia,serif";
+  document.body.insertBefore(b, document.body.firstChild);
+})();</script></body></html>
