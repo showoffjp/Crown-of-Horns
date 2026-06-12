@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v3.78.0 — *"The Wiring"* — the whole saga's flag graph, browsable
+
+> The narrative engine runs on one `GameFlags` brain. This release renders that brain: a
+> dependency graph of every story flag — what sets it, what gates on it — harvested from
+> three independent sources and merged.
+
+- 🕸️ **Flag Dependency Graph** (`play/flags_explorer.html`) — pick any of the **167 story flags**
+  to see a bipartite map of what **writes** it (dialogue choices, quest resolutions, deeds, era
+  content) and what **reads** it (ending gates, codex unlocks, dialogue conditions), each edge
+  colour-coded by source. An **overview** panel surfaces the 27 domains, the most-connected *hub
+  flags*, and the orphans — **write-only** (set but ungated: future headroom) and **read-only**
+  (gated on but set by runtime systems like combat/losses/rests).
+- 🧰 `tools/extract-flags.py` merges three harvests: **C# `GameFlags` calls** (GetBool/GetInt = read,
+  Set/AddInt = write) across `Assets/Scripts`, the **dialogue clause data** (`FlagClause`
+  conditions/effects), and the **codex unlock flags** — into `play/flags-data.json`
+  (**515 read/write edges**). `tools/make-flags-explorer.py` renders the page.
+- 🧪 `flags_explorer.test.js` (19 checks, incl. a parse-only JS compile and the marquee
+  ending-gate → Endings+codex dependency). Headless suite now **210 checks**, all green.
+
 ## 👑 v3.77.0 — *"The Codex"* — the world's conditions and lore, browsable
 
 > Keep expanding the Compendium: the two content categories it didn't cover yet — what the

@@ -1,0 +1,3695 @@
+{
+ "flags": [
+  {
+   "key": "act2.breach_done",
+   "domain": "Act II",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "Codex: The Breach",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Returned, Becoming",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: What Love Is, in This Story",
+     "via": "codex"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "act3.crownwars_done",
+   "domain": "Act III",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "act3.netheril_done",
+   "domain": "Act III",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "act4.spellplague_done",
+   "domain": "Act IV",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Blue Fire (the Spellplague)",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Spellplague",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Weave",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Unmade Aberrations",
+     "via": "codex"
+    },
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "act4.toot_done",
+   "domain": "Act IV",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Avatar-Touched",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Crown of Horns",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Time of Troubles",
+     "via": "codex"
+    },
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "act5",
+   "domain": "Finale",
+   "writers": [],
+   "readers": [
+    {
+     "source": "RiddleVaultUI",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "aldric.cost_revealed",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "aldric.crown_doubt_planted",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "aldric.grief_seen",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "aldric.met",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Aldric Morn â the First Mask",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Aldric's Daughter",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Doom of Kelemvor",
+     "via": "codex"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "aldric.named_monster",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "aldric.provisional",
+   "domain": "Aldric",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.blessing",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Keeper",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.deathbed_lie",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Deathbed",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.deathbed_resolved",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Deathbed",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.roen_witnessed",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Roen · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.token",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Keeper",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "almshouse.visited",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Almshouse · Keeper",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "camp.nighttalk.garrow.done",
+   "domain": "Camp",
+   "writers": [
+    {
+     "source": "RuptureDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "camp.nighttalk.roen.done",
+   "domain": "Camp",
+   "writers": [
+    {
+     "source": "RuptureDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "camp.rests",
+   "domain": "Camp",
+   "writers": [
+    {
+     "source": "CampScene",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "combat.clutch_win",
+   "domain": "Combat",
+   "writers": [
+    {
+     "source": "EncounterController",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "combat.revive_hinted",
+   "domain": "Combat",
+   "writers": [
+    {
+     "source": "AbilityRunner",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AbilityRunner",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "combat.used_",
+   "domain": "Combat",
+   "writers": [
+    {
+     "source": "TurnManager",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "combat.used_flank",
+   "domain": "Combat",
+   "writers": [
+    {
+     "source": "AbilityRunner",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "combat.victories",
+   "domain": "Combat",
+   "writers": [
+    {
+     "source": "EncounterController",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.garrow.approval",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    },
+    {
+     "source": "Garrow · Quest · Resolution",
+     "via": "dialogue"
+    },
+    {
+     "source": "GarrowQuestDemo",
+     "via": "code"
+    },
+    {
+     "source": "Toot · Garrow · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "GarrowQuestDemo",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.garrow.lost",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.ilfaeril.approval",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "(crownwarscontent)",
+     "via": "dialogue"
+    },
+    {
+     "source": "Crownwars · Ilfaeril · Witness",
+     "via": "dialogue"
+    },
+    {
+     "source": "Ilfaeril · Quest · Resolution",
+     "via": "dialogue"
+    },
+    {
+     "source": "IlfaerilQuestDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "IlfaerilQuestDemo",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.ilfaeril.lost",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.ilfaeril.recruited",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "(crownwarscontent)",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Ilfaeril",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Court of the First Damnation",
+     "via": "codex"
+    },
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.maerin.lost",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.maerin.recruited",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "(fuguecontent)",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "BreachDemo",
+     "via": "code"
+    },
+    {
+     "source": "Codex: Maerin",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.naeve.approval",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Resolution",
+     "via": "dialogue"
+    },
+    {
+     "source": "NaeveQuestDemo",
+     "via": "code"
+    },
+    {
+     "source": "Netheril · Naeve · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "NaeveQuestDemo",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.naeve.lost",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.naeve.recruited",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "(netherilcontent)",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Naeve of the Seventh Enclave",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Seventh Enclave",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.roen.approval",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Almshouse · Roen · Witness",
+     "via": "dialogue"
+    },
+    {
+     "source": "CampDemo",
+     "via": "code"
+    },
+    {
+     "source": "Hub · Roen",
+     "via": "dialogue"
+    },
+    {
+     "source": "Roen · Quest · Resolution",
+     "via": "dialogue"
+    },
+    {
+     "source": "RoenQuestDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "RoenQuestDemo",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.roen.lost",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.roen.recruited",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "ActTwoDemo",
+     "via": "code"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    },
+    {
+     "source": "Hub · Roen",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Codex: Roen Alleywind",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.varra.approval",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "CampDemo",
+     "via": "code"
+    },
+    {
+     "source": "Hub · Varra",
+     "via": "dialogue"
+    },
+    {
+     "source": "Spellplague · Varra · Witness",
+     "via": "dialogue"
+    },
+    {
+     "source": "Varra · Quest · Resolution",
+     "via": "dialogue"
+    },
+    {
+     "source": "VarraQuestDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "VarraQuestDemo",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.varra.lost",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "BreachDemo",
+     "via": "code"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "companion.varra.pact_broken",
+   "domain": "Companions",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "companion.varra.recruited",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "ActTwoDemo",
+     "via": "code"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    },
+    {
+     "source": "Hub · Varra",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Ash Pact",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Varra",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.arrived",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "(crownwarscontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.boss_down",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The First Unmade",
+     "via": "codex"
+    },
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.cleared",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Elven Blade-Singers",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: High Doomguide Vayle",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Jergal, the Scribe of the Dead",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Crown Wars",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Echoes",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Last Returned â the Third Mask",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Wall Was a Decision",
+     "via": "codex"
+    },
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.ilfaeril_witnessed",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "Crownwars · Ilfaeril · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.loot1",
+   "domain": "Crown Wars",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "crownwars.verdict_passed",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "(crownwarscontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "crownwars.verdict_spared",
+   "domain": "Crown Wars",
+   "writers": [
+    {
+     "source": "(crownwarscontent)",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "docks.ferryman_resolved",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Docks · Ferryman",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "docks.ferryman_saved",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Docks · Ferryman",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "dungeon.cinder.boss",
+   "domain": "Exploration",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "dungeon.cinder.chest1",
+   "domain": "Exploration",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "dungeon.cinder.chest2",
+   "domain": "Exploration",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "dungeon.cinder.door",
+   "domain": "Exploration",
+   "writers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "dungeon.cinder.guards",
+   "domain": "Exploration",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Cinderhaunt",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "dungeon.cinder.key",
+   "domain": "Exploration",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "faction.choir.reputation",
+   "domain": "Reputations",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "faction.kelemvor.reputation",
+   "domain": "Reputations",
+   "writers": [
+    {
+     "source": "Aldric · Tea",
+     "via": "dialogue"
+    },
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "fugue.arrived",
+   "domain": "The Fugue",
+   "writers": [
+    {
+     "source": "(fuguecontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Kelemvor, Lord of the Dead",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The City of Judgement",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Faithless and the False",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Fugue Plane",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Wall-Wraiths",
+     "via": "codex"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "fugue.left_maerin",
+   "domain": "The Fugue",
+   "writers": [
+    {
+     "source": "(fuguecontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "fugue.pull_maerin",
+   "domain": "The Fugue",
+   "writers": [
+    {
+     "source": "(fuguecontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "BreachDemo",
+     "via": "code"
+    },
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "fugue.soul.met",
+   "domain": "The Fugue",
+   "writers": [
+    {
+     "source": "Fugue · Soul",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "game.ended",
+   "domain": "Game state",
+   "writers": [
+    {
+     "source": "EndingScreen",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "game.ending",
+   "domain": "Game state",
+   "writers": [
+    {
+     "source": "EndingScreen",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "garrow.quest.arrived",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Arrival",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "garrow.quest.charge_known",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Charge",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "ilfaeril.quest.arrived",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Arrival",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "ilfaeril.quest.cantor_known",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Cantor",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "lowcity.allies",
+   "domain": "Lower City",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "lowcity.visited_almshouse",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Almshouse of the Unclaimed",
+     "via": "codex"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "lowcity.visited_docks",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "DocksScene",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Chionthar Docks",
+     "via": "codex"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "lowcity.visited_market",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Shrunken Quarter",
+     "via": "codex"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "lowcity.visited_safehouse",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Deeds",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "market.urchin_freed",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Market · Urchin",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "market.urchin_resolved",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Market · Urchin",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "naeve.quest.arrived",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Arrival",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "naeve.quest.truth_known",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Echo",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "netheril.arrived",
+   "domain": "Netheril",
+   "writers": [
+    {
+     "source": "(netherilcontent)",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Era echoes",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "netheril.boss_down",
+   "domain": "Netheril",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Mythallar Colossus",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "netheril.cleared",
+   "domain": "Netheril",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Karsus's Folly (Netheril)",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Netherese Arcanists",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Crack in Time",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Mythallar",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Unmade â the Second Mask",
+     "via": "codex"
+    },
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era echoes",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "netheril.loot1",
+   "domain": "Netheril",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "netheril.naeve_witnessed",
+   "domain": "Netheril",
+   "writers": [
+    {
+     "source": "Netheril · Naeve · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "ng.plus",
+   "domain": "New Game+",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Loop Remembers",
+     "via": "codex"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "ng.priorRuns",
+   "domain": "New Game+",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "pc.returned",
+   "domain": "Player",
+   "writers": [
+    {
+     "source": "CharacterBuilder",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "pc.true_name",
+   "domain": "Player",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "prologue.cleared",
+   "domain": "Prologue",
+   "writers": [
+    {
+     "source": "ActTwoDemo",
+     "via": "code"
+    },
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "PrologueBootstrap",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Sister Garrow",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Cinderhaunt Restless",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Lower City",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: The Unbound Maw",
+     "via": "codex"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "prologue.herald_met",
+   "domain": "Prologue",
+   "writers": [
+    {
+     "source": "Hub · Herald",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.choir.cell_cleared",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Hollow Cantor",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.choir.doubted",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.choir.favored",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.choir.resolved",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: The Faithless Choir",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.choir.suppressed",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.fist.bribed",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.fist.freed",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.fist.lawful",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.fist.resolved",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.garrow.doctrine_won",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.garrow.left_faith",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.garrow.recanted",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.garrow.resolved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Garrow · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Garrow â after the tribunal",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.ilfaeril.commission",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.ilfaeril.forgiven",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.ilfaeril.penance",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Crown Wars",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.ilfaeril.resolved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Ilfaeril · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Ilfaeril â after the forgiveness",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.letter.burned",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.letter.delivered",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.letter.read",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.letter.resolved",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.naeve.preserved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.naeve.rekindled",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.naeve.released",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "Netheril",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.naeve.resolved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Naeve · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Naeve â after the shard",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.roen.double_agent",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Roen · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.roen.harper_boon",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Roen · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.roen.resolved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Roen · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Roen â after the safehouse",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.roen.wrenna_saved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Roen · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.tithe.corrupt",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.tithe.freed",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.tithe.paid",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.tithe.resolved",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: The Grave-Tithe",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.varra.debt_taken",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Varra · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.varra.freed",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Varra · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.varra.patron_bound",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Varra · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "Era witnesses",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.varra.resolved",
+   "domain": "Personal quests",
+   "writers": [
+    {
+     "source": "Varra · Quest · Resolution",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: Varra â after the reckoning",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "quest.widow.hope",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.widow.lie",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.widow.resolved",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "quest.widow.truth",
+   "domain": "Personal quests",
+   "writers": [],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "readers_boon",
+   "domain": "The Lady",
+   "writers": [
+    {
+     "source": "EndingDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Codex: The Lady in the Margins â the Fourth Mask",
+     "via": "codex"
+    },
+    {
+     "source": "Codex: Why the Dead Stay Gone",
+     "via": "codex"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "reputation.lowcity",
+   "domain": "Reputations",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "Docks · Ferryman",
+     "via": "dialogue"
+    },
+    {
+     "source": "Market · Urchin",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Act2 · Crier",
+     "via": "dialogue"
+    },
+    {
+     "source": "AlmshouseScene",
+     "via": "code"
+    },
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "DocksScene",
+     "via": "code"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "MarketScene",
+     "via": "code"
+    },
+    {
+     "source": "ShopScreen",
+     "via": "code"
+    },
+    {
+     "source": "The Fugue",
+     "via": "code"
+    },
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "riddle.amusement",
+   "domain": "The Vault",
+   "writers": [
+    {
+     "source": "Lady · Tally",
+     "via": "dialogue"
+    },
+    {
+     "source": "RiddleVaultUI",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "RiddleVaultUI",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "riddle.entered",
+   "domain": "The Vault",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Vault of Tens",
+     "via": "codex"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "riddle.solvedCount",
+   "domain": "The Vault",
+   "writers": [
+    {
+     "source": "RiddleVaultUI",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    },
+    {
+     "source": "RiddleVaultUI",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "roen.quest.arrived",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Roen · Quest · Arrival",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "roen.quest.cleared",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "RoenQuestDemo",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "roen.quest.truth_known",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Roen · Quest · Reveal",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "romance.garrow.consummated",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: Garrow â the one she'll keep",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.garrow.turn",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.naeve.consummated",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: Naeve â the revised axiom",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.naeve.turn",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.roen.consummated",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: Roen â the con he won't run",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.roen.turn",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.varra.consummated",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "Codex: Varra â off the books",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "romance.varra.turn",
+   "domain": "Romance",
+   "writers": [],
+   "readers": [
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": true
+  },
+  {
+   "key": "safehouse.informant_freed",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Safehouse · Informant",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "safehouse.informant_resolved",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Safehouse · Informant",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    },
+    {
+     "source": "HarperSafehouseScene",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "safehouse.informant_turned",
+   "domain": "Lower City",
+   "writers": [
+    {
+     "source": "Safehouse · Informant",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "shop.bought",
+   "domain": "Economy",
+   "writers": [
+    {
+     "source": "ShopScreen",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "shop.sold",
+   "domain": "Economy",
+   "writers": [
+    {
+     "source": "ShopScreen",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "slain.",
+   "domain": "Kills",
+   "writers": [
+    {
+     "source": "EncounterController",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "slain.total",
+   "domain": "Kills",
+   "writers": [
+    {
+     "source": "EncounterController",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "ChronicleScreen",
+     "via": "code"
+    },
+    {
+     "source": "Deeds",
+     "via": "code"
+    },
+    {
+     "source": "JourneyScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "spellplague.done",
+   "domain": "Spellplague",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "spellplague.echo_seen",
+   "domain": "Spellplague",
+   "writers": [
+    {
+     "source": "Spellplague · Echo",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "spellplague.herald_down",
+   "domain": "Spellplague",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Herald of the Unmade",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "spellplague.varra_witnessed",
+   "domain": "Spellplague",
+   "writers": [
+    {
+     "source": "Spellplague · Varra · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "tally.roaming1.done",
+   "domain": "The Vault",
+   "writers": [
+    {
+     "source": "Lady · Tally",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "The Gate (hub)",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "toot.avatar_down",
+   "domain": "Time of Troubles",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Codex: The Avatar of Bone",
+     "via": "codex"
+    },
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "toot.crown_echo_seen",
+   "domain": "Time of Troubles",
+   "writers": [
+    {
+     "source": "Toot · Crown · Echo",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "toot.echo_seen",
+   "domain": "Time of Troubles",
+   "writers": [
+    {
+     "source": "Toot · Echo",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "toot.garrow_witnessed",
+   "domain": "Time of Troubles",
+   "writers": [
+    {
+     "source": "Toot · Garrow · Witness",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Endings",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "tutorial.combat_seen",
+   "domain": "Tutorial",
+   "writers": [
+    {
+     "source": "CombatHUD",
+     "via": "code"
+    }
+   ],
+   "readers": [
+    {
+     "source": "CombatHUD",
+     "via": "code"
+    },
+    {
+     "source": "SettingsScreen",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  },
+  {
+   "key": "varra.quest.arrived",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Varra · Quest · Arrival",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "varra.quest.terms_known",
+   "domain": "Companions",
+   "writers": [
+    {
+     "source": "Varra · Quest · Reveal",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [],
+   "orphanWrite": true,
+   "orphanRead": false
+  },
+  {
+   "key": "vault.requested",
+   "domain": "The Vault",
+   "writers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    },
+    {
+     "source": "Lady · Tally",
+     "via": "dialogue"
+    }
+   ],
+   "readers": [
+    {
+     "source": "Campaign flow",
+     "via": "code"
+    }
+   ],
+   "orphanWrite": false,
+   "orphanRead": false
+  }
+ ],
+ "domains": [
+  "Act II",
+  "Act III",
+  "Act IV",
+  "Aldric",
+  "Camp",
+  "Combat",
+  "Companions",
+  "Crown Wars",
+  "Economy",
+  "Exploration",
+  "Finale",
+  "Game state",
+  "Kills",
+  "Lower City",
+  "Netheril",
+  "New Game+",
+  "Personal quests",
+  "Player",
+  "Prologue",
+  "Reputations",
+  "Romance",
+  "Spellplague",
+  "The Fugue",
+  "The Lady",
+  "The Vault",
+  "Time of Troubles",
+  "Tutorial"
+ ],
+ "stats": {
+  "flags": 167,
+  "edges": 515,
+  "domains": 27,
+  "orphanWrites": 32,
+  "orphanReads": 43
+ }
+}
