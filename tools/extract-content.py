@@ -91,12 +91,102 @@ def extract_enemies():
             if key not in out or entry["xp"] > out[key]["xp"]: out[key] = entry
     return sorted(out.values(), key=lambda e: (e["era"], -e["xp"]))
 
+# ---- conditions (the Condition enum vocabulary) ----------------------------
+def extract_conditions():
+    path = os.path.join(ROOT, "Assets/Scripts/Stats/Condition.cs")
+    txt = open(path).read()
+    body = txt[txt.index("enum Condition"):]
+    body = body[body.index("{")+1: body.index("}")]
+    out = []
+    for line in body.splitlines():
+        note = ""
+        if "//" in line:
+            line, note = line.split("//", 1); note = note.strip()
+        name = line.strip().rstrip(",").strip()
+        if not re.fullmatch(r'\w+', name) or name == "None": continue
+        out.append({"name": name, "note": note})
+    return out
+
+# ---- status effects (the authored StatusEffectDefinition catalog) ----------
+def _str_concat(v):
+    parts = re.findall(r'"((?:[^"\\]|\\.)*)"', v)
+    return "".join(parts).encode().decode("unicode_escape") if parts else None
+
+def extract_effects():
+    path = os.path.join(ROOT, "Assets/Scripts/Content/SwordCoastContent.cs")
+    txt = open(path).read()
+    i = txt.index("void BuildEffects")
+    body = txt[txt.index("{", i):]
+    depth = 0; end = 0
+    for j, ch in enumerate(body):
+        if ch == "{": depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0: end = j; break
+    body = body[1:end]
+
+    call_re = re.compile(
+        r'Effect\(\s*"([^"]+)"\s*,\s*Condition\.(\w+)\s*,\s*(\d+)([^;]*)\)')
+    out = []; var_of = {}  # variable name -> effect dict
+    for m in call_re.finditer(body):
+        name, cond, rounds, rest = m.groups()
+        eff = {"name": name, "condition": cond, "rounds": int(rounds),
+               "beneficial": "beneficial: true" in rest,
+               "bearerDisadvantage": "bearerDisadv: true" in rest,
+               "attackRollMod": int((re.search(r'atkMod:\s*(-?\d+)', rest) or [0, 0])[1]),
+               "armorClassMod": 0, "speedMod": 0,
+               "incapacitates": False, "attackersAdvantage": False,
+               "dotDice": None, "dotType": None}
+        # what variable / key was it bound to? look back on the same statement
+        pre = body[:m.start()].rstrip()
+        vm = re.search(r'(?:var\s+(\w+)|Effects\[\s*"(\w+)"\s*\])\s*=\s*$', pre)
+        if vm and vm.group(1): var_of[vm.group(1)] = eff
+        out.append(eff)
+    # fold in the post-construction field assignments (burning DoT, slow speed, held flags)
+    for am in re.finditer(r'(\w+)\.(\w+)\s*=\s*([^;]+);', body):
+        var, field, val = am.groups()
+        if var not in var_of: continue
+        eff = var_of[var]; val = val.strip()
+        if field == "damageOverTimeDice": eff["dotDice"] = _str_concat(val)
+        elif field == "damageOverTimeType": eff["dotType"] = val.split(".")[-1]
+        elif field == "speedModifier": eff["speedMod"] = int(val)
+        elif field == "armorClassModifier": eff["armorClassMod"] = int(val)
+        elif field == "incapacitates": eff["incapacitates"] = val == "true"
+        elif field == "attackersHaveAdvantage": eff["attackersAdvantage"] = val == "true"
+    return out
+
+# ---- codex (the lore/bestiary journal) -------------------------------------
+def extract_codex():
+    path = os.path.join(ROOT, "Assets/Scripts/Content/CodexContent.cs")
+    txt = open(path).read()
+    out = []
+    for m in re.finditer(r'new Entry\s*\{', txt):
+        a = m.end() - 1
+        depth = 0; end = 0
+        for j in range(a, len(txt)):
+            c = txt[j]
+            if c == "{": depth += 1
+            elif c == "}":
+                depth -= 1
+                if depth == 0: end = j; break
+        blk = txt[a+1:end]
+        def field(key):
+            fm = re.search(key + r'\s*=\s*((?:"(?:[^"\\]|\\.)*"\s*\+?\s*)+)', blk)
+            return _str_concat(fm.group(1)) if fm else None
+        cat = re.search(r'category\s*=\s*Category\.(\w+)', blk)
+        out.append({"id": field("id"), "category": cat.group(1) if cat else "Lore",
+                    "title": field("title"), "unlockFlag": field("unlockFlag") or "",
+                    "body": field("body") or ""})
+    return out
+
 def main():
-    data = {"abilities": extract_abilities(), "items": extract_items(), "enemies": extract_enemies()}
+    data = {"abilities": extract_abilities(), "items": extract_items(), "enemies": extract_enemies(),
+            "conditions": extract_conditions(), "effects": extract_effects(), "codex": extract_codex()}
     dst = os.path.join(ROOT, "play", "compendium-data.json")
     json.dump(data, open(dst, "w"), indent=1)
     print(f"extracted: {len(data['abilities'])} abilities, {len(data['items'])} items, "
-          f"{len(data['enemies'])} enemies -> play/compendium-data.json")
+          f"{len(data['enemies'])} enemies, {len(data['conditions'])} conditions, "
+          f"{len(data['effects'])} effects, {len(data['codex'])} codex entries -> play/compendium-data.json")
 
 if __name__ == "__main__":
     main()

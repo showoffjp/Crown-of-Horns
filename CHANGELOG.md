@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v3.77.0 — *"The Codex"* — the world's conditions and lore, browsable
+
+> Keep expanding the Compendium: the two content categories it didn't cover yet — what the
+> conditions actually *do*, and the whole lore journal — now have their own tabs, generated
+> straight from the C#.
+
+- 🌀 **Conditions tab** — the **6 authored status effects** (Poisoned, Burning, Frightened, Blessed,
+  Slowed, Held) as cards whose mechanics are read *directly from each `StatusEffectDefinition`*: DoT
+  dice + type, duration, incapacitation, attacker advantage, attack/AC/speed modifiers — translated
+  into the engine's own plain English. Plus the full **12-condition vocabulary**, lit where an effect
+  backs it.
+- 📓 **Codex tab** — all **69 lore entries** (Premise · The Four Masks · The Company · Bestiary · Lore
+  & History) with category filters, each carrying the **GameFlags key** that unlocks it in-game and a
+  "known from the start" marker for the ungated ones.
+- 🧰 `tools/extract-content.py` extended to lift the `Condition` enum, the `BuildEffects()` catalog, and
+  `CodexContent.All` (brace-aware, string-concat aware) into `compendium-data.json`; `make-compendium.py`
+  renders both tabs and a generalized category filter.
+- 🧪 `compendium.test.js` grown to **32 checks** (effects carry real mechanics; codex spans 5 categories,
+  every entry well-formed). Headless suite now **191 checks**, all green.
+
 ## 👑 v3.76.0 — *"The Conversation"* — every branch, mapped and playable
 
 > Expand everything, again: the game's branching dialogue, lifted out of the C# and turned into a
