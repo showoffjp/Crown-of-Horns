@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.73.0 — *"Painted Faces"* — the cast goes painterly, and a masterwork fetcher waits
+
+> The portrait pass: 37 faces step up from labeled tokens to **layered painterly busts** — era-lit
+> atmosphere, key-light and core-shadow on the skin, hoods for the priests, helms for the soldiers,
+> circlets for the mages, wisp-crowns for the spirits dissolving at their edges — each in its era's
+> palette (DESIGN §5), with rim light, grain, and vignette. Deterministic, regenerable, auto-wired.
+
+- 🖼️ `tools/gen-portraits-v2.py` — the painterly generator (pure PIL, no external art, no licenses).
+- 🌐 `tools/fetch-portraits.py` — **ready-to-run**: the environment's network allowlist currently
+  blocks Wikimedia Commons (verified), but the moment `commons.wikimedia.org` +
+  `upload.wikimedia.org` are allowlisted, one run recasts ~27 named characters with **public-domain
+  masterworks** (PD-old painters only), credited in `docs/PORTRAIT_CREDITS.md`. Copyrighted "found
+  online" art was deliberately refused.
+- 🗂️ Cast gallery regenerated with JPEG thumbnails (3.8 MB → 498 KB standalone).
+
 ## 👑 v3.72.0 — *"The Door Out"* — a build path, and the story made explorable
 
 > Two doors open at once: the project can finally **build a player** (it had no scene in Build
