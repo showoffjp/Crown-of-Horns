@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.75.0 — *"The Compendium"* — the whole game, browsable
+
+> Expand everything: a generated, data-driven reference for the entire game, and a hub that ties the
+> browser-playable suite together behind one front door.
+
+- 📖 **Compendium** (`play/compendium.html`) — four tabs, generated from the C# content:
+  Grimoire (40 abilities, with hit% vs AC mirroring the verified AttackForecast), Armory (every
+  item's damage/AC/value), Bestiary (37 foes across six eras, engine-faithful to-hit/AC/XP, threat
+  tiers, era filters, embedded tokens), and an Atlas of the seven acts and their gating flags.
+- 🧰 `tools/extract-content.py` pulls the data straight from the `Weapon()`/`Spell()`/`Item()`/`Enemy()`
+  builders; `tools/make-compendium.py` renders the page.
+- 🏠 **Hub** (`play/index.html`) — one landing page linking combat demo, endings explorer, compendium,
+  cast gallery, and analytics.
+- 🧪 `compendium.test.js` (21 checks) wired into CI; headless suite now **161 checks**, all green.
+
 ## 👑 v3.74.0 — *"Know Them"* — clickable character profiles
 
 > The cast gallery stops being a wall of faces and becomes a who's-who you can read: click any
