@@ -21,7 +21,7 @@
 <div class="head">
  <h1>👑 Crown of Horns</h1>
  <div class="sub">The greatest isometric CRPG you've never heard of — explorable in your browser, no Unity required. Every page below runs the game's real, test-verified logic and content.</div>
- <div class="badge">v3.77.0 · 191 CI-gated checks · 23/23 systems</div>
+ <div class="badge">v3.78.0 · 210 CI-gated checks · 23/23 systems</div>
 </div>
 <div class="grid">
  <a class="card" href="crown_combat.html"><div class="ic">▶️</div><div class="ct">Combat — Skirmish</div>
@@ -42,8 +42,11 @@
  <a class="card" href="balance_report.html"><div class="ic">⚖️</div><div class="ct">Combat Analytics</div>
   <div class="cd">Monte-Carlo over the real engine: each hero's hit% and damage-per-round across armor classes, time-to-kill, and the balance oracle.</div>
   <span class="tag">generated report</span></a>
+ <a class="card" href="flags_explorer.html"><div class="ic">🕸️</div><div class="ct">Flag Dependency Graph</div>
+  <div class="cd">The saga's wiring: pick any of the 167 story flags to see what <b>writes</b> it (dialogue choices, quest resolutions, deeds) and what <b>reads</b> it (ending gates, codex unlocks, conditions). An overview surfaces the hub flags and the orphans.</div>
+  <span class="tag">167 flags · 515 edges · 27 domains</span></a>
 </div>
 <div class="foot">
- Everything here is generated from, and verified against, the Unity project: the combat &amp; narrative engines are ported 1:1 from <code>Assets/Scripts</code> (with .NET <code>System.Random</code> reimplemented bit-for-bit), and a <b>191-check</b> headless suite plus the Unity EditMode tests gate every change. Open the files directly — no server needed. Regenerate with <code>node play/run-all.js</code> and the <code>tools/make-*.py</code> scripts.
+ Everything here is generated from, and verified against, the Unity project: the combat &amp; narrative engines are ported 1:1 from <code>Assets/Scripts</code> (with .NET <code>System.Random</code> reimplemented bit-for-bit), and a <b>210-check</b> headless suite plus the Unity EditMode tests gate every change. Open the files directly — no server needed. Regenerate with <code>node play/run-all.js</code> and the <code>tools/make-*.py</code> scripts.
 </div>
 </body></html>
