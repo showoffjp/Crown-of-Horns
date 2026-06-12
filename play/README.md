@@ -33,6 +33,7 @@ Proof that the combat engine works, runnable **without Unity**.
 | `quests.test.js` | Models the QuestManager state machine — explicit start, live flag-reactive objective/completion/failure advancement (PlayMode-only on the Unity side), and export/import. **15/15.** |
 | `pathfind.test.js` | Ports the A* grid pathfinding + a brute-force Dijkstra oracle; a 3000-map fuzz proves every A* path is least-cost. **8/8.** |
 | `explorer.test.js` | Boots `endings_explorer.html` headless: every flag, both presets, every earnable ending — prose/slides/chronicle render. |
+| `compendium.test.js` | Structural smoke for the generated Compendium (Grimoire/Armory/Bestiary/Atlas) + the index hub. |
 | `progression.test.js` | Ports `ProgressionTests` — 5e XP table, single/multi level-ups, level-20 cap, level-up event. **9/9.** |
 | `run-all.js` | One command — runs all gates + reports; exits non-zero on any failure (used by CI). |
 | `retune.js` | Design-space search that derived the Brute retune (Str16/AC13/HP34) — reruns the seeded duels over candidate stat-lines and picks the one centred in both bands. |

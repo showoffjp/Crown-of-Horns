@@ -1,0 +1,918 @@
+{
+ "abilities": [
+  {
+   "name": "Longsword",
+   "kind": "Weapon",
+   "dice": "1d8",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Mace",
+   "kind": "Weapon",
+   "dice": "1d6",
+   "type": "Bludgeoning",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Shortbow",
+   "kind": "Weapon",
+   "dice": "1d6",
+   "type": "Piercing",
+   "range": 8,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Dagger",
+   "kind": "Weapon",
+   "dice": "1d4",
+   "type": "Piercing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Greataxe",
+   "kind": "Weapon",
+   "dice": "1d12",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Rotting Claw",
+   "kind": "Weapon",
+   "dice": "1d6",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Javelin",
+   "kind": "Weapon",
+   "dice": "1d6",
+   "type": "Piercing",
+   "range": 6,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Shortsword",
+   "kind": "Weapon",
+   "dice": "1d6",
+   "type": "Piercing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Heavy Strike",
+   "kind": "Weapon",
+   "dice": "2d8",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Brutal Strike",
+   "kind": "Weapon",
+   "dice": "2d6",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Sneak Attack",
+   "kind": "Weapon",
+   "dice": "3d6",
+   "type": "Piercing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Hunter's Volley",
+   "kind": "Weapon",
+   "dice": "2d6",
+   "type": "Piercing",
+   "range": 8,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Fire Bolt",
+   "kind": "Cantrip",
+   "dice": "1d10",
+   "type": "Fire",
+   "range": 12,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Fireball",
+   "kind": "Spell (L3)",
+   "dice": "8d6",
+   "type": "Fire",
+   "range": 10,
+   "slot": 3,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Cure Wounds",
+   "kind": "Spell (L1)",
+   "dice": "1d8",
+   "type": "Radiant",
+   "range": 1,
+   "slot": 1,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Bless",
+   "kind": "Spell (L1)",
+   "dice": "",
+   "type": "Radiant",
+   "range": 6,
+   "slot": 1,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Second Wind",
+   "kind": "Cantrip",
+   "dice": "1d10",
+   "type": "Radiant",
+   "range": 0,
+   "slot": 0,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Ray of Frost",
+   "kind": "Cantrip",
+   "dice": "1d8",
+   "type": "Cold",
+   "range": 10,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Sacred Flame",
+   "kind": "Cantrip",
+   "dice": "1d8",
+   "type": "Radiant",
+   "range": 10,
+   "slot": 0,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Guiding Bolt",
+   "kind": "Spell (L1)",
+   "dice": "4d6",
+   "type": "Radiant",
+   "range": 12,
+   "slot": 1,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Healing Word",
+   "kind": "Spell (L1)",
+   "dice": "1d4",
+   "type": "Radiant",
+   "range": 6,
+   "slot": 1,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Thunderwave",
+   "kind": "Spell (L1)",
+   "dice": "2d8",
+   "type": "Thunder",
+   "range": 1,
+   "slot": 1,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Hold Person",
+   "kind": "Spell (L2)",
+   "dice": "",
+   "type": "Psychic",
+   "range": 8,
+   "slot": 2,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Spiritual Weapon",
+   "kind": "Spell (L2)",
+   "dice": "1d8",
+   "type": "Force",
+   "range": 8,
+   "slot": 2,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Ice Storm",
+   "kind": "Spell (L4)",
+   "dice": "4d6",
+   "type": "Cold",
+   "range": 12,
+   "slot": 4,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Cone of Cold",
+   "kind": "Spell (L5)",
+   "dice": "8d8",
+   "type": "Cold",
+   "range": 6,
+   "slot": 5,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Flame Strike",
+   "kind": "Spell (L5)",
+   "dice": "8d6",
+   "type": "Fire",
+   "range": 12,
+   "slot": 5,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Cure Wounds III",
+   "kind": "Spell (L3)",
+   "dice": "3d8",
+   "type": "Radiant",
+   "range": 1,
+   "slot": 3,
+   "attack": false,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Elven Blade",
+   "kind": "Weapon",
+   "dice": "1d8",
+   "type": "Slashing",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Crown Wars"
+  },
+  {
+   "name": "Moonbow",
+   "kind": "Weapon",
+   "dice": "1d8",
+   "type": "Piercing",
+   "range": 10,
+   "slot": 0,
+   "attack": true,
+   "era": "Crown Wars"
+  },
+  {
+   "name": "Grave Claw",
+   "kind": "Weapon",
+   "dice": "1d8",
+   "type": "Necrotic",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Crown Wars"
+  },
+  {
+   "name": "Radiant Smite",
+   "kind": "Spell (L1)",
+   "dice": "2d8",
+   "type": "Radiant",
+   "range": 1,
+   "slot": 1,
+   "attack": true,
+   "era": "Crown Wars"
+  },
+  {
+   "name": "Dread Gaze",
+   "kind": "Cantrip",
+   "dice": "",
+   "type": "Psychic",
+   "range": 5,
+   "slot": 0,
+   "attack": false,
+   "era": "Crown Wars"
+  },
+  {
+   "name": "Avatar's Touch",
+   "kind": "Weapon",
+   "dice": "2d8",
+   "type": "Radiant",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Blue Fire",
+   "kind": "Cantrip",
+   "dice": "3d6",
+   "type": "Force",
+   "range": 8,
+   "slot": 0,
+   "attack": true,
+   "era": "Sword Coast"
+  },
+  {
+   "name": "Arcane Slam",
+   "kind": "Weapon",
+   "dice": "2d6",
+   "type": "Bludgeoning",
+   "range": 1,
+   "slot": 0,
+   "attack": true,
+   "era": "Netheril"
+  },
+  {
+   "name": "Void Lash",
+   "kind": "Weapon",
+   "dice": "1d8",
+   "type": "Necrotic",
+   "range": 2,
+   "slot": 0,
+   "attack": true,
+   "era": "Netheril"
+  },
+  {
+   "name": "Arcane Bolt",
+   "kind": "Cantrip",
+   "dice": "1d10",
+   "type": "Force",
+   "range": 10,
+   "slot": 0,
+   "attack": true,
+   "era": "Netheril"
+  },
+  {
+   "name": "Lightning Lance",
+   "kind": "Spell (L2)",
+   "dice": "3d6",
+   "type": "Lightning",
+   "range": 8,
+   "slot": 2,
+   "attack": true,
+   "era": "Netheril"
+  },
+  {
+   "name": "Shatterglass",
+   "kind": "Spell (L2)",
+   "dice": "4d6",
+   "type": "Force",
+   "range": 9,
+   "slot": 2,
+   "attack": false,
+   "era": "Netheril"
+  }
+ ],
+ "items": [
+  {
+   "id": "longsword",
+   "name": "Longsword",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "15",
+   "weaponDamage": "1d8",
+   "wType": "Slashing",
+   "ac": null
+  },
+  {
+   "id": "greataxe",
+   "name": "Greataxe",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "30",
+   "weaponDamage": "1d12",
+   "wType": "Slashing",
+   "ac": null
+  },
+  {
+   "id": "leather_armor",
+   "name": "Leather Armor",
+   "kind": "Armor",
+   "slot": "Body",
+   "value": "10",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "1"
+  },
+  {
+   "id": "chain_shirt",
+   "name": "Chain Shirt",
+   "kind": "Armor",
+   "slot": "Body",
+   "value": "50",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "3"
+  },
+  {
+   "id": "smuggled_dagger",
+   "name": "Smuggled Dagger",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "8",
+   "weaponDamage": "1d4",
+   "wType": "Piercing",
+   "ac": null
+  },
+  {
+   "id": "warhammer",
+   "name": "Warhammer",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "18",
+   "weaponDamage": "1d8",
+   "wType": "Bludgeoning",
+   "ac": null
+  },
+  {
+   "id": "rapier",
+   "name": "Rapier",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "28",
+   "weaponDamage": "1d8",
+   "wType": "Piercing",
+   "ac": null
+  },
+  {
+   "id": "greatsword",
+   "name": "Greatsword",
+   "kind": "Weapon",
+   "slot": "MainHand",
+   "value": "55",
+   "weaponDamage": "2d6",
+   "wType": "Slashing",
+   "ac": null
+  },
+  {
+   "id": "half_plate",
+   "name": "Half Plate",
+   "kind": "Armor",
+   "slot": "Body",
+   "value": "90",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "5"
+  },
+  {
+   "id": "wooden_shield",
+   "name": "Wooden Shield",
+   "kind": "Armor",
+   "slot": "OffHand",
+   "value": "12",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "2"
+  },
+  {
+   "id": "iron_helm",
+   "name": "Iron Helm",
+   "kind": "Armor",
+   "slot": "Head",
+   "value": "22",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "1"
+  },
+  {
+   "id": "ring_protection",
+   "name": "Ring of Protection",
+   "kind": "Armor",
+   "slot": "Trinket",
+   "value": "140",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": "1"
+  },
+  {
+   "id": "healing_potion",
+   "name": "Potion of Healing",
+   "kind": "Consumable",
+   "slot": "None",
+   "value": "25",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": null
+  },
+  {
+   "id": "cinderhaunt_key",
+   "name": "Cinderhaunt Key",
+   "kind": "Quest",
+   "slot": "None",
+   "value": "0",
+   "weaponDamage": null,
+   "wType": null,
+   "ac": null
+  }
+ ],
+ "enemies": [
+  {
+   "name": "The First Unmade",
+   "str": 18,
+   "con": 19,
+   "level": 8,
+   "weapon": "bolt",
+   "xp": 420,
+   "era": "Crown Wars",
+   "acApprox": 14
+  },
+  {
+   "name": "Crown-War Revenant",
+   "str": 16,
+   "con": 16,
+   "level": 4,
+   "weapon": "claw",
+   "xp": 200,
+   "era": "Crown Wars",
+   "acApprox": 14
+  },
+  {
+   "name": "Damned Shade",
+   "str": 15,
+   "con": 15,
+   "level": 5,
+   "weapon": "blade",
+   "xp": 170,
+   "era": "Crown Wars",
+   "acApprox": 14
+  },
+  {
+   "name": "Vengeful Shade",
+   "str": 12,
+   "con": 12,
+   "level": 3,
+   "weapon": "claw",
+   "xp": 120,
+   "era": "Crown Wars",
+   "acApprox": 14
+  },
+  {
+   "name": "Echo of the Verdict",
+   "str": 13,
+   "con": 13,
+   "level": 4,
+   "weapon": "bolt",
+   "xp": 110,
+   "era": "Crown Wars",
+   "acApprox": 14
+  },
+  {
+   "name": "The Mythallar Colossus",
+   "str": 19,
+   "con": 20,
+   "level": 8,
+   "weapon": "slam",
+   "xp": 420,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "Netherese War-Construct",
+   "str": 17,
+   "con": 18,
+   "level": 5,
+   "weapon": "arcane_slam",
+   "xp": 300,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "Mythallar Ward",
+   "str": 16,
+   "con": 16,
+   "level": 5,
+   "weapon": "burst",
+   "xp": 220,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "Shadow-Bound Sentinel",
+   "str": 14,
+   "con": 13,
+   "level": 3,
+   "weapon": "voidlash",
+   "xp": 120,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "Arcane Sentinel",
+   "str": 15,
+   "con": 14,
+   "level": 4,
+   "weapon": "bolt",
+   "xp": 120,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "Arcanist Revenant",
+   "str": 12,
+   "con": 12,
+   "level": 3,
+   "weapon": "bolt",
+   "xp": 120,
+   "era": "Netheril",
+   "acApprox": 14
+  },
+  {
+   "name": "The Herald of the Unmade",
+   "str": 17,
+   "con": 18,
+   "level": 7,
+   "weapon": "fire",
+   "xp": 380,
+   "era": "Spellplague",
+   "acApprox": 14
+  },
+  {
+   "name": "Spellplague Aberration",
+   "str": 16,
+   "con": 16,
+   "level": 5,
+   "weapon": "_late.BlueFire",
+   "xp": 280,
+   "era": "Spellplague",
+   "acApprox": 14
+  },
+  {
+   "name": "Unmade Aberration",
+   "str": 15,
+   "con": 15,
+   "level": 5,
+   "weapon": "fire",
+   "xp": 180,
+   "era": "Spellplague",
+   "acApprox": 14
+  },
+  {
+   "name": "Weave-wraith",
+   "str": 12,
+   "con": 12,
+   "level": 3,
+   "weapon": "bolt",
+   "xp": 70,
+   "era": "Spellplague",
+   "acApprox": 14
+  },
+  {
+   "name": "The Hollow Cantor",
+   "str": 16,
+   "con": 17,
+   "level": 6,
+   "weapon": "bolt",
+   "xp": 280,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "Quill, the Broker",
+   "str": 15,
+   "con": 16,
+   "level": 5,
+   "weapon": "bolt",
+   "xp": 220,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "The Pale Cantor",
+   "str": 16,
+   "con": 16,
+   "level": 5,
+   "weapon": "bolt",
+   "xp": 220,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "Contract-Devil",
+   "str": 15,
+   "con": 14,
+   "level": 4,
+   "weapon": "claw",
+   "xp": 130,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "Choir Herald",
+   "str": 15,
+   "con": 14,
+   "level": 4,
+   "weapon": "blade",
+   "xp": 120,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "Cinder-Hound",
+   "str": 14,
+   "con": 12,
+   "level": 2,
+   "weapon": "rotting_claw",
+   "xp": 75,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "Imp of the Fine Print",
+   "str": 11,
+   "con": 11,
+   "level": 2,
+   "weapon": "bolt",
+   "xp": 60,
+   "era": "Sword Coast",
+   "acApprox": 14
+  },
+  {
+   "name": "The Unbound Maw",
+   "str": 18,
+   "con": 18,
+   "level": 5,
+   "weapon": "rotting_claw",
+   "xp": 400,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "Unmaking Zealot",
+   "str": 15,
+   "con": 14,
+   "level": 4,
+   "weapon": "blade",
+   "xp": 120,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "A Sorrow of the Unmade",
+   "str": 13,
+   "con": 13,
+   "level": 4,
+   "weapon": "fire",
+   "xp": 110,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "Sorrow-wraith",
+   "str": 12,
+   "con": 12,
+   "level": 3,
+   "weapon": "bolt",
+   "xp": 75,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "Unmaking Acolyte",
+   "str": 12,
+   "con": 12,
+   "level": 3,
+   "weapon": "bolt",
+   "xp": 70,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "The Unbound",
+   "str": 13,
+   "con": 14,
+   "level": 2,
+   "weapon": "rotting_claw",
+   "xp": 50,
+   "era": "The Fugue",
+   "acApprox": 14
+  },
+  {
+   "name": "The Avatar of Bone",
+   "str": 18,
+   "con": 18,
+   "level": 7,
+   "weapon": "touch",
+   "xp": 380,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Justiciar Veld",
+   "str": 17,
+   "con": 16,
+   "level": 5,
+   "weapon": "blade",
+   "xp": 220,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "God-Touched Horror",
+   "str": 15,
+   "con": 15,
+   "level": 5,
+   "weapon": "touch",
+   "xp": 180,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Doomguide Knight",
+   "str": 16,
+   "con": 15,
+   "level": 4,
+   "weapon": "blade",
+   "xp": 150,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Doomguide Interrogator",
+   "str": 12,
+   "con": 14,
+   "level": 4,
+   "weapon": "blade",
+   "xp": 120,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Templar Inquisitor",
+   "str": 15,
+   "con": 14,
+   "level": 4,
+   "weapon": "blade",
+   "xp": 120,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Bone-Zealot of Myrkul",
+   "str": 13,
+   "con": 13,
+   "level": 4,
+   "weapon": "touch",
+   "xp": 110,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Doomguide Enforcer",
+   "str": 14,
+   "con": 13,
+   "level": 3,
+   "weapon": "blade",
+   "xp": 90,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  },
+  {
+   "name": "Kelemvorite Zealot",
+   "str": 13,
+   "con": 12,
+   "level": 3,
+   "weapon": "blade",
+   "xp": 80,
+   "era": "Time of Troubles",
+   "acApprox": 14
+  }
+ ]
+}
