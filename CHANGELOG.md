@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v3.81.0 — *"One File"* — the whole game in a single portable HTML
+
+> "Can you give me a functioning HTML of all of this, including dialog trees?" — yes:
+> **`play/crown_of_horns.html`**, one self-contained file, no server and no other files.
+
+- 📦 **`play/crown_of_horns.html`** (~1.1 MB) — a tabbed shell that bundles all nine browser
+  pages and renders each in an isolated `<iframe srcdoc>` so their scripts/styles never
+  collide: **Combat** (the real playable engine), **Dialogue** (every branching tree, Map +
+  Walk), **Endings**, **Compendium** (Grimoire/Bestiary/Conditions/Codex/Atlas), **Cast**,
+  **Flag Graph**, **Saga Map**, **Save Inspector**, **Analytics**.
+- 🔗 In-bundle cross-links are rewired to switch tabs and carry the deep-link hash — the Saga
+  Map's "💬 conversation" chips jump straight to that conversation in the Dialogue tab, etc.
+  The bundle is itself deep-linkable: `crown_of_horns.html#dialogue:ilfaeril.quest.resolution`.
+- 🧰 `tools/make-all-in-one.py` regenerates it from the standalone pages (JSON-embedded, lazy
+  srcdoc load).
+- 🧪 `all_in_one.test.js` (14 checks: all 9 pages embedded & parse, marquee payloads intact,
+  shell + rewiring + deep-links wired) added to CI. Headless suite now **263 checks**, all green.
+- 🏠 Hub gains a prominent button to the single-file build.
+
 ## 👑 v3.80.0 — *"Real Steel"* — actual game art enters the repo
 
 > The art blockade is broken. Dungeon Crawl Stone Soup's **CC0 (public-domain) tileset**
