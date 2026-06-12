@@ -10,10 +10,17 @@ PRINCIPALS = ["Aldric Morn","Mhaere","Sable","Tamsin","Quill","Wrenna Alleywind"
               "High Lord Aelryth","Justiciar Veld","The Pale Cantor","The Returned"]
 
 def b64(p):
-    with open(p,"rb") as f: return base64.b64encode(f.read()).decode()
+    # embed a JPEG thumbnail, not the full PNG — keeps the standalone page light
+    from PIL import Image
+    import io
+    im = Image.open(p).convert("RGB")
+    im.thumbnail((176, 220))
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=84)
+    return base64.b64encode(buf.getvalue()).decode()
 
 def card(name, img_path, sub=""):
-    return (f'<div class="card"><img src="data:image/png;base64,{b64(img_path)}" alt="{html.escape(name)}">'
+    return (f'<div class="card"><img src="data:image/jpeg;base64,{b64(img_path)}" alt="{html.escape(name)}">'
             f'<div class="nm">{html.escape(name)}</div>'
             + (f'<div class="sub">{html.escape(sub)}</div>' if sub else "") + "</div>")
 
