@@ -214,6 +214,11 @@ function pickDom(d){ domFilter=d; buildDomFilter(); buildList(document.querySele
   document.querySelector("aside").scrollTop=0; }
 
 // ---- boot ----
-buildDomFilter(); buildList(""); showOverview();
+buildDomFilter(); buildList("");
+(function(){ const want=decodeURIComponent(location.hash.replace(/^#/,""));
+  if(want && byKey[want]) showFlag(want); else showOverview();
+})();
+window.addEventListener("hashchange",()=>{ const want=decodeURIComponent(location.hash.replace(/^#/,""));
+  if(want && byKey[want]) showFlag(want); });
 </script>
 </body></html>

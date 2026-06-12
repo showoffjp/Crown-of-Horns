@@ -301,6 +301,12 @@ function endWalk(){ const w=document.getElementById("walk"); const b=document.cr
   document.getElementById("view").scrollTop=document.getElementById("view").scrollHeight; }
 
 // ---- boot ----
-buildList(""); load(0);
+buildList("");
+(function(){ const want=decodeURIComponent(location.hash.replace(/^#/,""));
+  const i = want? CONVS.findIndex(c=>c.id===want) : -1;
+  load(i>=0? i : 0);
+})();
+window.addEventListener("hashchange",()=>{ const want=decodeURIComponent(location.hash.replace(/^#/,""));
+  const i=CONVS.findIndex(c=>c.id===want); if(i>=0) load(i); });
 </script>
 </body></html>
