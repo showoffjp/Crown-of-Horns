@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v3.84.0 — *"The Tilt"* — the playable board goes isometric
+
+> The genre's defining look. The Skirmish stops being top-down and becomes a real
+> **isometric crypt** — diamond grid, raised stone walls, depth-sorted sprites.
+
+- 🧭 **Isometric renderer** in `play/crown_combat.html` — a 2:1 diamond projection: floor
+  tiles are stone diamonds, **walls are extruded 3-D blocks**, and everything (walls, units,
+  props) is **depth-sorted back-to-front** so nearer things correctly occlude. The combat
+  logic stays on the square grid untouched; only the view + mouse-picking are reprojected.
+- 🗿 **Environmental props** dress the crypt — real CC0 feature tiles (a dark altar behind the
+  boss, flanking statues, a sealed door) as billboards.
+- 🩸 **Persistent decals** — blood/scorch is left on the tile where each combatant falls.
+- ✨ The whole juice layer (projectiles, impacts, slashes, crit bursts, torch lighting,
+  death wisps, idle-bob) is reprojected into iso. All rules/forecasts/SFX unchanged.
+- 🧪 **`iso.test.js`** lifts the page's real projection math and proves click-picking
+  round-trips for **all 140 tiles** (centres + interior samples), that the projection is
+  injective and in-bounds — objective coverage for the one thing a screenshot can't show.
+  `cc0_art.test.js` updated; the smoke harness still auto-plays full games through the iso
+  `draw()`. Headless suite now **278 checks**, all green. Preview + bundle rebuilt.
+
 ## 👑 v3.83.0 — *"The Quickening"* — the combat comes alive (VFX), real art everywhere
 
 > "PLEASE DO MORE." Done: the fight stops being static. Bolts fly, steel sparks, the

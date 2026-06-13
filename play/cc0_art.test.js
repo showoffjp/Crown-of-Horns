@@ -44,8 +44,9 @@ check("combat: >=15 sprites embedded as data URIs",
   (combat.match(/data:image\/png;base64/g) || []).length >= 15);
 check("combat: roster wired to sprites (hero + foe)",
   combat.includes('sprite:"spr_garrow"') && combat.includes('sprite:"spr_boss"'));
-check("combat: draws tiles + sprites (not just tokens)",
-  combat.includes("drawSpr(floorFor") && combat.includes("drawSpr(u.sprite"));
+check("combat: isometric board with sprite billboards",
+  combat.includes("function floorTile") && combat.includes("function billboard") &&
+  combat.includes("isoX") && combat.includes("drawSpr(sprite"));
 check("combat: juice wired (VFX + torch lighting + screen shake)",
   combat.includes("function renderFX") && combat.includes("function lighting") &&
   combat.includes("function strike") && combat.includes("shake=Math.max"));
