@@ -227,6 +227,68 @@ const floorFor=(x,y)=>FLOORS[_hash(x,y)%FLOORS.length];
 const wallFor=(x,y)=>WALLS[_hash(x+7,y+3)%WALLS.length];
 function drawSpr(name,px,py,w,h){const im=IMG[name];if(!im||!im.complete||!im.naturalWidth)return false;ctx.drawImage(im,px,py,w,h);return true;}
 
+// ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
+let fx=[],shake=0,_last=0,_clock=0;
+const cxOf=x=>PAD.x+x*TILE+TILE/2, cyOf=y=>PAD.y+y*TILE+TILE/2;
+const DMGCOL={slashing:"#dfe6ef",piercing:"#cdd6e0",bludgeoning:"#d8c9a0",fire:"#ff8a3a",cold:"#7fd0ff",
+  lightning:"#ffe06a",radiant:"#ffe9a8",necrotic:"#86d08a",psychic:"#c79bf0",force:"#f08ad8",
+  poison:"#9fd06a",acid:"#b6e05a",thunder:"#9fb8ff"};
+function fxSlash(def,col){fx.push({k:"slash",x:cxOf(def.x),y:cyOf(def.y)-4,t:0,dur:0.26,col:col||"#e7c873"});}
+function fxBurst(def,col,big){fx.push({k:"burst",x:cxOf(def.x),y:cyOf(def.y)-4,t:0,dur:big?0.5:0.32,col:col||"#ffd27a",big:!!big});}
+function fxHeal(def){fx.push({k:"heal",x:cxOf(def.x),y:cyOf(def.y),t:0,dur:0.7});}
+function fxRing(def,col){fx.push({k:"ring",x:cxOf(def.x),y:cyOf(def.y)-4,t:0,dur:0.5,col:col||"#d0a8e8"});}
+function fxSoul(def){fx.push({k:"soul",x:cxOf(def.x),y:cyOf(def.y),t:0,dur:1.0});}
+function strike(att,def,ab,r){
+  const col=DMGCOL[ab.dmgType]||"#e7c873", sh=r.crit?7:(r.dmg>0||r.hit?3:1.2);
+  if(ab.range>1||!ab.isAttackRoll){
+    fx.push({k:"proj",x0:cxOf(att.x),y0:cyOf(att.y)-8,x1:cxOf(def.x),y1:cyOf(def.y)-6,t:0,dur:0.16,col,hit:r.dmg>0||r.hit,big:r.crit,sh});
+  }else if(r.dmg>0||r.hit){fxSlash(def,col);fxBurst(def,col,r.crit);shake=Math.max(shake,sh);}
+  else{fxBurst(def,"#8a8198",false);}
+}
+function updateFX(dt){
+  for(let i=fx.length-1;i>=0;i--){const f=fx[i];f.t+=dt;
+    if(f.t>=f.dur){
+      if(f.k==="proj"){ if(f.hit){fx.push({k:"burst",x:f.x1,y:f.y1,t:0,dur:f.big?0.5:0.32,col:f.col,big:f.big});shake=Math.max(shake,f.sh||2);}
+        else fx.push({k:"burst",x:f.x1,y:f.y1,t:0,dur:0.22,col:"#8a8198",big:false}); }
+      fx.splice(i,1);
+    }
+  }
+  if(shake>0)shake=Math.max(0,shake-dt*40);
+}
+function lighting(){
+  if(!units)return; ctx.save();ctx.globalCompositeOperation="lighter";
+  const fl=0.84+0.16*Math.sin(_clock*7)+0.05*Math.sin(_clock*19);
+  units.filter(u=>u.alive).forEach(u=>{const cx=cxOf(u.x),cy=cyOf(u.y),base=u.side==="hero"?"255,150,70,":"110,130,230,";
+    const g=ctx.createRadialGradient(cx,cy,4,cx,cy,TILE*1.55);
+    g.addColorStop(0,"rgba("+base+(0.30*fl).toFixed(3)+")");g.addColorStop(1,"rgba("+base+"0)");
+    ctx.fillStyle=g;ctx.fillRect(cx-TILE*1.6,cy-TILE*1.6,TILE*3.2,TILE*3.2);});
+  ctx.restore();
+}
+function renderFX(){
+  ctx.save();
+  for(const f of fx){const p=Math.min(1,f.t/f.dur);ctx.globalCompositeOperation="lighter";
+    if(f.k==="proj"){const x=f.x0+(f.x1-f.x0)*p,y=f.y0+(f.y1-f.y0)*p,
+        tx=f.x0+(f.x1-f.x0)*Math.max(0,p-0.3),ty=f.y0+(f.y1-f.y0)*Math.max(0,p-0.3);
+      ctx.globalAlpha=0.85;ctx.strokeStyle=f.col;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(x,y);ctx.stroke();
+      ctx.globalAlpha=1;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fill();}
+    else if(f.k==="burst"){const R=(f.big?27:16)*p;ctx.globalAlpha=(1-p)*0.9;ctx.strokeStyle=f.col;ctx.lineWidth=f.big?3:2;
+      ctx.beginPath();ctx.arc(f.x,f.y,R,0,7);ctx.stroke();
+      ctx.globalAlpha=(1-p)*0.5;ctx.fillStyle=f.col;ctx.beginPath();ctx.arc(f.x,f.y,R*0.45,0,7);ctx.fill();
+      if(f.big)for(let s=0;s<7;s++){const a=s/7*6.283+f.t*4;ctx.globalAlpha=(1-p)*0.85;ctx.fillStyle="#fff";
+        ctx.beginPath();ctx.arc(f.x+Math.cos(a)*R*1.25,f.y+Math.sin(a)*R*1.25,1.7,0,7);ctx.fill();}}
+    else if(f.k==="slash"){ctx.globalAlpha=1-p;ctx.strokeStyle=f.col;ctx.lineWidth=3;
+      const a0=-1.1+p*0.7;ctx.beginPath();ctx.arc(f.x,f.y,15,a0,a0+2.3);ctx.stroke();}
+    else if(f.k==="heal"){for(let s=0;s<4;s++){const yy=f.y+12-p*32-s*6,xx=f.x+Math.sin(p*6+s*1.7)*8;
+      ctx.globalAlpha=(1-p)*0.9;ctx.fillStyle="#9fe0b0";ctx.font="bold 13px serif";ctx.textAlign="center";ctx.fillText("✚",xx,yy);}}
+    else if(f.k==="ring"){ctx.globalAlpha=(1-p)*0.85;ctx.strokeStyle=f.col;ctx.lineWidth=2;
+      ctx.beginPath();ctx.arc(f.x,f.y,8+p*16,0,7);ctx.stroke();}
+    else if(f.k==="soul"){const yy=f.y-p*36;ctx.globalAlpha=(1-p)*0.85;ctx.fillStyle="#cdbdf0";
+      ctx.beginPath();ctx.arc(f.x,yy,5*(1-p*0.4),0,7);ctx.fill();
+      ctx.globalAlpha=(1-p)*0.35;ctx.beginPath();ctx.arc(f.x,yy,12*(1-p*0.4),0,7);ctx.fill();}
+  }
+  ctx.globalAlpha=1;ctx.globalCompositeOperation="source-over";ctx.restore();
+}
+
 function H(o){ // hero
   return new Unit(Object.assign({side:"hero",con:12,level:5,cast:"wisdom"},o));
 }
@@ -340,14 +402,15 @@ function legalTargets(u,ab){
 }
 function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
-  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");sfx("heal");return;}
+  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");fxHeal(def);sfx("heal");return;}
+  strike(att,def,ab,r);
   const tag=ab.isAttackRoll?`(d20 ${r.roll}${r.adv?"▲":r.dis?"▼":""} → ${r.total} vs AC ${r.ac})`:`(save ${r.total} vs DC ${r.ac})`;
   if(r.dmg>0){def.hp=Math.max(0,def.hp-r.dmg);
     if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");}
     else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
-  if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");sfx("cond");}
-  if(!def.alive){log(`${def.name} falls.`,"dmg");sfx("fall");}
+  if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
+  if(!def.alive){log(`${def.name} falls.`,"dmg");fxSoul(def);fxBurst(def,"#c9a24b",true);shake=Math.max(shake,5);sfx("fall");}
 }
 function useAbility(att,ab,target){
   if(ab.targeting==="selfburst"){const hits=units.filter(t=>t.side!==att.side&&t.alive&&cheb(att,t)<=ab.radius);
@@ -436,8 +499,12 @@ function renderSide(){
   renderBar();
 }
 
-function draw(){
+function draw(ts){
+  if(ts===undefined)ts=_last+16;
+  const dt=Math.min(0.05,Math.max(0,(ts-_last)/1000))||0;_last=ts;_clock+=dt;
   ctx.clearRect(0,0,cvs.width,cvs.height);
+  ctx.save();
+  if(shake>0.2)ctx.translate((Math.random()-0.5)*shake,(Math.random()-0.5)*shake);
   const sel=order&&order[turnIdx];
   const targets=sel&&sel.side==="hero"&&!sel.hasActed?legalTargets(sel,armed):[];
   for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
@@ -453,6 +520,7 @@ function draw(){
   // reachable move overlay, painted over the lit floor
   if(reachable)for(const k of reachable){const[x,y]=k.split(",").map(Number);const px=PAD.x+x*TILE,py=PAD.y+y*TILE;
     ctx.fillStyle="#c9a24b26";ctx.fillRect(px,py,TILE-1,TILE-1);ctx.strokeStyle="#c9a24b66";ctx.strokeRect(px+1.5,py+1.5,TILE-4,TILE-4);}
+  lighting();  // warm torch-pools on the heroes, cold necrotic glow on the Returned
   // target highlights
   targets.forEach(t=>{const px=PAD.x+t.x*TILE,py=PAD.y+t.y*TILE;
     ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.strokeRect(px+1,py+1,TILE-4,TILE-4);ctx.lineWidth=1;
@@ -467,9 +535,9 @@ function draw(){
     ctx.fillStyle="rgba(0,0,0,.42)";ctx.beginPath();ctx.ellipse(cx,baseY-3,TILE*0.30,TILE*0.12,0,0,7);ctx.fill();
     ctx.lineWidth=2.5;ctx.strokeStyle=sel===u?"#e7c873":u.col;
     ctx.beginPath();ctx.ellipse(cx,baseY-3,TILE*0.32,TILE*0.14,0,0,7);ctx.stroke();ctx.lineWidth=1;
-    // the creature sprite, bottom-aligned and a touch oversized
-    const sz=TILE+8;
-    if(!drawSpr(u.sprite,cx-sz/2,baseY-sz+5,sz,sz)){
+    // the creature sprite, bottom-aligned and a touch oversized (active unit gives a gentle idle-bob)
+    const sz=TILE+8, bob=(sel===u&&!gameOver&&u.side==="hero")?Math.sin(_clock*5)*2:0;
+    if(!drawSpr(u.sprite,cx-sz/2,baseY-sz+5-bob,sz,sz)){
       ctx.fillStyle=u.col;ctx.beginPath();ctx.arc(cx,top+TILE/2,TILE/2-7,0,7);ctx.fill();
       ctx.fillStyle="#0c0b10";ctx.font="16px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(u.glyph,cx,top+TILE/2+1);}
     // hp bar + condition pips
@@ -481,6 +549,9 @@ function draw(){
     const px=PAD.x+f.x*TILE+TILE/2-1,py=PAD.y+f.y*TILE+TILE/2-1-f.t*26;
     ctx.globalAlpha=Math.max(0,1-f.t/1.2);ctx.fillStyle=f.col;ctx.font="bold 14px serif";ctx.textAlign="center";ctx.fillText(f.text,px,py);ctx.globalAlpha=1;
     if(f.t>1.2)floats.splice(i,1);}
+  renderFX();
+  ctx.restore();
+  updateFX(dt);
   requestAnimationFrame(draw);
 }
 

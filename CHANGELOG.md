@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v3.83.0 — *"The Quickening"* — the combat comes alive (VFX), real art everywhere
+
+> "PLEASE DO MORE." Done: the fight stops being static. Bolts fly, steel sparks, the
+> screen kicks, torches breathe — and the Bestiary now wears the same real sprites.
+
+- ✨ **Combat juice** in `play/crown_combat.html` (pure-canvas, no assets, works in the bundle):
+  - **Projectiles** streak attacker → target for ranged/spell hits, with an **impact burst** on
+    arrival; **slash arcs** for melee; **crit bursts** with radial sparks.
+  - **Screen shake** on hits, harder on crits and kills; **death wisps** rise from the slain
+    (fitting, for the Returned).
+  - **Dynamic torch lighting** — warm pools follow the heroes, cold necrotic glow the Returned,
+    with a living **flicker**; the active hero gives a gentle **idle-bob**.
+  - Damage-typed colours (fire/cold/radiant/necrotic/force…); every rule, forecast & SFX
+    unchanged.
+- ☠ **Bestiary now uses the real monster art** — `tools/make-compendium.py` matches **35/37 foes**
+  to the same DCSS sprites the board uses (keyword map, token fallback for the rest).
+- 🛡️ Render path stayed headless-safe (the smoke harness auto-plays full games through the new
+  `draw()` every run); `cc0_art.test.js` now gates the VFX/lighting/shake wiring. Suite **270 checks**,
+  all green. Preview refreshed (`play/combat_preview.png`), hub + bundle rebuilt.
+
 ## 👑 v3.82.0 — *"First Light"* — the playable combat now runs on real sprites
 
 > "It looks exactly the same…" — not anymore. The **Combat** tab stops drawing colored

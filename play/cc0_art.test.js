@@ -46,6 +46,9 @@ check("combat: roster wired to sprites (hero + foe)",
   combat.includes('sprite:"spr_garrow"') && combat.includes('sprite:"spr_boss"'));
 check("combat: draws tiles + sprites (not just tokens)",
   combat.includes("drawSpr(floorFor") && combat.includes("drawSpr(u.sprite"));
+check("combat: juice wired (VFX + torch lighting + screen shake)",
+  combat.includes("function renderFX") && combat.includes("function lighting") &&
+  combat.includes("function strike") && combat.includes("shake=Math.max"));
 const cpv = path.join(__dirname, "combat_preview.png");
 check("combat_preview.png rendered", fs.existsSync(cpv) && fs.readFileSync(cpv)[0] === 0x89);
 // the bundle carries the sprite-wired combat page
