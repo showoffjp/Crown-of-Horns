@@ -58,6 +58,9 @@ check("page uses iso renderer (walls/units/props, depth-sorted)",
   h.includes("PROPS") && h.includes("ents.sort"));
 check("page picks tiles via screenToCell", h.includes("screenToCell(mx,my)"));
 check("page keeps persistent decals", h.includes("decals.push"));
+check("page animates the figures (lunge / recoil / facing / breathing)",
+  h.includes("function faceLunge") && h.includes("function recoil") &&
+  h.includes("anim.kind") && h.includes("breathe") && h.includes("face===-1"));
 
 console.log(`\n  Isometric projection — round-trip + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);

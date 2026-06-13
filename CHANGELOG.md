@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v3.85.0 — *"In Motion"* — the figures fight, not just stand
+
+> The isometric board was still a diorama. Now the sprites *move*: they turn to face
+> their foe, lunge when they strike, recoil when struck, and breathe at rest.
+
+- 🤺 **Attack choreography** in `play/crown_combat.html` (procedural, no new frames):
+  - **Lunge** — a striker eases toward its target along the iso vector and back
+  - **Recoil** — the struck figure jolts away from the blow
+  - **Facing** — each sprite flips horizontally to face whoever it's fighting
+  - **Idle breathing** — every living figure has a gentle, phase-offset bob so the board
+    is never frozen (a little stronger on the active hero)
+- All driven off the existing turn flow + frame clock; the engine, forecasts, conditions,
+  VFX and lighting are untouched.
+- 🧪 `iso.test.js` now also asserts the choreography is wired (lunge/recoil/facing/breathing);
+  the smoke harness still auto-plays full games through the animated `draw()`. Headless suite
+  now **279 checks**, all green. Preview + bundle rebuilt.
+
 ## 👑 v3.84.0 — *"The Tilt"* — the playable board goes isometric
 
 > The genre's defining look. The Skirmish stops being top-down and becomes a real
