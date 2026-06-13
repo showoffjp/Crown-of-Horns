@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v3.82.0 — *"First Light"* — the playable combat now runs on real sprites
+
+> "It looks exactly the same…" — not anymore. The **Combat** tab stops drawing colored
+> tokens and renders the real CC0 pixel art, on the actual playable board.
+
+- 🗡️ **`play/crown_combat.html`** now draws **real Dungeon Crawl Stone Soup sprites**: crypt
+  floors and mossy brick walls (varied per tile), creature sprites for every combatant (the
+  priestess/rogue/warlock heroes, the Returned wights · ghoul · zombie, the eidolon boss),
+  ground shadows, side-coloured selection rings, and a torch-lit **crypt vignette** — while
+  every rule, forecast, condition and SFX stays exactly as verified.
+- 🧰 `tools/make-combat-demo.py` embeds the sprites as base64 data URIs (idempotently, between
+  `/*<SPR>*/` markers) so the art renders **standalone and inside the all-in-one bundle**, and
+  renders `play/combat_preview.png` — a pixel-faithful raster of the opening board.
+- 🛡️ Render path stays headless-safe: the sprite load is guarded for no-DOM, and the canvas
+  smoke harness now stubs gradients, so `smoke.js` still auto-plays full games through the real
+  draw path.
+- 🧪 `cc0_art.test.js` grown to assert the combat page embeds the sprites and is wired to draw
+  them (+ the bundle carries it). Headless suite now **269 checks**, all green. Hub combat card
+  + the rebuilt single-file bundle updated.
+
 ## 👑 v3.81.0 — *"One File"* — the whole game in a single portable HTML
 
 > "Can you give me a functioning HTML of all of this, including dialog trees?" — yes:

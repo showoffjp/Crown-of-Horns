@@ -35,6 +35,24 @@ check("LICENSE.md documents every fetched file",
 const shot = path.join(__dirname, "gameplay_v2.png");
 check("gameplay_v2.png rendered", fs.existsSync(shot) && fs.readFileSync(shot)[0] === 0x89);
 
+// the playable combat demo now renders on the real sprites (embedded as data URIs),
+// so it looks right both standalone and inside the all-in-one bundle.
+const combat = fs.readFileSync(path.join(__dirname, "crown_combat.html"), "utf8");
+check("combat: sprite map injected between markers",
+  combat.includes("/*<SPR>*/") && combat.includes("/*</SPR>*/"));
+check("combat: >=15 sprites embedded as data URIs",
+  (combat.match(/data:image\/png;base64/g) || []).length >= 15);
+check("combat: roster wired to sprites (hero + foe)",
+  combat.includes('sprite:"spr_garrow"') && combat.includes('sprite:"spr_boss"'));
+check("combat: draws tiles + sprites (not just tokens)",
+  combat.includes("drawSpr(floorFor") && combat.includes("drawSpr(u.sprite"));
+const cpv = path.join(__dirname, "combat_preview.png");
+check("combat_preview.png rendered", fs.existsSync(cpv) && fs.readFileSync(cpv)[0] === 0x89);
+// the bundle carries the sprite-wired combat page
+const bundle = fs.readFileSync(path.join(__dirname, "crown_of_horns.html"), "utf8");
+check("bundle: embedded combat carries the sprites", bundle.includes("spr_garrow") &&
+  bundle.includes("data:image/png;base64"));
+
 console.log(`\n  CC0 art — integrity smoke:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }
