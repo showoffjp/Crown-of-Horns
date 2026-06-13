@@ -235,7 +235,12 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0;
+// turn the figures to face their target and lunge; struck figures recoil
+function faceLunge(att,def){const a=cen(att.x,att.y),d=cen(def.x,def.y),ang=Math.atan2(d.y-a.y,d.x-a.x);
+  att.face=(d.x<a.x)?-1:1;att.anim={kind:"lunge",dx:Math.cos(ang),dy:Math.sin(ang),t:0,dur:0.32};}
+function recoil(att,def){const a=cen(att.x,att.y),d=cen(def.x,def.y),ang=Math.atan2(d.y-a.y,d.x-a.x);
+  def.anim={kind:"recoil",dx:Math.cos(ang),dy:Math.sin(ang),t:0,dur:0.26};}
 const DMGCOL={slashing:"#dfe6ef",piercing:"#cdd6e0",bludgeoning:"#d8c9a0",fire:"#ff8a3a",cold:"#7fd0ff",
   lightning:"#ffe06a",radiant:"#ffe9a8",necrotic:"#86d08a",psychic:"#c79bf0",force:"#f08ad8",
   poison:"#9fd06a",acid:"#b6e05a",thunder:"#9fb8ff"};
@@ -296,9 +301,9 @@ function renderFX(){
 }
 
 function H(o){ // hero
-  return new Unit(Object.assign({side:"hero",con:12,level:5,cast:"wisdom"},o));
+  return new Unit(Object.assign({side:"hero",con:12,level:5,cast:"wisdom",face:1,anim:null},o));
 }
-function F(o){ return new Unit(Object.assign({side:"foe",con:12,level:2,cast:"wisdom"},o)); }
+function F(o){ return new Unit(Object.assign({side:"foe",con:12,level:2,cast:"wisdom",face:-1,anim:null},o)); }
 
 function roster(){
   const r=[
@@ -407,6 +412,7 @@ function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
   if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");fxHeal(def);sfx("heal");return;}
   strike(att,def,ab,r);
+  if(r.dmg>0||(!ab.isAttackRoll&&r.hit))recoil(att,def);
   const tag=ab.isAttackRoll?`(d20 ${r.roll}${r.adv?"▲":r.dis?"▼":""} → ${r.total} vs AC ${r.ac})`:`(save ${r.total} vs DC ${r.ac})`;
   if(r.dmg>0){def.hp=Math.max(0,def.hp-r.dmg);
     if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");}
@@ -417,8 +423,8 @@ function applyOne(att,def,ab){
 }
 function useAbility(att,ab,target){
   if(ab.targeting==="selfburst"){const hits=units.filter(t=>t.side!==att.side&&t.alive&&cheb(att,t)<=ab.radius);
-    if(!hits.length)return false; log(`${att.name} unleashes ${ab.name}!`,"cond"); hits.forEach(t=>applyOne(att,t,ab));}
-  else{ if(!target)return false; applyOne(att,target,ab); }
+    if(!hits.length)return false; if(hits[0])faceLunge(att,hits[0]); log(`${att.name} unleashes ${ab.name}!`,"cond"); hits.forEach(t=>applyOne(att,t,ab));}
+  else{ if(!target)return false; faceLunge(att,target); applyOne(att,target,ab); }
   att.hasActed=true;return true;
 }
 
@@ -516,26 +522,33 @@ function wallBlock(gx,gy){
   diamond(gx,gy,WALL_H);ctx.fillStyle=(gx+gy)%2?"#332f40":"#2c2838";ctx.fill();  // top
   diamond(gx,gy,WALL_H);ctx.strokeStyle="#0c0a12";ctx.lineWidth=1;ctx.stroke();
 }
-function billboard(gx,gy,sprite,sz,ringCol,bob){
-  const c=cen(gx,gy),s=sz||44;
+function billboard(gx,gy,sprite,sz,ringCol,ox,oy,face){
+  const c=cen(gx,gy),s=sz||44;ox=ox||0;oy=oy||0;
   ctx.fillStyle="rgba(0,0,0,.42)";ctx.beginPath();ctx.ellipse(c.x,c.y,s*0.33,s*0.16,0,0,7);ctx.fill();
   if(ringCol){ctx.lineWidth=2.5;ctx.strokeStyle=ringCol;ctx.beginPath();ctx.ellipse(c.x,c.y,s*0.36,s*0.18,0,0,7);ctx.stroke();ctx.lineWidth=1;}
-  drawSpr(sprite,c.x-s/2,c.y-s+6-(bob||0),s,s);
+  const ix=c.x-s/2+ox, iy=c.y-s+6+oy;
+  if(face===-1){ctx.save();ctx.scale(-1,1);drawSpr(sprite,-(ix+s),iy,s,s);ctx.restore();}
+  else drawSpr(sprite,ix,iy,s,s);
   return c;
 }
 function unitBill(u,sel){
-  const bob=(sel===u&&u.side==="hero"&&!gameOver)?Math.sin(_clock*5)*2:0, s=46;
-  const c=billboard(u.x,u.y,u.sprite,s,sel===u?"#e7c873":u.col,bob);
+  if(u.anim){u.anim.t+=_dt;if(u.anim.t>=u.anim.dur)u.anim=null;}
+  let ox=0,oy=0;
+  if(u.anim){const p=Math.min(1,u.anim.t/u.anim.dur);
+    const amp=u.anim.kind==="lunge"?Math.sin(Math.PI*p)*9:(1-p)*7;ox=u.anim.dx*amp;oy=u.anim.dy*amp;}
+  const breathe=Math.sin(_clock*2+(u.x+u.y))*1.2+((sel===u&&u.side==="hero"&&!gameOver)?Math.sin(_clock*5)*1.4:0);
+  const s=46;
+  const c=billboard(u.x,u.y,u.sprite,s,sel===u?"#e7c873":u.col,ox,oy-breathe,u.face);
   if(!IMG[u.sprite]||!IMG[u.sprite].complete||!IMG[u.sprite].naturalWidth){
     ctx.fillStyle=u.col;ctx.beginPath();ctx.arc(c.x,c.y-s*0.4,s/3,0,7);ctx.fill();
     ctx.fillStyle="#0c0b10";ctx.font="16px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(u.glyph,c.x,c.y-s*0.4);}
-  const w=30,h=4,bx=c.x-w/2,by=c.y-s-2-bob;ctx.fillStyle="#000a";ctx.fillRect(bx,by,w,h);
+  const w=30,h=4,bx=c.x-w/2,by=c.y-s-2;ctx.fillStyle="#000a";ctx.fillRect(bx,by,w,h);
   ctx.fillStyle=u.side==="hero"?"#7fd0a0":"#c9554d";ctx.fillRect(bx,by,w*Math.max(0,u.hp/u.maxHP),h);
   u.activeEffects.forEach((e,i)=>{ctx.fillStyle=e.def.tint||"#b06fd0";ctx.fillRect(bx+i*6,by-5,4,4);});
 }
 function draw(ts){
   if(ts===undefined)ts=_last+16;
-  const dt=Math.min(0.05,Math.max(0,(ts-_last)/1000))||0;_last=ts;_clock+=dt;
+  const dt=Math.min(0.05,Math.max(0,(ts-_last)/1000))||0;_last=ts;_clock+=dt;_dt=dt;
   ctx.clearRect(0,0,cvs.width,cvs.height);
   ctx.save();
   if(shake>0.2)ctx.translate((Math.random()-0.5)*shake,(Math.random()-0.5)*shake);
@@ -554,7 +567,7 @@ function draw(ts){
   PROPS.forEach(p=>ents.push({d:p.x+p.y,t:1,p}));
   units.filter(u=>u.alive).forEach(u=>ents.push({d:u.x+u.y,t:2,u}));
   ents.sort((a,b)=>a.d-b.d||a.t-b.t);
-  ents.forEach(e=>{ if(e.t===0)wallBlock(e.gx,e.gy); else if(e.t===1)billboard(e.p.x,e.p.y,e.p.s,40,null,0); else unitBill(e.u,sel); });
+  ents.forEach(e=>{ if(e.t===0)wallBlock(e.gx,e.gy); else if(e.t===1)billboard(e.p.x,e.p.y,e.p.s,40,null,0,0,1); else unitBill(e.u,sel); });
   // forecast labels (over everything)
   if(showForecast&&armed&&sel)targets.forEach(t=>{const c=cen(t.x,t.y),lbl=forecastLabel(sel,t,armed),w=lbl.length*6;
     ctx.fillStyle="#0c0b10dd";ctx.fillRect(c.x-w/2-3,c.y-58,w+6,13);
