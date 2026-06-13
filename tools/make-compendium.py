@@ -36,6 +36,44 @@ def thumb(name, folder="Sprites", size=(120, 120)):
     b = io.BytesIO(); im.save(b, "JPEG", quality=82)
     return "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()
 
+# Real CC0 monster art (DCSS), matched to each foe by keyword — so the Bestiary shows
+# the same sprites the combat board uses, not procedural tokens. Falls back to the token.
+DCSS_MON = os.path.join(ROOT, "Assets/Resources/Art/DCSS/mon")
+SPRITE_MAP = [
+    (["wight"], "returned_wight"), (["ghoul", "restless"], "returned_ghoul"),
+    (["zombie", "risen", "corpse", "shambl"], "returned_zombie"),
+    (["sorrow"], "sorrow_wraith"), (["wraith", "wall-"], "wall_wraith"),
+    (["pale cantor"], "pale_cantor"), (["cantor"], "hollow_cantor"),
+    (["choir", "shade", "damned"], "choir_shade"), (["skull"], "flying_skull"),
+    (["lich", "avatar of bone", "bone"], "bone_avatar"), (["dragon"], "bone_dragon"),
+    (["echo", "last returned", "revenant"], "eidolon"),
+    (["templar", "kelemvorite", "knight"], "templar"), (["doomguide", "necromancer"], "doomguide"),
+    (["inquisitor", "sentinel", "interrogator", "enforcer", "warden"], "inquisitor"),
+    (["zealot", "justiciar", "doomguard"], "zealot"),
+    (["blade", "singer"], "bladesinger"), (["archer"], "elf_archer"),
+    (["sorcerer", "arcanist", "mage", "annihilat"], "elf_sorcerer"),
+    (["construct", "weave-", "war-construct"], "war_construct"), (["gargoyle"], "war_gargoyle"),
+    (["mythallar", "colossus"], "mythallar_colossus"), (["imp"], "imp"),
+    (["devil", "contract"], "contract_devil"), (["hound", "cinder"], "cinder_hound"),
+    (["herald"], "herald_unmade"), (["aberration", "unmade", "unmaking", "maw", "horror"], "unmade_aberration"),
+]
+def mon_key(name):
+    n = name.lower()
+    for keys, spr in SPRITE_MAP:
+        if any(k in n for k in keys): return spr
+    return None
+def mon_thumb(name, size=(112, 112)):
+    k = mon_key(name)
+    if not k: return None
+    p = os.path.join(DCSS_MON, k + ".png")
+    if not os.path.exists(p): return None
+    im = Image.open(p).convert("RGBA")
+    im = im.resize((im.width*3, im.height*3), Image.NEAREST)  # 96px, crisp
+    bg = Image.new("RGB", size, (18, 17, 24))
+    bg.paste(im, ((size[0]-im.width)//2, (size[1]-im.height)//2), im)
+    b = io.BytesIO(); bg.save(b, "JPEG", quality=86)
+    return "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()
+
 # ----------------------------------------------------------------- Grimoire
 def grimoire():
     rows = []
@@ -88,7 +126,7 @@ def bestiary():
         strmod = (e["str"] - 10) // 2
         to_hit = strmod + prof
         tier, col = threat_tier(e["xp"])
-        img = thumb(e["name"]) or thumb("Enemy")
+        img = mon_thumb(e["name"]) or thumb(e["name"]) or thumb("Enemy")
         imgtag = f'<img src="{img}">' if img else '<div class="noimg">☠</div>'
         cards.append(f'''<div class="mon" data-era="{esc(e["era"])}">
           {imgtag}

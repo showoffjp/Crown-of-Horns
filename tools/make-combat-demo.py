@@ -9,8 +9,8 @@ look is verifiable without a browser.
 
   python3 tools/fetch-cc0-tiles.py && python3 tools/make-combat-demo.py
 """
-import base64, io, json, os, re
-from PIL import Image, ImageDraw
+import base64, io, json, math, os, re
+from PIL import Image, ImageDraw, ImageChops
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ART = os.path.join(ROOT, "Assets/Resources/Art/DCSS")
@@ -100,6 +100,35 @@ def preview():
         w = TILE-12; bx = cx-w//2; by = y*TILE+TILE-6
         d.rectangle([bx,by,bx+w,by+4], fill=(0,0,0,170))
         d.rectangle([bx,by,bx+w,by+4], fill=(127,208,160) if side=="hero" else (201,85,77))
+    # torch lighting — warm pools on heroes, cold necrotic glow on the Returned (screen-blended)
+    base = img.convert("RGB")
+    glow = Image.new("RGB", (W, H), (0, 0, 0))
+    for x, y, sp, side in ROSTER:
+        cx, cy = x*TILE + TILE//2, y*TILE + TILE//2
+        color = (150, 86, 40) if side == "hero" else (58, 70, 150)
+        lay = Image.new("RGB", (W, H), (0, 0, 0)); ld = ImageDraw.Draw(lay)
+        rad = int(TILE*1.5)
+        for r in range(rad, 0, -2):
+            f = 1 - r/rad
+            ld.ellipse([cx-r, cy-r, cx+r, cy+r], fill=(int(color[0]*f), int(color[1]*f), int(color[2]*f)))
+        glow = ImageChops.screen(glow, lay)
+    img = ImageChops.screen(base, glow).convert("RGBA")
+    d = ImageDraw.Draw(img, "RGBA")
+    # mid-fight VFX: Varra's force bolt streaking into a Returned, a crit burst, a slash
+    ax, ay = 1*TILE+TILE//2, 6*TILE+TILE//2-6
+    bx, by = 11*TILE+TILE//2, 6*TILE+TILE//2-6
+    d.line([ax+TILE, ay, bx-10, by], fill=(240, 138, 210, 235), width=3)
+    d.ellipse([bx-14, by-4, bx-6, by+4], fill=(255, 255, 255, 255))
+    for rr, al in [(20, 120), (11, 185)]:
+        d.ellipse([bx-rr, by-rr, bx+rr, by+rr], outline=(240, 138, 210, al), width=2)
+    gx, gy = 11*TILE+TILE//2, 3*TILE+TILE//2-4         # big crit burst on the ghoul
+    for rr, al in [(27, 150), (16, 205)]:
+        d.ellipse([gx-rr, gy-rr, gx+rr, gy+rr], outline=(255, 233, 168, al), width=3)
+    for s in range(7):
+        a = s/7*6.283; sx, sy = gx+math.cos(a)*33, gy+math.sin(a)*33
+        d.ellipse([sx-2, sy-2, sx+2, sy+2], fill=(255, 255, 255, 235))
+    zx, zy = 10*TILE+TILE//2, 8*TILE+TILE//2-4         # slash on the zombie
+    d.arc([zx-16, zy-16, zx+16, zy+16], -62, 78, fill=(223, 230, 239, 235), width=3)
     img.convert("RGB").save(os.path.join(ROOT, "play", "combat_preview.png"))
 
 def main():
