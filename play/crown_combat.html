@@ -73,7 +73,7 @@
 </div>
 <div class="foot">
   Real rules from <code>AttackResolver.cs</code>: d20 + ability mod + proficiency vs AC · nat 20 crits (double dice) · nat 1 auto-misses ·
-  saving throws with save-for-half · healing · status conditions (Slowed / Stunned / Frightened / Burning). Live hit/kill **forecast** on every target · synthesized **SFX** · isometric board, projectiles, impacts &amp; torch lighting. Tiles &amp; sprites: CC0 art from <code>Dungeon Crawl Stone Soup</code>.
+  saving throws with save-for-half · healing · status conditions. **Environmental surfaces** (BG3-style): lay **oil** with Roen's Flask, then **ignite** it with Garrow's Firebrand — fire spreads through grease, burns anyone standing in it, and water douses it. Live hit/kill **forecast** · synthesized **SFX** · isometric board, projectiles, impacts &amp; torch lighting. CC0 art from <code>Dungeon Crawl Stone Soup</code>.
 </div>
 <div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
 
@@ -211,6 +211,8 @@ function threatLine(def){
 const Slowed={effectName:"Slowed",condition:"Slowed",speedModifier:-3,durationRounds:2,tint:"#6fa8dc"};
 const Stunned={effectName:"Stunned",condition:"Stunned",incapacitates:true,attackersHaveAdvantage:true,durationRounds:1,tint:"#e7c873"};
 const Frightened={effectName:"Frightened",condition:"Frightened",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#b06fd0"};
+const Burning={effectName:"Burning",condition:"Burning",damageOverTimeDice:"1d4",damageOverTimeType:"fire",durationRounds:2,tint:"#ff8a3a"};
+const PoisonCloud={effectName:"Poisoned",condition:"Poisoned",damageOverTimeDice:"1d4",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#86d08a"};
 
 const COLS=14,ROWS=10,TILE=44;
 let units,order,turnIdx,reachable,floats,blocked,gameOver,armed;
@@ -235,7 +237,7 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0,_dt=0;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1;
 // turn the figures to face their target and lunge; struck figures recoil
 function faceLunge(att,def){const a=cen(att.x,att.y),d=cen(def.x,def.y),ang=Math.atan2(d.y-a.y,d.x-a.x);
   att.face=(d.x<a.x)?-1:1;att.anim={kind:"lunge",dx:Math.cos(ang),dy:Math.sin(ang),t:0,dur:0.32};}
@@ -273,7 +275,19 @@ function lighting(){
     const g=ctx.createRadialGradient(c.x,c.y,4,c.x,c.y,TILE*1.5);
     g.addColorStop(0,"rgba("+base+(0.30*fl).toFixed(3)+")");g.addColorStop(1,"rgba("+base+"0)");
     ctx.fillStyle=g;ctx.fillRect(c.x-TILE*1.6,c.y-TILE*1.6,TILE*3.2,TILE*3.2);});
+  for(const[k,s]of surfaces)if(s.type==="fire"){const[gx,gy]=k.split(",").map(Number),c=cen(gx,gy);
+    const g=ctx.createRadialGradient(c.x,c.y,2,c.x,c.y,TILE*1.1);
+    g.addColorStop(0,"rgba(255,140,50,"+(0.34*fl).toFixed(3)+")");g.addColorStop(1,"rgba(255,140,50,0)");
+    ctx.fillStyle=g;ctx.fillRect(c.x-TILE*1.1,c.y-TILE*1.1,TILE*2.2,TILE*2.2);}
   ctx.restore();
+}
+function surfFill(type,t,gx,gy){
+  if(type==="fire"){const f=0.5+0.2*Math.sin(t*9+(gx*1.7+gy));return"rgba(255,"+Math.round(110+70*f)+",40,"+(0.40+0.12*f).toFixed(2)+")";}
+  if(type==="grease")return"rgba(22,16,28,0.62)";
+  if(type==="poison"){const f=0.5+0.2*Math.sin(t*4+gx+gy);return"rgba(90,200,90,"+(0.24+0.1*f).toFixed(2)+")";}
+  if(type==="water")return"rgba(70,120,220,0.34)";
+  if(type==="ice")return"rgba(150,210,255,0.30)";
+  return"rgba(255,255,255,0.2)";
 }
 function renderFX(){
   ctx.save();
@@ -310,11 +324,11 @@ function roster(){
     H({name:"Sister Garrow",x:1,y:2,str:15,dex:12,baseAC:16,hp:30,speed:5,primary:"str",col:"#e7c873",glyph:"✛",sprite:"spr_garrow",
       kit:[ Ability({name:"Maul",damageDice:"1d8",dmgType:"bludgeoning"}),
             Ability({name:"Sun's Mending",isHeal:true,healDice:"2d4",targeting:"ally",range:4}),
-            Ability({name:"Searing Light",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"2d6",dmgType:"radiant",addMod:false,targeting:"enemy",range:5}) ]}),
+            Ability({name:"Firebrand",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d6",dmgType:"fire",addMod:false,targeting:"enemy",range:5,createsSurface:"fire",surfaceRadius:1}) ]}),
     H({name:"Roen Alleywind",x:1,y:4,str:12,dex:18,baseAC:15,hp:24,speed:7,primary:"dex",col:"#7fd0a0",glyph:"⚔",sprite:"spr_roen",
       kit:[ Ability({name:"Twin Rapiers",damageDice:"1d8",dmgType:"piercing"}),
             Ability({name:"Hamstring",damageDice:"1d6",dmgType:"slashing",effect:Slowed,effectRounds:2}),
-            Ability({name:"Shadowstep",damageDice:"1d8",dmgType:"piercing",extraAdv:true}) ]}),
+            Ability({name:"Oil Flask",isAttackRoll:false,damageDice:"",addMod:false,targeting:"enemy",range:4,createsSurface:"grease",surfaceRadius:1}) ]}),
     H({name:"Varra",x:1,y:6,str:17,dex:12,baseAC:17,hp:38,speed:5,primary:"str",col:"#6fa8dc",glyph:"⛏",sprite:"spr_varra",
       kit:[ Ability({name:"Greataxe",damageDice:"1d12",dmgType:"slashing"}),
             Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
@@ -345,7 +359,40 @@ function stepToward(u,t){const prev=new Map();const seen=new Set([key(u.x,u.y)])
     for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy,k=key(nx,ny);
       if(seen.has(k)||!passable(nx,ny,u))continue;seen.add(k);prev.set(k,key(x,y));q.push([nx,ny]);}}
   const path=[];let cur=best;while(cur&&cur!==key(u.x,u.y)){path.unshift(cur);cur=prev.get(cur);}
-  const steps=path.slice(0,u.speedNow);if(steps.length){const[nx,ny]=steps[steps.length-1].split(",").map(Number);u.x=nx;u.y=ny;}}
+  const steps=path.slice(0,u.speedNow);if(steps.length){const[nx,ny]=steps[steps.length-1].split(",").map(Number);u.x=nx;u.y=ny;enterSurface(u);}}
+
+// ===========================================================================
+//  ENVIRONMENTAL SURFACES (BG3-style): grease ignites, fire spreads, water douses
+// ===========================================================================
+let surfaces=new Map();
+/*<SURF>*/
+const SURF={fire:3,grease:5,poison:4,water:4,ice:4};
+function paintSurface(x,y,type){
+  if(!inB(x,y)||blocked.has(key(x,y)))return;
+  const k=key(x,y),cur=surfaces.get(k);
+  if(type==="water"){ if(cur&&cur.type==="fire"){surfaces.delete(k);return;} surfaces.set(k,{type:"water",rounds:SURF.water}); return; }
+  if(type==="grease"&&cur&&cur.type==="fire"){ surfaces.set(k,{type:"fire",rounds:SURF.fire}); return; }
+  surfaces.set(k,{type,rounds:SURF[type]||4});
+}
+function igniteAround(x,y){ for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){const k=key(x+dx,y+dy),s=surfaces.get(k);if(s&&s.type==="grease")surfaces.set(k,{type:"fire",rounds:SURF.fire});} }
+function createSurfaceArea(cx,cy,rad,type){
+  for(let dx=-rad;dx<=rad;dx++)for(let dy=-rad;dy<=rad;dy++){const x=cx+dx,y=cy+dy;paintSurface(x,y,type);if(type==="fire")igniteAround(x,y);}
+}
+function surfaceTick(){ // once per round: fire spreads into adjacent grease, then everything decays
+  const toFire=[];
+  for(const[k,s]of surfaces)if(s.type==="fire"){const[x,y]=k.split(",").map(Number);
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){const nk=key(x+dx,y+dy),n=surfaces.get(nk);if(n&&n.type==="grease")toFire.push(nk);}}
+  toFire.forEach(k=>surfaces.set(k,{type:"fire",rounds:SURF.fire}));
+  for(const[k,s]of[...surfaces])if(--s.rounds<=0)surfaces.delete(k);
+}
+/*</SURF>*/
+function enterSurface(u){ const s=surfaces.get(key(u.x,u.y)); if(!s||!u.alive)return;
+  if(s.type==="fire"){u.add(Burning,2);spawnFloat(u,"Burning","#ff8a3a");}
+  else if(s.type==="poison"){u.add(PoisonCloud,2);spawnFloat(u,"Poisoned","#86d08a");}
+  else if(s.type==="ice"){u.add(Slowed,2);spawnFloat(u,"Slipped","#7fd0ff");}
+  else if(s.type==="water"){u.activeEffects=u.activeEffects.filter(e=>e.def.condition!=="Burning");}
+}
+const SURFLABEL={fire:"a sheet of flame",grease:"slick grease",poison:"a poison cloud",water:"water",ice:"ice"};
 
 // ===========================================================================
 //  FLOW
@@ -380,7 +427,9 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;$("over").style.display="none";$("log").innerHTML="";
+  // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
+  surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
   rolled.sort((a,b)=>b.init-a.init||b.u.initMod-a.u.initMod);
   order=rolled.map(r=>r.u);
@@ -390,7 +439,9 @@ function newGame(){
 function nextTurn(){
   if(checkEnd())return;
   let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!order[turnIdx].alive&&++guard<order.length*2);
+  if(turnIdx<=_prevIdx)surfaceTick();_prevIdx=turnIdx;   // new round → surfaces spread & decay
   const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;
+  enterSurface(u);                                       // standing in a surface keeps its effect
   const dot=u.tickStart();
   if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
   reachable=u.side==="hero"?computeReachable(u):new Set();
@@ -424,7 +475,12 @@ function applyOne(att,def,ab){
 function useAbility(att,ab,target){
   if(ab.targeting==="selfburst"){const hits=units.filter(t=>t.side!==att.side&&t.alive&&cheb(att,t)<=ab.radius);
     if(!hits.length)return false; if(hits[0])faceLunge(att,hits[0]); log(`${att.name} unleashes ${ab.name}!`,"cond"); hits.forEach(t=>applyOne(att,t,ab));}
-  else{ if(!target)return false; faceLunge(att,target); applyOne(att,target,ab); }
+  else{ if(!target)return false; faceLunge(att,target);
+    if(ab.createsSurface&&!ab.damageDice){log(`${att.name} hurls ${ab.name}, coating the ground in ${SURFLABEL[ab.createsSurface]||ab.createsSurface}.`,"cond");}
+    else applyOne(att,target,ab); }
+  if(ab.createsSurface){const c=target||att;createSurfaceArea(c.x,c.y,ab.surfaceRadius||1,ab.createsSurface);
+    if(ab.createsSurface==="fire")log(`${ab.name} sets ${SURFLABEL.fire} — and any grease catches!`,"crit");
+    units.filter(u=>u.alive).forEach(enterSurface);}
   att.hasActed=true;return true;
 }
 
@@ -471,7 +527,7 @@ cvs.addEventListener("click",e=>{
   if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
     if(useAbility(u,armed,target)){reachable=new Set();renderSide();checkEnd();}return;}
-  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){u.x=x;u.y=y;u.hasMoved=true;reachable=new Set();renderSide();return;}
+  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){u.x=x;u.y=y;u.hasMoved=true;enterSurface(u);reachable=new Set();renderSide();checkEnd();return;}
 });
 $("endTurn").onclick=endTurn;$("restart").onclick=newGame;
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
@@ -483,8 +539,8 @@ function renderBar(){
   u.kit.forEach(ab=>{const b=document.createElement("button");b.className="ability"+(armed===ab?" armed":"");
     b.disabled=u.hasActed;
     const kind=ab.isHeal?"heal "+(ab.healDice):ab.targeting==="selfburst"?"burst r"+ab.radius+" "+ab.damageDice:
-      ab.isAttackRoll?"atk "+ab.damageDice:"save "+ab.damageDice;
-    b.innerHTML=`${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
+      ab.createsSurface&&!ab.damageDice?"lay "+ab.createsSurface:ab.isAttackRoll?"atk "+ab.damageDice:"save "+ab.damageDice;
+    b.innerHTML=`${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.createsSurface?" · 🔥"+ab.createsSurface:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
     b.onclick=()=>{armed=ab;renderSide();};bar.appendChild(b);});
 }
 function renderSide(){
@@ -557,6 +613,9 @@ function draw(ts){
   // PASS 1 — floor, decals, move/target tints (diamonds don't overlap, so any order is fine)
   for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++) if(!blocked.has(key(gx,gy))) floorTile(gx,gy);
   for(const dcl of decals){const c=cen(dcl.x,dcl.y);ctx.fillStyle=dcl.col;ctx.beginPath();ctx.ellipse(c.x,c.y,15,7.5,0,0,7);ctx.fill();}
+  for(const[k,s]of surfaces){const[gx,gy]=k.split(",").map(Number);diamond(gx,gy,0);ctx.fillStyle=surfFill(s.type,_clock,gx,gy);ctx.fill();
+    if(s.type==="fire"){const c=cen(gx,gy);for(let i=0;i<3;i++){const a=_clock*8+i*2.1+gx+gy,fx2=c.x+Math.sin(a)*7,fy2=c.y-2-((_clock*22+i*9+gx*5)%14);
+      ctx.globalAlpha=0.6;ctx.fillStyle=i%2?"#ffd24a":"#ff7a2a";ctx.beginPath();ctx.arc(fx2,fy2,2,0,7);ctx.fill();ctx.globalAlpha=1;}}}
   if(reachable)for(const k of reachable){const[gx,gy]=k.split(",").map(Number);diamond(gx,gy,0);ctx.fillStyle="#c9a24b2e";ctx.fill();ctx.strokeStyle="#c9a24b66";ctx.lineWidth=1;ctx.stroke();}
   targets.forEach(t=>{diamond(t.x,t.y,0);ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;});
   if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){diamond(sel.x,sel.y,0);ctx.setLineDash([4,3]);ctx.strokeStyle="#e7c873";ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;}
