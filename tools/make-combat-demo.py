@@ -59,6 +59,8 @@ ROSTER = [  # (x, y, sprite, side)
 ]
 PROPS = [(13,4,"prop_altar"), (12,1,"prop_statue"), (12,7,"prop_statue2"), (0,5,"prop_door")]
 DECALS = [(9,4)]
+SURFS = {(10,1):"fire",(11,1):"fire",(10,2):"fire",(11,2):"fire",   # an ignited oil slick…
+         (11,3):"grease",(12,3):"grease",(11,6):"grease",(12,6):"grease"}  # …spreading toward more oil
 RING = {"hero":(127,208,160), "foe":(155,45,45)}
 
 def isoX(gx, gy): return OX + (gx-gy)*HW
@@ -81,6 +83,14 @@ def preview():
         cx,cy = cen(gx,gy); d.ellipse([cx-15,cy-7,cx+15,cy+7], fill=(40,30,55,150))
     for (gx,gy) in [(2,2),(2,1),(1,3),(2,3),(3,2),(1,1)]:
         d.polygon(dia(gx,gy), outline=(201,162,75,170))
+    # environmental surfaces — grease slicks and the fire eating through them
+    for (gx,gy),ty in SURFS.items():
+        d.polygon(dia(gx,gy), fill=(255,150,45,120) if ty=="fire" else (22,16,28,150))
+        if ty=="fire":
+            cx,cy = cen(gx,gy)
+            for i in range(3):
+                fxp = cx+math.sin(i*2.1+gx)*7; fyp = cy-3-((i*9+gx*5)%14)
+                d.ellipse([fxp-2,fyp-2,fxp+2,fyp+2], fill=(255,210,74) if i%2 else (255,122,42))
     # torch lighting (screen-blended) — warm on heroes, cold on the Returned
     base = img.convert("RGB"); glow = Image.new("RGB",(W,H),(0,0,0))
     for x,y,sp,side in ROSTER:
@@ -88,6 +98,12 @@ def preview():
         lay = Image.new("RGB",(W,H),(0,0,0)); ld = ImageDraw.Draw(lay); rad=int(TILE*1.5)
         for r in range(rad,0,-2):
             f=1-r/rad; ld.ellipse([cx-r,cy-r,cx+r,cy+r], fill=(int(color[0]*f),int(color[1]*f),int(color[2]*f)))
+        glow = ImageChops.screen(glow, lay)
+    for (gx,gy),ty in SURFS.items():
+        if ty != "fire": continue
+        cx,cy = cen(gx,gy); lay = Image.new("RGB",(W,H),(0,0,0)); ld = ImageDraw.Draw(lay); rad=int(TILE*1.1)
+        for r in range(rad,0,-2):
+            f=1-r/rad; ld.ellipse([cx-r,cy-r,cx+r,cy+r], fill=(int(255*f*0.5),int(140*f*0.5),int(50*f*0.5)))
         glow = ImageChops.screen(glow, lay)
     img = ImageChops.screen(base, glow).convert("RGBA"); d = ImageDraw.Draw(img, "RGBA")
     # PASS 2 — walls, props, units, depth-sorted back-to-front

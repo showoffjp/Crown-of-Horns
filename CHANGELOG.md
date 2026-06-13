@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v3.86.0 — *"The Battlefield Reacts"* — environmental surfaces (toward "BG3 but superior")
+
+> The first pillar of the [BG3 roadmap](docs/ROADMAP_BG3.md): BG3's signature combat feature,
+> done our way. The ground itself is now a weapon.
+
+- 🔥 **Environmental surfaces** in `play/crown_combat.html` — lay **oil** (Roen's *Oil Flask*),
+  then **ignite** it (Garrow's *Firebrand*): fire **spreads** through grease tile-to-tile,
+  **burns** anyone standing in it (Burning DoT), and **water douses** it. Surfaces (fire / grease /
+  poison / ice / water) apply on enter and at the start of each turn, spread & decay per round,
+  and are rendered as animated tiles with their own flickering torch-glow on the iso board.
+- 🧪 **`surfaces.test.js`** lifts the page's *real* surface logic and proves the combos:
+  grease→fire ignition, fire spread, water dousing, decay, and in-bounds safety (11 checks). The
+  smoke harness auto-plays **400 full games** through it with zero errors and balance intact.
+  Headless suite now **290 checks**, all green.
+- 🎯 **`docs/ROADMAP_BG3.md`** — the honest plan for "similar to BG3 but superior in QoL, plot,
+  characters & gameplay mechanics": what we build here vs. what needs Unity/art/budget, shipped
+  one verified pillar increment at a time.
+
 ## 👑 v3.85.0 — *"In Motion"* — the figures fight, not just stand
 
 > The isometric board was still a diorama. Now the sprites *move*: they turn to face
