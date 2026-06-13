@@ -35,7 +35,10 @@ window.__play=function(seed){
 };`);
 
 // ---- stubs ----
-const ctx=new Proxy({},{get:(t,p)=>(p in t?t[p]:(()=>{})),set:(t,p,v)=>{t[p]=v;return true}});
+const grad={addColorStop(){}};
+const ctx=new Proxy({},{get:(t,p)=>(p in t?t[p]:
+  (p==="createRadialGradient"||p==="createLinearGradient"?(()=>grad):(()=>{}))),
+  set:(t,p,v)=>{t[p]=v;return true}});
 const mkEl=()=>({innerHTML:"",textContent:"",className:"",disabled:false,style:{},
   classList:{add(){},remove(){}}, onclick:null,
   prepend(){},appendChild(){},addEventListener(){},
