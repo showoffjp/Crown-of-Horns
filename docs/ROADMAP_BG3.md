@@ -64,8 +64,10 @@ Already competitive in depth; "superior" means **reactivity density**.
 
 - ✅ **6 companions** — approval → night-talks → personal quests → **4 romances** → epilogues
 - ✅ **34 fireside banters** reactive to choices, losses, bosses; rivalry/rupture arcs
-- 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats
+- ✅ **Combat barks** *(v3.93.0)* — companions react in-voice to crits, kills, an ally going down,
+  a foe igniting, a wall-slam, and victory (present-aware, rate-limited). Verified.
 - 🔜 **Inter-companion conflict** — they argue with *each other*, not just you
+- 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats
 - 🔜 **Finer approval** — silent disapproval, thresholds, "they remember that"
 - 🔜 **More romances/rivalries** + the BG3-style *"approval is not consent"* nuance
 

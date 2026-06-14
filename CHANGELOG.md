@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v3.93.0 — *"They're Watching"* — companion combat barks (Pillar 3: characters begin)
+
+> The reactivity-density win that out-reacts BG3: your party *talks* during the fight.
+
+- 🗣️ **Companion barks** in `play/crown_combat.html` — when a dramatic beat lands (a **crit**, a **kill**,
+  an **ally going down**, a foe **igniting**, a **wall-slam**, **victory**), a present companion reacts
+  in their own voice — Garrow grave, Roen flip, Varra gleeful. Speech bubble over the speaker + a
+  styled line in the chronicle. **Present-aware** (only a living, fielded companion speaks) and
+  **rate-limited** so it never spams.
+- 🧪 **`barks.test.js`** lifts the page's real bark table + picker and proves only a present companion
+  speaks, graceful fallback, determinism for a given roll, and the wiring to every beat (10 checks).
+  Smoke still **400 games, 0 errors**. Headless suite now **348 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — first **Pillar 3 (Characters & reactivity)** entry shipped.
+
 ## 👑 v3.92.0 — *"Comfort"* — keyboard hotkeys & reaction toggle (Pillar 2: QoL)
 
 > Two more comforts BG3 players never think about until they're gone.

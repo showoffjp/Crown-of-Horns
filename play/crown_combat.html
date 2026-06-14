@@ -438,6 +438,34 @@ function provokeOA(mover,fx,fy,tx,ty){
     faceLunge(e,mover);applyOne(e,mover,e.kit[0]);});
 }
 
+// ---- COMPANION BARKS (Pillar 3 — reactivity): the party reacts to dramatic combat beats, in voice ----
+/*<BARK>*/
+const BARKS={
+  crit:[["Garrow","Kelemvor guides my hand."],["Roen","Now THAT'S a hit."],["Varra","Ha — did you feel that?"]],
+  kill:[["Garrow","Rest now. The Doom has you."],["Roen","Down you go."],["Varra","One less to fret over."]],
+  ignite:[["Varra","Burn. I do so love a good fire."],["Roen","Hot foot!"]],
+  ally_down:[["Garrow","No — hold on, I have you!"],["Varra","Get UP. We are not done."]],
+  heal:[["Garrow","By the grey — be whole."]],
+  wall:[["Roen","Mind the wall!"],["Varra","Sit. DOWN."]],
+  victory:[["Garrow","It is done. Bury them kindly."],["Roen","...I need a drink."],["Varra","Told you we'd win."]]
+};
+function pickBark(event,present,r){
+  const all=BARKS[event]; if(!all)return null;
+  let pool=all.filter(b=>present.indexOf(b[0])>=0); if(!pool.length)pool=all;
+  return pool[Math.floor((r||0)*pool.length)%pool.length];
+}
+/*</BARK>*/
+let _lastBark=-9;
+function bark(event){
+  if(_clock-_lastBark<1.6)return;
+  const present=units.filter(u=>u.side==="hero"&&u.alive).map(u=>u.name.replace("Sister ","").split(" ")[0]);
+  const b=pickBark(event,present,Math.random()); if(!b)return;
+  _lastBark=_clock;
+  const sp=units.find(u=>u.alive&&u.name.indexOf(b[0])>=0);
+  log(`${b[0]}: "${b[1]}"`,"sys");
+  if(sp)spawnFloat(sp,"💬","#cfc7d8");
+}
+
 // ---- SHOVE (BG3 maneuver): a Strength contest that pushes a foe a tile — into a wall or a hazard ----
 const SHOVE=Ability({name:"Shove",targeting:"enemy",range:1,isAttackRoll:false,shove:true,damageDice:"",addMod:false});
 /*<SHOVE>*/
@@ -461,7 +489,7 @@ function doShove(att,def){
     log(`${att.name} shoves ${def.name} back a pace. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Shoved!","#cdd6e0");
     enterSurface(def); if(!def.alive)die();}
   else{recoil(att,def);def.hp=Math.max(0,def.hp-2);
-    log(`${att.name} slams ${def.name} into the wall for 2. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Slam! -2","#e0a0a0");
+    log(`${att.name} slams ${def.name} into the wall for 2. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Slam! -2","#e0a0a0");bark("wall");
     if(!def.alive)die();}
 }
 
@@ -498,7 +526,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -532,16 +560,16 @@ function legalTargets(u,ab){
 }
 function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
-  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");fxHeal(def);sfx("heal");return;}
+  if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");fxHeal(def);sfx("heal");bark("heal");return;}
   strike(att,def,ab,r);
   if(r.dmg>0||(!ab.isAttackRoll&&r.hit))recoil(att,def);
   const tag=ab.isAttackRoll?`(d20 ${r.roll}${r.adv?"▲":r.dis?"▼":""} → ${r.total} vs AC ${r.ac})`:`(save ${r.total} vs DC ${r.ac})`;
   if(r.dmg>0){def.hp=Math.max(0,def.hp-r.dmg);
-    if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");}
+    if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");if(att.side==="hero")bark("crit");}
     else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
   if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
-  if(!def.alive){log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);fxBurst(def,"#c9a24b",true);shake=Math.max(shake,5);sfx("fall");}
+  if(!def.alive){log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);fxBurst(def,"#c9a24b",true);shake=Math.max(shake,5);sfx("fall");bark(def.side==="foe"?"kill":"ally_down");}
   if(ab.chainWater)chainLightning(def);
 }
 function useAbility(att,ab,target){
@@ -552,7 +580,7 @@ function useAbility(att,ab,target){
     if(ab.createsSurface&&!ab.damageDice){log(`${att.name} hurls ${ab.name}, coating the ground in ${SURFLABEL[ab.createsSurface]||ab.createsSurface}.`,"cond");}
     else applyOne(att,target,ab); }
   if(ab.createsSurface){const c=target||att;createSurfaceArea(c.x,c.y,ab.surfaceRadius||1,ab.createsSurface);
-    if(ab.createsSurface==="fire")log(`${ab.name} sets ${SURFLABEL.fire} — and any grease catches!`,"crit");
+    if(ab.createsSurface==="fire"){log(`${ab.name} sets ${SURFLABEL.fire} — and any grease catches!`,"crit");bark("ignite");}
     units.filter(u=>u.alive).forEach(enterSurface);}
   att.hasActed=true;return true;
 }
@@ -583,7 +611,7 @@ function checkEnd(){
   if(h&&f)return false; gameOver=true;
   const o=$("over");o.className="overlay "+(h?"win":"lose");o.style.display="flex";
   $("overTitle").textContent=h?"The Returned are put to rest.":"The shrine claims three more.";
-  log(h?"Victory.":"Defeat.","sys");return true;
+  log(h?"Victory.":"Defeat.","sys");if(h)bark("victory");return true;
 }
 
 // ===========================================================================
