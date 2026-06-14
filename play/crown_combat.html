@@ -64,6 +64,7 @@
       <div style="display:flex;gap:8px;margin-top:10px">
         <button class="act" id="endTurn">End Turn</button>
         <button class="act" id="shove">🫷 Shove</button>
+        <button class="act" id="disengage">🏃 Disengage</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
@@ -103,7 +104,7 @@ const Ability=o=>Object.assign({name:"Strike",spellSlotLevel:0,targeting:"enemy"
   addMod:true,isHeal:false,healDice:"",effect:null,effectRounds:0,extraAdv:false},o);
 
 class Unit{
-  constructor(o){Object.assign(this,o); this.maxHP=o.hp; this.activeEffects=[]; this.hasMoved=false; this.hasActed=false;}
+  constructor(o){Object.assign(this,o); this.maxHP=o.hp; this.activeEffects=[]; this.hasMoved=false; this.hasActed=false; this.reacted=false; this.disengaged=false;}
   get prof(){return 2+Math.floor((this.level-1)/4);}
   Mod(a){return mod(this[a]);}
   get atkMod(){return mod(this[this.primary]);}
@@ -364,7 +365,7 @@ function stepToward(u,t){const prev=new Map();const seen=new Set([key(u.x,u.y)])
     for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy,k=key(nx,ny);
       if(seen.has(k)||!passable(nx,ny,u))continue;seen.add(k);prev.set(k,key(x,y));q.push([nx,ny]);}}
   const path=[];let cur=best;while(cur&&cur!==key(u.x,u.y)){path.unshift(cur);cur=prev.get(cur);}
-  const steps=path.slice(0,u.speedNow);if(steps.length){const[nx,ny]=steps[steps.length-1].split(",").map(Number);u.x=nx;u.y=ny;enterSurface(u);}}
+  const steps=path.slice(0,u.speedNow);if(steps.length){const fx0=u.x,fy0=u.y;const[nx,ny]=steps[steps.length-1].split(",").map(Number);u.x=nx;u.y=ny;enterSurface(u);provokeOA(u,fx0,fy0,nx,ny);}}
 
 // ===========================================================================
 //  ENVIRONMENTAL SURFACES (BG3-style): grease ignites, fire spreads, water douses
@@ -407,6 +408,21 @@ const HIGH=new Set(["8,4","9,4","8,5","9,5"]);   // a raised mound in the middle
 function elevOf(x,y){return HIGH.has(key(x,y))?1:0;}
 function heightVs(att,def){return elevOf(att.x,att.y)-elevOf(def.x,def.y);}  // >0 advantage, <0 disadvantage
 /*</HEIGHT>*/
+
+// ---- OPPORTUNITY ATTACKS (5e/BG3): leaving a foe's reach without Disengaging provokes a free strike ----
+/*<OA>*/
+function leavingReachOf(fx,fy,tx,ty,e){
+  const adjFrom=Math.max(Math.abs(e.x-fx),Math.abs(e.y-fy))<=1, adjTo=Math.max(Math.abs(e.x-tx),Math.abs(e.y-ty))<=1;
+  return adjFrom&&!adjTo;
+}
+/*</OA>*/
+function provokeOA(mover,fx,fy,tx,ty){
+  if(mover.disengaged)return;
+  units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
+    if(!mover.alive)return;e.reacted=true;
+    log(`${e.name} strikes at ${mover.name} as they flee! (opportunity attack)`,"cond");
+    faceLunge(e,mover);applyOne(e,mover,e.kit[0]);});
+}
 
 // ---- SHOVE (BG3 maneuver): a Strength contest that pushes a foe a tile — into a wall or a hazard ----
 const SHOVE=Ability({name:"Shove",targeting:"enemy",range:1,isAttackRoll:false,shove:true,damageDice:"",addMod:false});
@@ -481,7 +497,7 @@ function nextTurn(){
   if(checkEnd())return;
   let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!order[turnIdx].alive&&++guard<order.length*2);
   if(turnIdx<=_prevIdx)surfaceTick();_prevIdx=turnIdx;   // new round → surfaces spread & decay
-  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;
+  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;u.reacted=false;u.disengaged=false;
   enterSurface(u);                                       // standing in a surface keeps its effect
   const dot=u.tickStart();
   if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
@@ -570,10 +586,11 @@ cvs.addEventListener("click",e=>{
   if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
     if(useAbility(u,armed,target)){reachable=new Set();renderSide();checkEnd();}return;}
-  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){u.x=x;u.y=y;u.hasMoved=true;enterSurface(u);reachable=new Set();renderSide();checkEnd();return;}
+  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){const fx0=u.x,fy0=u.y;u.x=x;u.y=y;u.hasMoved=true;enterSurface(u);provokeOA(u,fx0,fy0,x,y);reachable=new Set();renderSide();checkEnd();return;}
 });
 $("endTurn").onclick=endTurn;$("restart").onclick=newGame;
 $("shove").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasActed)return;armed=(armed===SHOVE?u.kit[0]:SHOVE);renderSide();};
+$("disengage").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved||u.disengaged)return;u.disengaged=true;u.hasActed=true;armed=null;log(`${u.name} readies to disengage — this move draws no opportunity attacks.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 
@@ -602,6 +619,7 @@ function renderSide(){
       :"The Returned stir…";}
   $("endTurn").disabled=!u||u.side!=="hero";
   const sb=$("shove");if(sb){sb.disabled=!u||u.side!=="hero"||u.hasActed;sb.style.borderColor=armed===SHOVE?"#e7c873":"";sb.style.color=armed===SHOVE?"#ffe9a8":"";}
+  const db=$("disengage");if(db){db.disabled=!u||u.side!=="hero"||u.hasMoved||u.disengaged;db.style.borderColor=u&&u.disengaged?"#7fd0a0":"";db.style.color=u&&u.disengaged?"#9fe0b0":"";}
   renderBar();
 }
 
