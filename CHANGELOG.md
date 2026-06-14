@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v3.91.0 — *"Take It Back"* — Undo Move (Pillar 2: Quality of Life begins)
+
+> The first comfort BG3 players lean on constantly. No more fat-fingered, turn-ruining clicks.
+
+- ↩ **Undo Move** in `play/crown_combat.html` — a new action: take back the active hero's move and
+  get the movement **refunded**, as long as the move **triggered nothing irreversible** (no surface
+  effect applied, no opportunity attack provoked, and you survived). If a step into fire or out of a
+  foe's reach happened, the move is *committed* (BG3-honest) and Undo greys out.
+- 🧪 **`qol.test.js`** lifts the page's real `canUndoMove` predicate and proves a clean move is
+  undoable while a dirty/lethal one isn't, plus the wiring (snapshot, dirtied-by-surface/OA, restore,
+  cleared on act/turn) — 10 checks. Smoke still **400 games, 0 errors**. Headless suite now **331
+  checks**, all green.
+- 🎯 First **Pillar 2 (Quality of Life)** entry on [the BG3 roadmap](docs/ROADMAP_BG3.md).
+
 ## 👑 v3.90.0 — *"No Free Retreat"* — opportunity attacks & Disengage (Pillar 1 continues)
 
 > Positioning gets teeth: you can't just walk away from a foe anymore.
