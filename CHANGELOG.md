@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v3.92.0 — *"Comfort"* — keyboard hotkeys & reaction toggle (Pillar 2: QoL)
+
+> Two more comforts BG3 players never think about until they're gone.
+
+- ⌨️ **Keyboard hotkeys** in `play/crown_combat.html` — `1`-`9` arm the matching ability (now numbered
+  on the buttons), `V` shove, `X` disengage, `U` undo, `Enter` end turn, `F` forecast, `R` reactions.
+  Pure `hotkey()` map, headless-safe listener.
+- ⚡ **Reaction toggle** — a button (BG3's "ask before my opportunity attacks"): flip it off and your
+  heroes won't spend their reaction on opportunity attacks. Enemies still do.
+- 🧪 `qol.test.js` extended (now **17 checks**): the full hotkey map + the reaction-toggle wiring,
+  on top of the Undo predicate. Smoke still **400 games, 0 errors**. Headless suite now **338 checks**,
+  all green.
+- 🎯 `docs/ROADMAP_BG3.md` — both marked shipped under Pillar 2.
+
 ## 👑 v3.91.0 — *"Take It Back"* — Undo Move (Pillar 2: Quality of Life begins)
 
 > The first comfort BG3 players lean on constantly. No more fat-fingered, turn-ruining clicks.

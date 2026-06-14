@@ -51,7 +51,9 @@ The layer players *feel* every minute. Mostly unbuilt — high-leverage.
 - 🔜 **Group select & move**, formation, follow
 - ✅ **Undo move** *(v3.91.0)* — take back a move (with refunded movement) as long as it triggered
   nothing irreversible (no surface, no opportunity attack, you survived). Verified.
-- 🔜 **Reaction & non-lethal toggles**, more **"undo"** before committing an action
+- ✅ **Hotkeys + Reaction toggle** *(v3.92.0)* — keyboard shortcuts for every action (1-9 / V / X / U /
+  Enter), and a toggle for whether your heroes take opportunity attacks. Verified.
+- 🔜 **Reaction & non-lethal toggles (more)**, group select & move, loot-all, highlight interactables
 - 🔜 **Tactical forecast everywhere** *(already in combat — extend to the whole UI)*
 - 🔜 **Respec** at camp, **save-anywhere** *(browser save-inspector already round-trips saves ✅)*
 - ⏳ Tactical camera / split-screen co-op — Unity-side
