@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.90.0 — *"No Free Retreat"* — opportunity attacks & Disengage (Pillar 1 continues)
+
+> Positioning gets teeth: you can't just walk away from a foe anymore.
+
+- ⚔️ **Opportunity attacks** in `play/crown_combat.html` — moving **out of an adjacent foe's reach**
+  provokes a **free melee strike** from that foe (once per round, for *both* sides — enemies provoke
+  when fleeing too). Fully reprojected into the iso board with the lunge animation + combat log.
+- 🏃 **Disengage** — a new action: spend it and your movement this turn **draws no opportunity
+  attacks** (the tactical-retreat option). Reaction state resets at the start of each unit's turn.
+- 🧪 **`opportunity.test.js`** lifts the page's real reach-test and proves OAs fire **only when
+  leaving reach** (not when staying, shuffling, approaching, or passing by), plus the wiring
+  (Disengage, once-per-round, turn reset) — 11 checks. Smoke still auto-plays **400 games, 0 errors**,
+  balance intact. Headless suite now **321 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — opportunity attacks marked shipped.
+
 ## 👑 v3.89.0 — *"The High Ground"* — height advantage (Pillar 1 continues)
 
 > "I have the high ground." Now it actually matters.

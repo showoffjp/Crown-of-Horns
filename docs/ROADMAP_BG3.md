@@ -38,7 +38,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
 - 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps
 - 🔜 **Throw** — improvised weapons, throw an enemy, throw a *bottle of oil* to seed a surface
-- 🔜 **Reactions** — opportunity-attack & shield/counterspell **prompts** (BG3's reaction UI)
+- ✅ **Opportunity attacks + Disengage** *(v3.90.0)* — leaving a foe's reach without Disengaging
+  provokes a free strike (once per round, both sides). Verified.
+- 🔜 **More reactions** — shield/counterspell **prompts** (BG3's full reaction UI)
 - 🔜 **Superiority twist** — *deeds-in-combat*: how you win a fight feeds the story flags
 
 ## 🧭 Pillar 2 — Quality of life (out-comfort BG3)
