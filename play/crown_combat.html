@@ -66,6 +66,7 @@
         <button class="act" id="shove">🫷 Shove</button>
         <button class="act" id="disengage">🏃 Disengage</button>
         <button class="act" id="undo">↩ Undo Move</button>
+        <button class="act" id="react">⚡ Reactions: on</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
@@ -76,7 +77,7 @@
 </div>
 <div class="foot">
   Real rules from <code>AttackResolver.cs</code>: d20 + ability mod + proficiency vs AC · nat 20 crits (double dice) · nat 1 auto-misses ·
-  saving throws with save-for-half · healing · status conditions. **Environmental surfaces** (BG3-style): lay **oil** with Roen's Flask, then **ignite** it with Garrow's Firebrand — fire spreads through grease, burns anyone standing in it, and water douses it. Live hit/kill **forecast** · synthesized **SFX** · isometric board, projectiles, impacts &amp; torch lighting. CC0 art from <code>Dungeon Crawl Stone Soup</code>.
+  saving throws with save-for-half · healing · status conditions. **Environmental surfaces** (BG3-style): lay **oil** with Roen's Flask, then **ignite** it with Garrow's Firebrand — fire spreads through grease, burns anyone standing in it, and water douses it. Live hit/kill **forecast** · synthesized **SFX** · isometric board with surfaces, shove, height &amp; opportunity attacks. <b>Hotkeys:</b> <code>1-5</code> abilities · <code>V</code> shove · <code>X</code> disengage · <code>U</code> undo · <code>Enter</code> end turn. CC0 art from <code>Dungeon Crawl Stone Soup</code>.
 </div>
 <div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
 
@@ -242,11 +243,19 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true;
 // QoL — a move can be UNDONE only while it triggered nothing irreversible (BG3-style)
 /*<UNDO>*/
 function canUndoMove(moveDirty,alive){return !moveDirty && !!alive;}
 /*</UNDO>*/
+// QoL — keyboard hotkeys: 1-9 arm an ability, V shove, X disengage, U undo, Enter end turn
+/*<HOTKEY>*/
+function hotkey(k){
+  k=(k||"").toLowerCase();
+  if(k>="1"&&k<="9")return "ability"+(+k-1);
+  return {v:"shove",x:"disengage",u:"undo",enter:"endturn",f:"forecast",r:"react"}[k]||null;
+}
+/*</HOTKEY>*/
 // turn the figures to face their target and lunge; struck figures recoil
 function faceLunge(att,def){const a=cen(att.x,att.y),d=cen(def.x,def.y),ang=Math.atan2(d.y-a.y,d.x-a.x);
   att.face=(d.x<a.x)?-1:1;att.anim={kind:"lunge",dx:Math.cos(ang),dy:Math.sin(ang),t:0,dur:0.32};}
@@ -423,7 +432,7 @@ function leavingReachOf(fx,fy,tx,ty,e){
 /*</OA>*/
 function provokeOA(mover,fx,fy,tx,ty){
   if(mover.disengaged)return;
-  units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
+  units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&!(e.side==="hero"&&!reactionsOn)&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
     if(!mover.alive)return;e.reacted=true;_moveDirty=true;
     log(`${e.name} strikes at ${mover.name} as they flee! (opportunity attack)`,"cond");
     faceLunge(e,mover);applyOne(e,mover,e.kit[0]);});
@@ -602,15 +611,28 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
   log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
+$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your opportunity attacks are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
+// QoL — keyboard hotkeys for the whole action bar
+if(document.addEventListener)document.addEventListener("keydown",e=>{
+  if(gameOver||e.metaKey||e.ctrlKey||e.altKey)return; const u=order&&order[turnIdx]; if(!u||u.side!=="hero")return;
+  const a=hotkey(e.key); if(!a)return; e.preventDefault();
+  if(a.startsWith("ability")){const i=+a.slice(7); if(u.kit[i]&&!u.hasActed){armed=u.kit[i];renderSide();}}
+  else if(a==="shove")$("shove").click();
+  else if(a==="disengage")$("disengage").click();
+  else if(a==="undo")$("undo").click();
+  else if(a==="endturn")endTurn();
+  else if(a==="forecast")$("fcToggle").click();
+  else if(a==="react")$("react").click();
+});
 
 function renderBar(){
   const bar=$("bar");bar.innerHTML="";const u=order&&order[turnIdx];
   if(!u||u.side!=="hero"){return;}
-  u.kit.forEach(ab=>{const b=document.createElement("button");b.className="ability"+(armed===ab?" armed":"");
+  u.kit.forEach((ab,i)=>{const b=document.createElement("button");b.className="ability"+(armed===ab?" armed":"");
     b.disabled=u.hasActed;
     const kind=ab.isHeal?"heal "+(ab.healDice):ab.targeting==="selfburst"?"burst r"+ab.radius+" "+ab.damageDice:
       ab.createsSurface&&!ab.damageDice?"lay "+ab.createsSurface:ab.isAttackRoll?"atk "+ab.damageDice:"save "+ab.damageDice;
-    b.innerHTML=`${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.createsSurface?" · 🔥"+ab.createsSurface:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
+    b.innerHTML=`<span style="color:#c9a24b">${i+1}</span> ${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.createsSurface?" · 🔥"+ab.createsSurface:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
     b.onclick=()=>{armed=ab;renderSide();};bar.appendChild(b);});
 }
 function renderSide(){

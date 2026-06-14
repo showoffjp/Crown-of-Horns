@@ -30,6 +30,23 @@ check("undo is cleared once you act, disengage, or end the turn",
 check("Undo button is gated to a fresh, un-acted move",
   h.includes('ub.disabled=!_undo||!u||u.side!=="hero"||u.hasActed||!u.hasMoved'));
 
+// ---- keyboard hotkeys ----
+const hk = h.match(/\/\*<HOTKEY>\*\/([\s\S]*?)\/\*<\/HOTKEY>\*\//);
+check("hotkey map block found", !!hk);
+const { hotkey } = new Function(hk[1] + "\nreturn { hotkey };")();
+check("number keys arm the matching ability", hotkey("1") === "ability0" && hotkey("5") === "ability4");
+check("action hotkeys map correctly", hotkey("v") === "shove" && hotkey("x") === "disengage" &&
+  hotkey("u") === "undo" && hotkey("Enter") === "endturn" && hotkey("f") === "forecast" && hotkey("r") === "react");
+check("unmapped keys do nothing", hotkey("z") === null && hotkey("0") === null && hotkey("") === null);
+check("keydown listener is wired (headless-safe)",
+  h.includes('if(document.addEventListener)document.addEventListener("keydown"') && h.includes("hotkey(e.key)"));
+check("ability buttons show their hotkey number", h.includes('<span style="color:#c9a24b">${i+1}</span>'));
+
+// ---- reaction toggle (BG3 "ask before my opportunity attacks") ----
+check("a Reactions toggle exists and gates hero OAs",
+  h.includes('id="react"') && h.includes("reactionsOn=!reactionsOn") &&
+  h.includes('e.side==="hero"&&!reactionsOn'));
+
 console.log(`\n  Undo Move (QoL) — predicate + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }
