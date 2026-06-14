@@ -1,7 +1,7 @@
 // One command to prove the whole slice. Runs the gates (must pass) and the
 // informational reports. Exits non-zero if any gate fails — CI-ready.
 const { execSync } = require("child_process");
-const gates = ["tests.js", "abilities.js", "forecast.test.js", "threat.test.js", "endings.test.js", "epilogue.test.js", "items.test.js", "progression.test.js", "save.test.js", "quests.test.js", "pathfind.test.js", "explorer.test.js", "compendium.test.js", "dialogue_viewer.test.js", "flags_explorer.test.js", "save_inspector.test.js", "saga_map.test.js", "cc0_art.test.js", "iso.test.js", "surfaces.test.js", "shove.test.js", "all_in_one.test.js", "smoke.js"];
+const gates = ["tests.js", "abilities.js", "forecast.test.js", "threat.test.js", "endings.test.js", "epilogue.test.js", "items.test.js", "progression.test.js", "save.test.js", "quests.test.js", "pathfind.test.js", "explorer.test.js", "compendium.test.js", "dialogue_viewer.test.js", "flags_explorer.test.js", "save_inspector.test.js", "saga_map.test.js", "cc0_art.test.js", "iso.test.js", "surfaces.test.js", "shove.test.js", "height.test.js", "all_in_one.test.js", "smoke.js"];
 const info  = ["verify.js", "diagnose.js", "autobattle.js"];
 
 let failed = 0;

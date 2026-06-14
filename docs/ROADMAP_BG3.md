@@ -34,7 +34,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   zaps everyone standing in it (lightning **chains through water**). Verified.
 - 🔜 **Surface breadth** — poison clouds, ice (prone), caustic brine, blood→slip; steam clouds
   (fire+water) that block sight
-- 🔜 **Verticality** — height advantage (+to-hit from above), **shove off ledges**, jump/teleport
+- ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
+  **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
+- 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps
 - 🔜 **Throw** — improvised weapons, throw an enemy, throw a *bottle of oil* to seed a surface
 - 🔜 **Reactions** — opportunity-attack & shield/counterspell **prompts** (BG3's reaction UI)
 - 🔜 **Superiority twist** — *deeds-in-combat*: how you win a fight feeds the story flags

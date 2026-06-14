@@ -128,7 +128,8 @@ function resolve(att,def,ab){
   if(ab.isHeal){r.isHeal=true;r.hit=true;r.heal=Math.max(0,Dice.Notation(ab.healDice||ab.damageDice)+m);return r;}
   let land;
   if(ab.isAttackRoll){
-    const advS=def.grantsAdv||ab.extraAdv, disS=att.atkDisadv||def.IsDodging;
+    const hv=heightVs(att,def);
+    const advS=def.grantsAdv||ab.extraAdv||hv>0, disS=att.atkDisadv||def.IsDodging||hv<0;
     r.adv=advS&&!disS; r.dis=disS&&!advS;
     r.roll=r.adv?Dice.D20Adv():r.dis?Dice.D20Dis():Dice.D20();
     r.crit=r.roll===20; const miss=r.roll===1;
@@ -157,7 +158,8 @@ function forecast(att,def,ab){
   const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");const c=x?+x[1]:0,s=x?+x[2]:0,flat=x&&x[3]?+x[3]:0;
   const avg=(c&&s)?c*(s+1)/2:0, md=ab.addMod?m:0, hp=Math.max(1,def.hp);
   if(ab.isAttackRoll){
-    const adv=(ab.extraAdv||def.grantsAdv)&&!(att.atkDisadv||def.IsDodging), dis=(att.atkDisadv||def.IsDodging)&&!(ab.extraAdv||def.grantsAdv);
+    const hv=heightVs(att,def);
+    const adv=(ab.extraAdv||def.grantsAdv||hv>0)&&!(att.atkDisadv||def.IsDodging||hv<0), dis=(att.atkDisadv||def.IsDodging||hv<0)&&!(ab.extraAdv||def.grantsAdv||hv>0);
     const toHit=att.atkMod+att.prof+att.effAtkMod, ac=def.AC; let hits=0;for(let f=1;f<=20;f++)if(f===20||(f!==1&&f+toHit>=ac))hits++;
     const p=hits/20, pc=0.05;
     fc.hit=adv?1-(1-p)**2:dis?p*p:p; fc.crit=adv?1-0.95**2:dis?pc*pc:pc;
@@ -184,7 +186,7 @@ function damageDist(att,def,ab){
   const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");const c=x?+x[1]:0,s=x?+x[2]:0,flat=x&&x[3]?+x[3]:0;
   const md=ab.addMod?m:0;const acc=new Map();const add=(dm,p)=>{if(p<=0)return;if(dm<0)dm=0;acc.set(dm,(acc.get(dm)||0)+p);};
   if(ab.isAttackRoll){
-    const adv=(ab.extraAdv||def.grantsAdv)&&!(att.atkDisadv||def.IsDodging),dis=(att.atkDisadv||def.IsDodging)&&!(ab.extraAdv||def.grantsAdv);
+    const hv=heightVs(att,def),adv=(ab.extraAdv||def.grantsAdv||hv>0)&&!(att.atkDisadv||def.IsDodging||hv<0),dis=(att.atkDisadv||def.IsDodging||hv<0)&&!(ab.extraAdv||def.grantsAdv||hv>0);
     const toHit=att.atkMod+att.prof+att.effAtkMod;let h=0;for(let f=1;f<=20;f++)if(f===20||(f!==1&&f+toHit>=def.AC))h++;
     const p=h/20,pc=0.05,pHit=adv?1-(1-p)**2:dis?p*p:p,pCrit=adv?1-0.95**2:dis?pc*pc:pc,pHNC=Math.max(0,pHit-pCrit);
     add(0,1-pHit);const dn=dist(c,s);for(let i=0;i<dn.length;i++)if(dn[i]>0)add(i+flat+md,dn[i]*pHNC);
@@ -398,6 +400,14 @@ function enterSurface(u){ const s=surfaces.get(key(u.x,u.y)); if(!s||!u.alive)re
 }
 const SURFLABEL={fire:"a sheet of flame",grease:"slick grease",poison:"a poison cloud",water:"water",ice:"ice"};
 
+// ---- HEIGHT advantage (BG3): striking from higher ground = advantage; from below = disadvantage ----
+const ELEV_H=12;
+const HIGH=new Set(["8,4","9,4","8,5","9,5"]);   // a raised mound in the middle — contested high ground
+/*<HEIGHT>*/
+function elevOf(x,y){return HIGH.has(key(x,y))?1:0;}
+function heightVs(att,def){return elevOf(att.x,att.y)-elevOf(def.x,def.y);}  // >0 advantage, <0 disadvantage
+/*</HEIGHT>*/
+
 // ---- SHOVE (BG3 maneuver): a Strength contest that pushes a foe a tile — into a wall or a hazard ----
 const SHOVE=Ability({name:"Shove",targeting:"enemy",range:1,isAttackRoll:false,shove:true,damageDice:"",addMod:false});
 /*<SHOVE>*/
@@ -585,7 +595,7 @@ function renderSide(){
     row.innerHTML=`<span class="dot" style="background:${u.col}"></span><span class="nm">${u.name} ${conds?'<span class=conds>['+conds+']</span>':''}</span><span class="hp">${u.hp}/${u.maxHP}</span>`;
     box.appendChild(row);});
   const u=order[turnIdx];
-  if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}`
+  if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}${elevOf(u.x,u.y)?' · <span style="color:#e7c873">▲ high ground</span>':''}`
       + (u.side==="hero"?`<br>${threatLine(u)}`:"");
     $("hint").textContent=u.side==="hero"
       ?(u.hasActed?"Action spent. End your turn.":armed?`${armed.name} armed — click a ${armed.targeting==="ally"?"glowing ally":armed.targeting==="selfburst"?"yourself to unleash it":"target in reach"}, or move first.`:"Pick an ability.")
@@ -599,6 +609,12 @@ function renderSide(){
 //  ISOMETRIC RENDER
 // ===========================================================================
 function floorTile(gx,gy){
+  if(elevOf(gx,gy)){ // contested high ground — lighter stone, gilded rim, ▲ marker
+    diamond(gx,gy,0);ctx.fillStyle=(gx+gy)%2?"#2c2838":"#262234";ctx.fill();
+    diamond(gx,gy,0);ctx.strokeStyle="rgba(231,200,115,.34)";ctx.lineWidth=1.5;ctx.stroke();ctx.lineWidth=1;
+    const c=cen(gx,gy);ctx.fillStyle="rgba(231,200,115,.45)";ctx.font="9px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("▲",c.x,c.y);
+    return;
+  }
   diamond(gx,gy,0);ctx.fillStyle=(gx+gy)%2?"#1e1b27":"#181520";ctx.fill();
   diamond(gx,gy,0);ctx.strokeStyle="rgba(0,0,0,.30)";ctx.lineWidth=1;ctx.stroke();
 }
@@ -613,8 +629,10 @@ function wallBlock(gx,gy){
   diamond(gx,gy,WALL_H);ctx.fillStyle=(gx+gy)%2?"#332f40":"#2c2838";ctx.fill();  // top
   diamond(gx,gy,WALL_H);ctx.strokeStyle="#0c0a12";ctx.lineWidth=1;ctx.stroke();
 }
-function billboard(gx,gy,sprite,sz,ringCol,ox,oy,face){
-  const c=cen(gx,gy),s=sz||44;ox=ox||0;oy=oy||0;
+function billboard(gx,gy,sprite,sz,ringCol,ox,oy,face,ev){
+  const base=cen(gx,gy),s=sz||44;ox=ox||0;oy=oy||0;ev=ev||0;
+  const c={x:base.x,y:base.y-ev};
+  if(ev){ctx.strokeStyle="rgba(231,200,115,.35)";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(base.x-s*0.30,base.y);ctx.lineTo(c.x-s*0.30,c.y);ctx.moveTo(base.x+s*0.30,base.y);ctx.lineTo(c.x+s*0.30,c.y);ctx.stroke();}
   ctx.fillStyle="rgba(0,0,0,.42)";ctx.beginPath();ctx.ellipse(c.x,c.y,s*0.33,s*0.16,0,0,7);ctx.fill();
   if(ringCol){ctx.lineWidth=2.5;ctx.strokeStyle=ringCol;ctx.beginPath();ctx.ellipse(c.x,c.y,s*0.36,s*0.18,0,0,7);ctx.stroke();ctx.lineWidth=1;}
   const ix=c.x-s/2+ox, iy=c.y-s+6+oy;
@@ -628,8 +646,8 @@ function unitBill(u,sel){
   if(u.anim){const p=Math.min(1,u.anim.t/u.anim.dur);
     const amp=u.anim.kind==="lunge"?Math.sin(Math.PI*p)*9:(1-p)*7;ox=u.anim.dx*amp;oy=u.anim.dy*amp;}
   const breathe=Math.sin(_clock*2+(u.x+u.y))*1.2+((sel===u&&u.side==="hero"&&!gameOver)?Math.sin(_clock*5)*1.4:0);
-  const s=46;
-  const c=billboard(u.x,u.y,u.sprite,s,sel===u?"#e7c873":u.col,ox,oy-breathe,u.face);
+  const s=46, ev=elevOf(u.x,u.y)*ELEV_H;
+  const c=billboard(u.x,u.y,u.sprite,s,sel===u?"#e7c873":u.col,ox,oy-breathe,u.face,ev);
   if(!IMG[u.sprite]||!IMG[u.sprite].complete||!IMG[u.sprite].naturalWidth){
     ctx.fillStyle=u.col;ctx.beginPath();ctx.arc(c.x,c.y-s*0.4,s/3,0,7);ctx.fill();
     ctx.fillStyle="#0c0b10";ctx.font="16px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(u.glyph,c.x,c.y-s*0.4);}
@@ -663,9 +681,9 @@ function draw(ts){
   ents.sort((a,b)=>a.d-b.d||a.t-b.t);
   ents.forEach(e=>{ if(e.t===0)wallBlock(e.gx,e.gy); else if(e.t===1)billboard(e.p.x,e.p.y,e.p.s,40,null,0,0,1); else unitBill(e.u,sel); });
   // forecast labels (over everything)
-  if(showForecast&&armed&&sel)targets.forEach(t=>{const c=cen(t.x,t.y),lbl=forecastLabel(sel,t,armed),w=lbl.length*6;
-    ctx.fillStyle="#0c0b10dd";ctx.fillRect(c.x-w/2-3,c.y-58,w+6,13);
-    ctx.fillStyle=armed.targeting==="ally"?"#9fe0b0":"#e7c873";ctx.font="bold 10px monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lbl,c.x,c.y-51);});
+  if(showForecast&&armed&&sel)targets.forEach(t=>{const cc=cen(t.x,t.y),ey=cc.y-elevOf(t.x,t.y)*ELEV_H,lbl=forecastLabel(sel,t,armed),w=lbl.length*6;
+    ctx.fillStyle="#0c0b10dd";ctx.fillRect(cc.x-w/2-3,ey-58,w+6,13);
+    ctx.fillStyle=armed.targeting==="ally"?"#9fe0b0":"#e7c873";ctx.font="bold 10px monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lbl,cc.x,ey-51);});
   // floating combat text
   for(let i=floats.length-1;i>=0;i--){const f=floats[i];f.t+=dt;const c=cen(f.x,f.y);
     ctx.globalAlpha=Math.max(0,1-f.t/1.2);ctx.fillStyle=f.col;ctx.font="bold 14px serif";ctx.textAlign="center";ctx.fillText(f.text,c.x,c.y-34-f.t*26);ctx.globalAlpha=1;

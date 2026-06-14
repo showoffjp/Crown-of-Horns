@@ -11,6 +11,21 @@
 
 ---
 
+## 👑 v3.89.0 — *"The High Ground"* — height advantage (Pillar 1 continues)
+
+> "I have the high ground." Now it actually matters.
+
+- ⛰️ **Height advantage** in `play/crown_combat.html` — a contested **raised mound** in the middle of
+  the arena. Striking from **higher ground grants advantage**; striking from **below, disadvantage**.
+  Folded consistently into the hit math (`resolve`), the XCOM-style **forecast**, and the incoming-
+  **threat** readout — so the % you see already reflects the ground you're standing on. High tiles
+  are gilded with a ▲ marker, units **stand taller** on them, and the Selected panel flags *▲ high
+  ground*.
+- 🧪 **`height.test.js`** lifts the page's real elevation helpers and proves high→advantage,
+  low→disadvantage, level→neither, plus the wiring into hit math / forecast / view (9 checks). Smoke
+  still auto-plays **400 games, 0 errors**, balance intact. Headless suite now **310 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — height advantage marked shipped.
+
 ## 👑 v3.88.0 — *"Storm & Tide"* — electrified water (Pillar 1 continues)
 
 > The other combo every BG3 player learns: **water + lightning**. Soak them, then shock them.
