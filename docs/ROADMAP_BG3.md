@@ -28,6 +28,8 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
 - ✅ **Positioning** — flanking, half-cover, opportunity attacks, reach
 - ✅ **Environmental surfaces** *(v3.86.0)* — lay **oil**, **ignite** it, fire **spreads** through
   grease and burns anyone standing in it, **water douses** it. Real combos, verified.
+- ✅ **Shove** *(v3.87.0)* — a Strength contest that pushes a foe a tile: **into a hazard surface**
+  (the BG3 environmental kill) or **into a wall** for impact damage. Verified in all 8 directions.
 - 🔜 **Surface breadth** — poison clouds, ice (prone), caustic brine, blood→slip; lightning **chains
   through water**; steam clouds (fire+water) that block sight
 - 🔜 **Verticality** — height advantage (+to-hit from above), **shove off ledges**, jump/teleport

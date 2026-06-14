@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v3.87.0 — *"Give Ground"* — the Shove maneuver (Pillar 1 continues)
+
+> The combo BG3 players reach for first: shove a foe **into your fire**, or **into a wall**.
+
+- 🫷 **Shove** in `play/crown_combat.html` — a universal action (its own button): a **Strength
+  contest** (attacker STR vs the defender's best of STR/DEX) that pushes the foe **one tile
+  directly away**. Push them onto a **hazard surface** and they suffer it (shove-into-fire = the
+  BG3 environmental kill); push them into a **wall** and they take impact damage. Pairs directly
+  with v3.86.0's surfaces.
+- 🧪 **`shove.test.js`** lifts the page's real push-direction helper and proves it pushes a foe
+  one tile away in **all 8 directions**, plus that the maneuver is wired (contest, shove-into-
+  surface combo, wall impact, the UI button) — 9 checks. The smoke harness still auto-plays full
+  games with zero errors. Headless suite now **299 checks**, all green.
+
 ## 👑 v3.86.0 — *"The Battlefield Reacts"* — environmental surfaces (toward "BG3 but superior")
 
 > The first pillar of the [BG3 roadmap](docs/ROADMAP_BG3.md): BG3's signature combat feature,
