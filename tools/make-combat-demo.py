@@ -75,10 +75,15 @@ def preview():
     img = Image.new("RGBA", (W, H), (11, 10, 16, 255))
     d = ImageDraw.Draw(img, "RGBA")
     # PASS 1 — floor diamonds, decals, the active hero's move overlay
+    HIGH = {(8,4),(9,4),(8,5),(9,5)}   # contested high ground (mirrors crown_combat.html)
     for gy in range(ROWS):
         for gx in range(COLS):
             if (gx,gy) in BLOCKED: continue
-            d.polygon(dia(gx,gy), fill=(30,27,39) if (gx+gy)%2 else (24,21,32), outline=(0,0,0))
+            if (gx,gy) in HIGH:
+                d.polygon(dia(gx,gy), fill=(44,40,56) if (gx+gy)%2 else (38,34,52), outline=(231,200,115))
+                cx,cy = cen(gx,gy); d.text((cx,cy), "▲", fill=(231,200,115), anchor="mm")
+            else:
+                d.polygon(dia(gx,gy), fill=(30,27,39) if (gx+gy)%2 else (24,21,32), outline=(0,0,0))
     for (gx,gy) in DECALS:
         cx,cy = cen(gx,gy); d.ellipse([cx-15,cy-7,cx+15,cy+7], fill=(40,30,55,150))
     for (gx,gy) in [(2,2),(2,1),(1,3),(2,3),(3,2),(1,1)]:
