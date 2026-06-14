@@ -325,7 +325,8 @@ function roster(){
     H({name:"Sister Garrow",x:1,y:2,str:15,dex:12,baseAC:16,hp:30,speed:5,primary:"str",col:"#e7c873",glyph:"✛",sprite:"spr_garrow",
       kit:[ Ability({name:"Maul",damageDice:"1d8",dmgType:"bludgeoning"}),
             Ability({name:"Sun's Mending",isHeal:true,healDice:"2d4",targeting:"ally",range:4}),
-            Ability({name:"Firebrand",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d6",dmgType:"fire",addMod:false,targeting:"enemy",range:5,createsSurface:"fire",surfaceRadius:1}) ]}),
+            Ability({name:"Firebrand",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d6",dmgType:"fire",addMod:false,targeting:"enemy",range:5,createsSurface:"fire",surfaceRadius:1}),
+            Ability({name:"Hallowed Water",isAttackRoll:false,damageDice:"",addMod:false,targeting:"enemy",range:5,createsSurface:"water",surfaceRadius:1}) ]}),
     H({name:"Roen Alleywind",x:1,y:4,str:12,dex:18,baseAC:15,hp:24,speed:7,primary:"dex",col:"#7fd0a0",glyph:"⚔",sprite:"spr_roen",
       kit:[ Ability({name:"Twin Rapiers",damageDice:"1d8",dmgType:"piercing"}),
             Ability({name:"Hamstring",damageDice:"1d6",dmgType:"slashing",effect:Slowed,effectRounds:2}),
@@ -333,7 +334,8 @@ function roster(){
     H({name:"Varra",x:1,y:6,str:17,dex:12,baseAC:17,hp:38,speed:5,primary:"str",col:"#6fa8dc",glyph:"⛏",sprite:"spr_varra",
       kit:[ Ability({name:"Greataxe",damageDice:"1d12",dmgType:"slashing"}),
             Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
-            Ability({name:"Cleave",damageDice:"1d8",dmgType:"slashing",targeting:"selfburst",radius:1}) ]}),
+            Ability({name:"Cleave",damageDice:"1d8",dmgType:"slashing",targeting:"selfburst",radius:1}),
+            Ability({name:"Storm Bolt",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d8",dmgType:"lightning",addMod:false,targeting:"enemy",range:6,chainWater:true}) ]}),
   ];
   const claw=()=>Ability({name:"Rotting Claw",damageDice:"1d6",dmgType:"necrotic"});
   const chill=()=>Ability({name:"Grave Chill",damageDice:"1d4",dmgType:"cold",effect:Slowed,effectRounds:2});
@@ -386,6 +388,7 @@ function surfaceTick(){ // once per round: fire spreads into adjacent grease, th
   toFire.forEach(k=>surfaces.set(k,{type:"fire",rounds:SURF.fire}));
   for(const[k,s]of[...surfaces])if(--s.rounds<=0)surfaces.delete(k);
 }
+function isWaterAt(x,y){const s=surfaces.get(key(x,y));return !!s&&s.type==="water";}
 /*</SURF>*/
 function enterSurface(u){ const s=surfaces.get(key(u.x,u.y)); if(!s||!u.alive)return;
   if(s.type==="fire"){u.add(Burning,2);spawnFloat(u,"Burning","#ff8a3a");}
@@ -400,6 +403,14 @@ const SHOVE=Ability({name:"Shove",targeting:"enemy",range:1,isAttackRoll:false,s
 /*<SHOVE>*/
 function shoveDest(att,def){const dx=Math.sign(def.x-att.x),dy=Math.sign(def.y-att.y);return {x:def.x+dx,y:def.y+dy,dx,dy};}
 /*</SHOVE>*/
+// lightning arcing through water: a Storm Bolt zaps everyone else standing in a water surface
+function chainLightning(except){
+  const wet=units.filter(u=>u.alive&&u!==except&&isWaterAt(u.x,u.y));
+  if(!wet.length)return;
+  log("⚡ The lightning arcs through the water!","crit");shake=Math.max(shake,5);
+  wet.forEach(u=>{const d=Dice.Notation("1d6");u.hp=Math.max(0,u.hp-d);spawnFloat(u,"⚡-"+d,"#ffe06a");fxBurst(u,"#ffe06a",true);u.add(Slowed,1);
+    if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(u);}});
+}
 function doShove(att,def){
   faceLunge(att,def);
   const aRoll=Dice.D20()+att.Mod("str"), dRoll=Dice.D20()+Math.max(def.Mod("str"),def.Mod("dex"));
@@ -491,6 +502,7 @@ function applyOne(att,def,ab){
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
   if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
   if(!def.alive){log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);fxBurst(def,"#c9a24b",true);shake=Math.max(shake,5);sfx("fall");}
+  if(ab.chainWater)chainLightning(def);
 }
 function useAbility(att,ab,target){
   if(ab.shove){ if(!target)return false; doShove(att,target); att.hasActed=true; return true; }

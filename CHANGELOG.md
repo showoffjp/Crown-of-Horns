@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.88.0 — *"Storm & Tide"* — electrified water (Pillar 1 continues)
+
+> The other combo every BG3 player learns: **water + lightning**. Soak them, then shock them.
+
+- ⚡ **Electrified water** in `play/crown_combat.html` — Garrow's new **Hallowed Water** conjures a
+  water surface (and douses fire); Varra's new **Storm Bolt** (lightning) **arcs through any water**
+  and zaps *everyone* standing in it for bonus damage + Slowed. A two-hero combo: soak the cluster,
+  then shock it.
+- 🧪 `surfaces.test.js` extended (now **13 checks**): `isWaterAt` detection + the full lightning/water
+  wiring (the `chainWater` ability, `chainLightning`, the `applyOne` trigger). Smoke harness still
+  auto-plays **400 games, 0 errors**, balance intact. Headless suite now **301 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — electrified water marked shipped.
+
 ## 👑 v3.87.0 — *"Give Ground"* — the Shove maneuver (Pillar 1 continues)
 
 > The combo BG3 players reach for first: shove a foe **into your fire**, or **into a wall**.

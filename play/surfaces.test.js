@@ -14,8 +14,8 @@ const prelude =
   "const COLS=14,ROWS=10;const key=(x,y)=>x+','+y;" +
   "const inB=(x,y)=>x>=0&&y>=0&&x<COLS&&y<ROWS;const blocked=new Set();let surfaces=new Map();";
 const api = new Function(prelude + block[1] +
-  "\nreturn { surfaces, paintSurface, igniteAround, createSurfaceArea, surfaceTick };")();
-const { surfaces, createSurfaceArea, paintSurface, surfaceTick } = api;
+  "\nreturn { surfaces, paintSurface, igniteAround, createSurfaceArea, surfaceTick, isWaterAt };")();
+const { surfaces, createSurfaceArea, paintSurface, surfaceTick, isWaterAt } = api;
 const typesOf = () => [...surfaces.values()].map(s => s.type);
 const count = t => typesOf().filter(x => x === t).length;
 
@@ -51,12 +51,20 @@ surfaces.clear();
 createSurfaceArea(0, 0, 1, "grease");   // a -1 ring would be off-grid
 check("surfaces stay in bounds", surfaces.size === 4 && !surfaces.has("-1,0") && !surfaces.has("0,-1"));
 
-// 7) the page actually wires surfaces into play
-check("page has surface-creating abilities (oil + fire)",
-  h.includes('createsSurface:"grease"') && h.includes('createsSurface:"fire"'));
+// 7) water detection (drives the lightning chain)
+surfaces.clear();
+paintSurface(5, 5, "water"); createSurfaceArea(7, 7, 0, "grease");
+check("isWaterAt detects water tiles only", isWaterAt(5, 5) === true && isWaterAt(7, 7) === false && isWaterAt(9, 9) === false);
+
+// 8) the page wires surfaces + the lightning/water combo into play
+check("page has surface-creating abilities (oil + fire + water)",
+  h.includes('createsSurface:"grease"') && h.includes('createsSurface:"fire"') && h.includes('createsSurface:"water"'));
 check("page applies surfaces on enter + each round",
   h.includes("function enterSurface") && h.includes("surfaceTick()") && h.includes("createSurfaceArea"));
 check("page renders surfaces", h.includes("function surfFill") && h.includes("for(const[k,s]of surfaces)"));
+check("lightning chains through water (Storm Bolt combo)",
+  h.includes("chainWater:true") && h.includes("function chainLightning") &&
+  h.includes("isWaterAt(u.x,u.y)") && h.includes("if(ab.chainWater)chainLightning(def)"));
 
 console.log(`\n  Environmental surfaces — combos + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
