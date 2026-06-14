@@ -65,6 +65,7 @@
         <button class="act" id="endTurn">End Turn</button>
         <button class="act" id="shove">🫷 Shove</button>
         <button class="act" id="disengage">🏃 Disengage</button>
+        <button class="act" id="undo">↩ Undo Move</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
@@ -241,7 +242,11 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false;
+// QoL — a move can be UNDONE only while it triggered nothing irreversible (BG3-style)
+/*<UNDO>*/
+function canUndoMove(moveDirty,alive){return !moveDirty && !!alive;}
+/*</UNDO>*/
 // turn the figures to face their target and lunge; struck figures recoil
 function faceLunge(att,def){const a=cen(att.x,att.y),d=cen(def.x,def.y),ang=Math.atan2(d.y-a.y,d.x-a.x);
   att.face=(d.x<a.x)?-1:1;att.anim={kind:"lunge",dx:Math.cos(ang),dy:Math.sin(ang),t:0,dur:0.32};}
@@ -394,10 +399,10 @@ function surfaceTick(){ // once per round: fire spreads into adjacent grease, th
 function isWaterAt(x,y){const s=surfaces.get(key(x,y));return !!s&&s.type==="water";}
 /*</SURF>*/
 function enterSurface(u){ const s=surfaces.get(key(u.x,u.y)); if(!s||!u.alive)return;
-  if(s.type==="fire"){u.add(Burning,2);spawnFloat(u,"Burning","#ff8a3a");}
-  else if(s.type==="poison"){u.add(PoisonCloud,2);spawnFloat(u,"Poisoned","#86d08a");}
-  else if(s.type==="ice"){u.add(Slowed,2);spawnFloat(u,"Slipped","#7fd0ff");}
-  else if(s.type==="water"){u.activeEffects=u.activeEffects.filter(e=>e.def.condition!=="Burning");}
+  if(s.type==="fire"){u.add(Burning,2);spawnFloat(u,"Burning","#ff8a3a");_moveDirty=true;}
+  else if(s.type==="poison"){u.add(PoisonCloud,2);spawnFloat(u,"Poisoned","#86d08a");_moveDirty=true;}
+  else if(s.type==="ice"){u.add(Slowed,2);spawnFloat(u,"Slipped","#7fd0ff");_moveDirty=true;}
+  else if(s.type==="water"){if(u.has("Burning"))_moveDirty=true;u.activeEffects=u.activeEffects.filter(e=>e.def.condition!=="Burning");}
 }
 const SURFLABEL={fire:"a sheet of flame",grease:"slick grease",poison:"a poison cloud",water:"water",ice:"ice"};
 
@@ -419,7 +424,7 @@ function leavingReachOf(fx,fy,tx,ty,e){
 function provokeOA(mover,fx,fy,tx,ty){
   if(mover.disengaged)return;
   units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
-    if(!mover.alive)return;e.reacted=true;
+    if(!mover.alive)return;e.reacted=true;_moveDirty=true;
     log(`${e.name} strikes at ${mover.name} as they flee! (opportunity attack)`,"cond");
     faceLunge(e,mover);applyOne(e,mover,e.kit[0]);});
 }
@@ -497,7 +502,7 @@ function nextTurn(){
   if(checkEnd())return;
   let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!order[turnIdx].alive&&++guard<order.length*2);
   if(turnIdx<=_prevIdx)surfaceTick();_prevIdx=turnIdx;   // new round → surfaces spread & decay
-  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;u.reacted=false;u.disengaged=false;
+  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;u.reacted=false;u.disengaged=false;_undo=null;
   enterSurface(u);                                       // standing in a surface keeps its effect
   const dot=u.tickStart();
   if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
@@ -583,14 +588,18 @@ cvs.addEventListener("click",e=>{
   const mx=(e.clientX-rect.left)*(cvs.width/rect.width),my=(e.clientY-rect.top)*(cvs.height/rect.height);
   const cell=screenToCell(mx,my),x=cell.x,y=cell.y;if(!inB(x,y))return;
   const target=occ(x,y);
-  if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){reachable=new Set();renderSide();checkEnd();}return;}
+  if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
-    if(useAbility(u,armed,target)){reachable=new Set();renderSide();checkEnd();}return;}
-  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){const fx0=u.x,fy0=u.y;u.x=x;u.y=y;u.hasMoved=true;enterSurface(u);provokeOA(u,fx0,fy0,x,y);reachable=new Set();renderSide();checkEnd();return;}
+    if(useAbility(u,armed,target)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
+  if(!target&&!u.hasMoved&&reachable.has(key(x,y))){const fx0=u.x,fy0=u.y;_moveDirty=false;u.x=x;u.y=y;u.hasMoved=true;enterSurface(u);provokeOA(u,fx0,fy0,x,y);
+    _undo=canUndoMove(_moveDirty,u.alive)?{x:fx0,y:fy0}:null;reachable=new Set();renderSide();checkEnd();return;}
 });
 $("endTurn").onclick=endTurn;$("restart").onclick=newGame;
 $("shove").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasActed)return;armed=(armed===SHOVE?u.kit[0]:SHOVE);renderSide();};
-$("disengage").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved||u.disengaged)return;u.disengaged=true;u.hasActed=true;armed=null;log(`${u.name} readies to disengage — this move draws no opportunity attacks.`,"sys");renderSide();};
+$("disengage").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved||u.disengaged)return;u.disengaged=true;u.hasActed=true;armed=null;_undo=null;log(`${u.name} readies to disengage — this move draws no opportunity attacks.`,"sys");renderSide();};
+$("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="hero"||u.hasActed||!u.hasMoved)return;
+  u.x=_undo.x;u.y=_undo.y;u.hasMoved=false;_undo=null;reachable=computeReachable(u);armed=u.kit[0];
+  log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 
@@ -620,6 +629,7 @@ function renderSide(){
   $("endTurn").disabled=!u||u.side!=="hero";
   const sb=$("shove");if(sb){sb.disabled=!u||u.side!=="hero"||u.hasActed;sb.style.borderColor=armed===SHOVE?"#e7c873":"";sb.style.color=armed===SHOVE?"#ffe9a8":"";}
   const db=$("disengage");if(db){db.disabled=!u||u.side!=="hero"||u.hasMoved||u.disengaged;db.style.borderColor=u&&u.disengaged?"#7fd0a0":"";db.style.color=u&&u.disengaged?"#9fe0b0":"";}
+  const ub=$("undo");if(ub){ub.disabled=!_undo||!u||u.side!=="hero"||u.hasActed||!u.hasMoved;}
   renderBar();
 }
 
