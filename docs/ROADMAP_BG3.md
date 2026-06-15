@@ -44,7 +44,10 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
 - 🔜 **More verticality** — multi-level maps, teleport; caustic brine, blood→slip
 - ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
-- 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps
+- ✅ **Shove off ledges** *(v4.4.0)* — winning a shove contest while a foe stands on the high-ground
+  mound pushes them **off** it: they **fall** (2d6 per level dropped) and land **Prone** (attackers gain
+  advantage). Braids Height + Shove into BG3's signature environmental kill. Verified.
+- 🔜 **Verticality (more)** — jump/teleport, multi-level maps
 - ✅ **Throw** *(v4.3.0)* — lob **Alchemist's Fire** onto **any tile in range** (empty ground included,
   vaulting walls/units): it bursts on every foe in the blast (save for half) **and seeds a fire surface**.
   The first ability that can **pre-place a hazard** where no foe yet stands. Range + wiring verified.

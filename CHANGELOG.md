@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v4.4.0 — *"The Long Way Down"* — Shove off a ledge (Pillar 1: environmental kill)
+
+> BG3's most-screenshotted moment: don't kill them — let the *floor* do it.
+
+- 🪨 **Shove off a ledge** in `play/crown_combat.html` — **Shove** now reads the terrain. Win the
+  Strength contest while the foe is on the **high-ground mound** and you push them *off* it: instead of
+  a one-pace nudge they **fall**, taking **2d6 per level of drop** and landing **Prone** (a new
+  condition that grants attackers **advantage** next turn). A shove on level ground still just pushes
+  them a pace, and shoving a foe **into** the high ground is never a fall — the drop is measured, not
+  assumed. This braids three earlier systems — **Height** *(v3.89.0)*, **Shove** *(v3.87.0)*, and the
+  surface-into-which-you-shove combo — into one finisher.
+- 🧪 **`ledge.test.js`** lifts the page's real height map and the marked `fallDrop` / `fallDamageAvg`
+  helpers and proves a high→low shove registers a fall (drop 1), a level shove and a low→high shove do
+  not, and the damage scales 2d6/level, plus the wiring (the Prone condition, the drop measurement, the
+  2d6×drop hit, the Prone application, the plummet log) — **14 checks**. Smoke still **400 games, 0
+  errors**. Headless suite now **442 checks**, all green. (Tactics help now documents the ledge kill
+  and the throw.)
+
 ## 👑 v4.3.0 — *"A Flask, Well Thrown"* — Throw (Pillar 1: ground-target utility)
 
 > The BG3 zoning tool — lob a flask where you *want* the fight to be, not just where a foe stands.

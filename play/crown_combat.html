@@ -102,8 +102,9 @@
   <ul>
    <li><b>High ground</b> (the gilded ▲ tiles) grants <b>advantage</b> on your attacks; striking from below gives <b>disadvantage</b>. The forecast already accounts for it.</li>
    <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
-   <li><b>Shove</b> a foe into your fire (or into a wall for impact damage).</li>
+   <li><b>Shove</b> a foe into your fire (or into a wall for impact damage) — or <b>off the high-ground ledge</b>, which makes them <b>fall</b> (2d6 per level) and land <b>Prone</b>.</li>
    <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
+   <li><b>Throw</b> a flask (Roen's Alchemist's Fire, range 5) onto <b>any tile</b> — empty ground included — to seed a hazard where you want the fight.</li>
   </ul>
   <h3>🧭 Comfort</h3>
   <ul>
@@ -259,6 +260,7 @@ const Burning={effectName:"Burning",condition:"Burning",damageOverTimeDice:"1d4"
 const PoisonCloud={effectName:"Poisoned",condition:"Poisoned",damageOverTimeDice:"1d4",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#86d08a"};
 const Obscured={effectName:"Obscured",condition:"Obscured",armorClassModifier:2,durationRounds:1,tint:"#b8c4d0"};
 const MirrorImage={effectName:"Mirror Image",condition:"Mirror Image",armorClassModifier:4,durationRounds:3,tint:"#bcd0e8"};
+const Prone={effectName:"Prone",condition:"Prone",attackersHaveAdvantage:true,durationRounds:1,tint:"#c9a0a0"};
 
 const COLS=14,ROWS=10,TILE=44;
 let units,order,turnIdx,reachable,floats,blocked,gameOver,armed;
@@ -494,6 +496,13 @@ const HIGH=new Set(["8,4","9,4","8,5","9,5"]);   // a raised mound in the middle
 function elevOf(x,y){return HIGH.has(key(x,y))?1:0;}
 function heightVs(att,def){return elevOf(att.x,att.y)-elevOf(def.x,def.y);}  // >0 advantage, <0 disadvantage
 /*</HEIGHT>*/
+// Pillar 1 — SHOVE OFF A LEDGE (BG3's signature kill): a shove that moves a foe from higher
+// ground down to lower ground is a FALL. fallDrop = elevation lost (pure given the height map);
+// each level deals 2d6 and lands them Prone.
+/*<LEDGE>*/
+function fallDrop(fx,fy,tx,ty){return Math.max(0,elevOf(fx,fy)-elevOf(tx,ty));}
+function fallDamageAvg(drop){return drop*7;}   // 2d6 per level dropped — expected value for the forecast/threat
+/*</LEDGE>*/
 
 // ---- OPPORTUNITY ATTACKS (5e/BG3): leaving a foe's reach without Disengaging provokes a free strike ----
 /*<OA>*/
@@ -599,8 +608,11 @@ function doShove(att,def){
   if(aRoll<=dRoll){log(`${att.name} tries to shove ${def.name}, but they hold firm. (${aRoll} vs ${dRoll})`,"miss");spawnFloat(def,"resist","#8a8198");sfx("miss");return;}
   const dest=shoveDest(att,def);fxBurst(def,"#cdd6e0",false);shake=Math.max(shake,3);sfx("hit");
   const die=()=>{log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);};
-  if(passable(dest.x,dest.y,def)){def.x=dest.x;def.y=dest.y;recoil(att,def);
-    log(`${att.name} shoves ${def.name} back a pace. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Shoved!","#cdd6e0");
+  if(passable(dest.x,dest.y,def)){const drop=fallDrop(def.x,def.y,dest.x,dest.y);def.x=dest.x;def.y=dest.y;recoil(att,def);
+    if(drop>0){const fd=Dice.Notation("2d6")*drop;def.hp=Math.max(0,def.hp-fd);def.add(Prone,Prone.durationRounds);
+      log(`${att.name} shoves ${def.name} off the ledge — they plummet for ${fd} and sprawl Prone! (${aRoll} vs ${dRoll})`,"crit");
+      spawnFloat(def,"Fall! -"+fd,"#e0a0a0");fxBurst(def,"#cdd6e0",true);shake=Math.max(shake,6);bark("wall");}
+    else{log(`${att.name} shoves ${def.name} back a pace. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Shoved!","#cdd6e0");}
     enterSurface(def); if(!def.alive)die();}
   else{recoil(att,def);def.hp=Math.max(0,def.hp-2);
     log(`${att.name} slams ${def.name} into the wall for 2. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Slam! -2","#e0a0a0");bark("wall");
