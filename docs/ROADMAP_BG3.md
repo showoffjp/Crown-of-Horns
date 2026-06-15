@@ -56,7 +56,9 @@ The layer players *feel* every minute. Mostly unbuilt — high-leverage.
   nothing irreversible (no surface, no opportunity attack, you survived). Verified.
 - ✅ **Hotkeys + Reaction toggle** *(v3.92.0)* — keyboard shortcuts for every action (1-9 / V / X / U /
   Enter), and a toggle for whether your heroes take opportunity attacks. Verified.
-- 🔜 **Reaction & non-lethal toggles (more)**, group select & move, loot-all, highlight interactables
+- ✅ **Non-lethal toggle** *(v3.97.0)* — knock foes out & **spare** them instead of slaying; the run
+  tallies how many you spared (a narrative axis the story can read). Verified.
+- 🔜 group select & move, loot-all, highlight interactables
 - 🔜 **Tactical forecast everywhere** *(already in combat — extend to the whole UI)*
 - 🔜 **Respec** at camp, **save-anywhere** *(browser save-inspector already round-trips saves ✅)*
 - ⏳ Tactical camera / split-screen co-op — Unity-side
