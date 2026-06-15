@@ -55,6 +55,22 @@ check("the two speakers differ and both have lines", (() => {
 check("pair banter is wired to turn starts + rate-limited",
   h.includes('if(u.side==="hero")pairBanter()') && h.includes("_clock-_lastPair<7"));
 
+// ---- story-flag-reactive barks (Pillar 3 × 4): the line changes with the run's flags ----
+const fb = h.match(/\/\*<FLAGBARK>\*\/([\s\S]*?)\/\*<\/FLAGBARK>\*\//);
+check("flag-bark table + picker found", !!fb);
+const { FLAG_BARKS, pickFlagBark } = new Function(fb[1] + "\nreturn { FLAG_BARKS, pickFlagBark };")();
+check("flag barks exist for several beats", ["crit", "kill", "ally_down", "victory"].every(k => (FLAG_BARKS[k] || []).length));
+check("a set story flag (with speaker present) yields its special line",
+  (() => { const b = pickFlagBark("kill", ["Varra"], { "quest.varra.resolved": true }); return b && b[0] === "Varra" && /fine print/.test(b[1]); })());
+check("no special line when the flag is unset", pickFlagBark("kill", ["Varra"], {}) === null);
+check("no special line when the speaker is absent",
+  pickFlagBark("kill", ["Garrow"], { "quest.varra.resolved": true }) === null);
+check("NG+ wink fires only on a New-Game+ run",
+  (() => { const b = pickFlagBark("victory", ["Varra"], { "ng.plus": true }); return b && /done this before/i.test(b[1]); })());
+check("flag barks take priority + STORY loads from the run",
+  h.includes("pickFlagBark(event,present,STORY)||pickBark") &&
+  h.includes('localStorage.getItem("coh.combat.flags")'));
+
 console.log(`\n  Companion barks (reactivity) — picker + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }

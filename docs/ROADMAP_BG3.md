@@ -71,6 +71,8 @@ Already competitive in depth; "superior" means **reactivity density**.
 - ✅ **34 fireside banters** reactive to choices, losses, bosses; rivalry/rupture arcs
 - ✅ **Combat barks** *(v3.93.0)* — companions react in-voice to crits, kills, an ally going down,
   a foe igniting, a wall-slam, and victory (present-aware, rate-limited). Verified.
+- ✅ **Story-flag-reactive barks** *(v3.98.0, Pillar 3 × 4)* — the line *changes with your run's flags*:
+  a romance-aware crit, a quest-resolved kill, an NG+ wink. Fed from the run's `GameFlags`. Verified.
 - ✅ **Inter-companion banter** *(v3.95.0)* — the party bickers with *each other* mid-fight (two-line
   exchanges, present-aware, rate-limited). Verified.
 - 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats

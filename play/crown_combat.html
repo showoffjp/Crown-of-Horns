@@ -467,11 +467,29 @@ function pickBark(event,present,r){
   return pool[Math.floor((r||0)*pool.length)%pool.length];
 }
 /*</BARK>*/
+// ---- STORY-FLAG-REACTIVE barks (Pillar 3 × 4): the line changes with your run's flags ----
+let STORY={};
+try{ if(typeof localStorage!=="undefined"){const raw=localStorage.getItem("coh.combat.flags"); if(raw)STORY=JSON.parse(raw)||{};} }catch(e){}
+/*<FLAGBARK>*/
+const FLAG_BARKS={
+  crit:[{flag:"romance.varra.consummated",who:"Varra",line:"That one was for you, love."}],
+  kill:[{flag:"quest.varra.resolved",who:"Varra",line:"No fine print on that one. Just... done."},
+        {flag:"quest.garrow.doctrine_won",who:"Garrow",line:"Even death answers to something. I proved it."}],
+  ally_down:[{flag:"romance.garrow.consummated",who:"Garrow",line:"Not you. Never you — stay with me!"}],
+  spare:[{flag:"quest.garrow.left_faith",who:"Garrow",line:"No more erasing. Not even them."}],
+  victory:[{flag:"quest.roen.resolved",who:"Roen",line:"...One honest fight, for once. Felt strange."},
+           {flag:"ng.plus",who:"Varra",line:"We have done this before, haven't we? ...Skip the speech."}]
+};
+function pickFlagBark(event,present,story){
+  const pool=(FLAG_BARKS[event]||[]).filter(b=>story&&story[b.flag]&&present.indexOf(b.who)>=0);
+  return pool.length?[pool[0].who,pool[0].line]:null;
+}
+/*</FLAGBARK>*/
 let _lastBark=-9;
 function bark(event){
   if(_clock-_lastBark<1.6)return;
   const present=units.filter(u=>u.side==="hero"&&u.alive).map(u=>u.name.replace("Sister ","").split(" ")[0]);
-  const b=pickBark(event,present,Math.random()); if(!b)return;
+  const b=pickFlagBark(event,present,STORY)||pickBark(event,present,Math.random()); if(!b)return;
   _lastBark=_clock;
   const sp=units.find(u=>u.alive&&u.name.indexOf(b[0])>=0);
   log(`${b[0]}: "${b[1]}"`,"sys");
