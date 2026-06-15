@@ -219,6 +219,7 @@ const Stunned={effectName:"Stunned",condition:"Stunned",incapacitates:true,attac
 const Frightened={effectName:"Frightened",condition:"Frightened",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#b06fd0"};
 const Burning={effectName:"Burning",condition:"Burning",damageOverTimeDice:"1d4",damageOverTimeType:"fire",durationRounds:2,tint:"#ff8a3a"};
 const PoisonCloud={effectName:"Poisoned",condition:"Poisoned",damageOverTimeDice:"1d4",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#86d08a"};
+const Obscured={effectName:"Obscured",condition:"Obscured",armorClassModifier:2,durationRounds:1,tint:"#b8c4d0"};
 
 const COLS=14,ROWS=10,TILE=44;
 let units,order,turnIdx,reachable,floats,blocked,gameOver,armed;
@@ -305,6 +306,7 @@ function surfFill(type,t,gx,gy){
   if(type==="poison"){const f=0.5+0.2*Math.sin(t*4+gx+gy);return"rgba(90,200,90,"+(0.24+0.1*f).toFixed(2)+")";}
   if(type==="water")return"rgba(70,120,220,0.34)";
   if(type==="ice")return"rgba(150,210,255,0.30)";
+  if(type==="steam"){const f=0.5+0.25*Math.sin(t*3+gx-gy);return"rgba(200,210,222,"+(0.20+0.12*f).toFixed(2)+")";}
   return"rgba(255,255,255,0.2)";
 }
 function renderFX(){
@@ -388,11 +390,12 @@ function stepToward(u,t){const prev=new Map();const seen=new Set([key(u.x,u.y)])
 // ===========================================================================
 let surfaces=new Map();
 /*<SURF>*/
-const SURF={fire:3,grease:5,poison:4,water:4,ice:4};
+const SURF={fire:3,grease:5,poison:4,water:4,ice:4,steam:2};
 function paintSurface(x,y,type){
   if(!inB(x,y)||blocked.has(key(x,y)))return;
   const k=key(x,y),cur=surfaces.get(k);
-  if(type==="water"){ if(cur&&cur.type==="fire"){surfaces.delete(k);return;} surfaces.set(k,{type:"water",rounds:SURF.water}); return; }
+  if(type==="water"){ if(cur&&cur.type==="fire"){surfaces.set(k,{type:"steam",rounds:SURF.steam});return;} surfaces.set(k,{type:"water",rounds:SURF.water}); return; }
+  if(type==="fire"&&cur&&cur.type==="water"){ surfaces.set(k,{type:"steam",rounds:SURF.steam}); return; }
   if(type==="grease"&&cur&&cur.type==="fire"){ surfaces.set(k,{type:"fire",rounds:SURF.fire}); return; }
   surfaces.set(k,{type,rounds:SURF[type]||4});
 }
@@ -413,6 +416,7 @@ function enterSurface(u){ const s=surfaces.get(key(u.x,u.y)); if(!s||!u.alive)re
   if(s.type==="fire"){u.add(Burning,2);spawnFloat(u,"Burning","#ff8a3a");_moveDirty=true;}
   else if(s.type==="poison"){u.add(PoisonCloud,2);spawnFloat(u,"Poisoned","#86d08a");_moveDirty=true;}
   else if(s.type==="ice"){u.add(Slowed,2);spawnFloat(u,"Slipped","#7fd0ff");_moveDirty=true;}
+  else if(s.type==="steam"){u.add(Obscured,1);spawnFloat(u,"Cover +2","#b8c4d0");_moveDirty=true;}
   else if(s.type==="water"){if(u.has("Burning"))_moveDirty=true;u.activeEffects=u.activeEffects.filter(e=>e.def.condition!=="Burning");}
 }
 const SURFLABEL={fire:"a sheet of flame",grease:"slick grease",poison:"a poison cloud",water:"water",ice:"ice"};
