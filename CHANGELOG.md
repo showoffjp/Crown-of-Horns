@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v3.98.0 — *"She Remembers"* — story-flag-reactive barks (Pillar 3 × 4)
+
+> The reactivity that out-reacts BG3: the *same* combat beat speaks differently depending on
+> how your run has gone.
+
+- 🧠 **Story-flag-reactive barks** in `play/crown_combat.html` — a companion's line now *changes with
+  your run's `GameFlags`*: a **romance-aware** crit ("That one was for you, love"), a **quest-resolved**
+  kill ("No fine print on that one"), a **left-the-faith** spare, an **NG+** wink ("We've done this
+  before… skip the speech"). Flag-conditioned lines take priority over the generic ones; the run's
+  flags are fed in via `localStorage["coh.combat.flags"]` (so a save's romance/quest state drives the
+  voice), defaulting to the generic barks.
+- 🧪 `barks.test.js` extended (now **23 checks**): the `pickFlagBark` rule — a set flag with the speaker
+  present yields the special line, nothing if the flag's unset or the speaker's absent, plus the
+  priority + STORY-load wiring. Smoke still **400 games, 0 errors**. Headless suite now **371 checks**,
+  all green.
+- 🎯 `docs/ROADMAP_BG3.md` — logged as the first **Pillar 3 × Pillar 4** crossover.
+
 ## 👑 v3.97.0 — *"Mercy"* — non-lethal toggle (Pillar 2: QoL)
 
 > BG3's "knock them out, don't kill" — with a spared-vs-slain axis the story can read.
