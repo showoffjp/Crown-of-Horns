@@ -38,6 +38,23 @@ check("bark fires on hero crit / kill / ally-down / heal / victory / ignite / wa
   h.includes('bark("ignite")') && h.includes('bark("wall")'));
 check("barks are rate-limited so they don't spam", h.includes("_clock-_lastBark<1.6"));
 
+// ---- inter-companion banter (they bicker with EACH OTHER) ----
+const pb = h.match(/\/\*<PAIRBANTER>\*\/([\s\S]*?)\/\*<\/PAIRBANTER>\*\//);
+check("pair-banter table + picker found", !!pb);
+const { PAIR_BANTERS, pickPair } = new Function(pb[1] + "\nreturn { PAIR_BANTERS, pickPair };")();
+check("pair banters are two-line exchanges between two companions", PAIR_BANTERS.length >= 3 &&
+  PAIR_BANTERS.every(p => p.who.length === 2 && p.lines.length === 2));
+check("a pair banter only fires when BOTH companions are present", (() => {
+  const p = pickPair(["Varra", "Garrow"], 0); return p && p.who.includes("Varra") && p.who.includes("Garrow");
+})());
+check("no pair banter when one of the two is absent",
+  pickPair(["Garrow"], 0) === null && pickPair(["Roen"], 0) === null);
+check("the two speakers differ and both have lines", (() => {
+  const p = pickPair(["Roen", "Varra"], 0); return p && p.lines[0][0] !== p.lines[1][0] && p.lines.every(l => l[1].length > 0);
+})());
+check("pair banter is wired to turn starts + rate-limited",
+  h.includes('if(u.side==="hero")pairBanter()') && h.includes("_clock-_lastPair<7"));
+
 console.log(`\n  Companion barks (reactivity) — picker + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }

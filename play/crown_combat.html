@@ -468,6 +468,29 @@ function bark(event){
   if(sp)spawnFloat(sp,"💬","#cfc7d8");
 }
 
+// ---- INTER-COMPANION BANTER (Pillar 3): the party bickers with EACH OTHER mid-fight ----
+/*<PAIRBANTER>*/
+const PAIR_BANTERS=[
+  {who:["Varra","Garrow"],lines:[["Varra","Lighten up, grave-digger."],["Garrow","Levity is for those with time, tiefling."]]},
+  {who:["Roen","Varra"],lines:[["Roen","Save some for me, Varra."],["Varra","Then keep up, sticky-fingers."]]},
+  {who:["Garrow","Roen"],lines:[["Garrow","Mind your footing, thief."],["Roen","It's the only honest thing about me."]]},
+  {who:["Varra","Roen"],lines:[["Varra","You are enjoying this far too much."],["Roen","Says the woman grinning at the fire."]]},
+];
+function pickPair(present,r){
+  const pool=PAIR_BANTERS.filter(p=>p.who.every(n=>present.indexOf(n)>=0));
+  if(!pool.length)return null;
+  return pool[Math.floor((r||0)*pool.length)%pool.length];
+}
+/*</PAIRBANTER>*/
+let _lastPair=-99;
+function pairBanter(){
+  if(_clock-_lastPair<7||Math.random()>0.35)return;
+  const present=units.filter(u=>u.side==="hero"&&u.alive).map(u=>u.name.replace("Sister ","").split(" ")[0]);
+  const p=pickPair(present,Math.random()); if(!p)return;
+  _lastPair=_clock;
+  p.lines.forEach(ln=>{const u=units.find(x=>x.alive&&x.name.indexOf(ln[0])>=0);log(`${ln[0]}: "${ln[1]}"`,"sys");if(u)spawnFloat(u,"💬","#cfc7d8");});
+}
+
 // ---- SHOVE (BG3 maneuver): a Strength contest that pushes a foe a tile — into a wall or a hazard ----
 const SHOVE=Ability({name:"Shove",targeting:"enemy",range:1,isAttackRoll:false,shove:true,damageDice:"",addMod:false});
 /*<SHOVE>*/
@@ -528,7 +551,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -548,6 +571,7 @@ function nextTurn(){
   reachable=u.side==="hero"?computeReachable(u):new Set();
   armed=u.side==="hero"?u.kit[0]:null;
   log(`— ${u.name}'s turn —`,"turn");
+  if(u.side==="hero")pairBanter();   // occasional inter-companion bicker as the turn opens
   if(u.incap){log(`${u.name} is incapacitated and can only wait.`,"cond");u.tickEnd();return setTimeout(nextTurn,500);}
   renderSide();
   if(u.side==="foe")setTimeout(enemyTurn,520);
