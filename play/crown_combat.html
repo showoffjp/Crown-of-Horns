@@ -103,6 +103,7 @@
    <li><b>High ground</b> (the gilded ▲ tiles) grants <b>advantage</b> on your attacks; striking from below gives <b>disadvantage</b>. The forecast already accounts for it.</li>
    <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
    <li><b>Shield</b> (Naeve's arcane reaction): when a foe's attack would *just* connect, she throws up a Shield for <b>+5 AC</b> and turns it aside — once per round, shared with opportunity attacks, gated by the <b>⚡ Reactions</b> toggle.</li>
+   <li><b>Counterspell</b> (Naeve's reaction): when an enemy <b>casts a spell</b> (the boss's Wail), she can spend her reaction to <b>unravel it</b> before it lands — it fizzles entirely. Same one-per-round reaction as Shield and opportunity attacks.</li>
    <li><b>Shove</b> a foe into your fire (or into a wall for impact damage) — or <b>off the high-ground ledge</b>, which makes them <b>fall</b> (2d6 per level) and land <b>Prone</b>.</li>
    <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
    <li><b>Throw</b> a flask (Roen's Alchemist's Fire, range 5) onto <b>any tile</b> — empty ground included — to seed a hazard where you want the fight.</li>
@@ -415,7 +416,7 @@ function roster(){
             Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
             Ability({name:"Cleave",damageDice:"1d8",dmgType:"slashing",targeting:"selfburst",radius:1}),
             Ability({name:"Storm Bolt",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d8",dmgType:"lightning",addMod:false,targeting:"enemy",range:6,chainWater:true}) ]}),
-    H({name:"Naeve",x:1,y:8,str:8,dex:12,int:18,baseAC:13,hp:22,speed:6,primary:"intelligence",cast:"intelligence",knowsShield:true,col:"#c79bf0",glyph:"✶",sprite:"spr_naeve",
+    H({name:"Naeve",x:1,y:8,str:8,dex:12,int:18,baseAC:13,hp:22,speed:6,primary:"intelligence",cast:"intelligence",knowsShield:true,knowsCounter:true,counterReady:true,col:"#c79bf0",glyph:"✶",sprite:"spr_naeve",
       kit:[ Ability({name:"Magic Missile",autoHit:true,damageDice:"3d4",dmgType:"force",addMod:false,targeting:"enemy",range:6}),
             Ability({name:"Fireball",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"3d6",dmgType:"fire",addMod:false,targeting:"enemyburst",radius:1,range:6,createsSurface:"fire",surfaceRadius:1}),
             Ability({name:"Mirror Image",selfbuff:true,targeting:"selfbuff",effect:MirrorImage,damageDice:""}) ]}),
@@ -427,7 +428,7 @@ function roster(){
       sprite:["spr_returned","spr_ghoul","spr_returned","spr_zombie","spr_ghoul","spr_zombie"][i],kit:[claw(),chill()]})));
   r.push(F({name:"The Last Returned",x:12,y:4,str:16,dex:12,baseAC:15,hp:40,speed:5,level:4,primary:"str",cast:"wisdom",col:"#b06fd0",glyph:"♛",sprite:"spr_boss",
     kit:[ Ability({name:"Crown-Shard",damageDice:"1d10",dmgType:"force"}),
-          Ability({name:"Wail of the Returned",isAttackRoll:false,saveAbility:"wisdom",saveForHalf:true,damageDice:"2d6",dmgType:"psychic",addMod:false,targeting:"selfburst",radius:2,effect:Frightened}) ]}));
+          Ability({name:"Wail of the Returned",isSpell:true,isAttackRoll:false,saveAbility:"wisdom",saveForHalf:true,damageDice:"2d6",dmgType:"psychic",addMod:false,targeting:"selfburst",radius:2,effect:Frightened}) ]}));
   return r;
 }
 
@@ -725,7 +726,17 @@ function doThrow(att,tx,ty,ab){
     units.filter(u=>u.alive).forEach(enterSurface);}
   att.hasActed=true;return true;
 }
+// Pillar 1 — REACTION: COUNTERSPELL (BG3's offensive reaction). Naeve can spend her reaction to
+// unravel an enemy spell before it resolves. canCounter is pure: an enemy spell, with a counterer
+// who knows it and still has their reaction.
+/*<COUNTER>*/
+function canCounter(caster,ab,naeve){return !!(ab&&ab.isSpell&&caster&&caster.side==="foe"&&naeve&&naeve.alive&&naeve.side==="hero"&&naeve.knowsCounter&&naeve.counterReady&&!naeve.reacted);}
+/*</COUNTER>*/
 function useAbility(att,ab,target){
+  if(ab.isSpell&&att.side==="foe"&&reactionsOn){const nv=units.find(u=>u.knowsCounter&&u.alive&&u.side==="hero"&&!u.reacted);
+    if(canCounter(att,ab,nv)){nv.reacted=true;nv.counterReady=false;faceLunge(nv,att);
+      log(`${nv.name} Counterspells ${att.name}'s ${ab.name} — the weave unravels and the spell fizzles! (reaction)`,"crit");
+      spawnFloat(att,"Countered!","#c79bf0");fxRing(att,"#c79bf0");sfx("cond");att.hasActed=true;return true;}}
   if(ab.shove){ if(!target)return false; doShove(att,target); att.hasActed=true; return true; }
   if(ab.selfbuff){ log(`${att.name} weaves ${ab.name}.`,"cond"); applyOne(att,att,ab); spawnFloat(att,ab.effect.condition,ab.effect.tint||"#bcd0e8"); att.hasActed=true; return true; }
   if(ab.targeting==="selfburst"){const hits=burstHits(units,att.side,att.x,att.y,ab.radius);
@@ -804,7 +815,7 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
   log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
-$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your reactions (opportunity attacks & Shield) are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
+$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your reactions (opportunity attacks, Shield & Counterspell) are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
 $("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode)armed=null;renderSide();};
 const toggleHelp=()=>$("help").classList.toggle("show");

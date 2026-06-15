@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v4.6.0 — *"The Weave Unravels"* — Counterspell (Pillar 1: reactions)
+
+> Shield's offensive twin: don't survive the boss's spell — *deny* it.
+
+- 🌀 **Counterspell** in `play/crown_combat.html` — **Naeve** gains the reaction's offensive half. When the
+  boss **casts a spell** (its **Wail of the Returned**, now flagged `isSpell`), she can spend her reaction
+  to **unravel it before it resolves** — the spell **fizzles entirely**: no damage, no Frighten, nothing.
+  It's a **once-per-battle** charge (a precious high-level slot), draws from the **same reaction** as Shield
+  and opportunity attacks (so it's Counter *or* Shield *or* an OA that round), and is gated by the **⚡
+  Reactions** toggle. Together with Shield *(v4.5.0)* this is the working core of BG3's reaction system —
+  a defensive *and* an offensive reaction, sharing one honest economy.
+- 🧪 **`counter.test.js`** lifts the page's real `canCounter` predicate and proves it triggers on exactly an
+  enemy spell with a ready counterer (not a plain attack, not a friendly cast, not once the charge or the
+  reaction is spent, not while down, not without the spell known), plus the wiring (the Wail's `isSpell`
+  flag, Naeve's `knowsCounter`/`counterReady`, the `useAbility` intercept, the reaction+charge spend, the
+  full fizzle) — **15 checks**. The smoke run now **Counterspells across the 400-game auto-play**; still 0
+  errors. Headless suite now **472 checks**, all green. (Tactics help + the Reactions toggle now list it.)
+- ⚖️ **Balance** — making Counterspell a once-per-battle charge keeps heroes at **81.5%** win (an at-will
+  counter that neutered the boss's only AoE spiked it to 89.8%).
+
 ## 👑 v4.5.0 — *"Not Today"* — the Shield reaction (Pillar 1: reactions)
 
 > BG3's defensive reaction, and the start of a real reaction UI: the blow that *would* have landed… doesn't.

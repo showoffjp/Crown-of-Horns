@@ -56,7 +56,10 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
 - ✅ **Shield reaction** *(v4.5.0)* — Naeve spends her reaction to gain **+5 AC** against an attack that
   would *just* land, turning it aside; once per round, shared with opportunity attacks, toggle-gated. The
   first defensive reaction. Verified.
-- 🔜 **More reactions** — counterspell + a reaction **prompt UI** (BG3's full reaction system)
+- ✅ **Counterspell** *(v4.6.0)* — Naeve spends a **once-per-battle** reaction to **unravel an enemy spell**
+  (the boss's Wail) before it resolves — it fizzles entirely. The offensive half of the reaction system,
+  sharing one economy with Shield + opportunity attacks. Verified.
+- 🔜 **More reactions** — a reaction **prompt UI** (choose per-trigger, BG3's full reaction system)
 - 🔜 **Superiority twist** — *deeds-in-combat*: how you win a fight feeds the story flags
 
 ## 🧭 Pillar 2 — Quality of life (out-comfort BG3)
