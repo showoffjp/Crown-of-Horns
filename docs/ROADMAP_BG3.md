@@ -38,6 +38,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   **cover (+2 AC)**. The last surface combo. Verified.
 - ✅ **Jump** *(v4.1.0)* — leap to a tile in range (3), vaulting walls/units, provoking no opportunity
   attack. Verified.
+- ✅ **Arcanist spells** *(v4.2.0, BG2 wizardry)* — a playable mage (Naeve) brings three new ability kinds:
+  **Magic Missile** (`autoHit`, never misses), **Fireball** (`enemyburst`, blasts every foe in radius and
+  seeds a fire surface), and **Mirror Image** (`selfbuff`, +4 AC). Burst targeting + never-miss math verified.
 - 🔜 **More verticality** — multi-level maps, teleport; caustic brine, blood→slip
 - ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.

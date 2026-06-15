@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v4.2.0 — *"The Netherese Hand"* — an arcanist joins (Pillar 1 × 3: BG2 wizardry)
+
+> The Infinity-Engine power fantasy: a glass-cannon mage who never misses, drops a fireball
+> in a crowd, and steps behind a wall of mirror images. *Baldur's Gate II* in a single hero.
+
+- 🪄 **Naeve, a Netherese arcanist** — a 4th playable hero in `play/crown_combat.html` (INT 18, AC 13,
+  22 HP, `spr_naeve` mage sprite). A true glass cannon with three classic spells, each a **new ability
+  kind** in the engine:
+  - ✶ **Magic Missile** — `autoHit`: a 3d4 **force** bolt that *never rolls to hit*. The forecast shows a
+    flat **100% · 7.5 dmg**, the BG2 reliability staple.
+  - 🔥 **Fireball** — `enemyburst`: target a tile and it **bursts through every foe in radius 1** (Dex save
+    for half, 3d6 fire) **and leaves a fire surface** behind, chaining into the surface combos.
+  - 🪞 **Mirror Image** — `selfbuff`: weave it on yourself for **+4 AC for 3 rounds**, the duelist's screen.
+- 🧪 **`bg2.test.js`** lifts the page's real `burstHits` and `autoHitDamage` helpers and proves a fireball
+  hits exactly the live foes in radius (never allies, never corpses) and that never-miss damage is the
+  exact expected value, plus full wiring of Naeve, the three spells, and the resolve/forecast/targeting/
+  UI paths — **24 checks**. Smoke still **400 games, 0 errors**. Headless suite now **410 checks**, all green.
+
 ## 👑 v4.1.0 — *"Leap of Faith"* — Jump (Pillar 1: verticality)
 
 > The BG3 traversal tool — vault the pillar, clear the gap, get out of reach.
