@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.95.0 — *"Bicker"* — inter-companion banter (Pillar 3 deepens)
+
+> They don't just react to the fight — they react to *each other*.
+
+- 🗣️🗣️ **Inter-companion banter** in `play/crown_combat.html` — as a hero's turn opens, the party will
+  occasionally trade a **two-line exchange** with each other (Varra needles Garrow; Roen and Varra
+  one-up each other; Garrow ribs Roen). **Present-aware** (both speakers must be fielded & alive) and
+  **rate-limited** so it stays a flavour-beat, not a wall of text.
+- 🧪 `barks.test.js` extended (now **16 checks**): the pair-banter table + picker — both speakers
+  present required, no banter if one's absent, distinct speakers, and the turn-start/rate-limit wiring.
+  Smoke still **400 games, 0 errors**. Headless suite now **356 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — inter-companion banter shipped.
+
 ## 👑 v3.94.0 — *"The Full Palette"* — poison & ice surfaces (Pillar 1 surface breadth complete)
 
 > Every element on the floor now. Pick your hazard.
