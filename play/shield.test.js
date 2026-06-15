@@ -32,7 +32,7 @@ check("Shield only fires when the attack actually landed (r.hit)", h.includes("&
 check("a Shielded blow is fully turned aside (early return, no damage)",
   /spawnFloat\(def,"🛡 Shield!"[\s\S]*?sfx\("cond"\);return;\}/.test(h));
 check("the log narrates the +5 AC that turned the blow aside", h.includes("+5 AC turns ${att.name}'s blow aside"));
-check("the Reactions toggle now advertises Shield too", h.includes("opportunity attacks & Shield"));
+check("the Reactions toggle now advertises Shield too", /reactions \(opportunity attacks[^)]*Shield/.test(h));
 
 console.log(`\n  Shield reaction — negation predicate + wiring:`);
 for (const f of fails) console.log("  ✗ " + f);
