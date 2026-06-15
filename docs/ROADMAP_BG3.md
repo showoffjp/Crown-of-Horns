@@ -45,7 +45,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
 - ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
 - 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps
-- 🔜 **Throw** — improvised weapons, throw an enemy, throw a *bottle of oil* to seed a surface
+- ✅ **Throw** *(v4.3.0)* — lob **Alchemist's Fire** onto **any tile in range** (empty ground included,
+  vaulting walls/units): it bursts on every foe in the blast (save for half) **and seeds a fire surface**.
+  The first ability that can **pre-place a hazard** where no foe yet stands. Range + wiring verified.
 - ✅ **Opportunity attacks + Disengage** *(v3.90.0)* — leaving a foe's reach without Disengaging
   provokes a free strike (once per round, both sides). Verified.
 - 🔜 **More reactions** — shield/counterspell **prompts** (BG3's full reaction UI)

@@ -289,6 +289,12 @@ const JUMP_RANGE=3;
 /*<JUMP>*/
 function inJumpRange(fx,fy,tx,ty,range){const dx=Math.abs(tx-fx),dy=Math.abs(ty-fy);return Math.max(dx,dy)<=range && !(dx===0&&dy===0);}
 /*</JUMP>*/
+// Pillar 1 — THROW (BG3): lob a flask onto ANY ground tile in range (empty or a foe's),
+// vaulting walls/units, to seed a surface where you choose. Range is Chebyshev; you can't
+// throw at your own feet.
+/*<THROW>*/
+function inThrowRange(fx,fy,tx,ty,range){const dx=Math.abs(tx-fx),dy=Math.abs(ty-fy);return Math.max(dx,dy)<=range && !(dx===0&&dy===0);}
+/*</THROW>*/
 // QoL — non-lethal (BG3): a hero's killing blow on a foe knocks them out & spares them instead of slaying
 /*<NONLETHAL>*/
 function outcome(nl,attSide,defSide){return (nl&&attSide==="hero"&&defSide==="foe")?"spared":"slain";}
@@ -399,7 +405,8 @@ function roster(){
       kit:[ Ability({name:"Twin Rapiers",damageDice:"1d8",dmgType:"piercing"}),
             Ability({name:"Hamstring",damageDice:"1d6",dmgType:"slashing",effect:Slowed,effectRounds:2}),
             Ability({name:"Oil Flask",isAttackRoll:false,damageDice:"",addMod:false,targeting:"enemy",range:4,createsSurface:"grease",surfaceRadius:1}),
-            Ability({name:"Venom Vial",isAttackRoll:false,damageDice:"",addMod:false,targeting:"enemy",range:4,createsSurface:"poison",surfaceRadius:1}) ]}),
+            Ability({name:"Venom Vial",isAttackRoll:false,damageDice:"",addMod:false,targeting:"enemy",range:4,createsSurface:"poison",surfaceRadius:1}),
+            Ability({name:"Alchemist's Fire",thrown:true,targeting:"throw",range:5,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d6",dmgType:"fire",addMod:false,createsSurface:"fire",surfaceRadius:1}) ]}),
     H({name:"Varra",x:1,y:6,str:17,dex:12,baseAC:17,hp:38,speed:5,primary:"str",col:"#6fa8dc",glyph:"⛏",sprite:"spr_varra",
       kit:[ Ability({name:"Greataxe",damageDice:"1d12",dmgType:"slashing"}),
             Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
@@ -664,6 +671,7 @@ function legalTargets(u,ab){
   if(!ab)return[];
   if(ab.targeting==="ally")return units.filter(t=>t.side===u.side&&t.alive&&cheb(u,t)<=ab.range);
   if(ab.targeting==="selfburst"||ab.targeting==="selfbuff")return[u];
+  if(ab.targeting==="throw")return[];   // throw lands on a tile, not a unit — handled in the click path
   return units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=ab.range);   // enemy & enemyburst pick a target foe
 }
 function applyOne(att,def,ab){
@@ -682,6 +690,17 @@ function applyOne(att,def,ab){
     if(out==="spared"){def.spared=true;_spared++;log(`${def.name} is knocked senseless — spared.`,"heal");spawnFloat(def,"Spared","#9fe0b0");fxBurst(def,"#9fe0b0",false);bark("spare");}
     else{log(`${def.name} falls.`,"dmg");fxSoul(def);fxBurst(def,"#c9a24b",true);bark(def.side==="foe"?"kill":"ally_down");}}
   if(ab.chainWater)chainLightning(def);
+}
+// THROW — the flask lands on a ground tile: it bursts on every foe in the blast (save for
+// half) and seeds its surface there, even on empty ground you expect foes to cross.
+function doThrow(att,tx,ty,ab){
+  faceLunge(att,{x:tx,y:ty});
+  log(`${att.name} lobs ${ab.name} onto the ground!`,"crit");
+  if(ab.damageDice)burstHits(units,att.side,tx,ty,ab.surfaceRadius||1).forEach(t=>applyOne(att,t,ab));
+  if(ab.createsSurface){createSurfaceArea(tx,ty,ab.surfaceRadius||1,ab.createsSurface);
+    if(ab.createsSurface==="fire"){log(`${ab.name} sets the ground ablaze — and any grease catches!`,"crit");bark("ignite");}
+    units.filter(u=>u.alive).forEach(enterSurface);}
+  att.hasActed=true;return true;
 }
 function useAbility(att,ab,target){
   if(ab.shove){ if(!target)return false; doShove(att,target); att.hasActed=true; return true; }
@@ -745,6 +764,9 @@ cvs.addEventListener("click",e=>{
     const fx0=u.x,fy0=u.y;_moveDirty=false;u.x=x;u.y=y;u.hasMoved=true;jumpMode=false;
     log(`${u.name} leaps across the shrine!`,"turn");spawnFloat(u,"🦘","#9fd0e0");enterSurface(u);
     _undo=canUndoMove(_moveDirty,u.alive)?{x:fx0,y:fy0}:null;reachable=new Set();renderSide();checkEnd();return;}
+  // THROW — armed flask lands on any passable tile in range (a foe's tile or empty ground)
+  if(armed&&armed.targeting==="throw"&&!u.hasActed&&!blocked.has(key(x,y))&&inThrowRange(u.x,u.y,x,y,armed.range)){
+    if(doThrow(u,x,y,armed)){armed=null;_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&(armed.targeting==="selfburst"||armed.targeting==="selfbuff")&&target===u&&!u.hasActed){if(useAbility(u,armed)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
     if(useAbility(u,armed,target)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
@@ -785,7 +807,7 @@ function renderBar(){
   if(!u||u.side!=="hero"){return;}
   u.kit.forEach((ab,i)=>{const b=document.createElement("button");b.className="ability"+(armed===ab?" armed":"");
     b.disabled=u.hasActed;
-    const kind=ab.isHeal?"heal "+(ab.healDice):ab.selfbuff?"self buff":ab.autoHit?"auto "+ab.damageDice:
+    const kind=ab.isHeal?"heal "+(ab.healDice):ab.targeting==="throw"?"throw "+ab.createsSurface:ab.selfbuff?"self buff":ab.autoHit?"auto "+ab.damageDice:
       ab.targeting==="enemyburst"?"burst r"+ab.radius+" "+ab.damageDice:ab.targeting==="selfburst"?"burst r"+ab.radius+" "+ab.damageDice:
       ab.createsSurface&&!ab.damageDice?"lay "+ab.createsSurface:ab.isAttackRoll?"atk "+ab.damageDice:"save "+ab.damageDice;
     b.innerHTML=`<span style="color:#c9a24b">${i+1}</span> ${ab.name}<small>${kind}${ab.range>1?" · rng "+ab.range:""}${ab.createsSurface?" · 🔥"+ab.createsSurface:""}${ab.effect?" · "+ab.effect.condition:""}</small>`;
@@ -802,7 +824,7 @@ function renderSide(){
   if(u){$("sel").innerHTML=`<b>${u.name}</b> — AC ${u.AC} · HP ${u.hp}/${u.maxHP} · to-hit +${u.atkMod+u.prof} · move ${u.speedNow}${elevOf(u.x,u.y)?' · <span style="color:#e7c873">▲ high ground</span>':''}`
       + (u.side==="hero"?`<br>${threatLine(u)}`:"");
     $("hint").textContent=u.side==="hero"
-      ?(u.hasActed?"Action spent. End your turn.":armed?`${armed.name} armed — click a ${armed.targeting==="ally"?"glowing ally":armed.targeting==="selfburst"?"yourself to unleash it":armed.targeting==="selfbuff"?"yourself to cast it":"target in reach"}, or move first.`:"Pick an ability.")
+      ?(u.hasActed?"Action spent. End your turn.":armed?`${armed.name} armed — click a ${armed.targeting==="ally"?"glowing ally":armed.targeting==="selfburst"?"yourself to unleash it":armed.targeting==="selfbuff"?"yourself to cast it":armed.targeting==="throw"?"glowing ground tile to lob it":"target in reach"}, or move first.`:"Pick an ability.")
       :"The Returned stir…";}
   $("endTurn").disabled=!u||u.side!=="hero";
   const sb=$("shove");if(sb){sb.disabled=!u||u.side!=="hero"||u.hasActed;sb.style.borderColor=armed===SHOVE?"#e7c873":"";sb.style.color=armed===SHOVE?"#ffe9a8":"";}
@@ -879,6 +901,8 @@ function draw(ts){
   if(reachable)for(const k of reachable){const[gx,gy]=k.split(",").map(Number);diamond(gx,gy,0);ctx.fillStyle="#c9a24b2e";ctx.fill();ctx.strokeStyle="#c9a24b66";ctx.lineWidth=1;ctx.stroke();}
   if(jumpMode&&sel&&sel.side==="hero"&&!sel.hasMoved)for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++)
     if(!blocked.has(key(gx,gy))&&!occ(gx,gy)&&inJumpRange(sel.x,sel.y,gx,gy,JUMP_RANGE)){diamond(gx,gy,0);ctx.fillStyle="#79c4d42e";ctx.fill();ctx.strokeStyle="#9fd0e0aa";ctx.lineWidth=1;ctx.stroke();}
+  if(armed&&armed.targeting==="throw"&&sel&&sel.side==="hero"&&!sel.hasActed)for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++)
+    if(!blocked.has(key(gx,gy))&&inThrowRange(sel.x,sel.y,gx,gy,armed.range)){diamond(gx,gy,0);ctx.fillStyle="#e8851f2b";ctx.fill();ctx.strokeStyle="#f0a94faa";ctx.lineWidth=1;ctx.stroke();}
   targets.forEach(t=>{diamond(t.x,t.y,0);ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;});
   if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){diamond(sel.x,sel.y,0);ctx.setLineDash([4,3]);ctx.strokeStyle="#e7c873";ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;}
   lighting();
