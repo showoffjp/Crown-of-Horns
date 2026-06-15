@@ -54,6 +54,13 @@ const en = fs.readFileSync(__dirname + "/endings_explorer.html", "utf8");
 check("endings: imports staged save from localStorage",
   en.includes("importFromSave") && en.includes('"coh.endings.import"') && en.includes("setAll(pairs)"));
 
+// ---- the Combat tab picks up the save's flags (story-flag barks crossover) ----
+check("save: stages flags for the Combat tab", h.includes("function toCombat") &&
+  h.includes('localStorage.setItem("coh.combat.flags"') && h.includes("Open in Combat"));
+const cb = fs.readFileSync(__dirname + "/crown_combat.html", "utf8");
+check("combat: reads the staged flags (same key) and feeds the barks",
+  cb.includes('localStorage.getItem("coh.combat.flags")') && cb.includes("pickFlagBark(event,present,STORY)"));
+
 console.log(`\n  Save Inspector — structural smoke:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }

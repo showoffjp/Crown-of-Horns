@@ -64,6 +64,7 @@
   <button onclick="togglePaste()">📋 Paste JSON</button>
   <span style="flex:1"></span>
   <button onclick="toEndings()">🎭 Open in Endings Explorer →</button>
+  <button onclick="toCombat()">⚔️ Open in Combat →</button>
   <button onclick="copyOut()">⧉ Copy SaveData</button>
   <button onclick="download()">⤓ Download .json</button>
  </div>
@@ -220,6 +221,12 @@ function toEndings(){
   try{ localStorage.setItem("coh.endings.import", JSON.stringify({bools:model.bools, ints:model.ints}));
     banner("Flag state staged — opening the Endings Explorer…");
     setTimeout(()=>location.href="endings_explorer.html", 350);
+  }catch(e){ banner("Couldn't stage flags (storage blocked): "+e.message, true); } }
+function toCombat(){
+  try{ const on={}; for(const k in model.bools) if(model.bools[k]) on[k]=true;
+    localStorage.setItem("coh.combat.flags", JSON.stringify(on));
+    banner("Flags staged — opening Combat; the companions will speak to this run…");
+    setTimeout(()=>location.href="crown_combat.html", 350);
   }catch(e){ banner("Couldn't stage flags (storage blocked): "+e.message, true); } }
 function banner(msg,bad){ const b=document.getElementById("banner");
   if(!msg){ b.style.display="none"; return; }
