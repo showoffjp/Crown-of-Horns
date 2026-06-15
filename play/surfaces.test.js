@@ -28,9 +28,13 @@ check("oil flask lays a 3×3 grease slick (9 tiles)", surfaces.size === 9 && cou
 createSurfaceArea(5, 5, 0, "fire");
 check("igniting grease spreads fire across the slick", count("fire") === 9 && count("grease") === 0);
 
-// 3) water douses fire (removes the tile)
+// 3) water on fire makes STEAM (the flame is doused into a cover cloud) — BG3 combo
 paintSurface(5, 5, "water");
-check("water douses fire (tile cleared)", !surfaces.has("5,5") && count("fire") === 8);
+check("water on fire becomes steam", (surfaces.get("5,5") || {}).type === "steam" && count("fire") === 8);
+// fire onto water also makes steam (clean tiles)
+surfaces.clear();
+paintSurface(3, 8, "water"); paintSurface(3, 8, "fire");
+check("fire on water also becomes steam", (surfaces.get("3,8") || {}).type === "steam");
 
 // 4) over a round, fire spreads into adjacent grease, then decays
 surfaces.clear();
@@ -68,6 +72,9 @@ check("page has surface-creating abilities for all five (oil/fire/water/poison/i
   h.includes('createsSurface:"poison"') && h.includes('createsSurface:"ice"'));
 check("poison + ice apply their conditions on enter",
   h.includes('s.type==="poison"){u.add(PoisonCloud') && h.includes('s.type==="ice"){u.add(Slowed'));
+check("steam (fire+water) grants cover on enter (+2 AC)",
+  h.includes('armorClassModifier:2') && h.includes('s.type==="steam"){u.add(Obscured') &&
+  h.includes('type:"steam"'));
 check("page applies surfaces on enter + each round",
   h.includes("function enterSurface") && h.includes("surfaceTick()") && h.includes("createSurfaceArea"));
 check("page renders surfaces", h.includes("function surfFill") && h.includes("for(const[k,s]of surfaces)"));

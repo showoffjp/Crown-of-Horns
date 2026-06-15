@@ -34,7 +34,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   zaps everyone standing in it (lightning **chains through water**). Verified.
 - ✅ **Surface breadth** *(v3.94.0)* — all five elemental surfaces are now player-creatable: oil/grease,
   fire, water, **poison cloud** (Roen's Venom Vial) and **ice** (Garrow's Frost, which slips). Verified.
-- 🔜 **Steam** (fire+water) that blocks sight; caustic brine, blood→slip
+- ✅ **Steam** *(v3.96.0)* — fire + water makes a **steam cloud** that grants whoever stands in it
+  **cover (+2 AC)**. The last surface combo. Verified.
+- 🔜 **More verticality** — multi-level maps, jump/teleport; caustic brine, blood→slip
 - ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
 - 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps

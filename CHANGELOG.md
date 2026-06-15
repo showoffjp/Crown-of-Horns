@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.96.0 — *"Steam Rising"* — the fire+water combo (Pillar 1 surfaces, complete)
+
+> The last reaction on the floor: dump water on a fire and it *steams*.
+
+- 💨 **Steam** in `play/crown_combat.html` — pour **water onto fire** (or fire onto water) and the tile
+  becomes a **steam cloud** instead of just fizzling. Anyone standing in steam gains **cover (+2 AC)**
+  (the engine's `armorClassModifier`, so the live forecast already reflects it). Animated wispy tile.
+- 🧪 `surfaces.test.js` extended (now **17 checks**): both directions of the fire↔water → steam combo,
+  and the steam cover wiring (+2 AC on enter). Smoke still **400 games, 0 errors**. Headless suite now
+  **358 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — the full BG3 surface palette is now shipped (fire · grease · water · poison ·
+  ice · steam, with ignite / spread / douse / electrify / steam combos).
+
 ## 👑 v3.95.0 — *"Bicker"* — inter-companion banter (Pillar 3 deepens)
 
 > They don't just react to the fight — they react to *each other*.
