@@ -47,6 +47,18 @@ check("a Reactions toggle exists and gates hero OAs",
   h.includes('id="react"') && h.includes("reactionsOn=!reactionsOn") &&
   h.includes('e.side==="hero"&&!reactionsOn'));
 
+// ---- non-lethal toggle (BG3 "knock them out, don't kill") ----
+const nl = h.match(/\/\*<NONLETHAL>\*\/([\s\S]*?)\/\*<\/NONLETHAL>\*\//);
+check("non-lethal outcome block found", !!nl);
+const { outcome } = new Function(nl[1] + "\nreturn { outcome };")();
+check("non-lethal ON spares a hero's killing blow on a foe", outcome(true, "hero", "foe") === "spared");
+check("non-lethal OFF still slays", outcome(false, "hero", "foe") === "slain");
+check("a foe killing a hero is never 'spared' by your toggle", outcome(true, "foe", "hero") === "slain");
+check("non-lethal only applies hero→foe", outcome(true, "hero", "hero") === "slain" && outcome(true, "foe", "foe") === "slain");
+check("non-lethal toggle + spared tally are wired",
+  h.includes('id="nonlethal"') && h.includes("nonLethal=!nonLethal") &&
+  h.includes('outcome(nonLethal,att.side,def.side)') && h.includes("_spared++") && h.includes("were spared"));
+
 console.log(`\n  Undo Move (QoL) — predicate + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }

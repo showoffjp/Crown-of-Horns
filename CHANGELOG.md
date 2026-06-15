@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.97.0 — *"Mercy"* — non-lethal toggle (Pillar 2: QoL)
+
+> BG3's "knock them out, don't kill" — with a spared-vs-slain axis the story can read.
+
+- 🩹 **Non-lethal toggle** in `play/crown_combat.html` — flip it on and a **hero's killing blow on a
+  foe knocks them senseless and spares them** instead of slaying (a gentler "downed" beat — no death
+  wisp, a green "Spared" pop, and the party reacts: Garrow approves, Varra mock-grumbles). The run
+  **tallies how many you spared**, surfaced at victory.
+- 🧪 `qol.test.js` extended (now **23 checks**): the pure `outcome()` rule (non-lethal only ever spares
+  hero→foe, never your foes' blows or your allies) plus the toggle / tally wiring. Smoke still **400
+  games, 0 errors**. Headless suite now **364 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — non-lethal shipped under Pillar 2.
+
 ## 👑 v3.96.0 — *"Steam Rising"* — the fire+water combo (Pillar 1 surfaces, complete)
 
 > The last reaction on the floor: dump water on a fire and it *steams*.

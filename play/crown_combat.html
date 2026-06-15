@@ -67,6 +67,7 @@
         <button class="act" id="disengage">🏃 Disengage</button>
         <button class="act" id="undo">↩ Undo Move</button>
         <button class="act" id="react">⚡ Reactions: on</button>
+        <button class="act" id="nonlethal">🩹 Non-lethal: off</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
@@ -244,7 +245,11 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true,nonLethal=false,_spared=0;
+// QoL — non-lethal (BG3): a hero's killing blow on a foe knocks them out & spares them instead of slaying
+/*<NONLETHAL>*/
+function outcome(nl,attSide,defSide){return (nl&&attSide==="hero"&&defSide==="foe")?"spared":"slain";}
+/*</NONLETHAL>*/
 // QoL — a move can be UNDONE only while it triggered nothing irreversible (BG3-style)
 /*<UNDO>*/
 function canUndoMove(moveDirty,alive){return !moveDirty && !!alive;}
@@ -453,6 +458,7 @@ const BARKS={
   ally_down:[["Garrow","No — hold on, I have you!"],["Varra","Get UP. We are not done."]],
   heal:[["Garrow","By the grey — be whole."]],
   wall:[["Roen","Mind the wall!"],["Varra","Sit. DOWN."]],
+  spare:[["Garrow","Mercy. The Doom can wait for them."],["Varra","Soft of you. ...Fine. Leave them breathing."],["Roen","Out cold. Cleaner that way."]],
   victory:[["Garrow","It is done. Bury them kindly."],["Roen","...I need a drink."],["Varra","Told you we'd win."]]
 };
 function pickBark(event,present,r){
@@ -555,7 +561,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -599,7 +605,10 @@ function applyOne(att,def,ab){
     else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
   if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
-  if(!def.alive){log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);fxBurst(def,"#c9a24b",true);shake=Math.max(shake,5);sfx("fall");bark(def.side==="foe"?"kill":"ally_down");}
+  if(!def.alive){const out=outcome(nonLethal,att.side,def.side);
+    decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});shake=Math.max(shake,5);sfx("fall");
+    if(out==="spared"){def.spared=true;_spared++;log(`${def.name} is knocked senseless — spared.`,"heal");spawnFloat(def,"Spared","#9fe0b0");fxBurst(def,"#9fe0b0",false);bark("spare");}
+    else{log(`${def.name} falls.`,"dmg");fxSoul(def);fxBurst(def,"#c9a24b",true);bark(def.side==="foe"?"kill":"ally_down");}}
   if(ab.chainWater)chainLightning(def);
 }
 function useAbility(att,ab,target){
@@ -641,7 +650,7 @@ function checkEnd(){
   if(h&&f)return false; gameOver=true;
   const o=$("over");o.className="overlay "+(h?"win":"lose");o.style.display="flex";
   $("overTitle").textContent=h?"The Returned are put to rest.":"The shrine claims three more.";
-  log(h?"Victory.":"Defeat.","sys");if(h)bark("victory");return true;
+  log(h?(_spared>0?`Victory — and ${_spared} of the Returned were spared.`:"Victory."):"Defeat.","sys");if(h)bark("victory");return true;
 }
 
 // ===========================================================================
@@ -670,6 +679,7 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 $("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your opportunity attacks are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
+$("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
 // QoL — keyboard hotkeys for the whole action bar
 if(document.addEventListener)document.addEventListener("keydown",e=>{
   if(gameOver||e.metaKey||e.ctrlKey||e.altKey)return; const u=order&&order[turnIdx]; if(!u||u.side!=="hero")return;
