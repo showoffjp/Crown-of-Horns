@@ -25,7 +25,7 @@ SPRITES = {
     "spr_garrow": "mon/hero_priestess", "spr_roen": "mon/hero_human",
     "spr_varra": "mon/hero_warlock",
     "spr_returned": "mon/returned_wight", "spr_ghoul": "mon/returned_ghoul",
-    "spr_zombie": "mon/returned_zombie", "spr_boss": "mon/eidolon",
+    "spr_zombie": "mon/returned_zombie", "spr_boss": "mon/eidolon", "spr_naeve": "mon/hero_mage",
     "prop_altar": "feat/altar_dark", "prop_statue": "feat/statue_dwarf",
     "prop_statue2": "feat/statue_archer", "prop_door": "feat/door_closed",
 }
