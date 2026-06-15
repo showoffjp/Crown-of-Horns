@@ -56,9 +56,18 @@ surfaces.clear();
 paintSurface(5, 5, "water"); createSurfaceArea(7, 7, 0, "grease");
 check("isWaterAt detects water tiles only", isWaterAt(5, 5) === true && isWaterAt(7, 7) === false && isWaterAt(9, 9) === false);
 
+// 7b) all five elemental surfaces paint correctly
+surfaces.clear();
+["fire", "grease", "water", "poison", "ice"].forEach((t, i) => createSurfaceArea(i * 2, 0, 0, t));
+check("every elemental surface type can be laid",
+  ["fire", "grease", "water", "poison", "ice"].every((t, i) => (surfaces.get(`${i * 2},0`) || {}).type === t));
+
 // 8) the page wires surfaces + the lightning/water combo into play
-check("page has surface-creating abilities (oil + fire + water)",
-  h.includes('createsSurface:"grease"') && h.includes('createsSurface:"fire"') && h.includes('createsSurface:"water"'));
+check("page has surface-creating abilities for all five (oil/fire/water/poison/ice)",
+  h.includes('createsSurface:"grease"') && h.includes('createsSurface:"fire"') && h.includes('createsSurface:"water"') &&
+  h.includes('createsSurface:"poison"') && h.includes('createsSurface:"ice"'));
+check("poison + ice apply their conditions on enter",
+  h.includes('s.type==="poison"){u.add(PoisonCloud') && h.includes('s.type==="ice"){u.add(Slowed'));
 check("page applies surfaces on enter + each round",
   h.includes("function enterSurface") && h.includes("surfaceTick()") && h.includes("createSurfaceArea"));
 check("page renders surfaces", h.includes("function surfFill") && h.includes("for(const[k,s]of surfaces)"));

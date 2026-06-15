@@ -32,8 +32,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   (the BG3 environmental kill) or **into a wall** for impact damage. Verified in all 8 directions.
 - ✅ **Electrified water** *(v3.88.0)* — conjure **water**, then a **Storm Bolt** arcs through it and
   zaps everyone standing in it (lightning **chains through water**). Verified.
-- 🔜 **Surface breadth** — poison clouds, ice (prone), caustic brine, blood→slip; steam clouds
-  (fire+water) that block sight
+- ✅ **Surface breadth** *(v3.94.0)* — all five elemental surfaces are now player-creatable: oil/grease,
+  fire, water, **poison cloud** (Roen's Venom Vial) and **ice** (Garrow's Frost, which slips). Verified.
+- 🔜 **Steam** (fire+water) that blocks sight; caustic brine, blood→slip
 - ✅ **Height advantage** *(v3.89.0)* — striking from higher ground grants **advantage**; from below,
   **disadvantage**. Folded into the hit math, the forecast, and the threat readout; verified.
 - 🔜 **Verticality (more)** — **shove off ledges**, jump/teleport, multi-level maps

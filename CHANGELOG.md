@@ -11,6 +11,19 @@
 
 ---
 
+## 👑 v3.94.0 — *"The Full Palette"* — poison & ice surfaces (Pillar 1 surface breadth complete)
+
+> Every element on the floor now. Pick your hazard.
+
+- ☠️🧊 Two new surface abilities in `play/crown_combat.html` complete the elemental set: **Venom Vial**
+  (Roen — lays a **poison cloud** that poisons anyone standing in it) and **Frost** (Garrow — cold
+  damage that leaves **ice**, slipping whoever crosses it). With v3.86/v3.88's oil, fire and water,
+  all **five** surfaces are now player-creatable and combo-aware.
+- 🧪 `surfaces.test.js` extended (now **15 checks**): every elemental surface paints, and the page wires
+  all five creating-abilities plus the poison/ice on-enter conditions. Smoke still **400 games, 0
+  errors**. Headless suite now **350 checks**, all green.
+- 🎯 `docs/ROADMAP_BG3.md` — surface breadth marked shipped (steam/line-of-sight still to come).
+
 ## 👑 v3.93.0 — *"They're Watching"* — companion combat barks (Pillar 3: characters begin)
 
 > The reactivity-density win that out-reacts BG3: your party *talks* during the fight.
