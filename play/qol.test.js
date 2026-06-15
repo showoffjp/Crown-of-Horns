@@ -59,6 +59,16 @@ check("non-lethal toggle + spared tally are wired",
   h.includes('id="nonlethal"') && h.includes("nonLethal=!nonLethal") &&
   h.includes('outcome(nonLethal,att.side,def.side)') && h.includes("_spared++") && h.includes("were spared"));
 
+// ---- in-combat Help / Tactics panel (discoverability) ----
+check("a Help / Tactics panel exists, with a button + ? hotkey + toggle",
+  h.includes('id="help"') && h.includes('id="helpBtn"') && h.includes('"?":"help"') &&
+  h.includes("toggleHelp"));
+check("Help can open even when it isn't your turn",
+  h.includes('if(hotkey(e.key)==="help"){e.preventDefault();toggleHelp();return;}'));
+check("Help documents every system that was built",
+  /surfaces/i.test(h) && /steam/i.test(h) && /[Ss]hove/.test(h) && /high ground/i.test(h) &&
+  /opportunity attack/i.test(h) && /Hotkeys/i.test(h) && /Non-lethal/i.test(h));
+
 console.log(`\n  Undo Move (QoL) — predicate + wiring:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }

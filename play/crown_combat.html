@@ -42,6 +42,13 @@
   .overlay{position:fixed;inset:0;background:#0c0b10dd;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9}
   .overlay h2{font-size:40px;margin:0;letter-spacing:2px}.win h2{color:#e7c873}.lose h2{color:#9b2d2d}
   .foot{padding:6px 22px 22px;color:#6e6680;font-size:11.5px}code{color:#c9a24b}
+  .help{position:fixed;inset:0;background:#0a0910ee;display:none;align-items:center;justify-content:center;z-index:12;backdrop-filter:blur(3px)}
+  .help.show{display:flex}
+  .helpcard{max-width:680px;max-height:84vh;overflow:auto;background:linear-gradient(#17141f,#120f18);border:1px solid #3a3550;border-radius:12px;padding:22px 26px;box-shadow:0 20px 60px #000a}
+  .helpcard h2{margin:0 0 4px;color:#e7c873;font-size:22px}.helpcard .s{color:#8a8198;font-style:italic;font-size:12px;margin-bottom:14px}
+  .helpcard h3{color:#c9a24b;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;margin:16px 0 6px}
+  .helpcard ul{margin:0;padding-left:18px}.helpcard li{margin:4px 0;font-size:13.5px;color:#cfc7d8;line-height:1.5}
+  .helpcard b{color:#e7c873}.helpcard kbd{background:#2a2433;border:1px solid #4a4560;border-radius:4px;padding:0 5px;font:12px ui-monospace,monospace;color:#e7c873}
 </style>
 </head>
 <body>
@@ -71,6 +78,7 @@
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
+        <button class="act" id="helpBtn">❔ Tactics</button>
       </div>
     </div>
     <div class="card"><h2>Chronicle</h2><div class="log" id="log"></div></div>
@@ -81,6 +89,29 @@
   saving throws with save-for-half · healing · status conditions. **Environmental surfaces** (BG3-style): lay **oil** with Roen's Flask, then **ignite** it with Garrow's Firebrand — fire spreads through grease, burns anyone standing in it, and water douses it. Live hit/kill **forecast** · synthesized **SFX** · isometric board with surfaces, shove, height &amp; opportunity attacks. <b>Hotkeys:</b> <code>1-5</code> abilities · <code>V</code> shove · <code>X</code> disengage · <code>U</code> undo · <code>Enter</code> end turn. CC0 art from <code>Dungeon Crawl Stone Soup</code>.
 </div>
 <div class="overlay" id="over"><h2 id="overTitle"></h2><button class="act" onclick="newGame()">Fight Again</button></div>
+<div class="help" id="help"><div class="helpcard">
+  <h2>⚔️ Tactics</h2><div class="s">This skirmish runs BG3-class tactical rules. Here's the whole toolbox.</div>
+  <h3>🔥 Environmental surfaces</h3>
+  <ul>
+   <li><b>Oil Flask</b> lays grease → <b>Firebrand</b> ignites it; fire <b>spreads</b> tile-to-tile and burns whoever stands in it.</li>
+   <li><b>Hallowed Water</b> lays water (and <b>douses fire → steam</b>, which gives <b>+2 cover</b>). <b>Storm Bolt</b> arcs through water, zapping everyone wet.</li>
+   <li><b>Venom Vial</b> → a poison cloud; <b>Frost</b> → ice that makes foes slip (Slowed).</li>
+  </ul>
+  <h3>🗺️ Position</h3>
+  <ul>
+   <li><b>High ground</b> (the gilded ▲ tiles) grants <b>advantage</b> on your attacks; striking from below gives <b>disadvantage</b>. The forecast already accounts for it.</li>
+   <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
+   <li><b>Shove</b> a foe into your fire (or into a wall for impact damage).</li>
+  </ul>
+  <h3>🧭 Comfort</h3>
+  <ul>
+   <li><b>Undo Move</b> takes back a clean move · <b>Non-lethal</b> spares the defeated · <b>Reactions</b> toggles your opportunity attacks.</li>
+   <li>Every target shows a live <b>hit% · damage · kill%</b> forecast; your selected hero shows incoming <b>threat</b>.</li>
+  </ul>
+  <h3>⌨️ Hotkeys</h3>
+  <ul><li><kbd>1</kbd>–<kbd>9</kbd> abilities · <kbd>V</kbd> shove · <kbd>X</kbd> disengage · <kbd>U</kbd> undo · <kbd>Enter</kbd> end turn · <kbd>?</kbd> this help</li></ul>
+  <div style="margin-top:18px;text-align:right"><button class="act" id="helpClose">Got it</button></div>
+</div></div>
 
 <script>
 // ===========================================================================
@@ -259,7 +290,7 @@ function canUndoMove(moveDirty,alive){return !moveDirty && !!alive;}
 function hotkey(k){
   k=(k||"").toLowerCase();
   if(k>="1"&&k<="9")return "ability"+(+k-1);
-  return {v:"shove",x:"disengage",u:"undo",enter:"endturn",f:"forecast",r:"react"}[k]||null;
+  return {v:"shove",x:"disengage",u:"undo",enter:"endturn",f:"forecast",r:"react","?":"help",h:"help"}[k]||null;
 }
 /*</HOTKEY>*/
 // turn the figures to face their target and lunge; struck figures recoil
@@ -698,9 +729,13 @@ $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent=
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 $("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your opportunity attacks are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
+const toggleHelp=()=>$("help").classList.toggle("show");
+$("helpBtn").onclick=toggleHelp;$("helpClose").onclick=toggleHelp;$("help").onclick=e=>{if(e.target===$("help"))toggleHelp();};
 // QoL — keyboard hotkeys for the whole action bar
 if(document.addEventListener)document.addEventListener("keydown",e=>{
-  if(gameOver||e.metaKey||e.ctrlKey||e.altKey)return; const u=order&&order[turnIdx]; if(!u||u.side!=="hero")return;
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  if(hotkey(e.key)==="help"){e.preventDefault();toggleHelp();return;}   // help opens any time
+  if(gameOver)return; const u=order&&order[turnIdx]; if(!u||u.side!=="hero")return;
   const a=hotkey(e.key); if(!a)return; e.preventDefault();
   if(a.startsWith("ability")){const i=+a.slice(7); if(u.kit[i]&&!u.hasActed){armed=u.kit[i];renderSide();}}
   else if(a==="shove")$("shove").click();

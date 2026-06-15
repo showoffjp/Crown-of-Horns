@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v4.0.0 — *"The Whole Toolbox"* — in-combat Tactics help (milestone)
+
+> A round number, and a fitting capstone to the BG3 push: everything that's been built is now
+> **discoverable from inside the fight**.
+
+- ❔ **In-combat Help / Tactics panel** in `play/crown_combat.html` — a **❔ Tactics** button (and the
+  <kbd>?</kbd> hotkey, which opens any time) brings up a clean modal that documents the *whole* combat
+  toolbox shipped across v3.86–v3.99: **surfaces & their combos** (oil→fire, water→steam, lightning+
+  water, poison, ice), **shove**, **height advantage**, **opportunity attacks / Disengage**, the
+  **forecast/threat** readouts, the **QoL** toggles (undo · non-lethal · reactions), and the **hotkeys**.
+- 🧪 `qol.test.js` extended (now **26 checks**): the panel + button + <kbd>?</kbd> hotkey + open-any-time
+  behaviour, and that the help text actually names every system. Headless suite now **376 checks**,
+  all green (smoke still 400 games, 0 errors).
+- 🏁 **Milestone recap** — across this push the playable combat went from colored tokens to a real
+  **isometric, animated, BG3-class tactical fight**, and the four-pillar [roadmap](docs/ROADMAP_BG3.md)
+  now shows shipped, *verified* increments on **all four**: mechanics, QoL, characters, and the first
+  characters×plot crossover. All explorable, no Unity, every line tested.
+
 ## 👑 v3.99.0 — *"Carry It In"* — Save → Combat handoff (the crossover, made visible)
 
 > v3.98 made the companions react to your flags. This lets you *see it*: load a save, watch them speak to that run.
