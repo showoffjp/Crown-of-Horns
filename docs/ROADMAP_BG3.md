@@ -73,6 +73,8 @@ Already competitive in depth; "superior" means **reactivity density**.
   a foe igniting, a wall-slam, and victory (present-aware, rate-limited). Verified.
 - ✅ **Story-flag-reactive barks** *(v3.98.0, Pillar 3 × 4)* — the line *changes with your run's flags*:
   a romance-aware crit, a quest-resolved kill, an NG+ wink. Fed from the run's `GameFlags`. Verified.
+- ✅ **Save → Combat handoff** *(v3.99.0)* — the Save Inspector stages a run's flags straight into the
+  Combat tab, so loading a save *visibly* changes what the companions say mid-fight. Verified.
 - ✅ **Inter-companion banter** *(v3.95.0)* — the party bickers with *each other* mid-fight (two-line
   exchanges, present-aware, rate-limited). Verified.
 - 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats

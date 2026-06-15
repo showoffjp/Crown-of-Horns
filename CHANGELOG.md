@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v3.99.0 — *"Carry It In"* — Save → Combat handoff (the crossover, made visible)
+
+> v3.98 made the companions react to your flags. This lets you *see it*: load a save, watch them speak to that run.
+
+- 🔗 **Save → Combat handoff** — the **Save Inspector** gains an **"⚔️ Open in Combat →"** button that
+  stages the run's set flags into `localStorage["coh.combat.flags"]` and opens the Combat tab, which
+  reads them on boot and feeds the **story-flag-reactive barks**. So a save with a Varra romance or a
+  resolved quest *visibly* changes what your party says mid-fight — the same localStorage bridge the
+  Endings Explorer already uses.
+- 🧪 `save_inspector.test.js` extended (now **19 checks**): the `toCombat` stager + button, and that the
+  Combat page reads the *same* key and routes it into `pickFlagBark`. Headless suite now **373 checks**,
+  all green (smoke still 400 games, 0 errors).
+- 🎯 `docs/ROADMAP_BG3.md` — the Pillar 3 × 4 crossover is now end-to-end and demonstrable.
+
 ## 👑 v3.98.0 — *"She Remembers"* — story-flag-reactive barks (Pillar 3 × 4)
 
 > The reactivity that out-reacts BG3: the *same* combat beat speaks differently depending on
