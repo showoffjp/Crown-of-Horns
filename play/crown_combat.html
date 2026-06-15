@@ -78,6 +78,7 @@
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
+        <button class="act" id="jump">🦘 Jump</button>
         <button class="act" id="helpBtn">❔ Tactics</button>
       </div>
     </div>
@@ -102,6 +103,7 @@
    <li><b>High ground</b> (the gilded ▲ tiles) grants <b>advantage</b> on your attacks; striking from below gives <b>disadvantage</b>. The forecast already accounts for it.</li>
    <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
    <li><b>Shove</b> a foe into your fire (or into a wall for impact damage).</li>
+   <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
   </ul>
   <h3>🧭 Comfort</h3>
   <ul>
@@ -109,7 +111,7 @@
    <li>Every target shows a live <b>hit% · damage · kill%</b> forecast; your selected hero shows incoming <b>threat</b>.</li>
   </ul>
   <h3>⌨️ Hotkeys</h3>
-  <ul><li><kbd>1</kbd>–<kbd>9</kbd> abilities · <kbd>V</kbd> shove · <kbd>X</kbd> disengage · <kbd>U</kbd> undo · <kbd>Enter</kbd> end turn · <kbd>?</kbd> this help</li></ul>
+  <ul><li><kbd>1</kbd>–<kbd>9</kbd> abilities · <kbd>V</kbd> shove · <kbd>J</kbd> jump · <kbd>X</kbd> disengage · <kbd>U</kbd> undo · <kbd>Enter</kbd> end turn · <kbd>?</kbd> this help</li></ul>
   <div style="margin-top:18px;text-align:right"><button class="act" id="helpClose">Got it</button></div>
 </div></div>
 
@@ -276,7 +278,12 @@ const PROPS=[{x:13,y:4,s:"prop_altar"},{x:12,y:1,s:"prop_statue"},{x:12,y:7,s:"p
 let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
-let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true,nonLethal=false,_spared=0;
+let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true,nonLethal=false,_spared=0,jumpMode=false;
+const JUMP_RANGE=3;
+// Pillar 1 — JUMP (BG3): leap to a tile in range, vaulting walls/units; provokes no opportunity attack
+/*<JUMP>*/
+function inJumpRange(fx,fy,tx,ty,range){const dx=Math.abs(tx-fx),dy=Math.abs(ty-fy);return Math.max(dx,dy)<=range && !(dx===0&&dy===0);}
+/*</JUMP>*/
 // QoL — non-lethal (BG3): a hero's killing blow on a foe knocks them out & spares them instead of slaying
 /*<NONLETHAL>*/
 function outcome(nl,attSide,defSide){return (nl&&attSide==="hero"&&defSide==="foe")?"spared":"slain";}
@@ -290,7 +297,7 @@ function canUndoMove(moveDirty,alive){return !moveDirty && !!alive;}
 function hotkey(k){
   k=(k||"").toLowerCase();
   if(k>="1"&&k<="9")return "ability"+(+k-1);
-  return {v:"shove",x:"disengage",u:"undo",enter:"endturn",f:"forecast",r:"react","?":"help",h:"help"}[k]||null;
+  return {v:"shove",x:"disengage",u:"undo",enter:"endturn",f:"forecast",r:"react","?":"help",h:"help",j:"jump"}[k]||null;
 }
 /*</HOTKEY>*/
 // turn the figures to face their target and lunge; struck figures recoil
@@ -610,7 +617,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -628,7 +635,7 @@ function nextTurn(){
   const dot=u.tickStart();
   if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
   reachable=u.side==="hero"?computeReachable(u):new Set();
-  armed=u.side==="hero"?u.kit[0]:null;
+  armed=u.side==="hero"?u.kit[0]:null;jumpMode=false;
   log(`— ${u.name}'s turn —`,"turn");
   if(u.side==="hero")pairBanter();   // occasional inter-companion bicker as the turn opens
   if(u.incap){log(`${u.name} is incapacitated and can only wait.`,"cond");u.tickEnd();return setTimeout(nextTurn,500);}
@@ -713,6 +720,11 @@ cvs.addEventListener("click",e=>{
   const mx=(e.clientX-rect.left)*(cvs.width/rect.width),my=(e.clientY-rect.top)*(cvs.height/rect.height);
   const cell=screenToCell(mx,my),x=cell.x,y=cell.y;if(!inB(x,y))return;
   const target=occ(x,y);
+  // JUMP — leap to an empty, passable tile within range (vaults walls/units, no opportunity attack)
+  if(jumpMode&&!u.hasMoved&&!target&&!blocked.has(key(x,y))&&inB(x,y)&&inJumpRange(u.x,u.y,x,y,JUMP_RANGE)){
+    const fx0=u.x,fy0=u.y;_moveDirty=false;u.x=x;u.y=y;u.hasMoved=true;jumpMode=false;
+    log(`${u.name} leaps across the shrine!`,"turn");spawnFloat(u,"🦘","#9fd0e0");enterSurface(u);
+    _undo=canUndoMove(_moveDirty,u.alive)?{x:fx0,y:fy0}:null;reachable=new Set();renderSide();checkEnd();return;}
   if(armed&&armed.targeting==="selfburst"&&target===u&&!u.hasActed){if(useAbility(u,armed)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
   if(armed&&target&&!u.hasActed&&legalTargets(u,armed).includes(target)){
     if(useAbility(u,armed,target)){_undo=null;reachable=new Set();renderSide();checkEnd();}return;}
@@ -729,6 +741,7 @@ $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent=
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
 $("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your opportunity attacks are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
+$("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode)armed=null;renderSide();};
 const toggleHelp=()=>$("help").classList.toggle("show");
 $("helpBtn").onclick=toggleHelp;$("helpClose").onclick=toggleHelp;$("help").onclick=e=>{if(e.target===$("help"))toggleHelp();};
 // QoL — keyboard hotkeys for the whole action bar
@@ -744,6 +757,7 @@ if(document.addEventListener)document.addEventListener("keydown",e=>{
   else if(a==="endturn")endTurn();
   else if(a==="forecast")$("fcToggle").click();
   else if(a==="react")$("react").click();
+  else if(a==="jump")$("jump").click();
 });
 
 function renderBar(){
@@ -773,6 +787,7 @@ function renderSide(){
   const sb=$("shove");if(sb){sb.disabled=!u||u.side!=="hero"||u.hasActed;sb.style.borderColor=armed===SHOVE?"#e7c873":"";sb.style.color=armed===SHOVE?"#ffe9a8":"";}
   const db=$("disengage");if(db){db.disabled=!u||u.side!=="hero"||u.hasMoved||u.disengaged;db.style.borderColor=u&&u.disengaged?"#7fd0a0":"";db.style.color=u&&u.disengaged?"#9fe0b0":"";}
   const ub=$("undo");if(ub){ub.disabled=!_undo||!u||u.side!=="hero"||u.hasActed||!u.hasMoved;}
+  const jb=$("jump");if(jb){jb.disabled=!u||u.side!=="hero"||u.hasMoved;jb.style.borderColor=jumpMode?"#9fd0e0":"";jb.style.color=jumpMode?"#cfeaf2":"";}
   renderBar();
 }
 
@@ -841,6 +856,8 @@ function draw(ts){
     if(s.type==="fire"){const c=cen(gx,gy);for(let i=0;i<3;i++){const a=_clock*8+i*2.1+gx+gy,fx2=c.x+Math.sin(a)*7,fy2=c.y-2-((_clock*22+i*9+gx*5)%14);
       ctx.globalAlpha=0.6;ctx.fillStyle=i%2?"#ffd24a":"#ff7a2a";ctx.beginPath();ctx.arc(fx2,fy2,2,0,7);ctx.fill();ctx.globalAlpha=1;}}}
   if(reachable)for(const k of reachable){const[gx,gy]=k.split(",").map(Number);diamond(gx,gy,0);ctx.fillStyle="#c9a24b2e";ctx.fill();ctx.strokeStyle="#c9a24b66";ctx.lineWidth=1;ctx.stroke();}
+  if(jumpMode&&sel&&sel.side==="hero"&&!sel.hasMoved)for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++)
+    if(!blocked.has(key(gx,gy))&&!occ(gx,gy)&&inJumpRange(sel.x,sel.y,gx,gy,JUMP_RANGE)){diamond(gx,gy,0);ctx.fillStyle="#79c4d42e";ctx.fill();ctx.strokeStyle="#9fd0e0aa";ctx.lineWidth=1;ctx.stroke();}
   targets.forEach(t=>{diamond(t.x,t.y,0);ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;});
   if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){diamond(sel.x,sel.y,0);ctx.setLineDash([4,3]);ctx.strokeStyle="#e7c873";ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;}
   lighting();
