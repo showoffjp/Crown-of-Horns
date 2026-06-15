@@ -23,6 +23,9 @@ window.__play=function(seed){
       if(!acted){const burst=u.kit.find(a=>a.targeting==='selfburst');
         const adj=units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=1);
         if(burst&&adj.length>=1){useAbility(u,burst);acted=true;}}
+      if(!acted){const thr=u.kit.find(a=>a.targeting==='throw');
+        if(thr){const cl=foes.filter(t=>inThrowRange(u.x,u.y,t.x,t.y,thr.range));
+          if(cl.length){armed=thr;draw();doThrow(u,cl[0].x,cl[0].y,thr);armed=null;acted=true;}}}
       if(!acted){const atk=u.kit[0];const t1=legalTargets(u,atk);
         if(t1.length){useAbility(u,atk,t1[0]);acted=true;}
         else{const sv=u.kit.find(a=>!a.isAttackRoll&&!a.isHeal&&a.targeting==='enemy');

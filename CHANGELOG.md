@@ -11,6 +11,22 @@
 
 ---
 
+## 👑 v4.3.0 — *"A Flask, Well Thrown"* — Throw (Pillar 1: ground-target utility)
+
+> The BG3 zoning tool — lob a flask where you *want* the fight to be, not just where a foe stands.
+
+- 🫙 **Throw** in `play/crown_combat.html` — Roen gains **Alchemist's Fire**, a thrown flask (a new
+  `targeting:"throw"` ability kind). Arm it and every tile within **range 5** lights up **orange** —
+  click **any passable tile**, empty ground included, and the flask **vaults walls and units** to land
+  there: it **bursts on every foe in the blast** (Dex save for half, 1d6 fire) **and seeds a fire
+  surface**, igniting any oil/grease it touches. Unlike every prior surface ability — which had to
+  target a *foe* — Throw lets you **pre-place a hazard** on empty ground a foe is about to cross.
+- 🧪 **`throw.test.js`** lifts the page's real `inThrowRange` predicate and proves a flask reaches any
+  tile in range (empty included) but never your own feet, plus the full wiring (the thrown ability,
+  `doThrow`'s burst-via-`burstHits` + surface seed + re-check, the tile-target click path, the range
+  highlight, label, and hint) — **18 checks**. The smoke run now **throws a flask every game**; still
+  **400 games, 0 errors**. Headless suite now **428 checks**, all green.
+
 ## 👑 v4.2.0 — *"The Netherese Hand"* — an arcanist joins (Pillar 1 × 3: BG2 wizardry)
 
 > The Infinity-Engine power fantasy: a glass-cannon mage who never misses, drops a fireball
