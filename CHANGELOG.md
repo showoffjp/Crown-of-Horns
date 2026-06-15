@@ -11,6 +11,20 @@
 
 ---
 
+## 👑 v4.1.0 — *"Leap of Faith"* — Jump (Pillar 1: verticality)
+
+> The BG3 traversal tool — vault the pillar, clear the gap, get out of reach.
+
+- 🦘 **Jump** in `play/crown_combat.html` — a new movement action (🦘 button / <kbd>J</kbd> hotkey):
+  arm it and the leap-range tiles light up **cyan**; click a clear, passable tile within **range 3**
+  and your hero **vaults over walls and units** to land there. It spends your move but **provokes no
+  opportunity attack** (you're leaping away), and a clean landing is still **undoable**.
+- 🧪 **`jump.test.js`** lifts the page's real `inJumpRange` predicate and proves it reaches any tile in
+  range (vaulting whatever's between), never your own tile or out of range, plus the wiring (clear/
+  passable landing, no OA, button + hotkey + highlight, turn reset) — 10 checks. Smoke still **400
+  games, 0 errors**. Headless suite now **386 checks**, all green. (Help panel + hotkey list updated.)
+- 🎯 `docs/ROADMAP_BG3.md` — Jump shipped under Pillar 1 verticality.
+
 ## 👑 v4.0.0 — *"The Whole Toolbox"* — in-combat Tactics help (milestone)
 
 > A round number, and a fitting capstone to the BG3 push: everything that's been built is now
