@@ -53,7 +53,10 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   The first ability that can **pre-place a hazard** where no foe yet stands. Range + wiring verified.
 - ✅ **Opportunity attacks + Disengage** *(v3.90.0)* — leaving a foe's reach without Disengaging
   provokes a free strike (once per round, both sides). Verified.
-- 🔜 **More reactions** — shield/counterspell **prompts** (BG3's full reaction UI)
+- ✅ **Shield reaction** *(v4.5.0)* — Naeve spends her reaction to gain **+5 AC** against an attack that
+  would *just* land, turning it aside; once per round, shared with opportunity attacks, toggle-gated. The
+  first defensive reaction. Verified.
+- 🔜 **More reactions** — counterspell + a reaction **prompt UI** (BG3's full reaction system)
 - 🔜 **Superiority twist** — *deeds-in-combat*: how you win a fight feeds the story flags
 
 ## 🧭 Pillar 2 — Quality of life (out-comfort BG3)

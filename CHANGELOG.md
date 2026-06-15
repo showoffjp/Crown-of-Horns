@@ -11,6 +11,22 @@
 
 ---
 
+## 👑 v4.5.0 — *"Not Today"* — the Shield reaction (Pillar 1: reactions)
+
+> BG3's defensive reaction, and the start of a real reaction UI: the blow that *would* have landed… doesn't.
+
+- 🛡 **Shield** in `play/crown_combat.html` — **Naeve** gains the arcanist's classic reaction. When a foe's
+  attack roll would land on her **by 4 or less**, she spends her **reaction** to raise a Shield for **+5
+  AC** and turns the blow **fully aside** — no damage, no rider. It never saves against a **crit** or a
+  comfortable hit (you can't bluff a clean strike), fires **once per round**, and draws from the **same
+  reaction** as opportunity attacks (Shield *or* an OA, not both), all gated by the existing **⚡ Reactions**
+  toggle. The first defensive reaction — the bones of BG3's full reaction UI.
+- 🧪 **`shield.test.js`** lifts the page's real `shieldNegates` predicate and proves +5 AC turns aside
+  exactly the hits it should (lands-by-0..4 yes; by-5, a comfortable hit, a miss, or any crit → no), plus
+  the wiring (Naeve's `knowsShield`, the attack-roll/hero/`reacted`/`reactionsOn` gate, the clean early
+  return) — **15 checks**. The smoke run now **Shields across the 400-game auto-play**; still 0 errors.
+  Headless suite now **457 checks**, all green. (Tactics help + the Reactions toggle now mention Shield.)
+
 ## 👑 v4.4.0 — *"The Long Way Down"* — Shove off a ledge (Pillar 1: environmental kill)
 
 > BG3's most-screenshotted moment: don't kill them — let the *floor* do it.
