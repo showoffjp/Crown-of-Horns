@@ -59,6 +59,8 @@ The layer players *feel* every minute. Mostly unbuilt — high-leverage.
 - ✅ **Non-lethal toggle** *(v3.97.0)* — knock foes out & **spare** them instead of slaying; the run
   tallies how many you spared (a narrative axis the story can read). Verified.
 - 🔜 group select & move, loot-all, highlight interactables
+- ✅ **In-combat Tactics help** *(v4.0.0)* — a ❔ panel (and <kbd>?</kbd> hotkey) documenting every
+  system, so the depth is discoverable. Verified.
 - 🔜 **Tactical forecast everywhere** *(already in combat — extend to the whole UI)*
 - 🔜 **Respec** at camp, **save-anywhere** *(browser save-inspector already round-trips saves ✅)*
 - ⏳ Tactical camera / split-screen co-op — Unity-side
