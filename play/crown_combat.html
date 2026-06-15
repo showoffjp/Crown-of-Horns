@@ -102,6 +102,7 @@
   <ul>
    <li><b>High ground</b> (the gilded ▲ tiles) grants <b>advantage</b> on your attacks; striking from below gives <b>disadvantage</b>. The forecast already accounts for it.</li>
    <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
+   <li><b>Shield</b> (Naeve's arcane reaction): when a foe's attack would *just* connect, she throws up a Shield for <b>+5 AC</b> and turns it aside — once per round, shared with opportunity attacks, gated by the <b>⚡ Reactions</b> toggle.</li>
    <li><b>Shove</b> a foe into your fire (or into a wall for impact damage) — or <b>off the high-ground ledge</b>, which makes them <b>fall</b> (2d6 per level) and land <b>Prone</b>.</li>
    <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
    <li><b>Throw</b> a flask (Roen's Alchemist's Fire, range 5) onto <b>any tile</b> — empty ground included — to seed a hazard where you want the fight.</li>
@@ -414,7 +415,7 @@ function roster(){
             Ability({name:"Crushing Blow",damageDice:"1d10",dmgType:"bludgeoning",effect:Stunned}),
             Ability({name:"Cleave",damageDice:"1d8",dmgType:"slashing",targeting:"selfburst",radius:1}),
             Ability({name:"Storm Bolt",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"1d8",dmgType:"lightning",addMod:false,targeting:"enemy",range:6,chainWater:true}) ]}),
-    H({name:"Naeve",x:1,y:8,str:8,dex:12,int:18,baseAC:13,hp:22,speed:6,primary:"intelligence",cast:"intelligence",col:"#c79bf0",glyph:"✶",sprite:"spr_naeve",
+    H({name:"Naeve",x:1,y:8,str:8,dex:12,int:18,baseAC:13,hp:22,speed:6,primary:"intelligence",cast:"intelligence",knowsShield:true,col:"#c79bf0",glyph:"✶",sprite:"spr_naeve",
       kit:[ Ability({name:"Magic Missile",autoHit:true,damageDice:"3d4",dmgType:"force",addMod:false,targeting:"enemy",range:6}),
             Ability({name:"Fireball",isAttackRoll:false,saveAbility:"dexterity",saveForHalf:true,damageDice:"3d6",dmgType:"fire",addMod:false,targeting:"enemyburst",radius:1,range:6,createsSurface:"fire",surfaceRadius:1}),
             Ability({name:"Mirror Image",selfbuff:true,targeting:"selfbuff",effect:MirrorImage,damageDice:""}) ]}),
@@ -686,8 +687,18 @@ function legalTargets(u,ab){
   if(ab.targeting==="throw")return[];   // throw lands on a tile, not a unit — handled in the click path
   return units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=ab.range);   // enemy & enemyburst pick a target foe
 }
+// Pillar 1 — REACTION: SHIELD (BG3's defensive reaction). A hero about to be hit can spend their
+// one reaction for +5 AC against that attack. shieldNegates is pure: true iff the +5 turns this
+// landed hit into a miss (a crit always lands; a comfortable hit is unaffected).
+/*<SHIELD>*/
+function shieldNegates(total,ac,crit){return !crit && total>=ac && total<ac+5;}
+/*</SHIELD>*/
 function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
+  if(ab.isAttackRoll&&def.knowsShield&&def.side==="hero"&&def.alive&&!def.reacted&&reactionsOn&&r.hit&&shieldNegates(r.total,r.ac,r.crit)){
+    def.reacted=true;faceLunge(att,def);
+    log(`${def.name} throws up a Shield — +5 AC turns ${att.name}'s blow aside! (${r.total} vs AC ${r.ac+5})`,"cond");
+    spawnFloat(def,"🛡 Shield!","#9fd0e0");fxRing(def,"#9fd0e0");sfx("cond");return;}
   if(r.isHeal){def.hp=Math.min(def.maxHP,def.hp+r.heal);log(`${att.name}'s ${ab.name} heals ${def.name} for ${r.heal}.`,"heal");spawnFloat(def,"+"+r.heal,"#9fe0b0");fxHeal(def);sfx("heal");bark("heal");return;}
   strike(att,def,ab,r);
   if(r.dmg>0||(!ab.isAttackRoll&&r.hit))recoil(att,def);
@@ -793,7 +804,7 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
   log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
-$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your opportunity attacks are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
+$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your reactions (opportunity attacks & Shield) are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
 $("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode)armed=null;renderSide();};
 const toggleHelp=()=>$("help").classList.toggle("show");
