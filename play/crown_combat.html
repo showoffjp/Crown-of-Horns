@@ -74,6 +74,9 @@
         <button class="act" id="disengage">🏃 Disengage</button>
         <button class="act" id="undo">↩ Undo Move</button>
         <button class="act" id="react">⚡ Reactions: on</button>
+        <button class="act" id="stOA" title="Take opportunity attacks">⚔ OA: on</button>
+        <button class="act" id="stShield" title="Naeve raises Shield">🛡 Shield: on</button>
+        <button class="act" id="stCounter" title="Naeve casts Counterspell">🌀 Counter: on</button>
         <button class="act" id="nonlethal">🩹 Non-lethal: off</button>
         <button class="act" id="fcToggle">ⓘ Forecast: on</button>
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
@@ -110,7 +113,8 @@
   </ul>
   <h3>🧭 Comfort</h3>
   <ul>
-   <li><b>Undo Move</b> takes back a clean move · <b>Non-lethal</b> spares the defeated · <b>Reactions</b> toggles your opportunity attacks.</li>
+   <li><b>Undo Move</b> takes back a clean move · <b>Non-lethal</b> spares the defeated.</li>
+   <li><b>Reactions</b> is the master switch; the <b>⚔ OA / 🛡 Shield / 🌀 Counter</b> stances then hold or arm each reaction independently — keep your Shield while holding your opportunity attacks, say. A reaction fires only if the master <i>and</i> its stance are on.</li>
    <li>Every target shows a live <b>hit% · damage · kill%</b> forecast; your selected hero shows incoming <b>threat</b>.</li>
    <li><b>Deeds</b> — <i>how</i> you win is remembered: a <b>flawless</b> or hard-won victory, a <b>merciful</b> (all spared) or <b>ruthless</b> (no quarter) finish, a <b>ledge kill</b>, the boss's spell <b>unwoven</b>. The Chronicle records them as story flags the wider game can read.</li>
   </ul>
@@ -289,6 +293,12 @@ let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
 let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true,nonLethal=false,_spared=0,jumpMode=false;
+// QoL — per-reaction STANCES (BG3-style granular control): each reaction can be held independently of
+// the master ⚡ Reactions toggle. A reaction fires only if the master is on AND its stance is enabled.
+let stances={oa:true,shield:true,counter:true};
+/*<STANCE>*/
+function reactionAllowed(master,st,kind){return !!(master&&st&&st[kind]);}
+/*</STANCE>*/
 let _ledgeKill=false,_counteredBoss=false;   // combat deeds (Pillar 1 × 4) — how you win feeds the story
 const JUMP_RANGE=3;
 // Pillar 1 — JUMP (BG3): leap to a tile in range, vaulting walls/units; provokes no opportunity attack
@@ -517,7 +527,7 @@ function leavingReachOf(fx,fy,tx,ty,e){
 /*</OA>*/
 function provokeOA(mover,fx,fy,tx,ty){
   if(mover.disengaged)return;
-  units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&!(e.side==="hero"&&!reactionsOn)&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
+  units.filter(e=>e.side!==mover.side&&e.alive&&!e.reacted&&!(e.side==="hero"&&!reactionAllowed(reactionsOn,stances,"oa"))&&leavingReachOf(fx,fy,tx,ty,e)).forEach(e=>{
     if(!mover.alive)return;e.reacted=true;_moveDirty=true;
     log(`${e.name} strikes at ${mover.name} as they flee! (opportunity attack)`,"cond");
     faceLunge(e,mover);applyOne(e,mover,e.kit[0]);});
@@ -699,7 +709,7 @@ function shieldNegates(total,ac,crit){return !crit && total>=ac && total<ac+5;}
 /*</SHIELD>*/
 function applyOne(att,def,ab){
   const r=resolve(att,def,ab);
-  if(ab.isAttackRoll&&def.knowsShield&&def.side==="hero"&&def.alive&&!def.reacted&&reactionsOn&&r.hit&&shieldNegates(r.total,r.ac,r.crit)){
+  if(ab.isAttackRoll&&def.knowsShield&&def.side==="hero"&&def.alive&&!def.reacted&&reactionAllowed(reactionsOn,stances,"shield")&&r.hit&&shieldNegates(r.total,r.ac,r.crit)){
     def.reacted=true;faceLunge(att,def);
     log(`${def.name} throws up a Shield — +5 AC turns ${att.name}'s blow aside! (${r.total} vs AC ${r.ac+5})`,"cond");
     spawnFloat(def,"🛡 Shield!","#9fd0e0");fxRing(def,"#9fd0e0");sfx("cond");return;}
@@ -736,7 +746,7 @@ function doThrow(att,tx,ty,ab){
 function canCounter(caster,ab,naeve){return !!(ab&&ab.isSpell&&caster&&caster.side==="foe"&&naeve&&naeve.alive&&naeve.side==="hero"&&naeve.knowsCounter&&naeve.counterReady&&!naeve.reacted);}
 /*</COUNTER>*/
 function useAbility(att,ab,target){
-  if(ab.isSpell&&att.side==="foe"&&reactionsOn){const nv=units.find(u=>u.knowsCounter&&u.alive&&u.side==="hero"&&!u.reacted);
+  if(ab.isSpell&&att.side==="foe"&&reactionAllowed(reactionsOn,stances,"counter")){const nv=units.find(u=>u.knowsCounter&&u.alive&&u.side==="hero"&&!u.reacted);
     if(canCounter(att,ab,nv)){nv.reacted=true;nv.counterReady=false;_counteredBoss=true;faceLunge(nv,att);
       log(`${nv.name} Counterspells ${att.name}'s ${ab.name} — the weave unravels and the spell fizzles! (reaction)`,"crit");
       spawnFloat(att,"Countered!","#c79bf0");fxRing(att,"#c79bf0");sfx("cond");att.hasActed=true;return true;}}
@@ -876,7 +886,17 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
   log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
 $("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
-$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");log(`Your reactions (opportunity attacks, Shield & Counterspell) are now ${reactionsOn?"ON":"OFF"}.`,"sys");};
+function renderStances(){
+  const dim=v=>v&&reactionsOn?"":"opacity:.5";
+  $("stOA").textContent="⚔ OA: "+(stances.oa?"on":"off");$("stOA").style.cssText=dim(stances.oa);
+  $("stShield").textContent="🛡 Shield: "+(stances.shield?"on":"off");$("stShield").style.cssText=dim(stances.shield);
+  $("stCounter").textContent="🌀 Counter: "+(stances.counter?"on":"off");$("stCounter").style.cssText=dim(stances.counter);
+}
+$("react").onclick=()=>{reactionsOn=!reactionsOn;$("react").textContent="⚡ Reactions: "+(reactionsOn?"on":"off");renderStances();log(`Your reactions (opportunity attacks, Shield & Counterspell) are now ${reactionsOn?"ON":"OFF"}${reactionsOn?" — per-reaction stances still apply":""}.`,"sys");};
+const STANCE_LABEL={oa:"Opportunity attacks",shield:"Shield",counter:"Counterspell"};
+function toggleStance(kind){stances[kind]=!stances[kind];renderStances();log(`${STANCE_LABEL[kind]}: your heroes will ${stances[kind]?"now use this reaction":"hold this reaction"}.`,"sys");}
+$("stOA").onclick=()=>toggleStance("oa");$("stShield").onclick=()=>toggleStance("shield");$("stCounter").onclick=()=>toggleStance("counter");
+renderStances();
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
 $("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode)armed=null;renderSide();};
 const toggleHelp=()=>$("help").classList.toggle("show");

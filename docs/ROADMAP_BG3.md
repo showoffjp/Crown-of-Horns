@@ -74,6 +74,9 @@ The layer players *feel* every minute. Mostly unbuilt — high-leverage.
   nothing irreversible (no surface, no opportunity attack, you survived). Verified.
 - ✅ **Hotkeys + Reaction toggle** *(v3.92.0)* — keyboard shortcuts for every action (1-9 / V / X / U /
   Enter), and a toggle for whether your heroes take opportunity attacks. Verified.
+- ✅ **Per-reaction stances** *(v4.11.0)* — the master Reactions switch now sits over three independent
+  stance toggles (**OA / Shield / Counterspell**): arm or hold each reaction separately, BG3-style. A
+  reaction fires only if the master *and* its stance are on. Verified.
 - ✅ **Non-lethal toggle** *(v3.97.0)* — knock foes out & **spare** them instead of slaying; the run
   tallies how many you spared (a narrative axis the story can read). Verified.
 - 🔜 group select & move, loot-all, highlight interactables

@@ -29,12 +29,12 @@ check("the boss's Wail of the Returned is flagged isSpell", /name:"Wail of the R
 check("Naeve knows Counterspell and holds one battle charge",
   /name:"Naeve"[\s\S]*?knowsCounter:true,counterReady:true/.test(h));
 check("useAbility intercepts a foe's spell before it resolves",
-  /if\(ab\.isSpell&&att\.side==="foe"&&reactionsOn\)\{/.test(h));
+  /if\(ab\.isSpell&&att\.side==="foe"&&reactionAllowed\(reactionsOn,stances,"counter"\)\)\{/.test(h));
 check("a successful counter consumes both the reaction and the battle charge",
   /nv\.reacted=true;nv\.counterReady=false/.test(h));
 check("a countered spell fizzles entirely (returns before resolving)",
   /the spell fizzles[\s\S]*?att\.hasActed=true;return true;/.test(h));
-check("Counterspell respects the Reactions toggle (reactionsOn)", h.includes('att.side==="foe"&&reactionsOn'));
+check("Counterspell respects the Reactions stance", h.includes('att.side==="foe"&&reactionAllowed(reactionsOn,stances,"counter")'));
 check("the Reactions toggle now advertises Counterspell", h.includes("Shield & Counterspell"));
 
 console.log(`\n  Counterspell reaction — counter predicate + wiring:`);

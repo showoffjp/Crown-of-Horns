@@ -11,6 +11,22 @@
 
 ---
 
+## 👑 v4.11.0 — *"Hold, or Loose"* — per-reaction stances (Pillar 2: QoL)
+
+> BG3 lets you set each reaction to ask or auto; here you can **arm or hold each reaction independently** —
+> keep your Shield up while you stop spending your turn on opportunity attacks.
+
+- ⚔🛡🌀 **Per-reaction stances** in `play/crown_combat.html` — the single ⚡ Reactions switch is now a *master*
+  over three independent stance toggles: **⚔ OA**, **🛡 Shield**, **🌀 Counter**. A reaction fires only if the
+  master **and** that reaction's stance are on, so you can, say, hold your opportunity attacks (to bait a
+  foe past you safely) while keeping Naeve's Shield and Counterspell armed. Stances persist across restarts,
+  default to all-on (zero behaviour change out of the box), and dim when the master is off.
+- 🧪 **`stance.test.js`** lifts the page's real `reactionAllowed` gate and proves a reaction needs **both**
+  master and stance (master-off kills it, stance-off holds it, kinds are independent, unknown/missing inputs
+  are safe), plus the wiring (the three gates consult their stance, the toolbar toggles, the re-render) —
+  **16 checks**. The Shield/Counter/QoL tests were updated to the new gate. Smoke still **400 games, 0
+  errors** (default all-on). Headless suite now **551 checks**, all green.
+
 ## 👑 v4.10.0 — *"How You Fought Follows You"* — deeds reach the ending (Pillar 1 × 4)
 
 > The deed loop's final mile: *how* you won a fight now echoes in the **epilogue the game writes for you**.
