@@ -25,6 +25,9 @@ window.__play=function(seed){
       if(!acted){const burst=u.kit.find(a=>a.targeting==='selfburst');
         const adj=units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=1);
         if(burst&&adj.length>=1){useAbility(u,burst);acted=true;}}
+      if(!acted){const sb=u.kit.find(a=>a.selfbuff);
+        const near=units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=2);
+        if(sb&&sb.effect&&!u.has(sb.effect.condition)&&near.length&&Dice.Roll(4)===1){useAbility(u,sb);acted=true;}}
       if(!acted){const thr=u.kit.find(a=>a.targeting==='throw');
         if(thr){const cl=foes.filter(t=>inThrowRange(u.x,u.y,t.x,t.y,thr.range));
           if(cl.length){armed=thr;draw();doThrow(u,cl[0].x,cl[0].y,thr);armed=null;acted=true;}}}

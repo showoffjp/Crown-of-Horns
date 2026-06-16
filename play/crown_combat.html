@@ -108,6 +108,7 @@
    <li>Leaving an adjacent foe's reach provokes an <b>opportunity attack</b> — spend <b>Disengage</b> to move safely.</li>
    <li><b>Shield</b> (Naeve's arcane reaction): when a foe's attack would *just* connect, she throws up a Shield for <b>+5 AC</b> and turns it aside — once per round, shared with opportunity attacks, gated by the <b>⚡ Reactions</b> toggle.</li>
    <li><b>Counterspell</b> (Naeve's reaction): when an enemy <b>casts a spell</b> (the boss's Wail), she can spend her reaction to <b>unravel it</b> before it lands — it fizzles entirely. Same one-per-round reaction as Shield and opportunity attacks.</li>
+   <li><b>Concentration</b>: a buff like <b>Mirror Image</b> holds only while Naeve keeps focus — take damage and she rolls a <b>Constitution save</b> (DC 10, or half the damage if higher) or the spell <b>drops</b>. Guard your concentrators.</li>
    <li><b>Shove</b> a foe into your fire (or into a wall for impact damage) — or <b>off the high-ground ledge</b>, which makes them <b>fall</b> (2d6 per level) and land <b>Prone</b>.</li>
    <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
    <li><b>Throw</b> a flask (Roen's Alchemist's Fire, range 5) onto <b>any tile</b> — empty ground included — to seed a hazard where you want the fight.</li>
@@ -268,7 +269,7 @@ const Frightened={effectName:"Frightened",condition:"Frightened",bearerAttacksDi
 const Burning={effectName:"Burning",condition:"Burning",damageOverTimeDice:"1d4",damageOverTimeType:"fire",durationRounds:2,tint:"#ff8a3a"};
 const PoisonCloud={effectName:"Poisoned",condition:"Poisoned",damageOverTimeDice:"1d4",bearerAttacksDisadvantage:true,durationRounds:2,tint:"#86d08a"};
 const Obscured={effectName:"Obscured",condition:"Obscured",armorClassModifier:2,durationRounds:1,tint:"#b8c4d0"};
-const MirrorImage={effectName:"Mirror Image",condition:"Mirror Image",armorClassModifier:4,durationRounds:3,tint:"#bcd0e8"};
+const MirrorImage={effectName:"Mirror Image",condition:"Mirror Image",armorClassModifier:4,durationRounds:3,concentration:true,tint:"#bcd0e8"};
 const Prone={effectName:"Prone",condition:"Prone",attackersHaveAdvantage:true,durationRounds:1,tint:"#c9a0a0"};
 
 const COLS=14,ROWS=10,TILE=44;
@@ -740,6 +741,25 @@ function reviveAlly(rescuer,ally){
   log(`${rescuer.name} drags ${ally.name} back to their feet — up at 1 HP!`,"heal");
   spawnFloat(ally,"Revived!","#9fe0b0"); fxHeal(ally); sfx("heal"); bark("revive");
 }
+// Pillar 1 — CONCENTRATION (5e/BG3): a concentration spell (Mirror Image) holds only while its caster
+// keeps focus. Take damage and you make a Constitution save or the spell drops. concentrationDC is
+// pure: the DC is 10, or half the damage taken, whichever is higher.
+/*<CONC>*/
+function concentrationDC(dmg){return Math.max(10,Math.floor(dmg/2));}
+function concentrationHolds(saveTotal,dc){return saveTotal>=dc;}
+/*</CONC>*/
+function checkConcentration(def,dmg){
+  if(dmg<=0||!def.alive)return;
+  const e=def.activeEffects.find(x=>x.def.concentration);if(!e)return;
+  const dc=concentrationDC(dmg),save=Dice.D20()+def.Mod("con");
+  if(concentrationHolds(save,dc)){
+    log(`${def.name} grits through the blow and holds ${e.def.condition}. (CON save ${save} vs DC ${dc})`,"sys");
+  } else {
+    def.activeEffects=def.activeEffects.filter(x=>x!==e);
+    log(`${def.name}'s concentration breaks — ${e.def.condition} fades. (CON save ${save} vs DC ${dc})`,"miss");
+    spawnFloat(def,e.def.condition+" lost","#8a8198");fxRing(def,"#8a8198");
+  }
+}
 // Pillar 1 — REACTION: SHIELD (BG3's defensive reaction). A hero about to be hit can spend their
 // one reaction for +5 AC against that attack. shieldNegates is pure: true iff the +5 turns this
 // landed hit into a miss (a crit always lands; a comfortable hit is unaffected).
@@ -760,6 +780,7 @@ function applyOne(att,def,ab){
     if(r.crit){log(`${att.name}'s ${ab.name} CRITS ${def.name} for ${r.dmg}! ${tag}`,"crit");spawnFloat(def,"✦"+r.dmg+"✦","#ffe9a8");sfx("crit");if(att.side==="hero")bark("crit");}
     else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
+  if(r.dmg>0)checkConcentration(def,r.dmg);   // taking damage tests any spell you're concentrating on
   if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
   if(!def.alive&&!def.downed){
     if(def.side==="hero"){ goDown(def); }                       // heroes drop, dying — not dead (BG3)
