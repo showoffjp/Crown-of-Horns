@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v4.12.0 — *"Not Dead Yet"* — Downed, death saves & Help (Pillar 1: the marquee mechanic)
+
+> BG3's most-felt rule: a hero at 0 HP doesn't die — they go **down, dying**, and the table holds its breath.
+
+- 🩸 **Downed + death saves** in `play/crown_combat.html` — when a hero drops to 0 HP they no longer die
+  outright; they fall **unconscious and dying**, rolling a **death save** each turn (a pure d20: 10+ a
+  success, under a failure, a **1** counts double, a **natural 20** snaps them back up at 1 HP). **Three
+  successes** stabilises them (out of the fight but safe); **three failures** is death. Downed heroes still
+  hold their tile (you can't walk through a body) and are drawn **prone and ghosted** with live **✓/✗ pips**.
+- 🤝 **Help (revive)** — a conscious hero standing beside a fallen ally can spend their action on the new
+  **🤝 Help** button to drag them **back up at 1 HP**. Real triage: save your friend, or press the attack?
+- 💀 **The loss condition is now BG3's** — the party is defeated only when **every** hero is down or dead,
+  not the instant one falls. A single hero can hold the line while the others fight to revive the fallen.
+- 🧪 **`downed.test.js`** lifts the page's real `deathSaveStep` and proves every transition (success/
+  failure/nat-1-double/nat-20-revive, the 3-success stabilise and 3-failure death, tally clamping, a
+  missing tally), plus the wiring (heroes go down not dead, downed bodies occupy + render + take their
+  save-turn, Help revives to 1 HP) — **21 checks**. The smoke run now **goes down, rolls saves, and
+  revives** across 400 games, **0 errors** (triage costs tempo, so heroes win **73.0%** — still in band).
+  Headless suite now **572 checks**, all green. (Barks test updated for the refactored death path.)
+
 ## 👑 v4.11.0 — *"Hold, or Loose"* — per-reaction stances (Pillar 2: QoL)
 
 > BG3 lets you set each reaction to ask or auto; here you can **arm or hold each reaction independently** —

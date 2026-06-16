@@ -17,6 +17,8 @@ window.__play=function(seed){
       const tgt=foes.reduce((a,b)=>cheb(u,b)<cheb(u,a)?b:a);
       if(cheb(u,tgt)>1 && !u.hasMoved){ stepToward(u,tgt); u.hasMoved=true; }
       let acted=false;
+      const downedAlly=units.find(t=>t.side==='hero'&&t.downed&&t!==u&&cheb(u,t)<=1);
+      if(downedAlly){reviveAlly(u,downedAlly);acted=true;}
       const healAb=u.kit.find(a=>a.isHeal);
       if(healAb){const hurt=units.find(t=>t.side==='hero'&&t.alive&&t.hp<t.maxHP*0.5&&cheb(u,t)<=healAb.range);
         if(hurt){useAbility(u,healAb,hurt);acted=true;}}

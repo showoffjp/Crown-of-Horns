@@ -82,6 +82,7 @@
         <button class="act" id="sfxToggle">🔊 SFX: on</button>
         <button class="act" id="restart">Restart</button>
         <button class="act" id="jump">🦘 Jump</button>
+        <button class="act" id="revive">🤝 Help</button>
         <button class="act" id="helpBtn">❔ Tactics</button>
       </div>
     </div>
@@ -110,6 +111,7 @@
    <li><b>Shove</b> a foe into your fire (or into a wall for impact damage) — or <b>off the high-ground ledge</b>, which makes them <b>fall</b> (2d6 per level) and land <b>Prone</b>.</li>
    <li><b>Jump</b> (range 3) vaults over walls and units to a clear tile — and provokes no opportunity attack.</li>
    <li><b>Throw</b> a flask (Roen's Alchemist's Fire, range 5) onto <b>any tile</b> — empty ground included — to seed a hazard where you want the fight.</li>
+   <li><b>Downed &amp; death saves</b> — a hero at 0 HP doesn't die: they go <b>down</b>, rolling a death save each turn (3 ✓ stabilise, 3 ✗ die, a natural 20 revives). Spend your action on <b>🤝 Help</b> beside a fallen ally to drag them up to 1 HP. The party only loses when <i>everyone</i> is down.</li>
   </ul>
   <h3>🧭 Comfort</h3>
   <ul>
@@ -148,7 +150,7 @@ const Ability=o=>Object.assign({name:"Strike",spellSlotLevel:0,targeting:"enemy"
   addMod:true,isHeal:false,healDice:"",effect:null,effectRounds:0,extraAdv:false},o);
 
 class Unit{
-  constructor(o){Object.assign(this,o); this.maxHP=o.hp; this.activeEffects=[]; this.hasMoved=false; this.hasActed=false; this.reacted=false; this.disengaged=false;}
+  constructor(o){Object.assign(this,o); this.maxHP=o.hp; this.activeEffects=[]; this.hasMoved=false; this.hasActed=false; this.reacted=false; this.disengaged=false; this.downed=false; this.dead=false; this.stable=false; this.ds={s:0,f:0};}
   get prof(){return 2+Math.floor((this.level-1)/4);}
   Mod(a){return mod(this[a]);}
   get atkMod(){return mod(this[this.primary]);}
@@ -300,6 +302,7 @@ let stances={oa:true,shield:true,counter:true};
 function reactionAllowed(master,st,kind){return !!(master&&st&&st[kind]);}
 /*</STANCE>*/
 let _ledgeKill=false,_counteredBoss=false;   // combat deeds (Pillar 1 × 4) — how you win feeds the story
+let helpMode=false;   // arming the Help action — revive a downed ally you're standing beside
 const JUMP_RANGE=3;
 // Pillar 1 — JUMP (BG3): leap to a tile in range, vaulting walls/units; provokes no opportunity attack
 /*<JUMP>*/
@@ -454,7 +457,7 @@ function burstHits(arr,attSide,cx,cy,radius){return arr.filter(t=>t.side!==attSi
 function autoHitDamage(ab,mod){const x=/(\d+)d(\d+)([+-]\d+)?/.exec(ab.damageDice||"");if(!x)return 0;return (+x[1])*((+x[2])+1)/2+(x[3]?+x[3]:0)+(ab.addMod?mod:0);}
 /*</BG2>*/
 const inB=(x,y)=>x>=0&&y>=0&&x<COLS&&y<ROWS;
-function occ(x,y){return units.find(u=>u.alive&&u.x===x&&u.y===y);}
+function occ(x,y){return units.find(u=>(u.alive||u.downed)&&u.x===x&&u.y===y);}
 function passable(x,y,self){return inB(x,y)&&!blocked.has(key(x,y))&&!(occ(x,y)&&occ(x,y)!==self);}
 function computeReachable(u){const seen=new Map([[key(u.x,u.y),0]]);const q=[[u.x,u.y,0]];const out=new Set();
   while(q.length){const[x,y,d]=q.shift();if(d>=u.speedNow)continue;
@@ -667,7 +670,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;_ledgeKill=false;_counteredBoss=false;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;helpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;_ledgeKill=false;_counteredBoss=false;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -678,12 +681,24 @@ function newGame(){
 }
 function nextTurn(){
   if(checkEnd())return;
-  let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!order[turnIdx].alive&&++guard<order.length*2);
+  // stop on a conscious unit OR a downed-but-still-dying hero (who owes a death save); skip corpses & the stable
+  let guard=0;do{turnIdx=(turnIdx+1)%order.length;}while(!(order[turnIdx].hp>0||(order[turnIdx].downed&&!order[turnIdx].stable&&!order[turnIdx].dead))&&++guard<order.length*3);
   if(turnIdx<=_prevIdx)surfaceTick();_prevIdx=turnIdx;   // new round → surfaces spread & decay
-  const u=order[turnIdx];u.hasMoved=false;u.hasActed=false;u.reacted=false;u.disengaged=false;_undo=null;
+  const u=order[turnIdx];
+  if(u.downed){   // a dying hero's "turn" is an automatic death save
+    const res=deathSaveStep(u.ds,Dice.D20());u.ds={s:res.s,f:res.f};
+    if(res.revived){u.downed=false;u.hp=1;log(`${u.name} surges back to consciousness! (a natural 20 on the death save)`,"heal");spawnFloat(u,"Revived!","#9fe0b0");fxBurst(u,"#9fe0b0",false);}
+    else if(res.dead){u.downed=false;u.dead=true;log(`${u.name} has died.`,"dmg");decals.push({x:u.x,y:u.y,col:"rgba(70,22,32,.5)"});fxSoul(u);bark("ally_down");}
+    else if(res.stable){u.stable=true;log(`${u.name} stabilizes — unconscious, but no longer dying.`,"heal");spawnFloat(u,"Stable","#9fe0b0");}
+    else{log(`${u.name} clings to life — death saves ${res.s}✓ / ${res.f}✗.`,res.f>res.s?"dmg":"sys");spawnFloat(u,res.f>=2?"✗":"…","#cdb0b0");}
+    renderSide();return setTimeout(nextTurn,360);
+  }
+  u.hasMoved=false;u.hasActed=false;u.reacted=false;u.disengaged=false;_undo=null;
   enterSurface(u);                                       // standing in a surface keeps its effect
   const dot=u.tickStart();
-  if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");if(!u.alive){log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:u.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
+  if(dot>0){log(`${u.name} suffers ${dot} from lingering harm.`,"dmg");spawnFloat(u,"-"+dot,"#e0a0a0");
+    if(!u.alive){ if(u.side==="hero"){goDown(u);u.tickEnd();return setTimeout(nextTurn,400);}
+      log(`${u.name} falls.`,"dmg");decals.push({x:u.x,y:u.y,col:"rgba(40,30,55,.5)"});u.tickEnd();return setTimeout(nextTurn,400);}}
   reachable=u.side==="hero"?computeReachable(u):new Set();
   armed=u.side==="hero"?u.kit[0]:null;jumpMode=false;
   log(`— ${u.name}'s turn —`,"turn");
@@ -700,6 +715,29 @@ function legalTargets(u,ab){
   if(ab.targeting==="selfburst"||ab.targeting==="selfbuff")return[u];
   if(ab.targeting==="throw")return[];   // throw lands on a tile, not a unit — handled in the click path
   return units.filter(t=>t.side!==u.side&&t.alive&&cheb(u,t)<=ab.range);   // enemy & enemyburst pick a target foe
+}
+// Pillar 1 — DOWNED + DEATH SAVES (BG3's signature). A hero at 0 HP doesn't die — they go down,
+// dying, and roll a death save each turn. deathSaveStep is pure: given the running {s,f} tally and a
+// d20, return the next state. 20 -> revive (back up at 1 HP); 1 -> two failures; 10+ -> a success;
+// else a failure. 3 successes -> stable (out, but no longer dying); 3 failures -> dead.
+/*<DOWNED>*/
+function deathSaveStep(ds,roll){
+  let s=(ds&&ds.s)|0, f=(ds&&ds.f)|0, revived=false, dead=false, stable=false;
+  if(roll>=20){ revived=true; s=0; f=0; }
+  else { if(roll<=1) f+=2; else if(roll>=10) s+=1; else f+=1;
+    if(f>=3){ dead=true; f=3; } else if(s>=3){ stable=true; s=3; } }
+  return {s,f,revived,dead,stable};
+}
+/*</DOWNED>*/
+function goDown(u){
+  u.downed=true; u.stable=false; u.ds={s:0,f:0}; u.hp=0; u.hasActed=true; u.activeEffects=[];
+  log(`${u.name} is down — dying, and making death saves!`,"dmg");
+  spawnFloat(u,"DOWNED","#e0a0a0"); fxRing(u,"#e0a0a0"); shake=Math.max(shake,5); sfx("fall"); bark("ally_down");
+}
+function reviveAlly(rescuer,ally){
+  ally.downed=false; ally.dead=false; ally.stable=false; ally.ds={s:0,f:0}; ally.hp=1; rescuer.hasActed=true;
+  log(`${rescuer.name} drags ${ally.name} back to their feet — up at 1 HP!`,"heal");
+  spawnFloat(ally,"Revived!","#9fe0b0"); fxHeal(ally); sfx("heal"); bark("heal");
 }
 // Pillar 1 — REACTION: SHIELD (BG3's defensive reaction). A hero about to be hit can spend their
 // one reaction for +5 AC against that attack. shieldNegates is pure: true iff the +5 turns this
@@ -722,10 +760,12 @@ function applyOne(att,def,ab){
     else{log(`${att.name}'s ${ab.name} hits ${def.name} for ${r.dmg} ${ab.dmgType} ${tag}.`,r.hit?"hit":"dmg");spawnFloat(def,"-"+r.dmg,"#e0a0a0");sfx("hit");}
   } else if(!r.hit){log(`${att.name}'s ${ab.name} ${ab.isAttackRoll?"misses":"is resisted by"} ${def.name} ${tag}.`,"miss");spawnFloat(def,ab.isAttackRoll?"miss":"resist","#8a8198");sfx("miss");}
   if(r.effect){def.add(r.effect,r.effectRounds);log(`${def.name} is ${r.effect.condition}.`,"cond");spawnFloat(def,r.effect.condition,r.effect.tint||"#d0a8e8");fxRing(def,r.effect.tint);sfx("cond");}
-  if(!def.alive){const out=outcome(nonLethal,att.side,def.side);
-    decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});shake=Math.max(shake,5);sfx("fall");
-    if(out==="spared"){def.spared=true;_spared++;log(`${def.name} is knocked senseless — spared.`,"heal");spawnFloat(def,"Spared","#9fe0b0");fxBurst(def,"#9fe0b0",false);bark("spare");}
-    else{log(`${def.name} falls.`,"dmg");fxSoul(def);fxBurst(def,"#c9a24b",true);bark(def.side==="foe"?"kill":"ally_down");}}
+  if(!def.alive&&!def.downed){
+    if(def.side==="hero"){ goDown(def); }                       // heroes drop, dying — not dead (BG3)
+    else{const out=outcome(nonLethal,att.side,def.side);
+      decals.push({x:def.x,y:def.y,col:"rgba(40,30,55,.5)"});shake=Math.max(shake,5);sfx("fall");
+      if(out==="spared"){def.spared=true;_spared++;log(`${def.name} is knocked senseless — spared.`,"heal");spawnFloat(def,"Spared","#9fe0b0");fxBurst(def,"#9fe0b0",false);bark("spare");}
+      else{log(`${def.name} falls.`,"dmg");fxSoul(def);fxBurst(def,"#c9a24b",true);bark("kill");}}}
   if(ab.chainWater)chainLightning(def);
 }
 // THROW — the flask lands on a ground tile: it bursts on every foe in the blast (save for
@@ -864,6 +904,9 @@ cvs.addEventListener("click",e=>{
   const mx=(e.clientX-rect.left)*(cvs.width/rect.width),my=(e.clientY-rect.top)*(cvs.height/rect.height);
   const cell=screenToCell(mx,my),x=cell.x,y=cell.y;if(!inB(x,y))return;
   const target=occ(x,y);
+  // HELP — revive a downed ally you're standing beside (spends your action)
+  if(helpMode&&!u.hasActed&&target&&target.side==="hero"&&target.downed&&target!==u&&cheb(u,target)<=1){
+    reviveAlly(u,target);helpMode=false;_undo=null;reachable=new Set();renderSide();checkEnd();return;}
   // JUMP — leap to an empty, passable tile within range (vaults walls/units, no opportunity attack)
   if(jumpMode&&!u.hasMoved&&!target&&!blocked.has(key(x,y))&&inB(x,y)&&inJumpRange(u.x,u.y,x,y,JUMP_RANGE)){
     const fx0=u.x,fy0=u.y;_moveDirty=false;u.x=x;u.y=y;u.hasMoved=true;jumpMode=false;
@@ -898,7 +941,8 @@ function toggleStance(kind){stances[kind]=!stances[kind];renderStances();log(`${
 $("stOA").onclick=()=>toggleStance("oa");$("stShield").onclick=()=>toggleStance("shield");$("stCounter").onclick=()=>toggleStance("counter");
 renderStances();
 $("nonlethal").onclick=()=>{nonLethal=!nonLethal;$("nonlethal").textContent="🩹 Non-lethal: "+(nonLethal?"on":"off");log(`Killing blows will now ${nonLethal?"SPARE":"SLAY"} the Returned.`,"sys");};
-$("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode)armed=null;renderSide();};
+$("jump").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasMoved)return;jumpMode=!jumpMode;if(jumpMode){armed=null;helpMode=false;}renderSide();};
+$("revive").onclick=()=>{const u=order&&order[turnIdx];if(!u||u.side!=="hero"||u.hasActed)return;helpMode=!helpMode;if(helpMode){armed=null;jumpMode=false;}renderSide();};
 const toggleHelp=()=>$("help").classList.toggle("show");
 $("helpBtn").onclick=toggleHelp;$("helpClose").onclick=toggleHelp;$("help").onclick=e=>{if(e.target===$("help"))toggleHelp();};
 // QoL — keyboard hotkeys for the whole action bar
@@ -946,6 +990,7 @@ function renderSide(){
   const db=$("disengage");if(db){db.disabled=!u||u.side!=="hero"||u.hasMoved||u.disengaged;db.style.borderColor=u&&u.disengaged?"#7fd0a0":"";db.style.color=u&&u.disengaged?"#9fe0b0":"";}
   const ub=$("undo");if(ub){ub.disabled=!_undo||!u||u.side!=="hero"||u.hasActed||!u.hasMoved;}
   const jb=$("jump");if(jb){jb.disabled=!u||u.side!=="hero"||u.hasMoved;jb.style.borderColor=jumpMode?"#9fd0e0":"";jb.style.color=jumpMode?"#cfeaf2":"";}
+  const rv=$("revive");if(rv){const canHelp=u&&u.side==="hero"&&!u.hasActed&&units.some(t=>t.side==="hero"&&t.downed&&t!==u&&cheb(u,t)<=1);rv.disabled=!canHelp;rv.style.borderColor=helpMode?"#9fe0b0":"";rv.style.color=helpMode?"#bfeccb":"";}
   renderBar();
 }
 
@@ -985,6 +1030,13 @@ function billboard(gx,gy,sprite,sz,ringCol,ox,oy,face,ev){
   return c;
 }
 function unitBill(u,sel){
+  if(u.downed){   // a fallen hero, prone and ghosted, with death-save pips
+    const c=cen(u.x,u.y),s=46;ctx.save();ctx.globalAlpha=0.5;
+    billboard(u.x,u.y,u.sprite,s,u.stable?"#7f8a9a":"#c97a7a",0,s*0.20,u.face,0);ctx.restore();
+    ctx.fillStyle=u.stable?"#9fcf96":"#e0a0a0";ctx.font="bold 11px serif";ctx.textAlign="center";ctx.textBaseline="middle";
+    ctx.fillText(u.stable?"stable":"✓".repeat(u.ds.s)+"✗".repeat(u.ds.f),c.x,c.y-s-2);
+    return;
+  }
   if(u.anim){u.anim.t+=_dt;if(u.anim.t>=u.anim.dur)u.anim=null;}
   let ox=0,oy=0;
   if(u.anim){const p=Math.min(1,u.anim.t/u.anim.dur);
@@ -1018,6 +1070,7 @@ function draw(ts){
     if(!blocked.has(key(gx,gy))&&!occ(gx,gy)&&inJumpRange(sel.x,sel.y,gx,gy,JUMP_RANGE)){diamond(gx,gy,0);ctx.fillStyle="#79c4d42e";ctx.fill();ctx.strokeStyle="#9fd0e0aa";ctx.lineWidth=1;ctx.stroke();}
   if(armed&&armed.targeting==="throw"&&sel&&sel.side==="hero"&&!sel.hasActed)for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++)
     if(!blocked.has(key(gx,gy))&&inThrowRange(sel.x,sel.y,gx,gy,armed.range)){diamond(gx,gy,0);ctx.fillStyle="#e8851f2b";ctx.fill();ctx.strokeStyle="#f0a94faa";ctx.lineWidth=1;ctx.stroke();}
+  if(helpMode&&sel&&sel.side==="hero"&&!sel.hasActed)units.filter(t=>t.side==="hero"&&t.downed&&t!==sel&&cheb(sel,t)<=1).forEach(t=>{diamond(t.x,t.y,0);ctx.fillStyle="#9fe0b033";ctx.fill();ctx.setLineDash([4,3]);ctx.strokeStyle="#9fe0b0cc";ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;});
   targets.forEach(t=>{diamond(t.x,t.y,0);ctx.strokeStyle=armed&&armed.targeting==="ally"?"#7fd0a0":"#9b2d2d";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;});
   if(armed&&armed.targeting==="selfburst"&&sel&&!sel.hasActed){diamond(sel.x,sel.y,0);ctx.setLineDash([4,3]);ctx.strokeStyle="#e7c873";ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);ctx.lineWidth=1;}
   lighting();
@@ -1025,7 +1078,7 @@ function draw(ts){
   const ents=[];
   for(let gy=0;gy<ROWS;gy++)for(let gx=0;gx<COLS;gx++) if(blocked.has(key(gx,gy))) ents.push({d:gx+gy,t:0,gx,gy});
   PROPS.forEach(p=>ents.push({d:p.x+p.y,t:1,p}));
-  units.filter(u=>u.alive).forEach(u=>ents.push({d:u.x+u.y,t:2,u}));
+  units.filter(u=>u.alive||u.downed).forEach(u=>ents.push({d:u.x+u.y,t:2,u}));
   ents.sort((a,b)=>a.d-b.d||a.t-b.t);
   ents.forEach(e=>{ if(e.t===0)wallBlock(e.gx,e.gy); else if(e.t===1)billboard(e.p.x,e.p.y,e.p.s,40,null,0,0,1); else unitBill(e.u,sel); });
   // forecast labels (over everything)
