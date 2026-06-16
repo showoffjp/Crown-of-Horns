@@ -97,6 +97,9 @@ Already competitive in depth; "superior" means **reactivity density**.
   Combat tab, so loading a save *visibly* changes what the companions say mid-fight. Verified.
 - ✅ **Inter-companion banter** *(v3.95.0)* — the party bickers with *each other* mid-fight (two-line
   exchanges, present-aware, rate-limited). Verified.
+- ✅ **Deed-reactive victory barks** *(v4.8.0, Pillar 1 × 3)* — when the fight is won, the present companion
+  reacts in-voice to *how* you won (a Counterspell, a ledge kill, a merciful or ruthless finish), most-
+  distinctive deed first, presence-gated. Pairs with v4.7.0's deed ledger. Verified.
 - 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats
 - 🔜 **Finer approval** — silent disapproval, thresholds, "they remember that"
 - 🔜 **More romances/rivalries** + the BG3-style *"approval is not consent"* nuance

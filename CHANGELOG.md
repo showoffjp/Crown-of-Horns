@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v4.8.0 — *"They Saw What You Did"* — deed-reactive victory barks (Pillar 1 × 3)
+
+> The deeds don't just go in a ledger — your companions *react* to them, in voice, the moment the fight ends.
+
+- 🗣️ **Deed-reactive victory barks** in `play/crown_combat.html` — the instant a battle is won, the companion
+  who's standing speaks to *how* you won it: **Naeve** savours a **Counterspell** unwoven, **Roen** grins at a
+  **ledge kill**, **Garrow** blesses a **merciful** (all-spared) victory, **Varra** owns a **ruthless** one,
+  and a clean **flawless** or sorrowful **hard-won** finish each draws its own line. The most *distinctive*
+  deed speaks first — a Counterspell or a cast-from-the-heights trumps a plain flawless win — and only a
+  companion still alive can voice it. Fires right after the Chronicle records the deed, turning v4.7.0's
+  ledger entry into a lived reaction.
+- 🧪 **`deedbark.test.js`** lifts the page's real `pickDeedBark` and proves the earned flags + who's present
+  resolve to exactly one fitting line (right speaker per deed, most-distinctive-first priority, presence-
+  gated with fall-through when a speaker is down, nothing on no-deeds), that every prioritised deed has a
+  line and every speaker is a real companion, plus the `recordDeeds` wiring — **15 checks**. Smoke still
+  **400 games, 0 errors**. Headless suite now **503 checks**, all green.
+
 ## 👑 v4.7.0 — *"The Chronicle Remembers"* — Deeds in combat (Pillar 1 × 4: tactics feed the story)
 
 > The superiority twist: BG3's combat is spectacular but *self-contained*. Here, **how** you win writes
