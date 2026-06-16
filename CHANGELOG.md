@@ -11,6 +11,23 @@
 
 ---
 
+## 👑 v4.9.0 — *"The Ledger Made Visible"* — the Combat Chronicle panel (Pillar 1 × 4)
+
+> The deed loop, closed end-to-end: combat writes the deeds, and now the narrative UI *reads them back*.
+
+- 📖 **Combat Chronicle** in `play/save_inspector.html` — a new panel that reads `coh.combat.deeds` (the flags
+  the Combat tab writes on victory, v4.7.0) and shows them in plain language: *flawless* / *hard-won*,
+  *merciful* / *ruthless*, *a foe cast down from the heights*, *the boss's spell unwoven* — with a count and
+  a **clear** button. The Save Inspector already staged flags **into** combat (v3.99.0); this is the return
+  leg, so the loop is now whole and **visible**: stage a run → fight → see *how* you fought recorded right
+  back in the narrative inspector.
+- 🧪 **`deedchron.test.js`** lifts the page's real `deedChronicle` and proves it turns the stored flag map
+  into a sorted, labelled list (empty on none, skips cleared flags, labels unknown deeds by key), and —
+  importantly — **cross-checks** that every deed the Combat tab can earn (parsed from `crown_combat.html`'s
+  `/*<DEEDS>*/` block) has a label here, so the two pages can't drift. Plus the wiring (reads `coh.combat.deeds`,
+  renders, clears, boots) — **15 checks**. The existing Save-Inspector round-trip still passes. Headless suite
+  now **518 checks**, all green.
+
 ## 👑 v4.8.0 — *"They Saw What You Did"* — deed-reactive victory barks (Pillar 1 × 3)
 
 > The deeds don't just go in a ledger — your companions *react* to them, in voice, the moment the fight ends.

@@ -79,6 +79,12 @@
   <div class="gatelist" id="gates"></div>
  </div>
 
+ <div class="card">
+  <h2>Deeds earned in combat <span class="c">written by the Combat tab — <em>how</em> you won, fed back as story flags</span></h2>
+  <div class="gatelist" id="deeds"></div>
+  <div class="hint" id="deedsHint"></div>
+ </div>
+
  <div class="cols">
   <div>
    <div class="card">
@@ -197,6 +203,28 @@ function renderUnlocks(){
 }
 function syncOut(){ document.getElementById("out").value=JSON.stringify(toSaveData(model), null, 1); }
 
+// ---- Combat Chronicle (Pillar 1 × 4): read back the deeds the Combat tab wrote, closing the loop.
+// deedChronicle is pure: the stored {flag:true} map -> a sorted list of {flag,label} to display.
+/*<DEEDCHRON>*/
+const DEED_LABEL={
+  "deed.combat.flawless":"flawless (no hero fell)","deed.combat.pyrrhic":"hard-won (a hero fell)",
+  "deed.combat.merciful":"merciful (every foe spared)","deed.combat.ruthless":"ruthless (no quarter given)",
+  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven"};
+function deedChronicle(deeds){
+  if(!deeds) return [];
+  return Object.keys(deeds).filter(k=>deeds[k]).sort().map(k=>({flag:k,label:DEED_LABEL[k]||k}));
+}
+/*</DEEDCHRON>*/
+function renderDeeds(){
+  let deeds={}; try{ const raw=localStorage.getItem("coh.combat.deeds"); if(raw) deeds=JSON.parse(raw)||{}; }catch(e){}
+  const list=deedChronicle(deeds);
+  document.getElementById("deeds").innerHTML=list.map(d=>`<span class="gpill" title="${esc(d.flag)}">${esc(d.label)}</span>`).join("");
+  document.getElementById("deedsHint").innerHTML=list.length
+    ? `${list.length} deed${list.length>1?"s":""} on record — <button onclick="clearDeeds()">✕ clear the Chronicle</button>`
+    : "No deeds yet — win a battle in the Combat tab and how you won it appears here.";
+}
+function clearDeeds(){ try{ localStorage.removeItem("coh.combat.deeds"); }catch(e){} renderDeeds(); banner("Combat Chronicle cleared."); }
+
 // ---- load paths ----
 function loadModel(data){ try{ model=parse(data); render(); banner(""); }
   catch(e){ banner("Could not parse that save: "+e.message, true); } }
@@ -236,5 +264,6 @@ function banner(msg,bad){ const b=document.getElementById("banner");
 // ---- boot ----
 document.getElementById("flagList").innerHTML=EMBED.allFlagKeys.map(k=>`<option value="${esc(k)}">`).join("");
 loadModel(JSON.parse(JSON.stringify(EMBED.sample)));
+renderDeeds();
 </script>
 </body></html>
