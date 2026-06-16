@@ -11,7 +11,8 @@ const block = h.match(/\/\*<BARK>\*\/([\s\S]*?)\/\*<\/BARK>\*\//);
 check("bark table + picker block found", !!block);
 const { BARKS, pickBark } = new Function(block[1] + "\nreturn { BARKS, pickBark };")();
 
-check("there are barks for the key beats", ["crit", "kill", "ally_down", "heal", "victory"].every(k => (BARKS[k] || []).length));
+check("there are barks for the key beats", ["crit", "kill", "ally_down", "heal", "victory", "revive"].every(k => (BARKS[k] || []).length));
+check("reviving a fallen ally fires a revive bark", h.includes('bark("revive")') && /reviveAlly[\s\S]*?bark\("revive"\)/.test(h));
 check("only a PRESENT companion speaks", (() => {
   // with just Garrow present, a crit bark must be Garrow's
   const b = pickBark("crit", ["Garrow"], 0); return b && b[0] === "Garrow";

@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v4.13.0 — *"We Carried Each Other Out"* — the Rescue deed (Pillar 1 × 3 × 4)
+
+> The new downed system, threaded straight through the deed loop: pull a fallen comrade back and win, and
+> the whole game remembers it — in voice, in the Chronicle, in the ending.
+
+- 🤝 **Rescue deed** — reviving a downed ally *(v4.12.0)* and going on to win now earns **`deed.combat.rescue`**,
+  which flows through the entire deed pipeline built across v4.7–v4.10 with no new plumbing: the **Chronicle**
+  records it, a **deed-reactive victory bark** voices it (Garrow: *"We carried each other out. That is the only
+  victory that has ever counted."* — and a rescue is now the **most resonant** deed, spoken first), the Save
+  Inspector's **Combat Chronicle** panel lists it, and the Endings Explorer gives it a **conduct line** *and* a
+  **BG2-style epilogue slide**. *How* you held your party together follows you to the last page.
+- 🗣️ **Revive bark** — the moment you Help an ally up, a companion calls it (Garrow: *"On your feet — I have you.
+  Stay with me."*, Roen, Varra) — a new `revive` bark beat, present-aware and rate-limited like the rest.
+- 🧪 Verified across the existing suites rather than a new file: **`deeds.test.js`** (+ rescue earns/omits the flag,
+  stacks to 5, labelled), **`deedbark.test.js`** (+ Garrow speaks it, first priority), **`barks.test.js`** (+ the
+  `revive` beat exists and `reviveAlly` fires it), and the cross-page drift test still pins the new label across
+  Combat ↔ Save Inspector. Smoke still **400 games, 0 errors** (heroes win 73.0%). Headless suite now **577
+  checks**, all green.
+
 ## 👑 v4.12.0 — *"Not Dead Yet"* — Downed, death saves & Help (Pillar 1: the marquee mechanic)
 
 > BG3's most-felt rule: a hero at 0 HP doesn't die — they go **down, dying**, and the table holds its breath.
