@@ -795,6 +795,26 @@ function deedFlags(s){
   return f;
 }
 /*</DEEDS>*/
+// Pillar 1 × 3 — DEED-REACTIVE VICTORY BARKS: the companion present speaks in-voice to *how* the
+// fight was won. pickDeedBark is pure: the earned deed flags + who's standing -> one fitting line,
+// most-distinctive deed first (a Counterspell or a ledge kill trumps a plain flawless win).
+/*<DEEDBARK>*/
+const DEED_BARKS={
+  "deed.combat.counterspell":[{who:"Naeve",line:"Its little spell came apart in my hands. Netherese craft outlasts the grave."}],
+  "deed.combat.ledge_kill":[{who:"Roen",line:"Gravity does the cleanest work in this whole shrine."}],
+  "deed.combat.merciful":[{who:"Garrow",line:"Mercy, even here. The Wall will not have them — and neither will we."}],
+  "deed.combat.ruthless":[{who:"Varra",line:"No survivors. It is the only tongue the Returned still speak."}],
+  "deed.combat.flawless":[{who:"Roen",line:"Not a scratch on us. Don't get used to it."}],
+  "deed.combat.pyrrhic":[{who:"Garrow",line:"We won. Say their names later — we earned that much sorrow."}]
+};
+const DEED_PRIORITY=["deed.combat.counterspell","deed.combat.ledge_kill","deed.combat.merciful","deed.combat.ruthless","deed.combat.flawless","deed.combat.pyrrhic"];
+function pickDeedBark(flags,present){
+  for(const fl of DEED_PRIORITY){if((flags||[]).indexOf(fl)<0)continue;
+    const pool=(DEED_BARKS[fl]||[]).filter(b=>present.indexOf(b.who)>=0);
+    if(pool.length)return [pool[0].who,pool[0].line];}
+  return null;
+}
+/*</DEEDBARK>*/
 function battleSummary(won){
   const heroes=units.filter(u=>u.side==="hero");
   return {won,heroesLost:heroes.filter(u=>!u.alive).length,
@@ -808,6 +828,9 @@ function recordDeeds(won){
     try{ if(typeof localStorage!=="undefined"){const raw=localStorage.getItem("coh.combat.deeds");const prev=raw?JSON.parse(raw)||{}:{};
       flags.forEach(fl=>prev[fl]=true);localStorage.setItem("coh.combat.deeds",JSON.stringify(prev));} }catch(e){}
     log("Chronicle — this fight is remembered: "+flags.map(fl=>DEED_LABEL[fl]||fl).join(" · "),"sys");
+    const present=units.filter(u=>u.side==="hero"&&u.alive).map(u=>u.name.replace("Sister ","").split(" ")[0]);
+    const db=pickDeedBark(flags,present);
+    if(db){const sp=units.find(u=>u.alive&&u.name.indexOf(db[0])>=0);log(`${db[0]}: "${db[1]}"`,"sys");if(sp)spawnFloat(sp,"💬","#cfc7d8");}
   }
   return flags;
 }
