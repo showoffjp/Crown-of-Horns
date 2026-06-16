@@ -98,6 +98,9 @@ Already competitive in depth; "superior" means **reactivity density**.
 - ✅ **Combat → Save return leg** *(v4.9.0)* — the Save Inspector's new **Combat Chronicle** panel reads back
   the deeds combat writes (`coh.combat.deeds`), so the Pillar 1 ↔ 4 loop is whole and visible end-to-end.
   A cross-page test pins the deed labels to combat's deed set so they can't drift. Verified.
+- ✅ **Deeds reach the ending** *(v4.10.0)* — the Endings Explorer folds the combat deeds into the run's flags
+  and lets them speak: a Chronicle **conduct line** (merciful/ruthless) and a **BG2-style epilogue slide**
+  keyed to your standout deed. *How* you fought now echoes in the ending the game writes for you. Verified.
 - ✅ **Inter-companion banter** *(v3.95.0)* — the party bickers with *each other* mid-fight (two-line
   exchanges, present-aware, rate-limited). Verified.
 - ✅ **Deed-reactive victory barks** *(v4.8.0, Pillar 1 × 3)* — when the fight is won, the present companion

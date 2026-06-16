@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v4.10.0 — *"How You Fought Follows You"* — deeds reach the ending (Pillar 1 × 4)
+
+> The deed loop's final mile: *how* you won a fight now echoes in the **epilogue the game writes for you**.
+
+- ⚰️🕊️ **Deeds reach the ending** in `play/endings_explorer.html` — the Endings Explorer now folds the combat
+  Chronicle's `deed.combat.*` flags into the run's flags on arrival (whether or not a save was staged), and
+  lets them speak in two places: a **Chronicle conduct line** (*"Conduct at the Wall: merciful — you spared
+  even the dead that barred your way"* / *"…ruthless — not one of the Returned you faced was left standing"*)
+  and a **BG2-style epilogue slide** keyed to your standout deed — mercy, ruthlessness, a Counterspell that
+  unwove the crown's death-song, or a foe cast from the heights. A banner notes the deeds folded in. This is
+  the **final mile** of the loop begun in v4.7.0: combat → deeds → Chronicle panel (v4.9.0) → and now all the
+  way into the *ending the game writes for you*.
+- 🧪 **`deedepi.test.js`** lifts the page's real `deedConductLine` / `deedEpilogueSlide` and proves they
+  answer to the deed flags (merciful outranks ruthless; conduct outranks the flavour deeds; the right prose
+  per deed; **nothing** when unfought), plus the wiring (deeds read at boot, merged onto staged save flags
+  *and* applied with no save, the Chronicle + epilogue hooks, the banner) — **17 checks**. The Endings engine
+  port + prose-parity gates still pass. Headless suite now **535 checks**, all green.
+
 ## 👑 v4.9.0 — *"The Ledger Made Visible"* — the Combat Chronicle panel (Pillar 1 × 4)
 
 > The deed loop, closed end-to-end: combat writes the deeds, and now the narrative UI *reads them back*.

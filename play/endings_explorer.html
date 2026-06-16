@@ -419,6 +419,9 @@ const EndingResolver = {
         slides.push(`⚓ And in the last accounting, the saga was about ${n} — the face you chose to love. Whatever the ending was, it was *theirs* as much as yours; the cosmos came to rest, finally, on someone specific, which is the only scale that ever mattered.`);
     }
 
+    // The shrine's memory of how you fought (fed from the combat Chronicle).
+    slides.push(deedEpilogueSlide(f));
+
     return slides.filter(s => s != null && s !== "");
   },
 
@@ -505,6 +508,9 @@ const EndingResolver = {
 
     // Deeds earned.
     lines.push(`🏆 Deeds earned: ${this.content.deedsEarnedCount()}/${this.content.deedsTotal()}`);
+    // How you fought, fed back from the combat Chronicle.
+    const conduct = deedConductLine(f);
+    if (conduct) lines.push(conduct);
 
     // Endings unlocked + difficulty.
     lines.push(`👑 Endings unlocked: ${this.Available().length}/6` + (this.Available().some(x => this.IsGolden(x)) ? "  ★ a golden road is open" : ""));
@@ -513,6 +519,27 @@ const EndingResolver = {
     return lines;
   }
 };
+
+// Combat deeds reaching the ending (Pillar 1 × 4) — the Chronicle line and epilogue slide that answer
+// to HOW you fought, fed from the combat Chronicle's deed.combat.* flags. Pure given GameFlags.
+/*<DEEDEPI>*/
+function deedConductLine(f){
+  if(f.GetBool("deed.combat.merciful")) return "🕊️ Conduct at the Wall: merciful — you spared even the dead that barred your way.";
+  if(f.GetBool("deed.combat.ruthless")) return "⚰️ Conduct at the Wall: ruthless — not one of the Returned you faced was left standing.";
+  return null;
+}
+function deedEpilogueSlide(f){
+  if(f.GetBool("deed.combat.merciful"))
+    return "🕊️ The Shrine of the Returned — they say the pilgrim who reached the Wall of the Faithless spared even the dead that barred the door. The Returned do not rise where you walked; mercy, it seems, is its own kind of rest.";
+  if(f.GetBool("deed.combat.ruthless"))
+    return "⚰️ The Shrine of the Returned — not one of the dead you faced was left standing, nor spared. The faithful whisper the Wall gained a new warden that day: one who answers the grave's cruelty in kind, and calls it peace.";
+  if(f.GetBool("deed.combat.counterspell"))
+    return "🌀 The Shrine of the Returned — scholars still argue how a lone arcanist unwove the crown's own death-song mid-note. Naeve only says: 'Netherese craft. It remembers what the grave forgets.'";
+  if(f.GetBool("deed.combat.ledge_kill"))
+    return "🪨 The Shrine of the Returned — past the gallery's long drop sits a cairn no one admits to building, for a foe no one admits to pushing. Roen admits nothing, and smiles.";
+  return null;
+}
+/*</DEEDEPI>*/
 
 
 // ---------------- explorer UI ----------------
@@ -577,17 +604,24 @@ $("preset2").onclick=()=>setAll([["companion.roen.recruited",true],["companion.v
 $("reset").onclick=()=>setAll([]);
 // If the Save Inspector staged a real save's flag state, apply it on arrival.
 (function importFromSave(){
+  // Combat deeds (deed.combat.*) the Combat tab wrote — folded into the flags so the epilogue answers to them.
+  let deedPairs=[]; try{ const dr=localStorage.getItem("coh.combat.deeds"); if(dr){ const dd=JSON.parse(dr)||{}; for(const k in dd) if(dd[k]) deedPairs.push([k,true]); } }catch(e){}
+  function deedBanner(){ if(!deedPairs.length) return; const d=document.createElement("div");
+    d.textContent="⚔️ Folded in "+deedPairs.length+" combat deed"+(deedPairs.length>1?"s":"")+" from the Chronicle — the epilogue answers to how you fought.";
+    d.style.cssText="background:#1a1320;border:1px solid #4a2c46;color:#cf9fd0;border-radius:7px;padding:8px 14px;margin:10px 16px;font:13px Georgia,serif";
+    document.body.insertBefore(d, document.body.firstChild); }
   let raw=null; try{ raw=localStorage.getItem("coh.endings.import"); }catch(e){}
-  if(!raw){ buildFlags(); render(); return; }
+  if(!raw){ if(deedPairs.length) setAll(deedPairs); else { buildFlags(); render(); } deedBanner(); return; }
   try{ localStorage.removeItem("coh.endings.import"); }catch(e){}
-  let m; try{ m=JSON.parse(raw); }catch(e){ buildFlags(); render(); return; }
+  let m; try{ m=JSON.parse(raw); }catch(e){ if(deedPairs.length) setAll(deedPairs); else { buildFlags(); render(); } deedBanner(); return; }
   const pairs=[];
   for(const k in (m.bools||{})) if(m.bools[k]) pairs.push([k,true]);
   for(const k in (m.ints||{})) pairs.push([k, m.ints[k]|0]);
-  setAll(pairs);
+  setAll(pairs.concat(deedPairs));
   const b=document.createElement("div");
   b.textContent="↳ Loaded "+pairs.length+" flags from the Save Inspector — these endings reflect that save.";
   b.style.cssText="background:#13241a;border:1px solid #2c4a32;color:#9fcf96;border-radius:7px;"+
     "padding:8px 14px;margin:10px 16px;font:13px Georgia,serif";
   document.body.insertBefore(b, document.body.firstChild);
+  deedBanner();
 })();</script></body></html>
