@@ -301,7 +301,7 @@ let stances={oa:true,shield:true,counter:true};
 /*<STANCE>*/
 function reactionAllowed(master,st,kind){return !!(master&&st&&st[kind]);}
 /*</STANCE>*/
-let _ledgeKill=false,_counteredBoss=false;   // combat deeds (Pillar 1 × 4) — how you win feeds the story
+let _ledgeKill=false,_counteredBoss=false,_rescued=false;   // combat deeds (Pillar 1 × 4) — how you win feeds the story
 let helpMode=false;   // arming the Help action — revive a downed ally you're standing beside
 const JUMP_RANGE=3;
 // Pillar 1 — JUMP (BG3): leap to a tile in range, vaulting walls/units; provokes no opportunity attack
@@ -544,6 +544,7 @@ const BARKS={
   ignite:[["Varra","Burn. I do so love a good fire."],["Roen","Hot foot!"]],
   ally_down:[["Garrow","No — hold on, I have you!"],["Varra","Get UP. We are not done."]],
   heal:[["Garrow","By the grey — be whole."]],
+  revive:[["Garrow","On your feet — I have you. Stay with me."],["Roen","Up, up — you're not dying in this shrine."],["Varra","Not today. Not YOU. Move."]],
   wall:[["Roen","Mind the wall!"],["Varra","Sit. DOWN."]],
   spare:[["Garrow","Mercy. The Doom can wait for them."],["Varra","Soft of you. ...Fine. Leave them breathing."],["Roen","Out cold. Cleaner that way."]],
   victory:[["Garrow","It is done. Bury them kindly."],["Roen","...I need a drink."],["Varra","Told you we'd win."]]
@@ -670,7 +671,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;helpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;_ledgeKill=false;_counteredBoss=false;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;helpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;_ledgeKill=false;_counteredBoss=false;_rescued=false;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -735,9 +736,9 @@ function goDown(u){
   spawnFloat(u,"DOWNED","#e0a0a0"); fxRing(u,"#e0a0a0"); shake=Math.max(shake,5); sfx("fall"); bark("ally_down");
 }
 function reviveAlly(rescuer,ally){
-  ally.downed=false; ally.dead=false; ally.stable=false; ally.ds={s:0,f:0}; ally.hp=1; rescuer.hasActed=true;
+  ally.downed=false; ally.dead=false; ally.stable=false; ally.ds={s:0,f:0}; ally.hp=1; rescuer.hasActed=true; _rescued=true;
   log(`${rescuer.name} drags ${ally.name} back to their feet — up at 1 HP!`,"heal");
-  spawnFloat(ally,"Revived!","#9fe0b0"); fxHeal(ally); sfx("heal"); bark("heal");
+  spawnFloat(ally,"Revived!","#9fe0b0"); fxHeal(ally); sfx("heal"); bark("revive");
 }
 // Pillar 1 — REACTION: SHIELD (BG3's defensive reaction). A hero about to be hit can spend their
 // one reaction for +5 AC against that attack. shieldNegates is pure: true iff the +5 turns this
@@ -834,7 +835,8 @@ function enemyTurn(){
 const DEED_LABEL={
   "deed.combat.flawless":"flawless (no hero fell)","deed.combat.pyrrhic":"hard-won (a hero fell)",
   "deed.combat.merciful":"merciful (every foe spared)","deed.combat.ruthless":"ruthless (no quarter given)",
-  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven"};
+  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven",
+  "deed.combat.rescue":"a fallen comrade brought back"};
 function deedFlags(s){
   if(!s.won)return [];
   const f=[s.heroesLost===0?"deed.combat.flawless":"deed.combat.pyrrhic"];
@@ -842,6 +844,7 @@ function deedFlags(s){
   if(s.spared===0&&s.slain>0)f.push("deed.combat.ruthless");
   if(s.ledgeKill)f.push("deed.combat.ledge_kill");
   if(s.counteredBoss)f.push("deed.combat.counterspell");
+  if(s.rescued)f.push("deed.combat.rescue");
   return f;
 }
 /*</DEEDS>*/
@@ -850,6 +853,7 @@ function deedFlags(s){
 // most-distinctive deed first (a Counterspell or a ledge kill trumps a plain flawless win).
 /*<DEEDBARK>*/
 const DEED_BARKS={
+  "deed.combat.rescue":[{who:"Garrow",line:"We carried each other out. That is the only victory that has ever counted."}],
   "deed.combat.counterspell":[{who:"Naeve",line:"Its little spell came apart in my hands. Netherese craft outlasts the grave."}],
   "deed.combat.ledge_kill":[{who:"Roen",line:"Gravity does the cleanest work in this whole shrine."}],
   "deed.combat.merciful":[{who:"Garrow",line:"Mercy, even here. The Wall will not have them — and neither will we."}],
@@ -857,7 +861,7 @@ const DEED_BARKS={
   "deed.combat.flawless":[{who:"Roen",line:"Not a scratch on us. Don't get used to it."}],
   "deed.combat.pyrrhic":[{who:"Garrow",line:"We won. Say their names later — we earned that much sorrow."}]
 };
-const DEED_PRIORITY=["deed.combat.counterspell","deed.combat.ledge_kill","deed.combat.merciful","deed.combat.ruthless","deed.combat.flawless","deed.combat.pyrrhic"];
+const DEED_PRIORITY=["deed.combat.rescue","deed.combat.counterspell","deed.combat.ledge_kill","deed.combat.merciful","deed.combat.ruthless","deed.combat.flawless","deed.combat.pyrrhic"];
 function pickDeedBark(flags,present){
   for(const fl of DEED_PRIORITY){if((flags||[]).indexOf(fl)<0)continue;
     const pool=(DEED_BARKS[fl]||[]).filter(b=>present.indexOf(b.who)>=0);
@@ -870,7 +874,7 @@ function battleSummary(won){
   return {won,heroesLost:heroes.filter(u=>!u.alive).length,
     spared:units.filter(u=>u.side==="foe"&&u.spared).length,
     slain:units.filter(u=>u.side==="foe"&&!u.alive&&!u.spared).length,
-    ledgeKill:_ledgeKill,counteredBoss:_counteredBoss};
+    ledgeKill:_ledgeKill,counteredBoss:_counteredBoss,rescued:_rescued};
 }
 function recordDeeds(won){
   const flags=deedFlags(battleSummary(won));

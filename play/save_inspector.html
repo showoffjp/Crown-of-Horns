@@ -209,7 +209,8 @@ function syncOut(){ document.getElementById("out").value=JSON.stringify(toSaveDa
 const DEED_LABEL={
   "deed.combat.flawless":"flawless (no hero fell)","deed.combat.pyrrhic":"hard-won (a hero fell)",
   "deed.combat.merciful":"merciful (every foe spared)","deed.combat.ruthless":"ruthless (no quarter given)",
-  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven"};
+  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven",
+  "deed.combat.rescue":"a fallen comrade brought back"};
 function deedChronicle(deeds){
   if(!deeds) return [];
   return Object.keys(deeds).filter(k=>deeds[k]).sort().map(k=>({flag:k,label:DEED_LABEL[k]||k}));

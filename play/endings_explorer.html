@@ -524,11 +524,14 @@ const EndingResolver = {
 // to HOW you fought, fed from the combat Chronicle's deed.combat.* flags. Pure given GameFlags.
 /*<DEEDEPI>*/
 function deedConductLine(f){
+  if(f.GetBool("deed.combat.rescue")) return "🤝 Conduct at the Wall: you carried a fallen comrade out alive — no one was left to the dark.";
   if(f.GetBool("deed.combat.merciful")) return "🕊️ Conduct at the Wall: merciful — you spared even the dead that barred your way.";
   if(f.GetBool("deed.combat.ruthless")) return "⚰️ Conduct at the Wall: ruthless — not one of the Returned you faced was left standing.";
   return null;
 }
 function deedEpilogueSlide(f){
+  if(f.GetBool("deed.combat.rescue"))
+    return "🤝 The Shrine of the Returned — they tell it that when one of yours fell at the Wall, you would not leave them to the dark; you dragged them back into the light by the collar, cursing all the way. Whatever else the Faithless deserved, your own you kept.";
   if(f.GetBool("deed.combat.merciful"))
     return "🕊️ The Shrine of the Returned — they say the pilgrim who reached the Wall of the Faithless spared even the dead that barred the door. The Returned do not rise where you walked; mercy, it seems, is its own kind of rest.";
   if(f.GetBool("deed.combat.ruthless"))

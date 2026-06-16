@@ -33,10 +33,12 @@ check("a mixed finish is neither merciful nor ruthless",
 // the special deeds
 check("a ledge kill is recorded", has({ ...base, ledgeKill: true }, "deed.combat.ledge_kill"));
 check("a countered boss spell is recorded", has({ ...base, counteredBoss: true }, "deed.combat.counterspell"));
+check("reviving a fallen comrade is recorded", has({ ...base, rescued: true }, "deed.combat.rescue"));
+check("no rescue deed if no one was brought back", !has(base, "deed.combat.rescue"));
 check("a clean sweep can stack several deeds at once",
-  deedFlags({ won: true, heroesLost: 0, spared: 0, slain: 6, ledgeKill: true, counteredBoss: true }).length === 4);
+  deedFlags({ won: true, heroesLost: 0, spared: 0, slain: 6, ledgeKill: true, counteredBoss: true, rescued: true }).length === 5);
 check("every emitted flag has a human-readable Chronicle label",
-  deedFlags({ won: true, heroesLost: 0, spared: 6, slain: 0, ledgeKill: true, counteredBoss: true }).every(f => DEED_LABEL[f]));
+  deedFlags({ won: true, heroesLost: 0, spared: 6, slain: 0, ledgeKill: true, counteredBoss: true, rescued: true }).every(f => DEED_LABEL[f]));
 
 // wiring: the deeds are tracked, summarised, and persisted (the reverse of coh.combat.flags)
 check("a ledge fall that kills a foe sets the ledge-kill deed",

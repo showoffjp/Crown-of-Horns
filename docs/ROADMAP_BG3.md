@@ -112,6 +112,9 @@ Already competitive in depth; "superior" means **reactivity density**.
 - ✅ **Deed-reactive victory barks** *(v4.8.0, Pillar 1 × 3)* — when the fight is won, the present companion
   reacts in-voice to *how* you won (a Counterspell, a ledge kill, a merciful or ruthless finish), most-
   distinctive deed first, presence-gated. Pairs with v4.7.0's deed ledger. Verified.
+- ✅ **Rescue deed + revive bark** *(v4.13.0, Pillar 1 × 3 × 4)* — pulling a downed ally back and winning earns
+  `deed.combat.rescue`, threaded through the *whole* deed loop (Chronicle, victory bark, Save-Inspector panel,
+  ending conduct line + epilogue), plus an in-the-moment `revive` bark when you Help someone up. Verified.
 - 🔜 **In-the-moment interjections** — companions speak up *inside* other scenes & combats
 - 🔜 **Finer approval** — silent disapproval, thresholds, "they remember that"
 - 🔜 **More romances/rivalries** + the BG3-style *"approval is not consent"* nuance

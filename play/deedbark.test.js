@@ -16,8 +16,11 @@ check("a merciful win draws Garrow's blessing", (pickDeedBark(["deed.combat.merc
 check("a ruthless win draws Varra's line", (pickDeedBark(["deed.combat.ruthless"], ALL) || [])[0] === "Varra");
 check("a ledge kill draws Roen's line", (pickDeedBark(["deed.combat.ledge_kill"], ALL) || [])[0] === "Roen");
 check("a counterspell draws Naeve's line", (pickDeedBark(["deed.combat.counterspell"], ALL) || [])[0] === "Naeve");
+check("a rescue draws Garrow's line", (pickDeedBark(["deed.combat.rescue"], ALL) || [])[0] === "Garrow");
 
 // most-distinctive deed wins when several are earned at once
+check("a rescue is the most resonant deed and speaks first",
+  (pickDeedBark(["deed.combat.flawless", "deed.combat.counterspell", "deed.combat.rescue"], ALL) || [])[1] === DEED_BARKS["deed.combat.rescue"][0].line);
 check("a Counterspell trumps a plain flawless win",
   (pickDeedBark(["deed.combat.flawless", "deed.combat.counterspell"], ALL) || [])[0] === "Naeve");
 check("a ledge kill trumps a flawless/ruthless combo",
