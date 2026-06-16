@@ -25,6 +25,9 @@ where it applies. ✅ = shipped · 🔜 = next · ⏳ = needs Unity/art/budget y
 BG3's combat is its crown jewel; this is our biggest open frontier and the most demonstrable.
 
 - ✅ **5e core** — d20 vs AC, crits, saves, conditions, spell slots, save-for-half AoE
+- ✅ **Concentration** *(v4.14.0)* — a concentration buff (Mirror Image, +4 AC) holds only while its caster
+  keeps focus: damage forces a **CON save** (DC 10 or half the damage) or the spell **drops**. Buffs now
+  carry a real, protectable cost. Verified.
 - ✅ **Downed + death saves + Help** *(v4.12.0)* — a hero at 0 HP goes **down, dying**, rolling a death
   save each turn (3 ✓ stabilise · 3 ✗ die · nat-20 revives); an adjacent ally can **Help** them up at 1 HP.
   The party loses only when **everyone** is down. BG3's most-felt rule. Verified.

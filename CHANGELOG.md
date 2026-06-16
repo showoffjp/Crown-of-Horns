@@ -11,6 +11,22 @@
 
 ---
 
+## 👑 v4.14.0 — *"Hold the Thought"* — Concentration (Pillar 1: the cost of a buff)
+
+> 5e/BG3's quiet balancing rule: a buff isn't free — keep it up only while you can keep your focus.
+
+- 🧠 **Concentration** in `play/crown_combat.html` — **Mirror Image** is now a **concentration** spell. While
+  Naeve sustains it (+4 AC), **any damage she takes forces a Constitution save** — DC **10, or half the
+  damage if higher** — and on a failure the spell **drops**. Suddenly her glass-cannon screen is a thing you
+  have to *protect*, not just cast: peel the foes off her, or watch the mirrors shatter. (The reaction it
+  pairs with — Shield — can still save the hit outright, so the two interact exactly as in BG3.)
+- 🧪 **`conc.test.js`** lifts the page's real `concentrationDC` / `concentrationHolds` and proves the DC rule
+  across the rounding edges (1→10, 20→10, 21→10, 22→11, 40→20) and the hold/break comparison, plus the
+  wiring (Mirror Image flagged `concentration`, damage triggers the save, a failed save strips the effect,
+  no roll without damage) — **15 checks**. The smoke run now **casts Mirror Image and tests concentration**
+  across 400 games, **0 errors** (heroes win 60.5% — Naeve spends the odd turn shielding herself, still in
+  band). Headless suite now **592 checks**, all green.
+
 ## 👑 v4.13.0 — *"We Carried Each Other Out"* — the Rescue deed (Pillar 1 × 3 × 4)
 
 > The new downed system, threaded straight through the deed loop: pull a fallen comrade back and win, and
