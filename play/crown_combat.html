@@ -112,6 +112,7 @@
   <ul>
    <li><b>Undo Move</b> takes back a clean move · <b>Non-lethal</b> spares the defeated · <b>Reactions</b> toggles your opportunity attacks.</li>
    <li>Every target shows a live <b>hit% · damage · kill%</b> forecast; your selected hero shows incoming <b>threat</b>.</li>
+   <li><b>Deeds</b> — <i>how</i> you win is remembered: a <b>flawless</b> or hard-won victory, a <b>merciful</b> (all spared) or <b>ruthless</b> (no quarter) finish, a <b>ledge kill</b>, the boss's spell <b>unwoven</b>. The Chronicle records them as story flags the wider game can read.</li>
   </ul>
   <h3>⌨️ Hotkeys</h3>
   <ul><li><kbd>1</kbd>–<kbd>9</kbd> abilities · <kbd>V</kbd> shove · <kbd>J</kbd> jump · <kbd>X</kbd> disengage · <kbd>U</kbd> undo · <kbd>Enter</kbd> end turn · <kbd>?</kbd> this help</li></ul>
@@ -288,6 +289,7 @@ let decals=[];   // persistent blood / scorch left where a combatant fell
 
 // ---- combat juice: projectiles, impacts, slashes, screen-shake, torch lighting, death wisps ----
 let fx=[],shake=0,_last=0,_clock=0,_dt=0,_prevIdx=-1,_undo=null,_moveDirty=false,reactionsOn=true,nonLethal=false,_spared=0,jumpMode=false;
+let _ledgeKill=false,_counteredBoss=false;   // combat deeds (Pillar 1 × 4) — how you win feeds the story
 const JUMP_RANGE=3;
 // Pillar 1 — JUMP (BG3): leap to a tile in range, vaulting walls/units; provokes no opportunity attack
 /*<JUMP>*/
@@ -612,6 +614,7 @@ function doShove(att,def){
   const die=()=>{log(`${def.name} falls.`,"dmg");decals.push({x:def.x,y:def.y,col:def.side==="hero"?"rgba(70,22,32,.5)":"rgba(40,30,55,.5)"});fxSoul(def);};
   if(passable(dest.x,dest.y,def)){const drop=fallDrop(def.x,def.y,dest.x,dest.y);def.x=dest.x;def.y=dest.y;recoil(att,def);
     if(drop>0){const fd=Dice.Notation("2d6")*drop;def.hp=Math.max(0,def.hp-fd);def.add(Prone,Prone.durationRounds);
+      if(!def.alive&&def.side==="foe")_ledgeKill=true;   // deed: an environmental kill
       log(`${att.name} shoves ${def.name} off the ledge — they plummet for ${fd} and sprawl Prone! (${aRoll} vs ${dRoll})`,"crit");
       spawnFloat(def,"Fall! -"+fd,"#e0a0a0");fxBurst(def,"#cdd6e0",true);shake=Math.max(shake,6);bark("wall");}
     else{log(`${att.name} shoves ${def.name} back a pace. (${aRoll} vs ${dRoll})`,"hit");spawnFloat(def,"Shoved!","#cdd6e0");}
@@ -654,7 +657,7 @@ function sfx(kind){
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
-  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;$("over").style.display="none";$("log").innerHTML="";
+  floats=[];fx=[];decals=[];shake=0;gameOver=false;armed=null;jumpMode=false;_prevIdx=-1;_undo=null;_lastBark=-9;_lastPair=-99;_spared=0;_ledgeKill=false;_counteredBoss=false;$("over").style.display="none";$("log").innerHTML="";
   // seed a slick of oil among the Returned — ignite it (Garrow's Firebrand) to see it catch
   surfaces=new Map();createSurfaceArea(10,2,1,"grease");createSurfaceArea(11,5,1,"grease");
   const rolled=units.map(u=>({u,init:Dice.D20()+u.initMod}));
@@ -734,7 +737,7 @@ function canCounter(caster,ab,naeve){return !!(ab&&ab.isSpell&&caster&&caster.si
 /*</COUNTER>*/
 function useAbility(att,ab,target){
   if(ab.isSpell&&att.side==="foe"&&reactionsOn){const nv=units.find(u=>u.knowsCounter&&u.alive&&u.side==="hero"&&!u.reacted);
-    if(canCounter(att,ab,nv)){nv.reacted=true;nv.counterReady=false;faceLunge(nv,att);
+    if(canCounter(att,ab,nv)){nv.reacted=true;nv.counterReady=false;_counteredBoss=true;faceLunge(nv,att);
       log(`${nv.name} Counterspells ${att.name}'s ${ab.name} — the weave unravels and the spell fizzles! (reaction)`,"crit");
       spawnFloat(att,"Countered!","#c79bf0");fxRing(att,"#c79bf0");sfx("cond");att.hasActed=true;return true;}}
   if(ab.shove){ if(!target)return false; doShove(att,target); att.hasActed=true; return true; }
@@ -774,12 +777,47 @@ function enemyTurn(){
   },360);
 }
 
+// Pillar 1 × 4 — DEEDS IN COMBAT: *how* you win becomes story flags the narrative can read.
+// deedFlags is pure: a battle summary -> the GameFlag-style flags it earns. The reverse of the
+// flag bridge — combat reads coh.combat.flags; now it writes coh.combat.deeds.
+/*<DEEDS>*/
+const DEED_LABEL={
+  "deed.combat.flawless":"flawless (no hero fell)","deed.combat.pyrrhic":"hard-won (a hero fell)",
+  "deed.combat.merciful":"merciful (every foe spared)","deed.combat.ruthless":"ruthless (no quarter given)",
+  "deed.combat.ledge_kill":"a foe cast down from the heights","deed.combat.counterspell":"the boss's spell unwoven"};
+function deedFlags(s){
+  if(!s.won)return [];
+  const f=[s.heroesLost===0?"deed.combat.flawless":"deed.combat.pyrrhic"];
+  if(s.slain===0&&s.spared>0)f.push("deed.combat.merciful");
+  if(s.spared===0&&s.slain>0)f.push("deed.combat.ruthless");
+  if(s.ledgeKill)f.push("deed.combat.ledge_kill");
+  if(s.counteredBoss)f.push("deed.combat.counterspell");
+  return f;
+}
+/*</DEEDS>*/
+function battleSummary(won){
+  const heroes=units.filter(u=>u.side==="hero");
+  return {won,heroesLost:heroes.filter(u=>!u.alive).length,
+    spared:units.filter(u=>u.side==="foe"&&u.spared).length,
+    slain:units.filter(u=>u.side==="foe"&&!u.alive&&!u.spared).length,
+    ledgeKill:_ledgeKill,counteredBoss:_counteredBoss};
+}
+function recordDeeds(won){
+  const flags=deedFlags(battleSummary(won));
+  if(flags.length){
+    try{ if(typeof localStorage!=="undefined"){const raw=localStorage.getItem("coh.combat.deeds");const prev=raw?JSON.parse(raw)||{}:{};
+      flags.forEach(fl=>prev[fl]=true);localStorage.setItem("coh.combat.deeds",JSON.stringify(prev));} }catch(e){}
+    log("Chronicle — this fight is remembered: "+flags.map(fl=>DEED_LABEL[fl]||fl).join(" · "),"sys");
+  }
+  return flags;
+}
 function checkEnd(){
   const h=units.some(u=>u.side==="hero"&&u.alive), f=units.some(u=>u.side==="foe"&&u.alive);
   if(h&&f)return false; gameOver=true;
   const o=$("over");o.className="overlay "+(h?"win":"lose");o.style.display="flex";
   $("overTitle").textContent=h?"The Returned are put to rest.":"The shrine claims three more.";
-  log(h?(_spared>0?`Victory — and ${_spared} of the Returned were spared.`:"Victory."):"Defeat.","sys");if(h)bark("victory");return true;
+  log(h?(_spared>0?`Victory — and ${_spared} of the Returned were spared.`:"Victory."):"Defeat.","sys");if(h)bark("victory");
+  recordDeeds(h);return true;
 }
 
 // ===========================================================================

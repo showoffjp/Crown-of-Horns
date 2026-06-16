@@ -60,7 +60,9 @@ BG3's combat is its crown jewel; this is our biggest open frontier and the most 
   (the boss's Wail) before it resolves — it fizzles entirely. The offensive half of the reaction system,
   sharing one economy with Shield + opportunity attacks. Verified.
 - 🔜 **More reactions** — a reaction **prompt UI** (choose per-trigger, BG3's full reaction system)
-- 🔜 **Superiority twist** — *deeds-in-combat*: how you win a fight feeds the story flags
+- ✅ **Superiority twist — deeds-in-combat** *(v4.7.0, Pillar 1 × 4)* — *how* you win a fight is appraised
+  (flawless/hard-won, merciful/ruthless, a ledge kill, the boss's spell countered) and written back as
+  **story flags** (`coh.combat.deeds`), the reverse of the flag bridge combat already reads. Verified.
 
 ## 🧭 Pillar 2 — Quality of life (out-comfort BG3)
 
