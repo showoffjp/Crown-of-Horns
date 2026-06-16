@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v4.7.0 — *"The Chronicle Remembers"* — Deeds in combat (Pillar 1 × 4: tactics feed the story)
+
+> The superiority twist: BG3's combat is spectacular but *self-contained*. Here, **how** you win writes
+> itself into the story.
+
+- 📜 **Deeds in combat** in `play/crown_combat.html` — every victory is now appraised and recorded as
+  **story flags** the wider game can read. Win without losing a hero → **flawless**; lose one → **hard-won**.
+  Spare every foe (non-lethal) → **merciful**; give no quarter → **ruthless**. Cast a foe off the
+  high-ground ledge to their death → **a ledge kill**; unravel the boss's spell with Counterspell → **the
+  weave unwoven**. On victory the **Chronicle** narrates the deeds earned and writes them to
+  `localStorage` as `coh.combat.deeds` — the **reverse** of the flag bridge the combat already *reads*
+  (`coh.combat.flags`), closing the Pillar 1 ↔ 4 loop: the save shapes the barks, and now the fight
+  shapes the save.
+- 🧪 **`deeds.test.js`** lifts the page's real `deedFlags` mapping and proves a battle summary earns exactly
+  the right flags (flawless xor hard-won; merciful/ruthless only on a pure finish; the ledge + counter
+  deeds; **nothing** on a loss; up to four stacking on a clean sweep; every flag has a Chronicle label),
+  plus the wiring (ledge-kill & countered-boss tracking, the summary counts, the `recordDeeds` call, the
+  `coh.combat.deeds` write) — **16 checks**. Smoke still **400 games, 0 errors**. Headless suite now
+  **488 checks**, all green. (Tactics help documents deeds.)
+
 ## 👑 v4.6.0 — *"The Weave Unravels"* — Counterspell (Pillar 1: reactions)
 
 > Shield's offensive twin: don't survive the boss's spell — *deny* it.
