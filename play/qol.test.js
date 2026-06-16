@@ -45,7 +45,7 @@ check("ability buttons show their hotkey number", h.includes('<span style="color
 // ---- reaction toggle (BG3 "ask before my opportunity attacks") ----
 check("a Reactions toggle exists and gates hero OAs",
   h.includes('id="react"') && h.includes("reactionsOn=!reactionsOn") &&
-  h.includes('e.side==="hero"&&!reactionsOn'));
+  h.includes('e.side==="hero"&&!reactionAllowed(reactionsOn,stances,"oa")'));
 
 // ---- non-lethal toggle (BG3 "knock them out, don't kill") ----
 const nl = h.match(/\/\*<NONLETHAL>\*\/([\s\S]*?)\/\*<\/NONLETHAL>\*\//);

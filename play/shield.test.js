@@ -27,7 +27,7 @@ check("Shield only triggers against an attack roll on a hero who knows it",
   h.includes('ab.isAttackRoll&&def.knowsShield&&def.side==="hero"'));
 check("Shield consumes the shared once-per-round reaction (def.reacted)",
   /shieldNegates\(r\.total,r\.ac,r\.crit\)\)\{\s*def\.reacted=true/.test(h));
-check("Shield respects the Reactions toggle", /!def\.reacted&&reactionsOn&&r\.hit&&shieldNegates/.test(h));
+check("Shield respects the Reactions stance", /!def\.reacted&&reactionAllowed\(reactionsOn,stances,"shield"\)&&r\.hit&&shieldNegates/.test(h));
 check("Shield only fires when the attack actually landed (r.hit)", h.includes("&&r.hit&&shieldNegates(r.total,r.ac,r.crit)"));
 check("a Shielded blow is fully turned aside (early return, no damage)",
   /spawnFloat\(def,"🛡 Shield!"[\s\S]*?sfx\("cond"\);return;\}/.test(h));
