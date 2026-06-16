@@ -33,7 +33,7 @@ check("the picked line is non-empty text", (() => {
 
 // wired to the beats
 check("bark fires on hero crit / kill / ally-down / heal / victory / ignite / wall",
-  h.includes('if(att.side==="hero")bark("crit")') && h.includes('bark(def.side==="foe"?"kill":"ally_down")') &&
+  h.includes('if(att.side==="hero")bark("crit")') && h.includes('bark("kill")') && h.includes('bark("ally_down")') &&
   h.includes('bark("heal")') && h.includes('if(h)bark("victory")') &&
   h.includes('bark("ignite")') && h.includes('bark("wall")'));
 check("barks are rate-limited so they don't spam", h.includes("_clock-_lastBark<1.6"));

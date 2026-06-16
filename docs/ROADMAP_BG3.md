@@ -25,6 +25,9 @@ where it applies. ✅ = shipped · 🔜 = next · ⏳ = needs Unity/art/budget y
 BG3's combat is its crown jewel; this is our biggest open frontier and the most demonstrable.
 
 - ✅ **5e core** — d20 vs AC, crits, saves, conditions, spell slots, save-for-half AoE
+- ✅ **Downed + death saves + Help** *(v4.12.0)* — a hero at 0 HP goes **down, dying**, rolling a death
+  save each turn (3 ✓ stabilise · 3 ✗ die · nat-20 revives); an adjacent ally can **Help** them up at 1 HP.
+  The party loses only when **everyone** is down. BG3's most-felt rule. Verified.
 - ✅ **Positioning** — flanking, half-cover, opportunity attacks, reach
 - ✅ **Environmental surfaces** *(v3.86.0)* — lay **oil**, **ignite** it, fire **spreads** through
   grease and burns anyone standing in it, **water douses** it. Real combos, verified.
