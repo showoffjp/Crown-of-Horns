@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v4.15.0 — *"Words at Scale"* — a dialogue compiler + the first banter flood (Pillar 3/4)
+
+> The bottleneck on BG3-scale writing wasn't ideas — it was that every conversation is verbose hand-C#.
+> So: a DSL and a compiler, and the words start to pour.
+
+- ✍️ **`.dlg` → C# dialogue compiler** (`tools/dlg-compile.py`) — author branching dialogue in a clean,
+  readable DSL (`node:` / `* choice -> target`, `[INSIGHT 13]` skill checks, `?? fail`, `| if …`, `| fx
+  appr.roen +5`), and it generates `Assets/Scripts/Content/<Name>.cs` in the **exact** pattern the runtime
+  and `extract-dialogue.py` expect (regular escaped string literals, canonical field names). Writing in the
+  DSL is ~5–10× faster than hand-C# and makes the story bible's existing scripts importable. The compiler
+  **validates before it emits**: every choice/auto/start reference must resolve, no duplicate ids, no
+  unreachable nodes — authoring errors are caught headlessly, before Unity ever sees them.
+- 💬 **First content flood — companion campfire banter** (`play/dialogue/campfire_banter.dlg`) — **8 new
+  two-hander conversations / 44 nodes**, on-voice for the whole cast (Garrow's grey mercy, Roen's honest
+  dishonesty, Varra's infernal debt, Naeve's Netherese grief, Ilfaeril's ten-thousand-year weariness,
+  Maerin's "a free gift from no one"), with Insight/Arcana/History/Persuade checks, approval shifts, and
+  story-flag writes. The game's conversation total rises **52 → 60** (158 → **202 nodes**, 13 → **18 skill
+  checks**), all live in the Dialogue Viewer.
+- 🧪 **`dlg.test.js`** runs the real compiler against fixtures and pins the DSL contract (skill/ability
+  mapping, `appr.`/`rep.`/`SET`/`CLEAR`/`>=` → the right `FlagClause`/`FlagOp`, fail branches, `END`,
+  *regular* strings not verbatim) and that validation rejects dangling refs + duplicate ids — **14 checks**.
+  `dialogue_viewer.test.js` still green (20). Headless suite now **606 checks**, all green; the generated
+  C# round-trips cleanly through `extract-dialogue.py`. *(The C# compile itself is verified on your machine.)*
+
 ## 👑 v4.14.0 — *"Hold the Thought"* — Concentration (Pillar 1: the cost of a buff)
 
 > 5e/BG3's quiet balancing rule: a buff isn't free — keep it up only while you can keep your focus.

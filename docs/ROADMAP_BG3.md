@@ -98,6 +98,10 @@ Already competitive in depth; "superior" means **reactivity density**.
 
 - ✅ **6 companions** — approval → night-talks → personal quests → **4 romances** → epilogues
 - ✅ **34 fireside banters** reactive to choices, losses, bosses; rivalry/rupture arcs
+- ✅ **Dialogue at scale** *(v4.15.0)* — a `.dlg` → C# **dialogue compiler** (`tools/dlg-compile.py`) lets us
+  author BG3-volume branching dialogue in a readable DSL that compiles to the real runtime + validates
+  every reference headlessly. First flood: **8 on-voice companion banters / 44 nodes** (52 → 60 convos).
+  The force-multiplier for everything below. Verified.
 - ✅ **Combat barks** *(v3.93.0)* — companions react in-voice to crits, kills, an ally going down,
   a foe igniting, a wall-slam, and victory (present-aware, rate-limited). Verified.
 - ✅ **Story-flag-reactive barks** *(v3.98.0, Pillar 3 × 4)* — the line *changes with your run's flags*:

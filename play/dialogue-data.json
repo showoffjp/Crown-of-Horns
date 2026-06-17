@@ -1057,6 +1057,798 @@
    ]
   },
   {
+   "id": "banter.garrow_roen.prayer",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Garrow · Roen · Prayer",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Garrow",
+     "text": "You pray to nothing, thief. I have watched you do it — that small nod, before a lock. To whom?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "banter.garrow_roen.prayer.seen",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Roen",
+     "text": "It's not a prayer. It's a promise. \"Be quick, be quiet, be gone.\" Three gods I can keep.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"He has a point, Garrow.\"",
+       "next": "roen_win",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.roen.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"He's stalling, and so are you.\"",
+       "next": "stall",
+       "fail": null
+      },
+      {
+       "text": "[INSIGHT 13] \"You nod to the people you've robbed. An apology you'll never say out loud.\"",
+       "next": "apology",
+       "fail": "deflect",
+       "checkDC": 13,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"...\"",
+       "next": "watch",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "watch",
+     "speaker": "Garrow",
+     "text": "Hm. Three gods you can keep. That is two more than most priests manage. Mind your footing.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "roen_win",
+     "speaker": "Garrow",
+     "text": "...Kelemvor keeps promises too. He keeps all of them. See that yours stay the harmless kind.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "stall",
+     "speaker": "Roen",
+     "text": "Stalling is a profession, grave-digger. You should try it. You'd live longer.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "apology",
+     "speaker": "Roen",
+     "text": "*(He doesn't look at you for a moment.)* ...That's a nasty little trick, reading a man like that. Do it again and I'll teach you a lock you can't pick. But — yes. Something like that.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.roen.apology_seen",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "deflect",
+     "speaker": "Roen",
+     "text": "It's a nervous habit. My old mentor had it. Leave the dead their habits, yes?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.varra_naeve.fire",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Varra · Naeve · Fire",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Varra",
+     "text": "You flinch when I light the fire, Netherese. Every night. A wizard, flinching at a campfire.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Naeve",
+     "text": "I watched a city the size of a sky fall burning for a day and a night. Karsus reached for godhood and the Weave answered with ruin. You light a campfire; I see Netheril. It is not the same fire. It is always the same fire.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Varra. Light it further from her.\"",
+       "next": "kind",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 4
+        },
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 1
+        }
+       ]
+      },
+      {
+       "text": "\"You both lost a home to your own ambition. Sit with that.\"",
+       "next": "mirror",
+       "fail": null
+      },
+      {
+       "text": "[ARCANA 15] \"Karsus didn't fall to fire. He fell to a single missing word. You're not afraid of burning. You're afraid of being one word from ruin yourself.\"",
+       "next": "truth",
+       "fail": "quiet",
+       "checkDC": 15,
+       "checkAbility": "Intelligence"
+      }
+     ]
+    },
+    {
+     "id": "kind",
+     "speaker": "Varra",
+     "text": "*(She moves the kindling, grumbling.)* There. Happy? I'm not a monster. A monster wouldn't have asked.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "mirror",
+     "speaker": "Naeve",
+     "text": "*(Varra's grin goes flat.)* ...We are not the same, conjurer. My ambition was a nation's. Yours fit in a contract.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "truth",
+     "speaker": "Naeve",
+     "text": "*(A long silence.)* ...You read me like Netherese script, and you are not even of the empire. Yes. One word. I have spent three centuries making certain I am never again one word from the end. *(quietly)* Thank you. No one has ever named it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.naeve.karsus_named",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 8
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "quiet",
+     "speaker": "Naeve",
+     "text": "Mind the Weave you cannot see, traveller. That is all I will say of it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.maerin_garrow.father",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Maerin · Garrow · Father",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Maerin",
+     "text": "Sister — you knew my father. Before. When the Doomguides still said his name like a blessing.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "banter.maerin_garrow.seen",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Garrow",
+     "text": "I knew Aldric Morn. I buried beside him. He was the best of us, child, which is why the worst of him frightens me so. You have his eyes. Try not to have the rest.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"She's not him, Garrow.\"",
+       "next": "defend",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.maerin.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"Maerin, you don't have to be either of them.\"",
+       "next": "free",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.maerin.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 14] \"You're not warning her, Garrow. You're warning yourself — that you could still love him.\"",
+       "next": "garrow_truth",
+       "fail": "closed",
+       "checkDC": 14,
+       "checkAbility": "Wisdom"
+      }
+     ]
+    },
+    {
+     "id": "defend",
+     "speaker": "Garrow",
+     "text": "No. She is not. *(softer)* Forgive an old priest her caution, Maerin. I have watched good people become reasons. I would spare you that.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "free",
+     "speaker": "Maerin",
+     "text": "*(She smiles — the unguarded one Aldric describes when he can't sleep.)* I loved the world like it was a free gift from no one. He taught me that, before the Wall. I'd like to keep the half of him that's worth keeping.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.maerin.free_gift",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "garrow_truth",
+     "speaker": "Garrow",
+     "text": "*(She is quiet a long moment.)* ...You see too much, Returned. Yes. I have stood at a great many gravesides certain of the doctrine. I have never once stood at his and stayed certain. Leave an old woman that.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.garrow.loves_aldric_still",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "closed",
+     "speaker": "Garrow",
+     "text": "Mind the watch, both of you. The dead keep no schedule, and neither do his Choir.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.roen_varra.contracts",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Roen · Varra · Contracts",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Roen",
+     "text": "You and I are the same animal, warlock. We both signed something we couldn't read all the way down.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Varra",
+     "text": "*(She laughs, no warmth in it.)* You signed a guild ledger, thief. I signed in a language with no word for \"out.\" Don't you dare put us in the same sentence.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"He's trying to say he understands.\"",
+       "next": "bridge",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.roen.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"She's right, Roen. Some debts you can't pick the lock on.\"",
+       "next": "agree",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"Both of you are still here. That's the part that matters.\"",
+       "next": "here",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "bridge",
+     "speaker": "Varra",
+     "text": "*(A pause.)* ...Fine. He's trying. Badly, but trying. *(to Roen)* You want to understand, sticky-fingers? Then help me find the loophole. Mine, or yours. I'm not picky tonight.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.varra_roen.alliance",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "agree",
+     "speaker": "Roen",
+     "text": "*(He nods, slowly.)* Aye. I always thought a clever enough lock could open anything. Then I met a thing that was the lock and the key and the door. Point taken.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "here",
+     "speaker": "Varra",
+     "text": "*(She studies you, then snorts.)* ...Sentiment. From you. The world really is ending. Yes. We're both still here. Drinks are on the thief.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.ilfaeril_naeve.time",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Ilfaeril · Naeve · Time",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Ilfaeril",
+     "text": "You speak of Netheril as a wound, arcanist. To me it is recent news. I watched the Crown Wars; your floating cities were a child's bright idea built long after.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Naeve",
+     "text": "Then you understand what no one else in this party can. The loneliness is not in the losing. It is in being the last shelf in the library no one else can read.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"You're not the last shelf. You have each other now.\"",
+       "next": "together",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 3
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "[HISTORY 16] \"You're both wrong about why it hurts. It isn't that no one remembers. It's that you do.\"",
+       "next": "remember",
+       "fail": "polite",
+       "checkDC": 16,
+       "checkAbility": "Intelligence"
+      }
+     ]
+    },
+    {
+     "id": "together",
+     "speaker": "Ilfaeril",
+     "text": "*(The ancient elf inclines his head.)* A young thought. *(but not unkind)* ...And yet. Two unreadable shelves, side by side, make a small and stubborn library. I find I do not mind it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.ilfaeril_naeve.library",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "remember",
+     "speaker": "Naeve",
+     "text": "*(She and Ilfaeril share a look older than the others can follow.)* ...The traveller has it. Memory is the curse. The forgotten do not grieve. We are the ones who carry the empire's funeral, every day, alone — *(she glances at Ilfaeril)* — or, it seems, not entirely alone.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.naeve_ilfaeril.memory_named",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "polite",
+     "speaker": "Ilfaeril",
+     "text": "A kind effort. The young always try to fix what only outlasts. Walk on, friend; the road is long, and I have time.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.garrow_varra.mercy",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Garrow · Varra · Mercy",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Varra",
+     "text": "You spared the Returned at the shrine. Knocked them cold instead of finishing them. Sentiment, grave-digger? From Kelemvor's own?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "banter.garrow_varra.mercy.seen",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Garrow",
+     "text": "Mercy is not sentiment, tiefling. It is the discipline of not becoming the thing you fight. The Wall was built by people very certain they were doing the smaller evil. I will not earn my place in it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"She spared them because they were people once. That's all.\"",
+       "next": "people",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"Careful, Garrow. Mercy you can't afford is just a slower kind of cruelty.\"",
+       "next": "hard",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"...\"",
+       "next": "watch",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "people",
+     "speaker": "Garrow",
+     "text": "Just so. Every soul in that Wall was a person once, dissolving for the crime of doubt. I bury people. I do not unmake them. Not even the ones that try to unmake me.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "hard",
+     "speaker": "Varra",
+     "text": "*(Varra actually nods, surprised.)* ...Huh. The grey priest has teeth. She's right, Garrow — spare a wolf today, bury a shepherd tomorrow. Keep that in the ledger.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.garrow.mercy_questioned",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "watch",
+     "speaker": "Garrow",
+     "text": "Mind the dark, both of you. The Returned do not announce themselves. Mercy is for after the danger, never instead of sense.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.maerin_naeve.firsttime",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Maerin · Naeve · Firsttime",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Maerin",
+     "text": "Naeve — you've lived three hundred years. Does it stop hurting? Coming back, I mean. Remembering the Wall when the others are laughing.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Naeve",
+     "text": "*(She considers the girl with something gentler than she shows the others.)* No. It does not stop. But it changes shape. The grief becomes a room you learn to live beside, rather than inside. You will furnish it. One day you will even invite people in.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"That's the kindest thing I've heard you say.\"",
+       "next": "kind",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"Maerin — you don't have to do it alone. None of us came back whole.\"",
+       "next": "together",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.maerin.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "kind",
+     "speaker": "Naeve",
+     "text": "*(A faint, real smile.)* Do not tell Varra. I have a reputation as a cold thing, and it keeps people a useful distance away. *(beat)* ...You may stay inside it, though, little Returned. You and I keep the same room.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.naeve_maerin.same_room",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "together",
+     "speaker": "Maerin",
+     "text": "*(She breathes out, steadier.)* ...Thank you. Both of you. My father always said I loved the world like a free gift. I forgot, for a while, in the dark. I'd like to remember.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.maerin.remembering",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "banter.roen_ilfaeril.honesty",
+   "file": "CampfireBanter.cs",
+   "title": "Banter · Roen · Ilfaeril · Honesty",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Roen",
+     "text": "You make me twitchy, old one. Ten thousand years and you never lie. A thief can't read a man who's got nothing to hide.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Ilfaeril",
+     "text": "*(A slow, weathered smile.)* I had ten thousand years to spend every lie I owned, thief. Honesty is simply what is left when one runs out of other currency. You will arrive there too, given time.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"He won't lie because there's no one left to lie to. That's not virtue. That's loss.\"",
+       "next": "loss",
+       "fail": null
+      },
+      {
+       "text": "\"Give it a rest, Roen. Not everyone's running a game.\"",
+       "next": "rest",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "[PERSUADE 14] \"Then tell me one true thing you've never told anyone.\"",
+       "next": "truth",
+       "fail": "declined",
+       "checkDC": 14,
+       "checkAbility": "Charisma"
+      }
+     ]
+    },
+    {
+     "id": "loss",
+     "speaker": "Ilfaeril",
+     "text": "*(The old elf does not flinch.)* ...A sharp grief, well aimed. Yes. There is that, too. Honesty is cheap when the audience is gone. But it is still honesty, and I find I prefer it to the alternative I practiced for an age.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "rest",
+     "speaker": "Roen",
+     "text": "*(He raises his hands.)* Easy, easy. Just professional curiosity. A man who can't be read is the most interesting thing in any room.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "truth",
+     "speaker": "Ilfaeril",
+     "text": "*(He is quiet for the length of three breaths.)* ...I have forgotten her name. The one I did the unforgivable thing for. Ten thousand years, and the face stays, and the name is gone. I have never said that aloud. *(to you)* There. One true thing. Spend it kindly.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [
+      {
+       "key": "banter.ilfaeril.forgotten_name",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 7
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "declined",
+     "speaker": "Ilfaeril",
+     "text": "Some truths I have carried too long to set down for a parlor trick, thief. Ask me again when you mean it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "(CrownWarsContent)",
    "file": "CrownWarsContent.cs",
    "title": "(crownwarscontent)",
@@ -3511,9 +4303,9 @@
   }
  ],
  "stats": {
-  "conversations": 52,
-  "nodes": 158,
-  "choices": 147,
-  "skillChecks": 13
+  "conversations": 60,
+  "nodes": 202,
+  "choices": 170,
+  "skillChecks": 18
  }
 }
