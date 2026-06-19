@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v4.17.0 — *"The City Remembers"* — Act I deepened with reactive aftermath (Pillar 3/4)
+
+> Chapter 1 stops being a corridor of set-pieces and becomes a *place that reacts* — every NPC reads what
+> you did at Hollowmere, who you recruited, and whether you named the Doomguide a monster.
+
+- 🏙️ **Five reactive Act I conversations** (`play/dialogue/act_one_deep.dlg` → `ActOneDeepContent.cs`), each
+  gated on the flags Act I sets:
+  - **The Count** — return to Aldric after Hollowmere; he reacts to your *third path* / who-you-saved /
+    naming-Vayle-a-monster, and the scene can crack his twenty-year self-justification (`aldric.crown_doubt_planted`).
+  - **The Doomguide's Question** — Vayle seeks you out, and depending on your firelight choice she turns, doubts,
+    or asks to learn a single survivor's name — the discipline-of-mercy lesson she taught Garrow, coming back.
+  - **A Name From Hollowmere** — Sable & her son Wick, alive only if you saved them; the small remembering the
+    large. Names, not weight.
+  - **The Guild's Interest** — a fence who prices you differently if Roen's at your side or you already owe the Guild.
+  - **The Choir on the Corner** — a street-preacher recruiting grief; you can nuance, refuse to be a symbol,
+    **expose** the harvest's hand in their wells (Persuade 16), or endorse the Choir — each reshaping `faction.choir`.
+- 📈 **+5 conversations / +37 nodes**, ~40 condition-gated branches reading `act1.*` / `companion.*` / `faction.*` /
+  `aldric.*` flags so the Lower City *answers* your Act I run. Game total **82 → 87 conversations, 377 → 414 nodes**.
+  Compiler-validated, round-trips through `extract-dialogue.py`; suite holds at **606 checks**, all green.
+
 ## 👑 v4.16.0 — *"The Spine, in Voices"* — chapter dialogue, Prologue → Act V (Pillar 4)
 
 > With the compiler in hand, the words pour: a marquee conversation for every chapter of the saga.
