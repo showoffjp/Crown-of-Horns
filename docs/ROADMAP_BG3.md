@@ -132,6 +132,10 @@ A genuinely novel premise (the **Wall of the Faithless**), 4 masks, 6 endings, t
 NG+ memory — arguably **already superior in concept**. "Superior" = wider consequence webs.
 
 - ✅ **167-flag reactivity graph**, six branching endings, personalized epilogues, NG+ memory
+- ✅ **Chapter dialogue spine** *(v4.16.0)* — a marquee branching conversation for **every chapter**
+  (Prologue → Act V): the Reservation, Tea's aftermath, the Sealed Stacks, the Audience, the Unmade's
+  Offer, the Last Returned, the Deathless Garden, the Convergence, the Name, the Ledger. **+30
+  conversations / +219 nodes** via the `.dlg` compiler; the game's dialogue more than doubled. Verified.
 - ✅ Browsable: Dialogue-tree viewer, Endings explorer, Flag-dependency graph, Saga map
 - 🔜 **Faction-outcome webs** — choices in one act visibly reshape later hubs
 - 🔜 **Deeper NG+** — the Lady *remembers specific* prior-run choices

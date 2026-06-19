@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v4.16.0 — *"The Spine, in Voices"* — chapter dialogue, Prologue → Act V (Pillar 4)
+
+> With the compiler in hand, the words pour: a marquee conversation for every chapter of the saga.
+
+- 📖 **Main-spine dialogue for all six chapters**, authored in the `.dlg` DSL (`play/dialogue/prologue.dlg`,
+  `act_one … act_five.dlg`) and compiled to C# `Content`:
+  - **Prologue** — the Wall's *Reservation*, waking Returned beside Sister Garrow, the Choir herald who
+    points you at Aldric.
+  - **Act I** — the Gilded Gate (Flaming Fist), recruiting **Roen** (*The Fist and the Knife*) and **Varra**
+    (*A Devil's Arithmetic*), the **Burning of Hollowmere** with Doomguide Vayle, and the first world-skip.
+  - **Act II** — Candlekeep's price of entry, the **Sealed Stacks** (*the Crown is Myrkul; you are the
+    crack*), the **Audience** with a weary, *bound* Kelemvor, and **the Unmade's Offer**.
+  - **Act III** — the **Falling City**, the **Court of Knives** with Ilfaeril, the **Last Returned** lowering
+    its hood to show your own face, and Naeve recognizing your hand in her apocalypse's margins.
+  - **Act IV** — the **Pale Companion** (Myrkul) dropping its mask as the Crown is forged, and the
+    **Deathless Garden** — the paradise-tomb where everyone you've lost is alive, and static, forever.
+  - **Act V** — the **Convergence** (Aldric & the Crown), the **Keyhole** (Jergal's golden road), the
+    **Name** (the loop has no beginning — *you* are its author), and the **Ledger** (judge the discarded by
+    hand, one name at a time).
+- 📈 **30 new conversations / 219 nodes**, with **Insight / Arcana / History / Persuade / Intimidate** checks,
+  approval shifts, faction rep, and ~150 story-flag writes wiring straight into `GameFlags`. The game's
+  dialogue more than **doubles: 52 → 82 conversations, 158 → 377 nodes, 13 → 43 skill checks** — all live in
+  the Dialogue Viewer. Every node/branch reference is validated by `dlg-compile.py` and round-trips through
+  `extract-dialogue.py`; `dialogue_viewer.test.js` (20) + `dlg.test.js` (14) stay green. Headless suite holds
+  at **606 checks**. *(The generated C# compiles on your machine.)*
+
 ## 👑 v4.15.0 — *"Words at Scale"* — a dialogue compiler + the first banter flood (Pillar 3/4)
 
 > The bottleneck on BG3-scale writing wasn't ideas — it was that every conversation is verbose hand-C#.
