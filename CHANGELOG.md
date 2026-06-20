@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v4.19.0 — *"The City, Crowded"* — 12 more denizens (Waves II–III) (Pillar 3/4)
+
+> More souls for the Gilded Gate. Comedy, menace, the companions' faces, and the men who ferry the dead.
+
+- 🎭 **Twelve more fully-voiced NPCs** across two packs (`gate_denizens_2.dlg`, `gate_denizens_3.dlg`):
+  **Hessa Dock-Eye** (the one-eyed smuggler running an underground railroad for the Faithless she'd deny to
+  the gallows); **Father Brisk** (a Kelemvorite at the exact midpoint of Garrow's road, performing perfect
+  empty rites); **Madame Eyes** (a fraud fortune-teller whose cards keep coming up *true* for you — and keep
+  repeating, because she's read you in other lives); **Pell the Honest Beggar** (who'll waste your coin on
+  drink and says so); **Brindle Quillfeather** (a gnome whose useless "empathy detector" turns out to map the
+  harvest); **the Twins Who Aren't** (two strangers who started with a con and grew a brother inside it);
+  **Doctor Sallow** (a cowardly plague-doctor afraid not of the fever but of *failing*); **Wrenna Alleywind**
+  (Roen's estranged Harper sister); **Quill** (Varra's devil — a courteous broker secretly *rooting* for the
+  collateral to beat him); **Justiciar Veld** (the church's true believer, defending a load-bearing wall:
+  *if the Wall is wrong, he's a murderer with good penmanship*); **Senna the Glassblower's Widow** (rebuilding
+  a memorial the church keeps smashing); **the Ferryman of Chionthar** (a Charon who learns the snare on the
+  near bank is the *church's* addition, not the god's toll).
+- 🔁 Heavy reactivity: lines gate on `companion.roen.recruited` / `companion.varra.recruited` /
+  `act1.fist_ally` / `prologue.garrow_doubt`, and seed companion- and faction-quest hooks (Wrenna↔Roen,
+  Quill↔Varra, Veld↔Garrow's quest, plus Hessa's underground, Brindle's harvest-map, the Ferryman's run).
+- 📖 `docs/story/NPC_ROSTER.md` updated — **24 Gate denizens now authored** toward the 100+.
+- 📈 **+12 conversations / +96 nodes** — game total **102 → 114 conversations** (542 → **638 nodes**, 61 →
+  **73 skill checks**). Compiler-validated, no id/class collisions; suite holds at **606 checks**, all green.
+
 ## 👑 v4.18.0 — *"A City With a Soul"* — 12 denizens, 2 full side quests, a 100+ NPC bible (Pillar 3/4)
 
 > Turning the dial to 11. BG2's genius was a world *crowded with specific, unforgettable people* — half

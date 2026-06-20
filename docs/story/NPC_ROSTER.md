@@ -36,15 +36,15 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | 10 | **Lula the Memorist** | A 12-year-old keeping the list of the forgotten so her brother Tam isn't alone in the nothing. | ✍️🪙 *(SQ: What the Living Owe)* |
 | 11 | **Deacon Mallow** | Kelemvorite deacon, stingy with rites-ink for doubters, secretly unsure of his own doctrine. | ✍️ |
 | 12 | **Sergeant Bricka** | Flaming Fist sergeant, deadpan gallows humor, eats whenever there's food. | ✍️🔁 |
-| 13 | **Hessa Dock-Eye** | Smuggler who'll move anything and has loud opinions about all of it. | 📋🪙 |
-| 14 | **Father Brisk** | Kelemvorite priest losing his faith after the harvest — Garrow's mirror, walking the opposite road. | 📋🔁 |
-| 15 | **Madame Eyes** | Fraud fortune-teller who keeps *accidentally* being right about you, to her own terror. | 📋 |
-| 16 | **The Honest Beggar (Pell)** | Insists on telling you exactly how badly he'll spend your coin. | 📋 |
-| 17 | **Brindle Quillfeather** | Gnome inventor of beautiful, useless devices; one accidentally detects the unmade. | 📋🪙 |
-| 18 | **The Twins Who Aren't** | Two unrelated beggars committed to an elaborate "long-lost twins" con. | 📋 |
-| 19 | **Doctor Sallow** | Cowardly plague-doctor who gives terrible advice with magnificent confidence. | 📋🪙 |
-| 20 | **Wrenna Alleywind** | Roen's sister, a Harper on a leash; the reason he can't go home. | 📋🔁 *(ties Roen's quest)* |
-| 21 | **Quill** | The infernal pact-broker collecting Varra's soul-debt; polite, patient, the worst kind. | 📋🔁 *(ties Varra's quest)* |
+| 13 | **Hessa Dock-Eye** | Smuggler who'll move anything and has loud opinions about all of it. | ✍️🪙 |
+| 14 | **Father Brisk** | Kelemvorite priest losing his faith after the harvest — Garrow's mirror, walking the opposite road. | ✍️🔁 |
+| 15 | **Madame Eyes** | Fraud fortune-teller who keeps *accidentally* being right about you, to her own terror. | ✍️ |
+| 16 | **The Honest Beggar (Pell)** | Insists on telling you exactly how badly he'll spend your coin. | ✍️ |
+| 17 | **Brindle Quillfeather** | Gnome inventor of beautiful, useless devices; one accidentally detects the unmade. | ✍️🪙 |
+| 18 | **The Twins Who Aren't** | Two unrelated beggars committed to an elaborate "long-lost twins" con. | ✍️ |
+| 19 | **Doctor Sallow** | Cowardly plague-doctor who gives terrible advice with magnificent confidence. | ✍️🪙 |
+| 20 | **Wrenna Alleywind** | Roen's sister, a Harper on a leash; the reason he can't go home. | ✍️🔁 *(ties Roen's quest)* |
+| 21 | **Quill** | The infernal pact-broker collecting Varra's soul-debt; polite, patient, the worst kind. | ✍️🔁 *(ties Varra's quest)* |
 | 22 | **Anneke's Ghost** | The woman Velith gambled away; appears only if you break his luck. | 📋 *(SQ: Velith's Wager)* |
 
 ### Upper City — the patriars
@@ -53,16 +53,16 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | 23 | **Lady Pellingham** | Patriar who collects "authentic experiences"; wants you as Tuesday's salon curiosity. | ✍️🪙 |
 | 24 | **Duke Aldwin the Absent** | A ruler who governs entirely through committees so no decision is ever *his*. | 📋 |
 | 25 | **The de Lancie Heir** | Bored noble who bought an archdevil last season and is shopping for a soul this one. | 📋 |
-| 26 | **Justiciar Veld** | Hardline church magistrate; would burn Lula's list "politely." | 📋🔁 *(ties Garrow's quest)* |
+| 26 | **Justiciar Veld** | Hardline church magistrate; would burn Lula's list "politely." | ✍️🔁 *(ties Garrow's quest)* |
 | 27 | **Archivist Threnn** | Patriar archivist hoarding the city's true death-tolls to protect property values. | 📋🪙 |
-| 28 | **The Glassblower's Widow** | Commissions a memorial window for the Faithless; the church keeps shattering it. | 📋🪙 |
+| 28 | **The Glassblower's Widow** | Commissions a memorial window for the Faithless; the church keeps shattering it. | ✍️🪙 |
 
 ### Outer City & the Docks
 | # | NPC | Hook | |
 |---|---|---|---|
 | 29 | **Old Marrow** | A "corpse" Grud keeps losing at dice; may or may not be entirely dead. | 📋 |
 | 30 | **Captain Semm Tidewrack** | Smuggler-captain who ferries the living dead out of the city, for a price. | 📋🪙🔁 |
-| 31 | **The Ferryman of Chionthar** | Charges the newly-dead a coin they no longer have; a Charon with a guilty conscience. | 📋🪙 |
+| 31 | **The Ferryman of Chionthar** | Charges the newly-dead a coin they no longer have; a Charon with a guilty conscience. | ✍️🪙 |
 | 32 | **Knuckle** | Dock enforcer who only breaks the fingers of people who "deserve a *lesson*, not a *grudge*." | 📋 |
 | 33 | **Sable & Wick** | Hollowmere survivors (if saved); the names you carried out as people, not weight. | ✍️ *(see Act I deepening)* |
 | 34 | **The Net-Mender's Daughter** | Adds her father (Hessel, #1 on Lula's list) to the count; wants his net back from the auction. | 📋🪙 |
@@ -217,5 +217,6 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 
 ---
 
-*Last updated: Wave I — 12 Lower City denizens + Deacon Mallow + 2 full side quests authored and live
-(`gate_denizens.dlg`, `gate_sidequests.dlg`). Roster planned through 100+. Onward.*
+*Last updated: Waves I–III — 24 fully-voiced Gate denizens + Deacon Mallow + 2 full side quests authored and
+live (`gate_denizens{,_2,_3}.dlg`, `gate_sidequests.dlg`). 114 conversations / 638 nodes total. Roster planned
+through 100+. Onward.*

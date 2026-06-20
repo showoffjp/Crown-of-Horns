@@ -8682,6 +8682,1991 @@
    ]
   },
   {
+   "id": "npc.gate.brindle",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Brindle",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(A gnome buried to the eyebrows in brass, springs, and a device that is gently, pointlessly chiming.)* Don't touch the Melancholy Engine, it's calibrated! *(beat)* Well. It's not calibrated *for* anything. It plays a chord that makes you remember a summer you never had. That's its whole function. Took me six years. *(he beams.)* People say, Brindle, why not invent something *useful*, a better lock, a self-stirring pot — and I say, the world's *full* of useful things and *empty* of summers you never had, so who's the fool, eh? Eh? *(he deflates slightly.)* They never answer. They just buy the self-stirring pots from the gnome two stalls down. He's very smug about it.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.brindle_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He gestures at a far stranger device — a cage of tuning forks that have all, eerily, gone silent.)* But *this* one's misbehaving, and I can't think why. The Sympathetic Resonator — it hums when there's grief nearby, see, it's an *empathy detector*, completely useless, my masterpiece. *(he taps it; nothing.)* And lately, in certain spots about the city, it doesn't hum — it goes *dead.* Silent. As if there's a place where grief *itself* can't reach, a *hole* where feeling should be. *(he frowns, genuinely troubled for the first time.)* I built a machine to find sorrow, and it keeps finding... an *absence* of sorrow. Which sounds lovely and is, I think, *the most frightening thing I have ever measured.* Would you — would you carry it a while? You've an interesting silence about you yourself.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[ARCANA 14] \"Your resonator's not broken. It's detecting the unmade — the nothing the harvest leaves. Grief can't exist where souls are filed to zero.\"",
+       "next": "unmade",
+       "fail": "puzzle",
+       "checkDC": 14,
+       "checkAbility": "Intelligence"
+      },
+      {
+       "text": "\"I'll carry it. Show me where the silences are.\"",
+       "next": "carry",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.brindle_resonator",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"An empathy detector. Brindle, that's not useless. That's the most useful thing in this city.\"",
+       "next": "useful",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"Why build a machine to find grief? There's enough of it without a finder.\"",
+       "next": "whygrief",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "unmade",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He goes very still, and the perpetual cheer drains into a scholar's dread.)* The *unmade.* *(quietly.)* Souls filed to *zero.* Of course — the Resonator measures the *resonance* of feeling, and you can't resonate a *nothing*, there's no string left to pluck. *(he clutches the device.)* I built a frivolous thing, a toy, a summer-you-never-had — and it turns out to be the only instrument in Baldur's Gate that can *map the harvest.* *(he looks at you with wild hope and horror.)* Take it. Take it and walk the city. Everywhere it goes silent, the harvest's been, or will be. My useless masterpiece is a *harvest-compass.* *(a slightly hysterical laugh.)* Six years of being called a fool, and I've gone and built the resistance a *map*, entirely by accident, while trying to bottle nostalgia. That's gnomish engineering for you. Useful by *mistake.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brindle_resonator_explained",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brindle_resonator",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.harvest_map_obtained",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "carry",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He presses it into your hands with the tenderness of a parent.)* Mind the forks, they bruise. *(quietly.)* When it hums, there's grief — that's the city being *alive*, even in its sorrow, and that's *good*, that's a string still vibrating. But when it goes *silent* — *(he swallows.)* — that's where something's eaten the feeling out of the world. Mark those places. Bring me the map of the silences. *(he wrings his hands.)* I don't know what it means. I only know I built a thing to find the heart of the city and it keeps finding the *holes* in it, and a gnome who finds holes ought to tell *somebody* who can fill them. You've the look of a filler of holes. Go fill them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brindle_resonator",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brindle_resonator",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "useful",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He clasps his hands to his chest, overcome.)* Useful. *(his eyes well.)* In thirty years of invention, no one — *no one* — has called my empathy detector *useful.* *(he sniffs.)* The summer-chord, the melancholy engine, the device that translates a cat's indifference into common — all *useless*, all *mocked*, all *mine.* And you look at the silliest one and say *that's* the thing the city needs. *(fiercely.)* You're *right*, you know. A city that can't *feel* its own grief is a city the harvest's already half-won. My machine doesn't *fix* that. But it *names* it, and naming's the first repair. *(he beams through tears.)* Take it, friend. Go and make my useless thing matter. It's all any of us — invention or person — ever wanted.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brindle_validated",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brindle_resonator",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "whygrief",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He pauses, and the answer is softer than his patter.)* Why find grief. *(quietly.)* Because grief's the proof, isn't it. The proof that something was *loved.* *(he touches the silent forks.)* You only grieve what mattered. A city full of grief is a city full of things that *mattered* — and that's a *beautiful* measurement, even when it aches. *(he looks at the dead device.)* I built it to celebrate that. To find all the love hiding inside all the sorrow and go, *look, look how much this city cared.* *(his face falls.)* And instead it keeps finding places where the caring's been *removed.* Where the harvest's made it so nothing's grieved because nothing's *remembered* to have mattered. *(he meets your eyes.)* That's why I need you to carry it. To find the places that forgot how to ache — and remind them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brindle_philosophy",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brindle_resonator",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "puzzle",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He scratches his head, your failed insight leaving him merely baffled.)* Hmm. No, that's not — well, perhaps. I confess the theory's beyond me; I only build the things, I don't always know what they *mean.* *(he taps the silent forks fondly.)* Carry it anyway, eh? Maybe you'll work out what it's so frightened of. I never could.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Brindle Quillfeather",
+     "text": "*(He returns to the Melancholy Engine, which chimes its chord of a summer you never had, and for a moment — standing in the brass and the springs and the gentle pointless music — you understand that the useless gnome may be the only person in the Gilded Gate who built a tool to measure exactly the right catastrophe.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.twins",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Twins",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Marl",
+     "text": "*(Two men of wildly different height, build, and complexion clutch each other's shoulders with theatrical devotion. The tall one speaks first.)* Spare a coin for two brothers, separated at birth, REUNITED by fate not one week past! *(he gestures at his \"twin,\" a short red-haired man who looks nothing like him.)* Look upon us! The resemblance! The same EYES! *(the short one nods frantically. They do not have the same eyes. They do not have the same anything.)* Twenty years apart, and we found each other by the matching birthmarks, and now we beg as ONE, that we might raise the passage to our dear old mother's grave in—",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.twins_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Bink",
+     "text": "*(The short one cuts in, anxious.)* —in Waterdeep. *(the tall one glares; that was clearly not the agreed city.)* It was Waterdeep last week, Marl, I'm keeping it CONSISTENT— *(the tall one hisses \"it was *Neverwinter*\") *(Bink turns back to you, sweating.)* It was. It was Neverwinter. Our mother's grave. In Neverwinter. *(he is visibly drowning.)* The point is, sir or madam, we are TWINS, undeniable twins, fraternal twins, the MOST fraternal twins, and your generosity reunites a—",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"You're not twins. You're not even from the same continent. But that's the most committed con I've seen all week.\"",
+       "next": "committed",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 14] \"You met a month ago and neither of you has anywhere else to be. The 'brother' is the only family either of you has left. That part's real.\"",
+       "next": "realfamily",
+       "fail": "bluster",
+       "checkDC": 14,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Here's a coin. For the *performance*, not the story. Workshop the city, though.\"",
+       "next": "coin",
+       "fail": null
+      },
+      {
+       "text": "\"I should report a fraud to the Fist.\"",
+       "next": "report",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.fist",
+         "op": "AddInt",
+         "amount": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "committed",
+     "speaker": "Marl",
+     "text": "*(The tall one drops the act with the relief of a man setting down a heavy crate.)* Oh, thank the gods, a *connoisseur.* *(he claps the short one's shoulder, genuinely now.)* Bink here keeps fumbling the city — he's no head for geography, bless him — but the *birthmarks*, that was my idea, we drew them on with boot-blacking, see — *(he shows you matching smudges)* — and the matching-eyes line, that's pure theater, nobody checks, grief makes people *want* the reunion to be real. *(he grins.)* We clear more as reunited twins than we ever did as two separate sad men. Turns out the city won't pay for *one* tragedy but it'll pay handsome for a *happy ending.* We just supply the ending. The coin's the applause.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.twins_confess",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.varra.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "realfamily",
+     "speaker": "Bink",
+     "text": "*(The short one freezes; the tall one's grin falters. A long pause.)* ...That's not — *(quietly.)* That part wasn't supposed to be in the bit. *(he looks at Marl, who has gone uncharacteristically still.)* We met a month ago. Outside the harvest-house. Both of us'd just — both of us lost everyone, see, to the harvest, all at once, the way it takes whole households. *(his voice wavers.)* And Marl says to me, \"You've no one and I've no one, so what if we had *each other* — what if we just *decided* to be brothers?\" And the con came after. *(he wipes his eyes, embarrassed.)* The birthmarks are boot-blacking. But the *brother* part — *(he grips Marl's shoulder, and this time it's not for the act)* — we made that part *true*, sir. You can't catch us in it. It's the one thing in the whole story we didn't fake. We just... started with the lie and grew the truth inside it.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.twins_chosen_family",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "coin",
+     "speaker": "Marl",
+     "text": "*(He catches it, bites it, pockets it.)* For the performance! *(delighted.)* Finally, a patron who appreciates the *craft.* *(he leans in.)* Workshop the city, you say — you're right, you're *right*, Bink can't keep it straight. We'll pick one and drill it. \"Mother's grave in [BLANK].\" *(to Bink)* Baldur's Gate. The grave's HERE. Then you can't get it wrong, it's where we're standing. *(Bink looks immensely relieved.)* See, that's *direction*, that is. You should manage acts. Off you go, generous one — and if anyone asks, we were *devastatingly* convincing.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "report",
+     "speaker": "Marl",
+     "text": "*(Both men go rigid; Bink actually whimpers.)* Now, now, let's not be *hasty* — *(Marl's patter deserts him)* — it's a *victimless* — well, it's a *low-value* — *(he sags.)* Look. Report us if you must. The Fist'll move us on, we'll set up two streets over as cousins, or war-widowers, or — Bink's been wanting to try \"cursed sailors.\" *(quietly, the act gone.)* We're not hurting anyone but the gullible's purse, friend, and the gullible in this city are mostly *patriars* who can spare it. But you do what your conscience says. Just — *(he glances at Bink)* — wherever they move us, move us *together*, eh? That's the only part we'd mind.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.twins_reported",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.fist",
+       "op": "AddInt",
+       "amount": 1
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "bluster",
+     "speaker": "Marl",
+     "text": "*(The tall one rallies, talking over your read.)* Met a month ago! HA! Slander! We are TWINS, sir, twins of the most fraternal — Bink, the birthmark, show the — *(Bink shows the boot-blacking smudge, which is smearing)* — the, ah, the WATERPROOF birthmark — *(it is very obviously not waterproof)* — good day! Good day to you! *(they shuffle off, still clutching each other, still insisting.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Bink",
+     "text": "*(Whatever you decided, the two mismatched men move off together, the tall one already inventing their next tragedy, the short one anxiously trying to keep the city straight — two strangers who started with a lie and grew a brother inside it, which is, you reflect, more family than most blood ever manages.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.sallow",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Sallow",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Doctor Sallow",
+     "text": "*(A man in a beaked plague-mask, standing as far from everyone as the street allows, gesturing instructions from a great distance.)* Don't come closer! For your safety! And — and mine, but mainly yours! *(he consults a pomander of herbs pressed to the mask.)* I am Doctor Sallow, physician to the harvest-quarters, and my professional advice, free of charge, is: leave. Leave the city. Leave the *region.* Whatever's coming, the cure is *distance*, and I am living proof — *(he gestures at his own healthy, cowardly self)* — that the doctor who flees fastest, *practices* longest.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.sallow_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Doctor Sallow",
+     "text": "*(He edges sideways, maintaining his exclusion zone.)* People call me a coward. *(defensively, from six feet away.)* They say, Sallow, a *real* doctor tends the sick! And I say — yes, and a real doctor *catches what the sick have* and *dies*, and then there's *no* doctor, and how is *that* the moral high ground? *(he waggles a gloved finger.)* I have outlived four \"brave\" physicians this season. FOUR. They tended the harvest-fever hands-on, nobly, and now they're nobly *dead*, and the quarter has *me*, shouting cures from across the road, *alive.* *(quietly, the bluster wavering.)* ...It doesn't feel like winning, though. Standing across the road. Watching them cough. Knowing the brave thing and doing the *living* thing. It doesn't feel like winning at all.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 15] \"You're not afraid of the fever. You're afraid that if you get close enough to help, you'll fail — and a coward who fled is easier to live with than a healer who couldn't save them.\"",
+       "next": "fail",
+       "fail": "deflect",
+       "checkDC": 15,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Then teach. You can't touch them, but you can train the ones who will. A coward who makes ten brave healers beats one dead hero.\"",
+       "next": "teach",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"The harvest-fever isn't a plague, Sallow. It's the soul thinning. You can't catch it and you can't cure it — so stop hiding and start *comforting*.\"",
+       "next": "notplague",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"Stay across the road, then. Some people are just cowards.\"",
+       "next": "coward",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": -1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "fail",
+     "speaker": "Doctor Sallow",
+     "text": "*(He stops edging away. For a long moment the beaked mask just stares.)* ...Oh. *(very quietly.)* You've — that's not the fever I'm afraid of, is it. *(he lowers the pomander.)* It's the *failing.* If I stay across the road, then when they die, it's the *fever's* fault, the *harvest's* fault, *anyone's* fault but mine. But if I *go to them*, if I *try* — and they die anyway, the way the harvest-marked always die — then I'll have *failed them, personally, with my hands.* *(his voice cracks behind the beak.)* And I'm not — I became a doctor to *win*, and you can't win against the harvest, and I'd rather be a live coward than a healer who held a dying child and *couldn't.* *(a shaking breath.)* You've named it. Gods. The mask was never for the fever. It was so I wouldn't have to see their faces when I lost. ...I don't know if I'm brave enough to take it off. But you've made me ashamed enough to consider it. That's a start. That's more than four brave dead men managed to give me.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sallow_unmasked",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.sallow_courage",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "teach",
+     "speaker": "Doctor Sallow",
+     "text": "*(He brightens, then brightens *more*, an idea taking him.)* Teach. *(he taps the beak.)* I can't touch the sick — but I *know* things, I know more medicine than the four dead heroes combined, that's *why* I'm not dead, I'm not just a coward, I'm a *well-informed* coward! *(he's pacing now, in his little exclusion zone.)* I could train the brave ones! The ones who *will* go close — give them the cures, the precautions, the things the dead doctors learned too late — *(he stops.)* — and then their courage and my cowardice make *one whole physician*, and the quarter gets tended by people who *won't* die of it because I taught them how not to! *(he laughs, giddy.)* A coward who makes ten brave healers! That's — that's a way to be *useful* and *alive*, which I'd given up hoping were the same direction. You've just reconciled my two strongest instincts. Do you know how rare that is? Off you go. I've a school to start, from a safe distance.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sallow_teaches",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.sallow_courage",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "notplague",
+     "speaker": "Doctor Sallow",
+     "text": "*(He freezes.)* Not a plague. *(slowly, the doctor in him overriding the coward.)* I — that would explain — *(he flips through mental symptoms)* — the *fever* that doesn't transmit by contact, the *wasting* that no purge touches, the way the marked just... *thin*, like a candle guttering, no contagion-pattern at *all.* *(he stares at you.)* I've been treating a *plague* that isn't one. Maintaining an exclusion zone against a thing that *can't cross it.* *(his shoulders drop.)* All this distance. All this hiding. From something that was never *catching.* *(quietly.)* Then there's no medical reason for the mask. No reason at all but my own — *(he can't finish.)* If I can't catch it and I can't cure it... then the only thing left to *do* for the harvest-marked is *be with them.* Sit with them. Comfort the un-comfortable. *(a terrified, dawning resolve.)* That's not medicine. That's just... courage. The one thing I trained my whole life to never need. Damn you. Damn you for being right.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sallow_no_exclusion",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.sallow_courage",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "coward",
+     "speaker": "Doctor Sallow",
+     "text": "*(He flinches, then — sadly — accepts it.)* Some people are just cowards. *(quietly, from across the road.)* Aye. Perhaps that's all I am. *(he raises the pomander again, retreating into routine.)* But a live coward's tended more harvest-quarters than four dead heroes, and I'll cling to that arithmetic, even if it doesn't warm me at night. *(he edges away.)* Mind the distance, on your way. For your safety. Mainly yours.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "deflect",
+     "speaker": "Doctor Sallow",
+     "text": "*(He retreats behind the beak, the cowardly bravado snapping back up like a shield.)* A bold theory, from someone standing far too close for *my* comfort. *(he edges away, brandishing the pomander.)* No, no — it's the *fever* I fear, plain and sensible, nothing so *dramatic* as failure. I'm simply a prudent man in an imprudent city. *(but his voice is a half-step too loud.)* Mind the distance. For your safety. Mainly yours.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Doctor Sallow",
+     "text": "*(He resumes shouting cures from his careful exclusion zone — but you notice, as you leave, that he glances at the road between himself and a coughing child, and measures it, and does not, for the first time in a long time, look away.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.veld",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Veld",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Justiciar Veld",
+     "text": "*(A tall Kelemvorite magistrate in black-and-grey, with the serene, unbending posture of a man who has never once lost a night's sleep over a hard decision, because to him none of them are hard.)* The Returned. *(he regards you the way a mathematician regards a proof that contradicts an axiom.)* I have read the reports. I do not believe them, and yet here you stand, warm, contradicting forty centuries of settled doctrine. *(coolly.)* Understand: I am not frightened of you, as the deacons are. I am *offended* by you. You are a clerical error wearing a face, and I am the man whose office it is to correct clerical errors. So. Shall we discuss your correction?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.veld_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Justiciar Veld",
+     "text": "*(He folds gloved hands.)* The doctrine is not cruel, whatever the weak-stomached say. It is *fair.* The faithful are kept; the faithless are sorted to the nothing they chose by their doubt. A clean ledger. A just scale. *(his certainty is total, and somehow more chilling than any zealot's heat.)* And then *you* — a soul that simply *walked out*, unsorted, un-filed, *unaccountable.* Do you understand what you threaten? Not the church's power. The church's *correctness.* If the law of the dead can be *escaped*, then it was never *law*, only custom — and a man who has sent ten thousand doubters to the Wall on the strength of that law would have to consider that he was not a *justiciar* at all. He was a *murderer with good penmanship.* I will not consider that. So you, error, must be the thing in error. Not me. Never me.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You're the most frightened man I've ever met. You can't allow the Wall to be wrong, because then everything you've done becomes murder — so you'll burn the whole world to keep your conscience clean.\"",
+       "next": "frightened",
+       "fail": "unmoved",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Sister Garrow served forty years and decided the doctrine was incomplete. Was she a murderer with good penmanship too?\"",
+       "next": "garrow",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "prologue.garrow_doubt",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"I'm not an error, Veld. I'm the audit. And the books don't balance.\"",
+       "next": "audit",
+       "fail": null
+      },
+      {
+       "text": "\"Correct me, then. I'll be fascinated to watch a clean ledger try to file a hole.\"",
+       "next": "defiant",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.kelemvor",
+         "op": "AddInt",
+         "amount": -3
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "frightened",
+     "speaker": "Justiciar Veld",
+     "text": "*(For one instant — one — the serene certainty *cracks*, and underneath it is a terror so vast it has needed forty years of doctrine to contain it. Then it seals over, harder than before.)* ...You will not say that to me again. *(very quietly, and it is the quiet of a man holding a door shut against a flood.)* You think you've found my *fear.* You've found my *load-bearing wall.* Pull it, and yes — ten thousand souls become ten thousand murders, and the just justiciar becomes the worst mass-murderer in the history of the Sword Coast, and I cannot — I *will* not — *(his gloved hands have begun to shake; he stills them by force.)* So I will keep the Wall *correct*, error, by whatever means, not because I am cruel, but because the alternative is a truth no mind can survive holding. *(coldly.)* You imagine that makes me weak. It makes me the most *dangerous* man you will meet before the Court of the Dead. A frightened man defending his soul will do what a cruel man never dares.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.veld_loadbearing_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.veld_dangerous",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "garrow",
+     "speaker": "Justiciar Veld",
+     "text": "*(His jaw tightens at the name.)* Garrow. *(coldly.)* Garrow was *weak.* She held a sorting in her hands, felt a moment's womanish doubt, and chose her *comfort* over the *law.* *(but something flickers.)* ...She was also, I will grant, the finest grave-warden the order produced in a generation, and she buried more Faithless with reverence than any priest who agreed with the doctrine. *(the flicker hardens back to ice.)* Which makes her *worse*, not better. A fool who doubts the law is merely a fool. A *saint* who doubts it is a *contagion* — she makes the doubt look *holy.* *(he fixes you.)* That is why I'd sooner correct her than you. You're an error. She's a *heresy with clean hands*, and clean hands spread it. Tell your priest the Justiciar remembers her. Tell her I pray she's wrong. *(quietly.)* I pray very hard. It does not help.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.veld_fears_garrow",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.garrow_quest_hinted",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "audit",
+     "speaker": "Justiciar Veld",
+     "text": "*(The word lands precisely where it's aimed — on a man who lives by ledgers.)* An *audit.* *(he goes still.)* You choose your metaphor well, error. An audit cannot be *argued* with — only *passed* or *failed.* *(coldly.)* And you stand there implying the church's books, forty centuries closed, do not *balance.* *(a long, dangerous pause.)* Here is the difficulty with your metaphor: an auditor who finds a ten-thousand-soul discrepancy does not get *thanked.* The institution does not *correct itself.* It *discredits the auditor.* *(he turns to go.)* You will find, Returned, that a clean ledger does not fear the truth — it fears the *witness.* And institutions have buried more witnesses than the Wall has doubters. *(at the door.)* Pass your audit if you can. But know that the books were never meant to balance. They were meant to *close.* And I am the man who closes them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.veld_the_auditor_warning",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.veld_dangerous",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "defiant",
+     "speaker": "Justiciar Veld",
+     "text": "*(A thin, cold smile — the first expression he's allowed himself.)* File a hole. *(quietly.)* Yes. That is precisely the problem you represent, stated with vulgar accuracy. The ledger has no column for you. *(he inclines his head.)* So I will not try to file you, error. I will try to *erase* you — which, you'll note, is the one operation the Wall was built to perform. *(he steps back.)* Run along. Gather your heretic priest and your thieves and your damned tiefling. Build your little discrepancy. *(the cold smile widens by a hair.)* And when you reach the end, you will find me there, with my clean ledger and my clean hands and my forty centuries of *correctness*, waiting to close the books on you the way I have closed them on ten thousand doubters who also thought they were the *audit.* They were all just *errors* in the end. So are you.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.veld_enemy",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": -2
+      },
+      {
+       "key": "act1.veld_dangerous",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "unmoved",
+     "speaker": "Justiciar Veld",
+     "text": "*(Your read glances off the armor of his certainty entirely.)* A clumsy attempt at the alienist's trade. *(coolly.)* I am not *frightened*, error. I am *correct.* The two are easily confused by those who have never had the courage of a settled conviction. *(he turns away.)* Come back when you've a sharper instrument than amateur psychology. The doctrine has withstood subtler attacks than yours for forty centuries. It will withstand a warm corpse with opinions.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Justiciar Veld",
+     "text": "*(He departs without hurry, serene and unbending — and you understand that of all the powers arrayed in this city, the most dangerous is not the heretic who weeps, nor the devil who hopes, but the just man who *cannot afford to be wrong*, and will unmake the world before he'll examine his own clean hands.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.glasswidow",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Glasswidow",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Senna the Glassblower",
+     "text": "*(A woman amid the wreckage of colored glass, patiently sorting shards by hue, a half-built window of impossible beauty leaning against the wall behind her — a window full of small, ordinary faces.)* Mind the glass, love, it gets everywhere when they smash it. *(she holds a shard to the light — a fragment of a child's painted face.)* Third time now. I build the window, the church sends men to break it, I sweep up, I build it again. *(she says it without heat, the way you describe weather.)* It's a memorial, see. For the harvest-dead. The *Faithless* ones — the forgotten ones. I put their faces in glass so the light comes through them of a morning. The church calls it heresy. I call it a window. We've agreed to disagree, them with hammers, me with patience.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.glasswidow_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She fits a shard back into the lead.)* My husband was a glassblower. Faithful as the dawn, prayed twice daily, and *still* — *(she shrugs)* — still sorted to the Wall, because the harvest doesn't check your devotion, love, it just takes who's *near.* *(her hands don't stop working.)* So the church can't even claim he *doubted.* He believed every word, and they walled him anyway, and then they send men to smash the window where I painted his face. *(she finally looks at you.)* That's the part I can't make my peace with. Not the smashing. The *contradiction.* They say the Wall's for doubters. My Edmun never doubted a day. So either the Wall lies — or the church does — and either way, somebody owes me a window that *stays whole.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"I'll guard the window. Let the church send their men. They'll find me first.\"",
+       "next": "guard",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.glasswidow_window",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 16] \"You don't rebuild it for Edmun. You rebuild it because each time they smash it and you build it again, *you're* the proof their forgetting doesn't work.\"",
+       "next": "proof",
+       "fail": "patient",
+       "checkDC": 16,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Your husband's a contradiction the church can't survive. Let me take his story to people who can use it.\"",
+       "next": "contradiction",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.kelemvor",
+         "op": "AddInt",
+         "amount": -2
+        }
+       ]
+      },
+      {
+       "text": "\"Maybe stop rebuilding, Senna. Grief shouldn't be a war of attrition with hammers.\"",
+       "next": "stop",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "guard",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She sets down her work, and for the first time her composure wavers.)* You'd — guard it. *(quietly.)* Three times I've swept up alone, love. Three times. And the worst of it isn't the smashing, it's the *next morning*, the light coming through the *empty frame* where the faces should be. *(she wipes her hands.)* If you stood watch — if the window got to *stay*, just once, just long enough for the morning light to come through Edmun's face the way I built it to — *(her voice catches)* — I think I could finally stop. Not stop *remembering.* Stop *fighting.* Let it just be a window, and a morning, and a face in the light, the way a memorial's meant to be. *(fiercely grateful.)* Guard it. And come at dawn. You should see it at dawn. Everyone should. That's the whole point of glass — it only works when the light's allowed through.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.glasswidow_guarded",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.glasswidow_window",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "proof",
+     "speaker": "Senna the Glassblower",
+     "text": "*(Her hands go still.)* ...You see it. *(quietly.)* Aye. Edmun's gone; a window won't bring him back; I'm not a fool, love, I know glass from a husband. *(she looks at the half-built faces.)* But every time they smash it and I build it *again* — that's me saying *no.* That's me being the thing their forgetting can't finish. They've got hammers and a god and forty centuries; I've got patience and sand and fire. *(a small, fierce smile.)* And do you know what, love? *I'm winning.* Because they have to send men *every time*, and I only have to be *stubborn*, and stubbornness is cheaper than hammers in the long run. *(she resumes working.)* The window's not a memorial to Edmun. It's a memorial to *not stopping.* Every shard I set back is a little war won against the nothing. Let them smash it. I've sand enough to outlast their arms.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.glasswidow_defiance",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "contradiction",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She considers, then nods slowly.)* Edmun's story. *(quietly.)* A faithful man, walled like a doubter. *(she hands you a shard — his painted eye, catching the light.)* Take it. Show it about. Let the Justiciar explain how a man who prayed twice daily ended in the nothing reserved for *unbelievers.* *(her jaw sets.)* Either the Wall takes the faithful too — in which case their whole *doctrine's* a lie — or the harvest doesn't *care* about faith at all, just *proximity* — in which case the church is sorting people by *bad luck* and calling it *justice.* *(fiercely.)* Both truths are fatal to them, love. My Edmun's quiet death is a *bomb*, and they know it, which is why they smash his face before the morning light can ask the question. *(she meets your eyes.)* Go ask it. Loudly. In daylight. Where the glass would have.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.glasswidow_edmun_proof",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.glasswidow_window",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": -1
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "stop",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She shakes her head, gently, fitting another shard.)* Stop. *(quietly.)* Love, the day I stop is the day they *win* — not the day my grief ends. *(she holds a fragment to the light.)* Grief that gives up isn't peace. It's just a quieter kind of forgetting, and forgetting's the whole weapon they're using. *(she almost smiles.)* You're kind to worry about my arms. But a memorial that *survives* is worth a hundred hours of sweeping. And besides — *(she nods at the half-built faces)* — Edmun blew glass for thirty years. He'd be *appalled* if I let a few men with hammers out-stubborn me. It'd be an insult to the craft. No. I'll build it till it stays. That's not a war of attrition, love. That's just *love*, with a longer timeline than the church expected.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.glasswidow_persists",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "patient",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She just smiles, fitting shards.)* You're sweet to theorize, love. But it's simpler than all that. It's a window. It's my husband's face. The light should come through it of a morning. *(she shrugs.)* Everything else is the church's complication, not mine. Mind the glass on your way.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Senna the Glassblower",
+     "text": "*(She fits another painted face back into the lead — patient, unhurried, unbeatable — and you carry away the certainty that the church can send a thousand men with hammers and still lose to one widow with sand, fire, and a longer timeline than any institution ever reckons on.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.ferryman",
+   "file": "GateDenizensThreeContent.cs",
+   "title": "Npc · Gate · Ferryman",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Ferryman",
+     "text": "*(An old man at a black skiff where the docks meet the dark water, a pole in his hands and a tin cup at his feet with a single coin in it.)* Passage? *(he doesn't look up.)* The toll's a coin. Always been a coin. Across the Chionthar in the daylight — that's the *honest* crossing, copper'll do. *(now he looks at you, and his eyes are very tired.)* But you're not here for the daylight crossing, are you. You've the look of the *other* fare. The ones who come at dusk with no breath and no coin, because the harvest doesn't leave you time to fetch your purse. *(he taps the tin cup.)* One coin in there. One. In a season of the breathless dead. You do the arithmetic.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.ferryman_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Ferryman",
+     "text": "*(He poles the skiff a little against the current, holding station.)* I've ferried this river sixty years. Used to be a clean trade — coin in the cup, soul on the far bank, no questions, Kelemvor's own arrangement. *(quietly.)* Then the harvest came, and now the dead arrive *poor*, arrive *robbed of the moment to prepare*, arrive with no coin because they died mid-sentence, mid-meal, mid-laugh. *(he looks at the cup.)* And the rule's the rule: no coin, no crossing. They have to *wait* on the near bank. And the near bank, lately — *(he swallows)* — the near bank is where the harvesters come to *finish* them. Sort them to the Wall before they ever reach the far shore. *(he meets your eyes.)* So I've a choice every dusk, friend. Keep the rule and let them be taken. Or break it, and ferry the coinless free — and answer to a god for the tolls I never collected.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Ferry them free. I'll answer to the god with you, if it comes to that.\"",
+       "next": "free",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.ferryman_free",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 15] \"You've already been ferrying them free. The single coin in the cup is the last honest toll you took — you keep it there to remember when the rule still made sense.\"",
+       "next": "lastcoin",
+       "fail": "rule",
+       "checkDC": 15,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Whose rule is it, that the poor wait on the bank to be harvested? Kelemvor's — or the church's?\"",
+       "next": "whoserule",
+       "fail": null
+      },
+      {
+       "text": "\"Keep the rule, old man. A ferryman who breaks his toll is just a thief with a boat.\"",
+       "next": "keep",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": -2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "free",
+     "speaker": "The Ferryman",
+     "text": "*(The pole stills in the dark water. For a long moment the old man just breathes.)* You'd stand on the far bank and answer for it. *(quietly.)* Sixty years I've waited for someone to say that. Sixty years I've told myself the rule was *Kelemvor's*, that breaking it damned me, that the coinless *had* to wait — *(his voice roughens)* — and every dusk I've watched the harvesters take the ones who couldn't pay, and called my cowardice *piety.* *(he plants the pole, decision made.)* No more. From tonight the skiff runs free at dusk. Coin or no coin. Let the god dock me my tolls; I'll cross every breathless pauper on this river before I'll watch one more sorted on my own near bank. *(fiercely.)* And if Kelemvor asks me why — I'll say a dead thing with no coin of its own offered to share my damnation, and I was *ashamed* to have feared it so long. Get aboard, friend. We've a river of the unpaid waiting, and a long night to ferry them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ferryman_runs_free",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.ferryman_free",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "lastcoin",
+     "speaker": "The Ferryman",
+     "text": "*(His hand goes to the tin cup, protective.)* ...You see it. The one coin. *(quietly.)* Aye. I've been crossing the coinless free for two months. Couldn't not. *(he touches the single copper.)* This is the last *honest* toll I took — from an old woman who *had* a coin, who pressed it on me with both hands and said \"for the ones who can't,\" and died across the river at peace. *(his voice cracks.)* I keep it in the cup so I remember there was a time the rule and the *right* were the same thing. Before the harvest made the toll a *trap.* *(he looks at the dark water.)* You're the first to notice it's only the one. Everyone else sees an empty trade and a tired old man. You saw the *coin.* *(quietly.)* Then you understand. The rule's not gone — it's just become a thing the kind have to break to *keep.* Ride free, friend. You've already paid, in the only currency left: you *looked.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ferryman_already_free",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.ferryman_free",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "whoserule",
+     "speaker": "The Ferryman",
+     "text": "*(He frowns at the water, an old question surfacing.)* Whose rule. *(slowly.)* I always said Kelemvor's. \"A coin for the crossing\" — it's old, it's *holy*, it's in the oldest rites. *(he scratches his chin.)* But the *waiting* — the bit where the coinless have to *linger* on the near bank, where the harvesters can reach them — *(his eyes narrow)* — that's *new.* That came in with the harvest. With the *church's* new orders, not the god's old rite. *(quietly, a realization dawning.)* Kelemvor's rule was *a coin for the crossing.* The *church* added *and the coinless wait* — and put the harvesters where the waiting happens. *(he grips the pole.)* So it was never the god damning the poor. It was the *church*, using the god's old toll as a *snare.* *(fiercely.)* Sixty years I feared the wrong master. The god never said let them be taken. The *church* did. ...That changes everything about which rule I'm breaking, friend. Thank you. I'll break the church's gladly. The god's, I'll keep. And I suspect the god will thank me for telling them apart.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ferryman_sees_the_snare",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.ferryman_free",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.choir_doubt_seeded",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "keep",
+     "speaker": "The Ferryman",
+     "text": "*(He nods, slowly, and something in him dims.)* A thief with a boat. *(quietly.)* Aye. Perhaps that's all a ferryman who breaks his toll becomes. *(he looks at the near bank, where dusk is gathering.)* So I'll keep the rule, and the coinless will wait, and the harvesters will come, and I'll tell myself it's *piety* and not *fear*, same as I've told myself for two months. *(he poles the skiff.)* You're not wrong, friend. A rule's a rule. *(but he won't look at the near bank now.)* ...Mind the step. The honest crossing's a copper. The other one — the other one I'm apparently still letting the dark water decide.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ferryman_keeps_rule",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "rule",
+     "speaker": "The Ferryman",
+     "text": "*(He shakes his head, your read missing the mark.)* No, friend, the rule's the rule, simple as that — coin for the crossing, sixty years. *(but his hand rests on the tin cup a beat too long.)* ...The single coin's just slow business. Nothing more. *(he poles away from the question.)* Copper for the daylight crossing, if that's what you're after. The dusk fare's between me and the river.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Ferryman",
+     "text": "*(He poles the black skiff out toward the failing light, an old man at the exact seam between the god's mercy and the church's snare — and whether he runs free tonight or keeps his lonely rule, you carry away the image of one copper in a tin cup, kept against the memory of a time when the toll and the kindness were the same coin.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.hessa",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Hessa",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(A weathered woman with one milky eye and a manifest she's clearly inventing as she goes.)* Whatever it is, I can move it. Crates, contraband, corpses, *you* — and don't make that face, half my cargo this season's been the walking dead trying to get out before the harvest gets thorough. *(she spits over the rail.)* I've opinions on all of it, and I'll share them free, which is the only thing I share free. Opinion one: a city that taxes the *grieving* and lets the *patriars* skip the toll has its priorities arse-about, and I, a criminal, am the most honest businesswoman left in it.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.hessa_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She eyes you with the milky one, which somehow sees more.)* Now you. You're the Returned. Word on the docks is you're either the city's salvation or its next disaster, and word on the docks is usually *both.* *(she leans on a crate marked TURNIPS that is very obviously not turnips.)* I'll be straight, on account of crooked's more work: I can get people *out.* The harvest-marked, the doubters, anyone the church's got a niche reserved for. But the smiling Choir men have started watching my boats, and the Fist's started searching them, and a smuggler with two enemies is a smuggler with no profit. So. You useful, or just famous?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"I can get the Fist off your boats — if you only move the *innocent*, not whoever pays.\"",
+       "next": "deal",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "act1.fist_ally",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "[PERSUADE 15] \"You're already only moving the innocent. The hard face is so the Choir doesn't notice you've gone soft.\"",
+       "next": "soft",
+       "fail": "haggle",
+       "checkDC": 15,
+       "checkAbility": "Charisma"
+      },
+      {
+       "text": "\"Move the Faithless out. Quietly. I'll handle whoever notices.\"",
+       "next": "faithless",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.hessa_underground",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"Just famous, today. But I remember a useful smuggler.\"",
+       "next": "famous",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "deal",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(The good eye narrows; the milky one seems to approve.)* The Fist off my boats if I only move the deserving. *(she works it like an abacus.)* That's a worse deal for my purse and a better one for my sleep, and at my age sleep's gone dearer than gold. *(she spits on her palm, offers it.)* Done. I run the *underground* — the harvest-marked, free passage, no questions — and your Fist sergeant looks the other way. *(she grins, gap-toothed.)* I'll be the first smuggler in the Gate's history to die *insolvent and beloved.* Hessa's Mercy, they'll call the route. I hate it. Shake.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.hessa_ally",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.hessa_underground",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.fist",
+       "op": "AddInt",
+       "amount": -1
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "soft",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She goes very still, then barks a laugh that startles the gulls.)* ...You read me like a *manifest.* *(quietly, the hard face cracking.)* Aye. I've not charged a harvest-runner in two months. Can't. You look a doubter in the eye while they beg passage and try naming a *price* — go on, try it, I'll wait. *(she straightens, the scowl rebuilt.)* But if the *Choir* knew Dock-Eye'd gone tender, they'd buy my crew out from under me and I'd be moving *them* instead. So the face stays. *(she winks the milky eye, grotesquely.)* You keep my secret, I'll keep getting the marked out for free, and we'll both pretend I'm still a villain. Bad for the soul. Worse for the reputation. Worst for the *purse.* Deal?",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.hessa_secret_soft",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.hessa_underground",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "faithless",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She studies you, recalculating what you are.)* The Faithless. Out. Quiet. *(slowly.)* You know that's the one cargo nobody'll pay for? The Faithless are *poor*, that's half why they doubt — no coin for temples buys no faith in temples. *(she shrugs, a decision made.)* But you'll handle the notice, and I've two months' practice running charity I won't admit to. *(she taps the not-turnips.)* Fine. Hessa's underground railway for the soon-to-be-nothing. *(quietly.)* My da was Faithless. They got him. I've been smuggling out the next ones ever since, telling myself it's business. You've just made it a *cause*, and causes get you hanged. ...Worth it. Climb aboard the conspiracy, Returned.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.hessa_da_faithless",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.hessa_underground",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "famous",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She waves you off, unoffended.)* Famous keeps. Useful's better, but famous keeps. *(she returns to her invented manifest.)* When you tire of being a symbol and fancy being a *help*, Dock-Eye's at this rail, lying about turnips. The marked can't wait forever, mind. The harvest's punctual even when I'm not.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "haggle",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She tuts.)* Cold read, dead one. I'm exactly as hard as I look and twice as crooked. *(but the milky eye lingers on you a beat too long.)* ...Move along. Some of us have honest crimes to commit.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She turns back to the water, a one-eyed smuggler running an underground railroad she'll deny to the gallows, the most honest liar on the Chionthar.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.brisk",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Brisk",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Father Brisk",
+     "text": "*(A young priest of Kelemvor in immaculate grey, performing a funeral rite with flawless technique and absolutely empty eyes.)* \"...and the Lord of the Dead keeps what is His, and sorts the faithful to their rest, and the just scales weigh true.\" *(he closes the book; the mourners disperse; he does not move.)* I have said those words four hundred times this season. *(quietly, to you, a stranger, because a stranger is safe.)* Four hundred. And somewhere around the three-hundredth I stopped — not *believing* them, exactly. I stopped being able to tell whether I believed them or had simply *memorized* them. There's a difference. I used to know it cold. Now I officiate the difference's funeral daily.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.brisk_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Father Brisk",
+     "text": "*(He looks at the fresh grave.)* This one doubted. I could smell it on the family — the careful way they didn't pray. By the doctrine he's in the Wall now, this empty box just theater. And I performed the theater *perfectly*, because perfect is all I've got left where faith used to be. *(he turns to you.)* You're the Returned. The proof the doctrine's got a hole. So I'll ask what I can't ask my Justiciar without losing my post: if the Wall is wrong — if I've been comforting the bereaved with a *sorting* that throws their loved ones to the nothing — then what, exactly, have I *been*, these four hundred funerals? A priest? Or an *accessory*?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Talk to Sister Garrow. She left the order over this exact question, and she's more at peace than you are.\"",
+       "next": "garrow",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "prologue.garrow_doubt",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 16] \"You already know you're an accessory. That's why you do the rite perfectly — perfection is how you keep your hands from shaking.\"",
+       "next": "accessory",
+       "fail": "defend",
+       "checkDC": 16,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You've been a comfort to the grieving. That's real, even if the doctrine behind it isn't.\"",
+       "next": "comfort",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"Then stop. Walk out. An empty rite said perfectly is still a lie said well.\"",
+       "next": "stop",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.kelemvor",
+         "op": "AddInt",
+         "amount": -2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "garrow",
+     "speaker": "Father Brisk",
+     "text": "*(His head comes up.)* Garrow. *(quietly.)* They use her name in seminary as a *warning* — \"Sister Garrow, who lost her nerve.\" *(a bitter almost-laugh.)* But you say she's at *peace.* *(he looks at his perfect, empty hands.)* I have *kept* my nerve, every day, four hundred times, and I am coming apart at the seams of it. And the woman who *lost* her nerve is at *peace.* *(slowly.)* Then perhaps nerve was never the virtue. Perhaps the warning was backwards. *(he sets down the rite-book, gently.)* I'll find her. I'll ask the heretic how she sleeps. And if her answer's better than mine — and how could it not be, mine's *none* — then I'll know which of us actually kept the faith, and which only kept the *post.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brisk_seeks_garrow",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brisk_crisis",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "accessory",
+     "speaker": "Father Brisk",
+     "text": "*(He flinches as though struck, then — slowly — nods.)* ...The perfection is the trembling, disguised. *(he looks at his own steady hands with horror.)* You're right. I make the rite *flawless* so that no one — least of all me — can see that the man performing it stopped believing it three hundred funerals ago. The competence is the *cover-up.* *(he sits heavily on the chapel step.)* I've been an accessory who *files beautifully.* Gods. I'm Tobias. I'm the clerk at the phantom desk, doing the paperwork of a thing I no longer believe in, because the paperwork is the only self I've got left. *(quietly.)* Thank you for the diagnosis, Returned. It's the first true thing said at this graveside in a season. A man can't un-know he's an accessory. The trembling starts now, I think. It's overdue.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brisk_unmasked",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brisk_crisis",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "comfort",
+     "speaker": "Father Brisk",
+     "text": "*(Something eases, fractionally.)* A comfort to the grieving. *(he turns it over.)* Even if the words are hollow — the *hand* on the shoulder isn't. The *staying* with them isn't. *(slowly.)* Perhaps that's the salvageable part. Perhaps when the doctrine finishes dying in me, what's left will be just... a man who sits with the bereaved and means it, with no god behind him at all. *(a fragile thing, almost a smile.)* That's a smaller vocation than I trained for. But it might be a *truer* one. You've given an unmoored priest a plank to hold. I'll see if it floats.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brisk_finds_plank",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "stop",
+     "speaker": "Father Brisk",
+     "text": "*(He recoils.)* Walk *out.* *(quietly, terrified.)* And go where? Be what? The church fed me, raised me, *is* me — I've no trade but grief and no home but the doctrine I can't believe. *(he grips the rite-book.)* You ask a fish to walk out of water because the water's poisoned. The water's still all I can breathe. *(but the seed is planted, and he knows it.)* ...Though a poisoned thing all you can breathe is its own kind of drowning, isn't it. *(he doesn't answer you; he answers the grave.)* I'll think on it. Gods help me, you've made me think on it, and thinking's the one thing a perfect rite was designed to prevent.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.brisk_afraid_to_leave",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.brisk_crisis",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "defend",
+     "speaker": "Father Brisk",
+     "text": "*(He draws the grey robes tighter, the perfection snapping back into place.)* You presume a great deal, for a stranger at a graveside. *(coolly.)* I officiate. I do not *doubt.* The rite is the rite. *(but his hands have begun, very slightly, to shake.)* Good day, Returned. The dead are waiting, and unlike the living, they don't ask me questions I can't answer.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Father Brisk",
+     "text": "*(He opens the rite-book to the next funeral and performs it perfectly, and you walk away certain you have watched a man at the exact midpoint of Garrow's road — and that which way he turns is, perhaps, partly yours to decide.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.madame",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Madame",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Madame Eyes",
+     "text": "*(A fortune-teller's booth, all cheap velvet and cheaper incense, and a woman shuffling cards with the bored hands of a lifelong con.)* Cross my palm, cross my palm — I see a journey, I see a stranger, I see a *great destiny*, it's two coppers and it's whatever you want to hear, love, that's the trade. *(she lays a card without looking.)* The Tower. Means upheaval. Means everything you've built comes down. Means — *(she glances at it, and stops.)* ...means a wall falling. *(she frowns at her own card.)* That's odd. I don't usually *mean* anything. It's bad for repeat business.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.madame_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Madame Eyes",
+     "text": "*(She turns another card, and her practiced patter falters.)* The Hanged Man, reversed. A soul suspended between — between *filed* and *free.* *(she looks up at you, the con draining out of her face.)* I don't — love, I *make these up.* Forty years I've made these up. It's a *living*, I tell people the future and the future is always \"a journey and a stranger\" because everyone's got one of each coming. *(she lays a third card, hand shaking now.)* But you. *(it's a blank card; her deck has no blank cards.)* You I can't make up. Every card I turn for you comes up *true*, and I don't know how to do *true*, I never learned, *true* was never the job—",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Read me. Really read me. If the cards are true for me, I want to hear it.\"",
+       "next": "read",
+       "fail": null
+      },
+      {
+       "text": "[INSIGHT 15] \"You're not a fraud who got lucky. You've *always* had the sight — you just sold it as fakery because real prophecy gets you burned.\"",
+       "next": "always",
+       "fail": "scoff",
+       "checkDC": 15,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"It's just coincidence, Madame. Shuffle again, it'll go back to journeys and strangers.\"",
+       "next": "coincidence",
+       "fail": null
+      },
+      {
+       "text": "\"Keep that blank card. It's the truest reading anyone's ever given me.\"",
+       "next": "blank",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "read",
+     "speaker": "Madame Eyes",
+     "text": "*(She spreads the deck with trembling hands, and for the first time in forty years she *means* it, and it terrifies her.)* You're a door. *(she lays cards she's not choosing.)* A door that's been opened and shut and opened across — across so many turnings I can't count the spread, the cards keep *repeating*, the same hand over and over, you've sat at this booth before, love, in other lives, haven't you, I've read you before and forgotten — *(she sweeps the cards together, breathing hard.)* That's enough. That's *enough.* I sell comfort, not — not *that.* *(quietly, the con gone forever.)* You've a loop on you, Returned. Round and round. And the only card that ever comes up different is the one you haven't played yet. *(she pushes the blank card to you.)* The unplayed one. Keep it. Make it *true.* You're the only customer I ever couldn't lie to.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.madame_true_reading",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act3.lr_loop_revealed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "always",
+     "speaker": "Madame Eyes",
+     "text": "*(The cards still in her hands.)* ...Don't. *(quietly, the practiced face gone.)* Don't say it out loud. *(she glances at the street, at the smiling Choir man on the corner, at the church spire.)* You're right. Course you're right, the *true* ones always know. I had the sight at six. Told my mam she'd die on a Tuesday and she *did*, and the village called me witch, and witch is a short road to a long fire. *(she gathers the deck like armor.)* So I learned to bury it under velvet and incense and \"a journey and a stranger,\" because a *fraud* they tip, and a *seer* they *burn.* *(she meets your eyes.)* Forty years hiding a true thing inside a false one. You'd understand that, wouldn't you. You're filed under nothing to hide what you really are, same as me. *(softly.)* Go on. And don't come back too often. You make the cards honest, and honesty's bad for a witch's life expectancy.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.madame_true_seer",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "coincidence",
+     "speaker": "Madame Eyes",
+     "text": "*(She seizes on it, desperate.)* Coincidence! Yes! *(she shuffles violently, lays a card — and it's the Tower again, the wall falling, and her face crumples.)* ...The same card. *(quietly.)* Love, I've shuffled this deck forty years and never twice the same in a row. *(she sets it face-down, won't look.)* It's not coincidence. It's *you.* You walk up to a fraud and make her real, like — like you do to the Wall, I'd wager, like you do to everything that runs on a comfortable lie. *(a shaky breath.)* Go and be a coincidence somewhere else. I've a living to make, and I can't make it telling people *true* things. True things don't tip.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "blank",
+     "speaker": "Madame Eyes",
+     "text": "*(She looks at the blank card in your hand, and a strange peace settles over her.)* The truest reading. *(quietly.)* Forty years of fortunes, and the realest one I ever told was the card with *nothing on it.* *(she almost laughs.)* That's the joke of my whole trade — I made my living drawing pictures on the future, and the one future that's actually *true* is the *blank one*, the one nobody's drawn on yet. *(she pats your hand, maternal and unnerved.)* Keep it, love. And when you reach whatever wall you're walking toward — you draw on that blank card *yourself.* Don't let the loop draw it for you. It's drawn enough of your hands already. I've *seen* them. Round and round.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.madame_blank_card",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act3.seek_the_unrecorded_act",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "scoff",
+     "speaker": "Madame Eyes",
+     "text": "*(She rallies into the patter, relieved.)* A *seer!* Oh, love, flatterer — no, I'm a fraud, a good honest fraud, two coppers for a journey and a stranger. *(but her hands shake as she shuffles.)* Off with you. Some of us have comfortable lies to sell, and you're terrible for the trade.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Madame Eyes",
+     "text": "*(She lays out a customer's worth of journeys-and-strangers with steady, lying hands — and as you go, you'd swear she turns one last card, looks at it, and quietly puts it at the bottom of the deck, unwilling to read your ending twice.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.beggar",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Beggar",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Pell",
+     "text": "*(A ragged man with an outstretched cap and an alarming commitment to transparency.)* Spare a copper? And before you decide — full disclosure, on account of I'm an *honest* beggar, which is a terrible business model — I will spend it on *drink.* Not bread. Not my poor sick mother, who is neither poor nor sick nor, strictly, my mother. *Drink.* Specifically the cheap stuff that tastes of regret and lamp-oil. *(he shakes the cap.)* Most beggars lie about this. I find the lie costs more dignity than the copper's worth. So. Knowing all that. Spare a copper?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.pell_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Pell",
+     "text": "*(He warms to his theme, which is himself.)* See, the other lads, they've got *stories.* Wounded veteran. Cursed merchant. Orphan of the harvest. *(he waves a hand.)* And the stories *work*, that's the maddening part — people pay handsome for a good lie about why you're down. But I tried lying once and got the details wrong, and a kind woman tried to find my fictional regiment to send a pension, and I had to *flee the kindness*, and I thought, Pell, you absolute turnip, just tell the truth and let them hate it. *(he grins, snaggle-toothed.)* And do you know — a *few* people, a precious few, they hear \"I'll waste it on drink\" and they *laugh* and pay *double.* For the honesty. You look like you might be a double sort. Or a nothing sort. I've made peace with both.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Here's a coin. Spend it exactly as badly as you promised.\"",
+       "next": "coin",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 13] \"You drink because honesty's exhausting and the lie about your regiment was the only time someone wanted to *save* you.\"",
+       "next": "save",
+       "fail": "laugh",
+       "checkDC": 13,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Why not just lie better? You'd eat better.\"",
+       "next": "whylie",
+       "fail": null
+      },
+      {
+       "text": "\"No coin. But I'll remember the only honest beggar in the Gate.\"",
+       "next": "remember",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "coin",
+     "speaker": "Pell",
+     "text": "*(He catches it, examines it, pockets it with ceremony.)* A patron of honest vice! *(he bows, wobbling.)* This copper will become approximately one-third of a cup of something that violates several health ordinances, and I will toast your name, which I don't know, so I'll toast \"the Decent Sort,\" and mean it. *(he leans in, confidential.)* And because you paid for *truth*, here's a true thing free: the smiling Choir men have started paying *us* — the beggars — to whisper that Aldric's the city's salvation. Coin for kind words. I took it. *Then* I told them I'd spend it on drink, and they paid me *anyway*, which means the Choir's got more money than sense and a use for the gutter's tongue. Thought you'd want to know. Honesty's my only stock; I give good measure.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.pell_choir_intel",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.choir_buys_tongues",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "save",
+     "speaker": "Pell",
+     "text": "*(The grin fades; the cap lowers.)* ...Oh, that's not *fair.* *(quietly.)* That's a copper's worth of insight and I only charge for drink. *(he sits back against the wall.)* Aye. The regiment lie — that one time someone wanted to *rescue* me — that was the worst day of my begging life. Because for one afternoon I had a *future* somebody'd invented for me, a pension, a story with an *up* in it, and it was all a lie, *my* lie, and I had to run from it before it became real and got found out. *(he looks at the cap.)* So now I tell the truth, see. So nobody tries to save me. So I never have to flee the kindness again. The drink's not the sad part, friend. The drink's the *anesthetic.* You found the wound under it. ...That'll be a copper. Insight's thirsty work, and now so am I.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.pell_the_wound",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "whylie",
+     "speaker": "Pell",
+     "text": "*(He considers this with a drunk philosopher's gravity.)* Eat better. *(he nods slowly.)* I would, aye. A good lie's worth three honest coppers. *(then, fiercely, for a beggar.)* But everyone in this city's eating better on a lie right now, friend. The church lies that the dead are *kept.* The Choir lies that they'll be *freed.* The patriars lie that it's all very *sad* and *necessary.* The whole Gilded Gate's having a *feast* on comfortable lies — *(he raises his cap like a goblet.)* — and I decided, drunk in a gutter, that I would be the one man in it who *starved honest.* It's not much of a protest. It's the only one I can afford. ...Spare a copper for the resistance?",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.pell_starves_honest",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "remember",
+     "speaker": "Pell",
+     "text": "*(He brightens.)* Remembered! Oh, that's better than a copper — a copper's gone by sundown but a *remembering* keeps. *(he taps his temple.)* \"The only honest beggar in the Gate.\" Put it on my stone. I'll not afford a stone, but a man can dream cheap. *(he settles back.)* Go on, Decent Sort. And if you ever want the gutter's-eye view of this city's lies, I'm your man — I sit *under* the whole feast, see, and you'd be amazed what falls off the table to a fellow who's not too proud to listen.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.pell_informant",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "laugh",
+     "speaker": "Pell",
+     "text": "*(He cackles, recovering.)* Save me! From a *gutter!* Friend, the only thing I need saving from is *sobriety*, and you've not offered the cure. Spare a copper or move along; the philosophy's free but the company's metered.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Pell",
+     "text": "*(He resumes his pitch — \"Spare a copper? Full disclosure, it's for drink—\" — the Gilded Gate's one honest mendicant, starving on principle at the foot of a city feasting on lies.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.wrenna",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Wrenna",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(A sharp-eyed woman in unremarkable clothes that are a little too well-made — Harper unremarkable. She's watching you the way Roen watches locks.)* You're the one my brother's running with now. *(no question.)* Roen Alleywind. Don't bother denying you know him; I've watched you cross a market together, and he stands at your left like he's decided you're worth guarding, and Roen doesn't *decide* people are worth things. So either you've earned that, or you've conned a master con, and I'd dearly like to know which before my superiors ask me to *handle* you.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.wrenna_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(She doesn't relax; Harpers don't.)* Here's my trouble, walking miracle. I'm a Harper. My order wants you assessed and, likely, *removed* — a soul that breaks death's rules is a soul that breaks *all* rules, and we are not fond of unraveling. *(quietly.)* And my brother — my idiot, beloved, larcenous brother — has put himself between you and that order, knowingly, because he's decided you matter. *(her composure thins.)* So I must choose between the leash my masters hold and the brother I haven't spoken to in four years, and you, *you*, are the knife cutting that exact thread, and I cannot tell yet if you did it on purpose. So. *Did* you?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"No. Roen chose me. I didn't ask him to, and I won't ask you to. But I won't give him up to your masters either.\"",
+       "next": "chose",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "companion.roen.recruited",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 16] \"You're not here to assess me. You're here because it's the only way to see your brother again without admitting you miss him.\"",
+       "next": "miss",
+       "fail": "deny",
+       "checkDC": 16,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Your masters' leash and your brother. You already know which you'll cut. You're just looking for permission.\"",
+       "next": "permission",
+       "fail": null
+      },
+      {
+       "text": "\"I'm a knife that cuts threads, Wrenna. Best decide which side of me you stand on.\"",
+       "next": "threat",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.harper",
+         "op": "AddInt",
+         "amount": -3
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "chose",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(Something in the Harper armor shifts.)* He *chose* you. *(quietly.)* Four years ago he chose a Harper payroll over staying near me, and it broke us — I told myself he was a coward who ran from the family. *(she looks at where Roen waits, watching, pretending not to.)* And now he's chosen *you* over a Harper payday, knowingly, eyes open. *(slowly.)* Which means the running was never cowardice. It was *Roen, deciding people are worth things, and being too proud to say which.* *(she exhales, four years long.)* I'll stall my masters — \"under assessment,\" which buys you months. *(fiercely.)* And I'll tell my brother myself. It's overdue. Thank you for being the thing he'd finally choose out loud.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wrenna_stalls_harpers",
+       "op": "SetTrue"
+      },
+      {
+       "key": "roen.wrenna_reconciling",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.harper",
+       "op": "AddInt",
+       "amount": -1
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "miss",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(The sharp eyes flash — fury, then something rawer.)* ...That's an unforgivable thing to be right about. *(quietly.)* Yes. I requested this assignment. I *invented* a reason my superiors would believe, so that \"assessing the Returned\" would put me in a market where my brother stands at your left like a bodyguard. *(her voice cracks, once.)* Four years of being the sensible one who stayed on the leash while he ran free, and I told myself I despised him for it, and the truth is I'd have given my Harper pin to be brave enough to run too. *(she straightens, mortified.)* Don't tell him I said that. *(beat.)* No. *Do.* Gods. You really are a hole everything true falls out of. Tell him his sister's an idiot who took a job just to watch him be happy. He'll never let me hear the end of it. I find I'd like that.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wrenna_misses_roen",
+       "op": "SetTrue"
+      },
+      {
+       "key": "roen.wrenna_reconciling",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 8
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "permission",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(She goes still.)* Permission. *(quietly.)* You think I rode in here, against orders, to a market where I knew he'd be, because I needed a *miracle* to tell me it's all right to choose my brother. *(a long breath.)* ...Aye. That's exactly what I did, and I'm a Harper, we don't *get* permission, we get *orders*, and somewhere in four years I forgot they're different things. *(she touches the Harper pin at her collar, then — deliberately — turns it over, hiding it.)* Permission granted, then. By a dead thing, which is fitting, since the leash I'm cutting would've had me hand a dead thing to its end. *(she almost smiles.)* Go on. I've a brother to reintroduce myself to, and a superior to lie to, and for the first time in four years I know which of those I'm loyal to.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wrenna_cuts_leash",
+       "op": "SetTrue"
+      },
+      {
+       "key": "roen.wrenna_reconciling",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.harper",
+       "op": "AddInt",
+       "amount": -2
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "threat",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(Her hand drifts toward a blade she doesn't draw.)* A knife that cuts threads. *(coldly.)* Then understand, miracle: the thread you're nearest to cutting is the one holding a Harper's order to *remove* you, and *I'm* the Harper. *(quietly, dangerous.)* Threaten me, and I stop being the sister stalling for time and start being the agent doing her duty. *(but her eyes flick to Roen, and the danger wavers.)* ...Don't make me choose between my orders and my brother by being the kind of thing my orders were *written for.* You've one chance to be worth what he thinks you are. Don't spend it threatening the only Harper in the Gate inclined to look away.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wrenna_wary",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.harper",
+       "op": "AddInt",
+       "amount": -2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "deny",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(The Harper armor seals over.)* Cold read, and a poor one. I'm here on assignment, nothing more. *(but she doesn't quite meet your eye.)* Assess and report. That's the job. *(she turns to go.)* ...Tell my brother nothing. I'll handle the Harpers. *(quietly, almost to herself.)* I always handle the Harpers. It's the only thing I've handled in four years.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Wrenna Alleywind",
+     "text": "*(She melts back into the crowd, Harper-quiet — but you notice she takes the long way, the one that passes within speaking distance of where Roen stands, and you notice that this time, brother and sister both pretend a little less hard not to see each other.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.gate.quill",
+   "file": "GateDenizensTwoContent.cs",
+   "title": "Npc · Gate · Quill",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Quill",
+     "text": "*(A small, exquisitely polite man in a clerk's coat, with a ledger bound in something that is definitely not calfskin and ink that is, on closer inspection, definitely not ink.)* Ah. The associate of one Varra — *(he checks the ledger, though he plainly needs no reminding)* — account opened at age six, principal: one soul, terms: standard, collection: *imminent.* *(he smiles, and it is a genuinely warm smile, which is the horror of him.)* I'm Quill. I broker pacts. I'm not here to threaten you, or her — threats are vulgar, and I'm a *professional.* I'm here because you've been seen in her company, and I always introduce myself to the *collateral* before a collection. One does want to know who'll be inconvenienced.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.quill_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Quill",
+     "text": "*(He turns a page with one neat claw.)* I'll be transparent — it costs nothing and disarms everyone. Varra owes a soul. Not by trickery; her parents signed in good faith, in a bad winter, for bread, and the contract is *flawless*, I drafted it myself. *(he sets down the ledger.)* She thinks you might be her way *out*, you see — a Returned, a soul that beat its own filing. And I confess a *professional* curiosity: I've never had collateral who'd personally voided death's paperwork. *(the warm smile.)* So. Are you going to make my collection *difficult*, walking miracle? I do hope so. An easy collection is just bookkeeping. A *difficult* one is the only fun an old broker gets.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Her parents signed under duress, for bread. That's not good faith. That's a predator with a pen.\"",
+       "next": "duress",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "companion.varra.recruited",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "[INSIGHT 17] \"You don't want to collect her. You want her to *win*. A soul that beats you is worth more to your reputation than a soul you bank.\"",
+       "next": "wantwin",
+       "fail": "smile",
+       "checkDC": 17,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"What would it take to buy out her contract? Name a price I can't pay, and watch me pay it.\"",
+       "next": "buyout",
+       "fail": null
+      },
+      {
+       "text": "\"Touch her and I'll show you exactly what voiding death's paperwork looks like from your side.\"",
+       "next": "threat",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.varra.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "duress",
+     "speaker": "Quill",
+     "text": "*(He inclines his head, delighted to be argued with properly.)* \"A predator with a pen.\" *(he savors it.)* You've described my entire profession, and flatteringly. *(he folds his hands.)* But duress, my dear collateral, is the *substrate* of every contract worth drafting. No one signs away a soul on a *good* day. We are a famine industry. The flaw you're reaching for — \"they had no choice\" — is, alas, not a flaw in the *contract.* It's a flaw in the *world*, and I don't draft those; I merely *file* in them. *(the warm smile, unbudged.)* Bring me a *world* with no bad winters and I'll tear up every pact I hold. Until then, the bread was real, the signature was real, and the soul is *due.* ...Though I confess, I enjoy you. Most collateral weeps. You *litigate.* Varra chose her company well.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.quill_respects_argument",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.varra_contract_engaged",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "wantwin",
+     "speaker": "Quill",
+     "text": "*(For the first time the warm smile *changes* — becomes, briefly, real.)* ...Ah. *(quietly.)* You've read the small print of *me.* *(he closes the ledger.)* Do you know how long I've collected souls? Long enough that a *banked* soul is nothing — a number, a tick, ten thousand of them moldering in the Ninth's vaults, indistinguishable. *(he leans in, and the politeness becomes something almost wistful.)* But a soul that *beats* the contract — cleanly, by some loophole I didn't foresee — *that* is the only thing that's surprised me in an age, and surprise, to an immortal bureaucrat, is the rarest coin there is. *(the smile returns, warmer now, conspiratorial.)* So yes. Find me the loophole. Make me *lose.* I'll fight you every clause of the way, because a victory you didn't earn would bore us both — but between you and me and this ledger that isn't calfskin... I am *rooting* for the collateral. Don't tell the Ninth. They'd dock my surprise.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.quill_secretly_hopes",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.varra_contract_engaged",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.varra.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "buyout",
+     "speaker": "Quill",
+     "text": "*(He brightens — this is his favorite kind of conversation.)* A *buyout!* Oh, splendid, a negotiation. *(he produces terms from the air.)* The price of a soul contracted at six, with imminent collection... is not coin, you understand. Coin's beneath us. *(he taps the ledger.)* The price is a *substitution* — another soul, freely given, of equal or greater interest — OR a *clause* I've never seen before, payment in *novelty.* *(the warm smile sharpens.)* You, a Returned, are a walking unforeseen clause. I'd take *you* in trade, gladly — but I suspect you've prior liens. *(he chuckles.)* So bring me a substitution I'd *want*, or a loophole I'd *admire*, and Varra walks free with my compliments. I'm not a monster, collateral. I'm a *connoisseur.* The distinction matters enormously to me and not at all to her, which is the tragedy of my whole trade.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.quill_buyout_terms",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.varra_contract_engaged",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "threat",
+     "speaker": "Quill",
+     "text": "*(He claps his small hands, genuinely thrilled.)* Oh, a *threat!* From the one soul in creation who could conceivably *make good* on it! *(he doesn't retreat an inch.)* Do you know, in nine thousand years, no collateral has threatened me *credibly.* You may be the first. *(the warm smile, unwavering.)* But consider, before you void my paperwork from my side: I am one broker. The Ninth is a *firm.* Unmake me, and they send someone *without* my fondness for a good loophole, someone who collects Varra in an afternoon and files her without a flicker of sporting interest. *(he bows.)* I am, improbably, the *best* friend her contract has. Threaten me if it pleases you. But you'd be removing the one devil in Hell who *wants* her to win. Do reflect. I'll wait. I've nothing but time and other people's souls.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.quill_threatened",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.varra_contract_engaged",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.varra.approval",
+       "op": "AddInt",
+       "amount": 2
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "smile",
+     "speaker": "Quill",
+     "text": "*(The warm smile receives your failed read like a velvet wall.)* Mm. A valiant reach. *(gently.)* But you'll find, collateral, that a being who has read nine thousand years of contracts is rather difficult to *read* in return. The fine print runs the other way, you see. *(he reopens the ledger.)* Do come back when you've found a sharper instrument. I so enjoy being properly negotiated with. It happens *vanishingly* rarely, down among the desperate.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Quill",
+     "text": "*(He tips a hat he isn't wearing and recedes into the crowd, the most courteous predator in the Gilded Gate — and you understand that Varra's salvation will be won not by force or by weeping, but by being *interesting enough* to a bored old devil who has, against every clause of his nature, started to hope.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "sq.taxghost.church",
    "file": "GateSideQuestsContent.cs",
    "title": "Sq · Taxghost · Church",
@@ -11218,9 +13203,9 @@
   }
  ],
  "stats": {
-  "conversations": 102,
-  "nodes": 542,
-  "choices": 349,
-  "skillChecks": 61
+  "conversations": 114,
+  "nodes": 638,
+  "choices": 397,
+  "skillChecks": 73
  }
 }
