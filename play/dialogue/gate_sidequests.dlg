@@ -1,0 +1,122 @@
+# SIDE QUESTS — THE GILDED GATE, Wave I
+# Two full arcs paying off NPC hooks: Tobias the tax-ghost ("The Unfiled Soul") and Lula's list
+# ("What the Living Owe"). Both turn on the saga's true subject — whether a name is allowed to matter.
+class: GateSideQuestsContent
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SIDE QUEST — "The Unfiled Soul"  (requires sq.taxghost_accepted)
+# Get three signatures so a dead clerk can file his own death and rest.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ─── Beat: the church signature (the moral wrinkle) ───
+conversation: sq.taxghost.church | The Unfiled Soul — A Stingy Ink
+node: 0 | Deacon Mallow
+  *(A thin Kelemvorite deacon guards the chapel's signing-book like a miser his last coin.)* A death-certificate counter-signature. For — *(he checks the form, and his lip thins)* — Tobias Ledgerwhite, clerk, district seven. *(he sets down the pen.)* I'll save us both the time. The man *doubted.* It's in his file — forty years of muttered questions at the back of services, a clerk who balanced our tithes and never once believed the god he tithed to. *(quietly, official.)* By the doctrine, he sorts to the Wall. The Faithless do not receive the rites. I cannot sign a rest for a soul the law says was never owed one.
+  enter: SET sq.taxghost_church_begun
+  auto: 1
+node: 1 | Deacon Mallow
+  *(He folds his hands, not unkind, only certain.)* I'm sorry. Truly. He was a tidy man and I'd no quarrel with him. But if I sign rest for one doubter, the whole sorting unravels — and then what was the Wall *for*, and what were all the others walled for, if Tobias gets a pen-stroke out? *(he looks at the form, conflicted despite himself.)* Convince me, Returned. You of all souls know what's on the other side of my signature. Tell me why I should spend the church's ink on a man the church already filed.
+  * [PERSUADE 17] "He spent forty years making your tithes balance honestly. That's a faith of the hands, even when the heart had questions. The church already accepted his service. Accept his rest." -> faith ?? refuse
+  * [INSIGHT 16] "You don't believe he belongs in the Wall. You believe you'll lose your post if you say so. Sign it, and I'll be the one who pushed you." -> cover ?? refuse
+  * "Garrow vouches the doctrine on the Faithless is incomplete. A Doomguide of forty years' standing. Will you take her word over a clerk's file?" -> garrow | if prologue.garrow_doubt
+  * "Then I'll forge it. And you'll have let a man rest by *not noticing*, which is the most mercy your doctrine allows." -> forge | fx faction.kelemvor -2
+node: faith | Deacon Mallow
+  *(The pen hovers, trembling.)* A faith of the *hands.* *(slowly)* Forty years of honest sums for a god he questioned... that *is* a kind of devotion the doctrine has no box for, isn't it. The doubting heart and the faithful ledger, in one tidy man. *(he signs, fast, before he can stop himself, and exhales like a man setting down a great weight.)* There. The church's ink, spent on a doubter, because a Returned reminded me that *service is also prayer.* *(quietly.)* Don't tell my Justiciar. Or — do. Perhaps the doctrine needs the box. Perhaps that's what your kind are *for*, Returned — to be the soul the law forgot to account for, until it has to.
+  enter: SET sq.taxghost_church_signed, faction.kelemvor +3
+  auto: close
+node: cover | Deacon Mallow
+  *(He flinches — you've found the true bone.)* ...That's unkind. *(a pause.)* And accurate. *(he signs, jaw tight.)* Yes. I think the man deserves rest. I have thought so for the quarter-hour since you walked in. But I have a *post*, and a Justiciar who burns ink-budget overruns hotter than heretics, and a family fed by my not-rocking the doctrinal boat. *(he blots the signature.)* So thank you for being the *push.* If anyone asks, the Returned bullied an honest deacon. It's even half true. Now take it before my courage files itself away with the rest of my unspoken doubts.
+  enter: SET sq.taxghost_church_signed, SET npc.mallow_pushed, faction.kelemvor +1
+  auto: close
+node: garrow | Deacon Mallow
+  *(He stiffens at the name.)* Sister Garrow. *(quietly.)* She left the order over exactly this — a sorting she couldn't sign. We called her weak. *(he looks at the form, then at you, then at the chapel's gold book of the saved.)* If *she* says the doctrine's incomplete — and she buried more Faithless with her own hands than I've ever signed for — then I am a younger, smaller priest disagreeing with a braver, older one about the very thing she gave up her post to be right about. *(he signs.)* There. On Garrow's authority, not mine. Tell her... tell her a deacon she's never met just spent the church's ink the way she'd have wanted. She'll know what it cost me. She paid it first.
+  enter: SET sq.taxghost_church_signed, SET npc.mallow_honors_garrow, faction.kelemvor +2, appr.garrow +4
+  auto: close
+node: forge | Deacon Mallow
+  *(He turns very deliberately to face the wall.)* I did not see that. *(quietly.)* The most my doctrine allows me is to *not look* while a kindness is done against the rules. *(he stays facing the wall.)* Forge it well, Returned. And know that a faith which can only offer mercy by *looking away* is a faith with a hole in it shaped exactly like Tobias. Exactly like you. ...Go. Before I turn around and become certain again.
+  enter: SET sq.taxghost_church_forged, faction.kelemvor -1
+  auto: close
+node: refuse | Deacon Mallow
+  *(He closes the signing-book.)* I'm sorry. The doctrine holds, even when I wish it wouldn't. *(quietly.)* Find another way, or let the man wait. The Wall is patient. So, gods forgive us, are we.
+  enter: SET sq.taxghost_church_refused
+  auto: close
+node: close | Deacon Mallow
+  *(Whatever passed, the deacon returns to his book a little less certain of it than he was — which is, perhaps, all a doctrine can survive losing at one time.)*
+
+# ─── Resolution: the witness box, and the filing ───
+conversation: sq.taxghost.resolution | The Unfiled Soul — The Last Signature
+node: 0 | Tobias Ledgerwhite
+  *(Back at the phantom desk. Tobias has the form — employer's signature obtained, church's secured (or forged, or absent) — and only one box remains, and he cannot look at it.)* You came back. *(he says it with a wonder no clerk should be capable of.)* Two signatures. *Two.* I'd resigned myself to eternity at noon, and you've gone and made me *current* on my filings. *(his spectral hand hovers over the last box.)* Only the witness remains. The box that swears I... *(he can't say it.)* I find I'm more frightened of this empty box than I ever was of dying. Dying was just a *deadline.* This is a *verdict.* Will you sign it? Will you swear that Tobias Ledgerwhite *mattered*? And — gods help me — do you believe it, or will you only be kind?
+  enter: SET sq.taxghost_resolution_begun
+  auto: 1
+node: 1 | Tobias Ledgerwhite
+  *(He holds out the pen — yours to take, or not.)* Sign it true, or sign it kind, or don't sign it. But tell me which. A clerk can survive a hard truth. It's the *unaudited* uncertainty that's killed me. So. What does the witness-box say of Tobias?
+  * "Tobias, you mattered — not because of the ledgers. Because you stayed forty years past caring, and got the sums right anyway, for strangers who never thanked you. That's not a function. That's a quiet kind of love." -> mattered | fx SET sq.taxghost_witnessed, appr.garrow +5
+  * [INSIGHT 17] "You think you need me to say you mattered. You don't. You filed yourself off the harvest list — you died protecting a stranger's name from the nothing. You witnessed your OWN worth. I'm just co-signing." -> selfwitness ?? kind
+  * "I'll sign it kind. You did matter, but I'll be honest — I barely knew you. Take the kindness anyway. The dead are owed at least that." -> kind | fx appr.varra +2
+  * "The Choir's smiling man would sign it — if you let your name feed the harvest. You'd 'matter' enormously. Refuse him. Rest as yourself, unused." -> choir
+node: mattered | Tobias Ledgerwhite
+  *(He takes the signed form, and reads the witness-box, and a sound comes out of him that is forty years overdue.)* "...A quiet kind of love." *(He weeps, and as he weeps the noon light in the counting-house finally, finally shifts — a single clock somewhere striking *one.*)* It's — it's *one o'clock.* *(astonished, transfigured.)* The day's allowed to end. *Forty years* of fearing the day would end, and it turns out the day was only waiting for someone to total the one column I couldn't. *(he is fading now, gently, gratefully.)* Tell the weeping auctioneer, and the gravedigger, and the girl with the list — tell them a clerk says *thank you for the keeping of names.* It's the only true wealth this city ever had. *(softly, fading.)* File me under *remembered.* I'll know the box is filled. I'll rest in a balanced ledger at last.
+  enter: SET sq.taxghost_complete, SET sq.taxghost_at_peace, SET deed.named_the_forgotten
+  auto: close
+node: selfwitness | Tobias Ledgerwhite
+  *(He goes utterly still, then lets out a long, trembling, *clerk's* laugh — the laugh of a man shown an error in his own arithmetic that turns out to be in his favor.)* I... left myself off the harvest list. *(slowly.)* I was filing four hundred and eleven souls, and I came to my own name, and I — I *omitted* it. I gave a stranger my slot, didn't I. Some netmender or winkle-seller who'd have been processed faster. I died one short so another could be one late. *(he stares at his hands.)* I witnessed my own worth and then spent eternity forgetting I'd done it. *(he signs, weeping and laughing at once, and the clock strikes one.)* You didn't tell me I mattered, Returned. You *audited* me, and found I'd known all along. That's the kindest sum anyone ever ran. *(fading, at peace.)* Co-signed. Filed. *Rested.*
+  enter: SET sq.taxghost_complete, SET sq.taxghost_self_witnessed, SET deed.named_the_forgotten, appr.naeve +3
+  auto: close
+node: kind | Tobias Ledgerwhite
+  *(He takes the form, and there is gratitude in it, but his clerk's eye catches the truth.)* Kind, not true. *(quietly.)* I can tell the difference; I spent forty years spotting padded entries. *(but he signs it anyway, and the clock, after a long hesitation, strikes one.)* And do you know — *kind* turns out to be enough. *(wondering.)* I thought I needed to have *mattered.* But perhaps mattering was always too high a bar, and being *treated gently by a stranger at the end* is the realer, smaller, achievable thing. *(fading.)* You were kind to a dead clerk you barely knew. In this city, that may be the rarest entry in any ledger. I'll rest on the kindness. It's more than the saved get. Thank you.
+  enter: SET sq.taxghost_complete, SET sq.taxghost_rests_on_kindness
+  auto: close
+node: choir | Tobias Ledgerwhite
+  *(He recoils from the very idea.)* Feed my *name* to the harvest? To *matter* by being *used?* *(fastidious horror.)* No. No, that's — that's a falsified entry, that's mattering *fraudulently*, that's the smiling man offering to fill my witness-box with a lie that costs my own soul. *(he straightens, and finds his dignity.)* I would rather rest *unfiled* forever than be *filed under useful.* *(quietly.)* Thank you for showing me the offer, Returned. I almost think you showed it to me *so* I could refuse it — so I could learn that I'd rather be a forgotten man than a harvested one. *(he sets down the form, choosing the long wait over the false rest.)* I'll wait for a true signature. Or none. But not *that* one. A clerk has standards. Apparently they outlast death.
+  enter: SET sq.taxghost_refused_choir, SET act1.choir_doubt_seeded, appr.garrow +4
+  auto: close
+node: close | Tobias Ledgerwhite
+  *(Whether he rested or chose to wait, the corner of the counting-house feels different now — no longer haunted, exactly. Witnessed. Which, you are beginning to understand, is the whole of what the dead of this city have ever asked.)*
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SIDE QUEST — "What the Living Owe"  (requires sq.lulaslist_active)
+# Three powers want Lula's list of the forgotten. Decide what remembering is for.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ─── Confrontation: the three reasons come for the list ───
+conversation: sq.lulaslist.confrontation | What the Living Owe — Three Reasons
+node: 0 | The Smiling Man
+  *(They've come for it together, three grown-ups around one girl on a barrel: the Choir's Smiling Man, a soft-voiced church clerk, and a patriar's polished agent. Lula sits on the great ledger, twelve years old and furious, and looks to you.)* We're not monsters, friend — note that all three of us said it at once; do reflect on that. *(the smile is bottomless.)* The child has compiled something precious. A registry of named Faithless souls. We three merely disagree on its highest use. Surely a thing so valuable shouldn't molder under a child who'll only... *remember* it.
+  enter: SET sq.lulaslist_confront_begun
+  auto: 1
+node: 1 | The Church Clerk
+  *(soft, regretful)* The list is heresy, plainly. Each name written undoes a sorting the law made. I'd not *harm* the child — gods, no — I'd simply *burn the book* and let the forgetting resume as doctrine intends. It's a *mercy*, really. The dead are meant to rest in nothing, not be dragged back as a *grievance.*
+  auto: 2
+node: 2 | The Patriar's Agent
+  *(smooth)* Burn it? Gods, the *waste.* Every name on that list has a grieving survivor who'd pay — handsomely, gratefully — to buy back the memory of their own dead. My principal would purchase the registry and operate it as a *service.* Closure, retailed. The child even gets a cut; we're not barbarians. *(he spreads his hands.)* Honor it, burn it, or *monetize* it. Three reasonable adults. Choose, Returned. The child clearly trusts your judgment more than ours, which is itself a little insulting.
+  auto: choice
+node: choice | Lula
+  *(small, fierce, to you, ignoring all three)* They keep saying *use.* Honor-use, burn-use, sell-use. *(her hand flattens on the ledger.)* You promised. Whatever you say next — remember Tam liked frogs and was eight and doubted, and none of *that* is *for* anything. Say the thing none of them can.
+  * "The list isn't FOR anything. That's the point, and it's the whole point of the saga. Remembering with no use is the only thing the Wall can't corrupt. All three of you — go." -> nouse | fx faction.choir -6, SET sq.lulaslist_protected, appr.garrow +8
+  * [PERSUADE 18] "Here's the use that ends your argument: I copy it. Many copies, in many hands, no single owner. Un-burnable, un-buyable, un-harvestable. A name everyone keeps is a name no one can spend." -> copies ?? grab
+  * "Patriar — buy it, then give it to the survivors free, with the church clerk forced to read each name aloud as penance. Turn three vultures into one apology." -> apology | fx faction.fist +2
+  * [INSIGHT 16] "Smiling Man — you didn't come for the list. You came to make a CHILD complicit, because a Choir that recruits the grieving needs the young to believe remembering requires a buyer. Get away from her." -> expose ?? grab
+node: nouse | The Smiling Man
+  *(The other two bluster; the Smiling Man only inclines his head, and his smile, for once, looks almost like defeat.)* "Remembering with no use." *(softly.)* Do you know, in all my recruiting, that is the one sentence I have no counter for. Everything else I can reframe — grief, fear, hope, even love, all of it leads back to a leash if you hold it long enough. But a memory kept for *nothing*, expecting *nothing*... *(he steps back from the child.)* ...has no handle on it. Nowhere to clip the lead. *(he gathers the other two with a glance.)* Come. There's no transaction here. The rarest thing in the Gilded Gate — and not one of us can sell it. *(to you, with genuine, chilling respect.)* You've cost me a registry and taught me a fear. We'll meet again, Returned. I should like to know what *else* you keep for nothing.
+  enter: SET sq.lulaslist_protected, SET sq.lulaslist_unsellable, SET deed.kept_for_nothing
+  auto: lula_close
+node: copies | The Patriar's Agent
+  *(He does the math and goes pale.)* Many copies. No owner. *(aghast.)* You've just — you've *destroyed the asset by infinitely duplicating it*, that's *monstrous*, that's — *(the church clerk is equally horrified for the opposite reason)* — un-burnable! You can't burn a book that's in a hundred hands! *(Lula, meanwhile, is grinning like a sunrise.)* This is — there's no *play* here, you've made the names *worthless* by making them *priceless*, the two are supposed to be *opposites* — *(the Smiling Man, quietly, is the only one who understands, and the only one who looks impressed.)* The miracle's right, gentlemen. A name everyone keeps is a name no one owns. We've lost. Pick up your reasons and let's go be reasonable somewhere profitable.
+  enter: SET sq.lulaslist_copied, SET sq.lulaslist_unsellable, SET deed.kept_for_nothing, appr.naeve +4
+  auto: lula_close
+node: apology | The Patriar's Agent
+  *(He considers, then — to everyone's surprise — laughs.)* Buy it, gift it free, and make the *deacon* read each name as penance. *(he glances at the church clerk's horror with relish.)* You know, that's *deliciously* spiteful and it *photographs* beautifully — "Patriar funds free remembrance of the poor's dead." My principal will adore the standing it buys. *(the church clerk sputters; the agent overrides him.)* Done. The survivors get their names free, the church does public penance, and I get to be seen as generous while ruining a deacon's month. Three vultures, one apology. *(to you.)* You should go into *brokering*, Returned. You just made everyone lose in a way they'll each call winning. That's the highest art there is.
+  enter: SET sq.lulaslist_apology, faction.kelemvor -2, SET deed.kept_for_nothing
+  auto: lula_close
+node: expose | The Smiling Man
+  *(The smile thins to a blade.)* ...Ah. *(quietly, just to you, under the others' noise.)* You see the actual move. Not the list — the *child.* If I can teach a grieving twelve-year-old that even *remembering* requires a buyer, a sponsor, a *use* — then I've recruited the one generation that might otherwise have kept things for nothing. *(he steps back, conceding.)* You've protected more than a ledger. You've protected the *idea* that the ledger doesn't need me. *(the blade-smile, oddly, warms a fraction.)* I almost respect it enough to stop. Almost. We'll see who's still keeping things for nothing when the Wall comes down, Returned. Mind the child. She's more dangerous to my whole enterprise than you are.
+  enter: SET sq.lulaslist_protected, SET npc.smiling_retreats, faction.choir -4, SET deed.kept_for_nothing
+  auto: lula_close
+node: grab | Lula
+  *(Your clever play falters — and in the half-second of hesitation, the patriar's agent lunges for the ledger. But Lula is twelve and unbreakable and has already lost the thing she feared losing, and she yanks it back with a snarl, and the moment holds, knife-edged.)* *(to you, fierce, terrified)* They're *taking* it — say the simple thing, not the clever thing, SAY IT —
+  * "The list isn't for anything. Hands off the child. All three of you — go." -> nouse
+  * "Get back. The book stays with the girl, and the girl stays with me." -> nouse
+node: lula_close | Lula
+  *(The grown-ups disperse, their reasons unspent, and Lula looks at the great fraying ledger, and then at you, and for the first time the fierceness gives way to something a twelve-year-old shouldn't have had to earn: relief.)* They're gone. *(quietly.)* You said the thing. The *for nothing* thing. *(she opens to the first page — Tam, eight, liked frogs — and adds a name beneath it with steady, ink-stained hands.)* I'll keep adding. You keep the world off it. And when it's the Court of the Dead — *(she looks up, and it isn't a child's request anymore, it's a covenant)* — you bring the list, and you make them read every name, for nothing, expecting nothing. *(she bends back to the ledger.)* That's what the living owe the dead. Not a use. Just the *keeping.* ...Tam first. Promise.
+  enter: SET sq.lulaslist_complete, SET sq.lulaslist_covenant

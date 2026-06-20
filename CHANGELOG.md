@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v4.18.0 — *"A City With a Soul"* — 12 denizens, 2 full side quests, a 100+ NPC bible (Pillar 3/4)
+
+> Turning the dial to 11. BG2's genius was a world *crowded with specific, unforgettable people* — half
+> funny, half heartbreaking, all human. This is the first wave of that crowd, and the plan for the rest.
+
+- 🎭 **Twelve fully-voiced Lower City denizens** (`play/dialogue/gate_denizens.dlg`) — the comic, the
+  tragic, the absurd, the sinister, many reactive to your Act I deeds: **Jonn "Two-Cups" Tallow** (the
+  chandler who supplies a heretic's kettle and doesn't know it); **Grud the Optimist** (cheerful on purpose
+  since he buried his whole family); **the Weeping Auctioneer**; **Pib & Wee Pib** (a ratcatcher and his
+  rat "consultant"); **Old Threnody** (the blind dirge-bard who hears the Wall sing); **the Smiling Man**
+  (a salesman of leashes); **Velith the Unlucky** (the one honest table in a loaded city); **Mother Cass**;
+  **Tobias the tax-ghost**; **Lula the Memorist**; **Deacon Mallow**; **Sergeant Bricka**.
+- 🪙 **Two full side quests** (`play/dialogue/gate_sidequests.dlg`), each *about* the saga's true question
+  (*is a name allowed to matter?*), each a choice with no clean answer, each with a real payoff:
+  - **The Unfiled Soul** — help a dead clerk file his own death certificate; the witness-box demands you
+    swear a forgotten functionary *mattered* — truly, or kindly, or refuse the Choir's offer to make him
+    "matter" by harvest. Branches on Persuade/Insight, the church's stingy ink, and `deed.named_the_forgotten`.
+  - **What the Living Owe** — three powers (Choir, church, patriar) come for Lula's list of the forgotten;
+    prove that a thing **kept for nothing** is the one thing the Wall can't corrupt (`deed.kept_for_nothing`).
+- 📖 **`docs/story/NPC_ROSTER.md`** — the cast bible: **100+ NPCs planned by region** (the Gate, Candlekeep,
+  the Fugue, the four eras, the Court of the Dead, recurring "anywhere" faces), with one-line hooks and a
+  **Side-Quest Bible** under the design law: *no NPC may be generic; no side quest is done until it finds
+  its grief.*
+- 📈 **+15 conversations / +128 nodes** — game total **87 → 102 conversations** (414 → **542 nodes**, 44 →
+  **61 skill checks**). We crossed **100 conversations**. Compiler-validated; round-trips through
+  `extract-dialogue.py`; suite holds at **606 checks**, all green.
+
 ## 👑 v4.17.0 — *"The City Remembers"* — Act I deepened with reactive aftermath (Pillar 3/4)
 
 > Chapter 1 stops being a corridor of set-pieces and becomes a *place that reacts* — every NPC reads what
