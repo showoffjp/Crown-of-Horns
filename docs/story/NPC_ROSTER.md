@@ -51,16 +51,16 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | # | NPC | Hook | |
 |---|---|---|---|
 | 23 | **Lady Pellingham** | Patriar who collects "authentic experiences"; wants you as Tuesday's salon curiosity. | ✍️🪙 |
-| 24 | **Duke Aldwin the Absent** | A ruler who governs entirely through committees so no decision is ever *his*. | 📋 |
-| 25 | **The de Lancie Heir** | Bored noble who bought an archdevil last season and is shopping for a soul this one. | 📋 |
+| 24 | **Duke Aldwin the Absent** | A ruler who governs entirely through committees so no decision is ever *his*. | ✍️ |
+| 25 | **The de Lancie Heir** | Bored noble who bought an archdevil last season and is shopping for a soul this one. | ✍️ |
 | 26 | **Justiciar Veld** | Hardline church magistrate; would burn Lula's list "politely." | ✍️🔁 *(ties Garrow's quest)* |
-| 27 | **Archivist Threnn** | Patriar archivist hoarding the city's true death-tolls to protect property values. | 📋🪙 |
+| 27 | **Archivist Threnn** | Patriar archivist hoarding the city's true death-tolls to protect property values. | ✍️🪙 |
 | 28 | **The Glassblower's Widow** | Commissions a memorial window for the Faithless; the church keeps shattering it. | ✍️🪙 |
 
 ### Outer City & the Docks
 | # | NPC | Hook | |
 |---|---|---|---|
-| 29 | **Old Marrow** | A "corpse" Grud keeps losing at dice; may or may not be entirely dead. | 📋 |
+| 29 | **Old Marrow** | A "corpse" Grud keeps losing at dice; may or may not be entirely dead. | ✍️ |
 | 30 | **Captain Semm Tidewrack** | Smuggler-captain who ferries the living dead out of the city, for a price. | 📋🪙🔁 |
 | 31 | **The Ferryman of Chionthar** | Charges the newly-dead a coin they no longer have; a Charon with a guilty conscience. | ✍️🪙 |
 | 32 | **Knuckle** | Dock enforcer who only breaks the fingers of people who "deserve a *lesson*, not a *grudge*." | 📋 |
@@ -73,10 +73,10 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 
 | # | NPC | Hook | |
 |---|---|---|---|
-| 35 | **Gatewarden Imisk** | Takes the toll of one book the library lacks; has heard every desperate lie. | 📋 |
-| 36 | **First Reader Ovid** | The blind chief scholar who's read everything and remembers being unable to forget. | 📋🔁 |
-| 37 | **The Acquisitions Monk** | Will do *anything* for a unique volume — the multi-path "Book It Doesn't Have" quest. | 📋🪙 |
-| 38 | **Henwick the Misfiled** | A scholar Candlekeep accidentally catalogued *as a book* 60 years ago; now legally shelving. | 📋🪙 |
+| 35 | **Gatewarden Imisk** | Takes the toll of one book the library lacks; has heard every desperate lie. | ✍️ |
+| 36 | **First Reader Ovid** | The blind chief scholar who's read everything and remembers being unable to forget. | ✍️🔁 |
+| 37 | **The Acquisitions Monk** | Will do *anything* for a unique volume — the multi-path "Book It Doesn't Have" quest. | ✍️🪙 |
+| 38 | **Henwick the Misfiled** | A scholar Candlekeep accidentally catalogued *as a book* 60 years ago; now legally shelving. | ✍️🪙 |
 | 39 | **The Sealed-Stacks Revenant** | A previous Returned, walled into the lore, who left you a warning in the margins. | 📋🔁 |
 | 40 | **Brother Tym the Indexer** | Cross-references every soul in the Wall against the Catalogue of the Living; going mad pleasantly. | 📋🪙 |
 | 41 | **The Cat Who Reads** | Candlekeep's familiar; the only "NPC" who knows where the dangerous book is. | 📋 |
@@ -208,7 +208,7 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 | **The Almshouse Roof** | Mother Cass (#8) | Fund the almshouse so the rememberer outlives the drawer. | Charity as defiance: keep the *remembering* alive, not just the remembered. | 📋 |
 | **Under the Chapel** | Pib (#4) | The rats flee the church's own cellar. What's the harvest doing on holy ground? | The church is not clean either; complicity reaches the altar. | 📋 |
 | **The Auctioneer's Evidence** | Corval (#3) | Turn the ledger of the harvested from a receipt into an indictment. | Nail the names to the church door, or spare the city the reckoning. | 📋 |
-| **The Book It Doesn't Have** *(Act II)* | The Acquisitions Monk (#37) | A multi-path epic to win Candlekeep's toll. | Steal it, write it, become it, or destroy the one copy to make yours unique. | 📋 |
+| **The Book It Doesn't Have** *(Act II)* | The Acquisitions Monk (#37) | A multi-path epic to win Candlekeep's toll. | Steal it, write it, become it, or destroy the one copy to make yours unique. | ✍️ |
 
 > **Design law (BG2/BG3):** every side quest must (1) be *about* one of the saga's real questions
 > (is a name allowed to matter?), (2) offer a choice with no clean answer, and (3) **pay off** — in
@@ -217,6 +217,6 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 
 ---
 
-*Last updated: Waves I–III — 24 fully-voiced Gate denizens + Deacon Mallow + 2 full side quests authored and
-live (`gate_denizens{,_2,_3}.dlg`, `gate_sidequests.dlg`). 114 conversations / 638 nodes total. Roster planned
+*Last updated: Waves I–IV + Candlekeep opened — 24 fully-voiced Gate denizens + Deacon Mallow + 2 full side quests authored and
+live (`gate_denizens{,_2,_3}.dlg`, `gate_sidequests.dlg`). 122 conversations / 703 nodes total; Candlekeep cast begun. Roster planned
 through 100+. Onward.*

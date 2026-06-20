@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v4.20.0 — *"The Gate Filled, the Library Opened"* — Wave IV + Candlekeep's scholars (Pillar 3/4)
+
+> The Upper City's idle cruelty, the Docks' practical mercy, a corpse who cheats at dice — and the first
+> of Candlekeep's magnificent obsessives.
+
+- 🏛️ **Wave IV finishes the Gilded Gate** (`gate_denizens_4.dlg`): **Duke Aldwin the Absent** (governs by
+  committee so no decision is ever *his* — and can be shamed into the first signature in years); **Ysolde de
+  Lancie** (a bored patrician shopping for immortality, who can be sold a *use* instead); **Archivist Threnn**
+  (keeps two ledgers — the survivable lie for the patriars, the unbearable *true* count for the dead, because
+  *someone* has to write the names down right); **Old Marrow** (a corpse who keeps coming up from Grud's
+  graveyard to cheat gently at dice, staying square with a grieving friend the harvest can't take from him —
+  because he's already gone).
+- 📚 **Candlekeep opens** (`candlekeep_denizens.dlg`) — a new region, *Planescape*-hushed: **Gatewarden Imisk**
+  (the toll is a book the library lacks — and *you* may be a unique volume); **First Reader Ovid** (blind, has
+  read everything, remembers all of it, and reads a single *blank page* for the only silence he has —
+  warns you the Crown speaks in your own voice); **Brother Faolan of Acquisitions** (will do anything for the
+  *Catalogue of the Unwritten* — because his own unwritten poems are in it); **Henwick the Misfiled** (a man
+  catalogued *as a book* sixty years ago, now immortal and unharvestable — the living key: *the Wall can only
+  take what nothing else has kept*).
+- 🔁 Reactivity into the Act II spine: gates on `prologue.garrow_doubt`, feeds `act2.candlekeep_entered`,
+  `crown.is_myrkul`, `act3.lr_loop_revealed`, and the thematic discovery `act2.cataloguing_defeats_the_wall`.
+- 📈 **+8 conversations / +65 nodes** — game total **114 → 122 conversations** (638 → **703 nodes**, 73 →
+  **82 skill checks**). Roster: **32 NPCs authored** across the Gate and Candlekeep. No id/class collisions;
+  suite holds at **606 checks**, all green.
+
 ## 👑 v4.19.0 — *"The City, Crowded"* — 12 more denizens (Waves II–III) (Pillar 3/4)
 
 > More souls for the Gilded Gate. Comedy, menace, the companions' faces, and the men who ferry the dead.
