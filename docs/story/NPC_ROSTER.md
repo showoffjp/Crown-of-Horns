@@ -158,11 +158,11 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 
 | # | NPC | Hook | |
 |---|---|---|---|
-| 78 | **Jergal** | The first scribe; filed the first soul under nothing; keeps the keyhole of the golden road. | 📋🔁 |
+| 78 | **Jergal** | The first scribe; filed the first soul under nothing; keeps the keyhole of the golden road. | ✍️🔁 |
 | 79 | **Vayle** *(final)* | The Doomguide, with the church's last army; redeemable per your Act I choices. | 📋🔁 |
-| 80 | **The Last Returned** | You, aged by certainty, closing the loop; wants you to surprise it. | 📋🔁 *(mirror)* |
+| 80 | **The Last Returned** | You, aged by certainty, closing the loop; wants you to surprise it. | ✍️🔁 *(mirror)* |
 | 81 | **The Ledger Itself** | Ten thousand years of the discarded; speaks, if you read it by hand. | 📋🪙 |
-| 82 | **The Soul You Judge First** | Whichever name the player chooses to read first — procedurally the most-flagged forgotten NPC. | 📋 |
+| 82 | **The Soul You Judge First** | Whichever name the player chooses to read first — procedurally the most-flagged forgotten NPC. | ✍️ |
 
 ---
 

@@ -11,6 +11,42 @@
 
 ---
 
+## 👑 v4.31.0 — *"Read Me By Name"* — Act V opens: the Court of the Dead, the summit (Pillars 1+2)
+
+> The road reaches its end, and every thread it wove becomes a single choice. The god who *already* did what
+> you came to do — invented the Wall, then abdicated his own godhood in eons-long penance. Your own future
+> self, crowned and trapped, secretly begging you to do the brave thing he couldn't. And the first soul you
+> choose to read aloud — where the whole saga collapses to its smallest, unbreakable act.
+
+- ⚖️ **Act V opens at the Court of the Dead** (`court_denizens.dlg`) — the summit, where the seeded flags of
+  the entire journey converge:
+  - **Jergal, the First Scribe** — the original death-god, who *invented* the filing and the "nothing," then
+    abdicated his divinity and made himself the eternal clerk of his own sin, waiting eons for the one who
+    could finish what he began. He confirms the keystone — *the Wall has no author who still believes in it* —
+    and guards the keyhole of the **golden road**, which leads not to a kinder Wall but to *the fall, the
+    ending, the letting-go.* Can be released among the Faithless himself, the oldest prisoner of his own
+    cruelty (`act5.jergal_gives_key`, `act5.golden_road_known`, `act5.release_jergal`).
+  - **The Last Returned** — *you*, aged by certainty, crowned in cold grave-fire, the most imprisoned soul in
+    the Court. He took the crown out of *fear for the souls he came to save*, became the warden, and now
+    recruits each next loop into the same choice — while secretly *begging* to be surprised. The crown's true
+    temptation laid bare: not power, but *the promise that wearing it, you'll stop being afraid for them.* The
+    loop breaks on the Exile's secret — forgiveness set down, not earned (`act5.loop_can_break`,
+    `act5.last_returned_freed`, `act5.crown_is_fear`).
+  - **The Soul You Judge First** — *Halen, a potter*, half-mortared in the Wall, looked at directly for the
+    first time in eons. The whole war reduces to one act: the Wall keeps souls not by force but by making sure
+    *no one reads them* until they *agree* they're nothing — and a single name, read aloud and *meant*, is the
+    one thing it was never built to survive. Witness, then *release* — read him real, then let him *fall*
+    (`act5.read_first_name`, `act5.witness_then_release`, `act5.halen_read`).
+- 🧵 **Theme (payoff)**: every seeded thread lands at once — *the Wall has no author* (Jergal), *the crown is
+  fear, not the answer* (the Last Returned), *cataloguing/naming defeats the Wall* and *deathlessness is the
+  cruelty* (Halen). The summit's argument: you defeat ten thousand years of patient cruelty not with a sword
+  or a crown but by *reading one forgotten soul by name and then letting it go.*
+- 📈 **Content**: dialogue corpus now **164 conversations · 1,040 nodes · 133 skill checks** (up from
+  161/1,017/130). All 606 headless CI checks green; the 27-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.30.0 — *"In Order, In Order"* — the Spellplague complete; the loop sharpens (Pillar 1/2)
 
 > The blue fire finishes its work on reality — and on memory. A little clerk fights to keep cause-and-effect
