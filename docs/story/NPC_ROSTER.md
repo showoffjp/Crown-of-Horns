@@ -78,11 +78,11 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | 37 | **The Acquisitions Monk** | Will do *anything* for a unique volume — the multi-path "Book It Doesn't Have" quest. | ✍️🪙 |
 | 38 | **Henwick the Misfiled** | A scholar Candlekeep accidentally catalogued *as a book* 60 years ago; now legally shelving. | ✍️🪙 |
 | 39 | **The Sealed-Stacks Revenant** | A previous Returned, walled into the lore, who left you a warning in the margins. | 📋🔁 |
-| 40 | **Brother Tym the Indexer** | Cross-references every soul in the Wall against the Catalogue of the Living; going mad pleasantly. | 📋🪙 |
+| 40 | **Brother Tym the Indexer** | Cross-references every soul in the Wall against the Catalogue of the Living; going mad pleasantly. | ✍️🪙 |
 | 41 | **The Cat Who Reads** | Candlekeep's familiar; the only "NPC" who knows where the dangerous book is. | 📋 |
 | 42 | **Scrivener Pol** | Copies forbidden pages for coin; terrified, principled, in over his head. | 📋🪙 |
-| 43 | **The Tutor of Dead Languages** | Teaches you to read your own half-formed name; weeps at what it spells. | 📋 |
-| 44 | **Magister Cole** | A scholar convinced the Returned are a *textual error* and wants to "correct" you. | 📋🪙 |
+| 43 | **The Tutor of Dead Languages** | Teaches you to read your own half-formed name; weeps at what it spells. | ✍️📋 |
+| 44 | **Magister Cole** | A scholar convinced the Returned are a *textual error* and wants to "correct" you. | ✍️🪙 |
 
 ---
 
@@ -90,11 +90,11 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 
 | # | NPC | Hook | |
 |---|---|---|---|
-| 45 | **The Doorman of the Crystal Spire** | Sorts the freshly dead; develops a crisis when *you* arrive alive. | 📋 |
-| 46 | **Petitioner 9,000,001** | A soul who's been waiting in line so long he's forgotten what for. | 📋 |
-| 47 | **The Last Honest Psychopomp** | A reaper who's started *hiding* the Faithless instead of walling them. | 📋🪙🔁 |
+| 45 | **The Doorman of the Crystal Spire** | Sorts the freshly dead; develops a crisis when *you* arrive alive. | ✍️ |
+| 46 | **Petitioner 9,000,001** | A soul who's been waiting in line so long he's forgotten what for. | ✍️ |
+| 47 | **The Last Honest Psychopomp** | A reaper who's started *hiding* the Faithless instead of walling them. | ✍️🪙🔁 |
 | 48 | **Wickless** | A candle-spirit from Hollowmere's festival, drifting, looking for its name. | 📋🪙 *(ties the candle motif)* |
-| 49 | **The Clerk of the Wall** | Jergal's abandoned subordinate, still stamping FAITHLESS out of sheer inertia. | 📋🔁 |
+| 49 | **The Clerk of the Wall** | Jergal's abandoned subordinate, still stamping FAITHLESS out of sheer inertia. | ✍️🔁 |
 | 50 | **Maerin** *(pre-recruit)* | Aldric's daughter, fading in her niche, *furious*, refusing to be anyone's reason. | 📋🔁 *(companion)* |
 | 51 | **The Mournlight** | A grief made luminous; only the truly-grieving can carry it (golden-path key). | 📋🪙 |
 | 52 | **Three Shades of a Drowned Choir** | Sing the names of the Faithless in harmony; the only beautiful thing in the grey. | 📋 |

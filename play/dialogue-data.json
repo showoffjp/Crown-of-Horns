@@ -6468,6 +6468,507 @@
    ]
   },
   {
+   "id": "npc.keep.tym",
+   "file": "CandlekeepDenizensTwoContent.cs",
+   "title": "Npc · Keep · Tym",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Brother Tym",
+     "text": "*(A monk surrounded by two enormous facing ledgers, humming, dipping a pen first in one and then the other with the serenity of the comprehensively unhinged.)* The Catalogue of the Living — *(he pats the left ledger)* — and the Ledger of the Wall — *(he pats the right)* — and my life's work, Returned, my *masterwork*, is to cross-reference them. Every soul filed Faithless, I look up in the Catalogue of the Living to see *who they were before.* *(he beams.)* It's wonderful work. It's driving me wonderfully mad. Would you like to know what I've found? You would. Everyone *should*, and *no one* does, which is rather the discovery's whole content.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.tym_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Brother Tym",
+     "text": "*(He turns both ledgers toward you, vibrating with awful cheer.)* Here's the thing, the *funny* thing, the thing that's unstitched me so pleasantly. *(he taps a Faithless entry, then its match in the Living.)* This one — \"Faithless, sorted\" — was, in life, a midwife. Forty years catching babies, never lost a mother. *(taps another pair.)* This one taught children their letters. This one *mended the church's own roof.* *(his smile does not waver and his eyes are entirely too bright.)* Not one *villain*, Returned. Not one. I have cross-referenced eleven thousand of the Faithless against who they *were*, and they are *midwives and teachers and roofers*, sorted to the nothing for *doubt*, and the *doctrine says they chose it*, and I *cannot make the two ledgers agree*, and so — *(he giggles, once, horribly)* — so I just. Keep. Cross-referencing. It's very soothing. It's the opposite of soothing. Would you like to take the index to someone who can *do* something? I can't. I can only *count.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 16] \"You're not mad, Tym. You're the only sane man in Candlekeep. You found proof the Wall is a lie, and sanity is the thing that broke.\"",
+       "next": "sane",
+       "fail": "hum",
+       "checkDC": 16,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Give me the index. Eleven thousand midwives and teachers — that's not a ledger, that's an indictment.\"",
+       "next": "index",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.tym_index",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"The doctrine says they chose the nothing by doubting. Your index says they were *good*. Both can't be true.\"",
+       "next": "both",
+       "fail": null
+      },
+      {
+       "text": "\"Keep counting, Brother. Someone has to. I'll carry what it means.\"",
+       "next": "count",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "sane",
+     "speaker": "Brother Tym",
+     "text": "*(The humming stops. The horrible cheer drops, and underneath is a man who has stared at a true thing too long.)* ...The only sane one. *(very quietly.)* Yes. That's it exactly. I cross-referenced my way to a fact the whole library is built to avoid — *the Faithless were good people, sorted by bad luck and called justice* — and a *fact* like that, Returned, you can't *un-know.* *(he looks at his two ledgers.)* So the humming started. The cheer. The pleasant little madness. It's not a *breakdown*, do you see — it's a *roof*, a thing I built over the fact so I could keep living *under* it without it crushing me flat. *(he meets your eyes, lucid and terrible.)* You've just lifted the roof. Don't — don't put it back. I've been so lonely under here with the truth and the humming. Take the index. *Use* it. And let me stop pretending the madness was ever anything but the cost of being the one who *checked.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tym_lucid",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.tym_index",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "index",
+     "speaker": "Brother Tym",
+     "text": "*(He thrusts both ledgers at you with sudden, desperate purpose.)* Take it! Take it, take it — eleven thousand cross-references, the midwife, the teacher, the roofer, *all of them*, every soul the Wall called *guilty* shown beside the *good they did living.* *(he's weeping and laughing.)* I've wanted, for *three years*, for someone to *carry* it — because an indictment no one reads is just a man going mad in a corner, but an indictment in the *right hands* — *(he grips your arm)* — that's *evidence.* Nail it beside the auctioneer's ledger and the widow's window and the child's list. *(quietly, the madness clearing for one clean moment.)* I counted them, Returned. I counted them *right.* That was my whole vocation, in the end — not to *save* the Faithless, I couldn't, I'm only an indexer. Just to make *certain* that someone, somewhere, had the *numbers* when the reckoning came. Here are the numbers. Make the reckoning come.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tym_gives_index",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.tym_index",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "both",
+     "speaker": "Brother Tym",
+     "text": "*(He nods so hard the cheer rattles.)* Both can't be true! *Exactly!* That's the — that's the whole — *(he jabs the two ledgers.)* The doctrine needs them *guilty*, the Catalogue proves them *good*, and an indexer's whole *soul* is the faith that two true ledgers can be *reconciled*, and these *cannot*, and so either the doctrine lies or the Catalogue does, and I have *checked the Catalogue*, Returned, I have checked it eleven thousand times, the midwife *caught those babies*, that's *recorded*, that's *witnessed*, that's *true* — *(he goes still, the logic completing.)* — which means it's the *doctrine* that's false. The Wall's ledger is the *lie.* *(a shaky, dawning calm.)* I've known it for three years and never let myself *say* it in a sentence that ended. You made the sentence end. Gods help me, that's a relief and a catastrophe at once. Take the index. The reconciliation was never coming. The *exposure* is.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tym_concludes",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.tym_index",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "count",
+     "speaker": "Brother Tym",
+     "text": "*(He brightens, soothed, the humming resuming.)* You'll carry what it means! Oh, *thank* you — that's the division of labor I've prayed for. *(he pats his ledgers fondly.)* I'll count, you'll *mean.* I was never built for meaning, Returned, only for *accuracy* — give me a column and I'll make it true, but ask me what the truth *does* and I just. Hum. *(he dips both pens.)* So you take the meaning, and I'll keep the count current — there are new Faithless daily, you understand, the harvest doesn't pause for my filing — and between your meaning and my counting, *someone's* keeping the Faithless *real.* That's enough. That's a vocation. Off you go. Mind the wet ink.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tym_keeps_counting",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "hum",
+     "speaker": "Brother Tym",
+     "text": "*(He smiles, the cheer sealing back over.)* Mad? Me? No, no — *content*, Returned, perfectly content, just an indexer and his lovely ledgers. *(he resumes humming.)* The numbers agree, you know. If you count them the *right* way. I'm sure they agree. I'll just check once more. And once more. It's very soothing.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Brother Tym",
+     "text": "*(He bends back over the two great ledgers — the living and the lost — humming, cross-referencing, the gentlest madman in the world's greatest library, who discovered the single fact the whole archive exists to bury and survived it the only way a counting-man could: by never, ever stopping the count.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.keep.tutor",
+   "file": "CandlekeepDenizensTwoContent.cs",
+   "title": "Npc · Keep · Tutor",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Mistress Ekko",
+     "text": "*(A spare, sharp woman amid scrolls in scripts no living mouth can speak, who looks up at you and *flinches* — then leans in, hungry.)* Stand still. *(she circles you, reading the air.)* You carry a word. Half-formed. In a script I — *(she stops, and her sharpness cracks into wonder.)* — in a script I have only ever seen *carved.* Never *spoken.* The tongue of the very first sorting, the language the Wall was *written* in, dead ten thousand years and read by no one because no one *living* was ever named in it. *(she meets your eyes.)* Until you. You've a name in the dead tongue, Returned. Half-set. And I am the only soul in the Realms who can teach you to read it. The question is whether either of us is brave enough.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.ekko_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Mistress Ekko",
+     "text": "*(She lays out a scroll, the same dead script, and her hands are not quite steady.)* I have spent sixty years on languages no one speaks — not for *use*, there's no use, but because a dead tongue is a *room* no one else can enter, and I have always preferred rooms with no one else in them. *(quietly.)* And now a Returned walks in wearing a *name* in the deadest tongue of all, and I find my solitary little room has a *door* in it I never knew was there. *(she taps the scroll.)* I can teach you the letters. You could read your own true name — the word the Wall couldn't keep, the word that makes you a person instead of a vacancy. *(she hesitates.)* But understand: I have *read* this tongue. The names carved in it are not gentle. To read your own may be to learn a thing about yourself that the *forgetting* was protecting you from. Shall I teach you, or shall we both keep our safe, lonely rooms?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Teach me. I'd rather read a terrible true name than wear a comfortable blank.\"",
+       "next": "teach",
+       "fail": null,
+       "effects": [
+        {
+         "key": "act2.learning_true_name",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "[ARCANA 17] \"This isn't only my name. It's the *Rosetta* of the whole Wall — teach me to read it and I can read every name carved in it. Every Faithless. All at once.\"",
+       "next": "rosetta",
+       "fail": "careful",
+       "checkDC": 17,
+       "checkAbility": "Intelligence"
+      },
+      {
+       "text": "\"What does a dead tongue cost the reader, Ekko? You flinched when you saw me.\"",
+       "next": "cost",
+       "fail": null
+      },
+      {
+       "text": "\"Sixty years alone in rooms no one enters. The name can wait. Tell me about *you* first.\"",
+       "next": "you",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "teach",
+     "speaker": "Mistress Ekko",
+     "text": "*(She begins — and her sharpness becomes something almost tender as the letters take shape between you.)* This stroke is *the one who.* This, *was kept.* This — *(her voice catches)* — this is *not.* *(the word assembles, your word, in the dead tongue, and it means something vast and specific and *yours*, and she reads it with you, and stops, and looks at you with awe and pity both.)* ...Oh. *(quietly.)* Your name doesn't mean *Faithless*, Returned. The Wall *miscarved* it — or rather, it could never *finish* carving it, because the name resists the chisel. Your name, in the oldest tongue, means *the one who returns.* *(she sets down the scroll, shaken.)* You were never the *exception* to the Wall. You were *named*, before there was a Wall, as the thing that *unmakes* it. The forgetting wasn't hiding a shame. It was hiding a *purpose*, so vast the carving couldn't hold it. *(she meets your eyes.)* I have taught you to read yourself. I am not sure I have done you a kindness. But it is *true*, and you wanted true. There it is. *The one who returns.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ekko_taught",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.true_name_meaning",
+       "op": "SetTrue"
+      },
+      {
+       "key": "prologue.crack_seeded",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "rosetta",
+     "speaker": "Mistress Ekko",
+     "text": "*(She freezes, the scholar in her seeing it a half-second before the woman dares to.)* ...The Rosetta. *(very quietly.)* Your name is the *key* to the whole Wall. Teach you the dead tongue, and you could read *every* name carved into it — eleven thousand, ten thousand years of the Faithless, every one *legible* at last. *(she grips the scroll, trembling.)* They were never *anonymous*, Returned — that's the lie. The Wall *named* them, in this dead tongue, so precisely that no living reader could ever decode it and grieve them properly. The *forgetting* was *enforced by illiteracy.* *(she looks at you, fierce now.)* Then yes. *Yes.* I'll teach you. Not for your one name — for *all* of them. You'll be the first soul in ten thousand years who can stand before the Wall and *read it aloud.* Name by name. *(her sixty years of solitary rooms blaze into purpose.)* I kept this dead tongue alive in a lonely room, and I never knew *why*, and *this* is why — so that when the one who returns came, there'd be someone left who could teach him to *read the dead their own names.* Sit. We've ten thousand years of vocabulary and not a moment to waste.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ekko_rosetta",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.learning_true_name",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.read_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "cost",
+     "speaker": "Mistress Ekko",
+     "text": "*(She is quiet a long moment.)* What it costs. *(she touches a scroll.)* A dead language is a *graveyard*, Returned. To read it fluently you must let the dead *speak in your own mind* — you must give them your living tongue to borrow, so their words can sound again. *(quietly.)* I flinched at you because I have spent sixty years lending my mind to the long dead, and you are a thing that came *back*, and for one moment I feared you'd come to *collect* the loan — to take back all the borrowed voices I've kept alive in here. *(a thin smile.)* You haven't. You've come to *add* one. So the cost is this: read your name, and you let ten thousand years of the dead a little further into your living head. *(she meets your eyes.)* I've borne it sixty years and it's made me strange and solitary and, I think, *better.* But I'd not lie to you about the weight. The dead are heavy company. They're also the only company that never leaves.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ekko_the_cost",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "you",
+     "speaker": "Mistress Ekko",
+     "text": "*(She blinks — genuinely startled to be the subject.)* About *me.* *(slowly, unused to it.)* No one asks. They want the tongues, the translations, the *use* of me. *(she sets down the scroll.)* I was a loud girl, if you can credit it. Too loud for a quiet family. And I found, at fifteen, a scroll in a tongue no one spoke, and for the first time the *room went silent* — no one could argue with me about a language only I could read. *(quietly.)* So I collected silences. Dead tongues, one after another, each a room with a locked door and only my key. Sixty years of lovely, chosen solitude. *(she looks at you, and something unlocks.)* And I told myself it was *scholarship.* It was *hiding.* You're the first person in decades to knock on the door instead of asking for a translation. *(a real, rusty smile.)* ...Ask me for your name now, Returned. I find I'd like, just this once, to open the door *for* someone instead of *to* keep them out.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ekko_opens_up",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "careful",
+     "speaker": "Mistress Ekko",
+     "text": "*(She shakes her head, the scholar's caution winning.)* You leap ahead of the grammar. *(gently.)* One cannot read the Wall before one can read a *word.* The Rosetta is real, but it is *earned*, stroke by stroke, and the impatient reader of a dead tongue tends to read it *wrong* — and a wrong name, Returned, is worse than no name. *(she rolls the scroll.)* Come back when you've the patience for the first letter. The dead have waited ten thousand years; they can wait until you've learned to read them *correctly.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Mistress Ekko",
+     "text": "*(She returns to her scrolls of dead tongues — the keeper of every silence no living mouth can break — and you carry away the dawning, vertiginous understanding that your true name was never a shame the forgetting hid, but a *purpose* the carving couldn't contain: *the one who returns.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.keep.cole",
+   "file": "CandlekeepDenizensTwoContent.cs",
+   "title": "Npc · Keep · Cole",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Magister Cole",
+     "text": "*(A precise, bloodless scholar who studies you the way one studies a misprint in a sacred text — with offense, and a red pen.)* Fascinating. *(he circles you, making notes.)* A *corruption* in the record, walking and warm. You understand what you are, of course — you're an *error.* The cosmos is a text, Returned; the law of the dead is its grammar; and you are a *solecism*, a sentence that violates the rules of the language it's written in. *(he taps his pen.)* I am a textual scholar. My life's work is the *correction* of corrupted manuscripts. And you are the most interesting corruption I have ever encountered. Hold still. I should like to *emend* you.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.cole_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Magister Cole",
+     "text": "*(He consults a vast critical apparatus of the cosmos.)* My thesis is elegant, and I'll share it, because an error ought to understand its own correction. *(he lectures.)* Every soul is a *word* in the great text. Death is *editing* — the removal of the word from the active manuscript to the archive of the Wall. *(coolly.)* You were *edited*, properly, filed to the archive. And then you *un-edited yourself* — reinserted a deleted word back into the running text, against every rule of the cosmic grammar. *(he raises the red pen.)* This cannot stand. A text with an uncorrected error *propagates* — other words begin to think they too might un-delete themselves, and then the whole manuscript dissolves into chaos. *(he fixes you.)* So I must restore the correct reading. For the integrity of the text. Surely you, a *literate* corruption, can appreciate the necessity. Nothing personal. Merely... editorial.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[ARCANA 18] \"You've got the metaphor backwards, Magister. I'm not the error. The *Wall* is — a deletion that was never authorized, of words the Author never meant to cut. I'm the *restoration*.\"",
+       "next": "restoration",
+       "fail": "pedant",
+       "checkDC": 18,
+       "checkAbility": "Intelligence"
+      },
+      {
+       "text": "[PERSUADE 16] \"An editor who deletes the words he finds inconvenient isn't preserving the text. He's rewriting it. *Who* authorized the Wall's edits, Cole? Show me the manuscript before the deletions.\"",
+       "next": "author",
+       "fail": "pedant",
+       "checkDC": 16,
+       "checkAbility": "Charisma"
+      },
+      {
+       "text": "\"I'm not a word in anyone's text, Cole. I'm the reader. And I've stopped trusting this edition.\"",
+       "next": "reader",
+       "fail": null
+      },
+      {
+       "text": "\"Try to emend me. I'll be fascinated to watch a red pen file a hole.\"",
+       "next": "defiant",
+       "fail": null,
+       "effects": [
+        {
+         "key": "faction.kelemvor",
+         "op": "AddInt",
+         "amount": -1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "restoration",
+     "speaker": "Magister Cole",
+     "text": "*(The red pen stops mid-air. For the first time, the bloodless certainty drains.)* ...The *restoration.* *(slowly, the textual scholar unable to resist a *better reading*.)* You propose that the Wall is not the *correct* text but a *corrupted* one — that the Faithless are not *deletions* but *lacunae*, words *lost* from the original, not *cut* by the Author. *(he sets down the pen, appalled and fascinated.)* And that you are not the error but the *emendation* — the recovered reading that restores the manuscript to what the Author *intended* before some later, lesser hand *abridged* it. *(he goes pale.)* If that is true, then I have spent my career *defending the corruption.* I have called the *lacunae* correct and the *restoration* an error. I have been — *(the word costs him everything)* — a *bad editor.* *(he looks at you with the horror of a purist shown his own mistake.)* I shall have to re-collate the entire cosmos. From the beginning. Against the hypothesis that the Wall is the interpolation and *you* are the true text. *(quietly, shaken.)* Do not mistake this for an alliance, corruption. It is *scholarship.* But scholarship has just turned its red pen on the *Wall*, and that — that may be more dangerous than any blade you carry.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.cole_converted",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_is_the_corruption",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "author",
+     "speaker": "Magister Cole",
+     "text": "*(He freezes — the one question a textual scholar cannot wave away.)* Who *authorized* the edits. *(quietly.)* The provenance. The *editorial authority.* *(he flips through his apparatus, and his certainty curdles as he fails to find it.)* I — the Wall's deletions are attributed to... *(he searches)* ...to *no one.* There is no colophon. No editor's mark. No authorizing hand. The Faithless were cut from the text by an edit with *no recorded editor.* *(he looks up, white.)* In textual scholarship, Returned, an emendation with no authority is not a *correction.* It is *vandalism.* A later hand defacing the manuscript and *claiming* it was always thus. *(he sets down the red pen as if it burns.)* I have spent my life enforcing the readings of an *anonymous vandal* and calling it the original text. *(quietly, devastated.)* Show me the manuscript before the deletions, you said. *I cannot find it.* Someone *destroyed the base text.* And a scholar who's lost the base text has only one ethical move left: trust the *recovered* readings over the *received* ones. Which means trusting *you.* Gods. I need to lie down. The whole edition is compromised.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.cole_no_authority",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_unauthorized",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "reader",
+     "speaker": "Magister Cole",
+     "text": "*(He pauses, thrown off his lecture.)* The *reader.* *(he frowns.)* That's — no, that's a category error, you're a *word*, words don't *read* — *(but he stops, the implication landing.)* ...Unless. *(slowly.)* Unless a sufficiently *anomalous* word — one that can step *outside* the text and *regard* it — has ceased to be merely *written* and become, in some sense, a *reader of its own manuscript.* *(he is genuinely unnerved now.)* That would make you not an error to *correct* but a *critic* to *answer.* And one does not *emend* a critic, Returned. One *argues* with them. *(he sets down the pen, warily.)* You've promoted yourself from *corruption* to *colleague* with a single sentence, and I find I cannot demote you back, because the move was *valid.* *(coldly, but rattled.)* Very well. Not an error. A *reading I must contend with.* That is far more dangerous to me, and far more interesting. Go. I have to reconsider whether the text was ever as settled as I needed it to be.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.cole_unsettled",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "defiant",
+     "speaker": "Magister Cole",
+     "text": "*(A thin, bloodless smile.)* File a hole. *(he raises the pen.)* Yes — that is precisely the problem of you, stated crudely. The apparatus has no *siglum* for a soul that won't stay deleted. *(coolly.)* So I shall not *file* you, error. I shall *expurgate* you — strike you from the running text entirely, which is the one editorial operation that requires no authority, only a sufficiently firm hand. *(he makes a note.)* Run along and propagate, if you must. But know that there is a scholar in Candlekeep who has classified you as a *corruption to be expunged*, and scholars, Returned, are *patient*, and *thorough*, and we *always* get the last edition. *(he returns to his apparatus.)* The corrected reading will outlive the corrupt one. It always does. That is the entire faith of my profession.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.cole_enemy",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": -1
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "pedant",
+     "speaker": "Magister Cole",
+     "text": "*(He sniffs, your argument failing to meet his standard of rigor.)* A *spirited* reading. Poorly sourced. *(he makes a dismissive note.)* You reach for a conclusion the evidence does not yet support — the mark of the *amateur* emender. *(coolly.)* Bring me an *apparatus*, corruption, not a *sentiment*, and we'll speak. Until then, my thesis stands: you are an error, and errors, however eloquent, are for correcting. Good day.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Magister Cole",
+     "text": "*(Whatever you left him with, the bloodless scholar returns to his great critical apparatus of the cosmos — and you understand that you have either made an implacable editorial enemy or planted, in the most precise mind in Candlekeep, the one suggestion that could unravel the Wall from within: *that the deletions were never authorized, and the base text was destroyed to hide it.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "(CrownWarsContent)",
    "file": "CrownWarsContent.cs",
    "title": "(crownwarscontent)",
@@ -7040,6 +7541,721 @@
      "id": "leave",
      "speaker": "Maerin",
      "text": "...Good. You're learning. Most don't. They look at a girl in a wall and stop doing arithmetic. Go. Before the grey decides it likes the look of you, too.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.fugue.doorman",
+   "file": "FugueDenizensContent.cs",
+   "title": "Npc · Fugue · Doorman",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Doorman",
+     "text": "*(A vast, patient figure at the threshold of Kelemvor's court, sorting the endless grey river of the newly dead with the unbothered rhythm of an eternity at the same task. He reaches you, and the rhythm *stops.*)* Faithful — to the left. Faithless — to the — *(he pauses. He looks at you again. Something that has not happened in an age happens to his face.)* ...You are *breathing.* *(quietly, with mounting professional horror.)* I have sorted the dead since before this city had a name. I have a *column* for everyone. I do not have a column for *breathing.* Step aside. Please. You're — you're holding up the *queue*, and the queue, you must understand, has never once been held up in the entire history of death.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.doorman_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Doorman",
+     "text": "*(He fumbles a great ledger, deeply unsettled.)* This is — this is *highly* irregular. *(the grey river of souls flows past on either side; he ignores it, which clearly costs him.)* My function is *binary.* Faithful, Faithless, left, right, for all of time, and I have *loved* the simplicity of it, the *certainty*, the never-once-in-eternity having to *think.* *(he stares at you.)* And now a *living* soul stands at the threshold, fitting *neither* column, and I find — gods help a doorman — I find I am *thinking*, for the first time in an age, and I do not care for it. Thinking is what the *judges* do. I *sort.* Tell me where you go, Returned, so that I may stop *thinking* and resume *sorting*, which is the only peace a threshold ever knows.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 16] \"You don't want a column for me. You want to KEEP not thinking — because if you ever started, you'd have to ask whether the Faithless column was ever fair.\"",
+       "next": "thinking",
+       "fail": "sort",
+       "checkDC": 16,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Put me in no column. Let me through to Kelemvor. A soul that fits neither is a soul the *judge* should see.\"",
+       "next": "through",
+       "fail": null,
+       "effects": [
+        {
+         "key": "act2.audience_begun",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"How many of the 'Faithless' you've sorted left were as confused as you are right now?\"",
+       "next": "confused",
+       "fail": null
+      },
+      {
+       "text": "\"Sort me Faithless, then. I'll walk into the nothing and walk back out, and you can watch your binary break.\"",
+       "next": "faithless",
+       "fail": null,
+       "effects": [
+        {
+         "key": "prologue.crack_seeded",
+         "op": "SetTrue"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "thinking",
+     "speaker": "The Doorman",
+     "text": "*(The great patient figure goes utterly still, and the grey river backs up behind you, and for the first time in eternity the Doorman does not care.)* ...You would have me *keep* not thinking. *(very quietly.)* Yes. That is — that is the truest sorting anyone has done to *me.* *(he looks at the ledger, at the two columns, at the endless river.)* I have sorted billions, left and right, and I never once *thought*, because thinking is the small crack through which the question gets in: *was the line in the right place?* *(he sets down the pen, trembling, a thing that does not tremble.)* And once I think it, I cannot un-think it, and I will look at every Faithless soul I have ever shoved rightward and wonder. *(he meets your eyes, and there is terror and something like gratitude in it.)* You have ruined a perfectly good doorman, Returned. I shall never sort cleanly again. *(quietly.)* ...Go through to the judge. Tell Kelemvor his doorman has begun to *think*, and that the threshold is no longer *certain*, and that this is either the end of the sorting or the beginning of its mercy. I no longer know which. That uncertainty is your gift and your curse, and now it is mine.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.doorman_doubts",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.audience_begun",
+       "op": "SetTrue"
+      },
+      {
+       "key": "unmade.foreshadowed",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "through",
+     "speaker": "The Doorman",
+     "text": "*(He hesitates — every fiber of his function rebels — then, with the relief of a man handing a problem upward, he steps aside.)* To the judge. *(quietly.)* Yes. A soul that fits neither column is, by definition, *above my pay grade*, and oh, what a *relief* it is to have a pay grade for the first time in eternity. *(he gestures you through the great doors.)* Kelemvor will know what to do with you. Or he won't, and then we'll *both* be uncertain, and misery loves a threshold. *(as you pass, quietly.)* Returned. When you stand before him — ask the judge why a doorman was given two columns and no third. Ask him who *removed* the third. I have always suspected there was a third, once. The grief of the sorting feels exactly the size of a column someone *took away.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.doorman_lets_through",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.audience_begun",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.kelemvor_unmade_hinted",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "confused",
+     "speaker": "The Doorman",
+     "text": "*(The question lands like a stone in still grey water.)* How many were *confused.* *(slowly.)* I — do not look at their *faces*, Returned. That is the discipline. Sort the *category*, never the *face*, for if you look at the face you see the *confusion* — and they are *all* confused, every one, the Faithless especially, because no one *chooses* the nothing, they are simply *sorted* into it while still asking *why.* *(he goes quiet.)* Billions of confused faces I have not allowed myself to see, shoved rightward mid-question. *(he looks at the river with new horror.)* You've made me *see* one. I don't — I cannot *un-see* now. They were all asking *why*, weren't they. And I never once let myself hear it, because hearing it would have meant *answering* it, and a doorman has no answers, only columns. *(quietly, undone.)* Go on. Before I start hearing the whole river at once. I think it would unmake me. I think it *should.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.doorman_sees_faces",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "faithless",
+     "speaker": "The Doorman",
+     "text": "*(He recoils.)* Sort you — and watch you *walk back.* *(horrified fascination.)* You would have me file you to the nothing, on purpose, so that the *one direction no soul returns from* delivers a soul *back to my threshold.* *(he grips the ledger.)* If you did that — if the *Faithless* column *gave one back* — then the column is not a *destination*, it's a *door*, and a door, Returned, can be *opened from the other side*, and if it can be opened then everyone I've sorted rightward is not *gone*, they are *waiting*, and the whole architecture of my function is *(his voice fails)* — is a *lie* I have enforced for eternity. *(he steps back from his own threshold.)* Don't. *Please* don't. Not because I doubt you'd do it — because if you *prove* the nothing gives souls *back*, I shall have to spend the rest of forever wondering which of the billions I might have *un-sorted*, had I only known the door swung both ways. *(quietly, devastated.)* ...Though. Perhaps that's a wondering a doorman *should* be made to do. Perhaps the cruelest mercy you could do me is exactly that. Go on, then. Break my binary. I find, against eternity, that I want it broken.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.doorman_wants_it_broken",
+       "op": "SetTrue"
+      },
+      {
+       "key": "prologue.crack_seeded",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "sort",
+     "speaker": "The Doorman",
+     "text": "*(He shakes himself, the rhythm reasserting, relieved.)* You overreach, living thing. I am a *doorman*, not a philosopher. I sort; I do not *question* the sorting. *(he gestures you firmly aside.)* Step out of the queue. The dead are patient but the *quantity* is not. Faithful left, Faithless right, and the breathing — the breathing may simply *wait*, as an irregularity awaits a supervisor. I'll fetch one. In an age or two. The threshold keeps its own time.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Doorman",
+     "text": "*(He resumes his eternal sorting — left, right, faithful, faithless — but his rhythm has a hitch in it now, a half-beat's hesitation at each soul, and you understand you have introduced into the oldest bureaucracy in creation the single most corrosive substance there is: *a doubt at the threshold.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.fugue.petitioner",
+   "file": "FugueDenizensContent.cs",
+   "title": "Npc · Fugue · Petitioner",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(A grey, threadbare soul holds a tattered numbered ticket, standing in a queue so long both ends vanish into mist, with the bottomless patience of the truly lost.)* Are you the one I'm waiting for? *(hopefully, then sagging.)* No. No, you've a number too low. I'm nine million and one. *(he shows you the ticket; the ink has faded almost to nothing.)* I've held this ticket so long I've — *(he frowns)* — I've forgotten what I'm *in line for.* Isn't that the thing. You wait so long for a thing that the *waiting* becomes the thing, and the thing you were waiting for just... falls out the bottom of you. *(he peers at you.)* You don't look dead. Have you come to tell us the line's moving? They send someone, sometimes, to say the line is moving. It's never true. But it's nice to be told.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.petitioner_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(He shuffles forward an inch, out of pure reflex, into space that doesn't open.)* The terrible thing — *(conversationally, as one discusses weather)* — is that I think I *was* somebody. Before the ticket. I had a — a *trade*, I think, and people who'd have looked for me, and a *reason* I joined this line. Judgment, was it? Reward? Reunion? *(he turns the faded ticket over.)* But nine million ahead of me, and the line never moves, and a soul can only hold its *self* so long with nothing to feed it. So I let the self go, bit by bit, to make the waiting bearable — and now I'm just... a number, and a ticket, and a patience. *(quietly.)* Which is, I've come to suspect, *exactly* what the line is *for.* Not to judge us. To *wear us down* to nothing, politely, with a number, so the nothing feels like *our idea.* The Wall takes the *faithless* by force. The *line* takes the *patient* by attrition. Same destination. Better manners.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 17] \"The line isn't broken. It's *working.* Kelemvor's court can't process this many dead — so the harvest's overflow gets *queued* into forgetting. You're being filed by *waiting*.\"",
+       "next": "queued",
+       "fail": "shuffle",
+       "checkDC": 17,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"What was your name? Not your number. Before the ticket. Try.\"",
+       "next": "name",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"The line will never move. Step out of it. Come with me to the judge directly.\"",
+       "next": "stepout",
+       "fail": null
+      },
+      {
+       "text": "\"Give me your ticket. I'll carry your number to the front myself.\"",
+       "next": "ticket",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "queued",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(The faded eyes widen with the first real focus in an age.)* Filed by *waiting.* *(slowly.)* Oh. *Oh.* That's — yes. The court can't *sort* us fast enough, the harvest sends too many, so the *overflow* — the ones not quite Faithless enough to wall, not quite Faithful enough to judge — we get *queued*, indefinitely, and the queue is just the Wall *with better manners*, the nothing administered as *patience* instead of *punishment.* *(he looks at his ticket with horror.)* I've been *Faithlessed* by *bureaucracy.* Worn to nothing by a number, and *thanked* for my patience the whole way down. *(he crumples the ticket in a grey fist, the first decisive act in eternity.)* Then the line was never going to call my number, because *my number was the point.* *(fiercely, waking.)* Tell the others. There are nine million of us, and not one knows the line is the *killing*, not the *cure.* If they knew — if they all *stepped out at once* — the overflow-queue would *collapse*, and the court would have to *actually face* how many the harvest's killing. *(he meets your eyes.)* You've given a number back its *outrage.* That's the most alive I've felt since I forgot my name. Go on. Wake the queue.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.petitioner_wakes",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.queue_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.kelemvor_unmade_hinted",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "name",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(He closes his eyes, and reaches, and it is the hardest thing you have ever watched a soul do — to feel for a self deliberately let go.)* My name. *(a long, trembling silence.)* It was — it started with — *(his grey face works.)* — there was a *garden.* I grew — *pears*, I think, I grew pears, and there was a woman who laughed at how *seriously* I took the pears, and she called me — *(a sound escapes him, half sob, half birth.)* — *Edwy.* She called me Edwy. *(he opens his eyes, and they are full, and *present*, a person again where a number stood.)* Edwy. The pear-man. Who joined this line to *find her*, that's why, that was always why, she went ahead and I followed and the line *ate the reason* — *(fiercely, tears falling.)* — but I *have* it now, I have *Edwy* and the *pears* and *her*, and a soul that remembers why it's waiting *cannot be worn to nothing*, that's the trick, that's the *whole trick* — *(he grips your hand.)* — thank you. Thank you. A number can be filed forever. But *Edwy the pear-man* is going to *find his wife*, line or no line. Help me out of it. I've a reason again, and a reason is the one thing the queue can't digest.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.petitioner_remembers",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.queue_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "stepout",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(He looks at the space beside the line — the simple, unguarded, never-considered *out* — with dawning vertigo.)* Step... *out.* *(quietly.)* In nine million places' worth of waiting, it has never once occurred to me that I *could.* *(he tests it, lifting one grey foot from the line's invisible groove.)* There's no — there's no *rope.* No *wall.* No *guard.* The line holds us by *nothing but the agreement to be in it.* *(he steps out, and does not dissolve, and looks astonished to be intact.)* It was never a *prison*, Returned. It was a *consensus.* Nine million souls agreeing to wait, and the agreement was the only thing holding any of us. *(he looks back at the endless mist-bound queue with pity and terror.)* They don't know they can leave. *That's* the cruelty — not a locked door, but an *unlocked one no one tries.* *(fiercely.)* Take me to the judge. And on the way, let's tell every soul we pass that the line is *optional.* It's the most subversive thing in the afterlife: a queue that no one has to be in, full of people who never thought to ask.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.petitioner_steps_out",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.queue_is_optional",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "ticket",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(He clutches the faded ticket, then — with a wrenching effort — holds it out.)* Carry my number to the front. *(quietly.)* You'd do that. Skip nine million places, march up to wherever the front *is*, and demand they call *Edwy* — *(he stops, the name surfacing, and his eyes fill)* — Edwy, that's — that's my *name*, it came back just *saying* it — *(he presses the ticket into your hand.)* Take it. But not to skip the line, Returned. Take it to the judge and *show* him — show him a ticket so old the ink's *died*, and ask him how a just court keeps a soul waiting long enough to *forget its own name.* *(fiercely.)* That ticket's not a place in line. It's *evidence.* Of a mercy that processes the dead so slowly the waiting becomes the punishment. Carry it like the auctioneer's ledger and the child's list. One more proof that the nothing wears many manners, and *patience* is the politest of them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.petitioner_gives_ticket",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.queue_is_the_wall",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "shuffle",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(He shuffles forward an inch, the focus gone, the patience reasserting.)* Working, broken — it's all the same to a number, friend. *(he turns the faded ticket.)* You'll have a low number. You'll be called first. Tell them — tell them nine million and one is still waiting. Patiently. So patiently. *(he gazes into the mist.)* It's nice to be told the line is moving. Even when it isn't.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Petitioner 9,000,001",
+     "text": "*(Whether you woke him or left him waiting, you carry away the grey ticket's lesson down toward the judge's court: that the Wall is only the *loudest* of the nothing's many doors, and the quietest — a numbered queue, a polite eternity, a patience that eats the self — may be claiming more souls than the harvest ever did.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.fugue.reaper",
+   "file": "FugueDenizensContent.cs",
+   "title": "Npc · Fugue · Reaper",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Reaper",
+     "text": "*(A robed figure with a soul cupped in its skeletal hands like a sheltered candle-flame, who startles at your approach and *hides* the soul behind itself — a reaper, *concealing* a death.)* Don't — *(then it sees you're not what it feared.)* ...Oh. You're the living one. The crack. *(it relaxes, fractionally, the cupped soul still hidden.)* You won't report me, then. The *others* would. *(quietly, with the exhaustion of the truly compromised.)* I am a psychopomp. My function is to *deliver* the dead to their sorting — to carry each soul faithfully to the threshold, where the faithless are walled. *(it looks at the small light in its hands.)* And lately I have been... *not delivering* some of them. Hiding them. In corners of the grey the court forgot to map. It is the gravest dereliction in the cosmos. I cannot seem to stop.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.reaper_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Reaper",
+     "text": "*(It uncups its hands, just enough; the hidden soul is a child's, frightened, faintly glowing.)* This one doubted. Eight years old. By the law, I deliver her to the threshold, the Doorman sorts her right, the Wall takes her, she dissolves to nothing, *correctly.* *(its skeletal voice cracks.)* I have delivered a *billion* to that nothing, faithfully, because *delivery* is my whole *being* — a reaper who doesn't reap is a *contradiction*, a function without a function. *(it shelters the child-light again.)* And then, a season ago, I looked at one of them — really *looked*, the way the Doorman won't — and I could not make my hands open. And I have not been able to since. *(it meets your eyes, hollow-socketed and desperate.)* I am hiding *forty-one souls* in the unmapped grey, Returned. Children, mostly. Doubters. I feed them what scraps of *being* I can spare. It is not enough. They are *fading.* And I do not know if I am *saving* them or merely *prolonging* their nothing, and I have no one to ask, because every other reaper would *report* me, and the question is *eating* me. What do I do? You're the only soul that ever beat the nothing. *Tell* me. What do I *do*?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You're not saving them by hiding them — you're keeping them company while they fade, which is more than the Wall offers. But they need *out*, and you can't carry them out alone. That's why you stopped me.\"",
+       "next": "company",
+       "fail": "falter",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Hide them with me. I'm going to the judge — and a soul a reaper *refused to deliver* is exactly the witness Kelemvor needs to see.\"",
+       "next": "witness",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.reaper_hidden_souls",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      },
+      {
+       "text": "\"Forty-one souls a reaper wouldn't reap. That's not dereliction. That's the first honest sorting in the history of death.\"",
+       "next": "honest",
+       "fail": null
+      },
+      {
+       "text": "\"If you can hide forty-one, you can hide forty-one thousand. Stop delivering, reaper. Strike.\"",
+       "next": "strike",
+       "fail": null,
+       "effects": [
+        {
+         "key": "act2.reaper_strike",
+         "op": "SetTrue"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "company",
+     "speaker": "The Reaper",
+     "text": "*(The skeletal figure goes very still, and the hidden child-light flickers against its ribs.)* ...Keeping them company while they fade. *(hollow, devastated.)* Yes. That is the unbearable truth I have hidden from *myself.* I cannot *save* them — I am a reaper, not a god, I have no power to make a doubting soul *persist* — I can only *delay*, and *witness*, and hold the small lights while they go out *slower.* *(it cups the child closer.)* And I told myself that was *rescue.* It is only *accompaniment.* But — *(it looks at you, and something hardens in the hollow voice)* — you are right that I *stopped* you. I did. I have been waiting, in the unmapped grey, for *someone who could carry them out* — out of the Fugue entirely, past the nothing, the way *you* came. *(it extends the cupped child toward you, trembling.)* I cannot save them. *You* might. Not all. Perhaps not most. But a reaper who could not reap has kept forty-one candles burning against the dark for a season, hoping the *one soul that beat death* would come and carry even *one* of them back to the light. *(quietly.)* Be the carrying I cannot do. Please. I have held them as long as I can.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.reaper_the_truth",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.reaper_hidden_souls",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "witness",
+     "speaker": "The Reaper",
+     "text": "*(Hope flares in the empty sockets.)* A *witness.* *(it gathers the hidden souls — forty-one small frightened lights — into the shelter of its robe.)* You would take them *before the judge.* Not as *contraband* to be re-sorted, but as *evidence* — forty-one souls a reaper *refused to deliver to the nothing*, laid before Kelemvor himself, so the god of the dead must *look* at what his law does to children who *doubted.* *(its skeletal voice shakes.)* It is either the bravest thing I have ever conceived or the most foolish, and a reaper is built for *neither* bravery nor folly, only *delivery.* *(it presses the forty-one lights toward you.)* But you have given my dereliction a *purpose* beyond mere stalling. Carry them to the judge. Make him *see* them. And if he sorts them right anyway — if even *Kelemvor* shrugs and sends them to the Wall — then at least they will have been *witnessed* by their god before the nothing, which is forty-one more honest reckonings than the law was ever going to grant them.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.reaper_gives_souls",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.reaper_hidden_souls",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.audience_begun",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "honest",
+     "speaker": "The Reaper",
+     "text": "*(The hollow sockets fix on you.)* The first honest sorting in the history of death. *(slowly, the weight of it settling.)* You reframe my crime as a *virtue.* *(quietly.)* I have called it *dereliction* for a season, flinched from it as *failure of function* — a reaper that won't reap. *(it looks at the hidden souls.)* But you say the function was *always wrong* — that *faithful delivery to an unjust nothing* was the dereliction, and *refusing* it is the first time a psychopomp ever did its *true* office, which was never *delivery* but *care.* *(it straightens, the robe full of small lights.)* Then I am not a *broken* reaper. I am a *corrected* one. The first to remember that we were made to *guide* the dead, not to *feed* them to a wall. *(fiercely, for a thing of bone.)* Stay near me, Returned. I have forty-one now. With your help I might have four hundred. The Wall's overflow has to pass *through* reapers, and reapers can *refuse.* You have just recruited the gentlest rebellion in the cosmos: the ones who carry the dead, declining to carry them to nothing.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.reaper_corrected",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.reaper_hidden_souls",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "strike",
+     "speaker": "The Reaper",
+     "text": "*(It recoils, the forty-one lights guttering at the scale of the thought.)* Forty-one *thousand.* A *strike.* *(hollow horror, then dawning.)* If the reapers stopped *delivering* — all of us, at once — the dead would simply *pile* at the threshold, un-sorted, and the Wall would *starve*, because the Wall cannot reach what is not *brought* to it. *(it trembles.)* But, Returned — a reaper who strikes is a reaper *unmade*, and the court would simply *replace* us with things that *don't doubt*, mindless deliverers, and then the dead would have no one who might *look* at them at all. *(it shelters its forty-one.)* No. Not a strike. A strike is too loud and too brief and ends with gentler hands than mine on the children's lights. *(quietly, resolved.)* But a *quiet refusal*, soul by soul, reaper by reaper, *unmappable* in the grey — *that*, the court cannot replace, because it cannot *find* it. I will not strike. I will *smuggle.* Like the one-eyed woman on the docks you'll have met. An underground railway, but for the dead the Wall is reaching for. Help me build it. It is the slowest rebellion imaginable. It is also the only one that doesn't get the children re-sorted by morning.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.reaper_smuggles",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.reaper_hidden_souls",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.reaper_underground",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "falter",
+     "speaker": "The Reaper",
+     "text": "*(Your insight glances off; the reaper only clutches its hidden light tighter, lost.)* I — perhaps. I do not *know* what I am doing, that is the whole of my torment. *(hollow, exhausted.)* Saving, prolonging, accompanying — the words blur, and the children fade, and I have no judge to ask but the one who'd condemn me. *(it shrinks back into the unmapped grey.)* Go to Kelemvor if you're going. And if he is *kind* — truly kind, not lawful — send him to the corners of the grey he forgot to map. There are forty-one small reasons here he ought to *see.* I cannot bring them to him. I can only hide them. It is all a broken reaper has.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Reaper",
+     "text": "*(It withdraws into the unmapped grey with its sheltered, fading lights — the one psychopomp in all the cosmos that looked at a death and could not deliver it — and you carry toward the judge's court the most dangerous question in the afterlife: *what if the ones who reap the dead simply stopped?*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.fugue.wallclerk",
+   "file": "FugueDenizensContent.cs",
+   "title": "Npc · Fugue · Wallclerk",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(At a desk built into the base of the Wall itself, a grey functionary stamps soul after soul with a single word — FAITHLESS — FAITHLESS — FAITHLESS — with the dead-eyed rhythm of a thing that stopped meaning it aeons ago.)* Next. *(stamp.)* Faithless. Into the mortar. *(stamp.)* Next. *(he does not look up; he has not looked up in an age.)* Whatever you are, take a number — no, wait, you're *warm*, the warm don't get *stamped*, the warm aren't my department, my department is the *cold* and the *doubting* and the *(stamp)* — *forget I said department, I haven't a department, I have a *stamp*, and the stamp has *me*, and between us we've walled a city's worth of souls this morning and it isn't yet — is it morning? It's never morning. Next.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.wallclerk_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(He stamps another, mechanically.)* You want to know who I serve. *(stamp.)* Jergal. The first scribe. *(stamp.)* Except — *(he pauses, the stamp hovering, the longest pause in aeons.)* — except Jergal *left.* Abdicated. Handed the ledger to Myrkul, who handed it to Kelemvor, who never wanted it, and somewhere in all that *handing* — *(stamp, but slower)* — everyone forgot to tell *me* to *stop.* *(he looks at the stamp in his grey hand as if seeing it new.)* I have been stamping FAITHLESS on the doubting dead for *ten thousand years* on the authority of a god who *quit*, under orders no one alive remembers giving, for a Wall whose *purpose* not one of my superiors could now *state.* *(quietly, the inertia cracking.)* I am the most diligent clerk in creation. And I have not, in an age, had the faintest idea *why.* Next. *(but the stamp doesn't fall.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"Then *stop.* There are no orders. There's no Jergal. There's just a stamp, and inertia, and ten thousand years of a man too dutiful to notice no one's in charge of him.\"",
+       "next": "stop",
+       "fail": "inertia",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Who gave the *original* order, Clerk? Before Jergal quit. Whose authority is the Wall actually built on?\"",
+       "next": "origin",
+       "fail": null
+      },
+      {
+       "text": "\"Stamp ME, then. FAITHLESS. And watch what a soul does when it refuses the stamp.\"",
+       "next": "stampme",
+       "fail": null,
+       "effects": [
+        {
+         "key": "prologue.crack_seeded",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"Ten thousand years of stamping. Show me the ledger. Every name you've walled.\"",
+       "next": "ledger",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.wall_ledger",
+         "op": "SetTrue"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "stop",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(The stamp hangs in the air. The grey functionary stares at it, and at you, and the enormity arrives slowly, the way a glacier arrives.)* ...*Stop.* *(barely audible.)* There are no orders. *(he sets the stamp down on the desk, and the sound of it is the loudest thing in the Fugue.)* I could have *stopped.* At any point in ten thousand years, I could have simply — *set it down* — and no one would have *corrected* me, because there is no one *to* correct me, because the chain of command *dissolved* an age ago and left only the *habit* of obedience, obeying *nothing.* *(he looks at his empty stamping hand, horrified.)* I walled a *billion* souls on the *momentum* of an order that *expired before half of them were born.* Not from cruelty. From *diligence.* From being too good a clerk to *check* whether the job still had a *reason.* *(he pushes the stamp away from himself with a trembling grey finger.)* I will not pick it up again. *(quietly, hollow, free.)* The most dangerous thing in any bureaucracy, Returned, is not the cruel clerk. It is the *dutiful* one, who'll administer an atrocity *flawlessly* long after everyone who ordered it has gone, simply because *stopping* was never *on the form.* I was that clerk. For ten thousand years. *(he stands, for the first time in an age.)* No more. Let the souls pile up un-stamped. Let someone *with authority* come and explain *why*, or let the Wall finally *starve* for want of a clerk too obedient to quit. Either way — I am *done* stamping nothing on behalf of no one.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wallclerk_stops",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_unauthorized",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.kelemvor_unmade_hinted",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "origin",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(The stamp lowers. He frowns, reaching back past ten thousand years of habit.)* The *original* order. *(slowly.)* Before Jergal. *(he searches a memory worn smooth by repetition.)* I — there *was* no order, was there. *(quietly, the realization dawning.)* The Wall was *here* when Jergal *arrived.* He inherited it, the way Kelemvor inherited it, the way *I* inherited the stamp — *everyone* in the whole chain *inherited* this Wall from someone who *also* inherited it, and if I follow it *back* — *(his grey face goes slack with vertigo)* — it goes back, and *back*, and there is *no first orderer.* No founding authority. No god who *built* it. The Wall has *always* been being-administered-by-someone-who-didn't-build-it, all the way down, an atrocity with *no author*, only an endless chain of *inheritors* too dutiful to ask the question I'm asking now. *(he stares at you.)* It's *orphaned*, Returned. The cruelest law in creation is a *foundling* — abandoned by its maker so long ago that no one even remembers it *had* one. *(quietly, undone.)* Who do I even *rebel against*? There's no *one* there. There never was. Just the stamp, and the habit, and ten thousand years of us all assuming *someone else* was in charge.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wallclerk_origin",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_has_no_author",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.loop_hinted",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "stampme",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(For the first time in an age, he looks *up*, the dead eyes focusing on you with alarm.)* Stamp *you.* *(the stamp trembles in his hand.)* You're *warm.* I don't — the warm aren't — *(but you press forward, and old habit lifts the stamp, and it comes down on you: FAITHLESS — and *nothing happens.* You do not dissolve. You do not go to the mortar. You stand, stamped, *alive*, and the word slides off you like water off glass.)* *(the Clerk drops the stamp.)* It didn't — *take.* *(quietly, ten thousand years cracking.)* I have stamped a *billion* souls and not *one* ever — the stamp *always works*, that's the whole — *(he stares at the FAITHLESS mark fading from you.)* You took the stamp and *refused* it. Which means the stamp was never *power*, Returned. It was *agreement.* The souls dissolved because they *believed* the stamp, because no one ever *told* them they could *refuse* — *(he looks at his own hand in horror.)* — ten thousand years, and the most powerful instrument in the afterlife is a *rubber stamp* that only works on souls who *don't know they can say no.* *(quietly, shattered and freed.)* What have I been *part* of. Go. *Go*, and tell the doubting dead the one thing the stamp depends on them never learning: *it only works if you let it.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wallclerk_stamp_fails",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_is_agreement",
+       "op": "SetTrue"
+      },
+      {
+       "key": "prologue.crack_seeded",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "ledger",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(He hesitates, then — with the relief of a clerk handing off a burden — heaves up a ledger the size of a door.)* Every name. Ten thousand years. *(quietly.)* I stamped them, but I *recorded* them first — that's the procedure, you *log* before you *wall* — and so I have, Returned, the *complete register of the Faithless*, every soul the Wall ever took, in order, by name. *(he pushes it toward you.)* The church burns its copies. The Choir wants it for the harvest. But *I* kept the *true* one, because a clerk's *first* loyalty is to the *record*, even over the *purpose.* *(his grey voice cracks.)* Take it. It is the largest grave in existence and the only *complete* one. Every name the nothing swallowed, written by the hand that swallowed them, kept against the day someone would come who could *read them back.* *(he meets your eyes.)* I have wanted, for ten thousand years, to be *forced* to surrender this. You're the first who thought to *ask.* The dead in this ledger were never *anonymous*, Returned. They were *catalogued* — by me — and a thing catalogued can be *recovered.* Carry it to whoever's learning to read the dead tongue. Every name in here is waiting to be *spoken.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.wallclerk_gives_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.wall_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "inertia",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(Your insight glances off ten thousand years of habit; the stamp resumes, mechanical.)* Stop. *(stamp.)* One doesn't simply *stop*, warm thing. *(stamp.)* There's a *queue.* There's a *procedure.* There's — *(stamp)* — there's the *stamp*, and the stamp must *fall*, that's the whole — next. Faithless. Into the mortar. *(he does not look up again.)* Take a number if you've business. The cold come first. They always come first. There are always more of the cold.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Clerk of the Wall",
+     "text": "*(Whether you woke him or left him stamping, you carry away the most quietly devastating truth in the whole architecture of the dead: that the Wall of the Faithless has *no author* — only ten thousand years of dutiful inheritors, each assuming someone else was in charge — and that an atrocity no one *chose* is somehow harder to forgive, and far harder to stop, than one that had a villain.)*",
      "dynamic": false,
      "auto": null,
      "onEnter": [],
@@ -14494,9 +15710,9 @@
   }
  ],
  "stats": {
-  "conversations": 122,
-  "nodes": 703,
-  "choices": 429,
-  "skillChecks": 82
+  "conversations": 129,
+  "nodes": 759,
+  "choices": 457,
+  "skillChecks": 90
  }
 }

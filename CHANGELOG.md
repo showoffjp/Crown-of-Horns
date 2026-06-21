@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.21.0 — *"The Margins and the Grey"* — Candlekeep Wave II + the Fugue Plane opens (Pillar 2/3)
+
+> The scholars who read *you* like a disputed passage — and, beyond the last page, the grey afterlife
+> where the dead stand in line and a clerk has been stamping FAITHLESS for ten thousand years on the
+> authority of a god who quit.
+
+- 📚 **Candlekeep Wave II** (`candlekeep_denizens_2.dlg`): **Brother Tym the Indexer**, cross-referencing
+  every soul in the Wall against the Catalogue of the Living and going mad *pleasantly* — he'll set you on
+  `sq.tym_index` when he notices the one name that appears in both; **Mistress Ekko, Tutor of Dead Languages**,
+  who teaches you to read your own half-formed true name (it spells *"the one who returns"*) and weeps at the
+  spelling; and **Magister Cole**, who is certain the Returned are a *textual error* and means to correct you —
+  until you turn the argument around and convince him the *Wall* is the unauthorized interpolation.
+- ⚖️ **The Fugue Plane opens** (`fugue_denizens.dlg`): **the Doorman of the Crystal Spire**, who sorts the
+  freshly dead by faith and suffers a small crisis when *you* arrive breathing; **Petitioner 9,000,001**
+  (Edwy, who sold pears), who has stood in line so long he has forgotten his own name — the queue, he'll tell
+  you, is "the Wall with better manners"; **the Last Honest Psychopomp**, a reaper quietly *hiding* forty-one
+  fading Faithless souls instead of delivering them to the masonry; and **the Clerk of the Wall**, Jergal's
+  abandoned subordinate, still stamping FAITHLESS out of pure inertia — who lets slip that the Wall has **no
+  author** at all, and hands you `sq.wall_ledger`.
+- 🧵 **Theme deepened**: the Wall can only take what *nothing else has kept* — so cataloguing, remembering, and
+  naming defeat it (`act2.cataloguing_defeats_the_wall`); the Wall is an *agreement*, not a law
+  (`act2.wall_is_agreement`), and an orphaned one (`act2.wall_has_no_author`). Reading your own name sets
+  `act2.true_name_meaning`; converting Cole sets `act2.wall_is_the_corruption` / `act2.wall_unauthorized`.
+- 📈 **Content**: dialogue corpus now **129 conversations · 759 nodes · 90 skill checks** (up from 122/703/82).
+  All 606 headless CI checks green; the 16-file `.dlg` corpus compiles clean (zero broken refs, dup ids, or
+  orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.20.0 — *"The Gate Filled, the Library Opened"* — Wave IV + Candlekeep's scholars (Pillar 3/4)
 
 > The Upper City's idle cruelty, the Docks' practical mercy, a corpse who cheats at dice — and the first
