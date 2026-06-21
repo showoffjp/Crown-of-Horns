@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.24.0 — *"The Hand in the Margins"* — Netheril complete + the loop's first thread (Pillar 1/2)
+
+> The Seventh Enclave finishes falling — and the mystery of who *you* are takes its first cold shape. A
+> fishwife's daughter decides whether the lady she built is worth living in; a proctor recognizes your
+> handwriting in a warning older than your grandfather; a slave wins a nineteen-year legal war one hour
+> too late; and Naeve, the last daughter of a murdered house, assembles the indictment of her own father.
+
+- 🏛️ **Netheril Wave II** (`netheril_denizens_2.dlg`) completes Act III's first era:
+  - **Lady Sabbath of the Seventh** — a fishwife's daughter who clawed up forty tiers and built a flawless
+    aristocrat, now choosing whether to *die elegant* or *survive vulgar*; the truest elegance, it turns out,
+    is outliving the audience that wanted you gone (`act3.sabbath_survives`).
+  - **Proctor Ynn** — eleven years studying a second hand in the margins of Karsus's Folly, a warning the
+    magelords *read and ignored* — and he knows *your* handwriting on sight. The first thread of the loop:
+    someone with your exact tired script has been writing *"Stop. You do not need to be a god to be enough"*
+    in the margins of catastrophes longer than you've been alive (`act3.returned_annotator`,
+    `act3.loop_glimpsed`).
+  - **The Bondsman** (Castian) — collared at eleven, named after a dog, who spent nineteen years learning law
+    and quietly engineered a clause that *inverted the bond* — and discovers, an hour from the end, that he
+    never wanted to *own* his master; he wanted to be *seen* (`act3.bondsman_freed_master`).
+  - **Naeve** *(pre-recruit)* — the Seventh Enclave's last daughter, building an indictment out of grief she
+    won't let herself feel, proving the apocalypse was a *murder with signatures* — including her father's,
+    the man who once named her the stars. A companion who joins not to be saved but to give the indictment
+    *legs* (`act3.naeve_will_join`, `act3.naeve_knows_annotator`).
+- 🧵 **Theme / plot**: the through-line of the Wall meets the through-line of *you* — the warning unheeded,
+  the record that has no room for the part that hurts (that the guilty were *beautiful first*), and the dawning
+  shape of the Returned as the one condemned to write *stop* in margins the powerful refuse to read.
+  Netheril (#53–60) is now **fully voiced**.
+- 📈 **Content**: dialogue corpus now **144 conversations · 881 nodes · 112 skill checks** (up from
+  140/848/107). All 606 headless CI checks green; the 20-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.23.0 — *"The City That Fell Politely"* — Act III opens: Netheril, −339 DR (Pillar 2)
 
 > Karsus reaches for godhood, the Weave begins to die, and the Seventh Enclave starts its long fall out
