@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.43.0 — *"The Indictment"* — Naeve's companion quest (Pillar 2 · side quests)
+
+> The fourth `sq.*` payoff and second companion quest: Naeve's case against Netheril — the proof that the
+> apocalypse was a murder with her father's signature on it, built across the whole road as a wall against a
+> grief too big to file.
+
+- ✨ **Side Quest: "The Indictment"** (`naeve_sidequest.dlg`, gated on `sq.naeve_indictment`) — the case is
+  *complete*, and with nothing left to build, Naeve must face what the wall of paper was hiding: that she
+  loved her father and he killed them all, and both are true. Four ways in:
+  - the **wall** finished, with nowhere left to hide from the grief (`sq.naeve_wall_comes_down`);
+  - the **archive**, not the case — keep all of Aubrey, un-reduced, refusing to flatten her father into his
+    worst vote the way the Wall flattens the Faithless (`sq.naeve_archive_not_case`);
+  - the **beautiful** — the documents hold the guilt, *she* holds the stars and the boat; the daughter is the
+    column no record has (`sq.naeve_holds_the_beautiful`);
+  - or the **Court** — read the indictment where it lands, making Aubrey's signature damn every power that
+    ever chose prestige over a child (`sq.naeve_indictment_at_court`, `act5.the_great_objection`).
+  - Resolutions: set the case down to finally *miss* him (`sq.naeve_grieves_at_last`), read the whole man aloud
+    once (`sq.naeve_read_together`), keep one page of stars and boats while the rest goes to do justice
+    (`sq.naeve_keeps_one_page`), or seal back behind the prosecution (`deflect`).
+- 🧵 **Theme**: the opposite of being flattened into your worst day is not *acquittal* but *being remembered
+  whole* — and a daughter who can hold the signature and the stars in one unbroken grief is a truer archive
+  than any case the record could build.
+- 📈 **Content**: dialogue corpus now **191 conversations · 1,272 nodes · 160 skill checks** (723 choices).
+  Side-quest set now spans a payoff quest (the Graves), the loop-mystery spine (the Margins), and two
+  companion arcs (Roen, Naeve). All 606 headless CI checks green; the 39-file `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.42.0 — *"The Hand in the Margins"* — the loop-mystery quest (Pillar 1 · the spine)
 
 > The plot-central `sq.*` payoff: the warning in Karsus's margins, followed to its end. The one side quest

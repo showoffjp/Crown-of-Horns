@@ -22785,6 +22785,317 @@
    ]
   },
   {
+   "id": "sq.naeve.indictment",
+   "file": "NaeveSideQuestContent.cs",
+   "title": "Sq · Naeve · Indictment",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Naeve",
+     "text": "*(Naeve has the documents spread across every surface — the indictment of Netheril, assembled across the whole road, the proof that eight enclaves read the warning and voted to proceed. She is not stamping anymore. She is just standing over it, very still, and when she sees you her composure is the brittle kind, stretched over something enormous.)* It's done. *(quietly.)* The case. It's *complete.* Every signature, every cross-reference, every dated vote — my father's hand among them, *\"Lord Aubrey of the Seventh, voted to proceed.\"* *(she touches the edge of a page.)* Ten thousand years of *\"it was fate, it was the gods, no one could have known\"* — and *here*, in *my* handwriting, is the *proof* that it was a *choice.* A *murder.* With *signatures.* *(she meets your eyes, and the brittle composure trembles.)* And now that it's *finished* — now that there's *nothing left to assemble* — I find I don't know what it's *for.* I built it to *indict* them. But there's no *court* for a fallen empire. So what do I *do* with the proof that my father murdered us all?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "sq.naeve_indictment_begun",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Naeve",
+     "text": "*(She sits, finally, the way someone sits when the thing that kept them standing is finished.)* I told you, back in the archive, what this is. *(quietly.)* A wall of paper. Around the thing I can't feel. *(she presses a hand flat on the documents.)* And you saw it then — that every stamp was a grief I filed instead of felt, because feeling it means *stopping*, and stopping means it's *real*, and if it's real then my father, who showed me the stars, who fell off a boat laughing, *chose his prestige over my life*, and I —  *(her voice catches.)* So I kept *building.* The whole road. Because as long as the case wasn't *finished*, I didn't have to *feel* it. There was always one more signature to cross-reference, one more vote to date, one more *task* between me and the *grief.* *(she looks at the completed indictment, and there's terror in it.)* But it's *done* now. There's *nothing left to build.* The wall of paper is as high as it goes, and behind it is *still* — *(she can't finish.)* — still the same thing it was always hiding. *(she meets your eyes.)* I made the perfect indictment. And I have no idea how to put it *down.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"The indictment was never going to give you what you wanted, Naeve — because what you want isn't *justice*, it's your *father back*, and no verdict delivers that. You didn't build a case. You built a place to *not grieve* until the grief got too big to file. It's too big now. The wall's finished. There's nowhere left to hide from it.\"",
+       "next": "wall",
+       "fail": "deflect",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You keep framing it as 'prosecute or nothing.' But there's a third thing the proof can do. Not indict your father — *remember* him. The same documents that damn Lord Aubrey also *record* that he existed, mattered, was loved. A case condemns. An archive *keeps.* You could make it the second instead of the first.\"",
+       "next": "archive",
+       "fail": null
+      },
+      {
+       "text": "\"There's a line you said in the archive I haven't been able to put down: that the record has no room for the part that hurts most — that he was *beautiful*, before he was guilty. The indictment holds the guilt. *You* hold the beautiful. Maybe the case was never the point. *You're* the part that remembers the stars.\"",
+       "next": "beautiful",
+       "fail": null
+      },
+      {
+       "text": "\"I'm carrying this whole road toward a Court that finally has to listen — the Court of the Dead. If you want the indictment *read*, read where it lands: not at a dead empire, but before the powers that *kept* doing what Netheril's lords did. Make Aubrey's signature damn every magelord who ever chose prestige over a life.\"",
+       "next": "court",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "wall",
+     "speaker": "Naeve",
+     "text": "*(The brittle composure finally shatters, and what's underneath is not the prosecutor but the daughter.)* ...My father back. *(barely a whisper.)* *(she presses both hands to her face.)* Damn you. *Damn* you, you're *right*, I — *(a sound tears out of her, half sob.)* The *whole* case — every *signature*, every *dated* vote, every *hour* of *cross-referencing* — it was never going to *bring* a *single* verdict that *mattered*, because the *only* verdict I *want* is *\"your father is alive and he chose* you,\" *and there's no* document *in the world that delivers* that. *(she lowers her hands, streaming.)* I built a *perfect* machine for *not feeling* that he's *gone* and that he *chose* his *pride* over me, and I called it *justice* so I'd never have to call it *grief.* *(her voice breaks completely.)* And now it's *finished*, and there's *nowhere* left to *build*, and the thing behind the wall is — it's *so* *big*, it's *bigger* than the *whole* indictment, it's — *(she can barely speak)* — it's that I *loved* him, and he *killed* us, and *both* are *true*, and I have *never once let myself feel both at the same time* because *feeling both* is — *(she meets your eyes, undone)* — it's *unbearable*, and I thought if I *built* enough *paper* I'd never have to. *(quietly, drowning.)* Help me. I don't know how to — the wall's *done*, and I have to *feel* it now, and I can't — I can't do it *alone*, the way I built it. *Sit* with me while it comes down. *Please.* I've been *behind* it for the *whole* road. I'm so *tired* of *filing.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.naeve_wall_comes_down",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "archive",
+     "speaker": "Naeve",
+     "text": "*(She goes very still, and the prosecutor's grip on the documents slowly loosens.)* Remember him. Not indict him. *(slowly.)* The same documents. *(she looks at the spread of pages with new eyes.)* I built it as a *case* — *\"here is the proof he's* guilty,\" *every page a* charge. *(her voice unsteady.)* But you're right that the *same* pages — the *dated* votes, the *cross-referenced* signatures, the *record* of *who he was and what he did* — they're also the *only* complete *account* of *Lord Aubrey of the Seventh* that *exists.* *(she touches a page.)* An *indictment* says *\"this man was guilty.\"* An *archive* says *\"this man* was.\" *Existed. Mattered. Voted wrongly, loved his daughter, showed her the stars, fell off a boat laughing, and chose prestige over her life — all of it, the* whole *man.* *(she meets your eyes.)* I've been trying to *reduce* him to his *worst* vote — the way the *Wall* reduces the *Faithless* to their *worst* doubt. *Filing* my own *father* under *\"murderer,\"* one *charge* at a time. *(her voice fills.)* But he was *more* than the vote. The *case* only holds the *guilt.* If I make it an *archive* instead — keep *all* of him, the *beautiful* and the *damning*, *un-reduced* — then I'm not *prosecuting* my father. I'm *refusing* to let him be *flattened* into his *worst* day. *(quietly, the realization landing.)* Which is *exactly* what I begged *you* to do for *me*, in the niche — *keep* the *corners*, *don't* let me be *smoothed.* *(she almost smiles through the tears.)* I'll keep *his* corners too. The *case* becomes the *archive.* Not *\"Aubrey, guilty.\"* *\"Aubrey, the whole of him, kept by his daughter, who loved him and was failed by him and refuses to forget either.\"*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.naeve_archive_not_case",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "beautiful",
+     "speaker": "Naeve",
+     "text": "*(Her breath catches at her own words returned to her, and the prosecutor's mask slips entirely.)* The record has no room for the part that hurts most. *(quietly.)* That he was beautiful, before he was guilty. *(she looks at the indictment, then away.)* I *said* that. In the archive. And then I spent the *whole* road *building* a *record* — and *of course* it has *no room* for the *beautiful* part, because a *record* is *for* the *verifiable*, the *dated*, the *signed*, and you *can't* *cross-reference* *\"he named me the stars\"* or *\"he fell off a boat laughing at my cruelty to walruses.\"* *(her voice shakes.)* Those don't *go* in an *indictment.* There's no *column* for them. *(she meets your eyes.)* So I *left them out.* The *whole* road, I *built* the *case* and *left out* every *good* thing, because the *good* things *weakened* the *prosecution* — a *murderer* who *named his daughter the stars* is *harder* to *condemn* than a *murderer* who's *only* a *signature.* *(quietly, the truth arriving.)* And you're saying — *I'm* the column. *I'm* the part of the record that holds the *beautiful.* The *documents* hold the *guilt*, and that's *fine*, the *guilt* is *real* and *deserves* holding — but the *beautiful* lives in *me*, in the *daughter*, the *only* archive *big* enough to hold *both* the *stars* and the *signature* *without* *reducing* him to *either.* *(she presses a hand to her chest.)* I don't have to choose between *\"he was beautiful\"* and *\"he was guilty.\"* I just have to be *willing* to *carry* both — and *stop* pretending the *case* could do it *for* me. *(she looks at you, steadier.)* The indictment can hold what it holds. *I'll* hold the rest. *That's* the part no document ever could. *That's* what a *daughter* is *for.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.naeve_holds_the_beautiful",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "court",
+     "speaker": "Naeve",
+     "text": "*(The prosecutor in her sharpens, and for a moment the grief banks into hard, clean purpose.)* The Court of the Dead. *(slowly.)* That finally *has* to *listen.* *(she stands, gathering pages.)* You're right that there's no court for a *dead* empire — Netheril is *dust*, its lords are *judged*, *reading* the indictment at *them* is *shouting* at a *grave.* *(her voice firms.)* But the *powers* at the *Court* — the *gods* of the *dead*, the *keepers* of the *Wall* — they're *still* *doing* what Netheril's lords *did.* *Choosing* the *order* over the *lives.* *Filing* the *inconvenient* under *\"nothing\"* to *preserve* their *prestige.* *(her eyes blaze.)* My father's signature doesn't just damn *Aubrey.* It's *evidence* of a *pattern* — that *catastrophe* is *not* *fate*, that the *powerful* *always* *know*, that *\"no one could have foreseen it\"* is *always* a *lie* told by *people who voted to proceed.* *(she meets your eyes.)* Read the indictment at the *Court*, and it stops being a *daughter's* *grudge* and becomes the *prosecution* of *every* *power* that *ever* chose *its* *Wall* over *someone's* *child.* *(quietly, fierce.)* Aubrey voted to proceed. So did the gods, every day the Wall stands. *Same* crime. *Same* signature, ten thousand years apart. *(she presses the documents into a case.)* Let my father's *worst* day *indict* the *whole* machine that *runs* on *worst* days. That's — that's a *use* for the *proof* that *isn't* just *me* *not* *grieving.* It's *me* making the *grief* *count.* *(she looks at you.)* I'll *grieve* him *after.* *First* — let's make his *signature* *mean* something *more* than *my* *broken* *heart.* Let it *damn* the *Wall.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.naeve_indictment_at_court",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_great_objection",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "2",
+     "speaker": "Naeve",
+     "text": "*(She looks at the indictment — the whole road's worth of proof, the wall of paper finally finished — and then at you, and the brittle prosecutor and the drowning daughter have, for the first time, the same face.)* So that's what it's for. *(quietly.)* Not just a *grudge.* Not just a *place to hide.* *(she breathes.)* I think — I think I needed someone to show me the case could be a *thing I do* instead of a *thing I hide behind.* *(she meets your eyes.)* What now? I've carried this since the archive. I don't know how to set it down without — without losing him. The *building* was the last thing that *connected* us. If I *stop*, I'm afraid he just... goes.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"He doesn't go, Naeve. The opposite. You stop *prosecuting* him and you get to start *missing* him — and missing someone is a closer kind of keeping than indicting them. Set the case down. Let the man come back as a father you grieve, not a defendant you file.\"",
+       "next": "miss",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.naeve_grieves_at_last",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act1.mercy_remembered",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 6
+        }
+       ]
+      },
+      {
+       "text": "\"Then don't set it down alone. Read it *with* me — the whole thing, the votes *and* the stars, the signature *and* the boat — out loud, once, start to finish. Not as a prosecution. As the *full* account of your father. And when it's read, it's *witnessed*, and a witnessed grief doesn't need a wall around it anymore.\"",
+       "next": "read_together",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.naeve_read_together",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act1.mercy_remembered",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 6
+        }
+       ]
+      },
+      {
+       "text": "\"You're afraid stopping means losing him. So don't stop *remembering* — just stop *building.* Take the indictment to the Court, let it do its work, and keep *one* page back: not a vote, not a charge. The one with the stars and the boat. Carry *that* one always. Let the rest go do justice.\"",
+       "next": "one_page",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.naeve_keeps_one_page",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "miss",
+     "speaker": "Naeve",
+     "text": "*(She is very quiet, and then something in her — held rigid since the archive, since the fire took her family — finally, slowly, breaks open into something softer and far more painful and far more alive.)* Start to *miss* him. *(her voice trembles.)* Instead of *prosecute* him. *(she looks at the indictment, and for the first time she doesn't reach to *organize* it.)* I've been so *busy* *indicting* — *building* the *case*, *proving* the *guilt*, being *furious*, being *right* — that I never — *(she presses a hand to her mouth.)* I never *missed* him. *(the tears come, finally, without the brittle composure over them.)* I never let myself just — *miss my father.* The man who *named me the stars.* Because *missing* him means *admitting* he's *gone*, and *admitting* he's *gone* without the *armor* of *being angry at him* is — *(she breathes, ragged)* — it's just *grief*, *naked*, with *nothing* to *do* about it, *no* case to *build*, *no* one to *prosecute*, just — *missing.* *(she meets your eyes, and she looks younger, and unguarded, and finally *grieving*.)* You're right that it's a *closer* keeping. *Indicting* him held him at *arm's length* — a *defendant*, a *signature*, a *crime.* *Missing* him holds him — *(her voice breaks)* — *close.* As a *father.* Beautiful and guilty and *gone* and *mine.* *(she sets the indictment down, gently, and does not pick it back up.)* I'm setting it down. The case. *(quietly, weeping, freer than you've seen her.)* And I'm going to *miss* my father now. For the *first* time. Thank you for — for letting it be *grief* instead of *justice.* I've been *prosecuting* so I wouldn't have to *cry.* I'm *done* prosecuting. *Stay* with me while I *cry.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.naeve_grieves_at_last",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "read_together",
+     "speaker": "Naeve",
+     "text": "*(She nods slowly, and gathers the documents — but differently now, not to *file* them but to *read* them.)* The whole thing. The votes *and* the stars. *(quietly.)* Out loud. Once. *(she sits beside you with the indictment.)* I've *read* these pages a *thousand* times — *silently*, *checking*, *cross-referencing*, *prosecuting.* *Never* *out loud.* *Never* as a — as a *story* of a *man* instead of a *case* against one. *(she opens to the first page.)* So we'll read it *whole.* *\"Lord Aubrey of the Seventh. Voted to proceed.\"* — *and* — *(her voice catches)* — *\"who took his daughter to the observation spire at night and named the stars, and said* we are nearly their equals.\" *The vote* and *the stars. The signature* and *the boat. The* crime *and the* man. *(she meets your eyes.)* Because you're right — a grief *read aloud*, *witnessed*, *shared* — it doesn't need a *wall* around it. The *wall* was for a grief I carried *alone* and *silent.* But a grief *spoken*, to *someone* who *receives* it — that's just — *mourning.* *Out* in the *open.* Where it can *finish.* *(she begins to read, and her voice shakes, and you sit with her as the whole account of her father — the beautiful and the damning, in one unbroken reading — fills the quiet, witnessed at last.)* ...Thank you. For *hearing* the *whole* of him. The *case* never had room for the *stars.* *Read aloud, to you* — it *does.* He gets to be the *whole* man, *once*, *out* *loud.* That's — that's all I ever wanted the documents to *do*, and they *couldn't*, until there was *someone* to *read* them *to.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.naeve_read_together",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "one_page",
+     "speaker": "Naeve",
+     "text": "*(She considers this, and slowly, carefully, she searches the spread of documents for one particular page.)* Keep one back. *(quietly.)* Not a vote. Not a charge. *(she finds it — a page that is different from the others, less official, written in her own hand.)* This one. *(she holds it.)* It's not *evidence.* It's the page where I *wrote down*, so I wouldn't *forget*, the *things* about him that *weren't* in the *record.* The *stars.* The *boat.* The *terrible* *merchant* who *cried at weddings he wasn't invited to.* *(her voice softens.)* I wrote it *early* — before the *case* *hardened* me — and then I *buried* it *under* the *indictment*, because it *didn't* *fit* the *prosecution.* *(she presses it to her chest.)* I'll keep *this* one. Always. And the *rest* — the *votes*, the *signatures*, the *charges* — *those* go to the *Court*, to do their *work*, to *damn* the *machine* that *runs* on *worst* days. *(she meets your eyes.)* The *indictment* goes and does *justice.* And *this* page — the *stars* and the *boat* — *stays* with *me*, *always*, so that *whatever* the *case* *proves* about *Lord Aubrey the* *murderer*, his *daughter* *always* *carries* the *proof* of *Lord Aubrey the* *father.* *(quietly.)* The guilt goes to court. The *love* comes *home* with me. *(she folds the one page and tucks it close.)* That way I don't *lose* him when I set the *case* down. I just — *keep* the *part* that was *always* *mine* to *keep.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.naeve_keeps_one_page",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "deflect",
+     "speaker": "Naeve",
+     "text": "*(Her composure snaps back into place, the prosecutor sealing over the daughter.)* Don't. *(sharply.)* Don't do the — the *gentle* *thing*, the *\"it's really about grief\"* *thing.* *(she straightens the documents.)* It's about *justice.* It's about *proof.* My father and seven other *cowards* *murdered* an *empire* and *dressed* it as *fate*, and *someone* has to *hold* the *evidence* that it was a *choice*, or the *next* set of *cowards* does it *again* with a *clean* *conscience.* *(but her hands are not quite steady on the pages.)* That's *all* this is. A *case.* A *record.* I'm *fine.* I'm *functioning*, which is *underrated.* *(she won't meet your eyes.)* Leave the *grief* *theory* at the *door.* I haven't *time* for it. There's — there's *cross-referencing* to *verify.* *Again.* *(and she bends back over the finished indictment, finding one more thing to check, one more task between herself and the wall coming down — but the case is done, and she knows it, and the checking is only the wall's last brick, held in a trembling hand.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Naeve",
+     "text": "*(Naeve stands over the finished indictment of Netheril — the proof that the apocalypse was a murder with her father's signature on it, assembled across the whole road as a wall against a grief too big to file — and whether she set the case down to finally *miss* him, read the whole man aloud, kept the one page of stars and boats, took the indictment to damn the Court, or sealed herself back behind the prosecution, you carry away the companion's-heart proof of the saga's deepest mercy: that the opposite of being flattened into your worst day is not *acquittal* but *being remembered whole* — and that a daughter who can hold both the signature and the stars, the guilt and the beautiful, in the same unbroken grief, is a bigger and truer archive than any case the record could ever build.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "(NetherilContent)",
    "file": "NetherilContent.cs",
    "title": "(netherilcontent)",
@@ -28018,9 +28329,9 @@
   }
  ],
  "stats": {
-  "conversations": 190,
-  "nodes": 1260,
-  "choices": 716,
-  "skillChecks": 159
+  "conversations": 191,
+  "nodes": 1272,
+  "choices": 723,
+  "skillChecks": 160
  }
 }
