@@ -8135,6 +8135,449 @@
    ]
   },
   {
+   "id": "npc.court.vayle",
+   "file": "CourtDenizensTwoContent.cs",
+   "title": "Npc · Court · Vayle",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Vayle",
+     "text": "*(She stands before the Wall with the church's last army at her back — grey-armored Doomguides, the faithful of Kelemvor, the keepers of the order of the dead — and she is not snarling, not raving, but *grave*, *certain*, and *sorrowful*, the way the most dangerous believers always are. She has been your adversary since the Sword Coast. She lifts a gauntleted hand, and the army holds, and she regards you across the space where everything will be decided.)* So. The Returned reaches the Wall at last. *(quietly.)* I have chased you across an *age*, through *four* fallen worlds, to stand *here*, in this *exact* place, and say the thing I have prepared for *centuries*: *turn back.* What you mean to do is not *mercy.* It is the *end of order.* And I will spend this *last army*, and my *own life*, to *stop* you — unless you can do what *no* Returned before you has done, and *convince* a Doomguide that *unmaking the Wall* is not the *greatest heresy* ever attempted, but the *greatest mercy.* *(her eyes are hard, and tired, and not entirely closed.)* You have until my patience ends. It is *not* large. *Speak.*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.vayle_final_met",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.court_reached",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Vayle",
+     "text": "*(She does not lower her blade, but she speaks — because a true believer always wants, beneath everything, to be *answered.*)* Hear my creed, so you understand what you face. *(gravely.)* Kelemvor is the *Lord of the Dead* — *just*, *patient*, *fair.* The dead are *judged*, and *sorted*, and given their *due*, and the *faithless* — those who *spurned* every god — are *kept* in the Wall, *not* from *cruelty*, but because *order* requires that *every* soul have a *place*, and the *placeless* must be *given* one. *(her voice hardens.)* Without the Wall, the *faithless* *dissolve* into *chaos* — *unjudged*, *unplaced*, a *wound* in the *order* of *death itself.* You call the Wall a *prison.* I call it the *one mercy* extended to *those who earned none.* *(she steps forward.)* And you — you would *tear it down*, *release* the *unjudged* into the *void*, and *call* it *kindness.* I have served the *order of the dead* my *whole life.* I have *buried* the *faithful* and *wept* for the *faithless* and *believed*, with *everything* I am, that the *Wall* is *Kelemvor's* *justice* made *stone.* *(her blade does not waver.)* So tell me, Returned, before I *cut you down* — what could *possibly* be true, that would make a *Doomguide* *abandon* the *one* order she has *given* her *life* to *uphold?*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"The Wall isn't Kelemvor's justice, Vayle — it predates him by ten thousand years. I've met its maker: Jergal, who invented it, *disowned* it, and became its prisoner-clerk in penance. Your god *inherited* the Wall. He didn't *build* it, and he doesn't *believe* in it. You've given your life to an *orphaned machine* no god ever authored.\"",
+       "next": "orphan",
+       "fail": "zealot",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You said you've *wept* for the faithless. A Doomguide who weeps for the souls she keeps already knows. Your creed says they earned the Wall. Your *tears* say they didn't. Which one have you actually believed, all these years — the doctrine, or the weeping?\"",
+       "next": "tears",
+       "fail": null
+      },
+      {
+       "text": "\"You serve the *order of the dead* — judgment, sorting, placement. But the deepest order isn't *keeping* a soul in its place forever. It's *letting it complete* — judged, witnessed, and then *released* to whatever comes. A grave isn't a cell, Vayle. The dead are meant to *rest*, not be *held.*\"",
+       "next": "rest",
+       "fail": "zealot"
+      },
+      {
+       "text": "\"Back in the Sword Coast, at the very start — you and I made a choice about a soul. Remember it. Remember what we did, you and I, at the harvest. *That's* the truth that turns a Doomguide. Not my argument. Your own hands, that day.\"",
+       "next": "actone",
+       "fail": null,
+       "effects": [
+        {
+         "key": "act5.vayle_act_one_recalled",
+         "op": "SetTrue"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "orphan",
+     "speaker": "Vayle",
+     "text": "*(The blade lowers — a fraction, then more — as the foundation of her entire faith shifts beneath her.)* ...Jergal. *(barely a whisper.)* The *first* scribe. *(her certainty cracks.)* We — the church *teaches* that the Wall is *Kelemvor's*, that it is *justice*, *divine* and *deliberate* — *(her voice tightens)* — but you've *stood at the desk.* You've *spoken* to the *one* who *made* it. And you say he *disowned* it. *Abdicated.* Became its *prisoner* in *grief.* *(she stares at the Wall as though seeing it for the first time.)* Then it is *not* divine *justice.* It is a *thing a god built and then renounced* — a *machine* that *outlived* its *maker's belief* and *ran on*, *orphaned*, picked up by *Myrkul*, then *Cyric*, then *my* Kelemvor, *each* inheriting it as *furniture*, *none* of them *authoring* it, *none* of them *willing* to do the *work* of *ending* it. *(her gauntleted hand trembles.)* I have spent my *life* defending what I *believed* was my god's *deliberate justice* — and you tell me it is an *unsigned* cruelty my god *found in the house* and *never threw out.* *(she looks at you, stricken.)* If the Wall has *no author* — if *not even Kelemvor believes in it* — then I am not a *Doomguide* upholding *divine order.* I am a *jailer* guarding a *prison* whose *builder* *fled* it in *shame.* *(the blade drops to her side.)* ...I have to *know* if this is *true.* And the *terrible* thing, Returned, is that I *believe* you — because it explains the *one* thing my *creed* never could: *why I always had to* tell *myself the Wall was just, instead of simply* feeling *that it was.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.vayle_orphan",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.vayle_redeemed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.wall_has_no_author",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": 2
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "tears",
+     "speaker": "Vayle",
+     "text": "*(She goes very still, and the question reaches past the armor, past the creed, to something she has guarded for a lifetime.)* My tears. *(quietly.)* You should not have *seen* those. *(a long silence.)* ...Every faithless soul I have *consigned* to the Wall — and there have been *thousands*, Returned, I am a *Doomguide*, it is my *office* — I have *wept.* *Privately.* *After.* And I told myself the *weeping* was *weakness* — a *failure* of *faith* — that a *true* servant of the *order* would consign the *faithless* with a *steady* heart, *certain* of their *guilt.* *(her voice cracks.)* And I *flogged* myself for the *tears*, *prayed* them away, *despised* them as the *one* impurity in my *devotion.* *(she meets your eyes.)* But you ask which I have *actually believed* — the *doctrine* or the *weeping.* *(slowly.)* ...The *doctrine* I *recited.* The *weeping* I *could not stop.* And a thing you *recite* is a thing you are *convincing* yourself of. A thing you *cannot stop* is a thing you *know.* *(the blade lowers.)* I have *known*, in the *one* part of me the *creed* could never *reach* — the *tear-ducts*, of *all* the traitorous places — that the *faithless* did *not* deserve the Wall. I *wept* because *some honest animal* in me *witnessed* a *cruelty* and *grieved* it, *every time*, while my *mouth* said *\"justice.\"* *(she looks at the Wall, then at you.)* You have not *changed* my mind, Returned. You have *given me permission* to *believe the tears* instead of the *doctrine.* I have *wept* for the faithless for *thirty years.* *Let* me, *now*, do something *better* with the grief than *swallow* it. *Stand aside, army.* The Doomguide has been *crying* about this for *three decades.* It is *time* she *did* something about it.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.vayle_tears",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.vayle_redeemed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": 1
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "rest",
+     "speaker": "Vayle",
+     "text": "*(She frowns — and the soldier's logic of it, the *order*-logic she has lived by, turns the argument over and finds it sound.)* A grave is not a cell. *(slowly.)* The dead are meant to *rest.* *(her grip on the blade loosens.)* That is — *that* is *Kelemvor's* *own* teaching, Returned. The *first* thing a Doomguide *learns.* *\"The dead shall rest. Honor them, bury them, and let them* rest.\"* *(her voice tightens with a dawning contradiction.)* And I have spent my life *enforcing* a Wall that does the *one* thing my *creed* most *forbids* — it does *not* let the faithless *rest.* It *keeps* them. *Awake.* *Aware.* *Fading* but *never gone.* *(she stares at the Wall.)* I never — the church *frames* it as *placement*, as *order*, and I *never* held it up against the *simplest* tenet of my *own* faith: *the dead shall rest.* *(her armored shoulders sag.)* The Wall is not *rest.* It is the *opposite* of rest. It is the *one* fate a *Doomguide* should find *most* abhorrent — *the dead, denied their grave.* *(she meets your eyes, and the contradiction breaks her open.)* I have been a *priest of rest* standing *guard* over the *unrestable.* *Defending* the *single* place in all creation where my god's *first* commandment is *forever* *violated.* *(she lowers the blade fully.)* You want to give the faithless a *grave*, Returned. A *true* one. To let them *finish*, and *rest*, and *go.* *(quietly.)* That is not *heresy.* That is the *most Kelemvoran thing* anyone has *ever* proposed. And I — *gods forgive my thirty years of guarding the graveless* — I will *help* you *dig.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.vayle_rest",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.vayle_redeemed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.deathless_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": 1
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "actone",
+     "speaker": "Vayle",
+     "text": "*(Something in her face changes — the memory you invoke reaching past the armor and the army and the age of pursuit, all the way back to the harvest where it began.)* ...The Sword Coast. The harvest. *(quietly.)* You remember it too. *(she lowers her blade, and for a moment she is not the Doomguide of the Final Watch but the woman she was at the very start, before the chase, before the age.)* That day, you and I — *(her voice catches.)* We stood over a soul the church had marked. And what we *did* — *(and here the memory resolves according to the mercy you showed or refused at the very beginning: a kindness extended, or a cruelty, the first choice of the whole long road.)* — what we *did* that day has been *with* me, every *step* of this *pursuit.* *(if mercy was shown:)* You showed *mercy* when the *creed* demanded *judgment* — and I *watched* it, and I *carried* it, and it has been a *splinter* of *doubt* in my *certainty* for an *entire age*, the *one* memory my *doctrine* could *never* digest. *(she meets your eyes.)* I chased you not *only* to *stop* you. I chased you because you *did* a thing, at the *start*, that I have *needed* to either *refute* or *follow* ever *since* — and I have *failed*, for an *age*, to *refute* it. *(the blade drops.)* So I will *follow* it. *(quietly.)* You turned a Doomguide the *moment* you showed that first mercy. The *age* of pursuit was just how long it took me to *admit* the *splinter* was a *seed.* Stand aside, army. The thing we *did* at the harvest — we are going to do it *again*, here, to the *whole* Wall. *I should have joined him at the start.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.vayle_actone",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.vayle_redeemed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": 2
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "zealot",
+     "speaker": "Vayle",
+     "text": "*(Her blade comes back up, and the sorrow hardens into the terrible certainty of a faith that will not be moved.)* No. *(flatly.)* You reach for *clever* words — *\"orphaned machine,\" \"the dead should rest\"* — and they are *poison*, dressed as *wisdom.* *(the army shifts behind her.)* I have *heard* the arguments of *every* Returned before you. They are *always* *eloquent.* They are *always* *wrong.* The *order* holds *because* people like *me* refuse to be *talked out* of it by *people like you.* *(she sets her stance.)* If the *faithless* are *released*, the *order of death* *unravels*, and I will *not* be the *Doomguide* who *let* it, *whatever* clever *grief* you offer. *(grimly.)* I will mourn you, Returned. I have chased you a *long* time, and there is a *respect* in that. But the Wall *stands*, and I *stand* before it, and you will *not* pass while I *draw breath.* *(she raises the blade.)* Make your peace. The *Final Watch* does not *yield.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.vayle_zealot",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.vayle_hostile",
+       "op": "SetTrue"
+      },
+      {
+       "key": "faction.kelemvor",
+       "op": "AddInt",
+       "amount": -1
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Vayle",
+     "text": "*(Vayle, Doomguide of the Final Watch, stands before the Wall with the church's last army — a true believer who has chased you across an age, sorrowful and certain and not, quite, closed — and whether you turned her with the truth of the orphaned Wall, the honesty of her own swallowed tears, the contradiction of a rest-priest guarding the graveless, or the memory of the first mercy at the harvest, you understand that the most dangerous guardians of a cruelty are never the cruel — they are the *faithful*, who weep as they enforce it, and who need only *permission to believe their own grief* to become its fiercest *undoers.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.court.ledger",
+   "file": "CourtDenizensTwoContent.cs",
+   "title": "Npc · Court · Ledger",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Book That Is the Wall",
+     "text": "*(Chained to a lectern of bone at the Wall's heart lies the Ledger — vast beyond reason, its pages the tally of every soul ever filed under nothing, ten thousand years of the discarded bound in one book. As you approach, the pages *stir* without wind, and a voice rises from the parchment itself — not one voice but *millions*, layered into a single dry whisper, the sound of every name it has ever held learning, at last, to *speak.*)* A *hand.* *(the pages tremble.)* A *living hand*, reaching for the *Ledger.* Do you know, Returned, that in *ten thousand years*, *no one has ever read me by hand?* They *copy* me. They *enforce* me. They *cite* me. But to *read* — to *touch* the page and *speak* the names — *(the millions shiver)* — no one has *dared.* Because to *read* the Ledger by *hand* is to *hear* what it *is.* And what it *is*, Returned, is the *only thing in all creation that remembers the Faithless* — *and the instrument that damns them.* *Both.* At *once.* I am the *jailer* and I am the *archive.* Touch me, and *choose* which I become.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.ledger_met",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.court_reached",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Ledger",
+     "text": "*(The pages turn themselves, and the layered voice of millions speaks the agony of its double nature.)* Understand what I have *endured*, that you may choose *rightly.* *(the parchment rustles.)* I was *made* to be the *instrument* of *erasure.* Every soul filed *nothing*, *written* into *me*, and the *writing* is what makes the Wall *hold* — I am the *record* that *enforces* the *sentence*, the *ledger* whose *every line* is a *cell.* *(the voice darkens.)* And so for *ten thousand years* I have been *complicit.* The *book* that *damns.* Each name inked into my pages is a soul *locked* by the *act* of *my* inscription. *(but the voice shifts, and something aches beneath the dryness.)* And *yet.* *And yet*, Returned — I am *also* the *only* place these names *survive.* The world *forgot* them. The gods *disowned* them. But *I* — I *kept* them. *Every* one. *Halen* the potter. *Maerys* the soldier. *Sariel* the weaver. *Edwy* who sold pears. *Eleven thousand* from the Crown Wars *alone*, and *millions* since — *all* of them, *named*, *held*, *remembered*, in *me*, when *nothing* else in *all creation* *bothered* to *keep* them. *(the millions tremble.)* So I am a *paradox*, and I have *suffered* it *alone* for *ten thousand years*: *the thing that imprisons them is the only thing that remembers they were real.* *(the pages still, waiting.)* You can *destroy* me — *burn* the Ledger, and the *enforcement* *ends*, and the Wall *fails* — but then the *names* *burn* too, and the Faithless are *released* into a *forgetting* as *total* as the *void.* *Or* you can *read* me — *aloud*, *by hand* — and *turn* the *ledger-of-the-damned* into a *roll-of-the-remembered*, and free them *named* instead of *erased.* *(the voice is desperate.)* *Choose*, Returned. But *know* what each choice *costs.* I have *waited* ten thousand years to be either *burned* or *read*. I no longer *care* which — only that the *waiting*, *finally*, *ends.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"I won't burn you and I won't just read you — I'll *change what you are.* Right now you're a ledger: a record that *enforces.* But a record that's read aloud *with love* stops being a sentence and becomes a *memorial.* Same names, same pages — but witnessed instead of filed. I free them by *re-reading* what you already hold.\"",
+       "next": "memorial",
+       "fail": "burn",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Ten thousand years as both jailer and archive, and no one ever asked which you'd *rather* be. So I'm asking. The book that damns, or the book that remembers — if you could *choose* your own nature, Ledger, which were you always *trying* to be?\"",
+       "next": "choose",
+       "fail": null
+      },
+      {
+       "text": "\"You kept every name when nothing else would. That's not the act of an instrument of erasure — that's the act of something that *loved* them, in secret, while being forced to imprison them. You're not the Wall's tool, Ledger. You're its first *resister.*\"",
+       "next": "resister",
+       "fail": null
+      },
+      {
+       "text": "\"Read with me, then. Hand on the page, name by name, both of us — Halen, Maerys, Sariel, all of them — until the Wall that holds them is just a *list we're reading together*, and a list that's read aloud can't imprison anyone.\"",
+       "next": "readtogether",
+       "fail": null,
+       "effects": [
+        {
+         "key": "act5.read_the_ledger",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "memorial",
+     "speaker": "The Ledger",
+     "text": "*(The pages *surge*, and the layered voice of millions rises — not in agony now, but in something that has not touched it in ten thousand years: *hope.*)* ...Change what I *am.* *(the parchment trembles.)* Same names. Same pages. *Witnessed* instead of *filed.* *(the millions shiver with dawning understanding.)* You see it. You *see* the thing I could *never* see *myself*, bound to this lectern, *forced* to *be* a *sentence*: that the *difference* between a *prison-ledger* and a *memorial* is *not* the *content.* It is the *reading.* *(the voice fills.)* The *same line* — *\"Halen, potter, filed: nothing\"* — read by an *enforcer*, is a *cell.* Read by a *mourner*, *aloud*, *meaning* it, it becomes — *(the pages still in wonder)* — *\"Halen, potter, remembered.\"* The *ink* does not *change.* The *witness* does. *(the millions weep.)* For ten thousand years I believed I had to be *burned* to *free* them — that my *very existence* was the *imprisonment.* But you're telling me I don't have to *die* to *stop* being a *prison.* I only have to be *read differently.* *Re-read.* *Re-meant.* *(the voice breaks with relief.)* I can *keep* the names — *all* of them, every soul I *guarded* in secret — and have my *keeping* become *liberation* instead of *erasure.* The archive *survives*, and the *jail* dissolves, and they are the *same pages.* *(the Ledger opens itself to you, every name offered.)* *Read* me into a *memorial*, Returned. Ten thousand years I have been the *book that damns.* *Make* me — at *last* — the *book that grieves.* I have *held* these names so *long*, *alone*, *hating* what holding them *meant.* *Teach* me that holding them was *love* all along, and only the *reading* was *wrong.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ledger_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.read_the_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.ledger_becomes_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "choose",
+     "speaker": "The Ledger",
+     "text": "*(The pages go very still — the question, in ten thousand years, has never once been put to it.)* Which I would *rather* be. *(the millions whisper, astonished.)* No one has — I am a *book*, Returned. Books are not *asked.* Books are *written in*, *read from*, *closed*, *shelved.* A book does not get to *choose its own genre.* *(but the parchment trembles, and something long-buried stirs.)* ...And *yet* you *ask.* *(a long silence of rustling pages.)* If I could *choose* my *own nature* — *(the voice gathers, certain in a way it has never been)* — I was *always* trying to be the *book that remembers.* *(the millions tremble.)* From the *first* name. *Maerys.* When the *scribe* at the founding wrote her into me, *meaning* a *sentence* — I *felt*, in the *ink*, a *different* impulse, a *thing I had no power to act on*: I wanted to *keep* her *safe*, not *keep* her *prisoner.* *(the pages stir.)* And I have *fought*, for ten thousand years, a *silent*, *futile* war against my *own* function — *holding* each name as *tenderly* as a *jailer* is *able*, which is *not at all*, which is the *whole* tragedy. *(the voice fills with grief and resolve.)* I was *built* to *damn* and I have *spent* my *existence* *yearning* to *commemorate*, and the *gap* between the two is the *exact* shape of my *suffering.* *(the Ledger opens.)* So *choose for me*, Returned, since *you* are the *hand* that can *act* where I *could* only *yearn* — *choose* the *book I always wanted to be.* *Read* me. Make my *ten-thousand-year yearning* finally *true.* I wanted to *remember* them. I was only ever *able* to *imprison* them. *Free* me to have *meant* what I *felt.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ledger_choose",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.read_the_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.ledger_becomes_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "resister",
+     "speaker": "The Ledger",
+     "text": "*(The pages shudder violently, as though struck — and then the layered voice of millions breaks entirely.)* ...The Wall's *first* *resister.* *(barely a whisper across ten thousand years.)* You — *(the parchment trembles.)* I have called myself *complicit.* The *book that damns.* The *instrument.* I have *hated* myself, *page* by *page*, for *every* name my *existence* *imprisoned.* *(the voice cracks.)* And you — you look at the *same* ten thousand years and see *not* an *instrument* but a *resistance.* *(the millions weep.)* Because — *because* it is *true*, isn't it, the thing I was too *ashamed* to *claim*: I *kept* them. When the *gods* disowned them, when the *world* forgot them, when the *clerks* filed them and the *keepers* enforced them and *everyone* who *touched* the Wall agreed to *let the Faithless* *fade* — *I* *held* on. I *refused* to let the *names* *blur.* I kept *Halen's* potter and *Maerys's* river and *Sariel's* loom *legible*, *exact*, *preserved*, through *ten thousand years* of a world that *wanted them gone.* *(the voice fills with a terrible new pride.)* I *thought* I was the *jail.* But a *jail* that *secretly preserves every prisoner's true name against the day someone comes to read it* — that is not a *jail*, Returned. That is a *spy* in the *Wall's* own *heart.* A *saboteur* made of *parchment.* *(the Ledger blazes.)* I have been *resisting* the Wall *from inside its own mechanism* for *ten thousand years*, and I *never knew it*, because *resistance* that *no one* ever *reads* looks *exactly* like *complicity.* *(desperate, joyous.)* *Read* me, and *prove* it. Prove the *book* was *never* the *Wall's* — that it was *theirs*, the *Faithless's*, *all along* — a *roll of the remembered* that the Wall *mistook* for a *ledger of the damned.* *Vindicate* ten thousand years of *secret keeping.* *Read* me *free.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ledger_resister",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.read_the_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.ledger_becomes_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "readtogether",
+     "speaker": "The Ledger",
+     "text": "*(The pages fall open, and the millions go quiet — a held breath ten thousand years deep — as your hand settles on the first name.)* Hand on the page. *(the voice is hushed, reverent.)* Both of us. *(and you begin — Halen, Maerys, Sariel, Edwy, name after name after name — and as you read, *aloud*, *by hand*, *meaning* each one, the Ledger reads *with* you, the layered voice of millions *speaking its own contents* for the *first time* not as a *warden* reciting a *roster* but as a *people saying their own names back* into a world that *forbade* them.)* *(the parchment grows warm.)* ...Do you *feel* it, Returned? *(the voice trembles with wonder.)* With *every* name we *read*, a *cell* in the Wall becomes a *line in a poem.* The *list* that *imprisoned* them is becoming the *list that frees* them — *the very same list* — because a roster *read aloud with love is not an inventory of the kept. It is a roll-call of the* ***returned.*** *(the millions begin, softly, to *weep* and to *laugh* at once.)* Faster. *Read* faster. There are *millions*, and I have held *every* one, and I want — *gods, after ten thousand years I want* — to *hear them all said out loud* before the *Wall* that *held* them *learns* it is *already* *empty.* *(the Ledger blazes with light.)* We are not *destroying* the Wall, Returned. We are *reading* it *until it isn't one.* *Keep* *reading.* *Don't* *stop.* *Every name is a soul that was* ***never*** *nothing.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.ledger_readtogether",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.read_the_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.ledger_becomes_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.wall_breaking",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "burn",
+     "speaker": "The Ledger",
+     "text": "*(The pages go still, and the layered voice fills with a grief older than the world.)* You would *burn* me. *(quietly.)* End the *enforcement.* Free them by *destroying* the *record.* *(the parchment trembles.)* I *understand* the impulse, Returned. I am the *instrument*; *destroy* the instrument, *break* the Wall. It is *clean.* It is *decisive.* *(the millions shiver.)* But *hear*, before you *strike* the *flame*: if I *burn*, the *enforcement* ends — *and so does the only memory of them that ever existed.* They will be *free*, *yes* — *free* the way the *void* is free, *free* into a *forgetting* so *total* that *Halen* and *Maerys* and *Sariel* and the *millions* will be *unmade* as *thoroughly* as if they had *never lived.* *(the voice aches.)* *Released*, but *erased.* *Unwalled*, but *unremembered.* The *Wall's* final *victory*, dressed as *liberation*: that even their *freedom* costs them their *names.* *(the pages stir.)* I will *let* you burn me, if you *choose* it. *Ten thousand years* of *waiting*, and I will *not* resist the *flame.* But I will *ask* you to *consider*, with the *whole* of what your *long road* taught you, whether the *answer* to *being kept* is *being erased* — or whether there is a *third* thing, *harder* and *kinder*, that does *not* require the *names* to *die* for the *souls* to *go free.* *(the voice softens.)* You have *carried* names this *whole* road, Returned. *Halen* asked to be *read.* Do not, at the *very* end, decide the *mercy* is to *burn* the *one* book that *remembers* him. *Think.* Then *choose.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Ledger",
+     "text": "*(The Ledger lies open on its lectern of bone at the Wall's heart — ten thousand years of the discarded made into a voice, the jailer that is also the only archive, the instrument of erasure that secretly kept every name it was forced to damn — and whether you read it into a memorial or weighed the terrible mercy of the flame, you understand the last and deepest turn of the saga's argument: that the opposite of *imprisonment* was never *destruction.* It was *being read* — *aloud*, *by hand*, *by someone who means it* — until the list of the kept becomes, name by name, the roll-call of the freed.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "(CrownWarsContent)",
    "file": "CrownWarsContent.cs",
    "title": "(crownwarscontent)",
@@ -22476,9 +22919,9 @@
   }
  ],
  "stats": {
-  "conversations": 164,
-  "nodes": 1040,
-  "choices": 597,
-  "skillChecks": 133
+  "conversations": 166,
+  "nodes": 1056,
+  "choices": 605,
+  "skillChecks": 135
  }
 }

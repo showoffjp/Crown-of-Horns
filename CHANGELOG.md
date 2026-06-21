@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.32.0 — *"The Book That Grieves"* — the Court of the Dead, complete (Pillars 1+2)
+
+> The summit's last two voices: the true believer who must be turned, and the book that has held every
+> forgotten name for ten thousand years. With them, the saga's principal cast (#1–82) is fully voiced.
+
+- ⚖️ **Court of the Dead Wave II** (`court_denizens_2.dlg`) completes the summit:
+  - **Vayle, Doomguide of the Final Watch** — your adversary since the Sword Coast, who has chased you across
+    an age to stand with the church's last army between you and the Wall. Not cruel — *faithful*, and she has
+    *wept* for every soul she ever consigned. She turns on the truth that the Wall is an *orphaned machine*
+    (Jergal disowned it), on the contradiction of a *rest-priest guarding the graveless*, on permission to
+    *believe her own swallowed tears*, or on the memory of the *first mercy at the harvest* in Act I — the
+    seed that took an age to admit was a seed (`act5.vayle_redeemed`, reactive to your earliest choice).
+  - **The Ledger** — ten thousand years of the discarded bound in one book, made into a layered voice of
+    millions: the jailer that is *also* the only archive, the instrument of erasure that *secretly kept every
+    name it was forced to damn.* The saga's deepest turn: the opposite of imprisonment was never *destruction*
+    but *being read* — a roster read aloud with love becomes, name by name, the roll-call of the freed. Burn
+    it and the souls go free but *erased*; read it and the ledger-of-the-damned becomes the *book that grieves*
+    (`act5.read_the_ledger`, `act5.ledger_becomes_memorial`, `act5.wall_breaking`).
+- 🧵 **Theme (resolution)**: the most dangerous guardians of a cruelty are the *faithful* who weep as they
+  enforce it — and they need only permission to believe their own grief to become its fiercest undoers; and
+  the answer to a Wall of the forgotten is not the flame but the *reading.* **The principal cast — every named
+  denizen #1–82 across all six acts — is now fully voiced.**
+- 📈 **Content**: dialogue corpus now **166 conversations · 1,056 nodes · 135 skill checks** (up from
+  164/1,040/133). All 606 headless CI checks green; the 28-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.31.0 — *"Read Me By Name"* — Act V opens: the Court of the Dead, the summit (Pillars 1+2)
 
 > The road reaches its end, and every thread it wove becomes a single choice. The god who *already* did what
