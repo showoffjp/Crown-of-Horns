@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.37.0 — *"What the Harvest Left"* — the harvest-quarter survivors, Wave I (Pillar 2 · the wider city)
+
+> The quarter Act I's harvest emptied — the grief the atrocity left behind, in three voices. A mother, a
+> silent child, and a healer undone by the first wound her hands can't reach.
+
+- 🕯️ **Harvest-Quarter Survivors, Wave I** (`harvest_denizens.dlg`):
+  - **Goodwife Orla** — selling her carver son Davin's tools, not for coin but so his craft lives on in
+    working hands rather than rusting in a shrine; the harvest burned his name, but it can't stop his chisels
+    carving cradles in strangers' hands for fifty years. She keeps back one knife, worn to the shape of his
+    grip — the one part the harvest couldn't take (`sq.davins_tools`).
+  - **The Silent Vane Boy** — ten years old, mute since the harvest took his mother in front of him,
+    communicating only in charcoal drawings of the hooded harvesters. The interaction refuses to demand his
+    voice back: you read his pictures, honor the speech that *failed* him when he screamed a warning that
+    changed nothing, or carry his drawings out as *evidence* — a child's testimony louder than words
+    (`sq.boys_drawings`).
+  - **Sister Maud** — the Lower City's finest healer, stopped cold by the harvest's survivors: wounds that
+    leave no mark, grief no poultice reaches. The turn: she confused *healing* with *curing* — the man staring
+    at his wife's cloak doesn't want the grief cured (that would be a second bereavement); he needs someone to
+    *sit in the room and not flee the unfixable.* Presence is the medicine that never runs out
+    (`act4.faith_through_doubt`).
+- 🧵 **Theme**: the harvest's true cost isn't the taken but the *left* — and the saga's answer at survivor
+  scale: craft passed on outlives the burning of a name; the grieving are *heard* in whatever language loss
+  left them; and the deepest care is the staying, not the fixing. Roster now **97 named denizens.**
+- 📈 **Content**: dialogue corpus now **181 conversations · 1,172 nodes · 151 skill checks** (up from
+  178/1,149/147). All 606 headless CI checks green; the 33-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.36.0 — *"The Keeper of Debts"* — the Low Lantern, complete (Pillar 2 · the wider city)
 
 > Three more regulars finish the Low Lantern's roster — the woman who holds the whole quarter's accounts, the
