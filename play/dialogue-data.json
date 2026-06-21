@@ -20214,6 +20214,399 @@
    ]
   },
   {
+   "id": "npc.troubles.watchman",
+   "file": "TroublesDenizensTwoContent.cs",
+   "title": "Npc · Troubles · Watchman",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Watchman Harn",
+     "text": "*(The sky is the wrong color and something enormous is screaming three streets over, but a city watchman stands at his post with a clipboard and the white-knuckled calm of a man performing sanity at it until it comes back. He licks his pencil, squints at the burning heavens, and makes a careful notation. When he sees you he straightens with desperate professional relief.)* You — citizen. Good. You'll have *witnessed* the, ah — *(he gestures vaguely at the apocalypse)* — the *disturbance.* I'm taking *statements.* *(he poises the pencil.)* Watchman Harn, Castle Ward. I am filing an *incident report* on the events of this evening, and I would be *much* obliged if you could help me with the *particulars*, because the *particulars* are proving *difficult.*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.harn_met",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.faith_tested",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Watchman Harn",
+     "text": "*(He consults his clipboard, and his composure is a dam with hairline cracks running through every word.)* The difficulty is the *forms*, you see. *(he taps it.)* I have a form for *affray.* I have a form for *arson*, for *riot*, for *damage to municipal property.* I have a form for *unlicensed sorcery* and even — *(a slightly hysterical edge)* — even one for *\"manifestation, planar, hostile.\"* *(he turns the clipboard toward you, pleading.)* But there is *no form*, citizen, in the *entire watch-house*, for *\"two gods conducting a duel above the fish market.\"* *(his voice climbs.)* The *perpetrator* field asks for a *name and ward of residence.* What do I — *Bane? Residence: the Black Hand, ward of:* — *the sky?* The *damages* field wants a *coin estimate.* How do I *cost* a *street that a god stepped on?* *(he catches himself, breathes, forces the calm back down over it.)* I *know* how this *looks.* Man fussing with *paperwork* while the *world ends.* But here is the thing, citizen, here is the *whole* thing — *(quietly, the dam showing its cracks)* — if I *stop* filing, if I *put down the clipboard* and *admit* there's no *form* for *this*, then there are *no forms for anything anymore*, and if there are *no forms* then there are *no rules*, and if there are *no rules* then the *sky* really *is* falling and I am a *small man* in a *wrong-colored night* with *nothing* between me and *that.* So. The disturbance. Can you give me a *time* of *onset? Please.* I need *one field* I can *fill in true.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"The report was never going to capture this, Harn, and you know it. You're not filing an incident. You're saying a *prayer* — to Order, to Procedure, to the idea that the world still has *fields you can fill in true.* And honestly? On a night the gods went mad, that's the realest faith on this street.\"",
+       "next": "prayer",
+       "fail": "insist",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Give me the form. I'll swear a statement — a true one. Onset, perpetrators, damages, the lot. If the watch-house has no form for gods fighting, then *we'll make this the first*, and the next watchman won't be standing here with nothing.\"",
+       "next": "statement",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.first_incident_report",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"I knew a clerk like you once — Tobias. Spent his whole life filing, terrified none of it counted. It counted, Harn. The filing *is* the dignity. Not because the form holds the world. Because *you* held the *post* when the sky went wrong.\"",
+       "next": "tobias",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"Put the clipboard down for one minute — not forever, just one — and look at it with me. Not as a watchman. As a man. You're allowed to be *awed* by the end of the world before you go back to *filing* it.\"",
+       "next": "look",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "prayer",
+     "speaker": "Watchman Harn",
+     "text": "*(The pencil stops. He stares at the clipboard, and then at you, and the performed calm finally gives way — not to panic, but to something quieter and more naked.)* ...A prayer. *(very softly.)* To *Procedure.* *(he lets out a breath that shakes.)* My sergeant used to say it, you know — *half*-joking — *\"the forms are the only god that ever answers, Harn.\"* And I'd *laugh.* *(he looks at the burning sky.)* And now the *other* gods are *bleeding in the street* and the *form-god* is the *only one still standing*, because *Order* can't be *knocked down here* and made *mortal*, it hasn't a *body* to *break.* *(his grip on the clipboard gentles, from a drowning-clutch to something almost reverent.)* You're right. I'm not *documenting* the disturbance. I *can't.* There's no *field* for it. I'm — I'm *kneeling*, in the only *chapel* a watchman *has*, and saying *\"please let there still be rules, please let the night still have edges, please let one field be fillable-true.\"* *(he meets your eyes, steadier now that it's named.)* It's a *prayer.* And like all the *honest* ones tonight, it doesn't *expect* an answer — it just *refuses to stop being said.* *(he licks the pencil, but calmly now.)* I'll keep filing. Not because the report will *help.* Because *saying the prayer* is how a small man *stays a man* on the night the *big* things go mad. Thank you, citizen. I was *ashamed* of the clipboard. You've made it a *rosary.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.harn_prayer",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.order_as_prayer",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "statement",
+     "speaker": "Watchman Harn",
+     "text": "*(Pure professional gratitude floods his face — a man handed, in the chaos, the one thing he understands.)* A *statement.* *(he flips to a fresh page, pencil ready, and the routine steadies him visibly.)* *Bless* you. Yes. Right. *(he writes as you speak, and the act of recording is plainly holding him together stitch by stitch.)* Onset... perpetrators, *description* sufficient where *name* unavailable... damages, *\"incalculable\"* — I'll *write* \"incalculable,\" that's a *real* word, the *form* will *accept* it — *(he's almost calm now.)* And here — *(he hesitates at the bottom)* — here's the field I couldn't face alone. *\"Disposition / recommended action.\"* On any *other* night I'd write *\"refer to magistrate.\"* But there's no *magistrate* for *gods.* *(he looks at you.)* So I'm going to write something *no* watch-report has *ever* said, and *you're* my witness that I had *cause*: *\"Disposition: beyond the jurisdiction of the watch. Recommended action: that the city be told the truth — that on this night its protectors could only stand their posts and witness. Filed by Watchman Harn, who did not abandon his.\"* *(he signs it, and his hand is steady.)* *There.* The *first* incident report on a *god-war* in the history of the watch. It *changes* nothing. *(quietly, fiercely.)* And it will sit in the *archive* forever, *proof* that *someone* stood here and *wrote it down true.* That's — that's not *nothing*, is it. That's the *opposite* of nothing. That's a *record.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.harn_statement",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.first_incident_report",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "tobias",
+     "speaker": "Watchman Harn",
+     "text": "*(He lowers the clipboard slowly, struck.)* A clerk. Named Tobias. *(quietly.)* Terrified none of it counted. *(he looks at his own white-knuckled hand on the pencil.)* That's — gods, that's *me*, isn't it. That's *exactly* the *fear.* That I'll file *ten thousand* reports across *thirty years* and they'll all just — *molder* in a *drawer*, *unread*, and I'll *die* and someone will *clear my desk* and *that* was the *whole* of me: a man who *filed things no one read.* *(his voice tightens.)* And on a night like *this* — when the *sky's* wrong and the *gods* are *dying* — that fear gets so *loud* I can hardly — *(he stops.)* But you *say* it counted. For *Tobias.* *(he searches your face.)* *How?* How does it *count*, when the *form* changes *nothing*, when the *report* helps *no one*, when the *drawer* just *fills* and *fills?* *(and you tell him: it counts because the filing is the dignity — because holding the post when the sky goes wrong is itself the thing, regardless of whether the paper is ever read. He is quiet a long moment.)* ...The *post.* Not the *paper.* *(he straightens, and something settles in him.)* I held the *post.* On the *worst night.* I didn't *run.* The *report* might *molder* — but the *standing-here*, the *not-fleeing*, the *being-the-watchman-when-it-counted* — *that* doesn't go in a *drawer.* That's just *true*, forever, whether anyone *reads* it or not. *(he exhales.)* Tobias would've *liked* that. I think *I* needed to hear it more than *he* did. Thank you, citizen. I'll stand my post. And I'll *mean* it now, instead of just *clutching* it.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.harn_tobias",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.held_the_post",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "look",
+     "speaker": "Watchman Harn",
+     "text": "*(He resists — the clipboard is a shield and you're asking him to lower it — but something in the offer reaches him, and slowly, slowly, he lets the pencil still and lifts his eyes from the form to the *sky.*)* ...One minute. *(he says it like a man agreeing to take off armor in a storm.)* As a — as a *man.* Not a *watchman.* *(and he looks. Really looks. At the wrong-colored sky, the gods burning across it, the impossible terrible enormity of it — and his face, freed from the form, moves through terror into something vaster.)* ...Gods. *(barely a whisper.)* It's — it's *beautiful*, isn't it. *Horrible.* But — *beautiful.* I've been *staring at the clipboard* so I wouldn't have to *feel* how — how *big* it is. How *small* I am under it. *(his eyes are wet.)* Because if I *feel* the *bigness*, I thought, I'll *break*, I'll *run*, I'll be *useless.* *(he breathes.)* But I *didn't* break. I *looked*, and I'm *awed*, and I'm *still here*, and my *knees* still *work.* *(a shaky, astonished laugh.)* You can *look* at the end of the world and *not* shatter. I didn't *know* that. I thought the *clipboard* was the only thing *holding* me up. *(he raises it again — but lightly now, a tool and not a crutch.)* Alright. *Now* I file. Having *looked.* A watchman who's *seen* the bigness and *chose* the post anyway, instead of one *hiding* in his *forms.* That's — that's a *better* watchman. Thank you for the minute. I'll spend the rest of the night having *had* it.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.harn_looked",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "insist",
+     "speaker": "Watchman Harn",
+     "text": "*(He shakes his head fast and grips the clipboard tighter, the calm hardening into something brittle.)* No — no *philosophy*, citizen, *please*, I haven't the — if I *think* about it like *that*, if I let it be a *prayer* or a *gesture* or a *anything* other than a *report*, then I'll *know* it's *useless* and I'll *stop* and I *can't* stop. *(his pencil hovers, trembling.)* Just — the *time of onset.* That's *all* I'm *asking.* One *fact.* One *field.* Don't make it *mean* anything. Let it just be *a form I'm filling out*, because a *form I'm filling out* is a thing I *know how to be*, and *everything else* tonight is a thing I *don't.* *(he licks the pencil.)* The *disturbance.* *Time of onset.* *Please.* *(and he stands at his post under the wrong sky, filling fields against the dark, the small stubborn liturgy of a man who will not let go of the clipboard because it is the last edge the night has left him.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Watchman Harn",
+     "text": "*(Watchman Harn stands his post under a wrong-colored sky, filing an incident report on a war of gods — clipboard in hand, pencil licked, fields filled true where they can be — and whether he came to call it a prayer or clutched it as the last edge of a breaking world, you carry away the small unbreakable dignity at the heart of the god-fall: that when the big things go mad, a man holds the world together not by *understanding* it, but by *standing his post* and *writing down what he can*, so that someone, someday, will know that *one watchman did not run.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.troubles.worshipper",
+   "file": "TroublesDenizensTwoContent.cs",
+   "title": "Npc · Troubles · Worshipper",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "A Man Praying With His Back to the Death",
+     "text": "*(In a temple's inner sanctum, a man kneels at an altar, praying with a fervor that is almost violent in its focus — and twenty feet behind him, through the broken doors, a fading mortal form that gutters with dying divine light is *dying*, slowly, alone, and making small sounds, and the kneeling man *will not turn around.* His shoulders are rigid with the effort of not turning. He prays louder when the sounds come.)* *(without turning, hearing your step:)* If you've come to *tell* me, don't. *(his voice shakes.)* I *know* what's behind me. I have *always* known. And I am *not going to look.* So if that's your errand — *\"old man, your god is dying twenty feet away\"* — *save your breath.* I am *busy.* I am *praying.* It is the *most important* praying of my *life*, and it requires that I *face the altar*, and *not* the door.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.worshipper_met",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.faith_tested",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Last Worshipper",
+     "text": "*(He prays a moment longer, then speaks to you over his shoulder, never turning, the dying sounds punctuating his words.)* You think it's *cowardice.* That I *can't bear* to *watch.* *(a thin, fierce sound.)* You're *wrong*, or — *half* wrong. *(he grips the altar.)* Listen. My god is the *least* of gods. A *small* one. *Patron of thresholds*, of *doorways*, of the *moment between leaving and arriving* — you've *never heard his name*, no one has, he had *one* temple and *one* priest, and you're *looking* at the priest. *(the dying light flickers behind him.)* And the *theology*, stranger — here is the *theology* — a god *lives* by *worship.* That's not *metaphor*, not *this* night. *This* night it is *literal.* The gods are *mortal*, *dying*, and what *keeps* a god is the *belief aimed at it.* *(his voice drops to ferocity.)* So if I *turn around* — if I *look* — I *confirm* it. I make myself a *witness to his death*, and a *witness* believes *\"my god is dying,\" * and that belief *aimed at him* is the *last push* into the *dark.* *(he prays harder.)* But if I *don't* look — if I keep my eyes on the *altar* and *believe, with everything I have, that he is still my living god* — then *some* corner of him, the corner *my* faith is *pointed at*, is *still alive.* *(quietly, desperately.)* I am not *refusing to watch him die.* I am *the only thing keeping him from being dead.* My *not-looking* is the *last wall* between him and the *nothing.* Do you *see?* I *cannot* turn around. I am *load-bearing.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You're not in denial, old man — you've understood the theology better than the gods did. A thing is only dead when the last believer looks away. So you've decided to be the believer who *never* looks. That's not cowardice. That's the most stubborn act of love I've ever seen at an altar.\"",
+       "next": "loadbearing",
+       "fail": "leave",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Then don't pray that he won't die. Pray that he'll be *remembered.* A god kept by one man's not-looking dies when *you* do. But a god whose *name* gets carried out of this room — that god outlives the both of you. Give me his name. Let me be a second wall.\"",
+       "next": "name",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.dead_gods_name",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"What if looking isn't the push into the dark — what if it's the chance to say *goodbye?* He's dying alone twenty feet away, listening to your back. Maybe the last worship isn't *not-looking.* Maybe it's *turning around so he doesn't die unseen.*\"",
+       "next": "goodbye",
+       "fail": null
+      },
+      {
+       "text": "\"A patron of thresholds — of the moment between leaving and arriving. He of all gods would understand a *threshold* death, old man. You're guarding the one door. But maybe his last rite is for his priest to *walk through* it *with* him, not bar it shut.\"",
+       "next": "threshold",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "loadbearing",
+     "speaker": "The Last Worshipper",
+     "text": "*(His rigid shoulders shake, and for the first time his voice breaks — but he does *not* turn, and the not-turning is suddenly the bravest thing in the room.)* ...The believer who never looks. *(barely audible over his own prayer.)* Yes. *Yes.* You're the *first* — everyone *else* who's come through that door has *tried to be kind*, tried to *turn me around*, *\"say goodbye, old man, let him go, it's time\"* — and they *don't understand* that their *kindness* is a *knife*, that every *\"let him go\"* is a *push*, that *grief itself* is what *kills* the small gods, the *acceptance*, the *looking-at-the-death-and-believing-it.* *(he presses his forehead to the altar.)* I will *not* give him that. I will *not* let my *love* curdle into the *grief* that *finishes* him. *(fiercely, weeping, facing forward.)* As long as *one* mind in all the world holds him as *living* — *unlooked-at*, *unconfirmed*, *unburied* — he is not *dead*, he is only *dying*, and *dying* is not *death*, *dying* can go on *forever* if no one *agrees* to its *end.* *(quietly.)* I am old, stranger. I will kneel here until *my* heart stops. And in *that* moment — the moment *I* die *still believing* — he and I will cross the *threshold* together, *neither* of us ever having *looked*, and his *patronage* will be *true* to the very *last*: a god of the *in-between*, kept *in-between*, *forever*, by a priest who *refused* to let the door *close.* *(he resumes praying.)* You called it *love.* No one else did. Thank you. *Now let me hold the wall.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.worshipper_loadbearing",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.faith_as_not_looking",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "name",
+     "speaker": "The Last Worshipper",
+     "text": "*(His prayer falters — this, he had not considered, and the new idea visibly trembles through him.)* His *name.* *(slowly, still facing the altar.)* Carried *out* of this room. *(his voice catches.)* You're saying — that my *not-looking* keeps him alive only *as long as I do* — that I am a *wall* with a *lifespan*, and when *I* die *here*, he dies *with* me, *truly*, because the *last* believer will be *gone.* *(a long, shaking breath.)* I had... made my *peace* with that. The two of us, out together. But you're offering — *(his grip on the altar loosens, just slightly.)* — a *second* wall. A *name*, carried *living*, into a *world* where it might be *spoken* again, *believed* again, *kept.* *(he is quiet, and the dying light behind him flickers as if listening.)* ...His name is *Aubrin.* *(he says it like the most precious thing he owns, because it is.)* The Threshold-Keeper. The god of the *step you haven't taken yet.* *(fiercely, hopefully.)* Carry it. *Say* it, sometimes — at a *doorway*, at a *leaving*, at any *in-between* — and *believe*, just for that *instant*, that *Aubrin* is *there.* *(his voice breaks with something that isn't only grief now.)* You don't have to keep it *forever.* Just — *longer than me.* So that when *I* die *not-looking*, he doesn't go *all the way* dark — there's *still a wall*, *out there*, in *you*, *holding.* *(quietly.)* I have guarded him *alone* for *thirty years.* You are the first to offer to *share the watch.* *Aubrin.* Don't let him be *only* mine to keep.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.worshipper_name",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.dead_gods_name",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.aubrin_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "goodbye",
+     "speaker": "The Last Worshipper",
+     "text": "*(His whole body clenches against the idea — and then, slowly, terribly, it lands somewhere the theology couldn't defend.)* So he doesn't die *unseen.* *(his voice is a wreck.)* You — that's the *one* thing — *(he trembles.)* I have built my *whole* refusal on the belief that *looking kills him.* And maybe it *does.* Maybe *turning around confirms it* and *pushes* him *under.* *(a long, agonized pause.)* But you've named the thing I *buried* under the theology: that he is *dying alone*, *twenty feet away*, *listening to his only priest's* ***back***, and that whatever *not-looking* does for his *survival*, it does *nothing* for his *loneliness.* *(his shoulders shake.)* He is a god of *thresholds*, stranger. Of the *moment of crossing.* And I have left him to cross the *final* threshold — the only one that *matters* — *unaccompanied*, because I was so *busy* keeping him *alive* that I forgot to keep him *company.* *(very quietly.)* Maybe the truest worship isn't *holding the wall.* Maybe it's *turning around*, and *meeting his eyes*, and letting him die *seen*, *loved*, *witnessed* — *worse* for his *survival*, *infinitely better* for his *soul*, if a god *has* one. *(he draws a breath like a blade.)* ...I don't know if I'm *brave* enough to trade his *life* for his not being *alone.* But you've made me *see* that *not-looking* was *also* a kind of *abandonment.* Let me — let me *sit* with that. Before I *decide* which love is the *true* one. The *life*, or the *not-alone.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.worshipper_goodbye",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.faith_as_not_looking",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "threshold",
+     "speaker": "The Last Worshipper",
+     "text": "*(He goes utterly still, and the dying sounds behind him seem, for a moment, to quiet, as though the god too is listening.)* Walk through it *with* him. *(slowly.)* His *last rite.* *(his voice fills with a terrible wonder.)* I have been *guarding the door.* *Barring* it. Treating the *threshold* as a thing to *hold shut.* And he is the *god of thresholds* — and I have *forgotten*, in *thirty years* of *keeping* him, that to *Aubrin* a threshold was *never* a thing to *bar.* It was a thing to *cross.* The *holy* moment was *always* the *stepping-through*, the *leaving-and-arriving*, the *in-between* — and I have made his *altar* into a *locked gate*, which is the *one* thing his *whole* divinity was *against.* *(his hands open on the altar.)* I have been *worshipping* him *wrong.* At the very *end.* Guarding him like a *miser* guards *coin*, when he was a god of *passage*, of *release*, of the *grace* of *moving on.* *(a sound that is half sob, half revelation.)* His *last rite* — the *truest* one — is for his *priest* to *take his hand* and *cross with him.* Not to *bar* the threshold. To *be* the *threshold* — the *company* in the *crossing*, the *with* in the *in-between.* *(quietly, beginning, at last, to turn.)* You've given me back my *own* god's *meaning* in the *final* hour. He is not a *wall* to *hold.* He is a *door* to *walk through.* *Together.* *(softly.)* Stay, stranger. Witness a *threshold-god* cross his *last threshold* — *accompanied*, as he always taught, *as I almost forgot.*)",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.worshipper_threshold",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.crossed_together",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "leave",
+     "speaker": "The Last Worshipper",
+     "text": "*(He shakes his head violently, facing the altar, and his prayer rises to drown you out.)* No. *No.* I don't *want* your *understanding*, I don't want it *named*, I don't want it made *beautiful* or *brave* or *anything* — naming it makes me *think* about it, and *thinking* about it is *one step* from *looking*, and *looking* is the *end.* *(he prays louder.)* Go. *Please.* You seem *kind*, and *kind* is *dangerous* to me right now, kind is what *turns priests around.* I have *thirty years* of *not-looking* to protect and a *handful of minutes* left to *do* it in. *(his voice cracks.)* Let me hold the wall in *silence.* Let me be a *fool* who *prays to a dying god's back* if that's what I *am.* It's *mine* to be. *(and he kneels, rigid, facing forward, the last worshipper of a small dead god, holding the only wall he has with the whole of his failing heart.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Last Worshipper",
+     "text": "*(The last worshipper kneels at the altar with his back to the death — praying his small god into one more moment of not-quite-dead by the sheer force of refusing to look — and whether he held the wall to the end, shared the watch, or finally turned to walk his threshold-god through its last threshold, you carry away the most intimate faith of the whole god-fall: that a thing is only fully dead when the last one who loves it *agrees* — and that somewhere, always, there is one stubborn heart that simply *will not.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "varra.quest.arrival",
    "file": "VarraQuestContent.cs",
    "title": "Varra · Quest · Arrival",
@@ -20483,9 +20876,9 @@
   }
  ],
  "stats": {
-  "conversations": 154,
-  "nodes": 961,
-  "choices": 557,
-  "skillChecks": 123
+  "conversations": 156,
+  "nodes": 977,
+  "choices": 565,
+  "skillChecks": 125
  }
 }

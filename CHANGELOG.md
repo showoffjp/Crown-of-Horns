@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.28.0 — *"The Post and the Altar"* — the Time of Troubles, complete (Pillar 2)
+
+> Two souls holding the line on the night the gods went mad — a watchman who files an incident report on a
+> god-war because procedure is the last edge the world has left, and the last worshipper of a small dying
+> god, who kneels with his back to the death and *will not look*, because a thing is only dead when the last
+> believer agrees.
+
+- 🩸 **Time of Troubles Wave II** (`troubles_denizens_2.dlg`) completes Act IV's god-fall era:
+  - **Watchman Harn** — a city guardsman taking statements on "two gods conducting a duel above the fish
+    market," because if he stops filing then there are no rules and nothing stands between him and the wrong
+    sky. The clipboard as rosary; an explicit echo of Tobias (#9) — *the filing is the dignity, the post is
+    the thing, not the paper* (`act4.order_as_prayer`, `act4.held_the_post`, `sq.first_incident_report`).
+  - **The Last Worshipper** — kneeling at the altar of *Aubrin, the Threshold-Keeper*, a small god dying
+    twenty feet behind him, refusing to turn because to *look* is to *confirm* the death and push him into the
+    dark. Not denial — the most stubborn love in the saga: the believer who decides never to look. He can be
+    moved to *share the watch* (carry the god's name out as a second wall), or to turn at last and walk his
+    threshold-god through its final threshold *accompanied* (`act4.faith_as_not_looking`,
+    `act4.aubrin_remembered`, `act4.crossed_together`).
+- 🧵 **Theme**: how small people hold the world together when the big things go mad — by standing the post and
+  writing it down true, and by refusing to *agree* that a loved thing is gone. Both reprise the saga's spine:
+  a name kept, a record made, the Wall defeated by what nothing else will keep. The Time of Troubles
+  (#67–72) is now **fully voiced**, and **Acts I–IV's named denizens (#1–72) are complete.**
+- 📈 **Content**: dialogue corpus now **156 conversations · 977 nodes · 125 skill checks** (up from
+  154/961/123). All 606 headless CI checks green; the 24-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.27.0 — *"The Mask Comes Off"* — Act IV opens: the Time of Troubles, 1358 DR (Pillar 1/2)
 
 > The gods walk Faerûn as mortals, cast down by Ao — and the Pale Companion who has carried your water for

@@ -137,8 +137,8 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | 68 | **The God Who Forgot He's a God** | An avatar walking mortal, amnesiac, asking strangers if they've seen his divinity. | ✍️🪙 |
 | 69 | **Midnight's Doubter** | A priestess watching her gods bleed in the streets, losing and finding faith hourly. | ✍️ |
 | 70 | **The Bone-Forger** | The smith who hammers Myrkul's skull into the Crown; thinks he's making jewelry. | ✍️🪙 |
-| 71 | **Watchman Under a Wrong Sky** | A city guard trying to file an incident report about *gods fighting*; bureaucracy vs. apocalypse. | 📋 *(echoes Tobias)* |
-| 72 | **The Last Worshipper of a Dead God** | Prays to a deity who is, at that moment, dying twenty feet away; will not look. | 📋🪙 |
+| 71 | **Watchman Under a Wrong Sky** | A city guard trying to file an incident report about *gods fighting*; bureaucracy vs. apocalypse. | ✍️ *(echoes Tobias)* |
+| 72 | **The Last Worshipper of a Dead God** | Prays to a deity who is, at that moment, dying twenty feet away; will not look. | ✍️🪙 |
 
 ---
 
