@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.54.0 — *"The Old Map"* — the thirteenth side quest; the wall that keeps the living (Pillar 2 + reactivity)
+
+> A different wall, and a different kind of erasure: not the dead, but the living, severed by a curtain of
+> blue fire. A thirteenth full side quest — written, verified, and wired into the epilogue and Chronicle the
+> same release — and the dialogue corpus crosses **200 conversations.**
+
+- 🗺️ **Side Quest: "The Old Map"** (`cartographer_sidequest.dlg`, gated on `sq.the_old_map`) — you carry the
+  Plaguechanged Cartographer's master map of the world-as-it-was to the boundary where the Spellplague's blue
+  fire walled Faerûn off from the Abeir-lands that fell out of the sky — including **Sevenfields**, where her
+  estranged daughter lives, intact, three days' walk and one impassable curtain away. A wall that keeps the
+  *living* the way the Wall of the Faithless keeps the dead: by calling the separation permanent. Four ways in
+  (a map is carried where feet can't go; the quarrel was the real wall, not the fire; she's not the only one
+  severed; or copy the world's memory beyond any flame), and resolutions: send the rehearsed apology onward on
+  the one road that outlives the fire (`sq.map_the_reconciliation`), turn the map into a registry that
+  reconnects everyone the fire severed (`sq.map_reunites_the_lost`), carry it to the Wall of the Faithless as
+  proof that fire and stone tell the same lie (`sq.map_to_the_wall`, `act5.the_great_objection`), or copy the
+  lost geography beyond burning (`sq.map_carried_across`, `sq.map_copied_wide`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/13 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/13`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: the Wall that keeps the dead and the fire that keeps the living are the *same* wall — both
+  insisting the ones we love are gone when they are only on the other side — and the way across either is never
+  the feet, which cannot cross, but the refusal to let the severed be forgotten, carried in maps and names and
+  the unsaid words we send down roads that outlive the walls.
+- 📈 **Content**: dialogue corpus now **200 conversations · 1,378 nodes · 169 skill checks** (785 choices);
+  **thirteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 48-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.53.0 — *"The Great Objection"* — the twelfth side quest (Pillar 2 + reactivity)
 
 > The civic heart of the long road, paid off. A twelfth full side quest — the Complaint's age of grievances,

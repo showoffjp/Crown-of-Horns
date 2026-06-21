@@ -7868,6 +7868,341 @@
    ]
   },
   {
+   "id": "sq.map.thread",
+   "file": "CartographerSideQuestContent.cs",
+   "title": "Sq · Map · Thread",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "The Cartographer",
+     "text": "*(You find her where the blue fire walls the world off from itself — the boundary the Spellplague burned between Faerûn and the Abeir-lands that fell out of the sky, a curtain of cold flame you cannot pass and cannot see beyond. She is here, of course. Where else would she be. She has her drafting board braced against a rock, and she is doing the impossible thing she always does: mapping the world-as-it-was against the curtain that ate it. She does not look up when you arrive, but she knows the weight in your pack.)* You still have it. *(quietly.)* The copy. The world's memory of itself. *(her pen does not stop.)* Good. I half-feared you'd lost it, or sold it, or let the ink run. *(now she looks at you, and past you, at the wall of fire.)* Sevenfields is just there. *(she points the pen at the curtain.)* Three days' walk, on the *old* map. On the *new* one, it's *nowhere* — a coastline that ends in fire. *(her voice is very steady, which is how you know it costs her.)* Have you come to tell me to stop? Or have you come because you finally understand what the map is *for?*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "sq.map_thread_begun",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "The Cartographer",
+     "text": "*(She sets down the pen, and for once lets the moving map move uncorrected.)* I'll tell you the thing I couldn't, the day we met. *(quietly, facing the fire.)* The map isn't *only* a memorial to a dead geography. *(she touches the spot where Sevenfields is drawn.)* It's the *one place* my daughter and I are still in the *same world.* *(her voice tightens.)* On the *new* map — the *true* one, the world as it *is* — she's *gone.* Swapped to *Abeir*, behind *that.* Unreachable. A coastline that ends in *fire.* *(she presses her hand flat on the old drawing.)* But on *this* — the world as it *was* — she's *three days' walk*, in *Sevenfields*, married to her *barley farmer*, and the *last* thing between us is still a *stupid quarrel* and *not* a *wall of fire across reality.* *(she meets your eyes.)* So when they say I map a world that's *gone*, they're *right*, and they *miss* it entirely. I'm not *refusing* to accept the new world. I'm keeping *open*, on *paper*, the *only* road on which my *daughter* and I were *ever* close enough to *fix* it. *(her composure cracks, just.)* And now *you* carry a *copy.* The *world's memory.* And I find I don't know what to *ask* you to *do* with it — because the thing I *want* is *impossible*, and the things that are *possible* feel like *giving her up.* *(she looks at the fire.)* You've crossed *walls* no one else can, Returned. You walk where the *living* can't go. So tell me: what is a map of a lost world *for*, when the place you most need it to reach is *behind* a fire you can't cross?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"That wall of fire is the same shape as the one I'm walking toward — an impassable thing between you and someone you love, that calls the separation permanent. But I've learned the Wall's secret on this road: what it keeps, it keeps by making you believe you can't reach across. You can't *cross* to Sevenfields. But a map is a thing that's *carried* — and a thing that's carried can be sent where a body can't go.\"",
+       "next": "carried",
+       "fail": "snap",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You keep the old map so you and your daughter are still in the same world. But the quarrel was never about geography — it was barley and pride, and you can carry *those* across any wall. You can't reach Sevenfields. But you can write what you'd have said, and put it in the one place that still touches her: the map where she's three days' walk away. Send the words, not the feet.\"",
+       "next": "reconcile",
+       "fail": null
+      },
+      {
+       "text": "\"There are others at these walls, you know — a cooper and a midwife, Coram and Sera, two people the fire welded into one body, each with a loved one swapped to Abeir behind the same fire. You're not the only one this curtain separated. Maybe the map isn't a private grief. Maybe it's the thing that connects everyone the Spellplague tore apart.\"",
+       "next": "reunites",
+       "fail": null
+      },
+      {
+       "text": "\"Copy it. Wider than the one you gave me. The new world is already forgetting it had a predecessor — that Sevenfields was ever *here*, that your daughter's town existed before the fire. A hundred copies in a hundred hands, and the lost geography survives its own planet. Even if you never reach her, the world will remember she had a *place.*\"",
+       "next": "copied",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "carried",
+     "speaker": "The Cartographer",
+     "text": "*(Her hand goes still on the map, and she turns from the fire to stare at you, the cartographer's mind seizing the distinction.)* A thing that's *carried.* *(slowly.)* Sent where a *body* can't go. *(she looks at the old map, then at the wall of fire, then back.)* You're saying — the *wall* keeps us apart by making me believe the *separation* is *total.* That because I can't *walk* to Sevenfields, I can't *reach* it at *all.* *(her voice quickens.)* But that's the *body's* logic. The body can't cross the fire. *(she touches the drawn town.)* A *map*, though — a map *crosses* the fire *every time someone copies it and carries it onward.* The *geography* I draw *here* survives into *worlds* I'll never *see*, *carried*, *handed on*, *spread* — and if the *geography* can cross, then so can — *(she stops, the thought too large.)* — so can a *name on it.* A *note in the margin.* A *thing written on the world's memory* that travels *with* the memory, *wherever* it goes, *across* every *fire.* *(she meets your eyes, fierce with a hope she's been forbidding herself.)* I can't *walk* to my daughter. But I can *write* on the *one document* that *crosses* the *walls a body can't* — the *map itself* — and *trust* that *some* copy, *some* hand, *some* *world* down the line, *reaches* a place that *touches* Sevenfields, even if *I* never do. *(her voice breaks.)* The *fire* stops *feet.* It does *not* stop *maps.* And a *mother* who *can't* cross to her *daughter* can *still* send the *thing she'd say* on the *one* road that *outlives* the *fire.* *(she takes up her pen.)* Help me *write* it — *into* the map, where *Sevenfields* still *is* — and *carry* it *onward*, *copy* by *copy*, until it *reaches* a *world* close enough to *hand it across.* The map was *always* the road. I just thought roads were for *feet.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.map_carried_across",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "reconcile",
+     "speaker": "The Cartographer",
+     "text": "*(The pen trembles in her hand, and she looks at the spot where Sevenfields is drawn — the mark she has redrawn a thousand times.)* The quarrel was never geography. *(very quietly.)* ...No. It wasn't. *(she swallows.)* It was *barley*, and *pride* — *mine*, mostly. I wanted *better* for her — a *city*, a *trade*, *not* a *nothing town* and a *farmer* — and I said *cruel* things, *clever* cruel things, the kind you can't *un-say*, and she *went* anyway, and I kept *meaning* to *go*, to *make it right*, *next* season, *next* season — *(her voice cracks)* — and then the *fire*, and *next season* became *never*, behind a *wall* of *flame across reality.* *(she presses her hand to the map.)* And I've told myself the *tragedy* is the *fire* — the *impassable* wall, the *cruel* cosmos that *swapped her away.* *(she meets your eyes, and the truth costs her everything.)* But the *fire* isn't what's *between* us. The *fire* is just *geography.* What's *between* us is the *quarrel* — the *barley*, the *pride*, the *things I said* — and *that* I have been *carrying*, *unfixed*, *blaming the fire* so I'd never have to admit that *even if the wall fell tomorrow*, I *still* wouldn't *know* how to *say I'm sorry.* *(she takes up the pen.)* You're right. I can't reach *Sevenfields.* But I can *write* what I'd have *said* — *\"I was wrong about the barley, I was wrong about the farmer, I was proud and you were happy and happy was always more than I wanted for you\"* — and I can put it where she *still* lives, on the *map* where she's *three days' walk* away, and *trust* the *words* to a *road* that *outlives* me. *(she begins to write, weeping.)* The *fire* I can't cross. The *quarrel* I *can.* And a *mother* who *finally* says *sorry* to the *only* place her *daughter* still *exists* — *(she meets your eyes)* — that's not *nothing.* That's the *one* crossing the *fire* can't *stop.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.map_the_reconciliation",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "reunites",
+     "speaker": "The Cartographer",
+     "text": "*(She looks up sharply at the names — Coram, Sera — and something in her solitary grief cracks open toward a larger one.)* Others. *(slowly.)* At these *walls.* *(she sets down the pen.)* A cooper and a midwife, *welded* into *one body*, each with a *loved one* behind the *same* fire. *(her voice fills.)* I thought — I have *always* thought — that I was *alone* at this curtain. The *mad* mapmaker, the *only* fool who *won't* accept the world *moved.* *(she looks down the length of the blue fire, as if seeing it new.)* But of *course* I'm not. *Every* league of this *wall* has *someone* *standing* at it — a *husband* swapped from his *wife*, a *daughter* from her *town*, a *whole world* of people *separated*, *mid-life*, by a *fire* that fell out of the *sky* and *cut* *families* in *half.* *(she meets your eyes, fierce now.)* And I have a *map.* The *world-as-it-was.* The *one* document that shows *where everyone was before the fire cut them apart.* *(she gathers the vellum.)* So it's *not* a *private* grief. It's a — a *registry.* A *way* for *everyone* the *Spellplague* *tore* apart to *find*, on *paper*, *where* their *lost* ones *were*, and to *send* — *across* the *one* road that *crosses* fire — *word*, *love*, *the things unsaid.* *(her voice rings.)* The cooper's *wife*, the midwife's *daughter*, *my* girl in *Sevenfields* — *all* of them *drawn*, *placed*, *reachable* on the *old* map even when *unreachable* in the *flesh.* *(she presses the map to you.)* Take it to *Coram and Sera.* Take it to *everyone* at *every* league of this *fire.* Let the *world's memory of itself* become the *thing* that *reconnects* what the *fire* *severed* — not by *crossing* it, which *no one* can, but by *holding*, *together*, the *map* of *who we all were before we were cut apart.* *(she almost smiles through the grief.)* I've been *mapping* a *lost* world *alone.* Let me map it *for* everyone the *losing* *broke.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.map_reunites_the_lost",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "copied",
+     "speaker": "The Cartographer",
+     "text": "*(She nods slowly, the mapmaker's relief at the one answer that always holds.)* Wider than the one I gave you. *(she's already reaching for vellum.)* Yes. *Always* yes. *(she sketches as she talks.)* A *single* map *burns*, *smears*, *dissolves* — and then the *old* world is *gone* with *no* witness, *Sevenfields* *un-remembered*, my daughter's *town* *erased* not just from the *land* but from *memory*, as if it *never* *was.* *(her hand moves fast.)* But a *hundred* copies, in a *hundred* hands — *that* is a *geography* that *survives* its *own* *planet.* *(fierce.)* The *new* world is *already* forgetting it had a *predecessor* — the *children* born *after* the *fire* will *never* *know* that *Tharsult* was *here*, that the *Vilhon* *looked* like *this*, that *Sevenfields* was a *real* *town* with *barley* and *bad* *roads* and my *daughter* in it. *(she meets your eyes.)* And a world that *forgets* it had a *predecessor* is a world that thinks *this* — the *blue* *fire*, the *severed* *families*, the *walls* across *reality* — was *always* *normal.* *(she presses the copies toward you.)* So *spread* it. *Everywhere.* Let *no* future *map* be the *only* map. Let *someone*, *always*, in *every* world that *comes*, have the *old* shape — and be *able* to *say*: *\"No. Here was Tharsult. Here was Sevenfields. Here was a* world, *and people in it, before* this *one — and they were* separated, *not* *gone*, and the *separation* was a *wound*, not a *fact* of *nature.* *(she meets your eyes.)* Even if I *never* reach her — *carry* the *memory* that she *had* a *place.* That's the *cartographer's* *faith*: that a *thing* *remembered* *accurately* is a *thing* *not* *wholly* *lost.* *Copy* it *wide.* Keep the *world's* *memory* of *itself* — and of *everyone* the *fire* *cut* *off* — *alive* in *more* hands than the *fire* can *burn.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.map_copied_wide",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "2",
+     "speaker": "The Cartographer",
+     "text": "*(She stands at the wall of blue fire with the world's memory of itself spread on her board — the geography the Spellplague ate, the towns swapped away whole, the daughter three days' walk and one impassable curtain distant — and looks from the map to you, the one who walks where the living can't go.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"Carry it across, and reconcile both: write what you'd have said into the map where Sevenfields still is, and send it onward, copy by copy, until some hand in some world close enough hands it across the fire. The words a mother can't carry on her feet, carried on the one road that outlives the fire.\"",
+       "next": "both",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.map_carried_across",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.map_the_reconciliation",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"Make it everyone's — the registry of all the Spellplague severed. Coram and Sera and a hundred others at a hundred leagues of this fire, each finding their lost one's place on the old map, each sending word across the one road feet can't take. Let the world's memory reconnect what the fire cut apart.\"",
+       "next": "everyones",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.map_reunites_the_lost",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.map_copied_wide",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"I'm walking toward a wall not so different from this one — the Wall of the Faithless, that keeps the dead the way this fire keeps the living, by calling the separation permanent. Let me carry your map there too, as proof: that a wall which severs the ones we love is a wound to be crossed in memory, never a fact to be accepted.\"",
+       "next": "to_the_wall",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.map_to_the_wall",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act5.the_great_objection",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "both",
+     "speaker": "The Cartographer",
+     "text": "*(She takes up the pen and writes — into the margin beside Sevenfields, in the small careful hand of a mother who has rehearsed an apology for years — and then she copies it, and copies it again, so the words will travel with the world's memory wherever it goes.)* Both. *(quietly, weeping and steady at once.)* The *words*, and the *road* that *carries* them. *(she writes.)* *\"I was wrong about the barley. I was proud, and you were happy, and happy was always more than I knew to want for you. I cannot cross the fire. But I have sent this on the one road that can. If it reaches you — and a map always reaches* someone, *someday — know that your mother fixed the quarrel on the only paper where we were ever close enough to fix it.\"* *(she seals it into the map, and into the copies.)* There. *(she meets your eyes.)* The *fire* stops my *feet.* It does *not* stop *this.* *Carry* it *onward*, Returned — *copy* to *copy*, *world* to *world* — and *trust* that *somewhere*, *sometime*, a *hand* reaches a *place* close enough to *Sevenfields* to *set* the *map* down where my *daughter* might *see* it. *(her voice fills.)* I will *never* *know* if it *reaches* her. That's the *cartographer's* *faith* — you *draw* the *road* *true*, and you *send* it, and you *trust* the *carrying* to *hands* you'll *never* *meet.* *(she almost smiles.)* But a *quarrel* *fixed* and *sent* on a *road* that *outlives* the *fire* is *infinitely* more than a *quarrel* *carried*, *unfixed*, *forever.* I *said* it. It's *traveling.* That's *enough.* That has to be *enough.* And — *(she touches the map)* — somehow, it *is.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.map_carried_across",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.map_the_reconciliation",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "everyones",
+     "speaker": "The Cartographer",
+     "text": "*(She gathers the whole archive — the world-as-it-was, every swapped town drawn where it stood — and her solitary vigil at the fire becomes, in the gathering, something vast and shared.)* Everyone's. *(fierce, full.)* The *registry* of *all* the *severed.* *(she rolls the maps.)* Take it to *Coram and Sera* — let the *cooper* find his *wife's* town and the *midwife* find her *daughter's*, *drawn*, *placed*, *real*, on the *one* document that *remembers* *where* the *fire* *cut* them *from.* *(she meets your eyes.)* And take it to *every* league of this *curtain* — to *every* *husband*, *every* *child*, *every* soul *standing* at the *blue* *fire* *certain* they're *alone* in their *severing* — and *show* them they're *not.* *(her voice rings.)* That there's a *map.* That their *lost* one *had* a *place*, *has* a *place*, *still*, on the *world-as-it-was* — and that *word* can *cross* on the *one* road *feet* can't, *copy* by *copy*, *hand* by *hand*, *until* the *severed* are, if not *reunited*, at least *no longer* *alone* in *being* *cut* *off.* *(she presses the archive to you.)* I have *mapped* this *lost* world *alone*, at *this* *fire*, for so *long* I *forgot* there were *others* at *every* *mile* of it. *(she almost laughs, wet.)* The *map* was *never* a *private* grief. It was a *public* *memory* — the *record* of *everyone* the *Spellplague* *tore* in *half* — and it was *waiting*, all this time, for *someone* to *carry* it *down* the *whole* *length* of the *fire* and *give* it *back* to the *people* it *belongs* to. *(she meets your eyes.)* *Take* it to *all* of them. Let the *world's* *memory* of *itself* become the *thing* that *reconnects* what the *fire* *severed.* No one *alone* at the *wall* anymore. *That's* what a *map* is *for.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.map_reunites_the_lost",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.map_copied_wide",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "to_the_wall",
+     "speaker": "The Cartographer",
+     "text": "*(She is quiet a long moment, looking at the blue fire, and then at you, and the parallel lands in her like a key turning.)* The Wall of the Faithless. *(slowly.)* That keeps the *dead* the way *this* keeps the *living.* *(she looks at her map.)* By calling the *separation* *permanent.* *(her voice fills with grim recognition.)* Yes. They're the *same* *wall*, aren't they. *Mine* is *fire* and *theirs* is *stone*; *mine* *severs* the *living* and *theirs* *severs* the *dead*; but *both* *say* the *same* thing: *\"the one you love is on the other side, and you cannot reach them, and you must* accept *it.\"* *(she presses her hand to the map.)* And I have *refused* to *accept* it — *mapped* the world *as it was*, kept the *road* *open* on *paper*, *insisted* the *separation* is a *wound* and *not* a *fact.* *(she meets your eyes, fierce.)* So *take* my *map* to *your* *Wall.* As *proof.* As *testimony.* *(she rolls it.)* Let the *powers* who *keep* the *dead* and the *cosmos* that *swapped* my *daughter* *both* *learn* the *same* thing from the *same* *document*: that a *wall* which *severs* the *ones* we *love* — *fire* or *stone*, *living* or *dead* — is a *wound* to be *crossed* in *memory*, *carried* in *maps* and *names* and *unsaid* *words*, *never* a *fact* of *nature* to be *quietly* *accepted.* *(her voice rings.)* I *map* the world the *fire* *ate* so that *no one* *forgets* it was *severed*, not *gone.* *Carry* that to your *Wall.* Tell the *dead* what I *tell* the *fire*, *every* *day*: *you are not gone. You are only on the other side. And someone is still mapping the road.* *(she meets your eyes.)* My *daughter* and your *Faithless* are *severed* by the *same* *lie* — that a *wall* is *forever.* *Cross* them *both* the *only* way *anyone* *ever* *crosses* a *wall* that *feet* can't: by *refusing* to *let* the *severed* be *forgotten.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.map_to_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_great_objection",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "snap",
+     "speaker": "The Cartographer",
+     "text": "*(Her pen jabs the vellum, and she turns back to the fire, the old armor sliding up.)* Don't. *(flatly.)* Don't *philosophize* the *wall* at me. I *know* what it *is.* I've *stood* at it *longer* than you've been *Returned.* *(she redraws furiously.)* I *map.* That's *all.* The *coast* is *moving*, the *old* *shape* is *slipping*, and *every* *second* I spend being *understood* is a *second* *Sevenfields* drifts *further* from the *paper.* *(her voice catches, hardens.)* Carry the *copy* or *leave* it. But the *fire's* *not* *crossing* itself, and my *daughter's* *not* getting *closer*, and I haven't the *time* to be *handled* gently by a *stranger* who *thinks* a *kind* *word* is the *same* as a *road.* *(she bends to the map.)* Go. The *world's* *dissolving*, and I am *busy* *refusing* to *let* it. *(and she returns to mapping the world-as-it-was against the curtain of fire that ate it, drawing the road to a daughter she cannot reach, keeping open on paper the only place they are still in the same world.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "The Cartographer",
+     "text": "*(The cartographer stands at the wall of blue fire with the world's memory of itself — the geography the Spellplague ate, Sevenfields drawn three days' walk and one impassable curtain away, the daughter alive and intact and unreachable behind it — and whether you helped her send her words across on the one road feet can't take, fix the quarrel that was always the real wall, turn the map into the registry of everyone the fire severed, copy it beyond the power of any flame, or carry it to the Wall of the Faithless as proof that fire and stone tell the same lie, you carry away the truest parallel the long road draws: that the Wall which keeps the dead and the fire which keeps the living are the same wall, both insisting the ones we love are gone when they are only on the other side — and that the way across either is never the feet, which cannot cross, but the refusal to let the severed be forgotten, carried in maps and names and the unsaid words we send down roads that outlive the walls.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "sq.complaint.objection",
    "file": "ComplaintSideQuestContent.cs",
    "title": "Sq · Complaint · Objection",
@@ -31168,9 +31503,9 @@
   }
  ],
  "stats": {
-  "conversations": 199,
-  "nodes": 1366,
-  "choices": 778,
-  "skillChecks": 168
+  "conversations": 200,
+  "nodes": 1378,
+  "choices": 785,
+  "skillChecks": 169
  }
 }

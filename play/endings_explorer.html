@@ -501,6 +501,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.objection_indictment") || f.GetBool("sq.objection_wrenna_first") || f.GetBool("sq.objection_formally_received"))
       slides.push("📋 The Great Objection — at the one desk that was finally staffed, the Complaint filed an age of grievances as what they always were: not a crank's ravings but an indictment, dated and undismissable, Wrenna at its head. The machine runs on cruelties passing unprotested into fate; he jammed it forever, with the cosmos forced to carry on its own record the proof that someone stood up and said no.");
 
+    // "The Old Map" — the cartographer's world-as-it-was, and a daughter behind blue fire.
+    if (f.GetBool("sq.map_the_reconciliation"))
+      slides.push("🗺️ The Old Map — the cartographer wrote into the margin beside Sevenfields the apology she'd rehearsed for years — that she was wrong about the barley, that happy was always more than she'd known to want for her daughter — and sent it onward, copy by copy, on the one road that outlives the fire. She will never know if it reaches the girl behind the blue curtain. She fixed the quarrel on the only paper where they were ever close enough to fix it, and trusted the carrying to hands she'll never meet.");
+    else if (f.GetBool("sq.map_reunites_the_lost"))
+      slides.push("🗺️ The Old Map — the cartographer's private grief became a registry of the severed: Coram and Sera and a hundred others at a hundred leagues of the blue fire, each finding their lost one's place on the world-as-it-was, each sending word across the one road feet can't take. No one stood alone at the wall anymore. The map of a dead geography turned out to be the thing that reconnected everyone the Spellplague tore in half.");
+    else if (f.GetBool("sq.map_to_the_wall"))
+      slides.push("🗺️ The Old Map — you carried the cartographer's map to the Wall of the Faithless as proof that fire and stone tell the same lie: that a wall which severs the ones we love is forever. Her daughter behind the blue curtain and the walled dead are kept by the same falsehood — and crossed the same way, never by the feet, which cannot, but by the refusal to let the severed be forgotten.");
+    else if (f.GetBool("sq.map_carried_across") || f.GetBool("sq.map_copied_wide"))
+      slides.push("🗺️ The Old Map — you carried the world's memory of itself onward, copy by copy, past the blue fire and into whatever world comes next. The new maps say desert, Abeir-stone, nothing; but someone, somewhere, will always have the old shape, and be able to say: here was Tharsult, here was Sevenfields, here was a world, and people in it, separated, not gone. A geography that survives its own planet.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -580,10 +590,11 @@ const EndingResolver = {
       ["sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides"],
       ["sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead"],
       ["sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud"],
+      ["sq.map_carried_across", "sq.map_the_reconciliation", "sq.map_reunites_the_lost", "sq.map_copied_wide", "sq.map_to_the_wall"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/12 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/13 brought home`);
 
     // Bonds.
     const loves = [];
