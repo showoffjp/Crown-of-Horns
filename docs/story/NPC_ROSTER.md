@@ -193,10 +193,14 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
   her dead son's tools, **the silent Vane boy** who saw the harvesters and won't speak, **Sister Maud** the
   healer who can't heal *this*, **Sister Wren** the Choir convert having second thoughts, and **Corwin** the
   Fist deserter who refuses to burn another village.
-- **The Guild's shadows** (100–104): **Quill-and-Ledger Mas** *(✍️ — the fence, written in Act I deepening)*,
-  a poisoner with ethics, a forger who only forges *kind* documents, a thief who steals memories, a
-  spymaster who's lost track of which side she's on.
-- **+ the four eras' connective NPCs** carry the count well past 100 as each region is built out.
+- **The Guild's shadows** (100–104) — ✍️ **all five written**: **Quill-and-Ledger Mas** *(the fence, Act I
+  deepening)*, **Quietknife Senna** the poisoner with a code built on one grave, **Gentle Hands Bevin** the
+  forger of only kind documents, **the Memory-Thief** who carries every agony they lift, and **the Spymaster**
+  who wore so many faces she wore away the one beneath.
+- **+ the connective-tissue NPCs (#83–88)** recur across all four eras, carrying the living count past 100.
+
+> **✅ ROSTER COMPLETE — all 104 designed NPCs (#1–104) are fully voiced**, across six acts and ten thousand
+> years. Every one a name and one true thing; comedy over grief; not a single generic.
 
 ---
 

@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v4.39.0 — *"The Masks Ate the Face"* — the Guild's shadows; the roster complete (Pillar 2 · ✅ 104/104)
+
+> The final cluster closes the entire designed roster. Four underworld figures — each a moral mirror the
+> saga has been polishing all along — and with them, **every one of the 104 designed NPCs (#1–104) is fully
+> voiced**, across six acts and ten thousand years.
+
+- 🗝️ **The Guild's Shadows** (`guild_denizens.dlg`):
+  - **Quietknife Senna** — a poisoner with a strict code built atop one grave: the innocent merchant she
+    killed believing a liar's story. Her obsessive verification is the Wall's sharpest mirror — *the
+    difference between justice and murder is whether someone checked the story*, and a register of the
+    condemned trusted without verification is a liar's blade scaled to a cosmos (`act2.cataloguing_defeats_the_wall`).
+  - **Gentle Hands Bevin** — forges only *kind* documents (manumissions, pardons, the dead's last loving
+    words), routing around a cruel law's fences; can't forge the one pardon he needs for himself. The turn: a
+    forged manumission is *more honest* than the law that enslaved — he's not faking truth, he's *recording the
+    justice the world refused to sign* — and the Wall, having no author to fool, needs not his craft but a
+    voice to say the gate was never guarded (`act2.wall_has_no_author`).
+  - **The Memory-Thief** — lifts painful memories as a mercy and must carry every one, a museum of borrowed
+    agonies that can never be set down. The Wall's exact inverse: a keeping that *remembers* rather than
+    erases — and the gentler mercy is to make a memory *bearable*, witnessed and shared, not amputated
+    (`act5.witness_then_release`).
+  - **The Spymaster** — wore so many loyalties so fully she wore away the one beneath; the loop's warning in
+    another key. The thread back is never a faction but a *person* (her sister Lira, the reason the masquerade
+    began), and survival means walling off one true room and refusing, whatever it costs, to play what's
+    inside (`act4.meaning_lives_in_memory`).
+- 🏆 **✅ ROSTER COMPLETE — 104/104.** Every NPC the project designed — the Gilded Gate, Candlekeep, the Fugue
+  Plane, Netheril, the Crown Wars, the Time of Troubles, the Spellplague, the Court of the Dead, the
+  connective-tissue threads, and the Lower City's taverns, harvest quarters, and Guild shadows — is now fully
+  voiced. 104 unique souls, each a name and one true thing, comedy over grief, **not a single generic.**
+- 📈 **Content**: dialogue corpus now **187 conversations · 1,220 nodes · 157 skill checks** (up from
+  183/1,188/153). All 606 headless CI checks green; the 35-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.38.0 — *"The Hand That Could Have Opened"* — 100 named NPCs (Pillar 2 · the milestone)
 
 > **The north star is reached: one hundred named, fully-voiced, individually interactable NPCs**, each a name
