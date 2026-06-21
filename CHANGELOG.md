@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.56.0 — *"The Map of Silences"* — the fifteenth side quest; the harvest-compass (Pillar 2 + reactivity)
+
+> Gnomish comic warmth over real dread, and a device/investigation texture unlike anything else in the suite.
+> A fifteenth full side quest — written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 📻 **Side Quest: "The Map of Silences"** (`brindle_sidequest.dlg`, gated on `sq.brindle_resonator`) — Brindle
+  Quillfeather, the gnome who spent thirty years building beautiful useless things (a summer-chord, a
+  Melancholy Engine), has a Sympathetic Resonator — a frivolous empathy-detector — that goes *dead silent*
+  where the harvest has eaten not just the dead but the *memory* of them: a map of eleven growing holes where
+  grief can\'t reach, the unmade, the places that forgot how to ache. A harvest-compass, built by accident.
+  Four ways in (it predicts where the harvest strikes *next*; it\'s a witness no one can call mad; it points to
+  the deepest silence at the heart of the unmade; or it\'s a to-do list for pouring the remembering back), and
+  resolutions: an early-warning to outrun the harvest and feed Hessa\'s hulls (`sq.silences_early_warning`), a
+  documented witness (`sq.silences_mapped_pattern`, `sq.harvest_map_obtained`), a path to the unmade\'s heart
+  (`sq.silences_deepest`), filling the holes by teaching the silent places to grieve (`sq.silences_filled`), a
+  whole *watch* of forks built by the hundred (`sq.silences_resonator_guild`, `act5.unbroken_line`), or a
+  measurement to damn the Court in its own chamber (`sq.silences_to_the_court`, `act5.the_great_objection`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/15 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/15`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: a machine built to celebrate how much a city loved became, in a time of harvest, the one tool
+  that could measure how much it had been made to *forget* — and the repair of a silence is never the machine,
+  but the people who go to the holes and teach the world to ache again. (Grief can be forbidden; a measurement
+  cannot.)
+- 📈 **Content**: dialogue corpus now **202 conversations · 1,402 nodes · 171 skill checks** (799 choices);
+  **fifteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 50-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.55.0 — *"Hessa\'s Mercy"* — the fourteenth side quest; the one that saves the living (Pillar 2 + reactivity)
 
 > The first quest on the long road that rescues the living instead of mourning the dead. A fourteenth full

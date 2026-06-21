@@ -151,7 +151,7 @@ test("Chronicle_SideQuestTally_CountsResolvedQuests", () => {
   F().SetBool("sq.field_of_the_rested", true);           // quest 1
   F().SetBool("sq.fortyone_reaper_rests", true);         // quest 6
   F().SetBool("sq.fortyone_victory", true);              // same quest 6 — must not double-count
-  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/14 brought home"));
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/15 brought home"));
 });
 test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   // For a single quest, the highest-priority resolution wins (one slide, not two).

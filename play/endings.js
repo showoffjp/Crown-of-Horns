@@ -476,6 +476,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.mercy_route_toller"))
       slides.push("⛵ Hessa's Mercy — the gap-toothed smuggler ran the harvest-marked out of the Gate one bribed hull at a time, free, her purse ruined and her conscience clear, because she'd once had the power to save a godless deckhand named Toller and waited one tenday too long. Every name she got out was Toller, saved, forty years late. She never waited again.");
 
+    // "The Map of Silences" — Brindle's accidental harvest-compass.
+    if (f.GetBool("sq.silences_resonator_guild"))
+      slides.push("📻 The Map of Silences — Brindle Quillfeather, the gnome who spent thirty years on summer-chords nobody bought, taught the whole craft to make his empathy-machines by the hundred: a watch of forks stationed across the Coast that go silent the instant the harvest moves. An alarm that rings by going quiet, rippling out, so the unmade can never again eat a street unwatched. The most useless thing he ever made became the world's first warning against the nothing.");
+    else if (f.GetBool("sq.silences_to_the_court"))
+      slides.push("📻 The Map of Silences — you carried Brindle's empathy-machine to the Court and let it go dead silent in the powers' own chamber: a grief they could forbid, but a measurement they could not. The forks, with no feelings to be accused of, measured the exact size of the nothing their Wall makes, repeatably, in front of everyone. They could rule the Faithless deserved it. They could not rule that the quiet was humming.");
+    else if (f.GetBool("sq.silences_filled"))
+      slides.push("📻 The Map of Silences — you went to the eleven holes a gnome's machine had found, the tenements and streets the harvest ate so completely that the survivors forgot they'd ever been full, and you put the ache back: said the names, hung the lists, taught the silent places to grieve what they'd lost. One hole at a time, the forks began to hum again. Brindle wept. His empathy-machine had become, at last, a to-do list for the repair of the world.");
+    else if (f.GetBool("sq.silences_early_warning") || f.GetBool("sq.silences_mapped_pattern") || f.GetBool("sq.silences_deepest"))
+      slides.push("📻 The Map of Silences — a gnome's frivolous empathy-detector turned out to be the one instrument in the Gate that could see the harvest at all, going dead where it had eaten not just the dead but the memory of them. You read the spreading shape — to outrun the harvest to the next street, to document a witness that couldn't be called mad, to find the deepest silence at the heart of the unmade. Useful by mistake, Brindle said. That's gnomish engineering.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -554,10 +564,11 @@ const EndingResolver = {
       ["sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud"],
       ["sq.map_carried_across", "sq.map_the_reconciliation", "sq.map_reunites_the_lost", "sq.map_copied_wide", "sq.map_to_the_wall"],
       ["sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court"],
+      ["sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/14 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/15 brought home`);
 
     // Bonds.
     const loves = [];
