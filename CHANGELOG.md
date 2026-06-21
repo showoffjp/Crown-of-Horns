@@ -11,6 +11,41 @@
 
 ---
 
+## 👑 v4.22.0 — *"The One Who Came Before, and the Song That Won't Stop"* — Candlekeep & the Fugue, complete (Pillar 2)
+
+> The library's last secrets and the grey's most beautiful sorrow. The Returned who reached the crown
+> and lost. The cat who has outlived every reader. A candle hunting a forbidden name, a furious girl who
+> refuses to be your reason, a grief made into light, and three drowned voices holding eleven thousand
+> names aloft by never falling silent.
+
+- 📚 **Candlekeep Wave III** (`candlekeep_denizens_3.dlg`) finishes the library: **the Sealed-Stacks
+  Revenant** — *a previous Returned*, walled into the lore for almost winning the *wrong* way, who reveals
+  the crown at the road's end is the **trap, not the prize** (`act2.break_the_crown_known`), and spent forty
+  years rewriting his own cautionary warning into a *map*; **the Cat Who Reads** (Margin) — the one unjudged
+  creature in Candlekeep, who guards the dangerous book not with claws but by *remembering every reader the
+  books forgot* (Speak-with-Animals and Handle-Animal paths); and **Scrivener Pol** — a terrified copyist
+  whose sister's debt was paid months ago, who kept copying the sealed truth anyway and became a
+  *whistleblower* without admitting it (`sq.pol_pages`, `act2.wall_provenance_pages`).
+- ⚖️ **The Fugue Plane, Wave II** (`fugue_denizens_2.dlg`) completes the grey: **Wickless** — a candle-spirit
+  lit at Hollowmere's festival "for the person we're not allowed to talk about," who didn't *forget* its
+  forbidden name but *hid it from itself*, holding one walled soul a candle's-width into the light
+  (`act2.forbidden_name_carried`); **Maerin** — Aldric's daughter, fading and *furious*, who refuses to be
+  flattened into anyone's grief and demands to be carried *sharp* — cruel-over-a-carved-fish, unfair-to-walruses,
+  recruitable as a companion who comes back to be *furious in person* (`sq.maerin_recruit`,
+  `act2.maerin_will_return`); **the Mournlight** — ten thousand forbidden mournings made into light, the
+  **golden-path key** that can only be carried by hands holding a grief *they were never allowed to feel*
+  (`act2.golden_path_key`); and **the Three Shades of a Drowned Choir** — who discovered a name *sung* is a
+  name the Wall *cannot file*, imprisoned eleven thousand names in a song they can never end, and learn the
+  way out is not to sing *harder* but *wider* — until the whole world sings the Faithless (`sq.spread_the_song`).
+- 🧵 **Theme**: the crown is the office, not the answer — you win by *breaking* it, not wearing it; a name
+  *carried*, *sung*, or *grieved* is a name the Wall can't keep (`act2.cataloguing_defeats_the_wall` reinforced
+  from three new directions). Candlekeep (#35–44) and the Fugue Plane (#45–52) are now **fully voiced**.
+- 📈 **Content**: dialogue corpus now **136 conversations · 816 nodes · 101 skill checks** (up from
+  129/759/90). All 606 headless CI checks green; the 18-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.21.0 — *"The Margins and the Grey"* — Candlekeep Wave II + the Fugue Plane opens (Pillar 2/3)
 
 > The scholars who read *you* like a disputed passage — and, beyond the last page, the grey afterlife
