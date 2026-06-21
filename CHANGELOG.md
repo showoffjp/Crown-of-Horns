@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.38.0 — *"The Hand That Could Have Opened"* — 100 named NPCs (Pillar 2 · the milestone)
+
+> **The north star is reached: one hundred named, fully-voiced, individually interactable NPCs**, each a name
+> and one true thing, comedy over grief — the BG2-scale cast the project set out to write. This release
+> finishes the harvest quarter with its two hardest voices: the ones who *did* the harvest, and turned.
+
+- 🕯️ **Harvest-Quarter Survivors, Wave II** (`harvest_denizens_2.dlg`) — the perpetrators who broke:
+  - **Sister Wren** — a gutter-child who joined the Choir at sixteen for a warm room and a family, and sang
+    the song that marked the door of old Mira, who once gave her a candle when she was cold. The turn: she
+    never had a *faith*, only a *need* — the doctrine was the toll she paid for belonging, written in other
+    people's doors — and the harvest dies when its *hands* refuse to mark (`sq.choir_hands_refuse`,
+    `act5.refusing_consent`, reactive `faction.choir`).
+  - **Corwin, the Deserter** — fifteen years a Flaming Fist soldier, four villages burned under orders, who
+    put down the torch at the fifth when a girl looked at him with disappointment instead of fear. "I only
+    followed orders" is the wall every hand builds to sleep; the order was always nothing without a hand to
+    carry it — and the hand could always have opened. He can turn desertion into *testimony*
+    (`sq.deserter_testimony`, `act5.shame_feeds_the_wall`, reactive `faction.fist`).
+- 🏆 **Milestone — 100 named NPCs.** With the harvest quarter complete (and Quill-and-Ledger Mas from the Act I
+  deepening), the roster reaches **100 unique, fully-voiced denizens** spanning all six acts and ten thousand
+  years: the Gilded Gate, Candlekeep, the Fugue Plane, Netheril, the Crown Wars, the Time of Troubles, the
+  Spellplague, the Court of the Dead, the connective-tissue threads that recur across every era, and the
+  Lower City's taverns and harvest quarters. Every one is a name and one true thing; not a single generic.
+- 🧵 **Theme**: the harvest's hardest truth — its cruelest work is done by the lonely (who swallow a doctrine
+  as the price of family) and the dutiful (who hide behind "orders") — and both can be turned by the same
+  recognition: *the hand always had a choice.*
+- 📈 **Content**: dialogue corpus now **183 conversations · 1,188 nodes · 153 skill checks** (up from
+  181/1,172/151). All 606 headless CI checks green; the 34-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.37.0 — *"What the Harvest Left"* — the harvest-quarter survivors, Wave I (Pillar 2 · the wider city)
 
 > The quarter Act I's harvest emptied — the grief the atrocity left behind, in three voices. A mother, a

@@ -189,10 +189,10 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
   heartbroken bard, **Deal-Me-In Dax** the cheating-but-lovable card sharp, **Old Halloran** the sailor with a
   map to nowhere, **Tess** the barmaid who keeps the quarter's debts, **Doddering Phinneas** the philosopher
   in his cups, and **Old Sabira**, Roen's old fence who holds the secret that could unmake him.
-- **The harvest-quarter survivors** (95–99): ✍️ **Goodwife Orla** selling her dead son's tools, ✍️ **the
-  silent Vane boy** who saw the harvesters and won't speak, ✍️ **Sister Maud** the healer who can't heal
-  *this* *(all three written, v4.37.0)*; a Choir convert having second thoughts, a Fist deserter who refuses
-  to burn another village *(📋)*.
+- **The harvest-quarter survivors** (95–99) — ✍️ **all five written** (v4.37–4.38): **Goodwife Orla** selling
+  her dead son's tools, **the silent Vane boy** who saw the harvesters and won't speak, **Sister Maud** the
+  healer who can't heal *this*, **Sister Wren** the Choir convert having second thoughts, and **Corwin** the
+  Fist deserter who refuses to burn another village.
 - **The Guild's shadows** (100–104): **Quill-and-Ledger Mas** *(✍️ — the fence, written in Act I deepening)*,
   a poisoner with ethics, a forger who only forges *kind* documents, a thief who steals memories, a
   spymaster who's lost track of which side she's on.
