@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.42.0 — *"The Hand in the Margins"* — the loop-mystery quest (Pillar 1 · the spine)
+
+> The plot-central `sq.*` payoff: the warning in Karsus's margins, followed to its end. The one side quest
+> that advances the saga's *central* mystery — who the Returned is, what the loop is, and why the antidote to
+> the crown is written in your own ten-thousand-year-old hand.
+
+- 📜 **Side Quest: "The Hand in the Margins"** (`karsus_sidequest.dlg`, gated on `sq.karsus_margins` /
+  `act3.returned_annotator`) — reading Proctor Ynn's folios in sequence reveals the second hand is *yours*,
+  older than you, writing "stop" into catastrophes you never witnessed. The revelation: it's not a prophecy
+  but a **letter chain** — each loop's Returned writing forward to the next, the warnings copied by scribes
+  for ten thousand years as an unkillable correspondence addressed to the only guaranteed reader: *you.*
+  - Read it as a letter chain — you're not the annotator condemned to write, but the *recipient* at last
+    (`sq.margins_letter_chain`, `act5.loop_can_break`);
+  - read the antidote — "you do not need to be a god to be enough" was always aimed past Karsus at *your* moment
+    before the crown (`sq.margins_the_antidote`, `act3.you_do_not_need_to_be_a_god`, `act5.crown_is_fear`);
+  - read the tiredness — the loop is a *sentence of witnessing*, but the weariness *refined* the warning rather
+    than wasting it (`sq.margins_the_sentence`);
+  - or **write back** — answer your own ancient hand, and the correspondence stops being one-way
+    (`sq.wrote_back_to_the_loop`, `act5.last_returned_freed`).
+  - Resolutions carry it forward as a *warning heeded* (`sq.margins_warning_heeded`), back to vindicate Ynn
+    (`npc.ynn_vindicated`), or to the **warden** at the Court — the loop's tiredest hand, who thinks the letters
+    abandoned him and needs to learn he was *the draft that made the final warning work*
+    (`sq.margins_for_the_warden`, `act5.last_returned_freed`).
+- 🧵 **Theme (the spine)**: the loop breaks not with a stronger Returned but a *better-warned* one — the whole
+  chain of tired warnings existed to produce one reader who'd arrive at the Court already carrying the antidote
+  in their own hand, and simply *not reach back* when the crown whispers.
+- 📈 **Content**: dialogue corpus now **190 conversations · 1,260 nodes · 159 skill checks** (716 choices).
+  All 606 headless CI checks green; the 38-file `.dlg` corpus compiles clean and the viewer regenerates
+  byte-for-byte.
+
+---
+
 ## 👑 v4.41.0 — *"The Thing in the Dark"* — Roen's companion quest (Pillar 2 · side quests)
 
 > The second `sq.*` payoff: the companion Roen's buried secret, set up by Old Sabira at the Low Lantern. A
