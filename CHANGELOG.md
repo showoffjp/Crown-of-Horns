@@ -11,6 +11,41 @@
 
 ---
 
+## 👑 v4.61.0 — *"The Two Ledgers"* — the twentieth side quest; cross-quest economics (Pillar 2/4 + reactivity)
+
+> An economic/moral-arithmetic dilemma — the dead\'s honest count versus the living\'s roof — and the first
+> quest whose cleanest answer lives *in another quest\'s books*. A twentieth full side quest, rounding the
+> reactive suite to **20**, written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 📒 **Side Quest: "The Two Ledgers"** (`threnn_sidequest.dlg`, gated on `sq.threnn_true_ledger`) — Archivist
+  Threnn keeps two books: the public lie (a round 412 harvest-dead, holding up every property value in the
+  Upper City) and the true count, every name written correctly — the only honest grave the harvested will get.
+  Publishing the truth craters rents and makes the living homeless; hiding it enrolls them in the forgetting.
+  She agonized a year and never found the column that saves both. Four ways in, and resolutions: the **third
+  column** — the de Lancie Fund catches the falling so the truth can be published without a widow on the street
+  (`sq.threnn_third_column`, `sq.delancie_endowment` — a cross-quest payoff with *"A Point"*); **publish** and
+  let the fortunes crater (`sq.threnn_truth_published`); route it to a **memorial** not an assessment
+  (`sq.threnn_true_to_memorial`); carry it to the **Court** as the one honest number between the god\'s lie and
+  the city\'s (`sq.threnn_to_the_court`, `act5.the_great_objection`); draw out **Corrin**, the clerk whose
+  rounding-away started the secret ledger (`sq.threnn_corrin`); or **share** it so the count outlives her
+  (`sq.threnn_shared`, `act5.unbroken_line`).
+- 🔗 **Cross-quest mechanic**: the third-column resolution sets `sq.delancie_endowment` — the wealth quest\'s
+  Fund becomes the literal answer to the economics quest\'s dilemma, so a player who ran both gets a solution
+  neither could reach alone. The suite is starting to interlock.
+- 🎬 **Wired into epilogue + Chronicle same release**: a slide per resolution, tally grows to **N/20 brought
+  home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the Endings Explorer
+  (chrome preserved), flowed into the all-in-one. Test tally updated to `3/20`. Prose-parity green, fuzz
+  crash-free.
+- 🧵 **Theme**: the moral arithmetic that traps a whole city in one grief traded for another is almost never
+  solved inside its own closed books, but by a column borrowed from a larger, kinder ledger than the one you
+  started with — and even in the coldest counting-house, someone could not stop herself from writing the names
+  of the forgotten down correctly.
+- 📈 **Content**: dialogue corpus now **207 conversations · 1,462 nodes · 176 skill checks** (834 choices);
+  **twenty** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 55-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.60.0 — *"A Point"* — the nineteenth side quest; the bored heiress who collected a conscience (Pillar 2/4 + reactivity)
 
 > The suite\'s only wealth/satire texture: an aristocrat\'s class-power — money, status, access, taste — pointed,

@@ -31969,6 +31969,365 @@
    ]
   },
   {
+   "id": "sq.ledgers.thread",
+   "file": "ThrennSideQuestContent.cs",
+   "title": "Sq · Ledgers · Thread",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Archivist Threnn",
+     "text": "*(Archivist Threnn sits between her two ledgers like a woman between two cliffs — the survivable lie and the unbearable truth — and for once she does not cover the true page when you enter. She has been waiting for you. The precision of her hands is intact; the precision of her face is not.)* You came back. *(she taps the true ledger.)* I've thought of little else since. *(coldly, but the cold is thinner now.)* You've seen what I keep. The *official* four hundred and twelve, which holds up every land value in the Upper City — and *this* — *(she touches the true page, column after column of correctly-written names)* — the *real* count, which would crater those values, drive out the patriars, and put grieving widows on the street to honor the grieving dead. *(she meets your eyes.)* I have kept both for a year because I could not *choose.* The dead's honest grave, or the living's cheap roof. *(her voice, just slightly, fails.)* I am an archivist, Returned. I record what *is.* And what *is* is that *both* of those are true, and *honoring* one *buries* the other, and I have never found the *column* that saves them *both.* Have you?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "sq.ledgers_thread_begun",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Archivist Threnn",
+     "text": "*(She opens both ledgers side by side, the lie and the truth, and lays out the arithmetic with the terrible clarity of a woman who has run the numbers a thousand times and hated every answer.)* Let me give you the problem *exactly*, because *exactly* is the only honesty I have left. *(she points to the official ledger.)* This says *four hundred and twelve.* It is a *lie.* And it is *load-bearing* — *every* mortgage, *every* rent, *every* *patriar's* *fortune* in the *Upper* City *rests* on the *comfortable* number, because a city that *admits* its *true* death-toll is a city whose *property* *collapses*, whose *landlords* *flee*, whose *remaining* *living* *lose* the *homes* they *have* *left.* *(she points to the true ledger.)* And *this* says — *(she does not say the number; her composure will not survive it)* — *this* says the *truth.* *Every* *name.* *Correctly.* *Hessel*, who mended nets. *Asa*, who sold winkles. *(her voice tightens.)* And the *truth*, made *public*, is a *mercy* to the *dead* — an *honest* *grave*, an *accurate* *count*, a *refusal* to let them be a *round* *figure* — and a *catastrophe* to the *living*, who'll be *homeless* to *honor* corpses. *(she meets your eyes, and the cold cracks.)* So I keep the *lie* *public* and the *truth* *secret*, and I *tell* myself the *lie* keeps the *living* *housed*, which is *also* a *mercy*, of a *colder* kind. *(fiercely quiet.)* But it is *not* *enough.* *Two* *ledgers* is not an *answer.* It's a *coward's* *stalemate.* *Tell* me, Returned — you who've *seen* the *whole* *road* — is there a *third* *column*? A *way* to *honor* the *dead* *without* *un-housing* the *living*? Or is the *moral* *arithmetic* of this *city* simply *one* *grief* *traded* for *another*, *forever*, *no* *solution*, *only* a *choice* of *whose* *roof* *falls*?",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"There's a third column, Threnn — but it's not in your books. It's in someone else's. The truth craters the living's roof only because no one catches them when it falls. But there's a de Lancie fortune newly pointed at exactly this — buy the cratered homes, subsidize the collapsed rents, and the truth can come out without a single widow on the street. You couldn't find the column because it was in another ledger.\"",
+       "next": "third_column",
+       "fail": "defend",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Publish the truth. The living's cheap roof was always built on the dead's erasure — a comfort bought by pretending Hessel and Asa were a round number. A shelter you can only keep by lying about a massacre isn't shelter, it's complicity with a mortgage. The dead deserve an honest count more than the patriars deserve cheap rent. Let the fortunes crater.\"",
+       "next": "publish",
+       "fail": null
+      },
+      {
+       "text": "\"Keep the lie public, but give the true count somewhere it can rest as a memorial, not an assessment — Lula's list, the choir, the graves. The rents hold, the living keep their homes, and the dead get counted right where the only thing it craters is the silence. You don't have to choose. You just have to route the truth to where it honors instead of destroys.\"",
+       "next": "memorial",
+       "fail": null,
+       "conditions": [
+        {
+         "key": "sq.lulaslist_active",
+         "op": "RequireBoolTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"Carry the true ledger to the Court. The powers count the Faithless as 'nothing' and the city counts them as 'four hundred and twelve' — both lies, both load-bearing. Let the one honest count in Baldur's Gate, every name written correctly by the one archivist who couldn't bear a round number, testify to the true scale of what the Wall takes.\"",
+       "next": "to_court",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.threnn_to_the_court",
+         "op": "SetTrue"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "third_column",
+     "speaker": "Archivist Threnn",
+     "text": "*(The archivist goes utterly still — and then her hands, which have hovered over these two ledgers for a year, begin, very slightly, to shake.)* ...A column in *another* *ledger.* *(barely above a whisper.)* I — *(she stares at you.)* I have run this *arithmetic* a *thousand* *times*, Returned, and *always* in *my* *books*, *my* *columns*, *my* *closed* *system* — *truth* *versus* *roof*, *zero-sum*, *one* *grief* *traded* for the *other* — and it *never* *balanced*, *never*, because in *my* *ledger* there is *no* *line* for *\"someone* *catches* *the* *falling.\"* *(her voice quickens.)* But you're saying — there *is* one. *Outside* my *books.* A — a *de* *Lancie* *fund*? *(the accountant in her seizes it, fierce.)* If — if the *truth* *comes* *out*, and the *property* *craters*, and the *rents* *collapse* — and *someone* with *bottomless* *gold* *buys* the *cratered* *homes*, *subsidizes* the *collapsed* *rents*, *catches* the *widows* *before* they *hit* the *street* — *(she presses her hands flat on the true ledger.)* — then the *truth* *comes* *out* *AND* *no* *one* *is* *un-housed*, and the *zero-sum* *isn't* *zero-sum* *anymore*, because a *third* *party* *absorbed* the *cost* I *thought* had *to* *fall* on the *living.* *(she meets your eyes, and a year of stalemate breaks across her face.)* I am an *archivist.* I *record* *closed* *systems.* And the *flaw* in my *whole* *agony* was *treating* this *city* as a *closed* *system* — *as* *if* the *only* *money* that *could* *catch* the *fall* was the *money* *already* *in* the *property.* *(fiercely.)* But *Ysolde* *de* *Lancie* *pointed* a *fortune* at *exactly* *this* — and *her* *gold* is the *column* I *couldn't* *write*, because it *wasn't* *in* my *books* to *write* *with.* *(she gathers both ledgers.)* *Take* me to *her*, or *bring* her *gold* to *me*, or *whatever* the *mechanism* — but *do* it, Returned. *Publish* the *truth*, and *let* the *de* *Lancie* *Fund* *catch* the *living* who *fall.* *(her voice fills, the cold entirely gone.)* For a *year* I have been the *only* *person* in this *city* *keeping* the *dead's* *true* *count* — *alone*, *cowardly*, *behind* *arithmetic* — *certain* there was *no* *way* to *honor* them *without* *destroying* the *living.* And the *way* was *another* *woman's* *boredom*, *turned* to *purpose.* *(she almost laughs, wet.)* *Two* *quests*, Returned. *Mine* and *hers.* *Neither* *solvable* *alone.* *Together* — the *dead* *counted* *right* *and* the *living* *kept* *housed.* *That's* the *third* *column.* *Write* it *with* me.",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.threnn_third_column",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.delancie_endowment",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "publish",
+     "speaker": "Archivist Threnn",
+     "text": "*(She receives it like a blade, and her precision does not flinch, but something behind it does.)* Publish. *(quietly.)* Let the fortunes crater. *(she looks at the official ledger — the comfortable four hundred and twelve.)* You make the *hard* argument, and you make it *well*, and I have *made* it to *myself*, at *night*, at the *bottom* of the *true* *ledger.* *(her voice tightens.)* A *shelter* you can *only* *keep* by *lying* about a *massacre* is *not* *shelter.* It's a *roof* held *up* by the *erasure* of *Hessel* and *Asa* and *four* *hundred* — *no* — *(she touches the true count)* — *more*, *so* *many* *more* — *souls* the *city* *agreed* to *call* a *round* *number* so the *rents* could *hold.* *(she meets your eyes.)* And *every* *day* I *keep* the *lie*, I am *not* *protecting* the *living* — I am *enrolling* them in the *forgetting*, *making* their *cheap* *roof* *complicit* in the *massacre* it's *built* on. *(fiercely, and the courage costs her visibly.)* So. *Publish.* *Yes.* *(she uncovers the true ledger fully, for the first time in a year, to the open air.)* It will *crater* *fortunes.* It will *drive* *patriars* to *flee.* It will, *gods* *help* me, *put* *some* of the *living* on the *street* — and *that* is a *real* *grief*, *not* a *figure*, and I will *carry* it. *(she meets your eyes.)* But the *dead* will have an *honest* *count.* The *one* *true* *number* in the *Upper* City, *spoken* *aloud*, *every* *name*, *Hessel* and *Asa* and *all* of them, *no* *longer* *adjustments* to a *land* *value* but *subtractions* from *something* that *mattered.* *(quietly.)* I have been a *coward* hiding *behind* *arithmetic* for a *year.* *You've* *handed* me the *courage* to *be* an *archivist* *again* — one who *records* *what* *is*, *whatever* it *craters.* *Help* me *publish* the *true* *count.* Let the *city* *finally* *read* its *own* *massacre.* The *fortunes* were *never* *worth* the *forgetting.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.threnn_truth_published",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.refusing_consent",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "memorial",
+     "speaker": "Archivist Threnn",
+     "text": "*(The accountant in her seizes the elegance of it, and for the first time her composure breaks toward something like relief.)* Both ledgers. *(slowly.)* The lie stays *public.* The truth goes to the *child's* *list.* *(she breathes.)* That's — that's the *first* *proposal* in a *year* that doesn't make me *choose* between the *dead* and the *living.* *(she begins to copy the true page, an archivist's true gift, swift and exact.)* The *rents* *hold* — the *living* *keep* their *homes* — because the *public* *number* *stays* *comfortable.* And the *true* *count* goes *somewhere* it's a *memorial*, not an *assessment* — *Lula's* *list*, the *choir's* *song*, the *graves* — where the *only* *thing* it *craters* is the *silence.* *(her voice catches.)* The *names* *exact* and *whole*, *where* they can *rest* *right* — and *not* a *single* *widow* on the *street* to *make* it *so.* *(she meets your eyes.)* I have been *agonizing* over a *false* *choice*, Returned. I thought the *truth* had to be *public* to *honor* the *dead* — *spoken* in the *Council*, *printed* in the *assessment*, *crashing* the *fortunes* — or *secret* to *spare* the *living.* *(fiercely.)* But the *dead* don't *need* the *truth* *public.* They need it *kept* *right.* And a *memorial* *keeps* it *righter* than a *property* *register* *ever* *could* — because a *memorial* *counts* them as *people*, not as *the* *reason* the *rents* *fell.* *(she presses the copy to you.)* *Take* it to the *girl.* *Tell* her an *archivist* *says*: *count them right, where it can't crater anything but the silence.* *(her voice fills.)* And tell her — *(the cold finally gone)* — tell her I am *grateful*, more than a *tax* *collector* should *admit*, to *stop* being the *only* *one* who *knows* the *truth.* It is a *loneliness* I'd *not* *wish* on *anyone.* *Both* *ledgers* *true*, *each* *where* it *belongs.* *That*, I can *finally* *afford.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.threnn_true_to_memorial",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.lulaslist_active",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "to_court",
+     "speaker": "Archivist Threnn",
+     "text": "*(She considers it, the archivist's mind tracing the figure all the way up to the source.)* To the *Court.* *(slowly.)* Where the *Wall* is *decided.* *(she looks at her two ledgers with new understanding.)* You've named a *thing* I *never* let myself *see*, Returned. *(her voice sharpens.)* The *powers* count the *Faithless* as *\"nothing.\"* The *city* counts them as *\"four* *hundred* *and* *twelve.\"* *(fierce.)* *Both* are *lies.* *Both* are *load-bearing.* The *Wall's* *lie* *holds* up the *doctrine*; the *city's* *lie* *holds* up the *rents.* And *between* them — *crushed* *between* the *god's* *zero* and the *patriar's* *round* *number* — is the *one* *true* *count*, *kept* by a *coward* *archivist* who *couldn't* *bear* to *let* them be a *figure.* *(she gathers the true ledger.)* *Take* it to the *Court.* Let the *powers* who *file* the *Faithless* to *\"nothing\"* *face* the *one* *honest* *number* in *Baldur's* *Gate* — *every* *name*, *Hessel* and *Asa* and *all* the *rest*, *written* *correctly*, *not* *because* an *assessment* *required* it but *because* *someone* *refused* to *let* the *count* be *round.* *(her voice fills.)* They *say* the *Faithless* are *owed* *no* *grief.* My *ledger* *says* otherwise, in *columns* — *named*, *exact*, *un-rounded*, the *truest* *thing* in the *Upper* City. *(she meets your eyes.)* I *kept* the *true* *count* *secret* for a *year*, *certain* it could only *crater* *fortunes.* *(fiercely.)* *Let* it *crater* a *doctrine* *instead.* *Carry* my *ledger* to the *Court*, and *let* the *one* *honest* *number* in the *city* *testify* to the *true* *scale* of *what* the *Wall* *takes* — *not* *\"nothing,\"* *not* *\"four* *hundred* *and* *twelve,\"* but *every* *single* *name*, *counted* *right* *at* *last.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.threnn_to_the_court",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_great_objection",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "2",
+     "speaker": "Archivist Threnn",
+     "text": "*(Archivist Threnn sits between her two ledgers — the survivable lie that holds up a city and the unbearable truth that would crater it, every name in it written correctly by the one soul who couldn't stand a round number — and looks at you, the precision finally serving something other than a cover-up.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"All of it: let the de Lancie Fund catch the falling living, then publish the true count, and send a copy to the Court. The truth comes out, no widow loses her roof, and the powers face the one honest tally in the Gate. The third column you couldn't write, written — and the dead counted right in every place at once.\"",
+       "next": "all",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.threnn_third_column",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.threnn_truth_published",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.delancie_endowment",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"There's one name in that true ledger you've never said aloud — the reason you started keeping it correctly instead of round. An archivist doesn't agonize for a year over strangers. Who's the name, Threnn? Whose subtraction made you refuse to let the rest be a figure?\"",
+       "next": "whose_name",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 3
+        }
+       ]
+      },
+      {
+       "text": "\"Whatever you choose, stop keeping it alone. The loneliness of being the only one who knows the truth is its own slow harvest — it's eating you the way the silence eats the city. Bring in others to keep the true count with you: the auctioneer, the child, the choir. A truth shared by many can't be lost when one cowardly archivist finally breaks.\"",
+       "next": "not_alone",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.threnn_shared",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act5.unbroken_line",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "all",
+     "speaker": "Archivist Threnn",
+     "text": "*(She squares both ledgers and stands, the year-long stalemate resolving into a sequence of clean, decisive moves — the archivist who finally has an answer to record.)* *All* of it. *In* *order.* *(fierce, clear.)* *First* — the *de* *Lancie* *Fund.* *Secure* the *gold* to *catch* the *living* *before* the *truth* *drops*, so *no* *widow* *hits* the *street.* *Then* — *publish.* The *true* *count*, *public*, *every* *name*, *let* the *comfortable* *four* *hundred* *and* *twelve* *die* the *death* it *deserves.* And *then* — a *copy* to the *Court*, so the *powers* who *file* the *Faithless* to *\"nothing\"* *face* the *one* *honest* *tally* in the *Gate.* *(she meets your eyes.)* Do you *see* the *shape* of it, Returned? *Each* *step* *alone* is *impossible* — *publish* *without* the *Fund* and the *living* *fall*; *keep* the *Fund* *secret* and the *truth* *stays* *buried*; *send* to the *Court* *without* *publishing* and it's *one* *more* *secret* *ledger.* *(her voice rings.)* But *together* — *catch*, *then* *publish*, *then* *testify* — the *truth* *comes* *out*, the *living* *stay* *housed*, *and* the *powers* are *named.* *(she presses both ledgers to you.)* I have *kept* *two* *books* for a *year* because I *believed* the *moral* *arithmetic* of this *city* was *one* *grief* *traded* for *another*, *forever*, *no* *solution.* *(fiercely, freed.)* And the *solution* was *never* in *my* *columns* *alone.* It was in *Ysolde's* *gold*, and your *road*, and the *Court* at the *end* of it — a *system* *larger* than my *closed* *little* *books.* *(she almost smiles.)* *Write* the *third* *column* *with* *me*, Returned. *All* *three* *moves.* The *dead* *counted* *right*, the *living* *kept* *whole*, and the *Wall* *handed* the *one* *honest* *number* it *spent* *ten* *thousand* *years* *rounding* to *zero.* *That's* an *answer* I can *finally* *record.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.threnn_third_column",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.threnn_truth_published",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.delancie_endowment",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_great_objection",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 6
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "whose_name",
+     "speaker": "Archivist Threnn",
+     "text": "*(The precision drains entirely, and her hand goes — unconsciously — to a particular column near the top of the true ledger, the oldest entry, the one in slightly different ink.)* The name. *(quietly.)* The *reason.* *(she touches it.)* ...*Corrin.* My *clerk.* *(her voice, for the first time, is not an accountant's.)* Twenty years he *kept* these *books* *beside* me — the *property* *ledgers*, the *honest* *boring* *arithmetic* of a *counting-house* — and he *doubted*, *quietly*, the way *careful* *men* *do*, and the *Choir* *marked* him, and the *harvest* *took* him, and the *city* *recorded* him as — *(her composure cracks)* — as *part* of a *round* *number.* *\"Four hundred and twelve.\"* *(she meets your eyes, stricken.)* *Corrin*, who *kept* *the* *count* *honest* *for* *twenty* *years*, *folded* *into* a *comfortable* *lie* to *protect* a *property* *value.* *(fiercely, weeping.)* And I *could* *not* — I *could* *not* *let* the *man* who *taught* me that *a* *number* *must* *be* *true* become a *part* of a *number* that *was* *false.* *(she touches his name.)* So I *started* the *true* *ledger.* For *Corrin.* *First* *entry.* And then — I *couldn't* *stop*, because if *Corrin* *deserved* a *true* *count*, so did *Hessel*, so did *Asa*, so did *all* of them, and *someone* had to *be* the *one* who *wrote* them *right.* *(she meets your eyes.)* I told the *world* the *true* *ledger* was for the *assessments.* It was *for* *Corrin.* *Every* *name* in it is *Corrin*, *honored* by *being* *counted* *correctly* — the *one* *thing* he *taught* me, *done* for *him*, and *for* *everyone* the *lie* *would* *otherwise* *round* *away.* *(quietly.)* *Now* you *know* *whose* *subtraction* *made* me a *coward* with a *true* *ledger.* *Help* me *make* his *count* *matter* — *Corrin's*, and *all* the *rest* the *city* *called* *round.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.threnn_corrin",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "not_alone",
+     "speaker": "Archivist Threnn",
+     "text": "*(She is quiet a long moment, and her hands — which have guarded these two ledgers alone for a year — slowly, deliberately, open.)* Stop keeping it *alone.* *(quietly.)* ...You've named the *cost* I *never* *entered* in *any* *ledger.* *(she looks at the true page.)* The *loneliness* of being the *only* *one* who *knows.* *(her voice tightens.)* It *is* its *own* *slow* *harvest*, Returned. A *year* of *carrying* the *true* *count* *alone*, *certain* that *sharing* it *craters* *fortunes*, *certain* that the *secret* is the *only* *thing* *holding* the *city* *together* — and the *whole* *time*, the *secret* has been *eating* *me* the *way* the *silence* *eats* the *streets.* *(she meets your eyes.)* A *truth* *kept* by *one* *cowardly* *archivist* *dies* the *day* she *finally* *breaks.* And I *will* *break*, Returned — *one* *bad* *year*, *one* *seized* *ledger*, *one* *night* I *can't* *bear* it — and *then* the *true* *count* is *gone*, and *Corrin* and *Hessel* and *Asa* are a *round* *number* *forever.* *(fiercely, the precision turning to resolve.)* So — *no* *more* *alone.* *Bring* in *others* to *keep* the *true* *count* *with* me. The *auctioneer* *Corval*, who *kept* his *own* *ledger* of the *harvested.* The *child* with her *list.* The *choir* who *sing* the *names.* The *indexer* at *Candlekeep* who *cross-references* the *Wall.* *(she gathers the true ledger.)* *Copy* it. *Spread* it. *Teach* others to *keep* it *current* — so that the *true* *count* *lives* in *a* *dozen* *hands*, a *hundred*, and *cannot* be *lost* when *I*, the *one* *coward* who *started* it, *finally* *fall.* *(she meets your eyes, and a year of solitude breaks.)* *Make* the *true* *ledger* a *thing* the *city* *keeps*, not a *thing* *one* *archivist* *hides.* *(quietly.)* I have been *so* *alone* with the *truth* that I *forgot* the *truth's* *only* *defense* *is* *company.* *Help* me *give* it *some.* I'd *not* *wish* this *loneliness* on a *tax* *collector* — and I'll *not* *bear* it *one* *day* *longer* than I *must.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.threnn_shared",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.unbroken_line",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "defend",
+     "speaker": "Archivist Threnn",
+     "text": "*(The precision snaps back into place like a ledger snapping shut, and she covers the true page.)* A *sentimental* theory. *(coolly.)* The *figure* is *four* *hundred* *and* *twelve.* It is *load-bearing.* It *stays.* *(but her hand does not quite leave the covered page.)* I am an *archivist*, Returned. I do *not* *solve* the *city's* *grief* in *columns*, and I *do* *not* *gamble* a *thousand* *living* *roofs* on a *stranger's* *promise* of a *fortune* that *might* *catch* the *fall.* *(she straightens.)* *Find* me the *third* *column*, *proven*, *funded*, *real* — *not* a *hope*, a *mechanism* — and I will *adopt* it *gladly.* Until *then*, the *lie* *holds*, because the *lie* *houses* the *living*, and *I* have *never* been able to *weigh* one *grief* against the *other* and call it *solved.* *(coldly, and beneath the cold, the same old exhaustion.)* *Good* *day.* The *true* *ledger* *stays* where it *is* — *with* me, *alone*, *unbearable*, *true.* *(and she returns to her two books, the survivable lie and the secret truth, the archivist who could not stop herself from counting the forgotten correctly but cannot yet find the courage to let anyone else read them.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Archivist Threnn",
+     "text": "*(Archivist Threnn returns to her two ledgers — the survivable lie that holds up a city's fortunes and the unbearable truth that would crater them, every name in it written correctly by the one soul who could not bear to let the harvested be a round number — and whether you found her the third column in another woman's fortune, gave her the courage to publish, routed the truth to a memorial, carried it to the Court, drew out the name of the clerk Corrin who made her start, or spread the count to a dozen hands so it outlives her, you carry away the coldest counting-house's warmest secret: that even here, in the most respectable evil in the Upper City, someone could not stop herself from writing the names of the forgotten down correctly — and that the moral arithmetic that traps a whole city in one grief traded for another is almost never solved inside its own closed books, but by a column borrowed from a larger, kinder ledger than the one you started with.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "npc.troubles.myrkul",
    "file": "TroublesDenizensContent.cs",
    "title": "Npc · Troubles · Myrkul",
@@ -33707,9 +34066,9 @@
   }
  ],
  "stats": {
-  "conversations": 206,
-  "nodes": 1450,
-  "choices": 827,
-  "skillChecks": 175
+  "conversations": 207,
+  "nodes": 1462,
+  "choices": 834,
+  "skillChecks": 176
  }
 }

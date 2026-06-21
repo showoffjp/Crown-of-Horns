@@ -528,6 +528,18 @@ const EndingResolver = {
     else if (f.GetBool("sq.delancie_opens_doors") || f.GetBool("sq.delancie_endowment"))
       slides.push("💎 A Point — Ysolde de Lancie became the resistance's key to every Upper City door it could never enter: the Council chamber where the quotas are approved, the ducal salons where the Choir's high men dine. She seated the deserter across from the Justiciar at dinner and let him tell the one about the fifth village; she brought the gnome's map of silences to a Council session as a curiosity. The harvest is enforced below, but authorized above — and she walked the witnesses in.");
 
+    // "The Two Ledgers" — Archivist Threnn, the true harvest-count vs the living's roof.
+    if (f.GetBool("sq.threnn_third_column"))
+      slides.push("📒 The Two Ledgers — Archivist Threnn found the column she'd agonized a year to write — and it was in another woman's books. The de Lancie Fund caught the falling: bought the cratered homes, subsidized the collapsed rents, so the true harvest-count could finally be published without a single widow on the street. The moral arithmetic that traps a city in one grief traded for another was never solvable in its own closed ledger. It took a column borrowed from a larger, kinder one.");
+    else if (f.GetBool("sq.threnn_truth_published"))
+      slides.push("📒 The Two Ledgers — Archivist Threnn published the true count at last: every name, Hessel who mended nets and Asa who sold winkles and all the rest the city had agreed to call a round four hundred and twelve. The fortunes cratered; patriars fled; some of the living lost the roofs that comfortable lie had held up. A real grief, carried. But the dead got an honest count — subtractions from something that mattered, not adjustments to a land value — and a shelter built on a massacre's erasure was never shelter at all.");
+    else if (f.GetBool("sq.threnn_to_the_court"))
+      slides.push("📒 The Two Ledgers — you carried Archivist Threnn's true count to the Court: the one honest number in Baldur's Gate, between the god's lie that the Faithless are 'nothing' and the city's lie that they were a round four hundred and twelve. Every name written correctly, not because an assessment required it but because one coward archivist refused to let the count be round — and it testified to the true scale of what the Wall takes: not nothing, not a comfortable figure, but every single name.");
+    else if (f.GetBool("sq.threnn_shared"))
+      slides.push("📒 The Two Ledgers — Archivist Threnn stopped keeping the truth alone. She copied the true count into a dozen hands — the auctioneer's ledger, the child's list, the choir's song, the indexer's cross-reference — so the one honest tally in the Upper City could outlive the one cowardly archivist who started it. A truth kept by a single keeper dies the day she breaks; she'd guarded it a year and forgotten that a truth's only defense is company.");
+    else if (f.GetBool("sq.threnn_true_to_memorial") || f.GetBool("sq.threnn_corrin"))
+      slides.push("📒 The Two Ledgers — Archivist Threnn routed her true count where it could rest as a memorial, not an assessment: the names exact and whole on the child's list, the comfortable public lie left holding up the living's roofs, the only thing the truth cratered the silence. She'd started the secret ledger for one name — Corrin, her clerk of twenty years, folded into a round number — and could not stop, because if he deserved a true count, so did they all.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -611,10 +623,11 @@ const EndingResolver = {
       ["sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers"],
       ["sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him"],
       ["sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits"],
+      ["sq.threnn_third_column", "sq.threnn_truth_published", "sq.threnn_true_to_memorial", "sq.threnn_corrin", "sq.threnn_shared", "sq.threnn_to_the_court"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/19 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/20 brought home`);
 
     // Bonds.
     const loves = [];
