@@ -121,6 +121,36 @@ test("NgPlus_AddsTheLoopSlide", () => {
   F().SetBool("ng.plus", true);
   T(any(EndingResolver.Epilogue(Ending.MortalMeasure), "reaches, already, for the first chapter"));
 });
+test("SideQuests_LongRoad_DriveTheirOwnSlides", () => {
+  // None set: no side-quest slide leaks in.
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Graves That Waited"), "no graves slide unset");
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Hand in the Margins"), "no margins slide unset");
+  // Set one resolution per quest; each contributes its slide.
+  F().SetBool("sq.field_of_the_rested", true);
+  F().SetBool("sq.wrote_back_to_the_loop", true);
+  F().SetBool("sq.roen_forgives_sabira", true);
+  F().SetBool("sq.naeve_grieves_at_last", true);
+  F().SetBool("sq.harvest_exposed_public", true);
+  F().SetBool("sq.fortyone_reaper_rests", true);
+  F().SetBool("sq.forbidden_name_spoken", true);
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(s.every(x => typeof x === "string" && x.length > 0), "no empty side-quest slides");
+  T(any(s, "the field of the rested was the thing the crown was always for"));
+  T(any(s, "You were the first who could write back"));
+  T(any(s, "forgiveness is a weight you release for your own sake"));
+  T(any(s, "started mourning him — beautiful and guilty and gone"));
+  T(any(s, "the ordinary people who fed the Wall began to step out of their places"));
+  T(any(s, "the ferryman of endings learned he was owed a shore too"));
+  T(any(s, "a name carried in love is a soul the Wall can never quite finish erasing"));
+});
+test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
+  // For a single quest, the highest-priority resolution wins (one slide, not two).
+  F().SetBool("sq.field_of_the_rested", true);
+  F().SetBool("sq.every_soul_expected", true); // lower branch — must be suppressed
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "you did the unglamorous part"));
+  Fa(any(s, "The open holes said otherwise"), "only the primary graves slide shows");
+});
 test("Chronicle_BaselineLines", () => {
   const l = EndingResolver.Chronicle();
   T(any(l, "Eras walked: none yet"));

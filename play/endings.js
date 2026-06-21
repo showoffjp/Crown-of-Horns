@@ -349,6 +349,59 @@ const EndingResolver = {
     if (f.GetInt("faction.choir.reputation") >= 5)
       slides.push("🜍 The Faithless Choir — you spoke for the Unmade when it cost you, and the grief of ten thousand years made you its prophet. The Choir sings your name still — in the undercrofts, in the pauper's pits, wherever the discarded gather. You gave the oldest sorrow in the multiverse the one thing it never had: an advocate the gods would let into the room. Whatever you chose at the Court, you were *heard,* and you made them hear.");
 
+    // ── Side quests of the long road — the seeded hooks, paid off at the end. ──
+    // "The Graves That Waited."
+    if (f.GetBool("sq.field_of_the_rested") || f.GetBool("sq.graves_that_waited_complete"))
+      slides.push("⚰️ The Graves That Waited — you stayed at the coffin-man's field until the last hole was filled: every soul the harvest stole, buried at last, named, a true word over each. They will sing about the crown. But the field of the rested was the thing the crown was always for, and you knew it, and you did the unglamorous part.");
+    else if (f.GetBool("sq.graves_to_the_tenders"))
+      slides.push("⚰️ The Graves That Waited — you called the unbroken line of grave-tenders to the coffin-man's field, and a thousand hands filled in an afternoon what one pair could not in an age. The Wall emptied its dead with an army of clerks. You gave them back with an army of the kind, and it was the better-shaped mercy.");
+    else if (f.GetBool("sq.every_soul_expected") || f.GetBool("sq.halen_at_rest"))
+      slides.push("⚰️ The Graves That Waited — you carried the coffin-man's ledger back through the Wall, and no soul you freed was released into nowhere: each came out to a grave already dug, a stone already carved, a place that had been waiting ten thousand years. The Wall said you were nothing, unexpected. The open holes said otherwise.");
+
+    // "The Hand in the Margins" — the loop's letter chain.
+    if (f.GetBool("sq.margins_for_the_warden"))
+      slides.push("📜 The Hand in the Margins — you carried your own ten-thousand-year warning to the warden who thought the letters had abandoned him, and showed him he was never the failure at the end of the chain, only the draft that made the final warning clear enough to work. Even the tiredest hand got to be one the correspondence was trying to save.");
+    else if (f.GetBool("sq.wrote_back_to_the_loop"))
+      slides.push("📜 The Hand in the Margins — for ten thousand years the loop wrote to you, the same tired hand scratching *stop* into the margins of every catastrophe. You were the first who could write back. The crack in your soul went quiet — not silent, but answered — and the correspondence, at last, ran both ways.");
+    else if (f.GetBool("sq.margins_warning_heeded"))
+      slides.push("📜 The Hand in the Margins — every loop before you wrote the warning and reached for the crown anyway. You were the one who finally read it and obeyed: not a stronger Returned, a better-warned one, arriving at the Court already carrying the antidote in your own hand. The chain wrote for an age hoping for one reader who'd listen. It got you.");
+
+    // "The Thing in the Dark" — Roen's buried secret.
+    if (f.GetBool("sq.roen_and_sabira_reconcile"))
+      slides.push("🗡️ Roen & Old Sabira — you stood in the room while two people who loved and damaged each other finally said the true thing in daylight, and found out love survives it. The fence who raised a child into the dark, and the child who carried her sin as his name, unlocked the room between them at last — and neither had to be alone in it.");
+    else if (f.GetBool("sq.roen_tells_the_fire"))
+      slides.push("🗡️ Roen — named the thing in the dark at the fire, once, plain, as a fact and not a confession, and watched the company not leave. The killing at fourteen, half a life carried as a whole identity, shrank to its true size the moment it was shared: a hard thing that happened to a cornered child, and not the name under all his names.");
+    else if (f.GetBool("sq.roen_forgives_sabira"))
+      slides.push("🗡️ Roen — set down the grudge he'd carried as long as the guilt, because the Exile's lesson finally landed: forgiveness is a weight you release for your own sake, not a gift the debtor earns. He forgave the woman who saved and damned him in the same hand, and came back lighter than you had ever seen him.");
+
+    // "The Indictment" — Naeve's case against Netheril.
+    if (f.GetBool("sq.naeve_grieves_at_last"))
+      slides.push("✨ Naeve — set the indictment down and let herself, for the first time, simply miss her father. She stopped prosecuting the man who showed her the stars and chose his prestige over her life, and started mourning him — beautiful and guilty and gone and hers — which turned out to be a closer kind of keeping than any case.");
+    else if (f.GetBool("sq.naeve_keeps_one_page"))
+      slides.push("✨ Naeve — sent the indictment to do its justice and kept one page back: not a vote, not a charge, the one with the stars and the boat. The guilt went to court; the love came home with her. Whatever the record proved about Lord Aubrey the murderer, his daughter always carried the proof of Lord Aubrey the father.");
+    else if (f.GetBool("sq.naeve_indictment_at_court"))
+      slides.push("✨ Naeve — read the indictment of Netheril where it finally had to land: not at a dead empire but before the powers that kept doing what its lords did. Her father's signature damned every authority that ever chose its order over a child. She made the grief count for more than a broken heart.");
+
+    // "The Hands That Refused" — the harvest's turncoats.
+    if (f.GetBool("sq.harvest_exposed_public"))
+      slides.push("⚔️ The Hands That Refused — a deserter and a singer nailed the harvest's own flowchart where the Gate read over breakfast, and the city looked, for once, at the whole machine at once. You cannot un-ring that bell. Box by box, hand by hand, the ordinary people who fed the Wall began to step out of their places, and the looking would not stop.");
+    else if (f.GetBool("sq.harvest_to_the_hands"))
+      slides.push("⚔️ The Hands That Refused — Corwin and Wren took their testimony soldier to soldier, singer to singer, quietly, into the garrisons and Choir-houses, where it could not be spun into a martyrdom. The harvest unmade the way it was made: one cracking hand at a time, in the dark, passed hand to hand. Slower than a rebellion. Impossible to crush.");
+    else if (f.GetBool("sq.harvest_to_the_court"))
+      slides.push("⚔️ The Hands That Refused — a Fist deserter and a Choir convert testified before the powers of the dead themselves: that the Wall is fed by ordinary hands, theirs among them, and that theirs opened — which meant every hand that fed it always could. The machine's whole defense was *we had no choice.* They were the living disproof, at the one court that cannot adjourn.");
+
+    // "The Forty-One" — the reaper's hidden souls.
+    if (f.GetBool("sq.fortyone_reaper_rests"))
+      slides.push("⚱️ The Last Honest Psychopomp — when the forty-one souls he'd hidden ten thousand years were finally home, the ferryman of endings learned he was owed a shore too, and lay down in the field beside the ones he saved. The coffin-man dug him a good hole, reaper-shaped, among the Faithless he'd refused to let the Wall have.");
+    else if (f.GetBool("sq.fortyone_reaper_joins_line"))
+      slides.push("⚱️ The Last Honest Psychopomp — with his forty-one freed, the first reaper to refuse the doctrine went back to the grey to stand between the Wall and the next fading soul, and the next. His cloak never stayed empty. It was never meant to. He had found the unbroken line, and learned he'd been one more hand in it all along.");
+    else if (f.GetBool("sq.fortyone_ask_them") || f.GetBool("sq.fortyone_to_the_graves") || f.GetBool("sq.fortyone_gentle_wall"))
+      slides.push("⚱️ The Forty-One — the souls a reaper hid for ten thousand years against the Wall's pull got, at last, an ending instead of an endless keeping: named, chosen, set down. He learned the hardest lesson of his long office — that even mercy curdles into a cage, and that the ones we love are never ours to hold, only ours to carry until they can choose.");
+
+    // "The Forbidden Name" — Wickless's candle.
+    if (f.GetBool("sq.forbidden_name_spoken") || f.GetBool("sq.wickless_speaks_alone"))
+      slides.push("🕯️ Wickless — the candle a frightened child lit for the person they weren't allowed to talk about carried a forbidden name through ten thousand years of grey, found the faded soul it was lit for, and said it. Her light caught like a wick taking flame. A whole family's silence broke on one small voice that refused it: proof that a name carried in love is a soul the Wall can never quite finish erasing.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");

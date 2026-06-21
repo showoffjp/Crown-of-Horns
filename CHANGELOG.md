@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.47.0 — *"Where They Are Now"* — the side quests reach the epilogue (Pillar 1 · reactivity)
+
+> The seven built side quests stop being self-contained and start *changing the run.* Their resolution flags
+> now drive **epilogue slides** in the endings engine — so a playthrough's "where they are now" reflects the
+> graves filled, the loop answered, the secrets named, the harvest exposed, the souls freed.
+
+- 🎬 **Side quests wired into the Epilogue** (`endings.js` + `Assets/Scripts/Core/EndingResolver.cs`, byte-identical) —
+  a new "side quests of the long road" block in `EndingResolver.Epilogue` emits a "where they are now" slide
+  for each of the seven built quests, keyed to its resolution flags (priority-ordered, one slide per quest):
+  - **The Graves That Waited** (`sq.field_of_the_rested` / `sq.graves_to_the_tenders` / `sq.every_soul_expected`);
+  - **The Hand in the Margins** (`sq.margins_for_the_warden` / `sq.wrote_back_to_the_loop` / `sq.margins_warning_heeded`);
+  - **The Thing in the Dark** (`sq.roen_and_sabira_reconcile` / `sq.roen_tells_the_fire` / `sq.roen_forgives_sabira`);
+  - **The Indictment** (`sq.naeve_grieves_at_last` / `sq.naeve_keeps_one_page` / `sq.naeve_indictment_at_court`);
+  - **The Hands That Refused** (`sq.harvest_exposed_public` / `sq.harvest_to_the_hands` / `sq.harvest_to_the_court`);
+  - **The Forty-One** (`sq.fortyone_reaper_rests` / `sq.fortyone_reaper_joins_line` / the freeing flags);
+  - **The Forbidden Name** (`sq.forbidden_name_spoken` / `sq.wickless_speaks_alone`).
+- 🧪 **Test coverage**: two new `epilogue.test.js` cases pin the block — every quest contributes its slide when
+  resolved, none leak in unset, the primary resolution outranks its alternates, and the seeded fuzz confirms
+  no empty slides across the flag space. The **prose-parity gate** stays green: the new slides appear
+  byte-for-byte in both the C# source and the JS port.
+- 🖥️ **Artifacts refreshed**: the new slides flow into the **Endings & Epilogue Explorer** (`endings_explorer.html`,
+  injected into its inlined engine without disturbing its Save-Inspector handoff or deed-folding chrome) and
+  the **all-in-one bundle** (`crown_of_horns.html`, regenerated).
+- 📈 **CI**: headless suite now **608 checks** (up from 606 — the two new epilogue tests); all green. The
+  seeded side-quest content is now mechanically *reactive*: it changes what the game says about your run.
+
+---
+
 ## 👑 v4.46.0 — *"The Forbidden Name"* — the candle's quest (Pillar 2 · side quests)
 
 > The seventh `sq.*` payoff: Wickless, the candle-spirit a frightened child lit "for the person we're not
