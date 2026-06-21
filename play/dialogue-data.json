@@ -22844,6 +22844,368 @@
    ]
   },
   {
+   "id": "sq.hessa.mercy",
+   "file": "HessaSideQuestContent.cs",
+   "title": "Sq · Hessa · Mercy",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(Hessa Dock-Eye holds court in the back of a chandlery that smells of tar and fear, a manifest in her scarred hands, her good eye flicking over a list of names while the milky one stares at nothing. She does not get up.)* Returned. Good. Sit where I can see your hands. *(she taps the manifest.)* The route's running. Hessa's Mercy, the dockhands call it — I still hate the name. Twelve out last tenday, harvest-marked every one, on boats the Fist's *paid* not to search. *(she sets the list down, and for once the gruffness thins.)* But it's *growing.* The Choir's marking faster than my hulls can carry, and I've got a problem that no amount of *opinions* solves, and you've the look of someone who solves problems or makes them worse. *(she fixes you with the good eye.)* So. Are you here to *help* me run an underground railroad out from under a death-machine — or just to admire the woman doing it till the Fist finally hangs her?",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "sq.hessa_mercy_begun",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She spreads the manifest, and the names on it are not abstractions to her — she taps them as she talks.)* Here's the shape of it, no varnish. *(she counts on scarred fingers.)* The Choir marks a soul *Faithless* — a doubter, a godless dockhand, some old woman who said the wrong thing at a funeral — and once you're *marked*, you've got *days* before the harvest takes you to the Wall. *(she taps a name.)* My route gets you *out.* Quiet hull, false manifest, a cousin in Athkatla who asks no questions. *Free.* No coin — I *tried* charging, couldn't stomach it, there's my purse ruined. *(she grimaces.)* And it *works.* But — *(she stabs the list.)* — three problems, and they're the kind that *kill* people, so don't give me *philosophy.* *One:* I haven't *hulls* enough. More marked than I can move. *Two:* the Fist sergeant I *bought* is getting *nervous* — one bad night and the *whole* route's a *gallows.* *Three:* — *(her voice drops, and the milky eye seems to wince)* — when there's *one* seat and *two* marked souls at the *dock*, *I* decide *who* sails and *who* the *Wall* gets. *Me.* Hessa Dock-Eye, *smuggler*, playing *Kelemvor* with a *passenger* list. *(she meets your eyes, hard.)* I didn't *sign up* to be *god of the docks.* Help me with *one* of these, Returned. *Pick* the one you can *stomach.* They're *all* *ugly.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"Take problem three off your shoulders — the triage, the who-sails-and-who-doesn't. Not by deciding *better*, but by making it not *one* smuggler's call. A council, a rule, a lottery — anything but Hessa Dock-Eye alone at the dock playing god. The weight that's breaking you isn't the *deaths.* It's deciding them *alone.*\"",
+       "next": "triage",
+       "fail": "gruff",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"The hull shortage is the real bottleneck — more marked than you can move. So stop running it like one smuggler's favor and build it like a *network.* Other captains, other ports, other cousins who ask no questions. Hessa's Mercy shouldn't be Hessa's *alone.* Scale it past what one woman's hulls can carry.\"",
+       "next": "scale",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.mercy_route_scaled",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"Your nervous Fist sergeant is the whole route's neck in a noose. Let me deal with the operational side — turn one bought soldier into a *system* that survives him getting cold feet, or getting caught, or getting greedy. A railroad that depends on one bribe is already hanged. Let's make it depend on nothing that can break.\"",
+       "next": "defend",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.mercy_route_defended",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"You keep saying you didn't sign up to be god of the docks. But you're the only one who's *refused* to look away — the Choir marks, the Fist enforces, the city shrugs, and *you* run hulls. Before we fix the route, tell me: why *you*, Hessa? A smuggler with a ruined purse and a noose waiting. What's the name on that manifest that started this?\"",
+       "next": "why",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "triage",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(The good eye narrows, and for a moment the gruff smuggler looks every one of her hard years.)* The weight isn't the deaths. *(quietly.)* It's deciding them alone. *(she sets the manifest down like it burns.)* ...You've a *cruel* eye, Returned, and a *true* one. *(she rubs her face.)* I can *carry* the deaths. I'm *old*, I've *buried* friends, I know the *dock* takes who it takes. What I *can't* carry is *standing* at the *gangplank* with *two* marked souls and *one* seat and *choosing* — *me*, by *gut*, by *whim*, by which one *reminds* me of someone — and then *living* with having *sent* the *other* back to the *Wall* on *no* better reason than *Hessa woke up liking your face.* *(her voice roughens.)* That's not *mercy.* That's *tyranny* with a *kind* coat. *(she meets your eyes.)* A *council*, you say. A *rule.* A *lottery.* *(slowly.)* Take it *out* of my *gut* and put it in something — *fairer.* *Sicker-to-the-stomach* but *fairer.* *(she nods, grim.)* A *board* — the dockhands, the old freedwoman, the *priest* who *quit* the Choir — *they* set the rule, *they* draw the lots, and when the *Wall* gets someone, it's not *Hessa's whim*, it's a *hard rule fairly run*, and *no one* soul has to *be* the *god* of it. *(she exhales, an age of it.)* It won't *save* more — same *hulls*, same *shortage*. But it'll mean the *ones* we *can't* save weren't *condemned* by a *tired* woman's *mood.* *(she meets your eyes.)* I've been *god of the docks* for *two years* and it's *eating* me *hollow.* *Build* me the *board.* Let me go *back* to being a *smuggler* who *runs* the *hulls* — not the *one* who *decides* who *fills* them. *That's* the weight I *can't* lift *alone.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_triage",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.mercy_route_council",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "scale",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She slaps the manifest, and a hard grin splits her gap-toothed face — this is a problem she *likes.*)* A network. *(she's already pulling out a stub of charcoal.)* *Now* you're talking like a *smuggler* and not a *poet.* *(she sketches on the back of the manifest — ports, routes, names.)* You're *right.* I've been running it like a *favor* — *Hessa's* hulls, *Hessa's* cousin, *Hessa's* bribed sergeant — and a *favor* *dies* with the *favorer.* *(she jabs the charcoal.)* But a *trade route* — *that* outlives *anybody.* *(fierce, energized.)* I know *captains.* *Amn*, *Calimport*, up the *Sword Coast* — smugglers *all*, with their *own* nervous *sergeants* and *own* cousins who ask *no* questions. *Most* of them *owe* me, and the *ones* who *don't* can be *bought* or *shamed* — and a *smuggler* *shamed* into *mercy* is a *thing* I *never* thought I'd *see* but *gods* it's *catching.* *(she maps it.)* *Cells.* Each captain runs their *own* leg, knows *only* their *own* port, so *one* gets *caught* and the *route* *survives* — that's how you *build* a *thing* the *Fist* can't *hang* in a *single* night. *Hessa's Mercy* stops being *Hessa's* and becomes a *web* — *Athkatla* to *Amn* to *anywhere* the *harvest* *doesn't* *reach* — *moving* the *marked* by the *hundred* where I *moved* them by the *twelve.* *(she meets your eyes, blazing.)* Help me *light* the *web.* Carry *word* to the *captains* who *owe* me. Tell them *Hessa Dock-Eye* is *building* the *biggest* *smuggling* *operation* the *Coast* has *ever* *seen*, and the *cargo* is *people*, and the *profit* is *sleep*, and *any* captain *worth* their *salt* will *want* *in* — *not* for the *coin*, for the *one* run that *finally* *means* something. *(she grins, fierce.)* Let's move the *marked* by the *hundred.* Let's make the *harvest* *race* a *web* it *can't* *catch.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_scaled",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.mercy_route_network",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.refusing_consent",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "defend",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(Her good eye sharpens to a point — the operational problem, the one that keeps her up.)* The sergeant. *(grimly.)* My route's *neck* in *his* *noose.* *(she taps the manifest.)* *Brakker.* Fist sergeant, *bought* fair, *looks* the *other* way when my *hulls* sail — and *every* tenday he gets *twitchier*, because a *bought* man *knows* he's *bought*, and a *bought* man *with* a *conscience* *or* a *grudge* *or* a *gambling* *debt* is a *route* *one* *bad* *night* from a *gallows.* *(she meets your eyes.)* You're *right* that a *railroad* depending on *one* *bribe* is *already* *hanged* — it just doesn't *know* it *yet.* *(she leans in.)* So. *Three* things, if you've the *stomach.* *One:* find me *what Brakker actually wants* — not the *coin*, the *thing under* the coin, the *reason* a Fist man *takes* the *deal.* A *man* you *understand* is a *man* who *doesn't* *surprise* you on a *bad* night. *Two:* build a *second* way out that *doesn't* *need* him — a *back* channel, a *different* gate, so the *day* Brakker *breaks* the route *bends* instead of *snaps.* *Three:* — *(her voice hardens)* — and this is the *ugly* one — make *certain* that if Brakker *does* *turn*, he *hangs* *with* us, not *over* us. *Evidence.* *Leverage.* A *bought* man who *knows* *betraying* you *drowns* him *too* is a *bought* man who *stays* *bought.* *(she meets your eyes.)* It's *not* *pretty*, *running* an *underground.* It's *not* *Hessa's Mercy*, whatever the *dockhands* *sing.* It's *bribes* and *blackmail* and *back* *channels* and *knowing* your *weak* *link* *better* than *he* knows *himself.* *(she grins, hard and tired.)* But *pretty* doesn't *get* the *marked* *out.* *This* does. Help me make the *route* *survive* its *own* *weakest* *point* — so that *Hessa's Mercy* outlives *Brakker's* *nerve*, and the *next* *twelve* *sail* *even* *if* the *sergeant* *cracks.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_defended",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.mercy_route_hardened",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "why",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(The gruffness drops away, slow, like a tide going out, and the milky eye seems to fix on something far off.)* Why me. *(quietly.)* The name that *started* it. *(she's silent a moment.)* ...*Toller.* My *deckhand.* *Forty* years on my *boats*, since he was a *boy* I *caught* *thieving* *rope* and *kept* instead of *reporting.* *(her voice roughens.)* *Godless.* *Cheerfully* *godless* — *\"the sea's the only thing big enough to bother praying to, Hessa, and it doesn't listen,\"* he'd *say*, *laughing.* *(she touches the manifest.)* And the *Choir* *marked* him. *Last* *winter.* For *forty* years of *cheerful* *doubt* said *too* *loud* on the *wrong* *dock.* *(her good eye glistens; she does not wipe it.)* And I — I had the *hulls.* I had the *cousins.* I could move *anything*, *anywhere*, no questions — *forty* *years* the *best* *smuggler* on the *Coast* — and I *froze.* I *thought* there'd be *time.* I thought *\"next* tenday, I'll *get* him *out,* *next* *tenday.\"* *(her voice cracks.)* And the *harvest* *took* him *first.* *Toller.* *Walled.* For *doubting* the *sea.* And *I*, who could move *anything*, *moved* him *nowhere*, because I *thought* there was *time.* *(she meets your eyes, hard and wet.)* So *that's* *why* *me.* Not *mercy.* Not *opinions.* *Toller.* I *run* the *underground* because I *had* the *power* to *save* the *one* soul I *loved* and I *waited* *one* *tenday* *too* *long* — and *now* I *never* *wait.* *Mark* a soul, they're on the *next* *hull*, *no* *delay*, *no* *\"next* *tenday.\"* *(she picks the manifest back up.)* Every *name* I *get* *out* is *Toller*, *saved*, *forty* years *late.* *Help* me *get* *them* *out*, Returned. *Fast.* The *harvest* doesn't *wait*, so *neither* do *I*, *ever* *again.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_toller",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "2",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(Hessa Dock-Eye spreads her manifest of the marked — the harvest-marked living, days from the Wall, and the hulls that might get them out first — and looks at you with the good eye and the milky one both, a smuggler who turned her whole illicit trade into a race against a death-machine.)* So. Where do we *put* the *weight*? *(gruffly.)* I've *opinions* on *all* of it, but you *knew* that.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"All of it — but in the right order. A board to take the triage off your gut; a network so it's not your hulls alone; a hardened route that survives your weakest link. Hessa's Mercy stops being one tired woman against a death-machine and becomes a thing the machine can't catch, outlast, or hang.\"",
+       "next": "all",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.mercy_route_council",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.mercy_route_network",
+         "op": "SetTrue"
+        },
+        {
+         "key": "sq.mercy_route_hardened",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"Make it outlive you. You waited one tenday too long for Toller and you never will again — but you're one old smuggler with a noose waiting, and the day they hang you the route dies with you unless we build it to outlast its founder. Hand it on, write it down, train the next Hessa. Mercy that needs Hessa isn't mercy. It's a single point of failure.\"",
+       "next": "outlives",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.mercy_route_outlives_her",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      },
+      {
+       "text": "\"I'm walking to the Court, where they decide who's Faithless in the first place. Your route saves them one hull at a time, after they're marked — but I can carry word of it to the place the marking is *decided.* Let the powers learn that down in the Gate, a gap-toothed smuggler has been quietly emptying their harvest for two years. Proof the marked were never cargo. They were people worth a fleet of bribed hulls.\"",
+       "next": "to_the_court",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.mercy_route_to_the_court",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act5.the_great_objection",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "all",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She slaps the manifest down and stands, finally — the whole plan catching in her like a tide turning.)* All of it. Right order. *(fierce, energized.)* The *board* *first* — get the *god-of-the-docks* *weight* off my *gut* before it *hollows* me *out* *entirely* — *then* the *network*, so it's *not* my *hulls* *alone* against the *Choir's* *whole* *marking-machine* — *then* *harden* it, *so* the *day* *Brakker* *cracks* or the *Fist* *wises* up, the *route* *bends* and *doesn't* *snap.* *(she rolls the manifest, decisive.)* You're *right* that *Hessa's Mercy* has been *one* *tired* *woman* against a *death-machine* — and *one* *woman*, however *stubborn*, *loses* that *fight* *eventually*, because the *machine* *doesn't* *get* *tired* and *I* *do.* *(she grins, hard.)* But a *board* that *shares* the *weight*, a *web* that *can't* be *hanged* in *one* *night*, a *route* that *survives* its *own* *weak* *links* — *that's* not *one* woman against a *machine.* That's a *counter-machine.* A *thing* as *patient* and *un-tireable* as the *harvest* *itself*, *built* to *empty* the *Wall's* *intake* *faster* than the *Choir* can *fill* it. *(she meets your eyes, blazing.)* *Cruelty* needs a *machine* — you've *seen* their *Choir*, their *Fist*, their *clerks.* *(she jabs the manifest at you.)* So *mercy* gets *one* *too.* *Built* of *bribes* and *boards* and *back* *channels* and *captains* *shamed* into *good*, *running* the *marked* out by the *hundred*, *outlasting* *Brakker* and *outlasting* *me* and *outlasting* the *gods-damned* *harvest* *itself.* *(she spits on her palm, offers it.)* *Build* it *with* me, Returned. The *machine* that *un-makes* their *machine.* *Toller's* *route*, *grown* *big* *enough* to *never* *wait* *one* *tenday* *too* *long* *again.* *Shake.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_council",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.mercy_route_network",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.mercy_route_hardened",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.refusing_consent",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "outlives",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She goes quiet, and the milky eye seems to settle on the noose-shaped future she never speaks of.)* Outlive me. *(gruffly, then softer.)* ...Aye. There's the *thing* I *don't* say to the *dockhands.* *(she taps her own chest.)* I'm *old*, Returned. My *good* eye's *going* the *way* of the *bad* one. And *one* *day* — *soon* enough — the *Fist* *hangs* me, or the *sea* *takes* me, or I just *don't* *wake*, and *then* — *(she looks at the manifest)* — *then* *Hessa's Mercy* *dies* with *Hessa*, and the *marked* *that* *tenday* go to the *Wall* because the *one* woman who *ran* the *hulls* is *cold*, and *that* — *(her voice hardens)* — *that* is *Toller* *all* over *again.* *Power* to *save* them, *lost* to *one* *tenday's* *bad* *timing.* *(she meets your eyes.)* You're *right.* *Mercy* that *needs* *Hessa* *isn't* *mercy.* It's a *single* *point* of *failure* with a *gap-toothed* *grin.* *(she pulls out a fresh sheet.)* So — *write* it *down.* The *routes*, the *cousins*, the *captains*, *Brakker's* *price*, *all* of it — *out* of my *head*, where it *dies* with me, and *into* a *thing* that *passes* *on.* *Train* the *next* *Hessa* — the *young* *freedwoman* who *runs* my *Athkatla* *leg*, she's *got* the *eye* for *it* and *none* of my *opinions*, she'll *do* it *better.* *(she meets your eyes, and there's peace in the grimness.)* I *waited* *one* *tenday* *too* *long* for *Toller.* I'll *not* let *Hessa's Mercy* *wait* *one* *tenday* *too* *long* for the *whole* *Gate* *because* its *founder* *finally* *hanged.* *Build* it to *outlive* me. So the *day* they *cut* me *down*, the *next* *hull* *still* *sails* — and *Toller's* *route* *runs* *on*, *long* after the *woman* who *started* it for *one* *walled* *deckhand* is *dust.* *That's* the *only* *monument* I *want.* A *route* that *doesn't* *notice* I'm *gone.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_outlives_her",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.unbroken_line",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "to_the_court",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She squints at you, the good eye skeptical, the milky one somehow less so.)* To the *Court.* *(slowly.)* Where they *decide* the *marking* in the *first* *place.* *(she sets the manifest down.)* I'm a *smuggler*, Returned, not a *prophet* — I *fix* the *problem* in *front* of *me*, which is *getting* the *marked* *out*, *one* *hull* at a *time, after* the *Choir's* *already* *damned* them. *(her voice roughens.)* I *never* thought *past* the *dock.* Past the *next* *twelve.* *(but she's listening.)* You're saying — *carry* *word* of the *route* to the *place* the *marking's* *decided.* *(slowly, the idea landing.)* Let the *powers* who *file* souls *Faithless* *learn* that *down* in the *Gate*, some *gap-toothed* *smuggler* with a *ruined* *purse* has been *quietly* *emptying* their *harvest* for *two* *years.* *(she barks a laugh, hard and surprised.)* That's — *gods*, that's a *thing* I'd *like* them to *know.* *(fierce.)* Not for *me.* For *what* it *proves.* *(she taps the manifest of names.)* Every *soul* on *this* *list* the *Choir* called *Faithless* — *nothing*, *cargo*, *waste* — and a *whole* *underground* of *captains* and *cousins* and *bribed* *sergeants* *risked* the *gallows* to *carry* them to *safety*, *free*, *no* *coin*, for *no* *reason* but *they* *were* *worth* it. *(she meets your eyes.)* *That's* your *proof*, isn't it. The *powers* say the *marked* are *owed* *nothing.* And *down* in the *Gate*, a *city* of *smugglers* and *dockhands* *decided* otherwise, and *acted* on it, for *two* *years*, at *the* *risk* of *their* *necks.* *(she presses the manifest to you.)* *Carry* the *list* to the *Court.* *Let* the *gods* *see* the *names* of *everyone* a *gap-toothed* *smuggler* thought was *worth* a *fleet* of *bribed* *hulls.* *Proof* the *marked* were *never* *cargo.* They were *people* — and a *whole* *underground* of *the* *living* *knew* it, even when the *gods* *didn't.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.mercy_route_to_the_court",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_great_objection",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "gruff",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(She snorts and waves a scarred hand, the armor sliding up.)* Spare me the *soul-searching.* *(gruffly.)* I didn't *ask* you to *fix* *Hessa.* I asked you to *fix* the *route.* *(she taps the manifest.)* I *carry* the *weight* the *same* way I *carry* *everything* — *badly*, *and* *anyway.* That's the *job.* *(she fixes you with the good eye.)* *Pick* a *problem* — *hulls*, *sergeant*, the *gangplank* *math* — or *get* *out* of my *chandlery* and let me *run* my *insolvent* *underground* in *peace.* *(she bends back to the list.)* The *harvest* *doesn't* *wait* for me to *have* my *feelings* *examined*, and *neither* do the *marked.* *Help* or *don't.* But *decide* *quick.* There's a *hull* sailing at *the* *tide* and *two* *names* too *many* for it, and *I've* a *gangplank* to *go* *stand* *at.* *(and she returns to her manifest of the marked, the gruff smuggler who never waits a tenday too long again, running the living out from under the Wall one bribed hull at a time.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Hessa Dock-Eye",
+     "text": "*(Hessa Dock-Eye bends back over her manifest of the harvest-marked — the gap-toothed smuggler who turned the best illicit trade on the Sword Coast into a railroad for the living, who runs the marked out from under the Wall because she waited one tenday too long for a deckhand named Toller and swore she never would again — and whether you took the god-of-the-docks weight off her gut, grew her hulls into a web the harvest can't catch, hardened the route past its weakest bought link, built it to outlive her noose, or carried her manifest to the Court as proof the marked were never cargo, you carry away the one quest on the long road that saves the living instead of mourning the dead: that against a machine of cruelty, mercy needs a machine too — built of bribes and boards and back channels and captains shamed into good — and that the truest monument a smuggler can leave is a route that doesn't notice when she's gone.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "ilfaeril.quest.arrival",
    "file": "IlfaerilQuestContent.cs",
    "title": "Ilfaeril · Quest · Arrival",
@@ -31503,9 +31865,9 @@
   }
  ],
  "stats": {
-  "conversations": 200,
-  "nodes": 1378,
-  "choices": 785,
-  "skillChecks": 169
+  "conversations": 201,
+  "nodes": 1390,
+  "choices": 792,
+  "skillChecks": 170
  }
 }

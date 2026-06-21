@@ -425,6 +425,16 @@ namespace SunderedCrown.Core
             else if (f.GetBool("sq.map_carried_across") || f.GetBool("sq.map_copied_wide"))
                 slides.Add("🗺️ The Old Map — you carried the world's memory of itself onward, copy by copy, past the blue fire and into whatever world comes next. The new maps say desert, Abeir-stone, nothing; but someone, somewhere, will always have the old shape, and be able to say: here was Tharsult, here was Sevenfields, here was a world, and people in it, separated, not gone. A geography that survives its own planet.");
 
+            // "Hessa's Mercy" — the underground that runs the harvest-marked out alive.
+            if (f.GetBool("sq.mercy_route_to_the_court"))
+                slides.Add("⛵ Hessa's Mercy — you carried the gap-toothed smuggler's manifest to the Court itself: two years of harvest-marked souls a city of dockhands and bribed sergeants risked the gallows to run out alive, free, for no reason but they were worth it. The powers said the marked were owed nothing. A whole underground of the living had decided otherwise, and acted on it, and the names proved the marked were never cargo.");
+            else if (f.GetBool("sq.mercy_route_outlives_her"))
+                slides.Add("⛵ Hessa's Mercy — they hanged Hessa Dock-Eye in the end, as she always knew they would. But she'd written it all down first — the routes, the cousins, the captains, Brakker's price — and trained the young freedwoman who runs it better than she ever did. The day they cut her down, the next hull still sailed. Toller's route ran on, long after the woman who started it for one walled deckhand was dust. It was the only monument she wanted: a route that doesn't notice she's gone.");
+            else if (f.GetBool("sq.mercy_route_council") || f.GetBool("sq.mercy_route_network") || f.GetBool("sq.mercy_route_hardened"))
+                slides.Add("⛵ Hessa's Mercy — the underground stopped being one tired woman against a death-machine and became a counter-machine: a board to share the gangplank's terrible math, a web of shamed captains the Fist couldn't hang in a night, a route that survived its own weakest bought link. Cruelty had its Choir and its clerks; mercy got a machine too, built of bribes and back channels, emptying the Wall's intake faster than the harvest could fill it.");
+            else if (f.GetBool("sq.mercy_route_toller"))
+                slides.Add("⛵ Hessa's Mercy — the gap-toothed smuggler ran the harvest-marked out of the Gate one bribed hull at a time, free, her purse ruined and her conscience clear, because she'd once had the power to save a godless deckhand named Toller and waited one tenday too long. Every name she got out was Toller, saved, forty years late. She never waited again.");
+
             // The Lady.
             if (f.GetBool("readers_boon"))
                 slides.Add("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -508,10 +518,11 @@ namespace SunderedCrown.Core
                 new[] { "sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead" },
                 new[] { "sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud" },
                 new[] { "sq.map_carried_across", "sq.map_the_reconciliation", "sq.map_reunites_the_lost", "sq.map_copied_wide", "sq.map_to_the_wall" },
+                new[] { "sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court" },
             };
             int sideDone = 0;
             foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
-            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/13 brought home");
+            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/14 brought home");
 
             // Bonds.
             var loves = new List<string>();

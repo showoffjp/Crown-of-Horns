@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.55.0 — *"Hessa\'s Mercy"* — the fourteenth side quest; the one that saves the living (Pillar 2 + reactivity)
+
+> The first quest on the long road that rescues the living instead of mourning the dead. A fourteenth full
+> side quest — saltier, more operational, a smuggler\'s logistics-and-conscience thriller — written, verified,
+> and wired into the epilogue and Chronicle the same release.
+
+- ⛵ **Side Quest: "Hessa\'s Mercy"** (`hessa_sidequest.dlg`, gated on `sq.hessa_underground`) — Hessa Dock-Eye
+  runs the underground: free passage out of the Gate for the harvest-marked, on boats the Fist is paid not to
+  search, before the Choir can wall them. Not a memorial — a *rescue*, with all the bribes, triage, and bad
+  arithmetic that running people out from under a death-machine actually costs. Four ways in (take the
+  god-of-the-docks triage off her gut; scale the hulls into a network; harden the route past its bought
+  sergeant Brakker; or learn why *her* — a godless deckhand named Toller she waited one tenday too long to
+  save), and resolutions: a council to share the gangplank\'s terrible math (`sq.mercy_route_council`), a web
+  the Fist can\'t hang in a night (`sq.mercy_route_network`), a route hardened past its weakest link
+  (`sq.mercy_route_hardened`), one built to outlive her noose (`sq.mercy_route_outlives_her`,
+  `act5.unbroken_line`), or her manifest carried to the Court as proof the marked were never cargo
+  (`sq.mercy_route_to_the_court`, `act5.the_great_objection`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/14 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/14`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: against a machine of cruelty — the Choir that marks, the Fist that enforces, the clerks that
+  file — mercy needs a machine too, built of bribes and boards and back channels and captains shamed into
+  good; and the truest monument a smuggler can leave is a route that doesn\'t notice when she\'s gone.
+- 📈 **Content**: dialogue corpus now **201 conversations · 1,390 nodes · 170 skill checks** (792 choices);
+  **fourteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 49-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.54.0 — *"The Old Map"* — the thirteenth side quest; the wall that keeps the living (Pillar 2 + reactivity)
 
 > A different wall, and a different kind of erasure: not the dead, but the living, severed by a curtain of
