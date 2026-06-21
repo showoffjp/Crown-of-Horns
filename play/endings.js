@@ -426,6 +426,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.window_one_that_lasts"))
       slides.push("🪟 The Glassblower's Window — Senna stopped fighting on the church's schedule and built one window slow, in secret, of glass that doesn't shatter cheap — then unveiled Corm at the festival, before the whole lantern-lit quarter, where no Justiciar dared lift a hammer. She chose the one hour they couldn't touch him, and set her husband so deep in the street's love that breaking him after would mean breaking the festival itself.");
 
+    // "The Dangerous Book" — the Unabridged that the cat Margin guards.
+    if (f.GetBool("sq.book_to_the_court") || (f.GetBool("sq.book_read_whole") && f.GetBool("sq.book_copied_wide")))
+      slides.push("📕 The Unabridged — you carried Candlekeep's most dangerous book to the Court: not a spell but a census, the full named count of ten thousand years of the discarded, each with the true thing they were. The powers could answer a doctrine; they could not answer a list of their own victims. The book that stops a warm heart with its weight, laid open before the ones who made the weight, with nowhere left for them to look.");
+    else if (f.GetBool("sq.book_copied_wide") || f.GetBool("sq.book_margin_decides"))
+      slides.push("📕 The Unabridged — you copied Candlekeep's deadliest book beyond the power of any seal: a hundred copies in a hundred hands, each reader holding the share they could bear, the full record of the Faithless spread too wide to ever concentrate back into one deadly, sealable volume. The grey cat Margin keeps the original safe; the truth went everywhere. There is nothing left to seal.");
+    else if (f.GetBool("sq.book_read_whole"))
+      slides.push("📕 The Unabridged — you read the book that killed the last warm soul who opened it: ten thousand years of the discarded, named, the true thing each one was, the weight arriving soul by soul until it found the crack in you where you are already half-cold — and held. You carry now the full grief of everyone the Wall ever took, whole, in the one heart the size could not stop. It is unbearable. You bear it. That is what a Returned is for.");
+    else if (f.GetBool("sq.book_read_shared"))
+      slides.push("📕 The Unabridged — you read Candlekeep's most dangerous book the way it was always meant to be read: not alone, the way the last reader died, but together — the cat Margin against your side, the monk weeping at your shoulder, the weight of ten thousand years of the discarded distributed across hearts that held it as one. The truth that stops a solitary heart cannot stop three that carry it together.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -499,10 +509,11 @@ const EndingResolver = {
       ["sq.forbidden_name_spoken", "sq.wickless_speaks_alone"],
       ["sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded"],
       ["sq.window_made_specific", "sq.window_multiplied", "sq.window_to_the_court", "sq.window_one_that_lasts"],
+      ["sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/9 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/10 brought home`);
 
     // Bonds.
     const loves = [];

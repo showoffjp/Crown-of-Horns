@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v4.51.0 — *"The Dangerous Book"* — the tenth side quest (Pillar 2 + reactivity)
+
+> Knowledge as burden, not another ledger to carry to court. A tenth full side quest — written, verified, and
+> wired into the epilogue and Chronicle the same release — bringing the reactive side-quest count into double
+> digits.
+
+- 📕 **Side Quest: "The Dangerous Book"** (`candlekeep_sidequest.dlg`, gated on `sq.dangerous_book_access`) —
+  Candlekeep seals one volume that is not a spell but a *truth*: the Unabridged, the full named census of ten
+  thousand years of the discarded, the weight that stopped the last warm reader's heart — not by magic, but by
+  the sheer size of feeling every walled soul at once. The grey cat Margin guards it, and stepped off it only
+  for you, who are already half-cold. Four ways in:
+  - read it **shared** — the truth that stops a solitary heart can't stop three that hold it together
+    (`sq.book_read_shared`);
+  - read it **whole** — the weight pours into the one heart the size can't stop, the crack in a Returned soul
+    (`sq.book_read_whole`, `act5.witness_then_release`);
+  - **copy** it beyond any seal — a truth too widely spread to ever concentrate back into one deadly book
+    (`sq.book_copied_wide`);
+  - or carry it to the **Court** — not an argument but a census, a list of the powers' own victims they cannot
+    answer (`sq.book_to_the_court`, `act5.the_great_objection`); plus an *ask-Margin* resolution where the cat
+    who read every reader chooses (`sq.book_margin_decides`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution (priority-
+  ordered, with a combined whole+copied→Court slide), and the tally grows to **N/10 brought home** — mirrored
+  byte-identically across `endings.js` and `EndingResolver.cs`, injected into the Endings Explorer (chrome
+  preserved), flowed into the all-in-one. Test tally updated to `3/10`. Prose-parity green, fuzz crash-free.
+- 🧵 **Theme**: the most dangerous thing in the greatest library is not a spell but a *list* — the true names
+  of everyone the Wall threw away — and a truth too heavy for one heart is defeated not by being made lighter
+  (impossible; the dead are the dead) but by being *shared*, *copied*, and *carried* by enough hands that no
+  power left alive can ever seal it again.
+- 📈 **Content**: dialogue corpus now **197 conversations · 1,342 nodes · 166 skill checks** (764 choices);
+  **ten** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 45-file `.dlg`
+  corpus compiles clean.
+
+---
+
 ## 👑 v4.50.0 — *"The Glassblower's Window"* — the ninth side quest (Pillar 2 + reactivity)
 
 > Grief made into light, not another ledger. A ninth full side quest — written, verified, and wired into the
