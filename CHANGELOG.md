@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.25.0 — *"The Day the Wall Was Built"* — the Crown Wars origin (Pillar 2 keystone)
+
+> The saga reaches its thematic floor: ~−10,000 DR, the founding chamber where the Wall of the Faithless
+> is *invented* — not by a villain, but by a grieving, kind-eyed judge who calls it mercy; where the very
+> first soul is sentenced before the word "Faithless" even has a meaning; and where a brilliant young elf
+> named Ilfaeril raises his hand to vote yes, on the worst and most innocent day of a ten-thousand-year life.
+
+- 🏛️ **The Crown Wars open** (`crownwars_denizens.dlg`) — the origin of the central evil, shown as a
+  committee of good intentions:
+  - **Coronal Aedyn** — the high judge who devised the Wall as *preservation* rather than annihilation, and
+    genuinely cannot tell whether he's building a mercy or "the most patient cruelty in the history of the
+    world." Confront him and the foundation shows: the Wall is a way to *never have to grieve* — filing
+    cheaper than weeping — and *"a crown cannot choose mercy, because mercy is sometimes the refusal to rule"*
+    (`act3.wall_born_of_mercy`, `act3.crown_cannot_grieve`, `act3.break_the_crown_known`).
+  - **The First Faithless** — *Maerys*, a soldier who drowned pulling a bad singer named Calla out of a river,
+    standing in the first dock before the word "Faithless" has been given its terrible meaning. She kept every
+    faith that mattered — just not to a god — and you can make the Wall *fail at its very first stone* by being
+    the one witness who remembers her name (`act3.first_faithless_remembered`, `act3.died_for_a_song`).
+  - **Ilfaeril, the Younger** — your ancient, grief-hollowed companion as an *eighteen-year-old prodigy*,
+    certain and clear-eyed and proud, an hour from casting his first vote. His airtight logic has one hole —
+    he's been *forbidden to ask the defendant* — and you can send him to the dock, or tell him you've met his
+    ten-thousand-year-older self still carrying the wound. The exact moment a companion's grief was born,
+    happening live (`act3.ilfaeril_asks`, `act3.ilfaeril_hand_stays_down` / `act3.ilfaeril_raises_hand`).
+- 🧵 **Theme (keystone)**: the Wall was not built by hatred but by *love exhausted past the strength to
+  grieve*, and armored in a sincerity no later century dares question — "the hardest evil to end is the one
+  done in love." The first Faithless was never faithless; the Wall was a lie from its first stone; and the
+  crown at the road's end is the office, not the answer.
+- 📈 **Content**: dialogue corpus now **147 conversations · 905 nodes · 116 skill checks** (up from
+  144/881/112). All 606 headless CI checks green; the 21-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.24.0 — *"The Hand in the Margins"* — Netheril complete + the loop's first thread (Pillar 1/2)
 
 > The Seventh Enclave finishes falling — and the mystery of who *you* are takes its first cold shape. A
