@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.33.0 — *"The Same Dog"* — the connective tissue, Wave I (Pillar 2 · the weave)
+
+> The recurring souls who appear in *every* era, ten thousand years and four fallen worlds apart, alarmingly
+> the same — the threads that stitch the whole saga into one cloth. A coffin-salesman whose pre-need plans
+> are a secret rebellion, a man who complains to the afterlife's empty desk because complaint is the last
+> dignity, and a grey dog that has never stopped hearing the song of the kept.
+
+- 🧵 **Connective Tissue Wave I** (`connective_denizens.dlg`) — the "anywhere" NPCs:
+  - **The Travelling Coffin-Salesman** — the same tidy man in every era, selling endings to a cosmos that
+    walls its dead; a *protest with a sample-case.* He keeps a ledger of empty graves — every soul he sold a
+    grave who got the Wall instead, *Halen's hole still open after ten thousand years* — and a grave waiting,
+    with your name on the stone (`sq.coffin_ledger`, `act5.graves_waiting`, `act5.grave_for_the_returned`).
+  - **The Complaint** — the fussy, persistent man lodging formal grievances at a never-staffed desk, who is
+    really a *resistance shaped like a customer complaint*: "accept it" is the mortar of the Wall, and he has
+    spent an age refusing to sign off. Under the thousand petty objections is the one too big to write — his
+    daughter, walled at eleven for the crime of thinking (`sq.the_complaints`, `act5.ask_them_why`,
+    `act5.refusing_consent`).
+  - **The Same Dog** — a grey dog with a notched ear, the same one across every era, the one creature that
+    never learned the doctrine and so never stopped hearing the Wall's song. The un-teachable mourner that has
+    spent ten thousand years howling back at the kept and *waiting to be followed* — it leads to the loudest
+    part of the song (`act5.dog_leads_to_wall`, `act5.unlearn_the_doctrine`).
+- 🧵 **Theme**: the saga as one woven cloth — the same jobs done in every age (the grave-promiser, the
+  objector, the mourner), proof that the impulse to remember, to refuse, to grieve the forgotten regenerates
+  spontaneously in every era and can never be fully stamped out.
+- 📈 **Content**: dialogue corpus now **169 conversations · 1,079 nodes · 138 skill checks** (up from
+  166/1,056/135). All 606 headless CI checks green; the 29-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.32.0 — *"The Book That Grieves"* — the Court of the Dead, complete (Pillars 1+2)
 
 > The summit's last two voices: the true believer who must be turned, and the book that has held every

@@ -170,9 +170,9 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 
 | # | NPC | Hook | |
 |---|---|---|---|
-| 83 | **The Travelling Coffin-Salesman** | Appears in every era selling pre-need funerary plans; alarmingly consistent across 10,000 years. | 📋🔁 *(running gag)* |
-| 84 | **The Complaint** | A man who exists solely to complain about the afterlife's customer service, in every act. | 📋🔁 *(comic)* |
-| 85 | **The Same Dog** | A grey dog that howls at the Wall's song; the only creature besides Threnody and Pib who hears it. | 📋🔁 |
+| 83 | **The Travelling Coffin-Salesman** | Appears in every era selling pre-need funerary plans; alarmingly consistent across 10,000 years. | ✍️🔁 *(running gag)* |
+| 84 | **The Complaint** | A man who exists solely to complain about the afterlife's customer service, in every act. | ✍️🔁 *(comic)* |
+| 85 | **The Same Dog** | A grey dog that howls at the Wall's song; the only creature besides Threnody and Pib who hears it. | ✍️🔁 |
 | 86 | **Echo of Garrow** | In each era, a grave-tender doing Garrow's work under a different name — the eternal job. | 📋🔁 |
 | 87 | **The Memorist's Successors** | Children in each era keeping their own lists; Lula's idea, older than Lula. | 📋🔁 |
 | 88 | **The Returned Before You** | Glimpses of prior loops' protagonists, each subtly more like the Last Returned. | 📋🔁 |
