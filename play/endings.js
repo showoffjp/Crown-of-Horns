@@ -518,6 +518,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.crossing_fleet") || f.GetBool("sq.crossing_near_bank_held"))
       slides.push("⛴️ The Coinless Crossing — one old man and one skiff became a river the harvest couldn't cross: a guarded near bank where the breathless waited safe, a fleet of free dusk crossings crewed by everyone who'd lost someone to the waterline, until the harvesters arrived to find the coinless already across and resting on the far shore. One ferryman the harvest could outlast. A river of them it could not.");
 
+    // "A Point" — Ysolde de Lancie, the bored heiress who collected a conscience.
+    if (f.GetBool("sq.delancie_shames_the_peers"))
+      slides.push("💎 A Point — Ysolde de Lancie aimed the one weapon no resistance ever had: fashion. She stood up in her best diamonds and declared the walling of the poor gauche, grasping, so-last-century — and because the patrician class is imitative sheep terrified of being last season, complicity went out of style across the Upper City within a Tenday. The harvest armored itself against the grief of the poor and the swords of the brave. It never imagined the comfortable getting bored of pretending not to see.");
+    else if (f.GetBool("sq.delancie_commits"))
+      slides.push("💎 A Point — Ysolde de Lancie wagered the one thing a de Lancie fortune was built to protect: herself. She funded the resistance publicly, in her own name, where Mother could see and the Council could retaliate and the family could disinherit her — sold the ancestral Bluewater Sapphire for the first contribution, and told her mother the truth for once: that she'd spent it on a point. A patron who can't be hurt is a hobbyist; she put her skin on the table, and the harvest-poor knew the difference.");
+    else if (f.GetBool("sq.delancie_endowment"))
+      slides.push("💎 A Point — Ysolde de Lancie learned the de Lancie disease — everything a gesture, nothing a structure — and cured it: she institutionalized her mercy. The de Lancie Fund for the Harvest-Marked, named, public, legally unbreakable, with bottomless gold behind it, buys the marked free on de Lancie money long after the last de Lancie is dust in an unvisited crypt. A page in the ledger that doesn't read 'took up space beautifully.' It reads 'built a thing that outlived her.'");
+    else if (f.GetBool("sq.delancie_opens_doors") || f.GetBool("sq.delancie_endowment"))
+      slides.push("💎 A Point — Ysolde de Lancie became the resistance's key to every Upper City door it could never enter: the Council chamber where the quotas are approved, the ducal salons where the Choir's high men dine. She seated the deserter across from the Justiciar at dinner and let him tell the one about the fifth village; she brought the gnome's map of silences to a Council session as a curiosity. The harvest is enforced below, but authorized above — and she walked the witnesses in.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -600,10 +610,11 @@ const EndingResolver = {
       ["sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court"],
       ["sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers"],
       ["sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him"],
+      ["sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/18 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/19 brought home`);
 
     // Bonds.
     const loves = [];

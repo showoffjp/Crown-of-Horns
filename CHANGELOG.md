@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.60.0 — *"A Point"* — the nineteenth side quest; the bored heiress who collected a conscience (Pillar 2/4 + reactivity)
+
+> The suite\'s only wealth/satire texture: an aristocrat\'s class-power — money, status, access, taste — pointed,
+> for the first time in its history, at something other than itself. A nineteenth full side quest — written,
+> verified, and wired into the epilogue and Chronicle the same release; the corpus crosses 1,450 nodes.
+
+- 💎 **Side Quest: "A Point"** (`delancie_sidequest.dlg`, gated on `sq.delancie_patron`) — Ysolde de Lancie went
+  shopping for immortality, discovered immortality is just the Wall by another name (nothing, forever), and
+  found instead the one thing money can\'t buy: a use. Now she has assets the resistance never had — obscene
+  wealth, a name that opens every Upper City door, and the power to *set fashion* among the class that funds the
+  harvest. Four ways in (her smallest asset is money — turn her *class against itself*; be the key to authorized
+  rooms; institutionalize mercy into a permanent fund; or lean into the fear that the thing that can break was
+  always the thing worth being), and resolutions: make complicity unfashionable across the Upper City
+  (`sq.delancie_shames_the_peers`, `act5.refusing_consent`), open the doors the resistance can\'t
+  (`sq.delancie_opens_doors`, `act5.the_great_objection`), build the unbreakable de Lancie Fund
+  (`sq.delancie_endowment`, `act5.unbroken_line`), or wager the inheritance itself with skin in the game
+  (`sq.delancie_commits`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/19 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/19`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: the harvest armored itself against the grief of the poor and the swords of the brave and never
+  once imagined the comfortable getting bored of pretending not to see — and the most exotic, vulgar,
+  transformative thing a patrician could ever collect is a conscience.
+- 📈 **Content**: dialogue corpus now **206 conversations · 1,450 nodes · 175 skill checks** (827 choices);
+  **nineteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 54-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.59.0 — *"The Coinless Crossing"* — the eighteenth side quest; the god vs the snare (Pillar 2/4 + reactivity)
 
 > A ferrying/labor texture with the sharpest faction-revelation on the road: the cruelty was never the god\'s
