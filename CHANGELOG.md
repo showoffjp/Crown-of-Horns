@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.36.0 — *"The Keeper of Debts"* — the Low Lantern, complete (Pillar 2 · the wider city)
+
+> Three more regulars finish the Low Lantern's roster — the woman who holds the whole quarter's accounts, the
+> drunk who reasoned too far, and the fence who raised a companion.
+
+- 🍺 **The Low Lantern, Wave II** (`lowlantern_denizens_2.dlg`):
+  - **Tess** — the barmaid who carries the quarter's debts of coin *and* conscience in her head, judging
+    nothing, forgetting nothing: the informal court of the poor, where the wronged don't disappear. The turn,
+    keeper to keeper: a debt remembered *so it can be settled* is mercy; a debt held *so it never can* is a
+    cage in a ledger's clothes — the whole question the Wall dodges (`act4.deathless_is_the_wall`,
+    `act2.cataloguing_defeats_the_wall`). Her own great debt — a broken promise — she keeps uncollected.
+  - **Doddering Phinneas** — the quarter's joke, a real philosopher who followed a thought to the floor of the
+    abyss (*the universe grants no meaning*) and has drunk eleven years to blur its edge. He stopped one stair
+    short of the rescue: if meaning isn't *given* it's *made* — un-foreclosable, because a silent universe
+    that grants nothing also revokes nothing. The terror was never the silence; it was facing it *alone*
+    (`act4.meaning_lives_in_memory`, `act4.meaning_without_reward`).
+  - **Old Sabira** — the fence who raised the companion **Roen** off the street and buried the secret that
+    could unmake them both: a desperate, terrible thing Roen did at fourteen — which was *Sabira's* sin
+    dressed as the child's. Ties directly to Roen's arc: the Wall destroys not by *exposing* a past but by
+    making a single act curdle into a whole name, and the cure is to *name it in daylight and refuse it the
+    power of shame* (`sq.roen_secret`, `act5.shame_feeds_the_wall`).
+- 🧵 **Theme**: the tavern as the saga's whole argument in miniature — debts that should settle, meaning made
+  by hand, shame defeated by daylight. The Low Lantern (#89–94) is **fully voiced**; roster now **94 named
+  denizens.**
+- 📈 **Content**: dialogue corpus now **178 conversations · 1,149 nodes · 147 skill checks** (up from
+  175/1,125/144). All 606 headless CI checks green; the 32-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.35.0 — *"The Candle and the Tide"* — the Low Lantern fills (Pillar 2 · the wider city)
 
 > The principal saga is voiced end to end; now the Lower City taverns fill with the named faces that give a

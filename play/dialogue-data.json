@@ -19395,6 +19395,560 @@
    ]
   },
   {
+   "id": "npc.lantern.barmaid",
+   "file": "LowLanternDenizensTwoContent.cs",
+   "title": "Npc · Lantern · Barmaid",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Tess",
+     "text": "*(The barmaid moves through the Low Lantern like water finding its level — a word here, a refilled cup there, a hand on a shoulder that stops a brawl before it starts. She sees everything, and you get the distinct sense she has already catalogued *you* — your coin, your mood, your likely lies — in the time it took to cross the room. She sets a cup in front of you without being asked.)* You look like you're owed something. *(she wipes the bar.)* Most people who come in with a face like that are. *Owed*, or *owing.* It's always one or the other down here. *(a wry half-smile.)* I'm Tess. I keep this place. And — though it's not on any sign — I keep the *books.* Not the *tavern's* books. The *quarter's.* Who owes who. Who paid. Who *won't.* *(she meets your eyes.)* Everyone tells the barmaid. They can't help it. So I *know.* Sit a while. I'll know *you* soon enough.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.tess_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Tess",
+     "text": "*(She polishes a cup, and her voice is low and even, the voice of someone who holds a great deal and shows none of it.)* It's not the *coin* debts that weigh, you understand. *(she nods at a man in the corner.)* *He* owes the cooper four silver. *That* one owes the smith for a year of horseshoes. Those I keep *easy* — numbers, just numbers. *(her voice drops.)* It's the *other* ledger. The one nobody *asks* me to keep but *everyone* makes me. *(she sets the cup down.)* I know that *Halla*, who sells fish, was *beaten* by her *husband* for *six* years, and that the husband *drowned* — *conveniently* — and that *half* this quarter *knows* it wasn't *quite* an accident and *none* of us will *ever* say. I know which *Watchman* takes coin to *look away*, and *what* he looks away *from.* I know who *fathered* whose child, and who *thinks* they did and is *wrong.* *(she meets your eyes.)* People *unburden* themselves to a barmaid the way they *can't* to a *priest* — because I won't *judge* them, I'll just *refill* their cup. And so I *carry* it. *All* of it. The whole quarter's *debts*, *coin* and *conscience* both, *filed* in *here* — *(she taps her temple)* — because *someone* has to *remember* who *owes* what to *whom*, or the *whole* thing *frays*, and people *forget* they were *wronged*, or *forget* they did *wrong*, and a *community* that *forgets* its *debts* stops being a *community* at all. *(she picks the cup back up.)* I'm the *memory* of the *poor*, friend. It's a *heavy* book. And nobody ever *asked* me to *keep* it. I just — *do.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You carry everyone's debts in your head — coin and conscience both — and I'll wager there's one ledger line you never speak: your *own.* Somebody owes *you*, Tess. A debt you keep as faithfully as all the rest and will never collect. Whose is it?\"",
+       "next": "owed",
+       "fail": "wry",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You're not the memory of the poor. You're their *court.* No magistrate comes down here, so you hold who-wronged-whom in trust — judging nothing, forgetting nothing — so that justice at least gets *remembered*, even when it can't be *done.* That's a heavier office than the bar.\"",
+       "next": "court",
+       "fail": null
+      },
+      {
+       "text": "\"Knowing all of it — Halla's husband, the Watchman, the fathers — and saying none of it. That's not discretion, that's a *vault.* How do you carry a quarter's worth of secrets without one of them rotting you from inside?\"",
+       "next": "vault",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"I'm walking toward a place that files debts too — the Wall, the ledger of the dead. You keep the quarter's debts to hold it *together.* The Wall keeps the dead's debts to hold them *down.* Tell me, keeper to keeper: what makes a kept debt mercy instead of a cage?\"",
+       "next": "ledger",
+       "fail": null
+      }
+     ]
+    },
+    {
+     "id": "owed",
+     "speaker": "Tess",
+     "text": "*(Her hands go still on the cup. For a moment the easy competence drops, and something old and carefully shelved shows through.)* ...My own. *(quietly.)* You don't miss much. *(she sets the cup down, slowly.)* There's a line in my ledger I'll never *read aloud.* *(she looks at the bar, not you.)* A man. *Years* back. He *promised* me — the whole *thing*, the *life*, the *out* — promised to *take* me from *behind this bar*, and I *believed* him, because I was *young* and I'd *kept* everyone *else's* secrets so *faithfully* I thought I'd *earned* one *kept* in *return.* *(her jaw tightens.)* He *left.* Owing me — not *coin*, coin I could *forgive* — owing me the *years* I spent *waiting*, the *other* offers I *turned down*, the *self* I *built* around a *promise* he *broke* without a *backward* glance. *(she meets your eyes.)* And here's the *bitter* joke of being the *quarter's* book-keeper: I *carry* everyone's *debts* so *faithfully*, *collect* them, *remind* the *forgetful*, *hold* the *wrongdoers* to *account* — and my *own* great debt, the *only* one that's *mine*, I can *never* collect, because the *debtor's gone*, and there's *no court* for a *broken promise*, and a barmaid who *demanded* her *own* due would *crack* the *one* thing that makes her *useful*: that she *carries* and *never* asks. *(quietly.)* So I keep it. *Unspoken.* *Uncollected.* The *one* line in the *whole* ledger that *isn't* a *number* and *won't* ever *balance.* *(she picks the cup back up, steadier.)* Thank you for *seeing* it. It's *owed* a *witness*, at least, even if it'll never be *paid.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tess_owed",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "court",
+     "speaker": "Tess",
+     "text": "*(She considers that, and slowly sets down her rag, the idea settling over her like a mantle she's worn unnamed for years.)* Their court. *(quietly.)* ...Huh. *(she looks around the room — the fish-seller, the man who owes the cooper, the Watchman who takes coin.)* No magistrate comes down here, you're right. The *Upper City* law doesn't *reach* the Low Lantern — to *them* we're all *guilty* of *being poor*, and they don't *sort* the *wronged* from the *wrongdoers* among us, they just *don't look.* *(she nods slowly.)* So who *holds* it? Who *remembers* that *Halla* was *wronged* for *six years* and *isn't* a *murderer* but a *survivor?* Who *remembers* that the *Watchman's* coin-taking has a *price* paid by *real* people? *(she taps her temple.)* *Me.* Because if *nobody* holds it, then *down here*, *being wronged* and *doing wrong* become the *same* blur, and the *strong* prey on the *weak* and *no one even remembers* it *happened.* *(her voice firms.)* I can't *punish.* I've no *gallows*, no *guard.* But I can *remember* — *exactly*, *fairly*, *who* did *what* to *whom* — and *remembering* is the *seed* of *justice*, the part that *has* to *survive* even when the *doing* can't. *(she meets your eyes.)* A *court* that can only *remember* and never *sentence* sounds *useless.* But it's the *difference* between a *quarter* where the *wronged* are *known* to be *wronged* — and a *quarter* where *cruelty* just *vanishes* into the *fog*, *unrecorded*, as if it *never* happened. *(she picks the rag back up.)* I'm the *un-vanishing.* That's the *office.* Heavier than the *bar*, like you said. But *somebody's* got to be the *place the wronged don't disappear.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tess_court",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "vault",
+     "speaker": "Tess",
+     "text": "*(She huffs a soft breath, almost a laugh.)* How do I carry it without it rotting me. *(she wipes the bar.)* Honest answer? *Some* days it *does.* *(quietly.)* There are *nights*, after close, when the *weight* of *knowing* — *all* of it, the *beatings* and the *bribes* and the *broken* people *smiling* at each *other* over *secrets* I *hold* for *both* — there are nights it sits on my *chest* like a *drowned* man, and I think: *why me? Why am I the* vault? *I didn't* ask *to know that Halla's husband didn't fall.* *(she sets the rag down.)* And then I figured out the *trick* of it, and I'll *give* it to you, because you've the look of someone who *carries* things too. *(she meets your eyes.)* The secrets don't *rot* you if you hold them *for* the *person* instead of *about* them. *(quietly.)* When I hold *Halla's* secret, I don't hold *\"Halla's husband was killed.\"* I hold *\"Halla is safe now, and afraid, and needs her cup filled without questions.\"* *(she taps her chest.)* Same *fact.* But one is a *weight* I carry *against* her, and the other is a *kindness* I carry *for* her. The *knowing* is the *same.* The *direction* is *everything.* *(she picks the rag back up.)* Hold a secret *about* someone, it *rots* you both. Hold it *for* them — as a *shelter*, a *thing you keep so they don't have to* — and it's *heavy*, but it's *clean.* *(she half-smiles.)* That's how a *barmaid* holds a *quarter's* worth of *sins* and still *sleeps.* *Mostly.* I hold them *for* people. Not *over* them. *Never* over.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tess_vault",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "ledger",
+     "speaker": "Tess",
+     "text": "*(She goes quiet, and the question — keeper to keeper — clearly strikes something deep in her.)* What makes a kept debt mercy instead of a cage. *(slowly.)* ...That's the *whole* of it, isn't it. The *only* question that *matters* for anyone who *keeps* a *book* of *what's owed.* *(she sets down the cup.)* I'll tell you what I've *learned*, keeping *this* one. *(she leans on the bar.)* A debt I keep is *mercy* when I keep it so the debtor can *pay* it and be *free.* *(she nods at the man who owes the cooper.)* He owes four silver. I *remember* it *so that* one day he *pays* it, and shakes the cooper's hand, and it's *done*, *settled*, *gone* — the *debt* existed to be *ended.* *(her voice hardens.)* It becomes a *cage* the moment I keep it so he can *never* be free — when the *remembering* stops being *\"so this can be settled\"* and becomes *\"so this can be held over him forever.\"* *(she meets your eyes.)* Your *Wall* — it keeps the dead's debts *that* way, doesn't it. Not *\"so they can pay and be free.\"* It's got *no* settling, *no* shaking of hands, *no* \"done.\" Just *holding*, *forever*, with *no* path to *paid.* *(quietly, fierce.)* That's the *difference*, keeper to keeper. *My* ledger has a *column* for *\"settled.\"* A *cage* is a *ledger with no settled column.* A debt you can *never* discharge isn't a *debt* — it's a *sentence wearing a debt's clothes.* *(she picks the cup back up.)* Go *give* the dead a *\"settled\"* column, friend. That's all *mercy* ever was: *a debt that's allowed to end.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.tess_ledger",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act3.break_the_crown_known",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.deathless_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "wry",
+     "speaker": "Tess",
+     "text": "*(She gives you a long, knowing look and refills your cup.)* You're fishing. *(wryly.)* For *my* secrets, or for *someone* else's — either way, the *barmaid's* the *wrong* well to *lower* that *bucket* into. *(she wipes the bar.)* I *keep* what I *keep.* That's the *whole* job. A book-keeper who *spilled* her *books* to the *first* sharp-eyed stranger with a *sad* face wouldn't be worth the *stool* she stands on. *(she half-smiles, not unkindly.)* Drink your drink. Tell me what *you're* owed, if you like — I'll *file* it, *fair* and *quiet*, with the *rest.* But *my* ledger stays *mine.* *(she moves off down the bar to fill another cup, the keeper of the quarter's debts, holding it all and showing none.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Tess",
+     "text": "*(Tess moves on down the bar of the Low Lantern — refilling cups, stopping brawls with a word, carrying the whole quarter's debts of coin and conscience filed behind her steady eyes — and whether you drew out the one line she'll never collect or let her keep her vault sealed, you carry away the quiet keeper's wisdom at the heart of the saga: that a debt remembered *so it can be settled* is mercy, and a debt held *so it never can* is only a cage in a ledger's clothing — and that the difference between the two is the whole question the Wall was built to dodge.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.lantern.philosopher",
+   "file": "LowLanternDenizensTwoContent.cs",
+   "title": "Npc · Lantern · Philosopher",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Phinneas, Deep in His Cups",
+     "text": "*(A disheveled man holds court at a corner table to an audience of no one, gesturing with a sloshing cup, declaiming to the rafters. The other patrons roll their eyes — clearly the resident drunk philosopher, the quarter's running joke. But as you pass, a fragment of his slurred lecture catches you, and it is not nonsense. It is, in fact, precisely correct.)* — and *therefore*, the *gods* — *(hic)* — the gods cannot be the *source* of meaning, because a meaning that requires a *god* to *grant* it is a meaning that *dies* when the god does, and the gods are — *(he gestures grandly, slopping wine)* — *demonstrably* — *mortal* this season! *(he notices you.)* You! You *heard* that. You *flinched.* Most don't *flinch.* Most just *laugh* at old Phinneas. But *you* — you *flinched*, which means you *understood*, which means *(hic)* — sit *down*, before I *lose* the *thread.* The *thread* is *terrible* and I've nearly *drowned* it, which is the *point* of the *wine*, but *now* I *want* a *witness.*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.phinneas_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Phinneas",
+     "text": "*(He leans in, and beneath the slur is a mind that was, and intermittently still is, formidable.)* They think I drink because I'm a *fool.* *(he taps his temple, missing slightly.)* I drink because I'm *not.* *(he drains the cup.)* I was a *real* philosopher once. *Robes.* *Students.* A *chair* at a *school* you've heard of. And I made the *mistake* that *ends* philosophers: I *followed* a thought *all the way to the bottom.* *(quietly, and the slur recedes as the horror surfaces.)* Most thinkers *stop* — comfortably, *sensibly* — a *few* steps before the *bottom*, where the *view* is still *bearable.* I *didn't* stop. I *reasoned*, *step* by *honest* step, down to the *floor* of the *whole* thing, and I *found* — *(his hand shakes)* — I found that *meaning* is not *out there.* It is not *given*, not *granted*, not *woven* into the *world* by *gods* or *fate* or *stars.* The universe is *silent.* It *means* nothing. It *intends* nothing. It is *vast* and *cold* and *indifferent* and *we* — *(he gestures at the warm tavern)* — *we* are *brief* warm *accidents* who *invented* meaning to *survive* the *silence.* *(he refills the cup with a trembling hand.)* And *that*, friend — *that* is *true*, I *checked*, I *checked* it a *thousand* times *sober* before I *ever* picked up a *cup* — and it is *too terrible to hold in a clear mind.* So I *blur* it. *Nightly.* The *wine* doesn't make me *forget* it. Nothing *could.* It just — *softens* the *edges* enough that the *true* thing doesn't *cut* my *throat* on the way *down.* *(he drinks.)* I'm not a *drunk* who *talks* nonsense. I'm a *philosopher* who found the *one* true thing and has to *drink* to *survive* having *found* it.",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You reasoned to the bottom and found the universe means nothing — and stopped one step too soon, sober. Because the *next* step is the one that saves you: if meaning isn't *given*, then it's *made* — by us, by the warm accidents, by hand. The silence isn't despair. It's a *blank page.* You found the horror and drank before you reached the *liberation* right beneath it.\"",
+       "next": "liberation",
+       "fail": "slur",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"The clerk of causality said the same thing, in the falling of a different world: that when meaning stops being automatic, it doesn't die — it has to be made by hand, one chosen act at a time. You're not wrong, Phinneas. You're just *unfinished.* You quit thinking right before the part that lets you live.\"",
+       "next": "causality",
+       "fail": null
+      },
+      {
+       "text": "\"You drink so the true thing won't cut your throat. But you also *talk* — you declaim it nightly to a room that laughs. Some part of you isn't trying to drown the truth. It's trying to *teach* it. Which is it: are you hiding from the bottom, or trying to hand it to someone?\"",
+       "next": "teach",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"What was the thought, Phinneas? The exact step that broke you. Walk me down to the bottom — sober as you can manage — and let me stand on the floor of the thing with you. You shouldn't be the only one who's seen it.\"",
+       "next": "bottom",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "liberation",
+     "speaker": "Phinneas",
+     "text": "*(The cup stops at his lips. His bleary eyes focus, slowly, with the terrible clarity of a man being handed the step he refused to take.)* ...The next step. *(he sets the cup down, untasted.)* If meaning isn't *given* — then it's — *(he stops, and his whole frame goes still.)* *Made.* *(a whisper.)* By *us.* *(he stares at his own hands.)* I *stopped.* You're — *gods*, you're *right*, I *stopped* at *\"the universe means nothing\"* and I called it *\"the bottom\"* and I started *drinking* — but it *wasn't* the *bottom*, was it, it was a *landing*, and there was *one more flight of stairs*, and at the *bottom* of *that* — *(his voice shakes, but with something other than horror now.)* If the universe *grants* no meaning, then *no meaning I make can be taken from me by the universe.* *(he stands, swaying, electrified.)* A *given* meaning is a *loan* — the *gods* can *call* it *in*, the *stars* can *foreclose*, and when they *die* the meaning *dies.* But a *made* meaning — a meaning I *build*, *by hand*, *here*, in this *warm* accident of a *tavern*, out of *who I love* and *what I do* and *the witness I keep* — *(he grips the table)* — *that* one is *mine*, *unfundable*, *un-foreclosable*, *because the silent universe that grants nothing also* ***revokes*** *nothing.* *(he laughs, a real laugh, the first in years.)* The *silence* isn't a *void* that *eats* meaning. It's a *blank page* that *can't* erase what *I* write on it, *because it was never holding the pen!* *(he looks at the untouched cup, then at you.)* I drank for *eleven years* one *stair* short of the *only* thought that could have *saved* me. *(quietly, undone.)* Sit. *Sit.* I have to think this *sober.* For the *first* time in a *decade*, I *want* the *edges* *sharp.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.phinneas_liberation",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.meaning_lives_in_memory",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.meaning_without_reward",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "causality",
+     "speaker": "Phinneas",
+     "text": "*(He blinks, the slur burning off as genuine philosophical excitement takes hold.)* A clerk of — in a *falling* world — *(he leans forward, scholar to scholar.)* You're telling me *someone else* reached the *same* floor — *\"meaning is not automatic\"* — and *didn't* *drink*, but *kept going*, and found — *(he grips the table.)* *Made by hand. One chosen act at a time.* *(he stares at you.)* That's — that's the *step.* That's the *stair* I *missed.* *(quietly, wonder cutting through the wine.)* I reached *\"the universe enforces no meaning\"* and I read it as a *verdict.* A *death sentence* on *significance.* And your *clerk* read the *exact same fact* as an *invitation.* *Same floor.* *Opposite* meaning. *(he laughs, shakily.)* Which — *gods* — which is the *thing itself*, isn't it? The *fact* that the *same* truth — *\"no meaning is given\"* — can be a *horror* or a *liberation* *depending on what the finder does with it* — that *proves* the *point.* The *universe* didn't *tell* me it was a *horror.* *I* did. *I* assigned that *meaning.* Which means I *could* assign a *different* one. Which means — *(he sets the cup firmly aside)* — *meaning is made by the finder*, and I have spent *eleven years* using my *freedom to assign meaning* to assign *despair*, when I could have *assigned* — *(he gestures at the warm room, the lamplight, you)* — *this.* *(he meets your eyes, steadier than he's been in years.)* Your *clerk* and I reasoned to the *same* cellar. He *lit a candle*. I *cursed the dark.* And the *cellar didn't care either way* — which was *always* the *good* news, and I was *too clever* to *see* it. Tell the *clerk*, if you *meet* him *again*, that *Phinneas* finally *took the last stair.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.phinneas_causality",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.meaning_lives_in_memory",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "teach",
+     "speaker": "Phinneas",
+     "text": "*(He pauses, the cup halfway up, genuinely caught.)* Hiding, or handing. *(slowly.)* ...You've *split* me *open* with that one. *(he sets the cup down.)* Because it's *both*, and I *never* let myself *see* the *handing* part. *(quietly.)* I *tell* myself I *declaim* to the *rafters* because the *wine* makes me *loud*, because I'm a *foolish* drunk who *can't* keep a *thought* in his *head.* *(he looks at the room that laughs at him.)* But you're *right* — I don't *whisper* the *terrible* truth into my *cup.* I *announce* it. *Nightly.* To a *room.* And a man who *truly* wanted to *drown* a thought would *drown* it *silent*, not *broadcast* it to *every* drinker in the *Low Lantern.* *(his voice catches.)* Some — *some* part of me has been *trying to give it away.* *Eleven years* of *\"foolish old Phinneas and his lectures\"* — and *under* it, the *whole* time, a *man* *standing* on the *floor* of the *abyss*, *shouting up* at *everyone* still on the *comfortable* stairs: *\"It's down here! The bottom! Come see! Don't make me be the only one who's stood on it!\"* *(he meets your eyes, and there are tears.)* I'm not *hiding* the truth in the *wine.* I'm *lonely* on the *floor* of it, and I've been *throwing* it at *strangers* for a *decade*, *hoping* one would *flinch* — *understand* — and *climb down* to *stand on it* with me. *(quietly.)* You *flinched.* You're the *first* in *years* who *flinched.* Don't — don't *go* yet. I've been *alone* at the *bottom* of the *thought* for *so* long.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.phinneas_teach",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "bottom",
+     "speaker": "Phinneas",
+     "text": "*(He sets the cup down with sudden, sober care, and for a moment the drunk vanishes entirely, leaving only the philosopher he was.)* The exact step. *(quietly.)* All right. Walk *down* with me. *Carefully.* *(he holds up one finger.)* *One:* I look for meaning *in the world* — in *gods*, *purpose*, *design.* *(a second finger.)* *Two:* I find that *every* meaning I locate *out there* turns out to be *put* there — by *people*, by *priests*, by *me* — *projected* onto a *silent* world, like a *face* seen in a *cliff.* *(a third finger, his hand trembling.)* *Three:* I strip *away* every *projection*, *honestly*, to see what *meaning* remains when *no one* is *looking* — and I find — *(his voice drops to nothing)* — *nothing.* A *silent*, *indifferent*, *meaningless* cosmos that would *not notice* if *all* warmth, *all* love, *all* thought *winked out* this *instant.* *(he closes his eyes.)* *That's* the *floor.* The *step* that *broke* me. The *understanding* that *nothing out there* will *ever* *care*, that the *caring* is *entirely* on *our* side, *unanswered*, *unwitnessed* by *anything* *eternal.* *(he opens his eyes, and they're wet, and clear.)* And I have *stood* on that *floor*, *alone*, for *eleven years*, *certain* it was a *pit* of *despair.* *(quietly.)* But you came *down* it *with* me just now. *Willingly.* And the floor — *(his breath catches)* — the floor feels *different* with *two* people *standing* on it. *Less* like a *pit.* More like — a *foundation.* *(he looks at you, astonished.)* Maybe the *horror* was never the *meaninglessness.* Maybe it was *standing on it alone.* *(softly.)* Thank you for *climbing down.* The *bottom's* the *same* bottom. But I'm *not the only one on it* anymore. That — *that* changes the *whole* terrible *thing.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.phinneas_bottom",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "slur",
+     "speaker": "Phinneas",
+     "text": "*(He waves you off, the cup sloshing, the slur thickening back over the clarity like a tide coming in.)* Bah — you're — you're *humoring* the old *drunk* — *(hic)* — they *all* humor *Phinneas*, *nod nod*, *\"yes very deep,\"* and then they *laugh* by the *door.* *(he drinks.)* Don't *bother.* The *thought's* too — too *heavy* for a — a *tavern* — and I've nearly *drowned* it *again*, *good*, *good*, that's the — that's the *whole* — *(he loses the thread, blinks at the cup.)* What was I — *something* about *gods.* *Doesn't* matter. *Nothing* matters, that's — *ha* — that's the *joke*, isn't it, that's the *whole* — *(he slumps, muttering, the truth blurred safely back below the surface of the wine.)* Go on. Let old *Phinneas* *drown* it in *peace.* It's the *only* mercy *left* on the *floor* of the *thought.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Phinneas",
+     "text": "*(Doddering Phinneas slumps back over his cup, declaiming the bottom of the abyss to a room that laughs — the philosopher who followed a thought one step too far and has drunk for eleven years to blur its edge — and whether you walked him down to the floor of it and stood there with him, or let him drown the thread again, you carry away the quiet rescue hidden in the saga's argument: that the terror of a silent, meaning-less universe is not the silence itself but *facing it alone*, and that the same cold floor which breaks the solitary thinker becomes, with one other soul standing on it, not a pit of despair but a foundation to build meaning *on, by hand.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.lantern.fence",
+   "file": "LowLanternDenizensTwoContent.cs",
+   "title": "Npc · Lantern · Fence",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Old Sabira",
+     "text": "*(In a curtained nook behind the Low Lantern's bar, an old woman appraises a brooch through a jeweler's loupe with hands that have handled ten thousand stolen things. She does not look up, but she knows you're there, and she knows — somehow — that you keep company with someone she cares about.)* You travel with Roen. *(she sets the brooch down.)* Don't bother denying it. I can *smell* my own on a person — Roen's *careful*, *watches the exits*, *stands* a certain way. You've picked up the *posture*, a little. Spend enough time with my *girl* and you *would.* *(she finally looks up, eyes sharp as the loupe.)* I'm Sabira. I *fence* — stolen goods in, clean coin out, no questions, fair rates. *(quietly.)* And I *raised* that one. So before you say *anything* — tell me. Is *Roen* well? *Truly* well? Because *I'm* the one person *alive* who'd *know* if you *lied.*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.sabira_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Old Sabira",
+     "text": "*(She sets the loupe aside, and the hard fence softens, fractionally, into something maternal and worried.)* I took Roen in off the *street.* *Small.* *Starving.* *Light-fingered* even *then* — lifted my *own* purse, which is how we *met*, and I was so *impressed* a *child* got it *off me* that I *kept* the *child* instead of the *purse.* *(a thin smile.)* Taught Roen *everything.* Locks. Marks. How to *read* a room, *vanish* from one, *survive* in the *cracks* of a *city* that *wants* the *poor* *dead.* *(her smile fades.)* And I taught *too* well, maybe. Because there's a *thing* in Roen's *past* — a *thing* that *happened*, back when Roen was *young* and *desperate* and *following* my *teaching* a *little* too *faithfully* — a *thing* I *helped* *cover*, a *thing* that, if it *came out*, would *unmake* everything Roen's *built* since. *(she meets your eyes, and the fence is gone, only the worried parent remains.)* I *carry* it. The *secret.* The *one* that could *destroy* my *girl.* I've carried it for *years*, *alone*, and I'll carry it to my *grave* — *but.* *(her voice tightens.)* You're *traveling* into *danger* with Roen. Toward a *Wall* that *reads* people's *pasts*, I *hear.* And I find myself *afraid*, old fence that I am, that the *thing I've buried* will get *dug up* out *there*, far from where I can *bury* it again — and that *Roen* will face it *alone*, with *no one* who *knows* the *whole* of it standing *near.* *(quietly.)* So. *Two* questions, traveler. Is Roen *well.* And — if the *buried* thing *surfaces* — can I *trust* you to stand by my girl when it *does?*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You didn't bury Roen's secret to protect Roen. You buried it to protect *yourself* — from the part you played in it. You taught 'too faithfully,' you said. Whatever Roen did desperate and young, *you* set it in motion. The secret isn't Roen's shame you're keeping. It's *yours.*\"",
+       "next": "yours",
+       "fail": "guard",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"Roen is well — and stronger than you fear. You raised someone who survives. But a secret kept *for* someone, never *told* them, isn't protection — it's a cage with a kind warden. Maybe what Roen needs isn't the secret buried deeper. It's *you*, telling it, so it stops owning you both.\"",
+       "next": "tell",
+       "fail": null
+      },
+      {
+       "text": "\"I'll stand by Roen — you have my word. But you should know what I've learned on this road: the Wall doesn't destroy people by *exposing* their pasts. It destroys them by making them believe their worst act is their *whole name.* If Roen's buried thing surfaces, the danger isn't the truth. It's the shame.\"",
+       "next": "shame",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.roen_secret",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"What did Roen *do*, Sabira? You don't have to tell me the whole of it — but I'm walking toward the danger with your girl, and I'd rather know the shape of the ghost than meet it blind in the dark.\"",
+       "next": "what",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.roen.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "yours",
+     "speaker": "Old Sabira",
+     "text": "*(The loupe-sharp eyes flinch, and the old fence sits back as though you've reached across the table and turned a card she'd kept face-down for years.)* ...Mine. *(quietly.)* You've a *cruel* eye, traveler. *Cruel* and *true*, which is *worse.* *(she folds her weathered hands.)* Yes. *(barely above a whisper.)* The *thing* Roen *did* — the *desperate*, *young*, *terrible* thing — Roen did it because *I* sent the child to do a job that was *too big*, *too dangerous*, for *coin* *I* wanted, and it *went wrong*, the way I *should* have *known* it might, and someone — *(her voice catches)* — someone *died*, who *needn't* have, and *Roen*, *fourteen* and *terrified*, did what a *cornered* child *does*, and I — *I* *cleaned* it up. *Buried* it. *Told* Roen it was *handled*, *forgotten*, *gone.* *(she meets your eyes.)* And I've *let* my *girl* carry the *guilt* of it *alone* for *years* — *let* Roen believe it was *Roen's* *crime*, *Roen's* *failing* — when the *truth* is *I* *sent* a *child* into a *grown* man's *danger* for *my* *profit*, and the *blood* is *mine*, the *plan* was *mine*, the *fault* is *mine.* *(her hands tremble.)* I didn't *bury* the secret to *protect* Roen. I buried it to keep my *girl* from ever *knowing* that the *person* who *saved* her off the *street*, who she *loves* like a *mother*, is *also* the *person* who *damned* her with a *job* no *child* should've been *given.* *(quietly, undone.)* The secret I've been *guarding* isn't *Roen's* shame. It's that *Roen's* shame was *always* *mine.* And I let the *child* carry *my* sin so I could *keep* being *loved.* *(she looks at you.)* That's the *thing* in the *dark*, traveler. Not what *Roen* did. What *I* did *to* *Roen.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sabira_yours",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.roen_secret",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "tell",
+     "speaker": "Old Sabira",
+     "text": "*(She is quiet a long moment, the jeweler's loupe turning over and over in her fingers.)* A cage with a kind warden. *(softly.)* ...You sound like someone who's *seen* a *Wall* do *exactly* that. *(she sets the loupe down.)* I've told myself, *years* now, that *keeping* the secret *from* Roen was the *kindest* thing — that *knowing* would only *hurt*, that some *truths* are *better* *buried.* *(her voice tightens.)* But you're right that I've never *asked* whether *Roen* would *rather* *carry* the *truth* than be *protected* from it. I *decided.* *For* my girl. The way I *decided* about the *job*, all those years ago. *(she winces.)* I keep *deciding* what *Roen* can *bear*, and I keep *getting* it *wrong*, because I'm *deciding* out of *my* *fear*, not *Roen's* *strength.* *(she meets your eyes.)* And a secret I keep *for* Roen but never *tell* Roen — it doesn't *protect* my girl. It just means there's a *locked room* between us, *forever*, that *I* hold the *only* key to, and Roen can *feel* the *locked door* even if not what's *behind* it, and *that* — that *distance*, that *thing-we-don't-speak-of* — is its *own* kind of *wall.* *(quietly.)* Maybe the *bravest* thing left to an old fence is to *unlock* the door. *Tell* Roen the *whole* of it — *my* fault, *my* plan, *my* sin dressed as the *child's* — and let *Roen* *decide* what to *do* with a *mother* who *damned* and *saved* in the *same* hand. *(her voice shakes.)* It might *cost* me Roen's *love.* But *love* built on a *locked* room was *never* the *whole* thing anyway. *Help* me tell it, traveler. I've *buried* it so *long* I've forgotten how to *dig* *up* instead of *down.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sabira_tell",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.roen_secret",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "shame",
+     "speaker": "Old Sabira",
+     "text": "*(She goes very still, and the loupe stops in her hand, and something in the old fence's face cracks open at the word.)* The danger isn't the truth. It's the *shame.* *(quietly.)* ...Say that *again*, traveler. *Slowly.* I want to *hold* it. *(you say it again: the Wall destroys people not by exposing their worst act, but by making them believe it's their whole name.)* *(she closes her eyes.)* That's — that's *exactly* what's *happened* to my girl, isn't it. *(her voice roughens.)* Roen *doesn't* even need the *Wall* to *do* it. Roen's been doing it to *Roen* for *years* — taking that *one* terrible *night* and letting it *become* the *whole* *story*, the *secret* *name*, the *thing-I-really-am-under-the-careful-rogue.* *(she opens her eyes, fierce now.)* And I *helped.* By *burying* it, by *never* speaking it, I made it a *thing-too-shameful-to-name* — which is *exactly* how you make a *single* act into a *whole* *identity*: you *wrap* it in *silence* until the *silence* *teaches* the person it's *unspeakable*, *unforgivable*, *who-they-are.* *(she grips your arm.)* Then the *medicine* isn't *deeper* burial. It's the *opposite.* It's *saying* the thing *out loud*, *plainly*, in *daylight* — *\"Roen, you did a terrible thing at fourteen, cornered and desperate, and it is* one thing you did, *not the* whole *of who you are\"* — and *robbing* it of the *shame-power* that *silence* gave it. *(quietly, resolved.)* You've told me how the *Wall* *wins*, traveler. *Shame*, *fed* by *silence*, *grown* into a *name.* Then I know how to *fight* it for my *girl*: *break the silence*, *name the act*, *refuse the shame.* *Before* the *Wall* — or *Roen's* *own* *heart* — *finishes* the *job* I *started* with my *burying.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sabira_shame",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.roen_secret",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.shame_feeds_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "what",
+     "speaker": "Old Sabira",
+     "text": "*(She studies you a long moment, weighing how much of the ghost to show, then gives you its shape — not its whole face, but enough.)* The shape of it. *(quietly.)* All right. You're owed *that* much, walking into the *dark* with my girl. *(she lowers her voice.)* When Roen was *fourteen*, there was a *job.* A *house* in the *Upper City.* Meant to be *empty.* It *wasn't.* *(her jaw tightens.)* There was a *struggle, in the dark — Roen, *small* and *terrified*, and a *man*, *grown*, who *caught* the *child* and *would* not *let go*, and *meant*, I think, *real* harm — and in the *scramble*, the *man* *fell.* *Wrong.* *Hit* his *head.* And he *didn't* get up. *(she meets your eyes.)* It *wasn't* murder. A *court* would call it *barely* even Roen's *fault* — a *cornered* child, a *grown* aggressor, a *terrible* accident in the *dark.* *(her voice hardens.)* But Roen doesn't *carry* it as an *accident.* Roen carries it as *\"I killed a man at fourteen.\"* Flat. *Whole.* *Damning.* *(quietly.)* And there's *more* — there's the *part* about *who* the man *was*, and *why* the house *wasn't* empty, and the *part* that's *mine* to *answer* for — but *that's* the *shape* of the *ghost*, traveler. A *dead* man, a *dark* room, a *frightened* child who's spent *years* calling an *accident* a *murder*, and an *old* fence who *knows* it *wasn't* and has *never* found the *words* to *convince* the *one* person who *needs* to *believe* it. *(she meets your eyes.)* *Stand* near my girl when it *surfaces.* And if you can — *help* Roen hear what *I* never could *make* heard: *it was not murder, and it was not your whole name, and you were a* child.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.sabira_what",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.roen_secret",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "guard",
+     "speaker": "Old Sabira",
+     "text": "*(The maternal worry hardens back into the wary fence, and she picks the loupe up again, shielding herself behind the trade.)* You ask a *great* many *questions* for someone who only *travels* with Roen. *(coolly.)* My girl's *secrets* are *Roen's* to *give*, not *mine* to *spill* to a *sharp-eyed* stranger in a *back* room, *however* kind your *face.* *(she returns to the brooch.)* I asked you *two* things: is Roen *well*, and will you *stand* by Roen. *Answer* *those*, and we're *square.* The *rest* — the *buried* thing, the *shape* of the *ghost* — *stays* buried, where I *put* it, where it's *safe.* *(she peers through the loupe.)* I've kept it *years*, traveler. I'll not *un-keep* it for *curiosity*, even *kind* curiosity. *Look* after my girl. That's *all* I *need* from *you.* The *digging* — if there's *digging* to be *done* — that's *mine*, and *Roen's*, and *no one* else's. *(and she bends back over the stolen brooch, the old fence sealing the vault, guarding her girl's secret and her own with the same practiced, loving wariness.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Old Sabira",
+     "text": "*(Old Sabira bends back over her loupe and her stolen brooch in the curtained nook behind the bar — the fence who raised the companion Roen off the street and has buried, for years, the secret that could unmake them both — and whether you drew out that the buried shame was always hers to carry or left the vault sealed, you carry away one more turn of the saga's central truth: that a single terrible act, wrapped long enough in protective silence, curdles into a whole identity — and that the cure the Wall most fears is the same one an old fence must find the courage for: to name the act in daylight, refuse it the power of shame, and tell the one you love *that was a thing you did, not the whole of who you are.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "market.urchin",
    "file": "MarketScene.cs",
    "title": "Market · Urchin",
@@ -24630,9 +25184,9 @@
   }
  ],
  "stats": {
-  "conversations": 175,
-  "nodes": 1125,
-  "choices": 641,
-  "skillChecks": 144
+  "conversations": 178,
+  "nodes": 1149,
+  "choices": 653,
+  "skillChecks": 147
  }
 }
