@@ -224,11 +224,11 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 
 ---
 
-## 🪙🪙 Side-Quest Bible II — the **19 fully-reactive quests** built atop the seeded hooks
+## 🪙🪙 Side-Quest Bible II — the **21 fully-reactive quests** built atop the seeded hooks
 
-Each is a complete branching `*.dlg` conversation (4 ways in → 3–6 resolutions), **wired into both narrative
+Each is a complete branching `*.dlg` conversation (4 ways in → 3–7 resolutions), **wired into both narrative
 surfaces**: a flag-keyed **epilogue "where they are now" slide** per resolution *and* the spoiler-free
-**Chronicle tally** (`🪙 Side quests of the long road: N/19 brought home`), mirrored byte-for-byte across the
+**Chronicle tally** (`🪙 Side quests of the long road: N/21 brought home`), mirrored byte-for-byte across the
 C# engine (`EndingResolver.cs`) and the JS port (`endings.js`), pinned by the prose-parity gate and the seeded
 fuzz. Distinct textures, no two alike.
 
@@ -253,6 +253,14 @@ fuzz. Distinct textures, no two alike.
 | 17 | **A Point** | Ysolde de Lancie (#25) | A bored heiress aims a fortune, a name, and a key to every door. | wealth / satire |
 | 18 | **The First Dirge** | Singer Lhoris (#63) | The funeral song that secretly sings the Faithless's names. | art-smuggles-truth |
 | 19 | **The Glassblower's Window** | Senna the Glassblower (#28) | A memorial in stained glass the church keeps shattering. | grief made into light |
+| 20 | **The Two Ledgers** | Archivist Threnn | The dead's honest count vs. the living's roof — and the third column that saves both. | moral arithmetic / cross-quest economics |
+| 21 | **The Last Lantern-Feast** | Dot Marigold | A baker's forbidden festival — joy among the doomed, the one thing the harvest can't answer. | joy as defiance (the road's only un-morose quest) |
+
+> **Convergence finales (v4.62).** Atop the 21 quests sits a reactive *recognition* layer: four epilogue slides
+> that fire when a player brings home a whole *cluster* of kindred quests — **⚙️ The Counter-Machine** (≥3
+> rescue/infrastructure quests), **📚 The Case Was Complete** (≥3 record/testimony quests), **🕯️ Every Name
+> Kept** (≥3 remembrance quests), and the **👑 The Long Road** capstone when all three movements are present at
+> once. Breadth across the suite is rewarded, not just depth in any one quest.
 
 > Recurring resolution-shape across the suite: each quest can usually be *carried to the Court* (feeding
 > `act5.the_great_objection`), *spread/copied/taught wide* (feeding `act2.cataloguing_defeats_the_wall` /
@@ -261,7 +269,8 @@ fuzz. Distinct textures, no two alike.
 
 ---
 
-*Last updated: full roster (104 named NPCs, #1–104) voiced, and **19 fully-reactive side quests** authored
-across 54 `.dlg` files — 206 conversations / 1,450 nodes / 175 skill checks / 827 choices total, every quest
-wired into the epilogue + Chronicle and pinned by the 609-check headless suite. The seeded hooks are now
-played content; the saga's small mercies reach the ending. Onward.*
+*Last updated: full roster (104 named NPCs, #1–104) voiced, and **21 fully-reactive side quests** authored
+across 56 `.dlg` files — 208 conversations / 1,474 nodes / 176 skill checks / 842 choices total, every quest
+wired into the epilogue + Chronicle (plus the four convergence finales that reward breadth across the suite)
+and pinned by the 612-check headless suite. The seeded hooks are now played content; the saga's small mercies
+reach the ending. Onward.*

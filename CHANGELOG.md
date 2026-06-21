@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.63.0 — *"The Last Lantern-Feast"* — the twenty-first side quest; joy as the weapon no machine planned for (Pillar 2/4 + reactivity)
+
+> Twenty quests of the long road were about the **dead** — grief, testimony, rescue, remembrance. This one is
+> about the **living**, and it brings a register the whole saga has never sounded: *joy.* A complete branching
+> side quest in a deliberately un-morose key, fully wired into the epilogue and Chronicle the same release,
+> rounding the reactive suite to **21**.
+
+- 🏮 **Side Quest: "The Last Lantern-Feast"** (`lantern_feast_sidequest.dlg`, gated on `sq.lantern_feast_threatened`)
+  — Dot Marigold, seventy and undefeated, has run the Steelshanks ward's Lantern-Feast for forty years: one
+  night a year when the poor quarter — harvest-marked and faithful, side by side — dances, courts, eats too
+  much, and at midnight floats paper lanterns for the year's losses. The Choir has cancelled it as "frivolous
+  in a time of holy sorrow." The truth is worse: a quarter of the doomed *dancing, beloved, seen* is a quarter
+  that's forgotten it's supposed to be cargo, and that is the one thing the harvest can't allow.
+- 🎭 **Five ways in, seven resolutions** — hold it **open in defiance** (the Choir's own notice burning atop
+  the first pole), keep it **safe in the cellars** (a dancer who lives to dance again has beaten them twice),
+  weave joy and grief into **one whole human night**, **teach it to a hundred small hands** so it outlives her
+  (you can hang a baker, not a recipe), **give it away to the whole ward** so no single arrest can end it,
+  draw out the husband **Tomas** who started it all by refusing to let a man be taken in silence, or **carry a
+  lantern to the Court** to blind the powers with a quarter's overflowing love.
+- 🪙 **The thesis** — they built the machine against grief and against courage and had answers for both. They
+  never armored it against a *party.* You can call a sorrow deserved; no doctrine in any heaven can look at a
+  marked girl courted under the lights and call *that* nothing.
+- 🔁 **Fully reactive, byte-identical across all three engine copies** — six priority-ordered epilogue slides
+  (`endings.js`, `EndingResolver.cs`, inlined `endings_explorer.html`), the **21st** entry in the spoiler-free
+  Chronicle tally (`🪙 Side quests of the long road: N/21 brought home`), the all-in-one bundle and dialogue
+  viewer regenerated (now **208 conversations / 1,474 nodes**), DEEDEPI/import chrome preserved.
+- 🧪 **New epilogue gate** pins the feast's primary-resolution priority and its tally membership; the
+  prose-parity gate confirms the new slide text is identical JS↔C#. Suite now **612 checks**, all green.
+
+---
+
 ## 👑 v4.62.0 — *"The Long Road"* — convergence finales: the movement your small mercies built (reactivity)
 
 > Not a twenty-first overlapping quest, but a new reactive *layer* on top of the twenty: the epilogue now

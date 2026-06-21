@@ -151,7 +151,18 @@ test("Chronicle_SideQuestTally_CountsResolvedQuests", () => {
   F().SetBool("sq.field_of_the_rested", true);           // quest 1
   F().SetBool("sq.fortyone_reaper_rests", true);         // quest 6
   F().SetBool("sq.fortyone_victory", true);              // same quest 6 — must not double-count
-  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/20 brought home"));
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/21 brought home"));
+});
+test("LanternFeast_JoyAsDefiance_DrivesItsSlide", () => {
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Last Lantern-Feast"), "no feast slide unset");
+  // Court resolution outranks the alternates and fires the joy-vs-doctrine slide.
+  F().SetBool("sq.feast_to_the_court", true);
+  F().SetBool("sq.feast_held_open", true); // lower branch — must be suppressed
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "never armored it against a party"), "court slide fires");
+  Fa(any(s, "most unforgivable night Steelshanks ever threw"), "only the primary feast slide shows");
+  // It counts toward the long-road tally as the 21st quest.
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 1/21 brought home"));
 });
 test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   // For a single quest, the highest-priority resolution wins (one slide, not two).

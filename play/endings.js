@@ -540,6 +540,20 @@ const EndingResolver = {
     else if (f.GetBool("sq.threnn_true_to_memorial") || f.GetBool("sq.threnn_corrin"))
       slides.push("📒 The Two Ledgers — Archivist Threnn routed her true count where it could rest as a memorial, not an assessment: the names exact and whole on the child's list, the comfortable public lie left holding up the living's roofs, the only thing the truth cratered the silence. She'd started the secret ledger for one name — Corrin, her clerk of twenty years, folded into a round number — and could not stop, because if he deserved a true count, so did they all.");
 
+    // "The Last Lantern-Feast" — Dot Marigold, and joy among the doomed as the one thing the harvest can't answer.
+    if (f.GetBool("sq.feast_to_the_court"))
+      slides.push("🏮 The Last Lantern-Feast — you carried a soft-gold lantern, folded by a seventy-year-old baker's hands, to the Court at the end of the world, and lit it in the room that files her dancers to nothing. The powers had a doctrine for every grief — the Faithless earned it, the Wall is just. They had none at all for joy: a marked girl courted under the lights, a doomed quarter dancing beloved, a hundred lanterns of a ward's overflowing love. You can call a sorrow deserved. You cannot look at unbought joy among the doomed and call it nothing. They armored the machine against grief and courage. They never armored it against a party.");
+    else if (f.GetBool("sq.feast_whole"))
+      slides.push("🏮 The Last Lantern-Feast — Dot Marigold stopped letting them split the night, and threw a feast that danced for the living and floated lanterns for the dead in the same hour, the same square, the same held breath. The Choir could forbid a celebration and forbid a mourning; it had no doctrine against a ward simply being human out loud, courting under the very lights it launched its grief from. Not a party, not a funeral — a people, whole, holding its joy and its loss at once and daring anyone to write the order that bans them from feeling everything at the same time.");
+    else if (f.GetBool("sq.feast_endures") || f.GetBool("sq.feast_shared"))
+      slides.push("🏮 The Last Lantern-Feast — the old baker gave her feast away before the harvest could wait her out: the lantern-folds and the recipes and the order of the midnight float taught to a hundred small hands, the whole ward lighting it now, so no single arrest could end it. She'd thrown it alone for forty harvests and learned, at seventy, the one thing that beats a machine betting on your death — you can hang a baker, but you cannot hang a recipe, and the lanterns go up every harvest's-end long after the woman who folded the first one is ash on the wind with everyone she loved.");
+    else if (f.GetBool("sq.feast_for_tomas"))
+      slides.push("🏮 The Last Lantern-Feast — Dot threw one more feast for the reason she'd thrown the first: Tomas, her tuneless husband, who forty-one years ago refused to let a godless fiddler be taken in silence and dragged every fiddle in Steelshanks into the square to see the man off with music instead. The harvest took Tomas nine years on; she folded a hundred lanterns a year ever since, because he'd taught her the one thing the machine can't stand — that you send people off with joy out loud, never pretending they were nothing, even in the teeth of the thing that's taking them.");
+    else if (f.GetBool("sq.feast_held_open"))
+      slides.push("🏮 The Last Lantern-Feast — they cancelled it for being joyful, so Dot Marigold made it the loudest, brightest, most unforgivable night Steelshanks ever threw, in the exact square they forbade, with the Choir's own notice folded into a lantern and burning at the top of the first pole. The harvest runs on the marked being invisible — cargo, a number, a thing the comfortable never see dance. So a hundred of them stood in a lit square and were seen: courted, fed, cheered, beloved. You cannot harvest what the whole quarter has been seen to love.");
+    else if (f.GetBool("sq.feast_held_secret"))
+      slides.push("🏮 The Last Lantern-Feast — Dot took her quiet victory and her shuttered lanterns down into the cellars, where the fiddles still played and the young ones still courted and the marked still danced, because a dead dancer floats no lanterns next year. The Choir wanted them open, witnessed, convenient — a list of necks. She gave them a silence they thought they'd won, and underneath it kept the one thing that beats a machine betting you'll be brave and gone: a ward that was joyful and here, alive, ready to do it all again next harvest, and the one after, and the one after that.");
+
     // ── Convergence — the small mercies that, taken together, became a movement. ──
     // Each fires when a *cluster* of related side quests was brought home, recognizing
     // the larger thing your separate kindnesses turned out to be building all along.
@@ -664,10 +678,11 @@ const EndingResolver = {
       ["sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him"],
       ["sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits"],
       ["sq.threnn_third_column", "sq.threnn_truth_published", "sq.threnn_true_to_memorial", "sq.threnn_corrin", "sq.threnn_shared", "sq.threnn_to_the_court"],
+      ["sq.feast_held_open", "sq.feast_held_secret", "sq.feast_whole", "sq.feast_endures", "sq.feast_shared", "sq.feast_for_tomas", "sq.feast_to_the_court"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/20 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/21 brought home`);
 
     // Bonds.
     const loves = [];
