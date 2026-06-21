@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.58.0 — *"The Catalogue of the Unwritten"* — the seventeenth side quest; grief for the uncreated (Pillar 2 + reactivity)
+
+> Grief not for the dead but for everything they\'d have *made* — the saddest object in the Realms, and one
+> of the most hopeful turns on it. A seventeenth full side quest — fresh, melancholy, ultimately a goad to the
+> living — written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 📚 **Side Quest: "The Catalogue of the Unwritten"** (`faolan_sidequest.dlg`, gated on `sq.faolan_catalogue`)
+  — you bring Brother Faolan the Catalogue of the Unwritten: a complete index of every work meant to exist and
+  never made — the masterworks the war interrupted, the genius the plague took at nineteen, the Letters to a
+  Son a soldier was walled before he could write. Faolan is in it himself, a cycle of poems he shelved at his
+  vows. Four ways in (it\'s a *summons*, not a graveyard — half the makers still live; read it aloud as a
+  funeral; Faolan writes his own page into a lie; or it proves the Wall\'s deepest theft), and resolutions: the
+  funeral for the dead makers (`sq.unwritten_read_aloud`), a goad to the living to write before time makes
+  their entries true (`sq.unwritten_goad_the_living`, `sq.faolan_writes_his_poems`), an indictment of the Wall
+  for filing eleven thousand *libraries* of the unmade to nothing (`sq.unwritten_the_walls_theft`,
+  `act5.the_great_objection`), a second book — the Catalogue of the *Written-After-All*, a register of
+  deadlines beaten (`sq.unwritten_written_after_all`, `act5.unbroken_line`), or healing the cataloguers
+  themselves, un-shelving every scholar who quit being a maker to become a filer (`sq.unwritten_heal_the_filers`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/17 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/17`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: the Wall\'s cruelty was never only the souls it took, but everything those souls were still
+  going to make — and the saddest library in the Realms is the one each of us keeps locked inside our own
+  abandoned youth, where the books we meant to write wait, unwritten but not yet impossible, for the day we
+  remember we are only late.
+- 📈 **Content**: dialogue corpus now **204 conversations · 1,426 nodes · 173 skill checks** (813 choices);
+  **seventeen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 52-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.57.0 — *"The Reading of the Wall"* — the sixteenth side quest; the forgetting was illiteracy (Pillar 1/2 + reactivity)
 
 > The sharpest of all the road\'s truths about the Wall, made a quest: the Faithless were never nameless. A

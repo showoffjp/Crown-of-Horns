@@ -541,6 +541,18 @@ const EndingResolver = {
     else if (f.GetBool("sq.wall_read_aloud"))
       slides.push("📜 The Reading of the Wall — you stood before ten thousand years of the deliberately illegible and read it aloud, name by name, Ekko beside you turning the pages of the grammar, for as long as it took. The Wall named its victims with more care than any tombstone and carved the names in a tongue no living mourner could decode; you were the first reader in ten thousand years to give each soul the thing it was denied — its name, spoken, by a voice that could finally read it.");
 
+    // "The Catalogue of the Unwritten" — the works the world meant to make and didn't.
+    if (f.GetBool("sq.unwritten_written_after_all"))
+      slides.push("📚 The Catalogue of the Unwritten — Brother Faolan started a second book beside the saddest one in the Realms: the Catalogue of the Written-After-All, a birth-register of deadlines beaten, growing page by page as living makers crossed themselves out of the Unwritten and finally wrote the things they'd meant to. Entry one was his own — the cycle of poems on the sea and the mother he'd shelved at nineteen, written at last. The only book in Candlekeep whose every entry is a small victory over time.");
+    else if (f.GetBool("sq.unwritten_heal_the_filers"))
+      slides.push("📚 The Catalogue of the Unwritten — Faolan carried the book through Candlekeep like a gentle plague, un-shelving not the works but the cataloguers: every monk and reader who'd quit being a maker to become a filer, handed their own page, reminded they weren't dead, only late. The saddest library in the Realms was never the Sealed Stacks. It was the one each scholar kept locked inside their own abandoned youth — and he opened them, one quit dream at a time.");
+    else if (f.GetBool("sq.unwritten_the_walls_theft"))
+      slides.push("📚 The Catalogue of the Unwritten — you carried it to the Court to prove the Wall's deepest and least-counted theft: that the machine never only killed the makers, it killed everything they hadn't made yet. Eleven thousand libraries of the unmade, filed to nothing — Maerys's letters to her company unwritten, every cup still in Halen's hands unthrown. The powers counted the souls. They never counted the works those souls were still carrying.");
+    else if (f.GetBool("sq.unwritten_goad_the_living") || f.GetBool("sq.faolan_writes_his_poems"))
+      slides.push("📚 The Catalogue of the Unwritten — Faolan learned the difference between a library and a graveyard: a library sends you out to make more. He stopped acquiring the dead's losses and started shoving the book in the faces of the living makers still procrastinating their masterworks — write it, you're late, not dead, make your entry a lie before time makes it true — starting with the worst offender, the monk on the page about his mother, who finally wrote his poems.");
+    else if (f.GetBool("sq.unwritten_read_aloud"))
+      slides.push("📚 The Catalogue of the Unwritten — you helped Brother Faolan read the book of everything never written aloud in the great hall, every unwritten title spoken once: the Tide-Cantos, the Defense of the Doubting, the Letters to a Son a soldier was walled before he could write. The uncreated died of silence, of never being heard; and ten thousand almosts, read aloud once in a hall that finally listened, was the funeral and the only birth they would ever get.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -624,10 +636,11 @@ const EndingResolver = {
       ["sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court"],
       ["sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court"],
       ["sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court"],
+      ["sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/16 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/17 brought home`);
 
     // Bonds.
     const loves = [];
