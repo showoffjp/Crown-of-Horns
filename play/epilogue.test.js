@@ -133,8 +133,10 @@ test("SideQuests_LongRoad_DriveTheirOwnSlides", () => {
   F().SetBool("sq.harvest_exposed_public", true);
   F().SetBool("sq.fortyone_reaper_rests", true);
   F().SetBool("sq.forbidden_name_spoken", true);
+  F().SetBool("sq.dirge_sung_at_court", true);
   const s = EndingResolver.Epilogue(Ending.MortalMeasure);
   T(s.every(x => typeof x === "string" && x.length > 0), "no empty side-quest slides");
+  T(any(s, "the oldest song in the world sang the Faithless home"));
   T(any(s, "the field of the rested was the thing the crown was always for"));
   T(any(s, "You were the first who could write back"));
   T(any(s, "forgiveness is a weight you release for your own sake"));
@@ -149,7 +151,7 @@ test("Chronicle_SideQuestTally_CountsResolvedQuests", () => {
   F().SetBool("sq.field_of_the_rested", true);           // quest 1
   F().SetBool("sq.fortyone_reaper_rests", true);         // quest 6
   F().SetBool("sq.fortyone_victory", true);              // same quest 6 — must not double-count
-  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/7 brought home"));
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/8 brought home"));
 });
 test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   // For a single quest, the highest-priority resolution wins (one slide, not two).

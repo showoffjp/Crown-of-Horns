@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.49.0 — *"The First Dirge"* — the eighth side quest, end-to-end (Pillar 2 + reactivity)
+
+> A demonstration of the full content→reactivity pipeline in a single release: an eighth side quest, written,
+> verified, *and* wired into the epilogue and Chronicle the same day.
+
+- 🎶 **Side Quest: "The First Dirge"** (`lhoris_sidequest.dlg`, gated on `sq.the_first_dirge`) — Singer Lhoris,
+  commanded ten thousand years ago to score the Faithless's last walk into the Wall, wove their names into the
+  melody and smuggled the truth into its bones; the song became every funeral dirge since. You carry the
+  original now, and at the threshold of the Court you hear its *second song* straining to be heard. Four ways
+  in (it's a sealed letter in transit, an indictment for the Court, an open song to be re-sung kinder forever,
+  or a vessel whose names you carry home), and resolutions that make it an anthem the whole world sings
+  (`sq.dirge_becomes_anthem`), an indictment at the Court (`sq.dirge_sung_at_court`, `act5.the_great_objection`),
+  a song freed to change forever (`sq.dirge_freed_to_change`), or names restored to the graves
+  (`sq.dirge_names_restored`).
+- 🎬 **Wired into the epilogue + Chronicle the same release**: a "where they are now" slide per resolution
+  (priority-ordered), and the Chronicle tally grows to **N/8 brought home** — both mirrored byte-identically in
+  `endings.js` and `EndingResolver.cs`, injected into the Endings Explorer's inlined engine (chrome preserved),
+  and flowed into the all-in-one bundle. Tests updated (the tally case now reads `3/8`; a new assertion pins the
+  Court-dirge slide). Prose-parity green, fuzz crash-free.
+- 🧵 **Theme**: beauty in the service of power can be made to *smuggle* the very truth that power means to bury;
+  a song is the one keeping the Wall can never file, because it is never finished; and the oldest dirge in the
+  world was, all along, on the side of the dead it was written to mourn.
+- 📈 **Content**: dialogue corpus now **195 conversations · 1,318 nodes · 164 skill checks** (750 choices);
+  **eight** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 43-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.48.0 — *"Brought Home"* — the side quests reach the Chronicle (Pillar 1 · reactivity)
 
 > The companion to v4.47: the seven side quests now also register in the spoiler-free **Chronicle** — the

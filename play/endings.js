@@ -402,6 +402,18 @@ const EndingResolver = {
     if (f.GetBool("sq.forbidden_name_spoken") || f.GetBool("sq.wickless_speaks_alone"))
       slides.push("🕯️ Wickless — the candle a frightened child lit for the person they weren't allowed to talk about carried a forbidden name through ten thousand years of grey, found the faded soul it was lit for, and said it. Her light caught like a wick taking flame. A whole family's silence broke on one small voice that refused it: proof that a name carried in love is a soul the Wall can never quite finish erasing.");
 
+    // "The First Dirge" — Singer Lhoris's encoded song.
+    if (f.GetBool("sq.dirge_becomes_anthem"))
+      slides.push("🎶 The First Dirge — you taught the oldest song in the world to everyone who'd refused to let the forgotten go: the grave-tenders, the list-keepers, the Drowned Choir who learned they'd been singing its second melody all along. Sung wide, by a world that finally knew what it was singing, the names woven into ten thousand years of funerals became the one thing the Wall could never file or forbid.");
+    else if (f.GetBool("sq.dirge_sung_at_court"))
+      slides.push("🎶 The First Dirge — you carried Lhoris's masterwork to the Court and sang its second song where it landed hardest: out of the solemn, approved melody the powers had heard at every sorting and believed was a blessing rose the names of every soul they'd walled. You cannot out-argue a dirge that is also a list of your victims. They had no refutation, and the oldest song in the world sang the Faithless home.");
+    else if (f.GetBool("sq.dirge_freed_to_change"))
+      slides.push("🎶 The First Dirge — you left the song open, as Lhoris built it to be: a dirge any singer in any century can turn one more word kinder, until the melody that once sealed the Faithless into the Wall becomes the one that overturns it. A Wall is a fact that needs no one and so can never change. The song stays young — always one singer away from kinder — and outlasts every power that tried to fix its meaning.");
+    else if (f.GetBool("sq.dirge_names_restored"))
+      slides.push("🎶 The First Dirge — you lifted the names Lhoris had woven into the song's bones and carried them home: out of the intervals that had held them ten thousand years and to the graves, the reading, the field of the rested. The dirge sings its surface now, lighter, emptied at last of the secret it kept until someone came who could do what a melody could not — let the names rest.");
+    else if (f.GetBool("sq.dirge_decoded"))
+      slides.push("🎶 The First Dirge — you heard the second song in the oldest dirge in the world and sang it out: ten thousand years of funerals stopped being a blessing on the Wall and became what Lhoris always made them — the longest act of remembrance in history, the names of the Faithless smuggled past every power that wanted them gone, finally read aloud.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -473,10 +485,11 @@ const EndingResolver = {
       ["sq.harvest_exposed_public", "sq.harvest_to_the_hands", "sq.harvest_to_the_court"],
       ["sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory"],
       ["sq.forbidden_name_spoken", "sq.wickless_speaks_alone"],
+      ["sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/7 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/8 brought home`);
 
     // Bonds.
     const loves = [];
