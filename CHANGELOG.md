@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.34.0 — *"One Soul, Saving Ourselves"* — the connective tissue, complete (Pillar 2 · the weave)
+
+> The last three recurring threads close the weave — and the loop turns from a closed circle into a chain
+> that can talk. A grave-tender doing the companion Garrow's exact work in an age before he was born; a
+> serious child reinventing Lula's list without ever having heard of her; and the Returned of prior loops,
+> each a step further toward the warden, each leaving a clearer warning for the self behind.
+
+- 🧵 **Connective Tissue Wave II** (`connective_denizens_2.dlg`) — the eternal vocations and the loop's chain:
+  - **The Grave-Tender** — a stranger doing Garrow's exact work (washing, digging, naming the unclaimed dead)
+    in every era, one link in a ten-thousand-year unbroken line. A message for the companion Garrow: *the job
+    is not yours to finish, only to carry well and pass on; you were never alone in the long way*
+    (`act5.unbroken_line`, `act5.garrow_not_alone`; her own graves dug for a sister named Maerin).
+  - **The Child With the List** — a serious child keeping a list of the forgotten, who invented Lula's idea
+    without being told, and learns the remembering *regenerates spontaneously* in every age and can never be
+    killed: "the pond is not allowed to close up smooth" (`act5.remembering_regenerates`, `sq.childs_list`).
+  - **The Returned Before You** — a prior loop's self, worn and hardening but *not yet* the warden, soft
+    enough still to warn the earlier you. The revelation that reframes the whole loop: it's not a closed
+    *circle* but a *chain that can talk*, every self passing a clearer warning down — the annotator, the
+    Revenant's map, all *one soul trying to save itself*; and the leap that finally breaks it pulls every
+    hesitating link through at once, backward and forward (`act5.loop_can_break`, `act5.knows_the_trap`,
+    `act5.last_returned_freed`). The trap named precisely: not the crown, but the small cold voice that says
+    *"one more loop, to be sure"* — because the leap can never be made from certainty, only faith.
+- 🧵 **Theme**: the saga's two deepest consolations, made explicit — that the work of caring for the
+  discarded is an unbreakable relay older than any one heart, and that the loop is redeemable as a *we* rather
+  than endured as an *I*. **The full named roster #1–88 — every act, every era, every recurring thread — is
+  now fully voiced.**
+- 📈 **Content**: dialogue corpus now **172 conversations · 1,101 nodes · 141 skill checks** (up from
+  169/1,079/138). All 606 headless CI checks green; the 30-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.33.0 — *"The Same Dog"* — the connective tissue, Wave I (Pillar 2 · the weave)
 
 > The recurring souls who appear in *every* era, ten thousand years and four fallen worlds apart, alarmingly
