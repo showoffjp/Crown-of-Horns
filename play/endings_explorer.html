@@ -585,6 +585,46 @@ const EndingResolver = {
     else if (f.GetBool("sq.threnn_true_to_memorial") || f.GetBool("sq.threnn_corrin"))
       slides.push("📒 The Two Ledgers — Archivist Threnn routed her true count where it could rest as a memorial, not an assessment: the names exact and whole on the child's list, the comfortable public lie left holding up the living's roofs, the only thing the truth cratered the silence. She'd started the secret ledger for one name — Corrin, her clerk of twenty years, folded into a round number — and could not stop, because if he deserved a true count, so did they all.");
 
+    // ── Convergence — the small mercies that, taken together, became a movement. ──
+    // Each fires when a *cluster* of related side quests was brought home, recognizing
+    // the larger thing your separate kindnesses turned out to be building all along.
+    const clusterDone = (groups) => groups.filter(g => g.some(k => f.GetBool(k))).length;
+
+    const counterMachine = clusterDone([
+      ["sq.harvest_exposed_public", "sq.harvest_to_the_hands", "sq.harvest_to_the_court"],
+      ["sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court"],
+      ["sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court"],
+      ["sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him"],
+      ["sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits"],
+    ]);
+    if (counterMachine >= 3)
+      slides.push("⚙️ The Counter-Machine — you never set out to build a thing; you only kept helping one tired person at a time. But the smuggler's routes and the gnome's silent forks and the ferryman's free dusk crossings and the heiress's bottomless purse and the harvest dragged into daylight were, it turns out, the same machine seen from five doorways — an underground that empties the Wall's intake faster than the harvest can fill it. Cruelty had its Choir and its clerks and its quotas. You gave mercy a logistics. The powers built a death-engine and never once imagined the godless poor would answer it with an org chart.");
+
+    const caseComplete = clusterDone([
+      ["sq.naeve_grieves_at_last", "sq.naeve_keeps_one_page", "sq.naeve_indictment_at_court", "sq.naeve_read_together"],
+      ["sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud"],
+      ["sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides"],
+      ["sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers"],
+      ["sq.threnn_third_column", "sq.threnn_truth_published", "sq.threnn_true_to_memorial", "sq.threnn_corrin", "sq.threnn_shared", "sq.threnn_to_the_court"],
+    ]);
+    if (caseComplete >= 3)
+      slides.push("📚 The Case Was Complete — separately they were a grandmother's grief, a crank's filing, a cat's dangerous book, a monk's catalogue of the never-written, an archivist's honest count. You were the only one who saw them stacked: Naeve's one mourned name and the Complaint's dated indictment and the census of ten thousand discarded and the libraries the Wall murdered before they were made and the true tally that the dead were never a round number — and stacked, they stopped being five cries and became a brief. The Wall could outlast any single accusation. It had no answer at all for a prosecution that arrived with its evidence already filed, witnessed, cross-referenced, and read aloud.");
+
+    const everyNameKept = clusterDone([
+      ["sq.field_of_the_rested", "sq.graves_to_the_tenders", "sq.every_soul_expected", "sq.halen_at_rest"],
+      ["sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded"],
+      ["sq.forbidden_name_spoken", "sq.wickless_speaks_alone"],
+      ["sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory"],
+      ["sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead"],
+      ["sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court"],
+    ]);
+    if (everyNameKept >= 3)
+      slides.push("🕯️ Every Name Kept — the graves with the dead's true names, the dirge turned anthem, the wickless name finally spoken, the reaper's forty-one laid to rest, the mournlight made of ten thousand forbidden griefs, the Wall itself read aloud in the tongue that decodes it. Each was one small refusal to let a person become a number. Together they are the thing the Wall was built to make impossible: a Realm that remembers its discarded by name. The machine runs on forgetting — on the comfortable lie that the Faithless were no one. You spent the long road proving, name by name, grave by grave, song by song, that there was never any such thing as no one.");
+
+    // The capstone: all three movements carried home at once — breadth rewarded.
+    if (counterMachine >= 3 && caseComplete >= 3 && everyNameKept >= 3)
+      slides.push("👑 The Long Road — you ran the marked out alive, you built the case that damns the Wall, and you kept every name it tried to erase: rescue, prosecution, and remembrance, all three, carried the whole length of the world. No god planned for this. The Wall was designed against grief and against courage and it had answers for both — but it was never designed against a person who would simply do all of it, patiently, quest after small quest, until the rescue and the indictment and the memorial turned out to be one work wearing three coats. They called the Faithless nothing. You spent a lifetime making that the one word in the cosmos nobody could say with a straight face again.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");

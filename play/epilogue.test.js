@@ -161,6 +161,33 @@ test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   T(any(s, "you did the unglamorous part"));
   Fa(any(s, "The open holes said otherwise"), "only the primary graves slide shows");
 });
+test("Convergence_ClusterSlides_FireOnBreadth_NotOnePlusOne", () => {
+  // One quest from a cluster: no convergence slide.
+  F().SetBool("sq.mercy_route_toller", true);
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "no convergence on one");
+  // Two from the rescue cluster: still below threshold.
+  F().SetBool("sq.crossing_fleet", true);
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "no convergence on two");
+  // Three distinct rescue quests: the Counter-Machine recognizes the movement.
+  F().SetBool("sq.delancie_endowment", true);
+  T(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "convergence on three");
+  // A second resolution of an already-counted quest must not push it over for free.
+  GameFlags.Replace(new GameFlags());
+  F().SetBool("sq.mercy_route_toller", true);
+  F().SetBool("sq.mercy_route_outlives_her", true); // same quest — no double count
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "cluster counts quests, not resolutions");
+});
+test("Convergence_AllThreeMovements_AddTheCapstone", () => {
+  // Three rescue + three record + three remembrance quests, all distinct.
+  ["sq.harvest_to_the_court", "sq.silences_filled", "sq.crossing_fleet"].forEach(k => F().SetBool(k, true));
+  ["sq.naeve_grieves_at_last", "sq.objection_read_aloud", "sq.threnn_shared"].forEach(k => F().SetBool(k, true));
+  ["sq.field_of_the_rested", "sq.dirge_decoded", "sq.wall_read_aloud"].forEach(k => F().SetBool(k, true));
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "The Counter-Machine"), "rescue movement");
+  T(any(s, "The Case Was Complete"), "record movement");
+  T(any(s, "Every Name Kept"), "remembrance movement");
+  T(any(s, "The Long Road"), "capstone fires when all three movements present");
+});
 test("Chronicle_BaselineLines", () => {
   const l = EndingResolver.Chronicle();
   T(any(l, "Eras walked: none yet"));

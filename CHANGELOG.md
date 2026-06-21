@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.62.0 — *"The Long Road"* — convergence finales: the movement your small mercies built (reactivity)
+
+> Not a twenty-first overlapping quest, but a new reactive *layer* on top of the twenty: the epilogue now
+> recognizes the **emergent movement** a player assembled across clusters of related quests. Breadth is
+> rewarded, not just depth. Four new convergence slides fire when you bring home a *cluster* of kindred
+> side quests — revealing that the separate small mercies were, all along, one larger work.
+
+- ⚙️ **Convergence: "The Counter-Machine"** — fires when ≥3 of the *rescue/infrastructure* quests resolve
+  (the harvest exposed, Hessa's routes, Brindle's silent forks, the Ferryman's free crossings, de Lancie's
+  purse). The underground that empties the Wall's intake faster than the harvest fills it — mercy given a
+  logistics to answer cruelty's Choir and clerks.
+- 📚 **Convergence: "The Case Was Complete"** — fires when ≥3 of the *record/testimony* quests resolve
+  (Naeve's grief, the Complaint's indictment, the Unabridged census, the Catalogue of the Unwritten,
+  Threnn's true count). Five separate cries stacked into a single, undismissable brief.
+- 🕯️ **Convergence: "Every Name Kept"** — fires when ≥3 of the *remembrance* quests resolve (the graves,
+  the dirge, the wickless name, the reaper's forty-one, the mournlight, the Reading of the Wall). The Realm,
+  proven name by name, never to have contained any such thing as "no one."
+- 👑 **Capstone: "The Long Road"** — fires only when all three movements are present at once. Rescue,
+  prosecution, and remembrance revealed as one work wearing three coats — the breadth reward for a player
+  who did all of it, quest after small quest.
+- 🔁 **Byte-identical across all three engine copies** — `play/endings.js`, `Assets/Scripts/Core/EndingResolver.cs`,
+  and the inlined engine in `endings_explorer.html`, with the `make-all-in-one` bundle regenerated and the
+  DEEDEPI/import chrome preserved.
+- 🧪 **Two new epilogue gates** pin the cluster thresholds (no slide at 1 or 2; slide at 3; resolutions of an
+  already-counted quest never double-count) and the capstone (only with all three movements). Suite now
+  **611 checks**, all green; prose-parity gate confirms JS↔C# slide text is identical.
+
+---
+
 ## 👑 v4.61.0 — *"The Two Ledgers"* — the twentieth side quest; cross-quest economics (Pillar 2/4 + reactivity)
 
 > An economic/moral-arithmetic dilemma — the dead\'s honest count versus the living\'s roof — and the first
