@@ -105,11 +105,11 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 
 | # | NPC | Hook | |
 |---|---|---|---|
-| 53 | **Steward Vael** | The enclave's majordomo, calmly serving canapés as the city falls from the sky. | 📋🪙 |
-| 54 | **Karsus's Apprentice** | A boy who could stop the apocalypse and won't, because his master forbade interruptions. | 📋🪙 |
-| 55 | **The Mythallar-Keeper** | Tends the engine of the floating city; knows it's failing; lies beautifully about it. | 📋 |
+| 53 | **Steward Vael** | The enclave's majordomo, calmly serving canapés as the city falls from the sky. | ✍️🪙 |
+| 54 | **Karsus's Apprentice** | A boy who could stop the apocalypse and won't, because his master forbade interruptions. | ✍️🪙 |
+| 55 | **The Mythallar-Keeper** | Tends the engine of the floating city; knows it's failing; lies beautifully about it. | ✍️ |
 | 56 | **Lady Sabbath of the Seventh** | A Netherese magelord who'd rather die elegant than survive vulgar. | 📋 |
-| 57 | **The Weave-Deaf Child** | A girl immune to the dying Weave's screaming; the only calm soul in the fall. | 📋🪙 |
+| 57 | **The Weave-Deaf Child** | A girl immune to the dying Weave's screaming; the only calm soul in the fall. | ✍️🪙 |
 | 58 | **Proctor Ynn** | An arcanist who recognizes your hand in Karsus's margins — *before* Naeve does. | 📋🔁 |
 | 59 | **The Slave Who Owns the Owner** | A bound servant whose master signed a clause he didn't read; very patient. | 📋🪙 |
 | 60 | **Naeve** *(pre-recruit)* | The Seventh Enclave's last daughter, buried in proof and grief. | 📋🔁 *(companion)* |

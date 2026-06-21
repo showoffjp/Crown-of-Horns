@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.23.0 — *"The City That Fell Politely"* — Act III opens: Netheril, −339 DR (Pillar 2)
+
+> Karsus reaches for godhood, the Weave begins to die, and the Seventh Enclave starts its long fall out
+> of the sky. Four souls meet the apocalypse exactly in character: a steward who serves canapés as a
+> *vigil*, a boy who could stop it and won't because no one ever asked his name, an engineer who lies
+> beautifully to buy four hundred calm goodbyes, and the one "broken" child the dying Weave cannot touch.
+
+- 🏛️ **Act III opens in Netheril** (`netheril_denizens.dlg`) — the floating-city apocalypse, told from the
+  inside:
+  - **Steward Vael** keeps the last table of the Seventh Enclave as the floor cants three degrees — not from
+    denial but from *love*, the only grammar he was ever given; press him and the house-name falls away to
+    *Corin*, the indentured boy who'd have kept *bees* (`act3.witnessed_fall`).
+  - **Karsus's Apprentice** stands frozen at the sanctum door, able to end the apocalypse with one word and
+    unable to, because the man casting it is *the only person who ever wanted him in the room.* Give him back
+    his name — *Eshe* — or reframe obedience as loyalty to the *saner* master, and the door opens
+    (`act3.apprentice_opens_door`).
+  - **The Mythallar-Keeper** has told four hundred souls everything is *fine* for three hours — mercy and
+    cowardice wearing the same smile. A *third path* exists between the pretty lie and the panic: the quiet
+    truth, told to the few who can act (`act3.keeper_quiet_truth`); behind her composure is Joss, the
+    apprentice she sent to fetch a lens instead of home to his mother (`act3.find_joss`).
+  - **The Weave-Deaf Child** — *Sefris* — sits perfectly calm while every arcanist bleeds from the ears,
+    because the "defect" that made her worthless in a magocracy is the one thing the dying Weave can't reach.
+    The broken girl found the way down: the non-magic cargo-gliders the lords were too proud to take
+    (`act3.glider_escape`).
+- 🧵 **Theme**: hubris ends an age, and the people who meet the end with grace are never the magelords —
+  they're the servant, the foundling, the liar choosing mercy, and the child a proud world threw away.
+  The thing called *broken* was built, in secret, for the hour the world breaks.
+- 📈 **Content**: dialogue corpus now **140 conversations · 848 nodes · 107 skill checks** (up from
+  136/816/101). All 606 headless CI checks green; the 19-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.22.0 — *"The One Who Came Before, and the Song That Won't Stop"* — Candlekeep & the Fugue, complete (Pillar 2)
 
 > The library's last secrets and the grey's most beautiful sorrow. The Returned who reached the crown
