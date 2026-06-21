@@ -486,6 +486,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.silences_early_warning") || f.GetBool("sq.silences_mapped_pattern") || f.GetBool("sq.silences_deepest"))
       slides.push("📻 The Map of Silences — a gnome's frivolous empathy-detector turned out to be the one instrument in the Gate that could see the harvest at all, going dead where it had eaten not just the dead but the memory of them. You read the spreading shape — to outrun the harvest to the next street, to document a witness that couldn't be called mad, to find the deepest silence at the heart of the unmade. Useful by mistake, Brindle said. That's gnomish engineering.");
 
+    // "The Reading of the Wall" — Ekko's dead tongue, and the names the Wall hid in illegible script.
+    if (f.GetBool("sq.deadtongue_taught") || f.GetBool("sq.deadtongue_primer") || f.GetBool("sq.deadtongue_to_the_court"))
+      slides.push("📜 The Reading of the Wall — Mistress Ekko learned at sixty why she'd kept a dead tongue alive in a lonely room: it was the one key to the Wall's deepest lie. The Faithless were never nameless — the Wall named them with terrible care and carved the names in a script it made certain no mourner could read. You and she ended the illiteracy: taught the tongue to the Realms, wrote the primer that outlives every reader, until any soul who lost someone could walk to the Wall and read their own dead by name. The forgetting was never erasure. It was illiteracy, and you cured it.");
+    else if (f.GetBool("sq.wall_read_to_the_dead"))
+      slides.push("📜 The Reading of the Wall — you walked the Wall and read each soul their own name, in the dead tongue Ekko taught you, so that the walled — who had spent ten thousand years believing they were anonymous, nothing, a meaningless mark — learned the truth the illiteracy hid: that they were named, precisely, lovingly, the whole time. Maerys. Halen. Sariel. The first thing the kept ever heard that was true.");
+    else if (f.GetBool("sq.true_name_claimed"))
+      slides.push("📜 The Reading of the Wall — you read your own name off the stone, in the oldest tongue: 'the one who returns.' The Wall had tried to carve you among the Faithless and the carving could not finish, because the name resists the chisel the way it resisted the forgetting. You were named, before the Wall, as the thing it cannot hold — the one name on all that stone the forgetting could never complete. You read what you were, plainly, and went to be it.");
+    else if (f.GetBool("sq.wall_read_aloud"))
+      slides.push("📜 The Reading of the Wall — you stood before ten thousand years of the deliberately illegible and read it aloud, name by name, Ekko beside you turning the pages of the grammar, for as long as it took. The Wall named its victims with more care than any tombstone and carved the names in a tongue no living mourner could decode; you were the first reader in ten thousand years to give each soul the thing it was denied — its name, spoken, by a voice that could finally read it.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -565,10 +575,11 @@ const EndingResolver = {
       ["sq.map_carried_across", "sq.map_the_reconciliation", "sq.map_reunites_the_lost", "sq.map_copied_wide", "sq.map_to_the_wall"],
       ["sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court"],
       ["sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court"],
+      ["sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/15 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/16 brought home`);
 
     // Bonds.
     const loves = [];

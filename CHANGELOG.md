@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.57.0 — *"The Reading of the Wall"* — the sixteenth side quest; the forgetting was illiteracy (Pillar 1/2 + reactivity)
+
+> The sharpest of all the road\'s truths about the Wall, made a quest: the Faithless were never nameless. A
+> sixteenth full side quest — plot-resonant (it pays off your true name) and a literacy/decipherment texture —
+> written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 📜 **Side Quest: "The Reading of the Wall"** (`ekko_sidequest.dlg`, gated on `sq.read_the_wall`) — Mistress
+  Ekko taught you the dead tongue the Wall was carved in, and comes with you to read it. The revelation: the
+  Wall never made the Faithless *nameless* — it named them with terrible care, in the oldest tongue, and then
+  carved the names in a script it made certain no living mourner could read, so grief could stand before a
+  wall of the named and believe it nameless. *The forgetting was enforced by illiteracy.* Four ways in (read
+  your own unfinished name, "the one who returns"; read the dead their names so they learn they were known;
+  read it aloud, the first reader in ten thousand years; or end the illiteracy by teaching the tongue widely),
+  and resolutions: claim your true name (`sq.true_name_claimed`, `act2.true_name_meaning`,
+  `act3.break_the_crown_known`), read the walled their own names (`sq.wall_read_to_the_dead`,
+  `act5.witness_then_release`), the great reading aloud (`sq.wall_read_aloud`), teach the tongue to the Realms
+  (`sq.deadtongue_taught`, `act5.wall_breaking`), write the primer that outlives every reader
+  (`sq.deadtongue_primer`, `act5.unbroken_line`), or carry the literacy to the Court (`sq.deadtongue_to_the_court`,
+  `act5.the_great_objection`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/16 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/16`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: the forgetting was never erasure — it was illiteracy, engineered and maintained for ten
+  thousand years, a wall of the named dressed as a wall of the nameless. And the unmaking of it is not a sword
+  or a crown but the most patient weapon there is: teaching the world to read its own dead.
+- 📈 **Content**: dialogue corpus now **203 conversations · 1,414 nodes · 172 skill checks** (806 choices);
+  **sixteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 51-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.56.0 — *"The Map of Silences"* — the fifteenth side quest; the harvest-compass (Pillar 2 + reactivity)
 
 > Gnomish comic warmth over real dread, and a device/investigation texture unlike anything else in the suite.
