@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.50.0 — *"The Glassblower's Window"* — the ninth side quest (Pillar 2 + reactivity)
+
+> Grief made into light, not another ledger. A ninth full side quest — written, verified, and wired into the
+> epilogue and Chronicle in the same release — and the fiftieth minor version of the saga's content work.
+
+- 🪟 **Side Quest: "The Glassblower's Window"** (`glasswidow_sidequest.dlg`, gated on `sq.glasswidow_window`) —
+  Senna the Glassblower lost her husband Corm to the Wall (Faithless, walled for a doubt muttered over ale),
+  and set a stained-glass window of him — a man caught in the furnace-light — into the chapel wall. The church
+  shatters it as heresy; she rebuilds it; seven times now, a war of attrition with cloth-wrapped hammers she's
+  losing by aging. Four ways in (make him too *specific* to smash, *multiply* him into a hundred homes, carry
+  his image to the *Court*, or just see the *picture* of the man), and resolutions that armor the memorial with
+  the quarter's love (`sq.window_made_specific`, `sq.window_multiplied`), carry it to indict the Court
+  (`sq.window_to_the_court`, `act5.the_great_objection`), or build one window slow enough to unveil where no
+  Justiciar dares lift a hammer (`sq.window_one_that_lasts`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution (with a
+  combined slide when she both makes him specific *and* multiplies him), and the Chronicle tally grows to
+  **N/9 brought home** — mirrored byte-identically across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/9`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: a person the powers call *nothing* — fire and breath and the cheapest sand — can be made to
+  *hold a shape* in the light that outlasts every hammer; and the memorial of the forgotten is not one window
+  to be guarded, but a refusal scattered wide enough that erasing it would mean smashing the whole quarter's
+  love.
+- 📈 **Content**: dialogue corpus now **196 conversations · 1,330 nodes · 165 skill checks** (757 choices);
+  **nine** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 44-file `.dlg`
+  corpus compiles clean.
+
+---
+
 ## 👑 v4.49.0 — *"The First Dirge"* — the eighth side quest, end-to-end (Pillar 2 + reactivity)
 
 > A demonstration of the full content→reactivity pipeline in a single release: an eighth side quest, written,

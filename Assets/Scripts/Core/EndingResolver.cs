@@ -373,6 +373,18 @@ namespace SunderedCrown.Core
             else if (f.GetBool("sq.dirge_decoded"))
                 slides.Add("🎶 The First Dirge — you heard the second song in the oldest dirge in the world and sang it out: ten thousand years of funerals stopped being a blessing on the Wall and became what Lhoris always made them — the longest act of remembrance in history, the names of the Faithless smuggled past every power that wanted them gone, finally read aloud.");
 
+            // "The Glassblower's Window" — Senna's memorial to Corm.
+            if (f.GetBool("sq.window_made_specific") && f.GetBool("sq.window_multiplied"))
+                slides.Add("🪟 The Glassblower's Window — Senna stopped guarding one frame and seeded a quarter: an unmistakable Corm in the chapel with the whole street daring the hammers, and a hundred small panes of him — a squint, a burn-scarred thumb — in a hundred kitchens and taverns across the Gate. To erase her walled husband now, the church would have to smash the whole quarter's love. They let the dawn stay gathered.");
+            else if (f.GetBool("sq.window_to_the_court"))
+                slides.Add("🪟 The Glassblower's Window — you carried Senna's master cartoon to the Court, bound in her dead husband's scorched apron, and unrolled forty years of a widow's craft before the powers that filed him Faithless: Corm at the furnace, fire coming through him, the christening-cups he blew for the quarter's children in his hands. They could argue with a doctrine. They could not argue with his face. She keeps the frame ready for the day he comes home un-Faithless.");
+            else if (f.GetBool("sq.window_multiplied"))
+                slides.Add("🪟 The Glassblower's Window — Senna cut Corm into a hundred small lights and seeded them across the Gate, a piece of the walled glassblower kept in a hundred kitchen windows that only their families know. One window the church could break; a hundred, hidden in plain sight in homes they'd have to wage war on the quarter to smash, they could not. Let them try to gather the dawn.");
+            else if (f.GetBool("sq.window_made_specific"))
+                slides.Add("🪟 The Glassblower's Window — Senna made the eighth window unmistakably Corm: the squint, the thumb-scar, the christening-cups he'd blown for the street's children set in his hands. The church could shatter a heresy; it could not so easily shatter the beloved glassblower's face in front of the neighbors whose lamps he'd fixed. The hammers, this time, stayed wrapped.");
+            else if (f.GetBool("sq.window_one_that_lasts"))
+                slides.Add("🪟 The Glassblower's Window — Senna stopped fighting on the church's schedule and built one window slow, in secret, of glass that doesn't shatter cheap — then unveiled Corm at the festival, before the whole lantern-lit quarter, where no Justiciar dared lift a hammer. She chose the one hour they couldn't touch him, and set her husband so deep in the street's love that breaking him after would mean breaking the festival itself.");
+
             // The Lady.
             if (f.GetBool("readers_boon"))
                 slides.Add("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -451,10 +463,11 @@ namespace SunderedCrown.Core
                 new[] { "sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory" },
                 new[] { "sq.forbidden_name_spoken", "sq.wickless_speaks_alone" },
                 new[] { "sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded" },
+                new[] { "sq.window_made_specific", "sq.window_multiplied", "sq.window_to_the_court", "sq.window_one_that_lasts" },
             };
             int sideDone = 0;
             foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
-            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/8 brought home");
+            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/9 brought home");
 
             // Bonds.
             var loves = new List<string>();
