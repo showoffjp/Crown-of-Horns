@@ -272,5 +272,5 @@ fuzz. Distinct textures, no two alike.
 *Last updated: full roster (104 named NPCs, #1–104) voiced, and **21 fully-reactive side quests** authored
 across 56 `.dlg` files — 208 conversations / 1,474 nodes / 176 skill checks / 842 choices total, every quest
 wired into the epilogue + Chronicle (plus the four convergence finales that reward breadth across the suite)
-and pinned by the 612-check headless suite. The seeded hooks are now played content; the saga's small mercies
+and pinned by the 613-check headless suite. The seeded hooks are now played content; the saga's small mercies
 reach the ending. Onward.*

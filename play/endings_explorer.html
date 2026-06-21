@@ -732,6 +732,16 @@ const EndingResolver = {
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
     if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/21 brought home`);
 
+    // Movements coalesced — the epilogue's convergence clusters, recognized spoiler-free in the tally.
+    const sqDone = (i) => sideQuestFlags[i].some(k => f.GetBool(k));
+    const movements = [
+      ["⚙️ The Counter-Machine", [4, 13, 14, 17, 18]],
+      ["📚 The Case Was Complete", [3, 11, 9, 16, 19]],
+      ["🕯️ Every Name Kept", [0, 7, 6, 5, 10, 15]],
+    ];
+    const coalesced = movements.filter(([, idxs]) => idxs.filter(sqDone).length >= 3).map(([name]) => name);
+    if (coalesced.length > 0) lines.push(`🎖️ Movements coalesced: ${coalesced.length}/3 — ${coalesced.join(", ")}`);
+
     // Bonds.
     const loves = [];
     for (const id of Romanceable) if (Loved(f, id)) loves.push(NameOf(id) + (f.GetBool(`romance.${id}.consummated`) ? " ♥" : ""));

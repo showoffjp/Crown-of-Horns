@@ -164,6 +164,20 @@ test("LanternFeast_JoyAsDefiance_DrivesItsSlide", () => {
   // It counts toward the long-road tally as the 21st quest.
   T(any(EndingResolver.Chronicle(), "Side quests of the long road: 1/21 brought home"));
 });
+test("Chronicle_MovementsCoalesced_MirrorsEpilogueClusters", () => {
+  Fa(any(EndingResolver.Chronicle(), "Movements coalesced"), "no movements line when none coalesce");
+  // Two rescue quests: still below the cluster threshold, no movement.
+  F().SetBool("sq.harvest_to_the_court", true);
+  F().SetBool("sq.silences_filled", true);
+  Fa(any(EndingResolver.Chronicle(), "Movements coalesced"), "no movement at two");
+  // A third distinct rescue quest coalesces the Counter-Machine, named, 1/3.
+  F().SetBool("sq.crossing_fleet", true);
+  T(any(EndingResolver.Chronicle(), "🎖️ Movements coalesced: 1/3 — ⚙️ The Counter-Machine"), "counter-machine named");
+  // Add three record + three remembrance quests: all three movements, in order.
+  ["sq.naeve_grieves_at_last", "sq.objection_read_aloud", "sq.threnn_shared"].forEach(k => F().SetBool(k, true));
+  ["sq.field_of_the_rested", "sq.dirge_decoded", "sq.wall_read_aloud"].forEach(k => F().SetBool(k, true));
+  T(any(EndingResolver.Chronicle(), "🎖️ Movements coalesced: 3/3 — ⚙️ The Counter-Machine, 📚 The Case Was Complete, 🕯️ Every Name Kept"), "all three named in order");
+});
 test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   // For a single quest, the highest-priority resolution wins (one slide, not two).
   F().SetBool("sq.field_of_the_rested", true);

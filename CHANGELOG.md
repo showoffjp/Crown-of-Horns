@@ -11,6 +11,24 @@
 
 ---
 
+## 👑 v4.64.0 — *"Movements Coalesced"* — the convergence layer reaches the spoiler-free Chronicle (reactivity)
+
+> The four convergence finales (v4.62) lived only in the personalized epilogue. This completes the feature
+> across **both** narrative surfaces — the project's standing rule — by teaching the spoiler-free **Chronicle**
+> tally to recognize the same emergent movements, named, without spoiling their prose.
+
+- 🎖️ **New Chronicle line: "Movements coalesced: N/3"** — when a player has brought home ≥3 quests of a
+  thematic cluster, the Chronicle now names the movement they built — **⚙️ The Counter-Machine**,
+  **📚 The Case Was Complete**, **🕯️ Every Name Kept** — counting how many of the three coalesced, in the
+  same order the epilogue uses. A breadth readout that complements the per-quest `🪙 N/21` tally.
+- 🔁 **Byte-identical across all three engine copies** — `endings.js`, `EndingResolver.cs`, and the inlined
+  engine in `endings_explorer.html` (DEEDEPI/import chrome preserved), the all-in-one bundle regenerated.
+- 🧪 **New Chronicle gate** pins the threshold (no line below 3 in any cluster), the naming, the `1/3`→`3/3`
+  count, and the exact ordering of the joined movement names — confirming JS and C# emit the identical string.
+  Suite now **613 checks**, all green.
+
+---
+
 ## 👑 v4.63.0 — *"The Last Lantern-Feast"* — the twenty-first side quest; joy as the weapon no machine planned for (Pillar 2/4 + reactivity)
 
 > Twenty quests of the long road were about the **dead** — grief, testimony, rescue, remembrance. This one is

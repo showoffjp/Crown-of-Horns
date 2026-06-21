@@ -653,6 +653,17 @@ namespace SunderedCrown.Core
             foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
             if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/21 brought home");
 
+            // Movements coalesced — the epilogue's convergence clusters, recognized spoiler-free in the tally.
+            System.Func<int, bool> sqDone = i => { foreach (var k in sideQuestFlags[i]) if (f.GetBool(k)) return true; return false; };
+            var movements = new (string name, int[] idxs)[] {
+                ("⚙️ The Counter-Machine", new[] { 4, 13, 14, 17, 18 }),
+                ("📚 The Case Was Complete", new[] { 3, 11, 9, 16, 19 }),
+                ("🕯️ Every Name Kept", new[] { 0, 7, 6, 5, 10, 15 }),
+            };
+            var coalesced = new System.Collections.Generic.List<string>();
+            foreach (var m in movements) { int c = 0; foreach (var i in m.idxs) if (sqDone(i)) c++; if (c >= 3) coalesced.Add(m.name); }
+            if (coalesced.Count > 0) lines.Add($"🎖️ Movements coalesced: {coalesced.Count}/3 — {string.Join(", ", coalesced)}");
+
             // Bonds.
             var loves = new List<string>();
             foreach (var id in Romanceable) if (Loved(f, id)) loves.Add(NameOf(id) + (f.GetBool($"romance.{id}.consummated") ? " ♥" : ""));
