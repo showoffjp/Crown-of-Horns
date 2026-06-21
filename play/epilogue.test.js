@@ -143,6 +143,14 @@ test("SideQuests_LongRoad_DriveTheirOwnSlides", () => {
   T(any(s, "the ferryman of endings learned he was owed a shore too"));
   T(any(s, "a name carried in love is a soul the Wall can never quite finish erasing"));
 });
+test("Chronicle_SideQuestTally_CountsResolvedQuests", () => {
+  Fa(any(EndingResolver.Chronicle(), "Side quests of the long road"), "no tally when none resolved");
+  F().SetBool("sq.roen_forgives_sabira", true);          // quest 3
+  F().SetBool("sq.field_of_the_rested", true);           // quest 1
+  F().SetBool("sq.fortyone_reaper_rests", true);         // quest 6
+  F().SetBool("sq.fortyone_victory", true);              // same quest 6 — must not double-count
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/7 brought home"));
+});
 test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
   // For a single quest, the highest-priority resolution wins (one slide, not two).
   F().SetBool("sq.field_of_the_rested", true);

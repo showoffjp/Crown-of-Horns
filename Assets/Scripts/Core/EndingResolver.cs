@@ -429,6 +429,20 @@ namespace SunderedCrown.Core
                 if (f.GetBool($"quest.{id}.resolved")) quests++;
             lines.Add($"📜 Companion quests resolved: {quests}/5");
 
+            // Side quests of the long road brought home (one per quest, any resolution counts).
+            var sideQuestFlags = new[] {
+                new[] { "sq.field_of_the_rested", "sq.graves_to_the_tenders", "sq.every_soul_expected", "sq.halen_at_rest" },
+                new[] { "sq.margins_for_the_warden", "sq.wrote_back_to_the_loop", "sq.margins_warning_heeded", "sq.margins_back_to_ynn" },
+                new[] { "sq.roen_and_sabira_reconcile", "sq.roen_tells_the_fire", "sq.roen_forgives_sabira", "sq.roen_darkthing_rests" },
+                new[] { "sq.naeve_grieves_at_last", "sq.naeve_keeps_one_page", "sq.naeve_indictment_at_court", "sq.naeve_read_together" },
+                new[] { "sq.harvest_exposed_public", "sq.harvest_to_the_hands", "sq.harvest_to_the_court" },
+                new[] { "sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory" },
+                new[] { "sq.forbidden_name_spoken", "sq.wickless_speaks_alone" },
+            };
+            int sideDone = 0;
+            foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
+            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/7 brought home");
+
             // Bonds.
             var loves = new List<string>();
             foreach (var id in Romanceable) if (Loved(f, id)) loves.Add(NameOf(id) + (f.GetBool($"romance.{id}.consummated") ? " ♥" : ""));

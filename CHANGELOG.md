@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v4.48.0 — *"Brought Home"* — the side quests reach the Chronicle (Pillar 1 · reactivity)
+
+> The companion to v4.47: the seven side quests now also register in the spoiler-free **Chronicle** — the
+> running tally of your playthrough — mirroring the existing "Companion quests resolved: N/5" line.
+
+- 🪙 **Side-quest tally in the Chronicle** (`endings.js` + `Assets/Scripts/Core/EndingResolver.cs`,
+  byte-identical) — a new line, `🪙 Side quests of the long road: N/7 brought home`, counts how many of the
+  seven built quests you resolved (any resolution counts; one per quest, no double-counting of alternate
+  endings within a quest). Shown only when at least one is resolved, so it never disturbs the baseline
+  Chronicle.
+- 🧪 **Test**: a new `epilogue.test.js` case pins it — no tally when none resolved, and a 3-quest run (with a
+  duplicate alternate flag set) reads exactly `3/7 brought home`, proving the no-double-count logic. The
+  prose-parity gate stays green (the tally string is interpolated, outside the literal gate, and the C# and JS
+  branch logic match).
+- 🖥️ **Artifacts**: the tally flows into the all-in-one bundle (regenerated from `endings.js`) and is injected
+  into the Endings Explorer's inlined engine, preserving its Save-Inspector and deed-folding chrome.
+- 📈 **CI**: headless suite now **609 checks** (up from 608 — the new Chronicle test); all green.
+
+---
+
 ## 👑 v4.47.0 — *"Where They Are Now"* — the side quests reach the epilogue (Pillar 1 · reactivity)
 
 > The seven built side quests stop being self-contained and start *changing the run.* Their resolution flags
