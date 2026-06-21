@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.26.0 — *"The Song, the Ledger, and the Hand That Stayed Down"* — Crown Wars complete (Pillar 2)
+
+> The founding finishes. The bard who is commanded to make the atrocity *beautiful* — and so writes the
+> first dirge in the world; the scribe whose stylus turns a man's spoken cruelty into a permanent fact and
+> who insists "I only record"; and, on a hill above it all, the one judge who kept his hand down, exiled and
+> erased, who has had ten thousand years to learn what forgiveness actually is.
+
+- 🏛️ **Crown Wars Wave II** (`crownwars_denizens_2.dlg`) completes the origin era:
+  - **Singer Lhoris** — commissioned to score the faithless's last walk, and able to make ten thousand years
+    of imprisonment sound like a blessing. The artist's complicity: beauty is a gift to the dying *and* an
+    anesthetic for the killers, in the same notes. He can weave the victims' *names* into the melody so every
+    future dirge is a hidden act of remembrance, or smuggle the truth in its bones down ten thousand years
+    (`sq.the_first_dirge`, `act3.truth_smuggled_in_song`).
+  - **The Scribe of the First Verdict** — the unremarkable, dutiful woman whose clean hands are the *only*
+    thing that makes the cruelty stick: the Wall isn't built of stone, it's built of her ledger, kept
+    correctly. The ancestor of the Clerk of the Wall (#49), patient zero of "I only record" — who can leave a
+    margin, name the first Faithless in the template, and make the record carry its own refutation forever
+    (`act3.wall_is_the_ledger`, `act3.scribe_refuses_inertia`, `sq.scribe_margin`).
+  - **The Exile Who Forgave** — the one judge who refused the vote, stripped of name and rank and erased from
+    the record, who has sat ten thousand years on a hill above the Wall and learned the secret the whole road
+    ahead requires: *forgiveness is never earned, only set down* — a bridge you build alone and then wait on.
+    The counterpoint to young Ilfaeril; he can come down off the hill to tell the boy there was another way
+    (`act3.forgiveness_is_not_earned`, `act3.refusal_was_possible`, `act3.exile_may_return`).
+- 🧵 **Theme**: how an atrocity is *finished* — scored into beauty, recorded into permanence, and written into
+  a story that says "there was no other way." Each NPC is the seed of a present-day counterpart (Lhoris→the
+  Drowned Choir, the Scribe→the Clerk of the Wall, the Exile→Ilfaeril's unaccepted forgiveness). The Crown
+  Wars (#61–66) are now **fully voiced**.
+- 📈 **Content**: dialogue corpus now **150 conversations · 929 nodes · 119 skill checks** (up from
+  147/905/116). All 606 headless CI checks green; the 22-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.25.0 — *"The Day the Wall Was Built"* — the Crown Wars origin (Pillar 2 keystone)
 
 > The saga reaches its thematic floor: ~−10,000 DR, the founding chamber where the Wall of the Faithless

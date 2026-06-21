@@ -122,10 +122,10 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 |---|---|---|---|
 | 61 | **Coronal Aedyn** | The elven high judge who *invents* the Wall as a "merciful" sentence; sincere, monstrous. | ✍️🔁 |
 | 62 | **The First Faithless** | The very first soul ever sorted to nothing; doesn't understand the verdict yet. | ✍️🪙 |
-| 63 | **Singer Lhoris** | A bard sentencing his own audience with a song; the original of every dirge since. | 📋 |
-| 64 | **The Scribe of the First Verdict** | Records the vote; her stylus is the literal origin of the Wall's ledger. | 📋🪙 |
+| 63 | **Singer Lhoris** | A bard sentencing his own audience with a song; the original of every dirge since. | ✍️ |
+| 64 | **The Scribe of the First Verdict** | Records the vote; her stylus is the literal origin of the Wall's ledger. | ✍️🪙 |
 | 65 | **Ilfaeril** *(pre-recruit, young)* | The certain young judge who raises his hand — your companion's worst day, live. | ✍️🔁 *(companion)* |
-| 66 | **The Exile Who Forgave** | An elf who refused to vote and was cast out; the road not taken, aged ten thousand years. | 📋🪙 |
+| 66 | **The Exile Who Forgave** | An elf who refused to vote and was cast out; the road not taken, aged ten thousand years. | ✍️🪙 |
 
 ---
 
