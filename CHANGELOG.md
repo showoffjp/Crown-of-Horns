@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.40.0 — *"The Graves That Waited"* — the payoff side quest (Pillar 2 · side quests begin)
+
+> With the cast complete, the seeded `sq.*` hooks begin paying off as full quests. The first is the one that
+> braids every carried name together — and gives the whole saga its true, unglamorous ending.
+
+- ⚰️ **Side Quest: "The Graves That Waited"** (`court_sidequests.dlg`) — the payoff of the coffin-salesman's
+  ledger of empty graves (gated on `sq.coffin_ledger` / `act5.graves_waiting`). Beyond the Court lies a field
+  of *open graves* — every hole the salesman dug across ten thousand years for a soul the harvest stole before
+  he could bury them, each kept open, each with a name on the stone. As the Wall reads its names free, the
+  graves can finally be *filled* — one at a time, a true word over each:
+  - **Halen** the potter, laid to rest with the green-glazed cup that outlived the city that filed him
+    (`sq.halen_at_rest`);
+  - **Maerys**, the first Faithless, buried at last — *overturning the precedent* that began the Wall, breaking
+    it with a funeral instead of a crown (`sq.maerys_at_rest`, `act5.precedent_overturned`);
+  - **Sariel** the weaver, whose burial lets the drowned choir *stop singing* after nine years and rest too
+    (`sq.sariel_at_rest`, `act5.choir_can_rest`);
+  - and **the salesman himself**, who discovers some earlier coffin-man dug *his* grave too — even he is in the
+    unbroken line (`sq.salesman_has_a_grave`).
+  - Resolutions: stay and fill the whole field by hand (`sq.graves_that_waited_complete`), summon the eternal
+    line of grave-tenders to fill it together (`sq.graves_to_the_tenders`), or carry the ledger back through the
+    Wall so *no freed soul is released into nowhere* — each one expected, with a grave already dug
+    (`act5.every_soul_expected`).
+- 🧵 **Theme (the ending under the ending)**: the Wall is not unmade by a crown or a breaking or a speech, but
+  by the slow, holy, unglamorous work of giving the discarded what they were always owed — a grave that fits,
+  a name spoken plain, and a place that was waiting all along. *Cruelty needs a machine; mercy just needs
+  enough hands that decided to care.*
+- 📈 **Content**: dialogue corpus now **188 conversations · 1,236 nodes · 157 skill checks** (701 choices).
+  All 606 headless CI checks green; the 36-file `.dlg` corpus compiles clean and the viewer regenerates
+  byte-for-byte.
+
+---
+
 ## 👑 v4.39.0 — *"The Masks Ate the Face"* — the Guild's shadows; the roster complete (Pillar 2 · ✅ 104/104)
 
 > The final cluster closes the entire designed roster. Four underworld figures — each a moral mirror the
