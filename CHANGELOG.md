@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.53.0 — *"The Great Objection"* — the twelfth side quest (Pillar 2 + reactivity)
+
+> The civic heart of the long road, paid off. A twelfth full side quest — the Complaint's age of grievances,
+> and the daughter behind them — written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 📋 **Side Quest: "The Great Objection"** (`complaint_sidequest.dlg`, gated on `sq.the_complaints`) — the
+  Complaint, the fussy man who has lodged grievances at the afterlife's never-staffed desk through every era,
+  follows you to the Court, where for the first time the desk is *staffed.* His thousand petty complaints were
+  always one indictment; the one he can't write is **Wrenna**, his eleven-year-old daughter, walled for the
+  crime of thinking. Four ways in (file them as the indictment they always were, set Wrenna *first*, demand
+  the cosmos *stamp it received*, or ask them *why* for Wrenna so he can grieve instead of file), and
+  resolutions that file the great indictment (`sq.objection_indictment`, `sq.objection_wrenna_first`,
+  `sq.objection_formally_received`), let you ask the powers why his daughter was walled while he finally weeps
+  (`sq.objection_asked_for_him`, `act5.ask_them_why`), join his age of records to the whole road's case as its
+  civic backbone (`sq.objection_joins_the_case`), or read it aloud where no drawer can swallow it
+  (`sq.objection_read_aloud`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/12 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/12`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: a cruelty no one objects to becomes *fate* — clean, absolving, inevitable — and the simplest,
+  most radical act in a cosmos arranged to answer to no one is to make it receive, in writing, in its own
+  record, forever, the fact that someone stood up and said *no.*
+- 📈 **Content**: dialogue corpus now **199 conversations · 1,366 nodes · 168 skill checks** (778 choices);
+  **twelve** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 47-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.52.0 — *"The Mournlight"* — the eleventh side quest; the golden-path key (Pillar 2 + reactivity)
 
 > Grief as the truest weapon the road ever gave you. An eleventh full side quest — the golden-path key

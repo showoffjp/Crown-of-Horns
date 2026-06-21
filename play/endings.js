@@ -446,6 +446,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.mournlight_shone_at_court") || f.GetBool("sq.mournlight_carries_aline"))
       slides.push("🕯️ The Mournlight — you shone ten thousand forbidden mournings at the Court, and the powers who had answers for every argument had none for a grief that simply happened in front of them. They could command a tear not to fall; they could not rule that the ones already falling weren't falling. You cannot out-argue a tear, and you brought them every tear they ever forbade, falling anyway, blazing, in their own chamber.");
 
+    // "The Great Objection" — the Complaint's age of grievances, and Wrenna.
+    if (f.GetBool("sq.objection_asked_for_him"))
+      slides.push("📋 The Great Objection — you took the one page the Complaint could never file and asked the powers, to their faces, why they walled Wrenna: eleven years old, clever, doubting, filed nothing. And the fussy old objector, freed for once from being a clerk, stood at the staffed desk and did the thing he'd never let himself do in any era — he stopped filing his daughter, and grieved her.");
+    else if (f.GetBool("sq.objection_read_aloud"))
+      slides.push("📋 The Great Objection — you read the Complaint's age of grievances aloud into the Court itself — the queue, the forms, the absent staff, charge after charge, until there was nowhere for it to go but into the powers' ears, and then, last, Wrenna. An objection filed at a desk can be drawered and forgotten. One spoken in the room they cannot leave cannot.");
+    else if (f.GetBool("sq.objection_joins_the_case"))
+      slides.push("📋 The Great Objection — the crank's age of paper turned out to be the civic backbone of the whole case: an age of dated, itemized, witnessed cruelties that turned Naeve's grief and the deserter's confession and the book's census from separate cries into a prosecution with a paper trail. The one objector who thought he stood alone had been keeping the records for a trial he never knew was coming.");
+    else if (f.GetBool("sq.objection_indictment") || f.GetBool("sq.objection_wrenna_first") || f.GetBool("sq.objection_formally_received"))
+      slides.push("📋 The Great Objection — at the one desk that was finally staffed, the Complaint filed an age of grievances as what they always were: not a crank's ravings but an indictment, dated and undismissable, Wrenna at its head. The machine runs on cruelties passing unprotested into fate; he jammed it forever, with the cosmos forced to carry on its own record the proof that someone stood up and said no.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -521,10 +531,11 @@ const EndingResolver = {
       ["sq.window_made_specific", "sq.window_multiplied", "sq.window_to_the_court", "sq.window_one_that_lasts"],
       ["sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides"],
       ["sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead"],
+      ["sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/11 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/12 brought home`);
 
     // Bonds.
     const loves = [];
