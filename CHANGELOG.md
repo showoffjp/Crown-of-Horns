@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.41.0 — *"The Thing in the Dark"* — Roen's companion quest (Pillar 2 · side quests)
+
+> The second `sq.*` payoff: the companion Roen's buried secret, set up by Old Sabira at the Low Lantern. A
+> single terrible night, wrapped so long in protective silence it curdled into a whole identity — and the cure
+> is the saga's own.
+
+- 🗡️ **Side Quest: "The Thing in the Dark"** (`roen_sidequest.dlg`, gated on `sq.roen_secret`) — Roen confronts
+  the killing at fourteen: a job the fence Sabira sent a child on, a grown man who caught and wouldn't let go,
+  a death in the dark. Roen has carried it for half a life not as *"a terrible night"* but as *"the real name
+  under all the others."* Four ways in:
+  - the **silence** that fed it (`sq.roen_named_in_daylight`) — a thing you can't say grows in the dark;
+  - **Sabira's** buried fault (`sq.roen_knows_sabira`) — she sent the child and let him carry her sin;
+  - the **whole** truth Roen edited out to make the guilt cleaner (`sq.roen_whole_truth`) — a cornered child
+    *surviving*, not a killer;
+  - and the **Wall** parallel (`act5.shame_feeds_the_wall`, `act5.wall_breaking`) — Roen has been their own
+    Wall, filing themself under one act.
+  - Resolutions: forgive Sabira as a weight *set down* not earned (`sq.roen_forgives_sabira`,
+    `act3.forgiveness_is_not_earned`); name it at the fire as a fact refused the shame (`sq.roen_tells_the_fire`);
+    go back to unlock both silences with Sabira (`sq.roen_and_sabira_reconcile`); or simply set it down for the
+    night, refused the demand to recover on schedule (`sq.roen_darkthing_rests`).
+- 🧵 **Theme**: the saga's whole argument proven on a companion's heart — *the Wall's cruelty and a person's
+  shame run on the same engine* (one act, wrapped in silence, made a whole identity), and both break the same
+  way: said out loud, in daylight, refused the power of being unspeakable.
+- 📈 **Content**: dialogue corpus now **189 conversations · 1,249 nodes · 158 skill checks** (709 choices).
+  All 606 headless CI checks green; the 37-file `.dlg` corpus compiles clean and the viewer regenerates
+  byte-for-byte.
+
+---
+
 ## 👑 v4.40.0 — *"The Graves That Waited"* — the payoff side quest (Pillar 2 · side quests begin)
 
 > With the cast complete, the seeded `sq.*` hooks begin paying off as full quests. The first is the one that
