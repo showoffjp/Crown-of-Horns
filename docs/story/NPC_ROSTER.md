@@ -224,6 +224,44 @@ a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 
 ---
 
-*Last updated: Waves I–IV + Candlekeep opened — 24 fully-voiced Gate denizens + Deacon Mallow + 2 full side quests authored and
-live (`gate_denizens{,_2,_3}.dlg`, `gate_sidequests.dlg`). 122 conversations / 703 nodes total; Candlekeep cast begun. Roster planned
-through 100+. Onward.*
+## 🪙🪙 Side-Quest Bible II — the **19 fully-reactive quests** built atop the seeded hooks
+
+Each is a complete branching `*.dlg` conversation (4 ways in → 3–6 resolutions), **wired into both narrative
+surfaces**: a flag-keyed **epilogue "where they are now" slide** per resolution *and* the spoiler-free
+**Chronicle tally** (`🪙 Side quests of the long road: N/19 brought home`), mirrored byte-for-byte across the
+C# engine (`EndingResolver.cs`) and the JS port (`endings.js`), pinned by the prose-parity gate and the seeded
+fuzz. Distinct textures, no two alike.
+
+| # | Quest | Giver (NPC) | The hook | Distinct texture |
+|---|---|---|---|---|
+| 1 | **The Graves That Waited** | the Coffin-Salesman (#83) | Fill the graves dug for every soul the harvest stole. | the payoff — braids every carried name |
+| 2 | **The Hand in the Margins** | Proctor Ynn (#58) | The warning in Karsus's margins is a letter chain — and it's *yours*. | the loop-mystery spine |
+| 3 | **The Thing in the Dark** | Roen + Old Sabira (#94) | The killing at fourteen, and whose fault it really was. | companion arc |
+| 4 | **The Indictment** | Naeve | Her case that Netheril's fall was a murder with her father's signature. | companion arc |
+| 5 | **The Hands That Refused** | Corwin + Sister Wren (#71/72, 98/99) | A deserter and a convert: the proof the harvest runs on hands that could open. | faction convergence |
+| 6 | **The Forty-One** | the Last Honest Psychopomp (#47) | The forty-one fading Faithless a reaper hid for ten thousand years. | soul-rescue |
+| 7 | **The Forbidden Name** | Wickless (#48) | A candle carries one erased soul's forbidden name to the soul itself. | soul-rescue / a small flame |
+| 8 | **The Dangerous Book** | the Cat Who Reads (#41) | Read the Unabridged — the census whose weight stops a warm heart. | knowledge-as-burden |
+| 9 | **The Mournlight** | the Mournlight (#51) | Grief made into light: the golden-path key, an indictment that shines. | grief-as-weapon |
+| 10 | **The Great Objection** | the Complaint (#84) | An age of grievances at a finally-staffed desk — and Wrenna, walled at eleven. | civic objection |
+| 11 | **The Old Map** | the Cartographer (#73) | A map of the world-as-it-was, and a daughter behind impassable blue fire. | geography & separation |
+| 12 | **Hessa's Mercy** | Hessa Dock-Eye (#13) | An underground railroad running the harvest-marked out *alive*. | rescue of the living |
+| 13 | **The Map of Silences** | Brindle (#19) | A gnome's empathy-machine that goes dead where the harvest ate the grief. | device / investigation |
+| 14 | **The Reading of the Wall** | Mistress Ekko (#43) | The Wall named its dead — in a tongue made illegible on purpose. | literacy / decipherment |
+| 15 | **The Catalogue of the Unwritten** | Brother Faolan (#37) | The index of every work the world meant to make and didn't. | grief for the uncreated |
+| 16 | **The Coinless Crossing** | the Ferryman (#24) | The toll-as-snare is the *church's*, not the god's. | ferrying / faction-truth |
+| 17 | **A Point** | Ysolde de Lancie (#25) | A bored heiress aims a fortune, a name, and a key to every door. | wealth / satire |
+| 18 | **The First Dirge** | Singer Lhoris (#63) | The funeral song that secretly sings the Faithless's names. | art-smuggles-truth |
+| 19 | **The Glassblower's Window** | Senna the Glassblower (#28) | A memorial in stained glass the church keeps shattering. | grief made into light |
+
+> Recurring resolution-shape across the suite: each quest can usually be *carried to the Court* (feeding
+> `act5.the_great_objection`), *spread/copied/taught wide* (feeding `act2.cataloguing_defeats_the_wall` /
+> `act5.unbroken_line`), or *resolved intimately* (a name read, a grief set down, a quarrel fixed) — so the
+> player's whole road of small mercies converges, mechanically, on the ending.
+
+---
+
+*Last updated: full roster (104 named NPCs, #1–104) voiced, and **19 fully-reactive side quests** authored
+across 54 `.dlg` files — 206 conversations / 1,450 nodes / 175 skill checks / 827 choices total, every quest
+wired into the epilogue + Chronicle and pinned by the 609-check headless suite. The seeded hooks are now
+played content; the saga's small mercies reach the ending. Onward.*
