@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.27.0 — *"The Mask Comes Off"* — Act IV opens: the Time of Troubles, 1358 DR (Pillar 1/2)
+
+> The gods walk Faerûn as mortals, cast down by Ao — and the Pale Companion who has carried your water for
+> an entire act reaches up to touch a face that was never a face. The villain reveal, plus the strangest
+> congregation of the saga: an amnesiac god at eye level with his worshippers, a smith forging a crown from
+> a skull he insists is ivory, and a priestess losing and finding her faith by the hour.
+
+- 🩸 **Act IV opens** (`troubles_denizens.dlg`) — the god-fall, told from inside:
+  - **The Pale Companion** unmasks as **Myrkul, Lord of the Dead** — and reveals he rode your pack not to
+    judge you but because, in a time of dying gods, even the God of Death went looking for the one soul who
+    knows how to come *back.* He can be brought to *yield the crown grieving* rather than fight for it — "I
+    would rather be mourned than be needed" (`act4.myrkul_revealed`, `act4.myrkul_will_yield`,
+    `act4.myrkul_seeks_return`).
+  - **The Lost Avatar** — a god knocked down to eye level and stripped of memory, who discovers the
+    not-remembering feels less like amnesia than *relief*; the divinity was a weight he carried, not the
+    heart underneath. He can choose to stay gloriously, humbly mortal (`act4.god_stays_mortal`,
+    `act4.god_meets_eye_level`).
+  - **The Bone-Forger** — an honest craftsman at the peak of his trade, forging the Crown of Horns from a
+    material that files like bone and screams below hearing, who has *un-known* what his own hands keep
+    telling him because it's the finest work of his life. The Crown's title, sourced (`act4.crown_being_forged`,
+    `act4.forger_realizes`).
+  - **Sister Aelana, the Doubter** — a priestess at a bleeding altar, alternating faith and collapse like a
+    pulse, who learns the doubt was never the failure of her faith but its *exercise* — the only devotion
+    built to survive the gods themselves falling into the street (`act4.faith_through_doubt`).
+- 🧵 **Theme**: what a god *is* without worship — and the throughline of the Wall arrives at its enforcer-god,
+  who turns out to be as weary of the office as the predecessor, the clerk, and the scribe before him. The
+  Crown of Horns is named and sourced: a murdered god's skull, forged in pride, not malice.
+- 📈 **Content**: dialogue corpus now **154 conversations · 961 nodes · 123 skill checks** (up from
+  150/929/119). All 606 headless CI checks green; the 23-file `.dlg` corpus compiles clean (zero broken refs,
+  dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.26.0 — *"The Song, the Ledger, and the Hand That Stayed Down"* — Crown Wars complete (Pillar 2)
 
 > The founding finishes. The bard who is commanded to make the atrocity *beautiful* — and so writes the
