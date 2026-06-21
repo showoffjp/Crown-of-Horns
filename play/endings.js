@@ -436,6 +436,16 @@ const EndingResolver = {
     else if (f.GetBool("sq.book_read_shared"))
       slides.push("📕 The Unabridged — you read Candlekeep's most dangerous book the way it was always meant to be read: not alone, the way the last reader died, but together — the cat Margin against your side, the monk weeping at your shoulder, the weight of ten thousand years of the discarded distributed across hearts that held it as one. The truth that stops a solitary heart cannot stop three that carry it together.");
 
+    // "The Mournlight" — the golden-path key, grief made into light.
+    if (f.GetBool("sq.mournlight_shone_on_the_dead"))
+      slides.push("🕯️ The Mournlight — you turned the grief of ten thousand forbidden mourners not on the powers but on the dead themselves: every Faithless soul, in the moment of release, felt at last the thing the Wall spent ten thousand years denying them — that they were mourned, by someone, somewhere, in defiance of every order not to. The kept fell free knowing they were grieved. There was no kinder use of all that sorrow.");
+    else if (f.GetBool("sq.mournlight_grief_added"))
+      slides.push("🕯️ The Mournlight — you added your own grief, the quiet forbidden one you'd carried small and silent, to the ten thousand mournings the light was made of — and then you shone it at the Court, carried not by a witness to grief but by a mourner who'd finally joined it. The forbidding ended for Aline's thirty unshed years and for your own in the same blaze, in the very room that decreed you had no right to weep.");
+    else if (f.GetBool("sq.mournlight_lights_golden_road"))
+      slides.push("🕯️ The Mournlight — when the crown blazed its certainty and the golden road dimmed to nothing beside it, you looked to the one light that does not glare but weeps, and let the mourning of ten thousand forbidden mourners show you the way the powers built their glare to hide. Grief was the lantern for the dim road to the ending. It always was.");
+    else if (f.GetBool("sq.mournlight_shone_at_court") || f.GetBool("sq.mournlight_carries_aline"))
+      slides.push("🕯️ The Mournlight — you shone ten thousand forbidden mournings at the Court, and the powers who had answers for every argument had none for a grief that simply happened in front of them. They could command a tear not to fall; they could not rule that the ones already falling weren't falling. You cannot out-argue a tear, and you brought them every tear they ever forbade, falling anyway, blazing, in their own chamber.");
+
     // The Lady.
     if (f.GetBool("readers_boon"))
       slides.push("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -510,10 +520,11 @@ const EndingResolver = {
       ["sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded"],
       ["sq.window_made_specific", "sq.window_multiplied", "sq.window_to_the_court", "sq.window_one_that_lasts"],
       ["sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides"],
+      ["sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead"],
     ];
     let sideDone = 0;
     for (const group of sideQuestFlags) if (group.some(k => f.GetBool(k))) sideDone++;
-    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/10 brought home`);
+    if (sideDone > 0) lines.push(`🪙 Side quests of the long road: ${sideDone}/11 brought home`);
 
     // Bonds.
     const loves = [];

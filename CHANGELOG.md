@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.52.0 — *"The Mournlight"* — the eleventh side quest; the golden-path key (Pillar 2 + reactivity)
+
+> Grief as the truest weapon the road ever gave you. An eleventh full side quest — the golden-path key
+> itself — written, verified, and wired into the epilogue and Chronicle the same release.
+
+- 🕯️ **Side Quest: "The Mournlight"** (`mournlight_sidequest.dlg`, gated on `sq.carry_the_mournlight`) — you
+  carry to the threshold of the Court the Mournlight: ten thousand forbidden mournings made into a radiance
+  that weeps, the grief of every soul ever told it had no right to mourn a Faithless dead, borne on the one
+  grief *you* were never allowed to feel. It asks not to be set down but what it is *for.* Four ways in (an
+  exhibit that wins by being seen, a lantern for the dim golden road, a blaze to add your own forbidden grief
+  to, or one mother's thirty unshed years for *Aline* and *Joss the fisher* as the face of the vast), and
+  resolutions that shine it at the Court (`sq.mournlight_shone_at_court`, `act5.the_great_objection`), light
+  the golden road with it (`sq.mournlight_lights_golden_road`, `act5.golden_road_known`), add your own grief
+  (`sq.mournlight_grief_added`), or — most tender — turn it inward on the dead themselves, so every freed
+  Faithless soul feels, in the moment of release, that they *were* mourned (`sq.mournlight_shone_on_the_dead`,
+  `act5.witness_then_release`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution (priority-
+  ordered), tally grows to **N/11 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`,
+  injected into the Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to
+  `3/11`. Prose-parity green, fuzz crash-free.
+- 🧵 **Theme**: the truest weapon the long road gives is not a sword or a crown but *grief* — the grief the
+  powers forbade and that fell anyway — made visible, undeniable, and shining, in the one room that decreed it
+  had no right to exist; and the kindest use of all that sorrow is not to indict the guilty but to let the dead
+  feel, at the last, that they were grieved.
+- 📈 **Content**: dialogue corpus now **198 conversations · 1,354 nodes · 167 skill checks** (771 choices);
+  **eleven** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 46-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.51.0 — *"The Dangerous Book"* — the tenth side quest (Pillar 2 + reactivity)
 
 > Knowledge as burden, not another ledger to carry to court. A tenth full side quest — written, verified, and
