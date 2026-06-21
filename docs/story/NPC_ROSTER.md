@@ -149,8 +149,8 @@ unforgettable people — half funny, half heartbreaking, all human — that it h
 | 73 | **The Plaguechanged Cartographer** | Maps a world that won't hold still; her maps are weeping, and accurate. | ✍️🪙 |
 | 74 | **Two People in One Body** | A merging-worlds casualty; an argument that is also a person; surprisingly well-adjusted. | ✍️🪙 |
 | 75 | **The Blue-Fire Gardener** | Tends a garden of impossible flora; the first hint of the Deathless Garden's logic. | ✍️🔁 |
-| 76 | **Causality, Personified** | A small annoyed clerk insisting events happen *in order*, losing badly. | 📋 *(comic)* |
-| 77 | **The Witness Who Un-saw** | Saw the second murder, then the Spellplague edited her memory; reconstructing it terrifies her. | 📋🪙 |
+| 76 | **Causality, Personified** | A small annoyed clerk insisting events happen *in order*, losing badly. | ✍️ *(comic)* |
+| 77 | **The Witness Who Un-saw** | Saw the second murder, then the Spellplague edited her memory; reconstructing it terrifies her. | ✍️🪙 |
 
 ---
 

@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.30.0 — *"In Order, In Order"* — the Spellplague complete; the loop sharpens (Pillar 1/2)
+
+> The blue fire finishes its work on reality — and on memory. A little clerk fights to keep cause-and-effect
+> from dissolving into noise, because without it nothing anyone does means anything; and a woman holds a hole
+> in her own mind where a murder used to be — a blank that wasn't chaos but *editing*, and the killer she
+> half-remembers wore a face she knew and had never seen, out of its own time.
+
+- 🌀 **Spellplague Wave II** (`spellplague_denizens_2.dlg`) completes Act IV's reality-break era:
+  - **The Clerk of Causality** — the bureaucrat of meaning itself, shouting "in order, in order" at a
+    hurricane as effects precede their causes, terrified that if cause no longer yields effect then no deed,
+    no kindness, no *choice* counts. He can be shown that meaning relocates from *time* (lost) into *memory*
+    (endures) — a "second causality" enforced by witnesses who carry deeds forward; or that meaning was never
+    the same as reward, and a deed done with no guarantee is the purest kind (`act4.meaning_lives_in_memory`,
+    `act4.meaning_without_reward`).
+  - **The Witness** — who saw a murder "that mattered beyond the two of them," then had the seeing surgically
+    erased by the blue fire while everything else was left. Not the plague's *mercy* but a *cover-up* she's
+    hosting in her own skull: the killer turned, looked at her, with a face she knew and had never seen — a
+    *loop*-murder, deleted to protect the killer's secret. Threads directly into the saga's central mystery
+    (`act4.deleted_witness`, `act3.loop_glimpsed`, `sq.reconstruct_the_murder`).
+- 🧵 **Theme / plot**: the Spellplague closes by sharpening the loop — the Last Returned, the annotator's
+  hand, the witness who saw one version of you kill another. And the saga's spine gets its sharpest statement
+  yet: when the rule that made deeds matter *automatically* breaks, meaning doesn't die — it has to be *made
+  by hand*, one chosen kindness at a time, and *kept by memory.* The Spellplague (#73–77) is now **fully
+  voiced**, completing **Act IV.**
+- 📈 **Content**: dialogue corpus now **161 conversations · 1,017 nodes · 130 skill checks** (up from
+  159/1,001/128). All 606 headless CI checks green; the 26-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.29.0 — *"The World That Won't Hold Still"* — the Spellplague opens; the corpus passes 1,000 nodes (Pillar 2)
 
 > Reality stops holding still. A cartographer maps a geography that dissolves as she draws it, keeping a road
