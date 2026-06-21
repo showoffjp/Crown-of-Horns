@@ -29047,12 +29047,321 @@
      ]
     }
    ]
+  },
+  {
+   "id": "sq.wickless.name",
+   "file": "WicklessSideQuestContent.cs",
+   "title": "Sq · Wickless · Name",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Wickless",
+     "text": "*(The little flame bobs ahead of you, brighter than you've seen it, straining against the grey like a hound on a scent.)* It's *close.* *(the small voice trembles with hope and fear.)* The pull — the *thread* I told you about, the one running off into the walled dark — it's *stronger* here. *Tighter.* *(the flame dips toward a particular reach of the Wall, where the kept souls fade thickest.)* The person I was lit for. The one the frightened child whispered the name for. They're — they're *there.* Behind that. *(the flame wavers.)* I've felt this pull for *years* and never dared follow it to the *end*, because what if — what if I find them and the name *doesn't* come back? What if I've held it *so long* I've held it to *death*, and there's nothing left to *give* it to? *(it steadies, barely.)* But you're here. So I'm brave enough. Take me to the end of the thread. Let's find who I've been carrying a name *for.*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "sq.wickless_name_begun",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Wickless",
+     "text": "*(You follow the flame to a niche in the Wall — and there, nearly gone, faded almost to nothing, is a soul. A woman, you think, though the fading has blurred her. She does not look up. She has been forgotten so completely, for so long, that she has stopped expecting to be seen. Wickless hovers before her, shaking, its small light reaching toward her fading one.)* *(Wickless, barely a whisper:)* ...It's her. The pull *ends* here. *(the flame trembles.)* But she's — she's so *faded.* She doesn't even — *(the woman doesn't stir.)* And I can *feel* the name, right *here*, on the tip of a tongue I don't have, but it *won't* — it won't come *out*, because — *(the flame dips, anguished)* — because I'm *afraid*, and the *child* was *afraid*, and the name was *forbidden*, and *fear* is *exactly* the thing that *seals* a name *in.* *(it looks at you.)* Help me. The name's *in* here. The *soul's* right *there.* And between them is *years* of *fear* — the child's, and mine, and *hers*, the *whole family's* fear of *saying* a thing they were *told* never to say. *How* do I *break* a fear that *old?*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"The name won't come because you're treating it like a secret to be *risked.* But it was never a secret — it was a *love*, forced into hiding. The child didn't whisper it because it was shameful; she whispered it because saying it *openly* was forbidden by people who wanted this woman *erased.* Don't *risk* the name, Wickless. *Reclaim* it. Say it like the love it always was.\"",
+       "next": "reclaim",
+       "fail": "gutter",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"She's faded because no one's said her name in years — and you've been keeping her a candle's-width into the light by holding it. So don't say it *to* me, or *to* the dark. Say it *to her.* Let the first time her name is spoken in years be spoken to *her face*, by the candle a child lit *for* her.\"",
+       "next": "to_her",
+       "fail": null
+      },
+      {
+       "text": "\"The fear isn't yours to break alone — it belongs to a whole family that erased her. So let's undo it the way it was done. Someone, once, said 'we don't talk about her.' You're going to be the one who says 'we do now.' Out loud. Here. And the erasing ends the moment one voice refuses it.\"",
+       "next": "refuse_erasure",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.wickless_refuses_erasure",
+         "op": "SetTrue"
+        }
+       ]
+      },
+      {
+       "text": "\"Before you speak it — look at her, faded as she is, and tell me you're *sure* it's worth the risk. If saying the name wrong, or too late, scatters what's left of her... is a candle's-width of light better kept than gambled? Or is *being named*, even at the very end, worth more than fading safe?\"",
+       "next": "sure",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reclaim",
+     "speaker": "Wickless",
+     "text": "*(The little flame goes very still — and then, slowly, it *brightens*, as the fear it has carried for years reshapes into something else entirely.)* ...Reclaim it. Not risk it. *(the small voice fills with wonder.)* You're *right.* I've been holding it like a — like a *dangerous* thing, a *secret* that might *explode* if I *said* it wrong. *(the flame steadies.)* But it was *never* dangerous. It was *her name.* A *person's* *name.* The only thing *dangerous* about it was that *saying* it *openly* would have *defied* the people who wanted her *gone* — and *that* danger was *theirs*, not *hers*, not *mine.* *(the flame blazes.)* The child didn't lower her voice because the name was *shameful.* She lowered it because she was *small* and *afraid* of the *grown-ups* who'd *forbidden* it. *(its light reaches toward the faded woman.)* And I've been *honoring* their *forbidding* for *years* — keeping the name *hidden*, *whispered*, *sealed* — when the *whole point* of a candle lit in *love* is to *defy* the *forbidding.* *(it brightens further.)* So I won't *whisper* it. I won't *risk* it like a *crime.* I'll *say* it *like the love it always was* — *out loud*, *proud*, the way her name *deserved* to be said *every day* of the *years* they *erased* her. *(the flame turns to you, fierce and small.)* Help me say it *right.* Not *afraid.* Not *hidden.* As a *reclaiming.* As a candle, lit by a child who *loved* her, finally *defying* the people who said she couldn't be *named.* *(its light gathers.)* Her name is — *(and the fear is gone now, and the name comes, because it was never a secret, only a love in hiding)* — *ready?*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.wickless_reclaims",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.forbidden_name_carried",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "to_her",
+     "speaker": "Wickless",
+     "text": "*(The flame drifts close to the faded woman — closer than it has dared — its small light trembling against her nearly-gone one.)* To *her.* *(the small voice catches.)* Not to the *dark.* Not to *you.* To — *(the flame steadies before the faded soul.)* You're right. I've been *carrying* her name for *years* and never once thought to say it *to* the *one* it *belongs* to. *(its light reaches toward her.)* She's *faded* because no one *says* it — and I've been *keeping* her, *barely*, by *holding* it — but *holding* isn't *saying*, is it. *Holding* keeps her a *candle's-width* into the *light.* *Saying* — saying it *to her face* — that might *call* her *back.* *(the flame brightens with resolve.)* So that's what I'll do. The *first* time her name is *spoken* in *years* — *the* very *first* time — it won't be to a *stranger* or a *void.* It'll be *to her.* *(it hovers before the woman, and its light gentles.)* Listen, you faded, forgotten, *loved* thing. Listen, because a *child* lit a *candle* for you, *years* ago, *scared* and *brave*, and that *candle* has been *looking* for you *ever* *since*, and it has *found* you, and it has something to *say*, and it's going to say it *to you*, so you *know*, before *anything* else, that you were *never* *nothing* — you were *someone's* *forbidden* *name*, *carried* through the *grey* by a *flame* that *refused* to *gutter.* *(the woman's faded light *flickers* — the first movement in perhaps years — as if, somewhere under the forgetting, she has heard that someone is about to say her name.)*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.wickless_to_her",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.witness_then_release",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.forbidden_name_carried",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "refuse_erasure",
+     "speaker": "Wickless",
+     "text": "*(The little flame flares with a sudden, fierce heat, the fear burning off into defiance.)* \"We do now.\" *(the small voice hardens into something much bigger than its size.)* Yes. *(the flame blazes.)* Someone, *once*, stood in a *family* and said *\"we don't talk about her\"* — and *everyone* *obeyed*, because it's *easier* to *erase* than to *defend*, and so a *whole* *family* *agreed*, *one* by *one*, to *unmake* a *person* they were *afraid* to *be associated* with. *(its light intensifies.)* The *child* was the *only* one who *didn't* fully *agree* — she *lit me*, *secretly*, *scared*, *for the person we're not allowed to talk about* — but even *she* could only *whisper.* *(the flame turns to the faded woman.)* So the *erasing* held. *Years* of it. A *family's* *quiet* *agreement* to *let* her *fade.* *(it blazes brighter.)* And you're *right* that it *ends* the *moment* *one* voice *refuses* it. *Out loud.* *Here.* *(the flame draws itself up, small and fierce and unbreakable.)* So *I* refuse it. I am a *candle* lit by a *frightened* child, and I have *carried* this woman's *forbidden* name through *ten thousand years* of *grey*, and I am *done* *whispering*, and I am *done* *obeying* the *grown-ups* who *erased* her, and I am going to *say* her *name* *out loud*, *here*, *now*, where the *whole* *Wall* can *hear* — and the *erasing* that a *family* *agreed* to *years* ago is going to *break* on the *one* *voice* *small* enough and *stubborn* enough to *refuse* it. *(it meets your eyes, blazing.)* *\"We don't talk about her,\"* they said. *We do now.* *Help* me *say* it. *Loud* enough to *undo* a *family's* *silence.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.wickless_refuses_erasure",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.refusing_consent",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "sure",
+     "speaker": "Wickless",
+     "text": "*(The flame stills, and the question — whether to gamble the last candle's-width of her light — sobers it.)* Is it worth the risk. *(the small voice quiets.)* If I say it *wrong*, or *too late*, and it *scatters* what's *left* of her... *(the flame dips toward the faded woman, considering.)* I've *asked* myself that *every* day for *years.* It's *why* I never *followed* the pull to the *end.* *Fading safe* — *kept*, a *candle's-width* in the *light*, *held* by my *refusing-to-gutter* — that's *something.* It's *not* *nothing.* *(the flame wavers.)* But — *(its light steadies, and something resolves)* — I think I *know* her *answer*, even *faded* as she is. *(it hovers close to the woman.)* Because I've *been* her, a little. A *small* thing, *forgotten*, *kept* *barely* *alight* by *something* that *loved* me. And I know what *I'd* *want.* I wouldn't want to *fade safe*, *unnamed*, *forever*, a *candle's-width* of *light* and *nothing* *more.* *(the flame brightens.)* I'd want to be *named.* *Once.* Even at the *very* *end.* Even if the *naming* *scattered* me — because *being scattered as someone* is *better* than *fading safe as no one.* *(it meets your eyes.)* *Being named*, even at the *last*, is *worth* more than *fading safe.* I'm *sure.* *She'd* be *sure.* *Anyone* who's been *kept too long* is *sure.* *(it gathers its light.)* The *risk* is *real.* And the *risk* is *worth* it. *Help* me take it. Let her be *named*, and *let* the *naming* do *whatever* it *does* — *scatter* her *free* or *call* her *back* — *either* is *kinder* than *one* more *year* of *fading* *unspoken.*",
+     "dynamic": false,
+     "auto": "2",
+     "onEnter": [
+      {
+       "key": "sq.wickless_sure",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.deathless_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "2",
+     "speaker": "Wickless",
+     "text": "*(The little flame hovers before the faded woman, its light reaching toward her nearly-gone one, the forbidden name — carried ten thousand years around a frightened child's whisper — finally ready to be spoken. It turns to you one last time.)* Will you say it *with* me? *(the small voice trembles.)* I've carried it *alone* so *long.* The *child* whispered it to *me* and then she *grew up*, or *moved away*, or *forgot*, or *died* — I never *knew* — and for *all* the *years* since, I've been the *only* one who *held* it. *(its light gathers.)* But a name said by *two* is *louder* than a name said by *one*, and *louder* is what *breaks* a *forgetting* this *old.* *(it meets your eyes.)* So say it *with* me. On *three.* And let this woman — *faded*, *forbidden*, *erased*, *loved* — hear her *own* *name*, said *out loud*, by a *candle* and a *Returned*, for the *first* time in *longer* than either of us can *count.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "\"*(kneel beside the faded soul, and when the candle's light flares, speak the forbidden name with it — clear, unafraid, a reclaiming — and watch what a name spoken in love does to a soul the Wall had almost finished erasing)*\"",
+       "next": "spoken",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.forbidden_name_spoken",
+         "op": "SetTrue"
+        },
+        {
+         "key": "act5.witness_then_release",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.ilfaeril.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      },
+      {
+       "text": "\"*(let Wickless say it alone — this was always the candle's to give; you only made it brave enough. Stand witness as the flame a child lit speaks the name it was lit for, and give the moment wholly to the small light that refused to gutter)*\"",
+       "next": "wickless_alone",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.wickless_speaks_alone",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "spoken",
+     "speaker": "Wickless",
+     "text": "*(You kneel beside the faded soul, and the candle flares, and *together* — flame and Returned, on three — you speak the forbidden name. Clear. Unafraid. A reclaiming, not a whisper.)* *(And the faded woman's light — nearly gone, a candle's-width from nothing — *catches.* Like a wick taking flame. Her blurred form *sharpens*, just slightly; her bowed head *lifts*; and for the first time in years uncounted, a forgotten soul *hears her own name said in love* and *remembers that she was someone who had one.*)* *(Wickless blazes with joy.)* She — *look* — she *heard* it! *(the woman's eyes find the little flame, and something like recognition, like being *found*, moves across her sharpening face.)* *(Wickless, weeping light:)* I *found* you. The child *lit* me for you, and I *carried* your name through *all* the grey, and I *found* you, and I *said* it, and you're — you're *here* again, you're *someone* again, you're *named.* *(the woman reaches, faintly, toward the candle a child lit for her.)* *(Wickless turns to you, radiant.)* That's what a *name* does. The Wall *almost* had her — *erased*, *faded*, *forbidden* — and *one* *name*, said in *love*, by *two* voices, *called* her *back* from the very *edge* of *nothing.* *(quietly, fierce and small.)* Now she gets to *choose* — fade, rest, fall, *whatever* — but she chooses it *as herself*, *named*, *found*, *loved*, instead of *erased.* *Thank* you for saying it *with* me. A name said by *two* was *exactly* loud enough.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.forbidden_name_spoken",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.witness_then_release",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "wickless_alone",
+     "speaker": "Wickless",
+     "text": "*(You step back, and you let the little flame do what it was lit to do. Wickless drifts close to the faded woman, gathers its small light, and — alone, the way it has carried her name alone for ten thousand years — *speaks* it.)* *(The forbidden name, said at last by the candle a frightened child lit for the person they weren't allowed to talk about, falls into the grey like the first warm thing in an age.)* *(And the woman's nearly-gone light *catches.* Her blurred form sharpens; her head lifts; and a soul the Wall had almost finished erasing *hears her own name* — said not by a stranger, not by a god, but by the *one small flame* that a child's love sent looking for her, and that *never*, in all the grey and all the years, *guttered.*)* *(Wickless, radiant, weeping light:)* I *did* it. *(the small voice is full of awe at itself.)* I carried you *all* that way. And I *said* it. *Myself.* The way the *child* would have, if she'd been *brave* enough, if she'd been *allowed.* *(the woman's eyes find the candle, and she *knows* it — knows it is *hers*, lit *for* her, *come* for her.)* *(Wickless turns to you, glowing.)* You made me *brave* enough to do it *myself.* That's — that's the *kindest* thing. You could have *said* it *for* me, and it would have *worked*, but you *let* it be *mine* — the candle's, the *child's* — the way it was *always* meant to be. *(quietly, fierce and small and proud.)* A child lit me for a forbidden name. And I *carried* it, and I *found* her, and I *said* it, and I *broke* the *erasing*, *myself*, a *small* flame that *refused* to *gutter.* *That's* what I was *for.* *Thank* you for letting me *be* it.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "sq.wickless_speaks_alone",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.witness_then_release",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act2.cataloguing_defeats_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "gutter",
+     "speaker": "Wickless",
+     "text": "*(The little flame dips, dims, the old fear flooding back, and it shrinks from the faded woman.)* I can't — *(the small voice shakes.)* What if I'm *wrong*, what if it's *not* her, what if I say it and it *scatters* her, what if the name's been *held* *too* *long* and it comes out *wrong* — *(the flame gutters.)* The *child* was *afraid*, and *afraid* is how the name got *sealed*, and I'm — I'm *afraid* *too*, and I *can't* — *(it backs away from the niche.)* Not *yet.* Let me — let me carry her a *little* longer. *Safe.* *Held.* A *candle's-width* in the *light.* It's *not* *nothing.* *(the flame trembles.)* Come back when I'm — when I'm *brave* enough. The name's *still* *in* here. I *haven't* *lost* it. I just — I *can't* *say* it *yet.* *(and the small flame drifts back from the faded soul, still carrying the forbidden name around a frightened child's whisper, too afraid — for now — to give it the one thing that would set it free.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Wickless",
+     "text": "*(The little flame hovers at the niche in the Wall — the candle a frightened child lit \"for the person we're not allowed to talk about,\" that carried a forbidden name through ten thousand years of grey, that followed its pull to the very soul it was lit for — and whether the name was spoken at last, by two voices or by the candle alone, or whether the flame drew back, still too afraid to give it, you carry away the smallest and most stubborn proof of the saga's whole heart: that a name carried in love, even by a thing as small as a candle, even around a child's frightened whisper, is a soul the Wall can never quite finish erasing — and that the erasing of a person, however old, however agreed-upon, breaks the moment one small voice refuses it and says the forbidden name out loud.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
   }
  ],
  "stats": {
-  "conversations": 193,
-  "nodes": 1295,
-  "choices": 737,
-  "skillChecks": 162
+  "conversations": 194,
+  "nodes": 1306,
+  "choices": 743,
+  "skillChecks": 163
  }
 }

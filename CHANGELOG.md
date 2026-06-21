@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.46.0 — *"The Forbidden Name"* — the candle's quest (Pillar 2 · side quests)
+
+> The seventh `sq.*` payoff: Wickless, the candle-spirit a frightened child lit "for the person we're not
+> allowed to talk about," follows its pull to the very soul it was lit for — and must find the courage to
+> speak a forbidden name it has carried ten thousand years.
+
+- 🕯️ **Side Quest: "The Forbidden Name"** (`wickless_sidequest.dlg`, gated on `sq.wickless_name`) — the candle
+  leads you to a niche in the Wall where a woman has faded almost to nothing, erased by a whole family's quiet
+  agreement not to speak of her. The name is *right there*, sealed by years of fear. Four ways through:
+  - **reclaim** it — the name was never a shameful secret, only a love forced into hiding; say it like the love
+    it always was, not a risked crime (`sq.wickless_reclaims`);
+  - say it **to her** — let the first time her name is spoken in years be spoken to her face
+    (`sq.wickless_to_her`, `act5.witness_then_release`);
+  - **refuse the erasure** — someone once said "we don't talk about her"; be the one voice that says "we do
+    now," and the family's silence breaks (`sq.wickless_refuses_erasure`, `act5.refusing_consent`);
+  - or be **sure** — weigh fading-safe-but-unnamed against being-named-even-at-the-end, and choose the naming
+    (`sq.wickless_sure`, `act4.deathless_is_the_wall`).
+  - Climax: speak the name *with* the candle, two voices loud enough to break a forgetting
+    (`sq.forbidden_name_spoken`), or let Wickless say it *alone* — the candle's to give, you only made it brave
+    (`sq.wickless_speaks_alone`). The faded woman's light *catches*; a soul the Wall had almost finished erasing
+    hears her own name said in love and remembers she had one.
+- 🧵 **Theme**: a name carried in love — even by a thing as small as a candle, even around a child's frightened
+  whisper — is a soul the Wall can never quite finish erasing; and the erasure of a person, however old and
+  agreed-upon, breaks the moment one small voice refuses it and says the forbidden name out loud.
+- 📈 **Content**: dialogue corpus now **194 conversations · 1,306 nodes · 163 skill checks** (743 choices).
+  Seven full side quests now built. All 606 headless CI checks green; the 42-file `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.45.0 — *"The Forty-One"* — the reaper's hidden souls (Pillar 2 · side quests)
 
 > The sixth `sq.*` payoff: the Last Honest Psychopomp's forty-one fading Faithless, hidden in his cloak for
