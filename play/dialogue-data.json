@@ -18853,6 +18853,548 @@
    ]
   },
   {
+   "id": "npc.lantern.bard",
+   "file": "LowLanternDenizensContent.cs",
+   "title": "Npc · Lantern · Bard",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Sweet Anselm",
+     "text": "*(In the corner of the Low Lantern, a bard plays — beautifully, achingly — and you recognize the tune at once, because *everyone* knows it: \"The Candle and the Tide,\" the most famous love song of the age, the one played at every wedding from Waterdeep to the Gate. He plays it like a man bleeding, and when he finishes he downs his drink, and sees you listening, and smiles the practiced smile of a professional sad man.)* You know it. *(he gestures with the empty cup.)* *Everyone* knows it. \"The Candle and the Tide.\" Played it at *your* wedding, did they? Or your *sister's*, your *cousin's*, the *barmaid's?* *(a thin laugh.)* It's played at *everyone's* wedding. *(quietly.)* That's rather the joke of my life, if you'd like to hear it. Buy me a drink and I'll tell you the *funniest* tragedy in the Lower City.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.anselm_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Sweet Anselm",
+     "text": "*(The drink arrives; he drinks; the polish slips.)* I wrote it for *her.* *(simply.)* Mira. A girl who sold *candles* on the *dock* — hence the *title*, the *candle* and the *tide*, my little *cleverness.* *(he turns the cup.)* I loved her the way you love *once*, badly, completely, and I was a *poor* bard with *nothing* to offer but *words* — so I gave her the *best* words I had. I wrote her the most *beautiful* love song *ever* written. *Everyone* says so. It's *objectively*, *commercially* the *finest* love song of the *age.* *(a hollow smile.)* And I played it for her, on the *dock*, by her *candles*, and she *wept*, and she *held my hands*, and she said — *(his voice doesn't break, it's far too worn for that)* — she said it was the *most beautiful thing anyone had ever made for her*, and that she would *treasure* it *always*, and that she was *marrying Tomas the shipwright* in the *spring*, because Tomas had a *house*, and a *trade*, and a *future*, and I had — *(he lifts the cup)* — a *song.* *(quietly.)* So now my *song* — the one I *bled* for *Mira* — is the song they play at *every* wedding in the *Realms.* Including, fifteen years ago, *hers.* I was *hired* to *play* it. At her *wedding.* To *Tomas.* *And I did*, because a bard *eats*, and I *needed* the *coin*, and that — *(he drinks)* — that is the *funniest tragedy* in the Lower City: I am *paid*, *nightly*, to perform the *exact measure* of my *own* heartbreak, for *strangers* who think it's a *celebration.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"The song isn't your heartbreak, Anselm — it's your *immortality*, and it terrifies you. Mira chose a house and a trade, and they're *dust* now, and the *house* is gone. But the *song* she wept over outlived her, her marriage, her whole world. You didn't lose her. You *won* — just not the prize you wanted.\"",
+       "next": "immortality",
+       "fail": "deflect",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"You keep playing it. Every night. You could play anything — you're clearly a master. But you play the one song that hurts. Why pick at the wound nightly? Unless the hurt is the only thing that still connects you to her.\"",
+       "next": "wound",
+       "fail": null
+      },
+      {
+       "text": "\"Fifteen years, Anselm. Mira's a memory. But you're still introducing yourself by your heartbreak. What would it take to write a *second* great song — one that isn't about the girl who chose the shipwright?\"",
+       "next": "second",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"Tell me about Mira. Not the leaving — the *girl.* The one selling candles on the dock who was worth the best words you ever found. She's been a wound for fifteen years. Let her be a *person* for a minute.\"",
+       "next": "mira",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "immortality",
+     "speaker": "Sweet Anselm",
+     "text": "*(The cup stops halfway to his mouth. For the first time, the practiced sadness cracks into something he hasn't let himself feel.)* ...I won. *(slowly.)* *(he sets the cup down.)* No one has ever — they all *pity* me. *\"Poor Anselm, played his own love-song at her wedding, how *tragic.\"* And I've *worn* the pity like a *coat*, fifteen years, because it's *warmer* than the *truth*, which is — *(he stares at his lute)* — which is that Mira chose *Tomas*, and *Tomas's house*, and *Tomas's future*, and *all* of it — the *house*, the *trade*, the *marriage*, *Tomas himself* — is *gone.* *Dust.* Fifteen, twenty years, and the *whole* of what she *chose me over* has *crumbled* into the *Chionthar.* *(his voice shakes.)* And the *song* — the thing I had *instead* of a house, the *nothing* I offered her — is *played at weddings in cities she never heard of*, and will be played *long* after *everyone* who *attended* her wedding is *dead.* *(he laughs, stunned.)* I have been *mourning losing her* to a *future* — and the *future* is *ash*, and my *song* is *eternal*, and I *never once* let myself notice that the *thing she rejected* turned out to be the *only thing in the whole affair that didn't die.* *(he looks at you.)* I didn't lose. I *grieved* a *defeat* that was *secretly* the *deepest* win there is. *(quietly.)* Gods. I think I can play something *else* tonight. For the *first* time in fifteen years, \"The Candle and the Tide\" feels less like a *wound* and more like — a *monument* that *outlasted* the thing it mourned. *Thank* you. You've turned my *funniest tragedy* into something I might, at *last*, be able to *set down.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.anselm_immortality",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.deathless_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "wound",
+     "speaker": "Sweet Anselm",
+     "text": "*(He looks at the lute, and his fingers rest on the strings without playing.)* Why pick the wound. *(quietly.)* ...Because it's the only *thread* I have left to her. *(he plucks one soft note.)* If I *stopped* playing it — played *other* songs, *let* it *go* — then Mira would be *truly* gone. *Completely.* The way the *dead* are gone when the *last* person stops *saying* their *name.* *(he meets your eyes.)* She's not *dead*, mind. She's a *grandmother* in *Baldur's Gate*, last I heard, perfectly *well.* But *my* Mira — the *girl on the dock*, the one I *loved*, the one the *song* is *for* — *she* only *exists* now in the *playing.* Every night I play it, she's *real* again, *eighteen* again, *weeping* over my words by her *candles*, just for the *length* of the *song.* *(his voice roughens.)* And when it *ends*, she *marries Tomas* again, and I *lose* her again, and that's — that's *awful*, but the *losing* requires the *having*, and the *having* only happens in the *song.* *(quietly.)* So I *pick the wound* because the *wound* is a *door*, and behind it, for three and a half minutes, *nightly*, is the *one* girl I *loved*, *unmarried*, *weeping*, *mine.* *(he almost smiles.)* You think it's *self-torture.* It's *visitation.* I'm not *bleeding* up here. I'm *visiting.* It only *looks* like *bleeding* from *outside.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.anselm_wound",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "second",
+     "speaker": "Sweet Anselm",
+     "text": "*(He huffs a laugh into his cup.)* A second great song. *(he shakes his head.)* You think I haven't *tried?* Fifteen years of *trying.* *(he sets the cup down.)* And here's the *curse* of it: *everything* I write *comes out as \"The Candle and the Tide\" again.* Different *words*, different *tune* — but the *same* *ache*, the same *girl-shaped hole*, the same *song-for-someone-who-chose-otherwise.* *(quietly.)* Because you can only write what you've *got*, and what I've *got*, in here, is *Mira*, *still*, *fifteen years on.* Every well I *lower* the *bucket* into comes up *Mira-water.* *(he looks at the lute.)* And I've *wondered* — what would it *take* to write a *second* great song? And I *think* the answer is *terrible*: I'd have to *love* again. *Truly.* Badly, completely, the way I loved *her.* I'd have to *give someone else* the *best words I have* — and *risk* them choosing *their* Tomas — and I — *(his voice drops)* — I haven't the *courage.* The *first* one *cost* me *everything* and *immortalized* the *wound.* A *second* one might *cost* me the *same* and I *can't* — *(he stops.)* So I play the *old* song. It's *safe.* Mira already *left*; she can't *leave* me *twice.* A *new* love *could.* *(quietly.)* Maybe that's the *real* tragedy. Not that I *lost* Mira. That *losing* her so *beautifully* made me too *afraid* to *risk* the only thing that could *free* me: *loving* again, and *writing* the *second* song.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.anselm_second",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "mira",
+     "speaker": "Sweet Anselm",
+     "text": "*(The defenses lower, and for a moment he isn't a professional sad man — just someone remembering a girl.)* Mira. *(softly.)* ...She had ink on her hands *always* — not from *writing*, from the *candle-dye*, she made the *colored* ones, the *expensive* ones, *blue* and *green* and a *red* she was *proud* of. *(he smiles, real now.)* And she *laughed* like she was *getting away* with something. *Loud.* *Improper.* The *fishwives* tutted at her. And she *talked* to her *candles* while she *made* them — *scolded* them, *encouraged* them, *named* the *good* ones. *(his voice warms.)* She wasn't *delicate*, you understand. The *song* makes her sound *delicate* — *\"the candle and the tide,\"* all *soft* and *yearning* — but the *real* Mira would have *boxed your ears* for calling her *soft.* She was *sharp*, and *funny*, and *practical* — *(he stops, and something settles)* — *practical.* Which is *why* she chose *Tomas.* *(quietly.)* It wasn't that she didn't *love* me. I *think* she did. It's that she was *practical*, and a *practical* girl on a *dock* does not *marry* a *bard* with *empty* pockets and *beautiful* words, no matter how her *heart* tugs, because *beautiful words* don't *keep* the *rain* off. *(he meets your eyes.)* I've spent fifteen years *resenting* her *choice.* But she wasn't *wrong*, was she. She was *practical*, and *practical* kept her *warm* and *fed* for a *long* life. *(softly.)* I *romanticized* her into a *delicate* thing who *broke* my heart. She was a *sharp*, *funny*, *sensible* woman who *made the right call.* I think — I think I'd like to remember the *real* one. The one with *dye* on her *hands* who *named her candles.* She deserves *better* than being the *delicate* ghost in my *sad* song.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.anselm_mira",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "deflect",
+     "speaker": "Sweet Anselm",
+     "text": "*(He waves the practiced smile back into place and reaches for the lute.)* Ah, you're *kind* to listen, but don't *trouble* yourself with a *bard's* old ache. *(he strums.)* It's a *good* tragedy. It *earns* its *drinks.* That's the *secret* of the *trade*, friend — a *sad* enough *story* and the *cups* keep *coming.* *(he begins, again, the opening bars of \"The Candle and the Tide.\")* I'll play you the *song.* On the *house*, since you *listened.* And you'll *tip* me, and feel a *little* sad, and that's — that's the *whole* economy of *me.* *(he plays, beautifully, the same wound, the same visitation, and you understand he's not ready to put it down — the sad song is the safest room he has.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Sweet Anselm",
+     "text": "*(Sweet Anselm bends back over his lute and plays \"The Candle and the Tide\" once more — the most beautiful love song of the age, written for a candle-girl who chose a shipwright, performed nightly by the man whose heart it cost — and whether you showed him the song had outlived everything it mourned, or let him keep his three-minute nightly visitation, you carry away the small ache at the bottom of every artist: that the most beautiful thing you ever make is often the wound that wouldn't close, and that the world will dance to your heartbreak and never know it was one.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.lantern.cardsharp",
+   "file": "LowLanternDenizensContent.cs",
+   "title": "Npc · Lantern · Cardsharp",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(At a corner table, a card sharp deals with hands so smooth they're almost hypnotic — and you catch it, just barely, the card slipping from the bottom of the deck. But the man he's playing is grinning, *winning*, raking in coin, which is not how cheating is supposed to go. The sharp looks up, catches that you caught him, and winks, entirely unbothered.)* You saw that. *(he grins.)* Most don't. You've a sharp eye — *ha*, \"sharp,\" in my line that's a *compliment* and an *insult* both. *(he shuffles.)* Sit. I won't take your coin. I'm Dax. *Deal-Me-In* Dax. And before you fetch the watch — *look* at the table. Who's *winning?*",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.dax_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(He nods at the grinning man pocketing his winnings, then deals a fresh hand, slow enough for you to watch the manipulation.)* That's Old Pelt. *(quietly, cheerfully.)* Lost his boat last month. Three kids. And he's been *winning* at my table *all night*, and he'll go home with enough to *patch the hull*, and he'll *swear* to his *wife* it was a *lucky streak.* *(he winks.)* It was *me.* I've been *dealing* him *winners* for *three hours.* *(he sits back.)* Here's the thing about me, friend, and it's the *opposite* of what you think you caught: I *do* cheat. *Always.* *Every* hand. But I cheat to make the *cards* land where they *should* — where *need* is, where *luck* failed someone who didn't *deserve* it. *(his grin turns flinty.)* I take from the *smug* and the *cruel* and the men who can *afford* it, and I *feed* it to the *Pelts*, the *drowning* ones, and I take a *modest* cut for the *labor.* *(he spreads the cards.)* I'm not a *cheat*, exactly. I'm a *correction.* The *cards* are *random* — *brutally*, *stupidly* random, they don't *care* who *needs* the *pot* — and I have *appointed* myself the *thumb* on the *scale* of *luck.* *Somebody* should be. The *gods* certainly *aren't.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You don't cheat for the Pelts, Dax — not first. You cheat because somewhere, once, you played one honest game, and *luck* took something from you that you *deserved* to keep. Now you never let the cards decide anything that matters again. The Pelts are real. But they came *after* the wound.\"",
+       "next": "wound",
+       "fail": "grin",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"A thumb on the scale of luck. You've decided the universe is unjust and appointed yourself to correct it, one rigged hand at a time. That's either the most arrogant thing I've heard or the most generous. Which is it, on the nights you're honest with yourself?\"",
+       "next": "scale",
+       "fail": null
+      },
+      {
+       "text": "\"There's a man you should meet — Velith, the unluckiest soul in the Gate. The cards, the dice, the coin-flips all hate him, and it's broken him. If you can rig luck *for* the Pelts, could you rig one *clean* win for a man luck actually cursed?\"",
+       "next": "velith",
+       "fail": null,
+       "effects": [
+        {
+         "key": "sq.dax_and_velith",
+         "op": "SetTrue"
+        },
+        {
+         "key": "companion.roen.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"How much of the cut do you actually keep, Dax? Because a man who robs the smug to feed the drowning and takes 'a modest cut' is either running a charity or a very good story about himself. Show me your own pockets.\"",
+       "next": "pockets",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.roen.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wound",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(The cards go still in his hands. The grin holds, but it's a held thing now.)* ...One honest game. *(quietly.)* You *are* sharp. Sharper than's *comfortable.* *(he sets the deck down.)* Yeah. There was *one.* *(he doesn't look at you.)* I wasn't always a sharp. I was a *farmer's* son, *honest* as dirt, and I *loved* a girl, and her *father* — a *gambling* man — said he'd *bless* the match if I'd *stake* my *whole inheritance*, the *farm*, on *one* hand of cards, *honest*, *square*, *his* deck. *Win*, and I'd have the *farm* and the *girl* both. *Lose*, and he'd take the *farm* and she'd marry a *richer* man. *(his jaw tightens.)* And I was *young*, and *honest*, and I *believed* — *gods*, I *believed* — that if you played *fair*, and your *heart* was *true*, the *world* would *deal* you *right.* *(quietly.)* I lost. *Fair.* *Square.* *Honest.* A *worse* hand than his by *one card.* *Random.* *Meaningless.* And I lost the *farm*, and the *girl*, and my *whole* future, to the *one* honest game I ever played, because the *cards don't care about your true heart*, they're just *cards.* *(he picks the deck back up.)* So I learned to *deal.* And I *swore* — *never* again would I let *random*, *stupid*, *uncaring luck* decide *anything* that *mattered.* Not *mine.* Not *anyone's*, if I could *help* it. *(he meets your eyes.)* The Pelts are *real*, friend. But you're *right.* They came *after.* First was just a *boy* who *played fair* and *learned* the *universe* doesn't, and *decided* to *put his thumb where the gods left a gap.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.dax_wound",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "scale",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(He laughs, and it's a real one, surprised.)* Arrogant or generous. *(he shuffles, thinking.)* On the *honest* nights? *(quietly.)* ...Both. It's *both*, and a man who tells you it's *only* the *generous* one is *lying* to *you* and *himself.* *(he deals an idle hand.)* Yeah, I *help* the Pelts. *Genuinely.* I *like* the look on a drowning man's face when the *cards* finally *love* him, even if it's *me* doing the *loving* in the *cards'* name. *(he turns a card.)* But don't *mistake* me for a *saint.* There's an *arrogance* in it you'd be a *fool* to miss: I have *decided* that *I* — *Dax*, a *card* sharp in a *Lower City* dive — know *better* than *fate* who *deserves* the *pot.* *(he grins, flinty.)* That's *playing god* with a *deck.* And *playing god* is *always* part *kindness* and part *the worst* kind of *pride* — the pride that says *\"the universe is unjust, and* I *will correct it, because* I *can see the justice it can't.\"* *(he meets your eyes.)* The *honest* answer is I *don't* always *know* who *deserves* it. Sometimes I *guess* wrong. Sometimes I *feed* a *Pelt* who's a *secret* bastard, or *rob* a *smug* man who was *one* good night from *turning his life around.* *(he shrugs.)* I'm a *thumb*, not a *scale.* I *tilt* things. I don't *get them right.* *(quietly.)* But a *crooked* thumb that *tries* for *justice* is still better than the *cards*, which don't *try* at *all.* That's the *whole* of my *philosophy*, and it's *arrogant*, and it's *generous*, and I've *made peace* with being *both.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.dax_scale",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 3
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "velith",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(He leans forward, genuinely intrigued, the showman replaced by a craftsman handed a real problem.)* The unluckiest man in the Gate. *(slowly.)* Now *that's* — that's *interesting.* *(he taps the deck.)* I rig luck for the *Pelts* — men luck just *forgot.* But a man luck *actively hates*, *curses*, *follows around* — *(his eyes narrow with professional interest.)* See, here's the *delicate* part you've put your finger on. I could *deal* your Velith a *winner* in a *heartbeat.* *Easiest* thing I do. *(he shakes his head.)* But that's *charity*, and a *cursed* man *knows* the difference between *charity* and a *win*, and the *charity* would *insult* him — *\"even the cheat had to* help *me, I'm so* cursed *I can't even* lose *honestly.\"* *(quietly.)* No. A man *that* cursed doesn't need a *rigged win.* He needs a *clean* one. *One.* Just *once*, to *prove* the *universe* can deal him *right* without a *thumb* on the *scale.* *(he frowns, working it.)* Which is *hard*, because *clean* means I *can't* help — and if luck *truly* hates him, clean means he *loses.* *(then he grins, an idea catching.)* ...*Unless.* I *teach* him. To *deal.* To *sharp.* Not to *cheat* others — to *understand* that *luck* was *never* the *thing*, that *skill* and *control* can *take the cards out of fate's hands entirely.* *(he nods, decided.)* Bring him to me. I won't *deal* him a *win.* I'll teach him to *never need fate to deal him one again.* That's the only *gift* worth giving a *cursed* man: not a *lucky* night, but *freedom from luck.* It's what I gave *myself*, the day after I *lost the farm.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.dax_velith",
+       "op": "SetTrue"
+      },
+      {
+       "key": "sq.dax_and_velith",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.meaning_without_reward",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "pockets",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(He barks a laugh and, surprisingly, turns his coat pockets out — and they're nearly empty.)* Ha! *Show you my pockets.* *(he grins.)* You *don't* trust the *charming* ones. *Good.* You *shouldn't.* *(he lets you see: a few coppers, a worn deck, nothing more.)* There it is. The *whole* fortune of *Deal-Me-In Dax.* *(quietly, the grin softening.)* \"A *modest* cut,\" I said. And it *is* modest — *too* modest, my *own* deck would tell you, if decks *talked.* I take *just* enough to *eat* and *keep* the *cards* fresh and *buy* a *round* now and then to keep the *table* friendly. *(he pockets the coppers.)* The *truth*, since you *checked* — and *checking* is *wise* — is that I *could* be *rich.* A sharp my *skill* could *fleece* this whole *quarter* and *retire* to the *Upper City.* *(he shakes his head.)* But then I'd be the *smug* men I *rob.* And the *whole point* — the thing that *makes* the *cheating* *bearable*, that makes it a *correction* and not a *crime* — is that *I don't keep it.* *(he meets your eyes.)* The day I *start* keeping it, I'm *just a thief* who *tells himself* a *pretty* story. So I keep my *pockets* light *on purpose.* *Empty* pockets are my *proof* — to *myself*, mostly — that the *Pelts* are the *point* and the *cut* is just *fuel.* *(he grins, but it's earned now.)* You looked. I *respect* a man who *looks.* Most *swallow* the *charming* story whole. The *empty* pockets are the *only* part of me that *can't* lie.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.dax_pockets",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.roen.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "grin",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(He spreads his hands, the grin firmly in place, deflecting.)* Easy, friend, easy — no need to *psychoanalyze* the *card* man. *(he shuffles.)* I cheat, the Pelts win, the smug men lose, everybody who *matters* goes home *happy.* It's a *simple* trade. *(he winks.)* Don't go looking for a *tragic* backstory under every *cardsharp's* coat. *Sometimes* a man just *likes* tilting the *table* toward the *little* guy and *doesn't* need a *reason* carved in *grief.* *(he deals.)* Care for a hand? I'll let you *win.* I'm *good* at that. It's the *only* kind of *generous* I *trust myself* to be. *(and he deals, smooth as water, the charming correction of the Low Lantern, keeping his reasons as close as his cards.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Deal-Me-In Dax",
+     "text": "*(Deal-Me-In Dax deals another rigged hand to another drowning man — robbing the smug to feed the sinking, a thumb on the scale of an uncaring luck — and whether you found the honest farmer's son under the sharp's grin or let him keep his charming deflection, you carry away his crooked, generous creed: that the cards don't care who needs the pot, that the gods left a gap where justice should be, and that a flawed human thumb on the scale, trying and sometimes failing to deal the drowning a winner, is still kinder than leaving it all to the brutal indifference of chance.)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
+   "id": "npc.lantern.sailor",
+   "file": "LowLanternDenizensContent.cs",
+   "title": "Npc · Lantern · Sailor",
+   "start": "0",
+   "nodes": [
+    {
+     "id": "0",
+     "speaker": "Old Halloran",
+     "text": "*(An old sailor sits alone with a sea-chart spread across the whole table, weighted at the corners with empty cups, studying it with the fierce concentration of a navigator plotting a course — though he is in a tavern, on dry land, going nowhere. The chart, you notice as you near, marks a destination in the open ocean where, by every other map in the world, there is nothing at all. He looks up, and his eyes are clear and sea-grey and entirely sane, which somehow makes it worse.)* You'll be wanting the table. *(he doesn't move the chart.)* They all want the table. Tell the keep I'll have it as long as I'm *plotting*, and I'm *always* plotting. *(he taps the empty patch of ocean.)* Long way yet to go. Long way.",
+     "dynamic": false,
+     "auto": "1",
+     "onEnter": [
+      {
+       "key": "npc.halloran_met",
+       "op": "SetTrue"
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "1",
+     "speaker": "Old Halloran",
+     "text": "*(He smooths the chart, and his weathered finger traces a route toward the empty sea.)* You're looking at the *spot.* *(quietly.)* The place that *isn't* on any *other* chart. *Everyone* looks at the *spot.* *(he taps it.)* There's an *island* there. *Was.* *Is.* Depends *who* you *ask* and *how* cruel they're feeling. *(he sits back.)* I was *navigator* on the *Grey Gull*, forty years a sailor, and we were *bound* for that *spot* — a *real* island, *Saint Avery's Rock*, a *waystation*, *fresh water*, *good* anchorage. *(his voice steadies into something careful.)* And we hit the *storm* off the *Trackless Sea*, the *worst* I ever saw, and the *Gull* went *down* — *all* hands but *me*, I washed up on a *spar* three days later, the *only* one. *(he taps the spot again.)* And here's the thing the *cruel* ones *love* to tell me: *Saint Avery's Rock isn't there.* Never *was.* It was a *cartographer's* *error*, a *phantom* island *copied* chart to chart for a *century*, a *place that does not exist.* *(quietly.)* We were sailing for a *port that was never real.* My *whole crew* drowned *bound* for a *destination* that was a *mistake on a map.* *(he meets your eyes, and the sanity in them is the hardest part.)* So *yes.* I plot a course to a place that *isn't there.* *Every* day. And before you *pity* me, or *fetch* someone — ask yourself *why* a man who *knows* the island's *not real* would *keep* plotting the *course.* I *know* it's *not there*, friend. I'm not *mad.* I have a *reason.* It's just not the *reason* you'd *guess.*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": [
+      {
+       "text": "[INSIGHT 18] \"You keep plotting the course because while the voyage is *unfinished*, the crew isn't *drowned* — they're still *underway*, still *bound* for the Rock, still *with* you at the chart. Finish the voyage, admit there's no island, and they're truly gone. The map to nowhere is a map to your crew.\"",
+       "next": "crew",
+       "fail": "wave",
+       "checkDC": 18,
+       "checkAbility": "Wisdom"
+      },
+      {
+       "text": "\"The island was never real — but the *crew* was. The *voyage* was. The *forty years* were. Maybe the thing you're actually plotting isn't a course to a place. It's a way to keep the *Grey Gull* sailing in the only sea it still can: a chart on a tavern table.\"",
+       "next": "voyage",
+       "fail": null
+      },
+      {
+       "text": "\"Saint Avery's Rock isn't there. But you washed up alive on a spar, the only one. The dead don't need you to reach a phantom island, Halloran. What would they need you to reach instead — what's the *real* destination under the false one?\"",
+       "next": "destination",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.naeve.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      },
+      {
+       "text": "\"Tell me about the Grey Gull. Not the storm — the *ship.* The crew. Forty years at sea, and the last of them lives on a tavern table now. Let me hear them while there's still someone plotting their course.\"",
+       "next": "gull",
+       "fail": null,
+       "effects": [
+        {
+         "key": "companion.garrow.approval",
+         "op": "AddInt",
+         "amount": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "crew",
+     "speaker": "Old Halloran",
+     "text": "*(His finger stops on the empty spot. For a long moment he says nothing, and the clear sea-grey eyes fill.)* ...A map to my crew. *(barely above the tavern noise.)* *(he doesn't wipe his eyes.)* You've got it. *Damn* you, you've got it *exact.* *(he smooths the chart with a trembling hand.)* As long as we're *underway* — as long as the *course* is *plotted* and the *Gull's* still *\"bound for the Rock\"* — then *Tam's* still at the *wheel*, and *young* Cobb's still in the *rigging*, and *Bess* the *cook* is still *cursing* the *galley fire*, and we are all *still sailing*, *together*, *toward* something. *(his voice cracks.)* And the *day* I *admit* the island *isn't there* — the day I *fold up* the *chart* and *say* *\"the voyage is over, there was never anywhere to go\"* — then they're not *underway* anymore. They're *drowned.* *All* of them. *Forty years* of *shipmates*, *gone*, *cold*, at the *bottom* of the *Trackless Sea*, bound for *nothing.* *(he looks at you.)* So I *keep plotting.* Not because I *believe* in the island. Because the *plotting* is the *only* sea the *Grey Gull* can *still sail*, and as long as she's *sailing*, my *crew* isn't *dead* — they're *just not in port yet.* *(quietly.)* It's the same thing the *song-bard* does, and the *list-children*, and the *grave-men*, isn't it. *Keeping* the *lost* by *refusing* to *let the voyage end.* *(he meets your eyes, undone.)* I'm not *plotting a course*, friend. I'm *holding a wake* that I *refuse* to let *finish*, because a *wake* that *finishes* means *admitting* they're *gone.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.halloran_crew",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.naeve.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "voyage",
+     "speaker": "Old Halloran",
+     "text": "*(He looks at the chart, and something in his weathered face shifts — from defending the island to seeing what he's truly been doing.)* The only sea it still can. *(slowly.)* A chart on a tavern table. *(he traces the route, gentler now.)* You're saying the *plotting* was never *about the place.* *(quietly.)* The *Rock* is *false* — I've *known* that for *years*, I'm not a *fool* — but the *Grey Gull* was *true*, and the *crew* was *true*, and the *forty years* of *plotting courses* across *real* seas was the *realest* thing I ever *did.* *(he smooths the chart.)* And when the *Gull* went *down*, I lost not just the *ship* but the *doing* — the *navigating*, the *plotting*, the *thing my hands and mind knew how to be.* *(he meets your eyes.)* So I kept *plotting.* The *island's* false, but the *act* of *plotting* is *the last true thing I have*, the *one* skill the *storm* didn't *drown*, and I *aim* it at a *phantom* because a *phantom* is the *only* destination that *never* makes me *arrive* — and *arriving* would mean the *voyage* is *done*, and a *navigator* with *no* voyage is *just* an *old man* in a *chair.* *(quietly.)* The map to nowhere keeps me a *navigator.* It's not *madness*, friend. It's *vocation*, *refusing* to *retire.* *(he almost smiles.)* I'd *rather* plot a course to *nowhere*, *forever*, and *die* a *navigator* — than *fold the chart* and *admit* I'm *just* a *survivor* now, with *nothing* left to *steer.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.halloran_voyage",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act5.the_eternal_jobs",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "destination",
+     "speaker": "Old Halloran",
+     "text": "*(He's quiet a long time, and the question — what the *real* destination is — clearly reaches somewhere the false island was guarding.)* The real destination. *(slowly.)* Under the false one. *(he looks at the empty spot on the chart, then, slowly, somewhere past it.)* ...*Rest.* *(barely a whisper.)* That's the *true* port, isn't it. The one I've been *steering away* from by *aiming* at a *phantom.* *(his voice roughens.)* My crew is *drowned.* They don't *need* me to *reach Saint Avery's Rock.* They need — they *needed* — *me* to *let them rest.* To *stop* dragging them *back* to the *chart* every *night*, *re-drowning* them by *refusing* to *bury* them. *(he presses a weathered hand flat on the empty sea.)* I've kept them *underway* for *years* because I *couldn't* bear the *arriving* — but *\"underway forever\"* isn't *kindness* to a *drowned* crew. It's the *deathless garden.* It's the *Wall.* *Keeping* them from the *rest* they've *earned* because *I* can't *bear* the *grief* of *letting* them *finish.* *(he looks at you, and something breaks and eases at once.)* The *real* destination isn't an *island.* It's the *bottom of the Trackless Sea*, where my *crew* already *is*, *resting* — and the *voyage* I've been *afraid* to *finish* is the *one* where *I* finally *say*: *\"You're home, lads. You made port. It just wasn't the one on the chart. Rest now. I'll stop plotting. I'll let you* land.\"* *(quietly.)* Maybe it's *time* I *folded* the *chart.* Not to *forget* them. To *let* them *rest.* The *plotting* was *love.* But the *finishing* — the *letting-land* — that might be a *deeper* one.",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.halloran_destination",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act4.deathless_is_the_wall",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.ilfaeril.approval",
+       "op": "AddInt",
+       "amount": 5
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "gull",
+     "speaker": "Old Halloran",
+     "text": "*(The fierce navigator softens into a man remembering his ship, and the chart becomes, for a moment, a deck.)* The Grey Gull. *(warmly, roughly.)* She was a *carrack*, old and *slow* and *stubborn* and she'd *ride* a sea that would *swamp* a *prettier* ship. *(he smiles.)* *Tam* had the *wheel* — twenty years my *partner*, never said *three* words when *one* would do, could *read* a *sky* like a *book.* *Cobb* was the *boy*, *fearless* in the *rigging*, *terrified* of the *cook*, who was *Bess* — *(he laughs)* — *Bess*, who could make *salt pork* and *weevil biscuit* taste like a *feast* and would *brain* you with a *ladle* if you *complained.* *(his voice warms and aches together.)* Forty years, friend. Different *crews* over the *decades*, but the *last* one — the one that went *down* with her — they were the *best.* We'd *sailed* through *everything.* We were *bound* for the *Rock* to *take on water* and then *home*, and we were *singing*, I remember, some *filthy* song of *Cobb's*, when the *sky* turned. *(quietly.)* That's the *thing* I *plot* toward. Not the *island.* The *singing.* The *last* hour before the *storm*, when we were *all* still *alive* and *bound* somewhere and *Cobb* was *singing* something his *mother* would've *boxed* his *ears* for. *(he touches the chart.)* The *Rock* isn't *there.* But *that hour* was. And *plotting* the *course* is how I *sail back* to it — to the *singing*, the *full* crew, the *Gull* riding *stubborn* through a *kind* sea. *(he meets your eyes.)* Thank you for *asking* about the *ship* and not the *storm.* *Everyone* asks about the *storm.* The *ship* was the *forty good years.* The *storm* was just the *one bad hour.* I'd *rather* talk about the *Gull.*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [
+      {
+       "key": "npc.halloran_gull",
+       "op": "SetTrue"
+      },
+      {
+       "key": "act1.mercy_remembered",
+       "op": "SetTrue"
+      },
+      {
+       "key": "companion.garrow.approval",
+       "op": "AddInt",
+       "amount": 4
+      }
+     ],
+     "choices": []
+    },
+    {
+     "id": "wave",
+     "speaker": "Old Halloran",
+     "text": "*(He smooths the chart, and the clear eyes go distant and closed.)* You're kind to *worry.* *(quietly.)* But I'll thank you not to *plot my course* for me. *(he weights a curling corner with an empty cup.)* The island's *there*, or it's *not*, and either way I've a *route* to *finish*, and a *navigator* doesn't *abandon* a *plot* half-done because a *landsman* finds it *sad.* *(he bends back to the chart.)* Long way yet to go. *Currents* to figure, *winds* to reckon. *(he doesn't look up.)* Tell the keep I'll have the table till I'm *done.* And I'm *never* done. That's rather the *point*, though you needn't *understand* it. *(and he returns to plotting his course toward a place that isn't there, the last navigator of the Grey Gull, keeping his drowned crew underway across a chart on a tavern table.)*",
+     "dynamic": false,
+     "auto": "close",
+     "onEnter": [],
+     "choices": []
+    },
+    {
+     "id": "close",
+     "speaker": "Old Halloran",
+     "text": "*(Old Halloran bends back over his chart, plotting a course toward a phantom island that was never real — the last survivor of the Grey Gull, keeping forty years of drowned shipmates underway in the only sea he has left, the table of the Low Lantern — and whether you helped him see he was holding a wake he refused to finish, or let him sail on toward nowhere, you carry away the gentlest variation on the saga's one great theme: that we keep the lost by refusing to let the voyage end, and that sometimes the deepest love is not the endless plotting but the hard mercy of finally saying *you're home, rest now, let the voyage land.*)*",
+     "dynamic": false,
+     "auto": null,
+     "onEnter": [],
+     "choices": []
+    }
+   ]
+  },
+  {
    "id": "market.urchin",
    "file": "MarketScene.cs",
    "title": "Market · Urchin",
@@ -24088,9 +24630,9 @@
   }
  ],
  "stats": {
-  "conversations": 172,
-  "nodes": 1101,
-  "choices": 629,
-  "skillChecks": 141
+  "conversations": 175,
+  "nodes": 1125,
+  "choices": 641,
+  "skillChecks": 144
  }
 }

@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.35.0 — *"The Candle and the Tide"* — the Low Lantern fills (Pillar 2 · the wider city)
+
+> The principal saga is voiced end to end; now the Lower City taverns fill with the named faces that give a
+> place its lived-in soul — BG2's Copper Coronet, the Gate's way. Three regulars of the Low Lantern, each a
+> warm comic surface over a specific private grief.
+
+- 🍺 **The Low Lantern, Wave I** (`lowlantern_denizens.dlg`):
+  - **Sweet Anselm** — the bard who wrote "The Candle and the Tide," the most famous love song of the age,
+    for a candle-girl named Mira who married a shipwright; now paid nightly to perform the exact measure of
+    his own heartbreak at strangers' weddings. The turn: the house and the marriage she chose are dust, and
+    the song she rejected outlived them all — he didn't lose, he *won the wrong prize* (`act4.deathless_is_the_wall`
+    reprised as consolation).
+  - **Deal-Me-In Dax** — a card sharp who cheats *every* hand, to deal the drowning a winner and rob the
+    smug; a thumb on the scale of an uncaring luck. Under it: the one honest game that cost him a farm and a
+    girl, and a vow never to let chance decide anything that matters again. Can be set on Velith, the Gate's
+    unluckiest man — not with a rigged win, but with freedom from luck (`sq.dax_and_velith`).
+  - **Old Halloran** — the last survivor of the *Grey Gull*, plotting a course to a phantom island that was
+    never real, because while the voyage is unfinished his drowned crew isn't *drowned* — they're still
+    underway. A map to nowhere that is really a map to the people he lost; the hard mercy is letting the
+    voyage *land* (`act4.deathless_is_the_wall`, the saga's theme at tavern-table scale).
+- 🧵 **Theme**: the wider city as the saga in miniature — even the tavern regulars carry the one true thing,
+  comedy over grief, each refusing in their own small way to let a lost thing finish (and sometimes learning
+  that the deeper love is the letting-go). Roster now **91 named, fully-voiced denizens.**
+- 📈 **Content**: dialogue corpus now **175 conversations · 1,125 nodes · 144 skill checks** (up from
+  172/1,101/141). All 606 headless CI checks green; the 31-file `.dlg` corpus compiles clean (zero broken
+  refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.34.0 — *"One Soul, Saving Ourselves"* — the connective tissue, complete (Pillar 2 · the weave)
 
 > The last three recurring threads close the weave — and the loop turns from a closed circle into a chain

@@ -185,8 +185,9 @@ The Lower City taverns (**the Low Lantern**, **the Blushing Mermaid**), the harv
 temple districts, and the Guild's underworld supply the remaining named faces — each a single voice and
 a single true thing. Planned clusters (📋), ~3–6 NPCs each:
 
-- **The Low Lantern regulars** (89–94): a heartbroken bard, a cheating-but-lovable card sharp, a sailor
-  with a map to nowhere, a barmaid who knows everyone's debts, a philosopher in his cups, **Roen's old fence**.
+- **The Low Lantern regulars** (89–94): ✍️ **Sweet Anselm** the heartbroken bard, ✍️ **Deal-Me-In Dax** the
+  cheating-but-lovable card sharp, ✍️ **Old Halloran** the sailor with a map to nowhere *(all three written,
+  v4.35.0)*; a barmaid who knows everyone's debts, a philosopher in his cups, **Roen's old fence** *(📋)*.
 - **The harvest-quarter survivors** (95–99): a mother selling her dead son's tools, a boy who saw the
   harvesters and won't speak, a healer who can't heal *this*, a Choir convert having second thoughts, a
   Fist deserter who refuses to burn another village.
