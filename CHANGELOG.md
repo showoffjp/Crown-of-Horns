@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.45.0 — *"The Forty-One"* — the reaper's hidden souls (Pillar 2 · side quests)
+
+> The sixth `sq.*` payoff: the Last Honest Psychopomp's forty-one fading Faithless, hidden in his cloak for
+> ten thousand years against the Wall's pull — and now nearly gone, needing an ending he's too afraid to give.
+
+- ⚱️ **Side Quest: "The Forty-One"** (`fugue_sidequest.dlg`, gated on `sq.reaper_hidden_souls`) — the reaper
+  who refused the doctrine, who stole forty-one souls he was meant to deliver and slowed their fading by
+  standing between them and the Wall with his own body, can hide them no longer. Four ways in:
+  - the **gentle Wall** — his loving hiding became its own keeping; the forty-one need the *ending* he was too
+    afraid to give (`sq.fortyone_gentle_wall`, `act4.deathless_is_the_wall`);
+  - the **graves** — carry them to the coffin-man's waiting field, the *somewhere* he never had to take them
+    (`sq.fortyone_to_the_graves`, links to "The Graves That Waited");
+  - the **reading** — the one thing he could never do (speak their names, lest the Wall hear) becomes the thing
+    that frees them (`sq.fortyone_to_the_reading`, `act5.wall_breaking`);
+  - or **ask them** — open the cloak and let the forty-one choose their own ending, instead of one reaper's
+    fear deciding for them (`sq.fortyone_ask_them`, `act5.witness_then_release`).
+  - Epilogues for the reaper himself: join the unbroken line and go hide the *next* forty-one
+    (`sq.fortyone_reaper_joins_line`), rest at last in a grave beside the souls he saved
+    (`sq.fortyone_reaper_rests`), or carry the empty cloak as a victory — the shape of forty-one endings finally
+    allowed (`sq.fortyone_victory`).
+- 🧵 **Theme**: even *mercy* curdles into keeping; the souls we love are never ours to hold, only ours to
+  *carry until they can choose*; and an empty cloak ten thousand years in the making is not the shape of a
+  loss but of endings, bravely, allowed. (The ferryman, too, is owed a shore.)
+- 📈 **Content**: dialogue corpus now **193 conversations · 1,295 nodes · 162 skill checks** (737 choices).
+  Six full side quests now built atop the seeded hooks. All 606 headless CI checks green; the 41-file `.dlg`
+  corpus compiles clean.
+
+---
+
 ## 👑 v4.44.0 — *"The Hands That Refused"* — the harvest-exposure quest (Pillar 2/4 · side quests)
 
 > The fifth `sq.*` payoff, and the first *convergence* quest — two NPCs from opposite ends of the same
