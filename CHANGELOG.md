@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.59.0 — *"The Coinless Crossing"* — the eighteenth side quest; the god vs the snare (Pillar 2/4 + reactivity)
+
+> A ferrying/labor texture with the sharpest faction-revelation on the road: the cruelty was never the god\'s
+> rule, but a snare the church bolted to his holy coin. An eighteenth full side quest — written, verified, and
+> wired into the epilogue and Chronicle the same release.
+
+- ⛴️ **Side Quest: "The Coinless Crossing"** (`ferryman_sidequest.dlg`, gated on `sq.ferryman_free`) — the old
+  Ferryman of Chionthar runs his black skiff free at dusk now, crossing the breathless dead the harvest left
+  coinless (died mid-sentence, no time to fetch a purse) before the near bank\'s harvesters can sort them to
+  the Wall. But one old man and one skiff is a thin mercy against a river of the unpaid — and the toll-as-snare
+  is the *church\'s*, not the god\'s. Four ways in (hold the bank so the waiting\'s safe; light a fleet so it\'s
+  short; say out loud that the waiting-rule is the church\'s snare; or reforge the toll from the single coin),
+  and resolutions: guard the near bank (`sq.crossing_near_bank_held`), a fleet of free crossings
+  (`sq.crossing_fleet`), expose the snare — Kelemvor\'s rule was only \'a coin for the crossing,\' the waiting was
+  the church\'s forgery (`sq.crossing_snare_exposed`, `act1.choir_doubt_seeded`, reactive
+  `faction.choir`/`faction.kelemvor`), reforge the toll into \'the ones who can pay for the ones who can\'t\'
+  (`sq.crossing_mutual_toll`), or make the crossing outlive the old man (`sq.crossing_outlives_him`,
+  `act5.unbroken_line`).
+- 🎬 **Wired into epilogue + Chronicle same release**: a "where they are now" slide per resolution, tally grows
+  to **N/18 brought home** — byte-identical across `endings.js` and `EndingResolver.cs`, injected into the
+  Endings Explorer (chrome preserved), flowed into the all-in-one. Test tally updated to `3/18`. Prose-parity
+  green, fuzz crash-free.
+- 🧵 **Theme**: the cruelty was never the god\'s at all, but a snare the church bolted to his holy coin and
+  called his will — and the kindest thing you can do for a people taught to fear the wrong master is to teach
+  them to tell the god\'s old mercy from the trap that wears its face. (A Doomguide who learns the waiting-rule
+  was never Kelemvor\'s might lay the whole Wall down.)
+- 📈 **Content**: dialogue corpus now **205 conversations · 1,438 nodes · 174 skill checks** (820 choices);
+  **eighteen** full side quests, all reactive. Headless suite holds at **609 checks**, all green; the 53-file
+  `.dlg` corpus compiles clean.
+
+---
+
 ## 👑 v4.58.0 — *"The Catalogue of the Unwritten"* — the seventeenth side quest; grief for the uncreated (Pillar 2 + reactivity)
 
 > Grief not for the dead but for everything they\'d have *made* — the saddest object in the Realms, and one

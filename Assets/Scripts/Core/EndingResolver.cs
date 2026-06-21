@@ -467,6 +467,16 @@ namespace SunderedCrown.Core
             else if (f.GetBool("sq.unwritten_read_aloud"))
                 slides.Add("📚 The Catalogue of the Unwritten — you helped Brother Faolan read the book of everything never written aloud in the great hall, every unwritten title spoken once: the Tide-Cantos, the Defense of the Doubting, the Letters to a Son a soldier was walled before he could write. The uncreated died of silence, of never being heard; and ten thousand almosts, read aloud once in a hall that finally listened, was the funeral and the only birth they would ever get.");
 
+            // "The Coinless Crossing" — the Ferryman, the harvest's snare, and the god's old coin.
+            if (f.GetBool("sq.crossing_snare_exposed"))
+                slides.Add("⛴️ The Coinless Crossing — you carried the Ferryman's testimony to the Court: that Kelemvor's rule was only ever 'a coin for the crossing,' and the cruelty bolted to it since — the coinless made to wait on the near bank where the harvesters take them — was the church's snare wearing the god's holy coin. Sixty years he'd feared the wrong master. The Doomguides who'd wept and enforced anyway were handed the one question that unravels a doctrine: are you serving your god, or a trap hung on his name?");
+            else if (f.GetBool("sq.crossing_mutual_toll"))
+                slides.Add("⛴️ The Coinless Crossing — you reforged the Ferryman's toll into the old woman's rule: not 'a coin for the crossing, and the coinless wait,' but 'the ones who can pay for the ones who can't.' The daylight dead who died abed with time and coin now pay double into the tin cup, for the breathless robbed of theirs. Kelemvor's coin stayed; it just flowed the right way at last — from the ones who had time to the ones the harvest stole it from. No soul turned back poor.");
+            else if (f.GetBool("sq.crossing_outlives_him"))
+                slides.Add("⛴️ The Coinless Crossing — the river took the old Ferryman in the end, as he knew it would. But he'd taught the fleet first, passed the pole, written 'for the ones who can't' into the dockside rites — so the night he became the one being carried, the skiffs still ran free at dusk. The crossing had become a thing the river keeps, not a thing one old man does. The coinless still cross. The skiff did not stop because he did.");
+            else if (f.GetBool("sq.crossing_fleet") || f.GetBool("sq.crossing_near_bank_held"))
+                slides.Add("⛴️ The Coinless Crossing — one old man and one skiff became a river the harvest couldn't cross: a guarded near bank where the breathless waited safe, a fleet of free dusk crossings crewed by everyone who'd lost someone to the waterline, until the harvesters arrived to find the coinless already across and resting on the far shore. One ferryman the harvest could outlast. A river of them it could not.");
+
             // The Lady.
             if (f.GetBool("readers_boon"))
                 slides.Add("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -554,10 +564,11 @@ namespace SunderedCrown.Core
                 new[] { "sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court" },
                 new[] { "sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court" },
                 new[] { "sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers" },
+                new[] { "sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him" },
             };
             int sideDone = 0;
             foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
-            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/17 brought home");
+            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/18 brought home");
 
             // Bonds.
             var loves = new List<string>();
