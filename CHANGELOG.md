@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.44.0 — *"The Hands That Refused"* — the harvest-exposure quest (Pillar 2/4 · side quests)
+
+> The fifth `sq.*` payoff, and the first *convergence* quest — two NPCs from opposite ends of the same
+> atrocity brought into one room. A faction-active piece (reactive `faction.choir` / `faction.fist`) with a
+> more civic, plot-driving texture than the introspective companion arcs.
+
+- ⚔️ **Side Quest: "The Hands That Refused"** (`harvest_sidequest.dlg`, gated on `sq.deserter_testimony` /
+  `sq.choir_hands_refuse`) — Corwin the Fist deserter (the *fire*) and Sister Wren the Choir convert (the
+  *chalk*), two halves of the harvest, brought together. Apart they're a deniable coward and a deniable
+  doubter; together they're the undeniable proof the harvest runs on *ordinary hands that could always have
+  opened.* Four approaches:
+  - the **refutation** — stand public, living disproof of "we had no choice" (`sq.harvest_refutation`);
+  - the **map** — combine fire and chalk into a flowchart of the machine (order→mark→enforce→burn) and hand
+    every gear a mirror (`sq.harvest_map_obtained`, `act2.cataloguing_defeats_the_wall`);
+  - the **prize** — name the real reward: not the villages they burned but the ones the *next* hand won't
+    (`sq.harvest_prize`);
+  - the **reconcile** — soldier and singer each say "my hand did this, and it could have opened" before they
+    can testify together (`sq.harvest_reconciled`, `act5.shame_feeds_the_wall`).
+  - Resolutions: nail it public where the city reads (`sq.harvest_exposed_public`), carry it to the Court as
+    part of the great objection (`sq.harvest_to_the_court`, `act5.the_great_objection`), or pass it quietly
+    hand-to-cracking-hand through the garrisons and Choir-houses (`sq.harvest_to_the_hands`).
+- 🧵 **Theme (civic)**: the cruelest process in the world is built box by box of ordinary hands, its whole
+  defense is "we had no choice," and it dies not to a rebellion it can crush but to the spreading, unkillable
+  proof — a soldier and a singer in one room — that *every hand in it could always have opened.*
+- 📈 **Content**: dialogue corpus now **192 conversations · 1,283 nodes · 161 skill checks** (730 choices).
+  The side-quest suite now spans a payoff (Graves), the loop spine (Margins), two companion arcs (Roen,
+  Naeve), and a faction convergence (Hands). All 606 headless CI checks green; the 40-file `.dlg` corpus
+  compiles clean.
+
+---
+
 ## 👑 v4.43.0 — *"The Indictment"* — Naeve's companion quest (Pillar 2 · side quests)
 
 > The fourth `sq.*` payoff and second companion quest: Naeve's case against Netheril — the proof that the
