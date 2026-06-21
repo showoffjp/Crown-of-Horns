@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.29.0 — *"The World That Won't Hold Still"* — the Spellplague opens; the corpus passes 1,000 nodes (Pillar 2)
+
+> Reality stops holding still. A cartographer maps a geography that dissolves as she draws it, keeping a road
+> to her daughter open on paper because it's the only place it still exists; two strangers welded into one
+> body by the blue fire have built a love so complete each would die for the other; and an old gardener tends
+> flowers that cannot die — and grieves them — because deathlessness, he's learned, is just the Wall by
+> another name. The first plain statement of the choice waiting at the end of the road.
+
+- 🌀 **The Spellplague opens** (`spellplague_denizens.dlg`) — the reality-breaking era:
+  - **The Cartographer** draws the world-as-it-*was* against a world that won't hold still, her plaguechanged
+    ink weeping but accurate — a memorial to lost coastlines and the town of *Sevenfields*, swapped intact to
+    another world with her estranged daughter inside it, behind a wall of blue fire she'll never cross
+    (`act4.sevenfields_kept`, `sq.the_old_map`).
+  - **The Two Who Are One** — a cooper and a midwife merged by the fire into a *third* person neither was
+    alone; well-adjusted, in love, each having secretly decided to be the one who dies if they're ever
+    separated. The cruelest thing you can offer them is the "cure" that would make them whole and singular and
+    *alone* (`act4.the_we_is_real`).
+  - **The Blue-Fire Gardener** — tends a paradise of deathless flora (fruit that can't fall, blossoms frozen
+    at the bud) and has learned the lesson the whole road circles toward: *to keep a thing from ending is not
+    to love it but to cage it.* The Wall and the deathless garden are the same crime, and the only mercy for
+    the kept is the one the crown will beg you not to give — *an ending* (`act4.deathless_is_the_wall`,
+    `act4.gardener_warning`, reinforces `act3.break_the_crown_known`).
+- 🧵 **Theme**: the Spellplague as the mirror of the Wall — a world that *severs* and *fuses* and *freezes*,
+  teaching by reality-break what the saga has argued all along: that preservation against ending is the
+  cruelty, and the fall is the mercy. The gardener is the plainest pre-statement of the endgame choice.
+- 📈 **Content**: dialogue corpus now **159 conversations · 1,001 nodes · 128 skill checks** (up from
+  156/977/125) — **past a thousand nodes.** All 606 headless CI checks green; the 25-file `.dlg` corpus
+  compiles clean (zero broken refs, dup ids, or orphans) and the viewer regenerates byte-for-byte.
+
+---
+
 ## 👑 v4.28.0 — *"The Post and the Altar"* — the Time of Troubles, complete (Pillar 2)
 
 > Two souls holding the line on the night the gods went mad — a watchman who files an incident report on a
