@@ -12,7 +12,8 @@ const h = fs.readFileSync(__dirname + "/dialogue_sim.html", "utf8");
 const block = h.match(/\/\*<DLGSIM>\*\/([\s\S]*?)\/\*<\/DLGSIM>\*\//);
 check("DLGSIM pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass," +
+  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable};")();
 
 // modifier = floor((score-10)/2), exactly as Abilities.cs
 check("abilityMod: 10 -> +0", E.abilityMod(10) === 0);
@@ -91,37 +92,107 @@ check("build picker wired", h.includes("function setBuild(") && h.includes("func
 check("links home to the index", h.includes('href="index.html"'));
 
 // a real skill-check choice exists in the data so the dice path is exercised in-game
-const hasCheck = CONVS.some(c => c.nodes.some(n => n.choices.some(ch => ch.checkDC > 0)));
+const hasCheck = CONVS.some(c => c.nodes.some(n => (n.choices || []).some(ch => ch.checkDC > 0 || ch.check)));
 check("the data contains real skill checks to roll", hasCheck);
+
+// ---- the BG3-style character model + reactive engine ----
+check("character MODEL wired to data", h.includes("MODEL = DATA.model") && h.includes("function matchesWhen("));
+const MODEL = DATA.model;
+const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+check("model has races/classes/backgrounds/deities", MODEL.races.length >= 6 && MODEL.classes.length >= 5 &&
+  MODEL.backgrounds.length >= 5 && MODEL.deities.length >= 5);
+check("model maps every skill to an ability", Object.values(MODEL.skillAbility).every(a => ABILS6.includes(a)));
+check("model defines a proficiency bonus", MODEL.proficiencyBonus > 0);
+
+// two concrete characters to exercise reactivity
+const confessor = { cls: "Cleric", scores: [13, 10, 14, 11, 17, 12], race: "Human", background: "Acolyte", law: "Lawful", morality: "Good", deity: "Kelemvor" };
+const warden = { cls: "Ranger", scores: [14, 16, 13, 11, 14, 10], race: "Elf", background: "Folk Hero", law: "Neutral", morality: "Neutral", deity: "None" };
+
+// matchesWhen — identity gates (string + array), alignment, ability thresholds, flags, ints
+check("when race matches (string)", E.matchesWhen(warden, E.newState(), { race: "Elf" }) === true);
+check("when race matches (array)", E.matchesWhen(warden, E.newState(), { race: ["Elf", "Half-Elf"] }) === true);
+check("when race rejects a non-match", E.matchesWhen(confessor, E.newState(), { race: "Elf" }) === false);
+check("when deity gate (Kelemvor)", E.matchesWhen(confessor, E.newState(), { deity: "Kelemvor" }) === true);
+check("when Faithless gate (deity None)", E.matchesWhen(warden, E.newState(), { deity: "None" }) === true);
+check("when class gate", E.matchesWhen(confessor, E.newState(), { class: "Cleric" }) === true);
+check("when background gate", E.matchesWhen(confessor, E.newState(), { background: "Acolyte" }) === true);
+check("when law gate", E.matchesWhen(confessor, E.newState(), { law: "Lawful" }) === true && E.matchesWhen(warden, E.newState(), { law: "Lawful" }) === false);
+check("when morality gate", E.matchesWhen(confessor, E.newState(), { morality: "Good" }) === true);
+check("when ability threshold (STR 15: warden 14 fails)", E.matchesWhen(warden, E.newState(), { ability: { Strength: 15 } }) === false);
+check("when ability threshold (DEX 15: warden 16 passes)", E.matchesWhen(warden, E.newState(), { ability: { Dexterity: 15 } }) === true);
+check("when flag gate respects state", E.matchesWhen(confessor, st2set("demo.x"), { flag: "demo.x" }) === true &&
+  E.matchesWhen(confessor, E.newState(), { flag: "demo.x" }) === false);
+let si = E.newState(); si.ints["demo.vane.regard"] = 3;
+check("when int threshold (regard >= 3)", E.matchesWhen(confessor, si, { int: { "demo.vane.regard": 3 } }) === true &&
+  E.matchesWhen(confessor, E.newState(), { int: { "demo.vane.regard": 3 } }) === false);
+check("when with no clause always matches", E.matchesWhen(confessor, E.newState(), undefined) === true);
+
+// proficiency math — Cleric+Acolyte is proficient in Religion/Insight/Persuasion; not Stealth
+check("isProficient via class", E.isProficient(confessor, "Religion", MODEL) === true);
+check("isProficient via background", E.isProficient(confessor, "Insight", MODEL) === true);
+check("not proficient in an untrained skill", E.isProficient(confessor, "Stealth", MODEL) === false);
+// checkBonus = abilityMod + (proficient ? profBonus : 0)
+check("checkBonus adds proficiency", E.checkBonus(confessor, { skill: "Insight", ability: "Wisdom" }, MODEL) === E.abilityMod(17) + MODEL.proficiencyBonus);
+check("checkBonus without proficiency is just the mod", E.checkBonus(confessor, { skill: "Acrobatics", ability: "Dexterity" }, MODEL) === E.abilityMod(10));
+check("proficiency genuinely raises the odds", E.checkBonus(confessor, { skill: "Insight", ability: "Wisdom" }, MODEL) > E.checkBonus(warden, { skill: "Insight", ability: "Wisdom" }, MODEL));
+
+// reactive narration — the demo's opening line differs by character
+const demo = CONVS.find(c => c.id === "demo.threshold");
+check("the reactive demo is present", !!demo);
+const node0 = demo.nodes.find(n => n.id === "0");
+check("node 0 has reactive variants", node0.variants && node0.variants.length >= 5);
+const lineKelemvor = E.pickVariantText(node0, confessor, E.newState());
+const lineFaithless = E.pickVariantText(node0, warden, E.newState());
+check("Kelemvor & Faithless get different opening lines", lineKelemvor !== lineFaithless && lineKelemvor.length > 40 && lineFaithless.length > 40);
+check("Faithless opening actually speaks to the godless", /Faithless|no god/i.test(lineFaithless));
+check("variant falls back to a default", (() => { const any = { cls: "Fighter", scores: [10, 10, 10, 10, 10, 10], race: "Dwarf", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "Tymora" }; return E.pickVariantText(node0, any, E.newState()).length > 40; })());
+
+// choiceAvailable — the Faithless option only appears for the godless; Kelemvor option only for kin
+const node1 = demo.nodes.find(n => n.id === "1");
+const faithlessChoice = node1.choices.find(ch => ch.when && ch.when.deity === "None");
+const kinChoice = node1.choices.find(ch => ch.when && ch.when.deity === "Kelemvor");
+check("Faithless choice gated to the godless", E.choiceAvailable(warden, E.newState(), faithlessChoice, false) === true &&
+  E.choiceAvailable(confessor, E.newState(), faithlessChoice, false) === false);
+check("Kelemvor choice gated to kin", E.choiceAvailable(confessor, E.newState(), kinChoice, false) === true &&
+  E.choiceAvailable(warden, E.newState(), kinChoice, false) === false);
+// the same node offers a different set of choices to different characters
+const availFor = (ch) => node1.choices.filter(c => E.choiceAvailable(ch, E.newState(), c, false)).length;
+check("the challenge node offers different choices per character", availFor(confessor) !== availFor(warden));
+
+function st2set(k){ const s = E.newState(); s.bools[k] = true; return s; }
 
 // ---- headless playability sweep: auto-walk EVERY conversation through the real traversal
 // rules the UI uses (apply onEnter, take the first allowed choice / success branch / auto),
 // proving each one is playable to an end with no broken mid-path ref and bounded steps.
-let played = 0, longest = 0;
 const isEndId = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
-for (const conv of CONVS) {
+function autoPlay(conv, who) {
   const byId = {}; conv.nodes.forEach(n => byId[n.id] = n);
   let id = byId[conv.start] ? conv.start : conv.nodes[0].id;
-  const st = E.newState(); let steps = 0; const seen = new Set();
+  const st = E.newState(); let steps = 0;
   while (!isEndId(conv, id, byId)) {
     const n = byId[id];
-    if (++steps > 500) { fails.push("runaway traversal in " + conv.id); fail++; break; }
+    if (++steps > 500) return { steps, ok: false };
     E.applyEffects(st, n.onEnter);
-    const allowed = (n.choices || []).filter(ch => E.conditionsPass(st, ch.conditions, true));
-    if (allowed.length) {
-      const ch = allowed[0];
-      E.applyEffects(st, ch.effects);            // effects apply regardless of pass/fail
-      id = ch.next;                               // success branch (assume the check passes)
-    } else if (n.auto && !isEndId(conv, n.auto, byId)) {
-      id = n.auto;
-    } else break;                                 // node with nothing further = an ending
-    if (seen.has(id + ":" + steps)) break;
+    // every node must yield a line for this character (a variant or default)
+    if (n.variants && E.pickVariantText(n, who, st).length === 0) return { steps, ok: false, noVariant: n.id };
+    const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch, true));
+    if (allowed.length) { const ch = allowed[0]; E.applyEffects(st, ch.effects); id = ch.next; }
+    else if (n.auto && !isEndId(conv, n.auto, byId)) id = n.auto;
+    else break;
   }
-  longest = Math.max(longest, steps);
-  played++;
+  return { steps, ok: true };
 }
-check("every conversation auto-plays to an end (bounded, no broken mid-path ref)", played === CONVS.length);
+const dummy = { cls: "Fighter", scores: [12, 12, 12, 12, 12, 12], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "Kelemvor" };
+let played = 0, longest = 0;
+for (const conv of CONVS) { const r = autoPlay(conv, dummy); if (r.ok) played++; else fails.push("unplayable: " + conv.id + (r.noVariant ? " (no variant for node " + r.noVariant + ")" : "")); longest = Math.max(longest, r.steps); }
+check("every conversation auto-plays to an end for a baseline character", played === CONVS.length);
 check("no conversation needs an unreasonable number of beats", longest < 500);
+// the reactive demo must be completable by EACH of the five shipped builds (no dead character)
+const bm2 = h.match(/const BUILDS = (\[[\s\S]*?\]);\nconst COMPANION/);
+const ALLBUILDS = JSON.parse(bm2[1]);
+let demoOk = 0;
+for (const b of ALLBUILDS) { const r = autoPlay(demo, b); if (r.ok) demoOk++; else fails.push("demo dead-ends for " + b.name); }
+check("the reactive demo completes for all five shipped characters", demoOk === ALLBUILDS.length);
 
 console.log(`\n  Dialogue Simulator — playable conversation engine:`);
 for (const f of fails) console.log("  ✗ " + f);

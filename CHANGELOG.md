@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.67.0 — *"The Threshold"* — BG3-style character-reactive dialogue, with a playable demo (tooling + content)
+
+> The dialogue sim now answers *who you are.* A full **character model** — race, class, background,
+> alignment, deity, and the six abilities — feeds a reactive engine where the NPC's lines and the choices on
+> offer change with your identity, and skill checks add **proficiency** on top of the ability modifier. A new
+> hand-authored demo, **"The Threshold,"** shows it off: a gatekeeper of the dead reads your blood, your god,
+> and your bearing — and decides whether you pass.
+
+- 🎭 **Character model** (`play/dialogue-demo.json`) — 9 races, 5 classes, 7 backgrounds, the 9 alignments,
+  7 deities (incl. **"None" — the Faithless**, the saga's thematic core), a full skill→ability table, and
+  class/background **skill proficiencies** (+3). The five shipped builds are now complete BG3-style identities
+  (e.g. *The Confessor*, a Kelemvorite cleric; *The Warden*, a Faithless elf; *The Silver Tongue*, a tiefling).
+- ✦ **Reactive demo: "The Threshold"** — Justiciar Aldous Vane, 29 nodes, deeply branching:
+  - **Reactive narration** — the opening line differs for a Kelemvorite (greeted as *kin*), a tiefling
+    (eyed for *fiend-blood*), a drow, an elf (*"you watched it born"*), a Myrkul-worshipper (*hostility*),
+    and one of the **Faithless** (*"the air doesn't bend around the godless… you know what's waiting"*).
+  - **Identity-gated choices**, tagged BG3-style and colour-coded: **[ELF] [CLERIC] [ACOLYTE] [KELEMVOR]
+    [FAITHLESS] [LAWFUL]**, plus **passive stat gates [STRENGTH] / [INTELLIGENCE]** that appear only at the
+    score, and active **skill checks** (Persuasion, Insight, Intimidation, Religion, Deception) that roll
+    `d20 + ability modifier + proficiency` vs the DC. Different characters literally see different options.
+  - **Consequences** — the Justiciar's **regard** moves with every choice (shown as a live bar), and a late
+    node even reads that regard back (`int ≥ 3`) to deepen what he confides; six distinct outcomes from
+    *passed-as-kin* to *forced the gate (and fed the waking Wall)* to *it comes to blades*.
+- 🧩 **Engine upgrades** in the sim: a character-creation panel (race/class/background/alignment/deity +
+  ability steppers), colour-coded tag chips, per-choice **% chance to pass with your build** including
+  proficiency, a "show choices I don't qualify for" toggle, and the demo surfaced with a one-click CTA.
+- 🧪 **Gate expanded to 82 checks** — lifts the new pure functions (`matchesWhen`, `pickVariantText`,
+  `isProficient`, `checkBonus`, `choiceAvailable`) and proves them; verifies the demo greets Kelemvor vs
+  Faithless differently and offers different choices per character; and **auto-plays the demo to an end for
+  all five shipped builds** (no dead character). Suite now **696 checks**, all green.
+
+---
+
 ## 👑 v4.66.0 — *"Dialogue, Played"* — a new playable preview: step INTO any conversation (tooling)
 
 > The combat sim lets you play a fight; now there's a sibling for the writing. **`dialogue_sim.html`** lets you

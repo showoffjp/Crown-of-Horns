@@ -1,0 +1,283 @@
+{
+  "characterModel": {
+    "races": ["Human", "Elf", "Half-Elf", "Tiefling", "Drow", "Dwarf", "Half-Orc", "Gnome", "Halfling"],
+    "classes": ["Fighter", "Wizard", "Cleric", "Rogue", "Ranger"],
+    "backgrounds": ["Acolyte", "Soldier", "Noble", "Criminal", "Sage", "Folk Hero", "Charlatan"],
+    "laws": ["Lawful", "Neutral", "Chaotic"],
+    "moralities": ["Good", "Neutral", "Evil"],
+    "deities": ["Kelemvor", "Jergal", "Myrkul", "Lathander", "Tymora", "Oghma", "None"],
+    "deityNote": {
+      "Kelemvor": "Judge of the Dead — reformed the Wall; his church guards it.",
+      "Jergal": "The Scribe of the Dead, who kept the ledgers before Kelemvor.",
+      "Myrkul": "The Lord of Bones, of the Dead Three — feared and reviled.",
+      "Lathander": "The Morninglord — light, dawn, rebirth.",
+      "Tymora": "Lady Luck — fortune and daring.",
+      "Oghma": "Lord of Knowledge — the Binder of What Is Known.",
+      "None": "The Faithless — you serve no god, and the Wall is built for souls like yours."
+    },
+    "skillAbility": {
+      "Athletics": "Strength",
+      "Acrobatics": "Dexterity", "Sleight of Hand": "Dexterity", "Stealth": "Dexterity",
+      "Arcana": "Intelligence", "History": "Intelligence", "Investigation": "Intelligence", "Nature": "Intelligence", "Religion": "Intelligence",
+      "Animal Handling": "Wisdom", "Insight": "Wisdom", "Medicine": "Wisdom", "Perception": "Wisdom", "Survival": "Wisdom",
+      "Deception": "Charisma", "Intimidation": "Charisma", "Performance": "Charisma", "Persuasion": "Charisma"
+    },
+    "classProficiencies": {
+      "Fighter": ["Athletics", "Intimidation"],
+      "Wizard": ["Arcana", "History", "Investigation"],
+      "Cleric": ["Religion", "Insight", "Persuasion"],
+      "Rogue": ["Deception", "Perception", "Persuasion", "Stealth"],
+      "Ranger": ["Perception", "Survival", "Nature", "Insight"]
+    },
+    "backgroundProficiencies": {
+      "Acolyte": ["Insight", "Religion"],
+      "Soldier": ["Athletics", "Intimidation"],
+      "Noble": ["Persuasion", "History"],
+      "Criminal": ["Deception", "Stealth"],
+      "Sage": ["Arcana", "History"],
+      "Folk Hero": ["Survival", "Animal Handling"],
+      "Charlatan": ["Deception", "Persuasion"]
+    },
+    "proficiencyBonus": 3
+  },
+  "conversations": [
+    {
+      "id": "demo.threshold",
+      "title": "The Threshold",
+      "file": "demo (reactive)",
+      "demo": true,
+      "npc": "Justiciar Aldous Vane",
+      "blurb": "A gatekeeper of Kelemvor's church bars the causeway to the Wall. He reads your blood, your god, your bearing — and decides. Every line below changes with who you are.",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Justiciar Aldous Vane",
+          "onEnter": [{ "key": "demo.threshold_begun", "op": "SetTrue" }],
+          "variants": [
+            { "when": { "deity": "None" }, "text": "*(A Justiciar in the grey-and-bone of Kelemvor's church bars the causeway, halberd grounded. His eyes find you and go still in a way you have learned to recognize.)* You came up the causeway with no god's light on you at all. *(softly, not unkindly)* I can always tell. The air doesn't bend around the Faithless the way it bends around the rest — it just... lets you through, like it's already given up. So you know what's waiting at the end of this Wall, then. And you walked toward it anyway. *(He studies you.)* Brave, or stupid, or grieving. Which is it?" },
+            { "when": { "deity": "Myrkul" }, "text": "*(The Justiciar's hand is on his blade before his mind has finished the thought.)* You wear the Lord of Bones' mark. Openly. *Here.* At the threshold of the god who *unseated* him. *(His knuckles whiten on the haft.)* You have either lost your mind, pilgrim, or you have come a very long way to lose your head." },
+            { "when": { "deity": "Kelemvor" }, "text": "*(The Justiciar's gaze drops to the sigil you carry, then rises to his own, at his throat — the same balance, the same grey.)* Kelemvor's mark. *(Some of the iron goes out of his shoulders, and something more tired takes its place.)* The Judge sends me a kinsman, on the worst night I have stood this post. Be welcome, then — though I warn you, welcome here is a thin and frightened thing tonight." },
+            { "when": { "race": "Tiefling" }, "text": "*(His eyes track the horns, the tail, the old reflex of a man taught from boyhood what your blood is supposed to mean.)* ...They posted the order to turn away anything with the Hells in its veins. *(He does not raise the halberd. Quite.)* But they post a great many orders up here, and I've stopped trusting half of them. State your business, fiend-blood, and we'll see which teaching holds tonight — theirs, or my own eyes." },
+            { "when": { "race": "Drow" }, "text": "*(He takes in the obsidian skin, the white hair, the surface-stranger's squint against even this dim torchlight.)* A child of the Underdark. On the surface. At a *holy* threshold. *(He exhales through his nose.)* You are a very long way from the dark, traveler — and I am a very long way from trusting anything that comes out of it. Convince me." },
+            { "when": { "race": ["Elf", "Half-Elf"] }, "text": "*(He marks the long-lived stillness in your face, the eyes that have outlasted men like him by lifetimes.)* You've the elder look. The eyes that have watched a Wall like this one rise, and crack, and be mortared up again, across years I'll never see the back of. *(grimly)* So you already know how this ends, don't you. Tell me why you've come anyway." },
+            { "text": "*(A Justiciar in the grey-and-bone of Kelemvor's church bars the causeway, halberd grounded, his face like a closed and balanced ledger.)* Hold. The Threshold is shut past dusk, by the Doomguide's own order. *(He looks you over, weighing.)* State your name, your business, and your god — in that order. The last one matters most, up here." }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He waits, and the wind off the Wall carries a sound up the causeway — voices, perhaps, if voices could be worn that thin, that long.)* Well? The night isn't getting any younger. *(a dry, joyless flicker)* And neither, godly or otherwise, are you.",
+          "choices": [
+            { "text": "[ELF] \"I stood on this causeway when the first stones of your Wall were laid, Justiciar. I have watched what it does to the dead across centuries you will never live to count. Stand aside, and let an elder pass.\"", "when": { "race": ["Elf", "Half-Elf"] }, "next": "elf_age", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
+            { "text": "[CLERIC] \"I tend the dead too. Ground the halberd and speak to me as one grave-keeper to another — we both know it's the only honest way to speak up here.\"", "when": { "class": "Cleric" }, "next": "clergy", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
+            { "text": "[ACOLYTE] \"I took the same vows you did, in a chapter house not so different from yours. I know the words behind your orders — and I know the doubt behind the words.\"", "when": { "background": "Acolyte" }, "next": "acolyte", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
+            { "text": "[KELEMVOR] \"By the Judge we both serve, you know I have a right to walk this causeway. Don't make us both stand here pretending otherwise.\"", "when": { "deity": "Kelemvor" }, "next": "kin", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 3 }] },
+            { "text": "[FAITHLESS] \"I serve no god, Justiciar. Which makes me the one soul on this causeway who knows, personally, exactly what your Wall is for. Look at me — and tell me I haven't earned the right to look at it.\"", "when": { "deity": "None" }, "next": "faithless", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }] },
+            { "text": "[MYRKUL] *(let the cold of the Bone Lord answer for you, and say nothing at all)*", "when": { "deity": "Myrkul" }, "next": "myrkul_conflict" },
+            { "text": "[INTELLIGENCE] \"The Doomguide's dusk-order rests on the Third Codicil — which expressly exempts pilgrims of grief. I am one. Consult your own canon before you bar me on a misreading of it.\"", "when": { "ability": { "Intelligence": 15 } }, "next": "doctrine", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
+            { "text": "[STRENGTH] *(set a hand to the haft of his halberd, unhurried, and let him feel that you could simply take it from him)* \"I would rather not. But this Threshold opens tonight, one way or another.\"", "when": { "ability": { "Strength": 15 } }, "next": "strength", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }] },
+            { "text": "[PERSUASION] \"You do not want to be the man who turned away the one soul who could have helped, on the night it mattered. I can see that fear on you already. So let me by, and be free of it.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 15 }, "next": "persuaded", "fail": "rebuff" },
+            { "text": "[INSIGHT] \"You keep glancing back over your shoulder, at the Wall. You're not guarding it from me, Justiciar. You're guarding *me* from *it.* What is happening up there tonight?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "insight_reveal", "fail": "rebuff" },
+            { "text": "[INTIMIDATION] \"Look at me, and then look at how alone you are out here. The next thing across this causeway will be far less polite than I am being. Stand. Aside.\"", "check": { "skill": "Intimidation", "ability": "Charisma", "dc": 14 }, "next": "cowed", "fail": "angered" },
+            { "text": "[LAWFUL] \"There is a proper form for a pilgrim's petition at a closed threshold, and you and I both know it. Let us observe it, by the book, and waste no more of the night.\"", "when": { "law": "Lawful" }, "next": "lawful_appeal", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }] },
+            { "text": "\"Just let me through. Please. I haven't the strength left tonight for a riddle at a gate.\"", "next": "plain_refuse" }
+          ]
+        },
+        {
+          "id": "elf_age",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He is quiet a moment, and when he answers, the bluster has gone out of him — replaced by the particular humility of a short-lived man before a long-lived one.)* ...Three ages. *(He looks at the Wall as though seeing it through your eyes, and not liking the view.)* I've stood this post six years and called myself its keeper. You watched it *born.* *(He grounds the halberd, deliberately, point to stone.)* Then you'll know I'm not the one keeping you out — the *order* is. But an elder who's seen it rise and fall has standing I can't pretend away. *(quietly)* Tell me why you've come, and I'll find a way to let the canon agree with me.",
+          "auto": "why_here"
+        },
+        {
+          "id": "clergy",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(Something in his shoulders eases — the relief of a lonely man finding one of his own kind on a bad night.)* One grave-keeper to another, then. *(He lowers the halberd.)* You know the part they never write in the recruiting liturgies — that tending the dead is mostly tending the *living's* terror of them. *(He glances back at the Wall.)* And tonight the dead are not being quiet, friend, and I have no liturgy for that. *(He meets your eyes.)* If you truly keep graves, maybe you've a word I don't. Come — but come knowing what you walk toward.",
+          "auto": "confide"
+        },
+        {
+          "id": "acolyte",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He searches your face, and finds the thing only the initiated carry.)* ...The vows. *(He almost smiles, and it almost reaches his eyes.)* Then you know the second half of every one of them is a doubt the chapter house never let you say aloud. *(He exhales.)* I have been saying mine aloud, lately. Out here. To the wind. *(He steps half-aside.)* A brother in the doubt is worth more to me tonight than a brother in the certainty ever was. Tell me your business plainly, and I'll trust the telling.",
+          "auto": "why_here"
+        },
+        {
+          "id": "kin",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He touches his sigil, then yours, the old recognition between servants of the same hard master.)* A right. *(He breathes out.)* Yes. You have one, and I'd be a poor servant to make you fight me for it. *(He lowers the halberd entirely.)* The truth is I'm glad of you. The Judge's work tonight is past one man, and the church sent me *one man.* *(He looks back at the Wall, and his voice drops.)* Something is wrong with it, kinsman. Wrong in a way the canon doesn't have a page for. Walk up with me, and tell me if your eyes read it the way mine do.",
+          "auto": "confide"
+        },
+        {
+          "id": "faithless",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(For a long moment he says nothing. Then, slowly, he does the one thing his order forbids at this post — he really *looks* at you, not as a category, but as a person.)* ...Earned the right. *(quietly)* No one's ever put it to me like that. They come up here godless and *terrified*, begging or lying about a faith they don't hold. You came up godless and *angry*, and told me the truth. *(He wrestles with it visibly.)* My order says you're already condemned. My eyes say you're the most honest soul I've met on this causeway in six years. *(He grips the halberd, undecided.)* So tell me, Faithless — and tell me true, because you've spent your one coin of honesty already — *why* have you come to the very Wall that's waiting to take you?",
+          "choices": [
+            { "text": "[INSIGHT] \"Because you're afraid, and a frightened gatekeeper means the thing he's guarding has changed. I came to see what the Wall is becoming — before it becomes it to me.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "insight_reveal", "fail": "faithless_grief" },
+            { "text": "\"Because someone I loved is *in* it. Unworshipping, unworthy, unmourned by anyone with the right to mourn — so I came to do it without the right. Bar me for that, if your god lets you.\"", "next": "faithless_grief", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }, { "key": "act1.mercy_remembered", "op": "SetTrue" }] },
+            { "text": "[DECEPTION] \"To pray, Justiciar. To find a god, here at the end, before the Wall finds me first. Isn't that what you'd want to hear?\"", "check": { "skill": "Deception", "ability": "Charisma", "dc": 16 }, "next": "faithless_lie_ok", "fail": "faithless_lie_no" }
+          ]
+        },
+        {
+          "id": "faithless_grief",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(The anger he was braced for never comes. Instead he looks, briefly, like a man remembering his own dead.)* ...To mourn without the right. *(He is silent.)* My order would call that the first sin and the last one. *(He looks at the Wall, then back at you, and makes a decision that costs him.)* My order can write me up for it in the morning. *(He stands aside.)* Go and mourn your nameless one, Faithless. Someone should. The canon never could explain to me why grief should need a license — and I have stopped pretending it can.",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }],
+          "auto": "pass_warm"
+        },
+        {
+          "id": "faithless_lie_ok",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He wants to believe it so badly that he does.)* To find a god at the end. *(He nods, slowly, the lie warming a cold place in him.)* That's the only ending this Wall ever made me hope for. *(He stands aside.)* Then go and look for one, and may you find it before the dusk-order's reasons catch up to either of us. *(He does not see the corner of the truth you kept folded in your hand. Few do.)*",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }],
+          "auto": "pass_grudging"
+        },
+        {
+          "id": "faithless_lie_no",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(His face closes like a ledger snapping shut.)* No. *(flatly)* You spent your honesty, Faithless, and then you tried to pass me a counterfeit coin on the change. *(He levels the halberd.)* A godless soul I might have pitied. A godless *liar* at Kelemvor's own threshold, I will not pass. Turn around. Walk back down the causeway. And be grateful the only thing I'm taking from you tonight is the road.",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }],
+          "auto": "turned"
+        },
+        {
+          "id": "doctrine",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He blinks. Then, despite himself, the ghost of respect crosses his face — a scholar's salute to a sharper scholar.)* ...The Third Codicil. *(He actually pauses to check it against his memory, and finds you right.)* Exemption for pilgrims of grief. *(He huffs out something that isn't quite a laugh.)* Six years I've stood this gate and never once had a petitioner out-canon me on it. *(He grounds the halberd.)* You've read deeper than the men who gave me the order. That's either very reassuring or very alarming, and tonight I'll take reassuring. Tell me your business — properly, since you clearly know the proper forms.",
+          "auto": "why_here"
+        },
+        {
+          "id": "strength",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He does not flinch — but he does not pretend, either. He feels the truth in your grip and weighs it like a man who has lost fights before and learned from each.)* ...You could. *(evenly)* I'll grant you that, and I'll not insult us both by acting otherwise. *(His jaw tightens.)* But understand what it'll mean. You take this gate by force, you don't pass as a pilgrim — you pass as the first violence the Wall's seen tonight, and the Wall is *hungry* for that tonight in a way I can't explain to you. *(He meets your eyes.)* So choose. Take it, and we both find out what you've fed. Or take your hand off the haft, and let me find you a reason the canon can live with.",
+          "choices": [
+            { "text": "*(Tighten your grip. Take the gate.)* \"Then let's both find out.\"", "next": "pass_forced", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -3 }, { "key": "demo.wall_fed_violence", "op": "SetTrue" }] },
+            { "text": "*(Take your hand off the halberd, slowly.)* \"...Find me your reason, then. I'm listening.\"", "next": "why_here", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] }
+          ]
+        },
+        {
+          "id": "persuaded",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(The fear you named lands true, and you watch him decide he would rather carry a reprimand than that particular regret.)* ...The man who turned you away. *(He grimaces.)* Gods help me, you're right — that's the exact ghost I've been arguing with all night. *(He stands aside.)* I'd sooner answer to the Doomguide for opening the gate than to myself for shutting it on the one who'd have mattered. Go up. *(lower)* And if you *are* that one — make me right.",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }],
+          "auto": "why_here"
+        },
+        {
+          "id": "rebuff",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(Your approach slides off him like rain off oiled leather. He's heard this shape of words before, and his face doesn't move.)* No. *(not unkind, but immovable)* That was a *practiced* thing you just did — the lean, the eyes, the little hook at the end. I've had it tried on me by better, and on worse nights. *(He resets the halberd.)* It tells me what you're *willing* to do to get past me. It tells me nothing about *why.* *(He waits.)* So drop the technique. Try me again — but try me with something *true* this time.",
+          "auto": "second_try"
+        },
+        {
+          "id": "insight_reveal",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He goes very still — caught, and oddly relieved to be.)* ...You see clearly. *(He drops the pretense, and the fear underneath it is bare and human.)* Yes. I'm not keeping you from the Wall. I've been keeping fools *off* it. Three nights now it's been... *waking.* The kept souls press against the stone like the cold presses a window. Names I shouldn't be able to hear, I hear. *(He swallows.)* I've turned back twelve pilgrims to spare them it. *(He looks at you, really looks.)* But you saw through me in one breath, which means you might be the thirteenth I shouldn't turn back. Tell me who you are to the Wall — and I'll decide if you're who it's waking *for.*",
+          "auto": "confide"
+        },
+        {
+          "id": "cowed",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He is not a coward — but he is one man, alone, on a causeway, against something in your voice he believes. He steps aside, and hates that he does.)* ...Pass, then. *(stiffly, jaw clenched)* I'll not die at a gate over a dusk-order, and I'll not pretend you didn't make me feel the edge of it. *(as you pass)* But mark me, traveler — you came to a place of the dead and led with a threat. The Wall *remembers* what walks up to it. I hope, for your sake, it remembers you kinder than you've earned in the last minute.",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }],
+          "auto": "pass_grudging"
+        },
+        {
+          "id": "angered",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(The threat lands wrong — strikes the bedrock of stubbornness under the fear instead of the fear itself. His knuckles go white and his voice goes quiet, which is worse.)* No. *(He plants himself.)* I have buried men who led with that voice, and I have never once regretted being the gate they didn't get through. *(He raises the halberd to guard.)* You'll turn around now, of your own legs, or you'll learn why a Justiciar of the Doomguide stands a death-watch *alone* and unafraid. *(a beat)* Choose the legs. I'm asking you to choose the legs.",
+          "choices": [
+            { "text": "[PERSUASION] *(step back; open your hands)* \"...That was beneath me, and beneath the night. Forgive it. Let me start again, honestly.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 16 }, "next": "second_try", "fail": "conflict" },
+            { "text": "*(Hold your ground. Reach for your weapon.)* \"You're alone, Justiciar. That was never a threat. It was a forecast.\"", "next": "conflict", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -3 }] },
+            { "text": "*(Turn, and walk back down the causeway.)*", "next": "turned" }
+          ]
+        },
+        {
+          "id": "lawful_appeal",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(A man raised on procedure recognizes another, and some of the wariness becomes something almost like collegiality.)* ...By the book. *(He nods, approving despite himself.)* Few think to ask for the form. They beg, or they bluster. *(He straightens into something more formal.)* Very well: a pilgrim's petition at a closed threshold, properly made, *obliges* the keeper to hear the cause before refusing it. So. State your cause, pilgrim, in proper form — and I am bound, by the same order you're invoking, to weigh it honestly.",
+          "auto": "why_here"
+        },
+        {
+          "id": "plain_refuse",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He hears the tiredness, and it reaches him more than any argument has.)* No riddle. *(gentler)* I'm not setting you one. *(He sighs.)* But 'please' isn't a cause, and a cause is the one thing the order requires of me before I can let a soul past in the dark. *(He waits, not unkind.)* So give me one. Anything true. Why are *you*, specifically, walking toward a Wall that everyone with sense walks away from?",
+          "auto": "why_here"
+        },
+        {
+          "id": "myrkul_conflict",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(The silence, and the cold rolling off you, is answer enough — and the wrong one. His halberd comes up and his voice goes to the flat, terrible calm of a man who has already decided.)* So that's how it is. The Bone Lord sends his own to the door of the god who *broke* him, on the one night the Wall is stirring, and expects to walk in on the strength of a *chill.* *(He sets his feet.)* No. Not past me. Not tonight. Turn, dead-thing, or be made one properly — I serve the Judge, and the Judge has a *verdict* for what you carry.",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -4 }],
+          "auto": "conflict"
+        },
+        {
+          "id": "why_here",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He stands ready to hear it — the cause, the true one, the thing that will tip the order one way or the other.)* So. Why have you come to the Wall tonight, of all nights? *(quietly)* And mind — I've heard every lie a frightened soul can tell at a gate. Tell me the thing under the lie instead.",
+          "choices": [
+            { "text": "[RELIGION] \"Because the canon you serve is *wrong* about the Wall, Justiciar — Kelemvor reformed it once, and it can be reformed again. I've come to read whether the hour is now. You, of all servants, should want me to.\"", "check": { "skill": "Religion", "ability": "Intelligence", "dc": 14 }, "next": "confide", "fail": "why_doubt" },
+            { "text": "[GOOD] \"Because someone has to care what happens to the souls no one is allowed to care about. I drew the short straw of being someone. So here I am.\"", "when": { "morality": "Good" }, "next": "confide", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
+            { "text": "\"Because I was told, by someone I trust, that the Wall is changing — and that if it changes unwatched, everyone loses. I came to be the one who watched.\"", "next": "confide", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }] },
+            { "text": "[INTIMIDATION] \"My reasons are my own, and your dusk-order doesn't outrank them. Weigh *that* honestly.\"", "check": { "skill": "Intimidation", "ability": "Charisma", "dc": 15 }, "next": "cowed", "fail": "angered" }
+          ]
+        },
+        {
+          "id": "why_doubt",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He frowns — not offended, but unconvinced, a careful man finding the seam in an argument.)* Reformed once, reformed again. *(He shakes his head slowly.)* That's a heresy I've heard from gentler mouths than yours, and wanted to believe from all of them. But wanting isn't reading, and you reached past your grasp just now. *(He doesn't raise the halberd — but he doesn't lower it either.)* Give me the *true* reason, not the doctrine you think will move me. I've a better ear for the first than the second.",
+          "auto": "second_try"
+        },
+        {
+          "id": "confide",
+          "speaker": "Justiciar Aldous Vane",
+          "variants": [
+            { "when": { "int": { "demo.vane.regard": 3 } }, "text": "*(Whatever wall was in him comes down all at once, and he speaks to you as he hasn't let himself speak to anyone in six years on this post.)* Then I'll tell you what I've told no one. The Wall is *waking.* Three nights now — the kept souls pressing the stone, names bleeding through where no name should pass. I've turned back a dozen pilgrims to spare them it. *(He stands fully aside, and the relief in it is enormous.)* But you — you I think it's waking *for.* Go up. Read it. And whatever you find that I couldn't — *(his voice cracks, just slightly)* — come back down and tell me there's something to be done. I have been alone with this for three nights and I am so very tired of being the only one who's seen it." },
+            { "text": "*(He weighs you a final time, and the balance — narrowly — tips.)* ...All right. *(He stands aside, though not without cost.)* The Wall is stirring. I'll say no more than that, because I don't understand more than that, and a Justiciar who guesses out loud is worse than useless. *(He fixes you with a look.)* Go up. Walk careful. And if it *is* changing — be the kind of soul it changes *toward*, not the kind it changes *against.* That much, even the godless can choose." }
+          ],
+          "effects": [{ "key": "demo.passed_threshold", "op": "SetTrue" }],
+          "auto": "pass_warm"
+        },
+        {
+          "id": "second_try",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He has given you a second chance, and the night is too thin for a third.)* Last time, then. *(plainly)* No tags, no doctrine, no leverage. Just the one true sentence under all of it — and I'll know it when I hear it, because true sentences sound different out here. Why are you really walking toward the Wall?",
+          "choices": [
+            { "text": "[INSIGHT] *(read what he actually needs to hear, and give him that)* \"Because you shouldn't have to be the only one who's seen it. Let me up, and you won't be.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "confide", "fail": "turned" },
+            { "text": "\"Because I'm grieving, and the thing I'm grieving is up there, and there is nowhere else left for me to go. That's the whole of it.\"", "next": "confide", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }] },
+            { "text": "\"...You're right. I don't have a true one I'm willing to give a stranger. I'll go.\"", "next": "turned" }
+          ]
+        },
+        {
+          "id": "pass_warm",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He stands aside fully, and as you pass he says it low, almost to himself — a blessing from a man not sure his god is listening tonight.)* Walk gentle on the causeway. And come back down. *(OUTCOME — He let you through, and he believed in you doing it. The Threshold is open, and you do not climb toward the Wall alone in his thoughts.)*",
+          "auto": "END"
+        },
+        {
+          "id": "pass_grudging",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He lets you by, but his eyes follow you up the causeway, weighing, unconvinced.)* Go on, then. *(OUTCOME — He opened the gate, but you bought the passage with fear or a lie, not with trust. The Wall, he warned you, remembers how a soul walks up to it — and you climb toward it carrying that.)*",
+          "auto": "END"
+        },
+        {
+          "id": "pass_forced",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(You take the gate, and he does not die for it — but something on the causeway *shifts*, a pressure rolling down off the Wall like a held breath let go.)* ...Gods. *(he whispers, staring past you)* You felt that. Tell me you felt that. *(OUTCOME — You forced the Threshold, and fed the waking Wall the first violence of the night. You are through — but you climb toward something now leaning, hungrily, toward you. The flag the Wall keeps on you is not a kind one.)*",
+          "auto": "END"
+        },
+        {
+          "id": "turned",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(He holds the line, and the line holds.)* Down the causeway. *(not cruelly, but without yielding)* The Wall will still be here when you've a truer cause, or a better hour, or a god — whichever finds you first. *(OUTCOME — The Threshold stays shut to you tonight. Some gates open only for who you truly are, and tonight, you weren't yet that. Choose a different self in the panel and try the causeway again — that is the whole point of this.)*",
+          "auto": "END"
+        },
+        {
+          "id": "conflict",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(There is no more talking. He sets his feet, lowers the halberd to guard, and the grey-and-bone of Kelemvor's church stops being a costume and becomes a vow with an edge.)* Then the Judge will weigh us both by morning. *(OUTCOME — It comes to blades at the Threshold. In the full game this is where the dialogue hands off to the combat encounter — the two systems you can preview side by side. Here, the road simply ends in steel. Reset and walk it again as someone he'd have let pass.)*",
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}
