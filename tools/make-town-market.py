@@ -41,7 +41,104 @@ INT_LABELS = {
     "market.pip.regard": "Pip's trust in you",
 }
 
-EMBED = {"scene": MKT["scene"], "conversations": MKT["conversations"], "model": MODEL}
+# Lore glossary — every keyed term gets a hover tooltip (common knowledge), and the deeper `lore`
+# surfaces as a 5e passive knowledge-check reveal when your passive skill score (10 + ability mod +
+# proficiency) meets its DC. So a Cleric/Acolyte recalls the rites, a Sage/Wizard the history, etc.
+GLOSSARY = [
+    {"term": "Kelemvor", "aka": ["the Judge of the Dead", "the Judge", "the Lord of the Dead"],
+     "gloss": "God of the dead and the stern but just judge of every soul. His grey-and-bone clergy tend the dying.",
+     "skill": "Religion", "dc": 10,
+     "lore": "Kelemvor Lyonsbane was once a mortal adventurer. He wrested the Throne of Bones from the mad god Cyric and, sickened by the cruelty he inherited, reformed the judgment of the dead — yet even he could not bring himself to tear down the Wall of the Faithless."},
+    {"term": "the Wall of the Faithless", "aka": ["the Wall"],
+     "gloss": "The vast wall at the edge of the afterlife into which godless souls are mortared, to dissolve slowly into nothing.",
+     "skill": "Religion", "dc": 12,
+     "lore": "The oldest cruelty in the realm of the dead: souls who served no god are denied any afterlife at all and pressed into the Wall's stone to erode into oblivion. Reforming gods have balked at unmaking it for fear of what holds it up."},
+    {"term": "the Faithless",
+     "gloss": "Souls who worshipped no god in life — and so, by the law of the dead, are owed no afterlife and bound into the Wall.",
+     "skill": "Religion", "dc": 10,
+     "lore": "To be Faithless is not to be wicked, only unclaimed — a kind atheist and a selfish one share the one sentence. It is the injustice that breaks even the devout who look at it too long."},
+    {"term": "Doomguide", "aka": ["Doomguides"],
+     "gloss": "A priest-knight of Kelemvor, sworn to tend the dead, destroy the undead, and uphold the god's judgment.",
+     "skill": "Religion", "dc": 11,
+     "lore": "Kelemvor's militant clergy. They escort souls, unmake those who cheat death, and — most are taught — guard the Wall's causeway. A quiet few have come to hate that last duty more than any undead."},
+    {"term": "Myrkul", "aka": ["the Bone Lord", "the Lord of Bones"],
+     "gloss": "The long-dead god of death and decay, of the Dead Three — feared, reviled, and unseated.",
+     "skill": "Religion", "dc": 11,
+     "lore": "Myrkul ruled the dead with terror before Cyric, before Kelemvor, and was slain during the Time of Troubles. To wear his sigil at a Kelemvorite threshold is provocation bordering on suicide."},
+    {"term": "the Dead Three",
+     "gloss": "Bane, Bhaal, and Myrkul — the three dread gods of tyranny, murder, and death.",
+     "skill": "Religion", "dc": 12,
+     "lore": "Mortal liches who clawed their way to godhood and have menaced the Realms ever since, dying and returning again and again. Their cults still gnaw at the underside of Baldur's Gate."},
+    {"term": "Jergal",
+     "gloss": "The Scribe of the Dead, who kept the records of every soul before the younger gods existed.",
+     "skill": "Religion", "dc": 13,
+     "lore": "The original god of death, who grew so bored of dominion he handed it to the Dead Three and became a mere seneschal. He keeps the ledgers still — the most patient power in the cosmos."},
+    {"term": "Tymora", "aka": ["Lady Luck"],
+     "gloss": "Goddess of good fortune, luck, and bold risks.",
+     "skill": "Religion", "dc": 10,
+     "lore": "Tymora smiles on the daring; her faithful hold that fortune favors action over caution — a creed that makes excellent thieves and dreadful accountants."},
+    {"term": "Oghma",
+     "gloss": "God of knowledge, invention, and the binding of what is known.",
+     "skill": "Religion", "dc": 11,
+     "lore": "The Lord of Knowledge holds that an idea, once known, can never truly be destroyed — a comfort to scholars, and a quiet defiance of the Wall's whole project of forgetting."},
+    {"term": "the Ashen Watch",
+     "gloss": "A city militia in mourning-grey, recruiting hard of late for a posting no one will name.",
+     "skill": "History", "dc": 11,
+     "lore": "A recently-raised auxiliary, ash-grey to mark grief. Veterans whisper its true posting is the Wall's causeway, where the church needs warm bodies for work it keeps out of the recruiting song."},
+    {"term": "the causeway", "aka": ["the Causeway"],
+     "gloss": "The long approach to the Wall of the Faithless, where the living are not meant to walk.",
+     "skill": "History", "dc": 12,
+     "lore": "The threshold between the world and the Wall. Pilgrims of grief are permitted by old codicil; everyone else is turned back. Lately, even the permitted are being refused — and no one will say why."},
+    {"term": "the harvest",
+     "gloss": "The grim, deniable culling of the godless poor, marked and gathered to feed the Wall.",
+     "skill": "History", "dc": 12,
+     "lore": "The open secret of the Lower City: the marked poor vanish in quotas, their deaths dressed as accident or plague, their souls bound to the Wall. A whole economy of bribery and silence runs on never saying the word aloud."},
+    {"term": "Baldur's Gate",
+     "gloss": "A great, crowded, money-minded city on the Sword Coast.",
+     "skill": "History", "dc": 8,
+     "lore": "A mercantile city-state where coin outranks any crown, and the patriars of the Upper City keep the Lower City's poor carefully, profitably invisible."},
+    {"term": "the Court of the Dead",
+     "gloss": "The place of judgment beneath the City of Judgment, where souls and their fates are weighed.",
+     "skill": "Religion", "dc": 13,
+     "lore": "Where Kelemvor's judgment is rendered — and where, it is said, the Wall's very existence could one day be argued. Vanishingly few living souls have stood there and walked back out."},
+    {"term": "the Choir",
+     "gloss": "The zealous hardline faction within Kelemvor's church that holds the Wall as holy.",
+     "skill": "History", "dc": 12,
+     "lore": "The church's hardliners, who preach the Wall as necessary and sacred — and who, quietly, profit most from the harvest that keeps it fed."},
+    {"term": "Kelemvor's-penny", "aka": ["a Kelemvor's-penny", "the ferry-coin"],
+     "gloss": "A coin laid with the dead to pay the ferryman of souls.",
+     "skill": "Religion", "dc": 11,
+     "lore": "A true penny is struck on the dark of the moon and never takes a shine; a mint-bright one is a fraud. The rite is older than the church, and half the clergy get it wrong."},
+    {"term": "saint", "aka": ["saint knuckle", "saint knuckles", "knuckle of saint"],
+     "gloss": "A purported holy relic — a saint's bone — sold as a soul-charm.",
+     "skill": "Religion", "dc": 12,
+     "lore": "Genuine relic-bones are vanishingly rare and church-sealed; the 'saint knuckles' hawked in markets are, almost without exception, chicken bones with a good story attached."},
+    {"term": "workhouse",
+     "gloss": "A grim institution where orphaned and destitute children are put to hard labor.",
+     "skill": "History", "dc": 9,
+     "lore": "The Gate's workhouses 'reform' orphans through labor and routinely split siblings to separate houses to break their will. Street children fear them more than the winter."},
+    {"term": "Mother Sable",
+     "gloss": "The old bone-charm seller of the market — milk-eyed, sharp-tongued, and not quite the fraud she appears."},
+    {"term": "Sergeant Bram Holloway", "aka": ["Bram", "the Sergeant"],
+     "gloss": "The barrel-chested recruiter for the Ashen Watch — a decent man doing an indecent job."},
+    {"term": "Pip",
+     "gloss": "A quick-handed street child who works the market alone — and not for herself."},
+    {"term": "Wick",
+     "gloss": "Pip's little brother; his bad leg keeps him from running, which is why Pip is the one who steals."},
+]
+
+# The Returned-sense: an eerie, on-theme perception the dead-touched player gets on first sight of each soul,
+# if their Wisdom-clarity (10 + WIS mod) meets the moment's DC. It reveals what the living can't see.
+NPC_SENSE = {
+    "market.sable": {"dc": 12, "text": "*(Your dead-touched senses sweep her table and recoil — there is no holiness in a single bone or thread of it. And yet her hands, folding the knots, are warm with something realer than any relic: she has buried more of this ward than the gravediggers have, and grieved every one of them into the thread she sells. The fraud is the kindest thing in this market.)*"},
+    "market.bram": {"dc": 11, "text": "*(The Wall left its chill in your marrow, and it answers the cold this man carries: three squads' worth of the recently, violently dead are pressed against his back like wet wool, patient, unblaming. He does not know they followed him home from the causeway. You do. They are not here for revenge. They are here to see whether he stops sending more.)*"},
+    "market.pip": {"dc": 13, "text": "*(Some Returned see the almost-dead the way the living see candle-flames. The girl burns bright and quick and furious — but there is a second flame tethered to hers, fainter, somewhere close and low to the ground, and it is *guttering.* A child, smaller than this one. Sick past what a stolen copper mends. The thing she is really stealing for, running out of wick.)*"},
+}
+for _c in MKT["conversations"]:
+    if _c["id"] in NPC_SENSE:
+        _c["returned"] = NPC_SENSE[_c["id"]]
+
+EMBED = {"scene": MKT["scene"], "conversations": MKT["conversations"], "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 
 HTML = r"""<!DOCTYPE html>
@@ -106,6 +203,20 @@ HTML = r"""<!DOCTYPE html>
  .line.me{align-self:flex-end;max-width:88%}.line.me .body{color:#cfe0f0;background:#15192a;border:1px solid #243049;border-radius:11px 11px 2px 11px;padding:8px 12px;display:inline-block}
  .line.sys .body{font-size:13px;color:#b9a8e0;font-style:italic}
  .stagedir{color:#8a8198;font-style:italic}em{color:#e7c873;font-style:italic}
+ .gloss{border-bottom:1px dotted #6a5a9a;cursor:help;color:inherit}
+ .gloss:hover{color:#cbb8f0;border-bottom-color:#cbb8f0}
+ #tip{position:fixed;z-index:99;max-width:300px;background:linear-gradient(#1a1626,#13101c);border:1px solid #4a4368;border-radius:9px;
+   padding:10px 12px;font-size:12.5px;line-height:1.5;color:#cfc6dc;box-shadow:0 10px 34px #000b;pointer-events:none;display:none}
+ #tip .tn{color:#e0b8f0;font-weight:600;font-size:13px;margin-bottom:3px}
+ #tip .tl{margin-top:7px;padding-top:7px;border-top:1px solid #2e2940;color:#c8d8b8;font-style:italic}
+ #tip .tl b{color:#9fe0b0;font-style:normal}
+ .lore{margin:2px 0 4px;padding:8px 11px;border-left:3px solid #5a4a8a;background:#171327;border-radius:0 8px 8px 0;font-size:13px;color:#c6bcda}
+ .lore .lk{color:#b08fe0;font-weight:600;letter-spacing:.3px;font-size:11px}
+ .sense{margin:2px 0 6px;padding:9px 12px;border-left:3px solid #3a6a8a;background:#0f1922;border-radius:0 8px 8px 0;font-size:13.5px;color:#a8c8d8;font-style:italic}
+ .sense .lk{color:#7fc8e0;font-weight:600;font-style:normal;letter-spacing:.3px;font-size:11px;display:block;margin-bottom:3px}
+ .reckon{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:12px}
+ .reckon .nm{width:78px}.reckon .pips{flex:1;letter-spacing:1px}
+ .reckon .rk{font-variant-numeric:tabular-nums;color:#8a8198}
  .opts{display:flex;flex-direction:column;gap:9px;margin-top:4px}
  .opt{text-align:left;background:linear-gradient(#1b1726,#16121f);border:1px solid #34304a;color:#e8e2d2;border-radius:10px;padding:10px 13px;cursor:pointer;font:inherit;font-size:14.5px;transition:.12s}
  .opt:hover{border-color:#c9a24b;background:linear-gradient(#241d33,#1b1628)}
@@ -117,6 +228,8 @@ HTML = r"""<!DOCTYPE html>
  .tg.background{color:#7fd0c8;border-color:#245049;background:#13231f}.tg.faith{color:#e0b8f0;border-color:#5a3a6a;background:#221829}
  .tg.alignment{color:#c8c0b4;border-color:#3a3550;background:#1a1622}.tg.stat{color:#f0c890;border-color:#6a4f2a;background:#241c10}
  .tg.check{color:#c9a24b;border-color:#5a4a2a;background:#211c10}
+ .tg.disp{color:#d8b0e8;border-color:#5a3a6a;background:#1f1726}
+ .tg.returned{color:#cbb8f0;border-color:#5a4a8a;background:#1a1626}
  .ck{margin-top:6px;font-size:11.5px;color:#b9a8e0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
  .chip{display:inline-block;font-size:10.5px;border:1px solid #3a3550;border-radius:5px;padding:1px 6px;color:#c9a24b}
  .chip.ok{color:#9fe0b0;border-color:#2c4a32}.chip.bad{color:#e0a0a0;border-color:#5a2c2c}.chip.prof{color:#f0c890;border-color:#6a4f2a}.chip.fx{color:#9ec8e8;border-color:#27405a}
@@ -162,6 +275,10 @@ HTML = r"""<!DOCTYPE html>
    <div id="approvals"><div class="empty">You haven't spoken to anyone yet.</div></div>
   </div>
   <div class="card">
+   <h3>Your reckoning <span style="float:right;font-weight:400;text-transform:none;letter-spacing:0;color:#6e6680">who you're becoming</span></h3>
+   <div id="reckon"><div class="empty">Your choices haven't tilted you yet.</div></div>
+  </div>
+  <div class="card">
    <h3>What your visit has written</h3>
    <div id="flags"><div class="empty">Nothing yet — your choices leave a mark here.</div></div>
   </div>
@@ -172,13 +289,28 @@ HTML = r"""<!DOCTYPE html>
     <button class="x" onclick="closeDialogue()">✕ step back</button></div>
   <div class="dscript" id="dscript"></div>
 </div></div>
+<div id="tip"></div>
 <script>
 const DATA = __BLOB__;
 const BUILDS = __BUILDS__;
 const INT_LABELS = __INTLABELS__;
-const SCENE = DATA.scene, CONVS = DATA.conversations, MODEL = DATA.model;
+const SCENE = DATA.scene, CONVS = DATA.conversations, MODEL = DATA.model, GLOSS = DATA.glossary;
 const ABILS = ["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"];
 const ABBR  = {Strength:"STR",Dexterity:"DEX",Constitution:"CON",Intelligence:"INT",Wisdom:"WIS",Charisma:"CHA"};
+// Pillars-of-Eternity-style dispositions — your choices accrue a reckoning that persists across the visit
+// and can unlock later lines (gated via when.int on disp.* keys).
+const DISP = {
+  "disp.merciful":{name:"Merciful",hue:140}, "disp.ruthless":{name:"Ruthless",hue:0},
+  "disp.honest":{name:"Honest",hue:200}, "disp.cunning":{name:"Cunning",hue:280},
+  "disp.devout":{name:"Devout",hue:48}, "disp.heretical":{name:"Heretical",hue:320},
+  "disp.stoic":{name:"Stoic",hue:210}, "disp.haunted":{name:"Haunted",hue:265}
+};
+function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][Math.min(10,Math.abs(n))]||(""+n); }
+// glossary lookup tables for inline linking (longest term first so "the Wall of the Faithless" beats "the Wall")
+const GLOSS_INDEX = (function(){ const a=[]; GLOSS.forEach((e,i)=>{ [e.term].concat(e.aka||[]).forEach(t=>a.push({t:t,i:i})); });
+  a.sort((x,y)=>y.t.length-x.t.length); return a; })();
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"); }
+const GLOSS_RE = new RegExp("\\b("+GLOSS_INDEX.map(o=>escRe(o.t)).join("|")+")\\b","i");
 
 /*<MKT>*/
 // Pure resolution — mirrors Assets/Scripts/Dialogue/DialogueRunner.cs + Abilities.cs.
@@ -221,6 +353,16 @@ function choiceAvailable(char, state, ch, model){
   const chk=checkOf(ch);
   if(chk && isPassiveSkill(chk.skill) && !passiveBeats(char, chk, model)) return false;  // passive skill: only shown if you'd already pass
   return true; }
+// LORE (5e passive knowledge): which glossary terms appear in a line, and whether you'd recall the deep lore.
+function glossaryHits(text, glossary){ const t=(text||"").toLowerCase(), hits=[];
+  for(var i=0;i<glossary.length;i++){ var names=[glossary[i].term].concat(glossary[i].aka||[]);
+    for(var j=0;j<names.length;j++){ if(t.indexOf(names[j].toLowerCase())>=0){ hits.push(i); break; } } }
+  return hits; }
+function loreKnown(char, entry, model){ if(!entry||!entry.skill) return false;
+  return passiveBeats(char, {skill:entry.skill, ability:model.skillAbility[entry.skill], dc:entry.dc||10}, model); }
+// THE RETURNED: a soul pulled back from the Wall perceives what the living can't — its clarity scales with
+// Wisdom (the soul's lucidity). Innate; never proficiency. 10 + WIS modifier vs the moment's sense-DC.
+function returnedClarity(char){ return 10 + abilityMod(char.scores[4]); }
 /*</MKT>*/
 
 // ---- player character ----
@@ -250,11 +392,17 @@ function renderProf(){ const cp=(MODEL.classProficiencies[char.cls]||[]),bp=(MOD
 // ---- persistent visit state ----
 let st = newState();
 function renderState(){
-  const apps=[]; Object.keys(st.ints).forEach(k=>apps.push({name:INT_LABELS[k]||k, v:st.ints[k]}));
+  // regard (NPC opinion of you) — disp.* lives in the Reckoning panel instead
+  const apps=[]; Object.keys(st.ints).forEach(k=>{ if(k.indexOf("disp.")===0) return; apps.push({name:INT_LABELS[k]||k, v:st.ints[k]}); });
   const ap=document.getElementById("approvals");
   ap.innerHTML = !apps.length ? `<div class="empty">You haven't spoken to anyone yet.</div>` :
     apps.sort((a,b)=>Math.abs(b.v)-Math.abs(a.v)).map(a=>{const w=Math.min(50,Math.abs(a.v)*6),neg=a.v<0;
       return `<div class="appr"><div class="nm">${esc(a.name)}</div><div class="barwrap"><div class="bar${neg?' neg':''}" style="width:${w}%;${neg?'right:50%;left:auto;':''}"></div></div><div class="delta ${a.v>=0?'up':'down'}">${a.v>=0?'+':''}${a.v}</div></div>`;}).join("");
+  // reckoning (Pillars-style dispositions)
+  const disp=Object.keys(st.ints).filter(k=>k.indexOf("disp.")===0&&st.ints[k]>0).map(k=>({k,name:(DISP[k]||{}).name||k,hue:(DISP[k]||{}).hue||0,v:st.ints[k]}));
+  const rk=document.getElementById("reckon");
+  rk.innerHTML = !disp.length ? `<div class="empty">Your choices haven't tilted you yet.</div>` :
+    disp.sort((a,b)=>b.v-a.v).map(d=>`<div class="reckon"><div class="nm" style="color:hsl(${d.hue} 50% 70%)">${esc(d.name)}</div><div class="pips" style="color:hsl(${d.hue} 50% 64%)">${"◆".repeat(Math.min(6,d.v))}</div><div class="rk">${roman(d.v)}</div></div>`).join("");
   const keys=Object.keys(st.bools), fl=document.getElementById("flags");
   fl.innerHTML = !keys.length ? `<div class="empty">Nothing yet — your choices leave a mark here.</div>` :
     keys.sort().map(k=>{const dot=k.indexOf("."),dom=dot<0?'':k.slice(0,dot)+'·';return `<span class="flagpill"><span class="d">${esc(dom)}</span>${esc(dot<0?k:k.slice(dot+1))}</span>`;}).join("");
@@ -352,14 +500,16 @@ function render(){
 function loop(t){ const dt=Math.min(0.05,(t-lastT)/1000||0); lastT=t; update(dt); render(); requestAnimationFrame(loop); }
 
 // ====================== the dialogue overlay ======================
-let curConv=null, curNpc=null, pendingOpts=null;
+let curConv=null, curNpc=null, pendingOpts=null, loreSeen={}, sensed=false;
 function talk(npc){
   curNpc=npc; curConv=CONVS.find(c=>c.id===npc.conv); if(!curConv) return;
-  player.target=null; autoTalk=null;
+  player.target=null; autoTalk=null; loreSeen={}; sensed=false;
   document.getElementById("dsig").textContent=npc.sigil; document.getElementById("dsig").style.background=`hsl(${npc.hue} 52% 62%)`;
   document.getElementById("dname").textContent=npc.name; document.getElementById("dtitle").textContent=npc.title;
   document.getElementById("dscript").innerHTML=""; document.getElementById("overlay").classList.add("show");
   sfx('talk');
+  // The Returned-sense — on first sight, if the soul's clarity is keen enough, you perceive the unseen.
+  if(curConv.returned && returnedClarity(char) >= curConv.returned.dc){ addSense(curConv.returned.text); }
   const start=curConv.nodes.find(n=>n.id===curConv.start)?curConv.start:curConv.nodes[0].id;
   goNode(start);
 }
@@ -369,8 +519,12 @@ function isEnd(id){ return !id||id==="END"||id==="end"||!nodeById(id); }
 function goNode(id){
   pendingOpts=null; const n=nodeById(id), script=document.getElementById("dscript");
   if(!n){ endScene(); return; }
-  applyEffects(st, n.onEnter); renderState();
-  addLine("", curNpc.name, pickVariantText(n,char,st)||"〔(no line for this character)〕");
+  applyEffects(st, n.onEnter); applyEffects(st, n.effects); renderState();   // node entry + outcome effects
+  const line=pickVariantText(n,char,st)||"〔(no line for this character)〕";
+  addLine("", curNpc.name, line);
+  // LORE — 5e passive knowledge: surface what your character would *recall* about topics in this line.
+  glossaryHits(line, GLOSS).forEach(i=>{ const e=GLOSS[i];
+    if(e.skill && !loreSeen[i] && loreKnown(char, e, MODEL)){ loreSeen[i]=true; addLore(e); } });
   const opts=document.createElement("div"); opts.className="opts"; script.appendChild(opts);
   const all=n.choices||[];
   if(all.length){ pendingOpts={node:n,el:opts}; paintChoices(); }
@@ -379,14 +533,18 @@ function goNode(id){
   script.scrollTop=script.scrollHeight;
 }
 function normCheck(ch){ if(ch.check) return ch.check; if(ch.checkDC) return {skill:null,ability:ch.checkAbility,dc:ch.checkDC}; return null; }
-function tagFor(ch){ const w=ch.when; if(!w) return null;
+function tagFor(ch){ if(ch.tag) return {cls:ch.tag, label:(ch.tagLabel||ch.tag.toUpperCase())};
+  const w=ch.when; if(!w) return null;
   if(w.race!==undefined) return {cls:"race",label:[].concat(w.race).join("/")};
   if(w.class!==undefined) return {cls:"class",label:[].concat(w.class).join("/")};
   if(w.background!==undefined) return {cls:"background",label:[].concat(w.background).join("/")};
   if(w.deity!==undefined) return {cls:"faith",label:[].concat(w.deity).map(d=>d==="None"?"Faithless":d).join("/")};
   if(w.law!==undefined) return {cls:"alignment",label:[].concat(w.law).join("/")};
   if(w.morality!==undefined) return {cls:"alignment",label:[].concat(w.morality).join("/")};
-  if(w.ability){ const k=Object.keys(w.ability)[0]; return {cls:"stat",label:`${ABBR[k]} ${w.ability[k]}`}; } return null; }
+  if(w.ability){ const k=Object.keys(w.ability)[0]; return {cls:"stat",label:`${ABBR[k]} ${w.ability[k]}`}; }
+  if(w.int){ const k=Object.keys(w.int)[0]; if(k.indexOf("disp.")===0){ const d=DISP[k]||{name:k}; return {cls:"disp",label:`${d.name} ${roman(w.int[k])}`}; }
+    return {cls:"alignment",label:`${(INT_LABELS[k]||k)} ≥ ${w.int[k]}`}; }
+  return null; }
 function paintChoices(){ if(!pendingOpts) return; const {node:n,el:opts}=pendingOpts; opts.innerHTML="";
   const reveal=document.getElementById("tReveal").checked, force=document.getElementById("tForce").checked, showLocked=document.getElementById("tLocked").checked;
   let num=0;
@@ -438,7 +596,38 @@ function endScene(){ const sc=document.getElementById("dscript"); const e=docume
 function addLine(cls,who,body){ const w=document.getElementById("dscript"); const d=document.createElement("div"); d.className="line "+cls;
   let sig=""; if(who&&cls==="" ){ sig=`<div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#c9a24b;margin-bottom:3px">${esc(who)}</div>`; }
   if(cls==="me") sig=`<div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9fc0e0;margin-bottom:3px;text-align:right">You</div>`;
-  d.innerHTML=sig+`<div class="body">${cls==="sys"?esc(body):prose(body)}</div>`; w.appendChild(d); }
+  d.innerHTML=sig+`<div class="body">${cls==="sys"?esc(body):prose(body)}</div>`; w.appendChild(d);
+  if(cls!=="sys") linkifyEl(d.querySelector(".body")); }
+// The Returned-sense inset (what your dead-touched soul perceives) and the LORE recall inset (5e knowledge).
+function addSense(text){ const w=document.getElementById("dscript"); const d=document.createElement("div"); d.className="sense";
+  d.innerHTML=`<span class="lk">✦ The Returned senses —</span><div>${prose(text)}</div>`; w.appendChild(d); linkifyEl(d); }
+function addLore(e){ const w=document.getElementById("dscript"); const d=document.createElement("div"); d.className="lore";
+  d.innerHTML=`<span class="lk">👁 ${esc(e.skill)} (passive) — you recall:</span> ${prose(e.lore)}`; w.appendChild(d); linkifyEl(d); }
+// inline glossary linking: walk text nodes, wrap each term's first occurrence per line in a hover-able span
+function linkifyEl(el){ if(!el) return;
+  const walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null); const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  const used={};
+  nodes.forEach(node=>{ if(node.parentNode && node.parentNode.classList && node.parentNode.classList.contains("gloss")) return;
+    let txt=node.nodeValue, out=null, m, idx=0, frag=null;
+    GLOSS_RE.lastIndex=0; const re=new RegExp(GLOSS_RE.source,"gi");
+    while((m=re.exec(txt))){ const hit=GLOSS_INDEX.find(o=>o.t.toLowerCase()===m[0].toLowerCase()); if(!hit||used[hit.i]){ continue; } used[hit.i]=true;
+      frag=frag||document.createDocumentFragment(); frag.appendChild(document.createTextNode(txt.slice(idx,m.index)));
+      const span=document.createElement("span"); span.className="gloss"; span.dataset.k=hit.i; span.textContent=m[0]; frag.appendChild(span); idx=m.index+m[0].length; }
+    if(frag){ frag.appendChild(document.createTextNode(txt.slice(idx))); node.parentNode.replaceChild(frag,node); }
+  });
+}
+// tooltip: hover any glossary term for the common-knowledge gloss (+ the deep lore if your character knows it)
+const tip=document.getElementById("tip");
+document.addEventListener("mouseover",e=>{ const g=e.target.closest&&e.target.closest(".gloss"); if(!g){ return; }
+  const e0=GLOSS[+g.dataset.k]; if(!e0) return; const known=loreKnown(char,e0,MODEL);
+  tip.innerHTML=`<div class="tn">${esc(e0.term)}</div>${esc(e0.gloss)}`+
+    (e0.skill?(known?`<div class="tl"><b>${esc(e0.skill)} — you recall:</b> ${esc(e0.lore)}</div>`:`<div class="tl" style="color:#6e6680">(a deeper ${esc(e0.skill)} insight escapes you)</div>`):"");
+  tip.style.display="block"; moveTip(e); });
+document.addEventListener("mousemove",e=>{ if(tip.style.display==="block" && e.target.closest&&e.target.closest(".gloss")) moveTip(e); });
+document.addEventListener("mouseout",e=>{ if(e.target.closest&&e.target.closest(".gloss")) tip.style.display="none"; });
+function moveTip(e){ const pad=14, w=tip.offsetWidth||280, h=tip.offsetHeight||80;
+  let x=e.clientX+pad, y=e.clientY+pad; if(x+w>innerWidth-8) x=e.clientX-w-pad; if(y+h>innerHeight-8) y=e.clientY-h-pad;
+  tip.style.left=Math.max(8,x)+"px"; tip.style.top=Math.max(8,y)+"px"; }
 function esc(s){ return (s==null?"":String(s)).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
 function prose(s){ let h=esc(s); h=h.replace(/\*\(([\s\S]*?)\)\*/g,'<span class="stagedir">($1)</span>'); h=h.replace(/\*([^*]+)\*/g,'<em>$1</em>'); return h; }
 function stripBracket(t){ return (t||"").replace(/^\s*\[[^\]]*\]\s*/,""); }

@@ -451,7 +451,7 @@ function goNode(id, first){
   pendingOpts=null;
   const n=nodeById(id), script=document.getElementById("script");
   if(!n){ endScene(id); return; }
-  applyEffects(st, n.onEnter); renderState();
+  applyEffects(st, n.onEnter); applyEffects(st, n.effects); renderState();   // node entry + outcome effects
   const body=pickVariantText(n, char, st);
   addLine("", n.speaker, body || "〔(this line had no variant for your character)〕", n.speaker);
   const opts=document.createElement("div"); opts.className="opts"; script.appendChild(opts);

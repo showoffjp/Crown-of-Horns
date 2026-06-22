@@ -12,7 +12,7 @@ const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom
 const block = h.match(/\/\*<MKT>\*\/([\s\S]*?)\/\*<\/MKT>\*\//);
 check("MKT pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity};")();
 
 check("abilityMod matches floor((score-10)/2)", E.abilityMod(10) === 0 && E.abilityMod(16) === 3 && E.abilityMod(17) === 3 && E.abilityMod(8) === -1);
 check("resolveCheck: roll+mod vs DC", E.resolveCheck(12, 15, 3) === true && E.resolveCheck(11, 15, 3) === false);
@@ -98,6 +98,43 @@ check("an active Persuasion option is offered to anyone (you can always try)",
   persuadeOpt && E.choiceAvailable(lowWis, E.newState(), persuadeOpt, MODEL) === true &&
   E.choiceAvailable({ cls: "Wizard", scores: [8, 8, 8, 8, 8, 8], race: "Gnome", background: "Sage", law: "Neutral", morality: "Neutral", deity: "Oghma" }, E.newState(), persuadeOpt, MODEL) === true);
 
+// ---- LORE glossary + 5e passive knowledge reveals ----
+const GLOSS = DATA.glossary;
+check("glossary is embedded with common-knowledge blurbs", Array.isArray(GLOSS) && GLOSS.length >= 15 && GLOSS.every(e => e.term && e.gloss));
+check("lore entries carry a knowledge skill + DC", GLOSS.filter(e => e.skill).length >= 10 &&
+  GLOSS.filter(e => e.skill).every(e => MODEL.skillAbility[e.skill] && typeof e.dc === "number"));
+check("glossaryHits finds terms (and aka) in a line", E.glossaryHits("a servant of the Judge of the Dead, by the Wall of the Faithless", GLOSS).length >= 2);
+const kel = GLOSS.find(e => e.term === "Kelemvor");
+const lowAll = { cls: "Fighter", scores: [16, 14, 15, 8, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "None" };
+check("a proficient cleric recalls religious lore the dullard doesn't", kel &&
+  E.loreKnown(confessor, kel, MODEL) === true && E.loreKnown(lowAll, kel, MODEL) === false);
+const histE = GLOSS.find(e => e.skill === "History" && e.dc >= 11);
+const scholar = { cls: "Wizard", scores: [10, 14, 12, 16, 14, 11], race: "Half-Elf", background: "Sage", law: "Neutral", morality: "Good", deity: "Oghma" };
+check("a sage recalls history a soldier wouldn't", histE && E.loreKnown(scholar, histE, MODEL) === true);
+
+// ---- The Returned-sense (innate, WIS-scaled soul perception) ----
+check("every NPC carries a Returned-sense reveal with a DC", CONVS.every(c => c.returned && c.returned.text && typeof c.returned.dc === "number"));
+check("Returned clarity = 10 + Wisdom modifier", E.returnedClarity(confessor) === 10 + E.abilityMod(confessor.scores[4]));
+const blunt = { cls: "Fighter", scores: [16, 14, 15, 10, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "Kelemvor" };
+check("a keen-souled Returned senses what a dull one can't (Sable, DC 12)",
+  E.returnedClarity(confessor) >= sable.returned.dc && E.returnedClarity(blunt) < sable.returned.dc);
+
+// ---- Pillars-style dispositions ----
+const dispKeys = new Set();
+CONVS.forEach(c => c.nodes.forEach(n => { (n.effects || []).concat(...(n.choices || []).map(ch => ch.effects || []))
+  .forEach(e => { if (e && e.key && e.key.indexOf("disp.") === 0) dispKeys.add(e.key); }); }));
+check("choices/outcomes accrue several dispositions", dispKeys.size >= 4);
+check("each NPC offers a [RETURNED] choice (your uncanny nature)", CONVS.every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+// the disposition GATE: Pip's [Merciful] line is hidden at 0 mercy, shown once you've been merciful
+const pip = CONVS.find(c => c.id === "market.pip");
+const pn1 = pip.nodes.find(n => n.id === "1");
+const mercyGate = pn1.choices.find(ch => ch.when && ch.when.int && ch.when.int["disp.merciful"]);
+const merciful = E.newState(); merciful.ints["disp.merciful"] = 1;
+check("a disposition-gated line is hidden at 0 and unlocked once merciful (PoE-style)", mercyGate &&
+  E.choiceAvailable(confessor, E.newState(), mercyGate, MODEL) === false &&
+  E.choiceAvailable(confessor, merciful, mercyGate, MODEL) === true);
+
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
 function autoPlay(conv, who) {
@@ -105,7 +142,7 @@ function autoPlay(conv, who) {
   let id = byId[conv.start] ? conv.start : conv.nodes[0].id; const st = E.newState(); let steps = 0;
   while (!isEnd(conv, id, byId)) {
     const n = byId[id]; if (++steps > 300) return false;
-    E.applyEffects(st, n.onEnter);
+    E.applyEffects(st, n.onEnter); E.applyEffects(st, n.effects);
     if (n.variants && E.pickVariantText(n, who, st).length === 0) return false;  // every char must get a line
     const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch, MODEL));
     if (allowed.length) { E.applyEffects(st, allowed[0].effects); id = allowed[0].next; }

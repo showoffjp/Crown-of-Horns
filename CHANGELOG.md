@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.70.0 — *"What the Dead Know"* — lore-checks, the Returned-sense, and a reckoning of dispositions (tooling + content)
+
+> A deep, idiosyncratic pass on the walkable Market, reaching for BG3 *and* Pillars-of-Eternity-level texture.
+> Three new layers, all on-theme to a soul pulled back from the Wall:
+
+- 📖 **Hover-glossary (a cyclopedia, PoE-style)** — 22 keyed terms (Kelemvor, the Wall of the Faithless, the
+  Faithless, Doomguide, Myrkul, the Dead Three, Jergal, the Ashen Watch, the causeway, the harvest, the Choir,
+  Kelemvor's-penny…) are dotted-underlined inline in every line of dialogue. Hover for the common-knowledge
+  blurb of who/what is being talked about — no more nodding along to names you don't know.
+- 👁️ **Passive LORE checks (5e knowledge skills)** — when a topic appears in a line, your *passive* knowledge
+  (`10 + ability mod + proficiency ≥ DC` in Religion / History / Arcana / Nature / Medicine / Investigation)
+  auto-recalls the deeper lore your character would actually know, surfaced as a "👁 Religion (passive) — you
+  recall: …" inset. A cleric recalls the rites; a sage recalls the history; a soldier just hears a name.
+- ✦ **The Returned-sense** — the signature, idiosyncratic mechanic: you are a soul pulled back from the Wall,
+  and on first sight of each NPC — if your Wisdom-clarity (`10 + WIS mod`) is keen enough — you perceive what
+  the living can't. Sable's relics are hollow but her grief is real; three squads of the violently dead stand
+  at Bram's back, waiting; a second, guttering little flame is tethered to Pip. Plus a **[RETURNED]** dialogue
+  path with each soul, where you lean into your uncanny nature — and they break, and tell you everything.
+- ⚖️ **A reckoning of dispositions (Pillars-of-Eternity-style)** — your choices accrue dispositions
+  (**Merciful, Ruthless, Honest, Cunning, Devout, Heretical, Stoic, Haunted**), shown as a ranked, colour-coded
+  "Your Reckoning" panel that **persists across the whole visit** — and *gates lines*: be merciful to Sable,
+  and a **[Merciful]** option opens with Pip you'd never otherwise see.
+- 🐛 **Engine fix:** `goNode` only applied a node's `onEnter` effects, silently dropping outcome-node `effects`
+  — so regard, flags, and dispositions set on outcome nodes never registered at runtime. Now both `onEnter`
+  and `effects` apply, in the market *and* the dialogue sim (which had the same latent bug).
+- 🧪 New gates pin all of it (glossary hits, passive lore recall by class, the Returned-sense DC, disposition
+  accrual, and the cross-conversation disposition gate); both reactive trees still complete for all five
+  builds. Suite now **753 checks**, all green. *(This pass enriches the Market; the dialogue sim keeps the
+  passive/active fix and is next in line for the glossary + sense + reckoning layers.)*
+
+---
+
 ## 👑 v4.69.0 — *"Passive & Active"* — proper BG3/5e check resolution in the reactive dialogue (tooling)
 
 > A correctness pass on how skill checks present, to match Baldur's Gate 3 / 5e exactly. Checks come in two
