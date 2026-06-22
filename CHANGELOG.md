@@ -11,6 +11,28 @@
 
 ---
 
+## 👑 v4.65.0 — *"The Wiring, Revealed"* — the browsable flag graph catches up to the whole saga (tooling)
+
+> The Flag Dependency Graph, Saga Map, and Save Inspector all read `play/flags-data.json` — which hadn't been
+> regenerated since it was introduced in v3.78. It was a **stale 167-flag snapshot** while the game had grown to
+> **1,240 flags**: every side quest, convergence finale, NPC, and banter added since was invisible in the tools.
+> Re-extracting from the current content surfaces all of it — the reactive wiring is finally browsable.
+
+- 🕸️ **Flag graph rebuilt: 167 → 1,240 flags**, 515 → **2,324 read/write edges**, 27 → **39 domains** — the
+  `Sq` (side-quest) domain alone now carries **232** flags, including the Lantern-Feast and every convergence
+  cluster. Pick any `sq.*` flag and see exactly which dialogue choice writes it and which epilogue slide reads
+  it. (`tools/extract-flags.py`, unchanged — only the data was stale.)
+- 🗺️ **Saga Map deepened** — the deciding-flag set it renders grew from 108 to **184**, so the campaign-to-
+  endings wiring on one page now reflects the real saga, not a years-old slice.
+- 💾 **Save Inspector refreshed** with the full flag set for autocomplete and domain hints — and its hand-built
+  **Combat Chronicle** panel (`DEEDCHRON`) surgically preserved through the regeneration (the generator doesn't
+  emit it), so the deed read-back loop stays intact.
+- 📦 **All-in-one bundle regenerated** with the refreshed flags, saga, and inspector tabs.
+- 🧪 No logic changed; the **613-check** suite stays green. The flag/saga/inspector gates compute their counts
+  from the data, so they validated the rebuilt graph automatically (1,240 flags / 2,324 edges / 39 domains).
+
+---
+
 ## 👑 v4.64.0 — *"Movements Coalesced"* — the convergence layer reaches the spoiler-free Chronicle (reactivity)
 
 > The four convergence finales (v4.62) lived only in the personalized epilogue. This completes the feature
