@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.66.0 — *"Dialogue, Played"* — a new playable preview: step INTO any conversation (tooling)
+
+> The combat sim lets you play a fight; now there's a sibling for the writing. **`dialogue_sim.html`** lets you
+> step into any of the **208 conversations** as your own Returned — browse the cast, make the choices, and roll
+> real skill checks — so the saga's dialogue is as previewable as its combat. Built on the same
+> `dialogue-data.json` the viewer and saga map read, and on the real resolution rules.
+
+- 🎬 **New page: "Dialogue, Played"** — an NPC-first, visual-novel-style player:
+  - **Cast browser** of **144 speakers** (companions & quest-givers featured first, each with a deterministic
+    sigil), → their conversations → step in.
+  - **Faithful skill checks** — a choice's check rolls `d20 + your ability modifier` vs the DC, exactly as
+    `DialogueRunner.cs` does (`Modifier = floor((score-10)/2)`), with an **animated d20**, the modifier
+    breakdown, and success/fail branching to the real fail node.
+  - **Pick your build** — five authentic class arrays (Fighter/Wizard/Cleric/Rogue/Ranger) plus per-ability
+    steppers; INT/WIS/CHA are highlighted because they're the only abilities dialogue checks use, so the
+    page even shows each choice's **% chance to pass with your build**.
+  - **Live state** — companion approval bars, faction reputation, and every story flag your choices write,
+    grouped by domain — exactly what the real save would record.
+  - **Preview tools** — *reveal what each choice does* before you click, *decide check results* to explore
+    both branches of a check without save-scumming, and *assume earlier story flags* to unlock gated choices.
+  - Conditional choices (`RequireBoolTrue`) lock with a "needs earlier: …" note; light synthesized SFX and
+    number-key selection round it out.
+- 🧩 **Added as the 10th tab** in the all-in-one bundle (`🎬 Play Dialogue`) and a card on the index.
+- 🧪 **New gate (`dialogue_sim.test.js`, 49 checks)** lifts the page's pure `/*<DLGSIM>*/` block and proves it
+  matches the C# engine (modifier, check resolution, pass-chance, effects, conditions), validates the cast
+  index covers every conversation, and **auto-plays all 208 conversations to an end** (no broken mid-path ref,
+  bounded steps). Suite now **663 checks**, all green.
+
+---
+
 ## 👑 v4.65.0 — *"The Wiring, Revealed"* — the browsable flag graph catches up to the whole saga (tooling)
 
 > The Flag Dependency Graph, Saga Map, and Save Inspector all read `play/flags-data.json` — which hadn't been

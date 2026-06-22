@@ -20,6 +20,7 @@ PLAY = os.path.join(ROOT, "play")
 TABS = [
  ("combat",   "crown_combat.html",     "▶️", "Combat",      "Play a real tactical fight"),
  ("dialogue", "dialogue_viewer.html",  "💬", "Dialogue",    "Every branching conversation"),
+ ("play",     "dialogue_sim.html",     "🎬", "Play Dialogue","Step into a conversation & choose"),
  ("endings",  "endings_explorer.html", "🎭", "Endings",     "Flip flags, watch the six endings"),
  ("compendium","compendium.html",      "📖", "Compendium",  "Grimoire · Bestiary · Codex"),
  ("cast",     "cast_gallery.html",     "🖼️", "Cast",        "Every face & profile"),

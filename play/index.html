@@ -21,7 +21,7 @@
 <div class="head">
  <h1>👑 Crown of Horns</h1>
  <div class="sub">The greatest isometric CRPG you've never heard of — explorable in your browser, no Unity required. Every page below runs the game's real, test-verified logic and content.</div>
- <div class="badge">v4.65.0 · 104 NPCs · 21 reactive quests · 1,240-flag graph</div>
+ <div class="badge">v4.66.0 · 104 NPCs · 21 reactive quests · playable dialogue</div>
  <div style="margin-top:14px"><a href="crown_of_horns.html" style="display:inline-block;text-decoration:none;color:#1a1622;background:linear-gradient(#f0d27e,#d8af4a);border-radius:9px;padding:10px 18px;font-weight:600;font-size:15px">📦 Open the all-in-one — the whole game in a single file →</a>
  <div style="color:#7f7790;font-size:12px;margin-top:6px">Combat, dialogue trees, endings, compendium, cast, flag graph, saga map &amp; save inspector — one portable HTML, no other files needed.</div></div>
 </div>
@@ -38,6 +38,9 @@
  <a class="card" href="dialogue_viewer.html"><div class="ic">💬</div><div class="ct">Dialogue Tree Viewer</div>
   <div class="cd">Every branching conversation as a real graph: speakers, choices, skill checks (ability + DC, with the fail branch), and the story flags each line sets. Or switch to <b>Walk</b> mode and play any conversation, rolling the checks live.</div>
   <span class="tag">208 conversations · 1,474 nodes · 176 skill checks</span></a>
+ <a class="card" href="dialogue_sim.html"><div class="ic">🎬</div><div class="ct">Dialogue, Played</div>
+  <div class="cd">Step <b>into</b> any conversation as your own Returned: browse <b>144 speakers</b>, pick a build, and make the choices. Skill checks roll a real d20 + your ability modifier vs the DC (exactly as the game does) with an animated die — and watch story flags, companion approval, and reputation move live. Preview tools let you reveal what each choice does or explore both branches of a check.</div>
+  <span class="tag">interactive · the real dialogue engine · pick-your-build</span></a>
  <a class="card" href="cast_gallery.html"><div class="ic">🖼️</div><div class="ct">Cast Gallery</div>
   <div class="cd">Every face in the game. Click any companion or principal for a full character sheet — class, bio, their personal quest's branches, romance, and bonds.</div>
   <span class="tag">68 faces · 12 clickable profiles</span></a>
@@ -55,6 +58,6 @@
   <span class="tag">round-trips the real save format</span></a>
 </div>
 <div class="foot">
- Everything here is generated from, and verified against, the Unity project: the combat &amp; narrative engines are ported 1:1 from <code>Assets/Scripts</code> (with .NET <code>System.Random</code> reimplemented bit-for-bit), and a <b>613-check</b> headless suite plus the Unity EditMode tests gate every change. Open the files directly — no server needed. Regenerate with <code>node play/run-all.js</code> and the <code>tools/make-*.py</code> scripts.
+ Everything here is generated from, and verified against, the Unity project: the combat &amp; narrative engines are ported 1:1 from <code>Assets/Scripts</code> (with .NET <code>System.Random</code> reimplemented bit-for-bit), and a <b>663-check</b> headless suite plus the Unity EditMode tests gate every change. Open the files directly — no server needed. Regenerate with <code>node play/run-all.js</code> and the <code>tools/make-*.py</code> scripts.
 </div>
 </body></html>
