@@ -12,7 +12,7 @@ const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom
 const block = h.match(/\/\*<MKT>\*\/([\s\S]*?)\/\*<\/MKT>\*\//);
 check("MKT pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats};")();
 
 check("abilityMod matches floor((score-10)/2)", E.abilityMod(10) === 0 && E.abilityMod(16) === 3 && E.abilityMod(17) === 3 && E.abilityMod(8) === -1);
 check("resolveCheck: roll+mod vs DC", E.resolveCheck(12, 15, 3) === true && E.resolveCheck(11, 15, 3) === false);
@@ -69,9 +69,9 @@ check("the Faithless greeting speaks to the godless", /godless|no god/i.test(lin
 const n1 = sable.nodes.find(n => n.id === "1");
 const faithlessOpt = n1.choices.find(ch => ch.when && ch.when.deity === "None");
 check("a [Faithless] option is gated to the godless", faithlessOpt &&
-  E.choiceAvailable(warden, E.newState(), faithlessOpt) === true &&
-  E.choiceAvailable(confessor, E.newState(), faithlessOpt) === false);
-const availSet = (c) => n1.choices.filter(ch => E.choiceAvailable(c, E.newState(), ch)).map(ch => ch.text).join("|");
+  E.choiceAvailable(warden, E.newState(), faithlessOpt, MODEL) === true &&
+  E.choiceAvailable(confessor, E.newState(), faithlessOpt, MODEL) === false);
+const availSet = (c) => n1.choices.filter(ch => E.choiceAvailable(c, E.newState(), ch, MODEL)).map(ch => ch.text).join("|");
 check("Sable offers different choices to different characters",
   availSet(confessor) !== availSet(warden) && availSet(warden) !== availSet(tiefling) && availSet(confessor) !== availSet(tiefling));
 
@@ -79,6 +79,24 @@ check("Sable offers different choices to different characters",
 check("proficiency raises a check bonus", E.checkBonus(confessor, { skill: "Insight", ability: "Wisdom" }, MODEL) > E.checkBonus(warden, { skill: "Acrobatics", ability: "Dexterity" }, MODEL) - 99 &&
   E.isProficient(confessor, "Insight", MODEL) === true && E.isProficient(warden, "Insight", MODEL) === true);
 check("a non-proficient skill gets no bonus", E.checkBonus(confessor, { skill: "Stealth", ability: "Dexterity" }, MODEL) === E.abilityMod(confessor.scores[1]));
+
+// ---- BG3/5e passive vs active checks ----
+check("knowledge/awareness skills are passive", E.isPassiveSkill("Insight") && E.isPassiveSkill("Perception") && E.isPassiveSkill("Religion") && E.isPassiveSkill("Investigation"));
+check("social-attempt skills are active (rolled)", !E.isPassiveSkill("Persuasion") && !E.isPassiveSkill("Deception") && !E.isPassiveSkill("Intimidation"));
+check("passiveScore = 10 + ability mod (+prof)", E.passiveScore(confessor, { skill: "Insight", ability: "Wisdom" }, MODEL) === 10 + E.abilityMod(17) + MODEL.proficiencyBonus);
+check("passiveBeats compares to DC", E.passiveBeats(confessor, { skill: "Insight", ability: "Wisdom", dc: 13 }, MODEL) === true &&
+  E.passiveBeats(confessor, { skill: "Insight", ability: "Wisdom", dc: 99 }, MODEL) === false);
+// a PASSIVE-skill option is hidden when you can't meet it, and shown (auto) when you can — no dice either way
+const sableInsight = n1.choices.find(ch => (ch.check || {}).skill === "Insight");
+const lowWis = { cls: "Fighter", scores: [16, 14, 15, 10, 10, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "Kelemvor" };
+check("a passive Insight option hides when your passive score is below the DC",
+  sableInsight && E.choiceAvailable(lowWis, E.newState(), sableInsight, MODEL) === false &&
+  E.choiceAvailable(confessor, E.newState(), sableInsight, MODEL) === true);
+// an ACTIVE option (Persuasion) is always offered regardless of your Charisma — you may always *attempt* it
+const persuadeOpt = n1.choices.find(ch => (ch.check || {}).skill === "Persuasion");
+check("an active Persuasion option is offered to anyone (you can always try)",
+  persuadeOpt && E.choiceAvailable(lowWis, E.newState(), persuadeOpt, MODEL) === true &&
+  E.choiceAvailable({ cls: "Wizard", scores: [8, 8, 8, 8, 8, 8], race: "Gnome", background: "Sage", law: "Neutral", morality: "Neutral", deity: "Oghma" }, E.newState(), persuadeOpt, MODEL) === true);
 
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
@@ -89,7 +107,7 @@ function autoPlay(conv, who) {
     const n = byId[id]; if (++steps > 300) return false;
     E.applyEffects(st, n.onEnter);
     if (n.variants && E.pickVariantText(n, who, st).length === 0) return false;  // every char must get a line
-    const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch));
+    const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch, MODEL));
     if (allowed.length) { E.applyEffects(st, allowed[0].effects); id = allowed[0].next; }
     else if (n.auto && !isEnd(conv, n.auto, byId)) id = n.auto;
     else break;

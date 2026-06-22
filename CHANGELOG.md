@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v4.69.0 — *"Passive & Active"* — proper BG3/5e check resolution in the reactive dialogue (tooling)
+
+> A correctness pass on how skill checks present, to match Baldur's Gate 3 / 5e exactly. Checks come in two
+> kinds, and they should behave very differently — which they now do across both reactive pages (the dialogue
+> demo *and* the walkable market).
+
+- 👁️ **Passive checks** — the *knowledge & awareness* skills (Perception, Insight, Investigation, Religion,
+  Arcana, History, Nature, Medicine, Survival): these are **not rolled.** The option only appears **if you'd
+  already pass** — `passive score = 10 + ability modifier (+ proficiency) ≥ DC` — and selecting it is an
+  automatic success. If your passive score is below the DC, you never see the option at all (you simply don't
+  notice / don't know). Shown with a `👁 … · passive` tag and a `16 vs DC 13 ✓ auto` chip instead of a roll.
+- 🎲 **Active checks** — the *social-attempt* skills (Persuasion, Deception, Intimidation): always offered (you
+  may always *try*), and resolved by the d20 roll with the % chance, exactly as before.
+- 🚫 **Identity & stat gates ruled out entirely** — race / class / background / deity / alignment and passive
+  ability thresholds (`[STRENGTH 15]`) already hide the option completely when unmet; that behavior is
+  reaffirmed and now sits cleanly alongside the passive-check hiding. ("Show choices I don't qualify for"
+  reveals them greyed, with the reason — e.g. *passive Insight 11 < DC 13 — you don't catch it*.)
+- 🧩 Applied to **both** `dialogue_sim.html` (the "The Threshold" demo) and `town_market.html` (Sable/Bram/Pip).
+  The compiled 208-conversation corpus carries only an ability (no skill name) on its checks, so those remain
+  active rolls — unchanged.
+- 🧪 New tests in both gates pin the rules: passive vs active classification, `passiveScore = 10 + mod (+prof)`,
+  a passive option hiding below its DC and auto-succeeding above it, and an active option always being offered
+  regardless of the relevant ability. Both reactive trees still complete for all five builds. Suite now
+  **742 checks**, all green.
+
+---
+
 ## 👑 v4.68.0 — *"The Market of the Causeway"* — a walkable scene with three reactive NPCs, in one file (tooling + content)
 
 > A single self-contained HTML you can just *open* — like the combat preview, but for talking. You **walk** a

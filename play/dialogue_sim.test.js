@@ -13,7 +13,7 @@ const block = h.match(/\/\*<DLGSIM>\*\/([\s\S]*?)\/\*<\/DLGSIM>\*\//);
 check("DLGSIM pure block found", !!block);
 const E = new Function(block[1] +
   "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass," +
-  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable};")();
+  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats};")();
 
 // modifier = floor((score-10)/2), exactly as Abilities.cs
 check("abilityMod: 10 -> +0", E.abilityMod(10) === 0);
@@ -151,13 +151,25 @@ check("variant falls back to a default", (() => { const any = { cls: "Fighter", 
 const node1 = demo.nodes.find(n => n.id === "1");
 const faithlessChoice = node1.choices.find(ch => ch.when && ch.when.deity === "None");
 const kinChoice = node1.choices.find(ch => ch.when && ch.when.deity === "Kelemvor");
-check("Faithless choice gated to the godless", E.choiceAvailable(warden, E.newState(), faithlessChoice, false) === true &&
-  E.choiceAvailable(confessor, E.newState(), faithlessChoice, false) === false);
-check("Kelemvor choice gated to kin", E.choiceAvailable(confessor, E.newState(), kinChoice, false) === true &&
-  E.choiceAvailable(warden, E.newState(), kinChoice, false) === false);
+check("Faithless choice gated to the godless", E.choiceAvailable(warden, E.newState(), faithlessChoice, false, MODEL) === true &&
+  E.choiceAvailable(confessor, E.newState(), faithlessChoice, false, MODEL) === false);
+check("Kelemvor choice gated to kin", E.choiceAvailable(confessor, E.newState(), kinChoice, false, MODEL) === true &&
+  E.choiceAvailable(warden, E.newState(), kinChoice, false, MODEL) === false);
 // the same node offers a different set of choices to different characters
-const availFor = (ch) => node1.choices.filter(c => E.choiceAvailable(ch, E.newState(), c, false)).length;
+const availFor = (ch) => node1.choices.filter(c => E.choiceAvailable(ch, E.newState(), c, false, MODEL)).length;
 check("the challenge node offers different choices per character", availFor(confessor) !== availFor(warden));
+
+// BG3/5e passive vs active: knowledge/awareness skills auto-resolve and only show if you'd pass;
+// social-attempt skills are always offered and rolled.
+check("knowledge skills are passive", E.isPassiveSkill("Insight") && E.isPassiveSkill("Perception") && E.isPassiveSkill("Religion"));
+check("social skills are active", !E.isPassiveSkill("Persuasion") && !E.isPassiveSkill("Deception") && !E.isPassiveSkill("Intimidation"));
+check("passiveScore = 10 + mod (+prof)", E.passiveScore(confessor, { skill: "Insight", ability: "Wisdom" }, MODEL) === 10 + E.abilityMod(17) + MODEL.proficiencyBonus);
+const fnode = demo.nodes.find(n => n.id === "faithless");
+const insightOpt = fnode && fnode.choices.find(ch => (ch.check || {}).skill === "Insight");
+const dull = { cls: "Fighter", scores: [16, 14, 15, 10, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "None" };
+check("a passive [INSIGHT] option hides below its DC and shows (auto) above it", insightOpt &&
+  E.choiceAvailable(dull, E.newState(), insightOpt, false, MODEL) === false &&
+  E.choiceAvailable(warden, E.newState(), insightOpt, false, MODEL) === true);
 
 function st2set(k){ const s = E.newState(); s.bools[k] = true; return s; }
 
@@ -175,7 +187,7 @@ function autoPlay(conv, who) {
     E.applyEffects(st, n.onEnter);
     // every node must yield a line for this character (a variant or default)
     if (n.variants && E.pickVariantText(n, who, st).length === 0) return { steps, ok: false, noVariant: n.id };
-    const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch, true));
+    const allowed = (n.choices || []).filter(ch => E.choiceAvailable(who, st, ch, true, MODEL));
     if (allowed.length) { const ch = allowed[0]; E.applyEffects(st, ch.effects); id = ch.next; }
     else if (n.auto && !isEndId(conv, n.auto, byId)) id = n.auto;
     else break;

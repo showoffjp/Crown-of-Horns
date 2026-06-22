@@ -227,9 +227,21 @@ function pickVariantText(node, char, state){
   }
   return node.text || "";
 }
-// can this choice be taken by this character/state? (identity gate + legacy flag conditions)
-function choiceAvailable(char, state, ch, assumePrior){
-  return matchesWhen(char, state, ch.when) && conditionsPass(state, ch.conditions, assumePrior);
+// BG3/5e: knowledge & awareness skills are PASSIVE — they auto-succeed when 10+mod(+prof) >= DC, and the
+// option simply doesn't appear otherwise. The social "attempt" skills are ACTIVE — you roll for those.
+// (Compiled-corpus checks carry only an ability and no skill name, so they stay active rolls.)
+var PASSIVE_SKILLS=["Perception","Insight","Investigation","Arcana","History","Religion","Nature","Medicine","Survival","Animal Handling"];
+function isPassiveSkill(s){ return !!s && PASSIVE_SKILLS.indexOf(s)>=0; }
+function checkOf(ch){ return ch.check || (ch.checkDC ? {skill:(ch.checkSkill||null), ability:ch.checkAbility, dc:ch.checkDC} : null); }
+function passiveScore(char, check, model){ return 10 + checkBonus(char, check, model); }   // 10 + ability mod (+ proficiency)
+function passiveBeats(char, check, model){ return passiveScore(char, check, model) >= check.dc; }
+// can this choice be taken by this character/state? (identity gate + legacy flag conditions + passive checks)
+function choiceAvailable(char, state, ch, assumePrior, model){
+  if(!matchesWhen(char, state, ch.when)) return false;                                   // identity/stat gate: ruled out if unmet
+  if(!conditionsPass(state, ch.conditions, assumePrior)) return false;
+  const chk=checkOf(ch);
+  if(chk && isPassiveSkill(chk.skill) && !passiveBeats(char, chk, model)) return false;  // passive skill: only shown if you'd already pass
+  return true;
 }
 /*</DLGSIM>*/
 
@@ -364,21 +376,26 @@ function paintChoices(){
         force=document.getElementById("tForce").checked, showLocked=document.getElementById("tLocked").checked;
   let shown=0, n9=0;
   n.choices.forEach((ch)=>{
-    const ok=choiceAvailable(char, st, ch, assume);
+    const ok=choiceAvailable(char, st, ch, assume, MODEL);
     if(!ok && !showLocked) return;
     shown++; const idx=++n9;
     const b=document.createElement("button"); b.className="opt"+(ok?"":" locked");
-    const chk=normCheck(ch); const tag=tagFor(ch);
+    const chk=normCheck(ch); const tag=tagFor(ch); const passive=chk&&isPassiveSkill(chk.skill);
     let tags="";
     if(tag) tags+=`<span class="tg ${tag.cls}">${esc(tag.label)}</span>`;
-    if(chk) tags+=`<span class="tg check">🎲 ${esc(chk.skill||ABBR[chk.ability]||chk.ability)}</span>`;
+    if(chk) tags+=`<span class="tg check">${passive?'👁':'🎲'} ${esc(chk.skill||ABBR[chk.ability]||chk.ability)}${passive?' · passive':''}</span>`;
     let inner = (tags?`<div class="tags">${tags}</div>`:"") + `<span class="num">${idx}.</span>${esc(stripBracket(ch.text)||"(continue)")}`;
     if(chk){
-      const bonus=checkBonus(char, chk, MODEL), pct=Math.round(chanceToPass(chk.dc,bonus)*100), prof=chk.skill&&isProficient(char,chk.skill,MODEL);
-      inner+=`<div class="ck"><span class="chip">${chk.skill?esc(chk.skill)+' · ':''}${ABBR[chk.ability]||esc(chk.ability)} DC ${chk.dc}</span>`+
-             `<span class="chip ${pct>=50?'ok':'bad'}">${pct}% (d20 ${bonus>=0?'+':''}${bonus})</span>`+
-             (prof?`<span class="chip prof">proficient +${MODEL.proficiencyBonus}</span>`:'')+
-             (ch.fail?`<span class="muted">miss ▸ a different path</span>`:'')+`</div>`;
+      const bonus=checkBonus(char, chk, MODEL), prof=chk.skill&&isProficient(char,chk.skill,MODEL);
+      if(passive){ const sc=10+bonus;
+        inner+=`<div class="ck"><span class="chip">${esc(chk.skill)} (passive)</span><span class="chip ${sc>=chk.dc?'ok':'bad'}">${sc} vs DC ${chk.dc}${sc>=chk.dc?' ✓ auto':' ✗'}</span>`+
+               (prof?`<span class="chip prof">proficient +${MODEL.proficiencyBonus}</span>`:'')+`</div>`;
+      } else { const pct=Math.round(chanceToPass(chk.dc,bonus)*100);
+        inner+=`<div class="ck"><span class="chip">${esc(chk.skill||ABBR[chk.ability])} DC ${chk.dc}</span>`+
+               `<span class="chip ${pct>=50?'ok':'bad'}">${pct}% (d20 ${bonus>=0?'+':''}${bonus})</span>`+
+               (prof?`<span class="chip prof">proficient +${MODEL.proficiencyBonus}</span>`:'')+
+               (ch.fail?`<span class="muted">miss ▸ a different path</span>`:'')+`</div>`;
+      }
     }
     if(!ok){ inner+=`<div class="fxline">🔒 ${lockReason(ch)}</div>`; }
     if(reveal){ const fx=describeEffects(ch.effects); if(fx) inner+=`<div class="fxline">▸ ${fx}</div>`; }
@@ -389,6 +406,8 @@ function paintChoices(){
   if(!shown){ const d=document.createElement("div"); d.className="muted"; d.textContent="(no choice here fits your character — try “Show choices I don't qualify for”, or a different build.)"; opts.appendChild(d); }
 }
 function lockReason(ch){
+  const chk=normCheck(ch);
+  if(chk && isPassiveSkill(chk.skill) && !passiveBeats(char,chk,MODEL)){ const sc=10+checkBonus(char,chk,MODEL); return `passive ${esc(chk.skill)} ${sc} &lt; DC ${chk.dc} — you don't catch it`; }
   const t=tagFor(ch); if(t) return `needs ${t.cls==="faith"?"faith":t.cls}: ${t.label}`;
   const need=(ch.conditions||[]).filter(c=>c.op==="RequireBoolTrue").map(c=>c.key);
   if(need.length) return `needs earlier: ${need.map(esc).join(", ")}`;
@@ -403,6 +422,9 @@ function choose(n, ch, force){
   history.push(JSON.parse(JSON.stringify(st)));
   const chk=normCheck(ch); let next=ch.next;
   const proceed=(success)=>{ if(chk && !success && ch.fail) next=ch.fail; applyEffects(st, ch.effects); renderState(); goNode(next); };
+  if(chk && isPassiveSkill(chk.skill)){ // passive: only appeared because you already pass — auto-success, no roll
+    addLine("sys","",`(${chk.skill} — passive ${10+checkBonus(char,chk,MODEL)} vs DC ${chk.dc}: success)`);
+    applyEffects(st, ch.effects); renderState(); goNode(next); return; }
   if(chk){ const bonus=checkBonus(char, chk, MODEL); if(force){ offerForced(chk, proceed); return; } rollDice(chk, bonus, proceed); }
   else { applyEffects(st, ch.effects); renderState(); goNode(next); }
 }
