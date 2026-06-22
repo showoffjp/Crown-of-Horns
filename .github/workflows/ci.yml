@@ -65,7 +65,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true
+          # EditMode/logic tests compile C# only — they never load the PNG/FBX art.
+          # Fetching it needs a Git LFS budget this repo has exhausted, which was the
+          # *only* thing making this job red. Skip LFS so checkout succeeds and the
+          # job runs (or cleanly self-skips when no UNITY_LICENSE is set).
+          lfs: false
 
       - name: Check for Unity license
         id: license

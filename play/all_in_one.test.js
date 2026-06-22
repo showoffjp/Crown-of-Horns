@@ -7,7 +7,7 @@ let pass = 0, fail = 0; const fails = [];
 function check(name, cond) { if (cond) pass++; else { fail++; fails.push(name); } }
 
 const h = fs.readFileSync(__dirname + "/crown_of_horns.html", "utf8");
-const TABS = ["combat", "dialogue", "play", "endings", "compendium", "cast", "flags", "saga", "save", "analytics"];
+const TABS = ["combat", "dialogue", "play", "market", "endings", "compendium", "cast", "flags", "saga", "save", "analytics"];
 
 check("bundle: outer shell present", h.includes('id="frame"') && h.includes('class="tabs"'));
 check("bundle: a tab button per page", TABS.every(k => h.includes(`data-k="${k}"`)));
@@ -36,7 +36,7 @@ if (pages) {
   check("bundle: flags page carries the graph data", (pages.flags || "").includes('"flags"') &&
     pages.flags.includes("showFlag"));
   // the interactive pages kept their <script> (saga map + analytics are static reports)
-  const interactive = ["combat", "dialogue", "play", "endings", "compendium", "cast", "flags", "save"];
+  const interactive = ["combat", "dialogue", "play", "market", "endings", "compendium", "cast", "flags", "save"];
   check("bundle: interactive pages kept their <script>", interactive.every(k =>
     (pages[k] || "").includes("<script")));
 }
@@ -44,4 +44,4 @@ if (pages) {
 console.log(`\n  All-in-one bundle — structural smoke:`);
 console.log(`  ${pass} passed, ${fail} failed`);
 if (fail) { fails.forEach(f => console.log("   ✗ " + f)); process.exit(1); }
-else console.log(`  ✓ 10 pages bundled & parse, tab/iframe shell + cross-link rewiring + deep-links wired.\n`);
+else console.log(`  ✓ 11 pages bundled & parse, tab/iframe shell + cross-link rewiring + deep-links wired.\n`);

@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.68.0 — *"The Market of the Causeway"* — a walkable scene with three reactive NPCs, in one file (tooling + content)
+
+> A single self-contained HTML you can just *open* — like the combat preview, but for talking. You **walk** a
+> character around an isometric market square (click-to-move, exactly like the combat sim) and approach **three
+> named souls**, each with a deep, branching, character-reactive conversation. The same engine as the dialogue
+> demo: the NPC reads your race, faith, alignment, background, and stats and answers differently.
+
+- 🏪 **New page: `play/town_market.html`** — fully self-contained (67 KB, no server, no other files):
+  - **Walk the square** — a canvas isometric market (fountain, stalls, crates, barrels, banners) with
+    click-to-move, depth-sorted rendering, a player token, and proximity "▶ talk (E)" prompts.
+  - **Three named NPCs**, each a complete reactive tree (`play/town-market.json`, 32 beats total):
+    **Mother Sable** the bone-charm seller (reacts to faith/race; haggle, Insight & Religion checks; a quiet
+    truth about what she really sells), **Sergeant Bram Holloway** the recruiter (reacts to class/background;
+    a STR arm-wrestle, an Insight that cracks his pitch open, an Intimidation that makes him stand down), and
+    **Pip** the street-child (reacts to alignment/race; a Perception to catch the lift, an Insight into *why*
+    she steals, and a kindness that earns a child's whole loyalty).
+  - **The same BG3-style reactivity** as the dialogue demo: reactive opening lines, identity-tagged choices,
+    passive stat gates, and skill checks rolling `d20 + ability modifier + proficiency` vs the DC with an
+    animated die. A live ledger shows each NPC's regard and every story flag your visit writes — and flags
+    persist across all three conversations (be kind to Pip *and* see Sable, and both are on your record).
+  - **Build your character** right there (race/class/background/alignment/deity + ability steppers, or the
+    five presets) and the market answers the change. Preview toggles for revealing effects and forcing checks.
+- 🧩 **Added as the 11th bundle tab** (`🏪 Market`) and a card on the index.
+- 🧪 **New gate (`town_market.test.js`, 36 checks)**: validates the scene, lifts the page's `/*<MKT>*/` engine
+  and proves it matches the C# rules, confirms the three NPCs greet/branch differently by character, and
+  **auto-plays every NPC tree to an end for all five shipped builds** (15 combos, no dead character). Suite
+  now **732 checks**, all green.
+- 🛠️ **CI fix:** the recurring red "Unity EditMode tests" job checked out with `lfs: true`, which fails on the
+  repo's exhausted Git LFS budget — yet the logic tests never load the LFS art. Set `lfs: false` so the job
+  checks out and runs (it still self-skips cleanly until a `UNITY_LICENSE` secret is added).
+
+---
+
 ## 👑 v4.67.0 — *"The Threshold"* — BG3-style character-reactive dialogue, with a playable demo (tooling + content)
 
 > The dialogue sim now answers *who you are.* A full **character model** — race, class, background,
