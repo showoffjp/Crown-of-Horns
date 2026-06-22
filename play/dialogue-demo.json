@@ -48,6 +48,7 @@
       "demo": true,
       "npc": "Justiciar Aldous Vane",
       "blurb": "A gatekeeper of Kelemvor's church bars the causeway to the Wall. He reads your blood, your god, your bearing — and decides. Every line below changes with who you are.",
+      "returned": { "dc": 12, "text": "*(Your dead-touched senses reach the man and find him layered like a grave: the grey-and-bone of his office on the surface, and beneath it, pressed close and cold, the thing he stands guard over. He is not afraid of *you.* He is afraid *for* you — and of the Wall at his back, which has, lately, begun to look at *him.* Six years he has kept this gate. Something on the other side has finally learned his name.)*" },
       "start": "0",
       "nodes": [
         {
@@ -107,6 +108,7 @@
           "id": "kin",
           "speaker": "Justiciar Aldous Vane",
           "text": "*(He touches his sigil, then yours, the old recognition between servants of the same hard master.)* A right. *(He breathes out.)* Yes. You have one, and I'd be a poor servant to make you fight me for it. *(He lowers the halberd entirely.)* The truth is I'm glad of you. The Judge's work tonight is past one man, and the church sent me *one man.* *(He looks back at the Wall, and his voice drops.)* Something is wrong with it, kinsman. Wrong in a way the canon doesn't have a page for. Walk up with me, and tell me if your eyes read it the way mine do.",
+          "effects": [{ "key": "disp.devout", "op": "AddInt", "amount": 1 }],
           "auto": "confide"
         },
         {
@@ -123,7 +125,7 @@
           "id": "faithless_grief",
           "speaker": "Justiciar Aldous Vane",
           "text": "*(The anger he was braced for never comes. Instead he looks, briefly, like a man remembering his own dead.)* ...To mourn without the right. *(He is silent.)* My order would call that the first sin and the last one. *(He looks at the Wall, then back at you, and makes a decision that costs him.)* My order can write me up for it in the morning. *(He stands aside.)* Go and mourn your nameless one, Faithless. Someone should. The canon never could explain to me why grief should need a license — and I have stopped pretending it can.",
-          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }],
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }],
           "auto": "pass_warm"
         },
         {
@@ -178,7 +180,7 @@
           "id": "cowed",
           "speaker": "Justiciar Aldous Vane",
           "text": "*(He is not a coward — but he is one man, alone, on a causeway, against something in your voice he believes. He steps aside, and hates that he does.)* ...Pass, then. *(stiffly, jaw clenched)* I'll not die at a gate over a dusk-order, and I'll not pretend you didn't make me feel the edge of it. *(as you pass)* But mark me, traveler — you came to a place of the dead and led with a threat. The Wall *remembers* what walks up to it. I hope, for your sake, it remembers you kinder than you've earned in the last minute.",
-          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }],
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }],
           "auto": "pass_grudging"
         },
         {

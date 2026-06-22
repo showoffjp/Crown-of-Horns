@@ -41,91 +41,8 @@ INT_LABELS = {
     "market.pip.regard": "Pip's trust in you",
 }
 
-# Lore glossary — every keyed term gets a hover tooltip (common knowledge), and the deeper `lore`
-# surfaces as a 5e passive knowledge-check reveal when your passive skill score (10 + ability mod +
-# proficiency) meets its DC. So a Cleric/Acolyte recalls the rites, a Sage/Wizard the history, etc.
-GLOSSARY = [
-    {"term": "Kelemvor", "aka": ["the Judge of the Dead", "the Judge", "the Lord of the Dead"],
-     "gloss": "God of the dead and the stern but just judge of every soul. His grey-and-bone clergy tend the dying.",
-     "skill": "Religion", "dc": 10,
-     "lore": "Kelemvor Lyonsbane was once a mortal adventurer. He wrested the Throne of Bones from the mad god Cyric and, sickened by the cruelty he inherited, reformed the judgment of the dead — yet even he could not bring himself to tear down the Wall of the Faithless."},
-    {"term": "the Wall of the Faithless", "aka": ["the Wall"],
-     "gloss": "The vast wall at the edge of the afterlife into which godless souls are mortared, to dissolve slowly into nothing.",
-     "skill": "Religion", "dc": 12,
-     "lore": "The oldest cruelty in the realm of the dead: souls who served no god are denied any afterlife at all and pressed into the Wall's stone to erode into oblivion. Reforming gods have balked at unmaking it for fear of what holds it up."},
-    {"term": "the Faithless",
-     "gloss": "Souls who worshipped no god in life — and so, by the law of the dead, are owed no afterlife and bound into the Wall.",
-     "skill": "Religion", "dc": 10,
-     "lore": "To be Faithless is not to be wicked, only unclaimed — a kind atheist and a selfish one share the one sentence. It is the injustice that breaks even the devout who look at it too long."},
-    {"term": "Doomguide", "aka": ["Doomguides"],
-     "gloss": "A priest-knight of Kelemvor, sworn to tend the dead, destroy the undead, and uphold the god's judgment.",
-     "skill": "Religion", "dc": 11,
-     "lore": "Kelemvor's militant clergy. They escort souls, unmake those who cheat death, and — most are taught — guard the Wall's causeway. A quiet few have come to hate that last duty more than any undead."},
-    {"term": "Myrkul", "aka": ["the Bone Lord", "the Lord of Bones"],
-     "gloss": "The long-dead god of death and decay, of the Dead Three — feared, reviled, and unseated.",
-     "skill": "Religion", "dc": 11,
-     "lore": "Myrkul ruled the dead with terror before Cyric, before Kelemvor, and was slain during the Time of Troubles. To wear his sigil at a Kelemvorite threshold is provocation bordering on suicide."},
-    {"term": "the Dead Three",
-     "gloss": "Bane, Bhaal, and Myrkul — the three dread gods of tyranny, murder, and death.",
-     "skill": "Religion", "dc": 12,
-     "lore": "Mortal liches who clawed their way to godhood and have menaced the Realms ever since, dying and returning again and again. Their cults still gnaw at the underside of Baldur's Gate."},
-    {"term": "Jergal",
-     "gloss": "The Scribe of the Dead, who kept the records of every soul before the younger gods existed.",
-     "skill": "Religion", "dc": 13,
-     "lore": "The original god of death, who grew so bored of dominion he handed it to the Dead Three and became a mere seneschal. He keeps the ledgers still — the most patient power in the cosmos."},
-    {"term": "Tymora", "aka": ["Lady Luck"],
-     "gloss": "Goddess of good fortune, luck, and bold risks.",
-     "skill": "Religion", "dc": 10,
-     "lore": "Tymora smiles on the daring; her faithful hold that fortune favors action over caution — a creed that makes excellent thieves and dreadful accountants."},
-    {"term": "Oghma",
-     "gloss": "God of knowledge, invention, and the binding of what is known.",
-     "skill": "Religion", "dc": 11,
-     "lore": "The Lord of Knowledge holds that an idea, once known, can never truly be destroyed — a comfort to scholars, and a quiet defiance of the Wall's whole project of forgetting."},
-    {"term": "the Ashen Watch",
-     "gloss": "A city militia in mourning-grey, recruiting hard of late for a posting no one will name.",
-     "skill": "History", "dc": 11,
-     "lore": "A recently-raised auxiliary, ash-grey to mark grief. Veterans whisper its true posting is the Wall's causeway, where the church needs warm bodies for work it keeps out of the recruiting song."},
-    {"term": "the causeway", "aka": ["the Causeway"],
-     "gloss": "The long approach to the Wall of the Faithless, where the living are not meant to walk.",
-     "skill": "History", "dc": 12,
-     "lore": "The threshold between the world and the Wall. Pilgrims of grief are permitted by old codicil; everyone else is turned back. Lately, even the permitted are being refused — and no one will say why."},
-    {"term": "the harvest",
-     "gloss": "The grim, deniable culling of the godless poor, marked and gathered to feed the Wall.",
-     "skill": "History", "dc": 12,
-     "lore": "The open secret of the Lower City: the marked poor vanish in quotas, their deaths dressed as accident or plague, their souls bound to the Wall. A whole economy of bribery and silence runs on never saying the word aloud."},
-    {"term": "Baldur's Gate",
-     "gloss": "A great, crowded, money-minded city on the Sword Coast.",
-     "skill": "History", "dc": 8,
-     "lore": "A mercantile city-state where coin outranks any crown, and the patriars of the Upper City keep the Lower City's poor carefully, profitably invisible."},
-    {"term": "the Court of the Dead",
-     "gloss": "The place of judgment beneath the City of Judgment, where souls and their fates are weighed.",
-     "skill": "Religion", "dc": 13,
-     "lore": "Where Kelemvor's judgment is rendered — and where, it is said, the Wall's very existence could one day be argued. Vanishingly few living souls have stood there and walked back out."},
-    {"term": "the Choir",
-     "gloss": "The zealous hardline faction within Kelemvor's church that holds the Wall as holy.",
-     "skill": "History", "dc": 12,
-     "lore": "The church's hardliners, who preach the Wall as necessary and sacred — and who, quietly, profit most from the harvest that keeps it fed."},
-    {"term": "Kelemvor's-penny", "aka": ["a Kelemvor's-penny", "the ferry-coin"],
-     "gloss": "A coin laid with the dead to pay the ferryman of souls.",
-     "skill": "Religion", "dc": 11,
-     "lore": "A true penny is struck on the dark of the moon and never takes a shine; a mint-bright one is a fraud. The rite is older than the church, and half the clergy get it wrong."},
-    {"term": "saint", "aka": ["saint knuckle", "saint knuckles", "knuckle of saint"],
-     "gloss": "A purported holy relic — a saint's bone — sold as a soul-charm.",
-     "skill": "Religion", "dc": 12,
-     "lore": "Genuine relic-bones are vanishingly rare and church-sealed; the 'saint knuckles' hawked in markets are, almost without exception, chicken bones with a good story attached."},
-    {"term": "workhouse",
-     "gloss": "A grim institution where orphaned and destitute children are put to hard labor.",
-     "skill": "History", "dc": 9,
-     "lore": "The Gate's workhouses 'reform' orphans through labor and routinely split siblings to separate houses to break their will. Street children fear them more than the winter."},
-    {"term": "Mother Sable",
-     "gloss": "The old bone-charm seller of the market — milk-eyed, sharp-tongued, and not quite the fraud she appears."},
-    {"term": "Sergeant Bram Holloway", "aka": ["Bram", "the Sergeant"],
-     "gloss": "The barrel-chested recruiter for the Ashen Watch — a decent man doing an indecent job."},
-    {"term": "Pip",
-     "gloss": "A quick-handed street child who works the market alone — and not for herself."},
-    {"term": "Wick",
-     "gloss": "Pip's little brother; his bad leg keeps him from running, which is why Pip is the one who steals."},
-]
+# Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
+GLOSSARY = json.load(open(os.path.join(ROOT, "play", "lore-glossary.json"), encoding="utf-8"))
 
 # The Returned-sense: an eerie, on-theme perception the dead-touched player gets on first sight of each soul,
 # if their Wisdom-clarity (10 + WIS mod) meets the moment's DC. It reveals what the living can't see.
@@ -212,6 +129,7 @@ HTML = r"""<!DOCTYPE html>
  #tip .tl b{color:#9fe0b0;font-style:normal}
  .lore{margin:2px 0 4px;padding:8px 11px;border-left:3px solid #5a4a8a;background:#171327;border-radius:0 8px 8px 0;font-size:13px;color:#c6bcda}
  .lore .lk{color:#b08fe0;font-weight:600;letter-spacing:.3px;font-size:11px}
+ .lore .deep{margin-top:7px;padding-top:7px;border-top:1px solid #3a2f55;color:#e0cba0}
  .sense{margin:2px 0 6px;padding:9px 12px;border-left:3px solid #3a6a8a;background:#0f1922;border-radius:0 8px 8px 0;font-size:13.5px;color:#a8c8d8;font-style:italic}
  .sense .lk{color:#7fc8e0;font-weight:600;font-style:normal;letter-spacing:.3px;font-size:11px;display:block;margin-bottom:3px}
  .reckon{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:12px}
@@ -360,6 +278,8 @@ function glossaryHits(text, glossary){ const t=(text||"").toLowerCase(), hits=[]
   return hits; }
 function loreKnown(char, entry, model){ if(!entry||!entry.skill) return false;
   return passiveBeats(char, {skill:entry.skill, ability:model.skillAbility[entry.skill], dc:entry.dc||10}, model); }
+function secretKnown(char, entry, model){ if(!entry||!entry.secret) return false;
+  return passiveBeats(char, {skill:entry.secretSkill, ability:model.skillAbility[entry.secretSkill], dc:entry.secretDc||18}, model); }
 // THE RETURNED: a soul pulled back from the Wall perceives what the living can't — its clarity scales with
 // Wisdom (the soul's lucidity). Innate; never proficiency. 10 + WIS modifier vs the moment's sense-DC.
 function returnedClarity(char){ return 10 + abilityMod(char.scores[4]); }
@@ -602,7 +522,9 @@ function addLine(cls,who,body){ const w=document.getElementById("dscript"); cons
 function addSense(text){ const w=document.getElementById("dscript"); const d=document.createElement("div"); d.className="sense";
   d.innerHTML=`<span class="lk">✦ The Returned senses —</span><div>${prose(text)}</div>`; w.appendChild(d); linkifyEl(d); }
 function addLore(e){ const w=document.getElementById("dscript"); const d=document.createElement("div"); d.className="lore";
-  d.innerHTML=`<span class="lk">👁 ${esc(e.skill)} (passive) — you recall:</span> ${prose(e.lore)}`; w.appendChild(d); linkifyEl(d); }
+  let h=`<span class="lk">👁 ${esc(e.skill)} (passive) — you recall:</span> ${prose(e.lore)}`;
+  if(e.secret && secretKnown(char,e,MODEL)) h+=`<div class="deep"><span class="lk" style="color:#e7c873">…and, deeper (${esc(e.secretSkill)} ${e.secretDc}):</span> ${prose(e.secret)}</div>`;
+  d.innerHTML=h; w.appendChild(d); linkifyEl(d); }
 // inline glossary linking: walk text nodes, wrap each term's first occurrence per line in a hover-able span
 function linkifyEl(el){ if(!el) return;
   const walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null); const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
@@ -619,9 +541,10 @@ function linkifyEl(el){ if(!el) return;
 // tooltip: hover any glossary term for the common-knowledge gloss (+ the deep lore if your character knows it)
 const tip=document.getElementById("tip");
 document.addEventListener("mouseover",e=>{ const g=e.target.closest&&e.target.closest(".gloss"); if(!g){ return; }
-  const e0=GLOSS[+g.dataset.k]; if(!e0) return; const known=loreKnown(char,e0,MODEL);
+  const e0=GLOSS[+g.dataset.k]; if(!e0) return; const known=loreKnown(char,e0,MODEL), deep=secretKnown(char,e0,MODEL);
   tip.innerHTML=`<div class="tn">${esc(e0.term)}</div>${esc(e0.gloss)}`+
-    (e0.skill?(known?`<div class="tl"><b>${esc(e0.skill)} — you recall:</b> ${esc(e0.lore)}</div>`:`<div class="tl" style="color:#6e6680">(a deeper ${esc(e0.skill)} insight escapes you)</div>`):"");
+    (e0.skill?(known?`<div class="tl"><b>${esc(e0.skill)} — you recall:</b> ${esc(e0.lore)}</div>`:`<div class="tl" style="color:#6e6680">(a deeper ${esc(e0.skill)} insight escapes you)</div>`):"")+
+    (deep?`<div class="tl" style="border-color:#5a4a2a"><b style="color:#e7c873">${esc(e0.secretSkill)} — and deeper:</b> ${esc(e0.secret)}</div>`:"");
   tip.style.display="block"; moveTip(e); });
 document.addEventListener("mousemove",e=>{ if(tip.style.display==="block" && e.target.closest&&e.target.closest(".gloss")) moveTip(e); });
 document.addEventListener("mouseout",e=>{ if(e.target.closest&&e.target.closest(".gloss")) tip.style.display="none"; });

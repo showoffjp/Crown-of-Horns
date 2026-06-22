@@ -23,6 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = json.load(open(os.path.join(ROOT, "play", "dialogue-data.json"), encoding="utf-8"))
 DEMO = json.load(open(os.path.join(ROOT, "play", "dialogue-demo.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
+GLOSSARY = json.load(open(os.path.join(ROOT, "play", "lore-glossary.json"), encoding="utf-8"))
 
 PLAYER_LABELS = {"The Last Returned", "You", "Player", "The Returned"}
 FEATURED = {
@@ -79,7 +80,7 @@ for name, idxs in cast.items():
 # demo NPCs first, then featured, then by conversation count, then alphabetical.
 cast_list.sort(key=lambda c: (not c["demo"], not c["featured"], -c["count"], c["name"].lower()))
 
-EMBED = {"conversations": conversations, "cast": cast_list, "stats": DATA.get("stats", {}), "model": MODEL}
+EMBED = {"conversations": conversations, "cast": cast_list, "stats": DATA.get("stats", {}), "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 
 # Five authentic, *complete* characters — each a full BG3-style identity so switching presets
@@ -163,6 +164,17 @@ HTML = r"""<!DOCTYPE html>
  .line.sys .body{font-size:13px;color:#b9a8e0;font-style:italic}
  .stagedir{color:#8a8198;font-style:italic}
  em{color:#e7c873;font-style:italic}
+ .gloss{border-bottom:1px dotted #6a5a9a;cursor:help}.gloss:hover{color:#cbb8f0;border-bottom-color:#cbb8f0}
+ #tip{position:fixed;z-index:99;max-width:300px;background:linear-gradient(#1a1626,#13101c);border:1px solid #4a4368;border-radius:9px;padding:10px 12px;font-size:12.5px;line-height:1.5;color:#cfc6dc;box-shadow:0 10px 34px #000b;pointer-events:none;display:none}
+ #tip .tn{color:#e0b8f0;font-weight:600;font-size:13px;margin-bottom:3px}
+ #tip .tl{margin-top:7px;padding-top:7px;border-top:1px solid #2e2940;color:#c8d8b8;font-style:italic}#tip .tl b{color:#9fe0b0;font-style:normal}
+ .lore{margin:2px 0 4px;padding:8px 11px;border-left:3px solid #5a4a8a;background:#171327;border-radius:0 8px 8px 0;font-size:13px;color:#c6bcda}
+ .lore .lk{color:#b08fe0;font-weight:600;letter-spacing:.3px;font-size:11px}
+ .lore .deep{margin-top:7px;padding-top:7px;border-top:1px solid #3a2f55;color:#e0cba0}
+ .sense{margin:2px 0 6px;padding:9px 12px;border-left:3px solid #3a6a8a;background:#0f1922;border-radius:0 8px 8px 0;font-size:13.5px;color:#a8c8d8;font-style:italic}
+ .sense .lk{color:#7fc8e0;font-weight:600;font-style:normal;letter-spacing:.3px;font-size:11px;display:block;margin-bottom:3px}
+ .reckon{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:12px}.reckon .nm{width:78px}.reckon .pips{flex:1;letter-spacing:1px}.reckon .rk{font-variant-numeric:tabular-nums;color:#8a8198}
+ .tg.disp{color:#d8b0e8;border-color:#5a3a6a;background:#1f1726}.tg.returned{color:#cbb8f0;border-color:#5a4a8a;background:#1a1626}
  .opts{display:flex;flex-direction:column;gap:9px;margin-top:6px}
  .opt{text-align:left;background:linear-gradient(#1b1726,#16121f);border:1px solid #34304a;color:#e8e2d2;border-radius:10px;padding:11px 14px;cursor:pointer;font:inherit;font-size:14.5px;transition:.12s;position:relative}
  .opt:hover{border-color:#c9a24b;background:linear-gradient(#241d33,#1b1628)}
@@ -263,19 +275,32 @@ HTML = r"""<!DOCTYPE html>
    <div id="approvals"><div class="empty">No one's measure of you has moved yet.</div></div>
   </div>
   <div class="card">
+   <h3>Your reckoning <span style="float:right;font-weight:400;text-transform:none;letter-spacing:0;color:#6e6680">who you're becoming</span></h3>
+   <div id="reckon"><div class="empty">Your choices haven't tilted you yet.</div></div>
+  </div>
+  <div class="card">
    <h3>Flags this run</h3>
    <div id="flags"><div class="empty">Nothing set yet — your choices write here.</div></div>
   </div>
  </div>
 </div>
+<div id="tip"></div>
 <script>
 const DATA = __BLOB__;
 const BUILDS = __BUILDS__;
 const COMPANION_NAMES = __COMPANIONS__;
 const INT_LABELS = __INTLABELS__;
-const CONVS = DATA.conversations, CAST = DATA.cast, MODEL = DATA.model;
+const CONVS = DATA.conversations, CAST = DATA.cast, MODEL = DATA.model, GLOSS = DATA.glossary;
 const ABILS = ["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"];
 const ABBR  = {Strength:"STR",Dexterity:"DEX",Constitution:"CON",Intelligence:"INT",Wisdom:"WIS",Charisma:"CHA"};
+// Pillars-of-Eternity dispositions — choices accrue a reckoning that persists across the conversation.
+const DISP = { "disp.merciful":{name:"Merciful",hue:140}, "disp.ruthless":{name:"Ruthless",hue:0},
+  "disp.honest":{name:"Honest",hue:200}, "disp.cunning":{name:"Cunning",hue:280}, "disp.devout":{name:"Devout",hue:48},
+  "disp.heretical":{name:"Heretical",hue:320}, "disp.stoic":{name:"Stoic",hue:210}, "disp.haunted":{name:"Haunted",hue:265} };
+function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][Math.min(10,Math.abs(n))]||(""+n); }
+const GLOSS_INDEX = (function(){ const a=[]; GLOSS.forEach((e,i)=>{ [e.term].concat(e.aka||[]).forEach(t=>a.push({t:t,i:i})); }); a.sort((x,y)=>y.t.length-x.t.length); return a; })();
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"); }
+const GLOSS_RE = GLOSS_INDEX.length ? new RegExp("\\b("+GLOSS_INDEX.map(o=>escRe(o.t)).join("|")+")\\b","i") : null;
 
 /*<DLGSIM>*/
 // Pure, testable resolution — mirrors Assets/Scripts/Dialogue/DialogueRunner.cs + Abilities.cs.
@@ -352,6 +377,16 @@ function choiceAvailable(char, state, ch, assumePrior, model){
   if(chk && isPassiveSkill(chk.skill) && !passiveBeats(char, chk, model)) return false;  // passive skill: only shown if you'd already pass
   return true;
 }
+// LORE (5e passive knowledge) + the Returned-sense (innate, Wisdom-scaled soul perception).
+function glossaryHits(text, glossary){ const t=(text||"").toLowerCase(), hits=[];
+  for(var i=0;i<glossary.length;i++){ var names=[glossary[i].term].concat(glossary[i].aka||[]);
+    for(var j=0;j<names.length;j++){ if(t.indexOf(names[j].toLowerCase())>=0){ hits.push(i); break; } } }
+  return hits; }
+function loreKnown(char, entry, model){ if(!entry||!entry.skill) return false;
+  return passiveBeats(char, {skill:entry.skill, ability:model.skillAbility[entry.skill], dc:entry.dc||10}, model); }
+function secretKnown(char, entry, model){ if(!entry||!entry.secret) return false;
+  return passiveBeats(char, {skill:entry.secretSkill, ability:model.skillAbility[entry.secretSkill], dc:entry.secretDc||18}, model); }
+function returnedClarity(char){ return 10 + abilityMod(char.scores[4]); }   // a soul back from the Wall; clarity = 10 + WIS mod
 /*</DLGSIM>*/
 
 // ---- player character ----
@@ -429,9 +464,9 @@ function showConvList(i){
 }
 
 // ---- play engine ----
-let st=newState(), curConv=null, history=[], pendingOpts=null;
+let st=newState(), curConv=null, history=[], pendingOpts=null, loreSeen={};
 function startConv(ci){
-  curConv=CONVS[ci]; st=newState(); history=[];
+  curConv=CONVS[ci]; st=newState(); history=[]; loreSeen={};
   const start=curConv.nodes.find(n=>n.id===curConv.start)?curConv.start:curConv.nodes[0].id;
   const hue=(CAST[castSel]?CAST[castSel].hue:hue0(curConv.primarySpeaker)), sig=(CAST[castSel]?CAST[castSel].sigil:'…');
   document.getElementById("stage").innerHTML =
@@ -439,7 +474,10 @@ function startConv(ci){
        <div class="tt"><b>${curConv.demo?'✦ ':''}${esc(curConv.title)}</b><br>with ${esc(curConv.primarySpeaker)}
        <div class="youare" id="youare"></div></div></div>
      <div class="script" id="script"></div>`;
-  refreshYouAre(); renderState(); goNode(start, true);
+  refreshYouAre(); renderState();
+  // The Returned-sense — on first sight, if the soul's clarity is keen enough, perceive the unseen.
+  if(curConv.returned && returnedClarity(char) >= curConv.returned.dc){ addSense(curConv.returned.text); }
+  goNode(start, true);
 }
 function refreshYouAre(){ const el=document.getElementById("youare"); if(el) el.textContent =
   `you: ${char.name==="Custom"?"":char.name+" — "}${char.race} ${char.cls} · ${char.background} · ${char.law} ${char.morality} · ${char.deity==="None"?"Faithless":char.deity}`; }
@@ -454,6 +492,8 @@ function goNode(id, first){
   applyEffects(st, n.onEnter); applyEffects(st, n.effects); renderState();   // node entry + outcome effects
   const body=pickVariantText(n, char, st);
   addLine("", n.speaker, body || "〔(this line had no variant for your character)〕", n.speaker);
+  // LORE — 5e passive knowledge: surface what your character would recall about topics in this line.
+  glossaryHits(body, GLOSS).forEach(i=>{ const e=GLOSS[i]; if(e.skill && !loreSeen[i] && loreKnown(char, e, MODEL)){ loreSeen[i]=true; addLore(e); } });
   const opts=document.createElement("div"); opts.className="opts"; script.appendChild(opts);
   const all=n.choices||[];
   if(all.length){ pendingOpts={node:n, el:opts}; paintChoices(); }
@@ -467,7 +507,8 @@ function normCheck(ch){ // unify legacy (checkDC/checkAbility) and rich (check{}
   if(ch.checkDC) return {skill:null, ability:ch.checkAbility, dc:ch.checkDC};
   return null;
 }
-function tagFor(ch){ // BG3-style identity tag chip derived from the choice's 'when'
+function tagFor(ch){ // BG3-style identity tag chip derived from the choice's tag/when
+  if(ch.tag) return {cls:ch.tag, label:(ch.tagLabel||ch.tag.toUpperCase())};
   const w=ch.when; if(!w) return null;
   if(w.race!==undefined) return {cls:"race", label:[].concat(w.race).join("/")};
   if(w.class!==undefined) return {cls:"class", label:[].concat(w.class).join("/")};
@@ -476,6 +517,8 @@ function tagFor(ch){ // BG3-style identity tag chip derived from the choice's 'w
   if(w.law!==undefined) return {cls:"alignment", label:[].concat(w.law).join("/")};
   if(w.morality!==undefined) return {cls:"alignment", label:[].concat(w.morality).join("/")};
   if(w.ability){ const k=Object.keys(w.ability)[0]; return {cls:"stat", label:`${ABBR[k]} ${w.ability[k]}`}; }
+  if(w.int){ const k=Object.keys(w.int)[0]; if(k.indexOf("disp.")===0){ const d=DISP[k]||{name:k}; return {cls:"disp", label:`${d.name} ${roman(w.int[k])}`}; }
+    return {cls:"alignment", label:`${(INT_LABELS[k]||k)} ≥ ${w.int[k]}`}; }
   return null;
 }
 function paintChoices(){
@@ -577,12 +620,40 @@ function addLine(cls, who, body, sigilName){
   if(who && cls!=="me" && cls!=="sys"){ const c=CAST.find(x=>x.name===who), hue=c?c.hue:hue0(who), si=c?c.sigil:(who[0]||"?").toUpperCase();
     sig=`<span class="s2" style="background:hsl(${hue} 52% 62%)">${esc(si)}</span>`; }
   d.innerHTML=(who?`<div class="who">${sig}${esc(who)}</div>`:"")+`<div class="body">${cls==="sys"?esc(body):prose(body)}</div>`;
-  w.appendChild(d);
+  w.appendChild(d); if(cls!=="sys") linkifyEl(d.querySelector(".body"));
 }
+function addSense(text){ const w=document.getElementById("script"); const d=document.createElement("div"); d.className="sense";
+  d.innerHTML=`<span class="lk">✦ The Returned senses —</span><div>${prose(text)}</div>`; w.appendChild(d); linkifyEl(d); }
+function addLore(e){ const w=document.getElementById("script"); const d=document.createElement("div"); d.className="lore";
+  let h=`<span class="lk">👁 ${esc(e.skill)} (passive) — you recall:</span> ${prose(e.lore)}`;
+  if(e.secret && secretKnown(char,e,MODEL)) h+=`<div class="deep"><span class="lk" style="color:#e7c873">…and, deeper (${esc(e.secretSkill)} ${e.secretDc}):</span> ${prose(e.secret)}</div>`;
+  d.innerHTML=h; w.appendChild(d); linkifyEl(d); }
+function linkifyEl(el){ if(!el||!GLOSS_RE) return;
+  const walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null); const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  const used={};
+  nodes.forEach(node=>{ if(node.parentNode && node.parentNode.classList && node.parentNode.classList.contains("gloss")) return;
+    let txt=node.nodeValue, m, idx=0, frag=null; const re=new RegExp(GLOSS_RE.source,"gi");
+    while((m=re.exec(txt))){ const hit=GLOSS_INDEX.find(o=>o.t.toLowerCase()===m[0].toLowerCase()); if(!hit||used[hit.i]) continue; used[hit.i]=true;
+      frag=frag||document.createDocumentFragment(); frag.appendChild(document.createTextNode(txt.slice(idx,m.index)));
+      const span=document.createElement("span"); span.className="gloss"; span.dataset.k=hit.i; span.textContent=m[0]; frag.appendChild(span); idx=m.index+m[0].length; }
+    if(frag){ frag.appendChild(document.createTextNode(txt.slice(idx))); node.parentNode.replaceChild(frag,node); }
+  });
+}
+const tip=document.getElementById("tip");
+document.addEventListener("mouseover",e=>{ const g=e.target.closest&&e.target.closest(".gloss"); if(!g) return;
+  const e0=GLOSS[+g.dataset.k]; if(!e0) return; const known=loreKnown(char,e0,MODEL), deep=secretKnown(char,e0,MODEL);
+  tip.innerHTML=`<div class="tn">${esc(e0.term)}</div>${esc(e0.gloss)}`+
+    (e0.skill?(known?`<div class="tl"><b>${esc(e0.skill)} — you recall:</b> ${esc(e0.lore)}</div>`:`<div class="tl" style="color:#6e6680">(a deeper ${esc(e0.skill)} insight escapes you)</div>`):"")+
+    (deep?`<div class="tl" style="border-color:#5a4a2a"><b style="color:#e7c873">${esc(e0.secretSkill)} — and deeper:</b> ${esc(e0.secret)}</div>`:"");
+  tip.style.display="block"; moveTip(e); });
+document.addEventListener("mousemove",e=>{ if(tip.style.display==="block" && e.target.closest&&e.target.closest(".gloss")) moveTip(e); });
+document.addEventListener("mouseout",e=>{ if(e.target.closest&&e.target.closest(".gloss")) tip.style.display="none"; });
+function moveTip(e){ const pad=14,w=tip.offsetWidth||280,h=tip.offsetHeight||80; let x=e.clientX+pad,y=e.clientY+pad;
+  if(x+w>innerWidth-8) x=e.clientX-w-pad; if(y+h>innerHeight-8) y=e.clientY-h-pad; tip.style.left=Math.max(8,x)+"px"; tip.style.top=Math.max(8,y)+"px"; }
 function scrollEnd(){ window.scrollTo(0, document.body.scrollHeight); }
 function renderState(){
-  const apps=[], others=[];
-  Object.keys(st.ints).forEach(k=>{
+  const apps=[];
+  Object.keys(st.ints).forEach(k=>{ if(k.indexOf("disp.")===0) return;
     const m=k.match(/^companion\.(\w+)\.approval$/);
     if(m) apps.push({name: COMPANION_NAMES[m[1]]||m[1], v:st.ints[k]});
     else apps.push({name: INT_LABELS[k]||k, v:st.ints[k]});
@@ -593,6 +664,10 @@ function renderState(){
       return `<div class="appr"><div class="nm">${esc(a.name)}</div>
         <div class="barwrap"><div class="bar${neg?' neg':''}" style="width:${w}%;${neg?'right:50%;left:auto;':''}"></div></div>
         <div class="delta ${a.v>=0?'up':'down'}">${a.v>=0?'+':''}${a.v}</div></div>`; }).join("");
+  const disp=Object.keys(st.ints).filter(k=>k.indexOf("disp.")===0&&st.ints[k]>0).map(k=>({name:(DISP[k]||{}).name||k,hue:(DISP[k]||{}).hue||0,v:st.ints[k]}));
+  const rk=document.getElementById("reckon");
+  if(rk) rk.innerHTML = !disp.length ? `<div class="empty">Your choices haven't tilted you yet.</div>` :
+    disp.sort((a,b)=>b.v-a.v).map(d=>`<div class="reckon"><div class="nm" style="color:hsl(${d.hue} 50% 70%)">${esc(d.name)}</div><div class="pips" style="color:hsl(${d.hue} 50% 64%)">${"◆".repeat(Math.min(6,d.v))}</div><div class="rk">${roman(d.v)}</div></div>`).join("");
   const keys=Object.keys(st.bools), fl=document.getElementById("flags");
   fl.innerHTML = !keys.length ? `<div class="empty">Nothing set yet — your choices write here.</div>` :
     keys.sort().map(k=>{ const dot=k.indexOf("."); const dom=dot<0?'':k.slice(0,dot)+'·';

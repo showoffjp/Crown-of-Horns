@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v4.71.0 — *"The Whole Causeway Knows"* — the deep system reaches all 209 conversations (tooling)
+
+> Last release built the lore/sense/reckoning depth into the Market. This release **lifts it to the campaign
+> dialogue sim** — so the hover-glossary and passive 5e lore now light up across the *entire* corpus — and
+> adds a new top tier of knowledge while it's at it.
+
+- 🔗 **Shared glossary** — the 22-term cyclopedia now lives in one file (`play/lore-glossary.json`), read by
+  both the Market and the dialogue sim, so they can never drift.
+- 📖 **Hover-glossary + passive lore, campaign-wide** — every keyed term is dotted-underlined and hover-able
+  across all **209** conversations; **144 of them** already surface lore your character can passively recall.
+  (725 glossary term occurrences across the corpus.)
+- 🕳️ **Tiered lore (a new top tier)** — seven of the heaviest concepts (Kelemvor, the Wall, the Faithless,
+  Myrkul, the harvest, the Court of the Dead, the causeway) now carry a **secret** beyond the common lore —
+  a deeper, weirder, more dangerous truth (the Wall is made of the dissolving souls themselves; the Court can
+  be *petitioned*; Myrkul built the first Wall and Kelemvor merely inherited it) that only a true expert
+  (`10 + mod + proficiency ≥ a high DC`) recalls. Shown as a "…and, deeper:" continuation of the lore inset.
+- ✦ **The Returned-sense on the campaign demo** — Justiciar Vane now gets his own dead-touched perception
+  (you feel the Wall has begun to *look at him*), and **[RETURNED]**-tagged paths and a **disposition
+  reckoning** (Merciful / Devout / Ruthless / Haunted) now appear in "The Threshold" too.
+- 🧪 New gates pin the campaign-wide glossary reach, tiered-secret gating (only a high-INT proficient priest
+  reaches a DC-17 Religion secret — not even the Confessor), the demo's Returned-sense, and its disposition
+  accrual. Suite now **759 checks**, all green.
+
+---
+
 ## 👑 v4.70.0 — *"What the Dead Know"* — lore-checks, the Returned-sense, and a reckoning of dispositions (tooling + content)
 
 > A deep, idiosyncratic pass on the walkable Market, reaching for BG3 *and* Pillars-of-Eternity-level texture.

@@ -13,7 +13,8 @@ const block = h.match(/\/\*<DLGSIM>\*\/([\s\S]*?)\/\*<\/DLGSIM>\*\//);
 check("DLGSIM pure block found", !!block);
 const E = new Function(block[1] +
   "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass," +
-  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats};")();
+  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats," +
+  "glossaryHits,loreKnown,secretKnown,returnedClarity};")();
 
 // modifier = floor((score-10)/2), exactly as Abilities.cs
 check("abilityMod: 10 -> +0", E.abilityMod(10) === 0);
@@ -172,6 +173,27 @@ check("a passive [INSIGHT] option hides below its DC and shows (auto) above it",
   E.choiceAvailable(warden, E.newState(), insightOpt, false, MODEL) === true);
 
 function st2set(k){ const s = E.newState(); s.bools[k] = true; return s; }
+
+// ---- lore glossary (shared) + Returned-sense + dispositions, now on the campaign sim ----
+const GLOSS = DATA.glossary;
+check("shared glossary embedded with tiered lore", Array.isArray(GLOSS) && GLOSS.length >= 15 &&
+  GLOSS.some(e => e.skill && e.lore) && GLOSS.some(e => e.secret && e.secretSkill));
+check("glossaryHits finds campaign terms", E.glossaryHits("the Wall of the Faithless and Kelemvor's Doomguides", GLOSS).length >= 2);
+const kelG = GLOSS.find(e => e.term === "Kelemvor");
+check("a proficient cleric recalls lore a dullard misses", E.loreKnown(confessor, kelG, MODEL) === true &&
+  E.loreKnown({ cls: "Fighter", scores: [16, 14, 15, 8, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "None" }, kelG, MODEL) === false);
+const kelSecret = GLOSS.find(e => e.term === "Kelemvor" && e.secret);   // a Religion secret, DC 17
+const highPriest = { cls: "Cleric", scores: [10, 10, 12, 18, 18, 12], race: "Human", background: "Acolyte", law: "Lawful", morality: "Good", deity: "Kelemvor" };
+const grunt = { cls: "Fighter", scores: [16, 14, 15, 8, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "None" };
+check("only a true savant recalls the deepest secret", kelSecret &&
+  E.secretKnown(highPriest, kelSecret, MODEL) === true && E.secretKnown(grunt, kelSecret, MODEL) === false &&
+  E.secretKnown(confessor, kelSecret, MODEL) === false);   // even the Confessor (INT 11) can't reach a DC-17 Religion secret
+check("the demo carries a Returned-sense + Wisdom clarity", demo.returned && demo.returned.text &&
+  E.returnedClarity(confessor) === 10 + E.abilityMod(confessor.scores[4]));
+const dispKeys = new Set();
+demo.nodes.forEach(n => (n.effects || []).concat(...(n.choices || []).map(c => c.effects || []))
+  .forEach(e => { if (e && e.key && e.key.indexOf("disp.") === 0) dispKeys.add(e.key); }));
+check("the demo accrues dispositions (a reckoning)", dispKeys.size >= 3);
 
 // ---- headless playability sweep: auto-walk EVERY conversation through the real traversal
 // rules the UI uses (apply onEnter, take the first allowed choice / success branch / auto),
