@@ -244,6 +244,8 @@ check("a trivial check flags 'only a nat 1 can fail you'", trivial.onlyNat1 === 
 check("an impossible check flags 'only a nat 20 can save you'", brutal.onlyNat20 === true && brutal.onlyNat1 === false);
 check("the pre-roll panel is wired (breakdown + a ROLL button)", h.includes("function rollPreview(") && h.includes("ROLL THE DICE") && h.includes("rollBreakdown(char,chk,MODEL)") && h.includes(".rollprev{"));
 check("choosing a check shows the preview before rolling (no instant auto-roll)", h.includes("rollPreview(ch,chk,bonus,resolve)"));
+check("a real faceted d20 tumbles, lands & flares on crits", h.includes("const D20_SVG") && h.includes("<polygon points=") &&
+  h.includes("@keyframes tumble") && h.includes("@keyframes dland") && h.includes("d20wrap.nat20") && h.includes("d20wrap.nat1"));
 
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];

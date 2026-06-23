@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v4.77.0 — *"The Die is Cast"* — an actual rolling d20 animation (system)
+
+> The flicker-die is gone. In its place: a **real, faceted d20** that tumbles in 3D, bounces when it lands,
+> flares **gold** on a natural 20, and shudders **red** on a natural 1 — and it's drawn entirely in code, so it
+> stays a single self-contained file with zero external art.
+
+- 🎲 **A procedural d20** (a five-facet SVG icosahedron, violet-and-silver) that:
+  - **tumbles** — a looping 3D `rotateX/Y/Z` spin while the number flickers;
+  - **lands** with a satisfying spring **bounce** (overshoot → settle), the number locking on the final face;
+  - **flares gold** with a radial burst-ring on a `✦ NAT 20!`, and **dims red with a shudder** on a `💀 NAT 1!`;
+  - keeps the **fanfare / sad-trombone** SFX from the crit system.
+- 🧩 Wired into **both** the market and the campaign dialogue sim, downstream of the pre-roll anticipation panel
+  — so the full flow is now: *see the breakdown → press ROLL → watch the d20 tumble & bounce → it flares on a
+  crit → the bespoke comedy fires.* Pure CC0 (procedural SVG + CSS keyframes), no external art.
+- 🧪 New gate confirms the d20 geometry and the tumble/land/crit animations are wired. Suite now **793 checks**,
+  all green.
+
+---
+
 ## 👑 v4.76.0 — *"See the Roll Before You Make It"* — the BG3 pre-roll anticipation panel (system)
 
 > Like Baldur's Gate 3, an active check no longer just *happens.* Pick it, and a panel lays the whole thing

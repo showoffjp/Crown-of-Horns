@@ -174,6 +174,20 @@ HTML = r"""<!DOCTYPE html>
  .dice .res.crit{color:#ffe9a8;text-shadow:0 0 10px #e7c87399;animation:critpop .4s ease}
  .dice .res.fumble{color:#ffb0b0;text-shadow:0 0 10px #d06f6f99;animation:critpop .4s ease}
  @keyframes critpop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+ .d20wrap{position:relative;width:58px;height:58px;flex:0 0 auto;perspective:320px}
+ .d20face{width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
+ .d20face svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 5px #000a)}
+ .dnum{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 19px "Iowan Old Style",Georgia,serif;color:#1a1424;text-shadow:0 1px 0 #ffffff66;pointer-events:none}
+ .d20face.rolling{animation:tumble .42s linear infinite}
+ @keyframes tumble{0%{transform:rotateX(8deg) rotateY(0) rotateZ(0)}100%{transform:rotateX(368deg) rotateY(360deg) rotateZ(120deg)}}
+ .d20face.land{animation:dland .66s cubic-bezier(.2,1.4,.35,1)}
+ @keyframes dland{0%{transform:translateY(-16px) scale(1.35) rotateZ(26deg)}40%{transform:translateY(2px) scale(.9) rotateZ(-6deg)}70%{transform:translateY(-2px) scale(1.04) rotateZ(2deg)}100%{transform:translateY(0) scale(1) rotateZ(0)}}
+ .d20wrap.nat20 .d20face svg{filter:drop-shadow(0 0 11px #e7c873dd) brightness(1.18) saturate(1.3)}
+ .d20wrap.nat20::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid #e7c87377;animation:dburst .65s ease-out forwards;pointer-events:none}
+ @keyframes dburst{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.7);opacity:0}}
+ .d20wrap.nat1 .d20face svg{filter:drop-shadow(0 0 11px #d06f6fcc) saturate(.5) brightness(.82)}
+ .d20wrap.nat1{animation:dshudder .5s ease}
+ @keyframes dshudder{0%,100%{transform:translateX(0)}20%{transform:translateX(-3px)}40%{transform:translateX(3px)}60%{transform:translateX(-2px)}80%{transform:translateX(2px)}}
  .rollprev{background:linear-gradient(#1a1626,#14111d);border:1px solid #4a4368;border-radius:11px;padding:13px 15px;margin:2px 0;animation:fade .25s ease}
  .rp-head{font-size:13px;color:#e7c873;font-weight:600;letter-spacing:.4px;margin-bottom:9px}.rp-head span{color:#9a90b4;font-weight:400;font-size:11.5px}
  .rp-calc{font-size:13px;color:#cfc6dc;margin-bottom:7px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
@@ -250,6 +264,13 @@ const DISP = {
   "disp.stoic":{name:"Stoic",hue:210}, "disp.haunted":{name:"Haunted",hue:265}
 };
 function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][Math.min(10,Math.abs(n))]||(""+n); }
+// A faceted d20, drawn procedurally (no external art) — tumbles in 3D, bounces on landing.
+const D20_SVG = '<svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#2e2940" stroke-width="1.3" stroke-linejoin="round">'+
+  '<polygon points="11,27.5 50,5 89,27.5 50,24" fill="#b9a8e0"/>'+
+  '<polygon points="89,27.5 89,72.5 73,66 50,24" fill="#7a6aa8"/>'+
+  '<polygon points="11,27.5 50,24 27,66 11,72.5" fill="#6a5a9a"/>'+
+  '<polygon points="11,72.5 27,66 73,66 89,72.5 50,95" fill="#473c6e"/>'+
+  '<polygon points="50,24 27,66 73,66" fill="#d4c4f4"/></g></svg>';
 // glossary lookup tables for inline linking (longest term first so "the Wall of the Faithless" beats "the Wall")
 const GLOSS_INDEX = (function(){ const a=[]; GLOSS.forEach((e,i)=>{ [e.term].concat(e.aka||[]).forEach(t=>a.push({t:t,i:i})); });
   a.sort((x,y)=>y.t.length-x.t.length); return a; })();
@@ -577,17 +598,17 @@ function offerForced(ch,chk,bonus,resolve){ const box=document.createElement("di
   box.appendChild(mk("💀 NATURAL 1 — critical failure","bad",{success:false,crit:false,fumble:true},"natural 1"));
   document.getElementById("dscript").appendChild(box); document.getElementById("dscript").scrollTop=1e9; }
 function rollDice(chk,bonus,onRaw){ const wrap=document.createElement("div"); wrap.className="dice";
-  wrap.innerHTML=`<div class="d20 rolling" id="d20m">?</div><div class="calc">rolling ${chk.skill||ABBR[chk.ability]}…</div>`;
+  wrap.innerHTML=`<div class="d20wrap" id="d20w"><div class="d20face rolling">${D20_SVG}</div><span class="dnum">?</span></div><div class="calc">rolling ${chk.skill||ABBR[chk.ability]}…</div>`;
   const sc=document.getElementById("dscript"); sc.appendChild(wrap); sc.scrollTop=1e9; sfx('dice');
-  let ticks=0; const die=wrap.querySelector("#d20m"), calc=wrap.querySelector(".calc");
-  const spin=setInterval(()=>{ die.textContent=1+Math.floor(Math.random()*20); if(++ticks>=12){ clearInterval(spin); land(); } },42);
+  let ticks=0; const w=wrap.querySelector("#d20w"), face=wrap.querySelector(".d20face"), num=wrap.querySelector(".dnum"), calc=wrap.querySelector(".calc");
+  const spin=setInterval(()=>{ num.textContent=1+Math.floor(Math.random()*20); if(++ticks>=16){ clearInterval(spin); land(); } },45);
   function land(){ const raw=1+Math.floor(Math.random()*20), total=raw+bonus, r=rollResult(raw,chk.dc,bonus);
-    die.classList.remove("rolling"); die.textContent=raw;
-    die.classList.toggle("nat20",r.crit); die.classList.toggle("nat1",r.fumble);
+    num.textContent=raw; face.classList.remove("rolling"); void face.offsetWidth; face.classList.add("land");
+    w.classList.toggle("nat20",r.crit); w.classList.toggle("nat1",r.fumble);
     calc.innerHTML=`${raw} ${bonus>=0?'+':'−'} ${Math.abs(bonus)} <b>= ${total}</b> vs DC ${chk.dc}`;
     const res=document.createElement("div"); res.className="res "+(r.success?"ok":"bad")+(r.crit?" crit":"")+(r.fumble?" fumble":"");
     res.textContent = r.crit?"✦ NAT 20!" : r.fumble?"💀 NAT 1!" : (r.success?"SUCCESS":"FAIL"); wrap.appendChild(res);
-    sfx(r.crit?'crit':r.fumble?'fumble':r.success?'good':'bad'); setTimeout(()=>onRaw(raw),700); } }
+    sfx(r.crit?'crit':r.fumble?'fumble':r.success?'good':'bad'); setTimeout(()=>onRaw(raw),820); } }
 function endScene(){ const sc=document.getElementById("dscript"); const e=document.createElement("div"); e.className="ending"; e.textContent="▪ The conversation comes to rest."; sc.appendChild(e);
   const b=document.createElement("button"); b.className="leavebtn"; b.textContent="↩ back to the market"; b.onclick=closeDialogue; sc.appendChild(b); sc.scrollTop=1e9; }
 
