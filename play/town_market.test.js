@@ -27,7 +27,7 @@ const bm = h.match(/const BUILDS = (\[[\s\S]*?\]);\nconst INT_LABELS/);
 const BUILDS = JSON.parse(bm[1]);
 
 // scene integrity
-check("scene has three named NPCs", SCENE.npcs.length === 3 && SCENE.npcs.every(n => n.name && n.conv && n.sigil));
+check("scene has the named NPCs", SCENE.npcs.length >= 6 && SCENE.npcs.every(n => n.name && n.conv && n.sigil));
 check("scene has a walkable grid", SCENE.w >= 8 && SCENE.h >= 6);
 check("scene has props (stalls, fountain, …)", SCENE.props.length >= 5 && SCENE.props.some(p => p.type === "fountain") && SCENE.props.some(p => p.type === "stall"));
 check("player start is inside the grid", SCENE.playerStart.x >= 0 && SCENE.playerStart.x < SCENE.w && SCENE.playerStart.y >= 0 && SCENE.playerStart.y < SCENE.h);
@@ -135,6 +135,28 @@ check("a disposition-gated line is hidden at 0 and unlocked once merciful (PoE-s
   E.choiceAvailable(confessor, E.newState(), mercyGate, MODEL) === false &&
   E.choiceAvailable(confessor, merciful, mercyGate, MODEL) === true);
 
+// ---- cross-NPC interplay (a Pillars/BG3 hallmark): what you do at one soul changes another ----
+const tallow = CONVS.find(c => c.id === "market.tallow");
+const wren = CONVS.find(c => c.id === "market.wren");
+check("the three new souls are present", tallow && wren && CONVS.find(c => c.id === "market.calix"));
+const setsFlag = (conv, flag) => conv.nodes.some(n =>
+  (n.effects || []).some(e => e.key === flag) || (n.choices || []).some(ch => (ch.effects || []).some(e => e.key === flag)));
+check("protecting/betraying Wren is written at Tallow", setsFlag(tallow, "market.protected_wren") && setsFlag(tallow, "market.betrayed_wren"));
+const wrenVar = (flag) => wren.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.flag === flag);
+check("Wren reacts to having been protected, and to having been betrayed", wrenVar("market.protected_wren") && wrenVar("market.betrayed_wren"));
+// a protected Wren greets you differently than an untouched one
+const wn0 = wren.nodes.find(n => n.id === "0");
+const protectedSt = E.newState(); protectedSt.bools["market.protected_wren"] = true;
+const goodGuy = { cls: "Fighter", scores: [14, 14, 14, 12, 12, 12], race: "Human", background: "Folk Hero", law: "Neutral", morality: "Good", deity: "None" };
+check("a protected Wren opens with gratitude she wouldn't give a stranger",
+  E.pickVariantText(wn0, goodGuy, protectedSt) !== E.pickVariantText(wn0, goodGuy, E.newState()) &&
+  /thank you/i.test(E.pickVariantText(wn0, goodGuy, protectedSt)));
+// Tallow's [DECEPTION] cover only appears once you've actually met Wren (a real flag-gate, not a passive skill)
+const decOpt = tallow.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Deception");
+const metWren = E.newState(); metWren.bools["market.met_wren"] = true;
+check("you can only vouch for Wren to Tallow after you've met her", decOpt && decOpt.when && decOpt.when.flag === "market.met_wren" &&
+  E.choiceAvailable(goodGuy, metWren, decOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), decOpt, MODEL) === false);
+
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
 function autoPlay(conv, who) {
@@ -172,8 +194,8 @@ check("character builder wired (race/class/deity/alignment)", h.includes("functi
 check("self-contained (no external script/img refs)", !/src="(?!data:)[^"]+\.(png|jpg|jpeg|js)"/.test(h));
 check("links home to the index", h.includes('href="index.html"'));
 
-console.log(`\n  The Market of the Causeway — walkable scene + 3 reactive NPCs:`);
+console.log(`\n  The Market of the Causeway — walkable scene + reactive NPCs:`);
 for (const f of fails) console.log("  ✗ " + f);
 console.log(`  ${pass} passed, ${fail} failed`);
-if (!fail) console.log(`  ✓ scene sound, all 3 NPC trees complete for all 5 builds, reactive engine matches the C# rules.\n`);
+if (!fail) console.log(`  ✓ scene sound, all NPC trees complete for all 5 builds, reactive engine matches the C# rules.\n`);
 process.exit(fail ? 1 : 0);

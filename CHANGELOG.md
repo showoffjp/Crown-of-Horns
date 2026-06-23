@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.72.0 — *"Six Souls on the Causeway"* — the market doubles, and their fates interlock (content)
+
+> You asked to flesh it all out with as much quality dialogue as we can — so the walkable Market grows from
+> three souls to **six**, **35 → 71 dialogue beats**, and for the first time the NPCs' fates **interlock** the
+> way they do in BG3 and Pillars: what you do to one changes how another meets you.
+
+- ⛪ **Brother Calix, a doubting Doomguide** — a young priest of Kelemvor at a shrine-cart, breaking under the
+  doctrine he's sworn to. Reactive to faith (kin / heretic / the Faithless he can't bear to condemn), with
+  Religion & Insight passive checks, a Persuasion to talk him off the causeway, a **[HERETICAL]** line gated
+  on your own disposition, and a **[RETURNED]** path where you show him he's slowly *freezing into the Wall he
+  guards.* The Returned-sense reads the cold already creeping up his knees.
+- 🍎 **Wren, the harvest-marked** — a godless woman buying winter apples with three days to live and no one to
+  tell. The emotional core: the Returned-sense perceives the death-mark on her like *cold light* the instant
+  you approach. Help her flee to Hessa's smugglers, tell her the gentle truth, or lean on your uncanny nature
+  — Medicine / Insight / Perception checks, real stakes.
+- 🎩 **Goodman Tallow, the Choir's watcher** — a smiling, forgettable man who hunts the godless for coin and
+  feeds their names to the harvest. Insight to see what he is, Religion to indict him, Intimidation to drive
+  him off, **Deception** to throw him off Wren's scent — or sell her out for a disposition you'll have to live
+  with. A **[RETURNED]** path unnerves even him: *the Wall is reaching for you, too, Goodman.*
+- 🔗 **Interlocking fates (the headline).** Tallow hunts Wren; the church Calix serves does the marking. Drive
+  Tallow off (deceive / cow / out-doctrine him) and Wren greets you next as the saviour who *bought her a day*;
+  hand him her name and she flees you in terror, knowing it was you. Cross-NPC flag-gated greetings, exactly
+  the reactivity that makes a town feel alive.
+- 🧪 New gates pin the three souls, the cross-NPC interplay (protect/betray written at Tallow → read in Wren's
+  greeting), and the meet-Wren-first gate on the Deception cover; all six trees complete for all five builds.
+  Suite now **764 checks**, all green.
+
+---
+
 ## 👑 v4.71.0 — *"The Whole Causeway Knows"* — the deep system reaches all 209 conversations (tooling)
 
 > Last release built the lore/sense/reckoning depth into the Market. This release **lifts it to the campaign
