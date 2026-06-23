@@ -25,6 +25,7 @@ ALDRIC = json.load(open(os.path.join(ROOT, "play", "aldric.json"), encoding="utf
 WAYSHRINE = json.load(open(os.path.join(ROOT, "play", "wayshrine.json"), encoding="utf-8"))
 THRESHOLD = json.load(open(os.path.join(ROOT, "play", "threshold.json"), encoding="utf-8"))
 NIGHTMARKET = json.load(open(os.path.join(ROOT, "play", "nightmarket.json"), encoding="utf-8"))
+VAULT = json.load(open(os.path.join(ROOT, "play", "vault.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -82,6 +83,10 @@ INT_LABELS = {
     "nm.mnemo.regard": "the Lost-and-Found's regard",
     "nm.regular.regard": "the Regular's regard",
     "nm.years_given": "years you've traded away",
+    "vault.warden.regard": "the Warden of Tens' regard",
+    "vault.pedant.regard": "the Petrified Pedant's regard",
+    "vault.tithe.regard": "the Tenth's trust in you",
+    "vault.riddle_won": "riddles bested",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -129,24 +134,27 @@ NPC_SENSE = {
     "nm.pawn": {"dc": 13, "text": "*(You turn your sense on the long thin merchant and find no soul at all in the ordinary sense — only an *appetite* given shape, a thing made of *patience* and *other people's unspent time*, slowly, slowly accreting toward the one thing it lacks and craves: a life of its own, a first-hand one, with a death at the end it gets to choose. It is not evil so much as *starving* in a way that has no bottom, and it is building itself a body a stolen decade at a time. The horror your sense reads is how *fair* it is. It pays. It says thank you. It is the only thing on the causeway that does.)*"},
     "nm.mnemo": {"dc": 11, "text": "*(The keeper of the jars reads, to your sense, as a soul worn almost to transparency — and you understand at once that she is a customer who never left, who traded away her whole life to this place a piece at a time until only one memory remained, and who built a shop around that last warm jar so she would never have to be alone with the knowledge of what she spent. She grieves every memory she keeps because each one is proof of the trade that emptied her. She is the Night Market's warning, wearing an apron.)*"},
     "nm.regular": {"dc": 10, "text": "*(You reach for the threadbare shade and find barely anything to hold — a habit, a cheer, a set of empty pockets where a soul used to be. It sold itself to this place trade by trade, beginning with a single grief it wanted to be rid of, and learned too late that the ache was the love, and the love was the self. It cannot leave because it sold the memory of the door, the memory of why it came, the memory of who it was grieving. It is what the Hunger looks like from the *inside*, mid-process, still smiling. It is also, your sense insists, still *someone* — for exactly as long as one other soul refuses to let it be no one.)*"},
+    "vault.warden": {"dc": 14, "text": "*(You turn your sense on the great bronze head and find, behind the boredom and the bell-toll voice, a soul — an actual soul, bound into the metal so long ago it has half-forgotten it was ever anything else. It volunteered, once, thinking it an honour to guard. The binding made it a thing that asks; the centuries made it a thing that is bored; and the boredom, your sense reads with a chill, is just loneliness wearing armour. It has mortared a thousand clever souls into its walls not from cruelty but because none of them ever once saw the lonely person inside the lock. It does not want to be solved. It wants to be visited.)*"},
+    "vault.pedant": {"dc": 11, "text": "*(The half-stone scholar reads, to your sense, as a soul caught at the exact instant of its worst quality: pride, fossilised. He was clever and correct and so busy being both that he never noticed the riddle was never about being right. The stone took him from the boots up while he was still citing his sources. But under the petrified vanity there is a live and decent grief now — for the cage he never asked about, the person he never saw, the turn he spent on himself. He has had a very long time to become humble, and is most of the way there, which is the cruellest place to be: wise, and rooted to the spot.)*"},
+    "vault.tithe": {"dc": 9, "text": "*(You reach for the small soul in the alcove and your sense recoils from the slow horror of it: not a treasure, not a monster — a person, a lamp-lighter named Sela, taken as the living stake at the centre of a binding because a game needs something to be at risk. Centuries of clever strangers have come to win the door behind her and walked past the cage without once meeting her eyes, and she has begun, under all that looking-through, to believe she is what they called her — a thing, a tithe, a tenth — and to forget her own name. She is not dying. She is being slowly un-personed by inattention, which your sense knows for the truest face of the Hunger there is.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-           + THRESHOLD["conversations"] + NIGHTMARKET["conversations"]):
+           + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-             + THRESHOLD["conversations"] + NIGHTMARKET["conversations"])
+             + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
               HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"],
               WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"],
-              NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"]}
+              NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -293,7 +301,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">eleven walkable zones · a whole Act + a market that trades in years · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">twelve walkable zones · a whole Act + a barter market + a riddle-vault where wit beats correctness · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">

@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.89.0 — *"The Vault of Tens"* — a twelfth zone: a riddle-puzzle where wit beats correctness (content)
+
+> The last core interaction the game wants is a **puzzle** — and the bible's "Vault of Tens" gets built: a
+> riddle-chamber guarded by a bored bronze head, where the trap is *being right*, and the real answer is *seeing
+> the person in the cage.*
+
+- 🔟 **A twelfth zone — the Vault of Tens.** Reached behind the Underbridge's foundations, completing a
+  **twelve-zone connected map** (test-proven, and the test now verifies the whole graph is reachable). Built
+  entirely from the existing prop vocabulary — no new art.
+- 🧩 **A puzzle interaction where wit beats correctness.** The **Warden of Tens** poses the oldest riddle in the
+  world — and the *correct* answer ("Time") earns a flat *"correct"* and the **stone creeping up your boots**,
+  because the Warden has been bored to bronze by ten thousand reciters. A **clever-wrong** answer (answer the
+  *room*, not the book), a **foolish-true** one (insult it to its face), or **refusing the game** to talk to the
+  lonely soul *inside* the lock — each makes the bronze head *laugh* and wins. Knowledge is the trap; *surprise*
+  is the key.
+- 🪶 **Two souls who are the puzzle's real meaning:** the **Petrified Pedant** (turned to rock for being
+  *flawlessly, tediously right*, now begging you to be the *delightful fool* he couldn't), and the **Tenth** —
+  *Sela*, a lamp-lighter taken as the living stake at the centre of the binding, slowly un-personed by centuries
+  of clever strangers who came to win the *door* and walked past her *cage.* Learn her name, and you can answer
+  the Warden's riddle with the only answer that ends the game: *the thing with a hundred names that the rich and
+  poor both spend and can't keep is a* person, *treated as a prize.* Free her — and, if you ask, every "wrong
+  answer" mortared in the walls.
+- 🎭 Full deep stack: reactive greetings, the **Returned-sense** on each soul, a Returned line apiece,
+  dispositions; and an accumulating **riddles-bested** count surfaced in the ledger.
+- 🧪 **+5 gates** (now **934 checks**, all green): the twelfth zone is keyed/reachable/collision-clean, the
+  twelve-zone map is *fully* connected (every zone reachable from the market), wit-beats-correctness is verified
+  (clever-wrong wins, correct petrifies), naming Sela gates on learning her name, and freeing the prisoner — not
+  the hoard — is the real solve. The walkable Act now spans **12 zones and 42 souls.**
+
+---
+
 ## 👑 v4.88.0 — *"The Night Market"* — an eleventh zone: breadth, weirdness, and a barter/shop interaction (content)
 
 > The narrative spine is complete, so this one adds *breadth* — a surreal palette-cleanser off the hub, and the

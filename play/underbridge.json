@@ -17,7 +17,8 @@
       { "type": "crate", "x": 1, "y": 5 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 6 }, "label": "◂ up the stair to the market" }
+      { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 6 }, "label": "◂ up the stair to the market" },
+      { "x": 5, "y": 0, "to": "vault", "dest": { "x": 5, "y": 7 }, "label": "▾ down, behind the foundations — the Vault of Tens" }
     ],
     "npcs": [
       { "id": "wick", "name": "Wick", "title": "Pip's little brother", "x": 3, "y": 6, "hue": 150, "sigil": "Wk", "conv": "under.wick",

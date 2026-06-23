@@ -813,9 +813,35 @@ check("a witness can carry a spent soul out by remembering it (ties to the saga'
 check("each Night-Market vendor offers a [RETURNED] line", [pawn, mnemo, regular].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 
+// ---- twelfth zone: the Vault of Tens — a puzzle interaction where wit beats correctness ----
+const VAULT = SCENES && SCENES.vault;
+check("a twelfth zone (the Vault of Tens) ships too", VAULT && VAULT.npcs.length >= 3);
+check("a hidden way from the Underbridge reaches the Vault", (SCENES.underbridge.exits || []).some(x => x.to === "vault"));
+const vWarden = CONVS.find(c => c.id === "vault.warden");
+check("the Vault's riddle-game rewards wit over correctness (the clever-wrong answer wins; the correct one petrifies)", vWarden && (() => {
+  const r = vWarden.nodes.find(n => n.id === "1");
+  const correct = r.choices.find(ch => /\bTime\b/.test(ch.text) && ch.next === "warden_correct");
+  const witty = r.choices.find(ch => ch.next === "warden_witty");
+  const stoneNode = vWarden.nodes.find(n => n.id === "warden_correct");
+  return correct && witty && stoneNode && (stoneNode.effects || []).some(e => e.key === "vault.stoning");
+})());
+check("naming the caged soul (Sela) is gated on having learned her name, and breaks the binding", (() => {
+  const r = vWarden.nodes.find(n => n.id === "1");
+  const selaOpt = r.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("vault.knows_sela") >= 0);
+  const knows = E.newState(); knows.bools["vault.knows_sela"] = true;
+  return selaOpt && E.choiceAvailable(goodGuy, knows, selaOpt, MODEL) === true &&
+    E.choiceAvailable(goodGuy, E.newState(), selaOpt, MODEL) === false;
+})());
+check("the real solve is freeing the prisoner, not taking the hoard", vWarden.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "vault.freed_tithe")));
+
 // ---- grand totals across the whole walkable Act ----
-check("the playable Act spans eleven connected zones and 35+ souls", Object.keys(SCENES).length === 11 &&
-  Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 35);
+check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
+  Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
+    const seen = new Set(["market"]); const q = ["market"];
+    while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+    return seen.size === Object.keys(SCENES).length;
+  })());
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
