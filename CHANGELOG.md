@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v4.74.0 — *"Your Reputation Precedes You"* — dispositions the NPCs react to (system + content)
+
+> The deepest Pillars-of-Eternity trick, now live: because your **reckoning persists across the whole visit**,
+> the souls you meet *later* read who you've *become* and greet you accordingly. Reputation that arrives before
+> you do — earned with one soul, spent on the next.
+
+- 🪞 **Disposition-reactive greetings** across the four newest souls. Spend the morning being **merciful** and:
+  - **Wren** meets you as *"the gentle one they've been whispering about… then maybe you're safe,"* the held
+    breath of her whole morning finally let go;
+  - **Brother Calix** steadies just to watch you cross the square — *"watching you is the first thing in a year
+    that's made me think mercy might not be a heresy."*
+  - Spend it being **ruthless**, and **Goodman Tallow** welcomes you as kindred — *"a soul with a practical
+    turn… we should be friends"* — while Wren goes small and grey and prays you'll find someone else to be
+    whatever you are at.
+  - Carry the **haunted** cold and **Mad Joss** knows you on sight — *"you've got a whole winter in you… sit
+    with the only other soul who's been listening as long as you have."* Be a **heretic** and he hails a fellow
+    god-burner.
+- 🥇 **Identity still outranks reckoning where it's iconic** — a Faithless or Myrkul-marked soul gets their own
+  greeting regardless of disposition; the reckoning catches everyone else. (Variant priority: identity →
+  disposition → default.)
+- 🧪 New gates pin the reactive greetings (merciful → Wren's gratitude, ruthless → Tallow's welcome, haunted ≠
+  heretical for Joss) and prove identity precedence holds. All seven trees still complete for all five builds.
+  Suite now **776 checks**, all green.
+
+---
+
 ## 👑 v4.73.0 — *"Fifty Ways to Answer a Madman"* — the complexity ceiling, demonstrated (content + system)
 
 > The thesis you described — *the player sees four or five options, but there could be 30+ behind them, gated by

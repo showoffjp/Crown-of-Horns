@@ -157,6 +157,28 @@ const metWren = E.newState(); metWren.bools["market.met_wren"] = true;
 check("you can only vouch for Wren to Tallow after you've met her", decOpt && decOpt.when && decOpt.when.flag === "market.met_wren" &&
   E.choiceAvailable(goodGuy, metWren, decOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), decOpt, MODEL) === false);
 
+// ---- dispositions NPCs REACT to: your reckoning, earned earlier in the visit, changes how later souls greet you ----
+const reckon = (key, n) => { const s = E.newState(); s.ints[key] = n; return s; };
+const plainSoul = { cls: "Wizard", scores: [12, 12, 12, 12, 12, 12], race: "Gnome", gender: "Female", background: "Sage", law: "Neutral", morality: "Neutral", deity: "Oghma" };
+const wren0 = wren.nodes.find(n => n.id === "0");
+check("a merciful reputation changes how Wren greets you", wren0.variants.some(v => v.when && v.when.int && v.when.int["disp.merciful"]) &&
+  E.pickVariantText(wren0, plainSoul, reckon("disp.merciful", 2)) !== E.pickVariantText(wren0, plainSoul, E.newState()) &&
+  /gentle|kind/i.test(E.pickVariantText(wren0, plainSoul, reckon("disp.merciful", 2))));
+const tallow0 = tallow.nodes.find(n => n.id === "0");
+check("a ruthless reputation makes Tallow welcome you as kindred", /practical|friends|grateful/i.test(E.pickVariantText(tallow0, plainSoul, reckon("disp.ruthless", 2))) &&
+  E.pickVariantText(tallow0, plainSoul, reckon("disp.ruthless", 2)) !== E.pickVariantText(tallow0, plainSoul, reckon("disp.merciful", 2)));
+const calix0 = CONVS.find(c => c.id === "market.calix").nodes.find(n => n.id === "0");
+const joss0 = CONVS.find(c => c.id === "market.joss").nodes.find(n => n.id === "0");
+check("Calix and Joss both have disposition-reactive openings", calix0.variants.some(v => (v.when || {}).int) && joss0.variants.some(v => (v.when || {}).int));
+check("a haunted soul gets a different welcome than a heretical one (Joss)",
+  E.pickVariantText(joss0, plainSoul, reckon("disp.haunted", 2)) !== E.pickVariantText(joss0, plainSoul, reckon("disp.heretical", 2)));
+// but identity still wins over disposition where it's iconic: a Faithless player gets the godless greeting
+// whether or not they're haunted (the deity variant precedes the disposition one in the list)
+const faithlessSoul = { ...plainSoul, deity: "None" };
+check("identity greetings still outrank disposition ones",
+  E.pickVariantText(joss0, faithlessSoul, reckon("disp.haunted", 2)) === E.pickVariantText(joss0, faithlessSoul, E.newState()) &&
+  E.pickVariantText(joss0, faithlessSoul, E.newState()) !== E.pickVariantText(joss0, plainSoul, reckon("disp.haunted", 2)));
+
 // ---- the "30+ authored options, you see a handful" thesis (Mad Joss's mega-node) ----
 const joss = CONVS.find(c => c.id === "market.joss");
 const mega = joss.nodes.find(n => n.id === "1");
