@@ -11,6 +11,42 @@
 
 ---
 
+## 👑 v4.80.0 — *"The Underbridge"* — a third walkable zone, and a thread that ties the saga together (content)
+
+> The triptych is complete. From the market you can now take the **stair down** into the dark under the
+> great causeway-span — the **Underbridge**, where the souls the bright places can't use shelter in the cold.
+> It pays off the *other* flame your Returned-sense felt in the market, and it knots the river's deepest
+> secret back into the world.
+
+- 🌉 **A third zone — the Underbridge.** New code-drawn props (bridge-pillars, a guttering brazier, a loom, a
+  pallet, hanging banners), reached by a second market exit. Three zones now share one visit-state; the market
+  is the hub, with the river one way and the stair the other.
+- 🕯️ **Wick** — Pip's dying little brother, the second guttering flame you sense from the market. A nine-year-old
+  who has already, quietly, made his peace — and is afraid of exactly one thing: what happens to **Pip** after.
+  You can read him with a healer's eye (Medicine), tell him the Judge's gentle truth (Religion/Kelemvor), give
+  him a fight to be *in* rather than be grieved at (Persuasion crit: he blazes up *"Wren'd be proud — it's the
+  family trade now"*; fumble: you accidentally declare war on his cough), or, as a Returned, tell him true what's
+  across — he's the one soul who'd rather *know.*
+- 🧶 **the Knotwife** — a blind weaver of bridge-banners who shelters the orphans and weaves burial-banners for the
+  souls the Choir won't bury. **She's the Reed-Wife's old guild-sister.** If you learned at the river that *the
+  knot has a name*, she startles — and gives you the four-centuries-buried truth: the crossing was built not by a
+  god but by a **living clerk, Chancellor Aldous Venn**, who signed his name into the third bridge-pier to make
+  grief *efficient* — and she's kept the unpicking-pattern ready her whole blind life for the one soul who could
+  cut it.
+- 🧒 **Pip, again** — keeping a six-day watch over her brother, and she greets you on what you did upstairs: warm
+  if you helped her in the market, feral if you scared her with the Watch.
+- 🔗 **The cross-zone web tightens:** `market.helped_pip` / `market.scared_pip` gate Pip's welcome; the Knotwife's
+  Chancellor-Venn revelation is gated on `reed.knot_has_a_name` learned from the drowned weaver downriver — the
+  river and the bridge are now one story.
+- 🎭 Full deep stack carries over: reactive identity/flag/disposition greetings, **nat-20/nat-1 crit & fumble
+  comedy**, the **Returned-sense** on each soul, a Returned dialogue line apiece, and a greywort quest-thread to
+  fetch the cure from past the last torch.
+- 🧪 **+12 gates** (now **825 checks**, all green): the third zone is keyed, reachable, collision-clean; the market
+  has its two exits; and the marquee cross-zone payoffs are proven — Pip's welcome flips on the market flags, and
+  the Knotwife's buried history unlocks only once you've heard the phrase at the river.
+
+---
+
 ## 👑 v4.79.0 — *"The Reed-Walk"* — a second walkable zone, and a river that remembers (content + system)
 
 > The market was an island. Now it has a **shore.** Walk to the bottom of the square, step onto a glowing

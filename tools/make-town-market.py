@@ -16,6 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEMO = json.load(open(os.path.join(ROOT, "play", "dialogue-demo.json"), encoding="utf-8"))
 MKT = json.load(open(os.path.join(ROOT, "play", "town-market.json"), encoding="utf-8"))
 REED = json.load(open(os.path.join(ROOT, "play", "reed-walk.json"), encoding="utf-8"))
+UNDER = json.load(open(os.path.join(ROOT, "play", "underbridge.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -45,6 +46,9 @@ INT_LABELS = {
     "reed.vharn.regard": "Sister Vharn's regard",
     "reed.wren.regard": "Wren's trust in you",
     "reed.reedwife.regard": "the Reed-Wife's regard",
+    "under.pip.regard": "Pip's trust in you",
+    "under.wick.regard": "Wick's regard",
+    "under.knotwife.regard": "the Knotwife's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -64,13 +68,17 @@ NPC_SENSE = {
     "reed.vharn": {"dc": 14, "text": "*(You reach for the Measurer's soul and find it walled — not hollow like Tallow's, but *fortified*, every doubt bricked up behind liturgy, a cell she built around her own conscience and threw away the key to. And yet the cold gets in. There, behind the third course of bricks: three hundred and eleven faces she will not let herself count, and one of them, freshest, has an apple in its hand. The wall around her heart is exactly as strong as the Wall she serves — which is to say, it holds against everyone but the one soul stubborn enough to keep saying a name.)*"},
     "reed.wren": {"dc": 10, "text": "*(The mark blazes off her even brighter here, this close to the stone — but your dead-touched sense reads something the brand can't hide: she is not ready. Whatever she tells herself, whatever brave arithmetic she's done in the cold water, the living animal of her is *clinging*, white-knuckled, to every small sweet now it can find — the apple, the cold on her ankles, the sound of your boots on the shingle. She came here to end it. Her own soul is screaming, in a voice only you can hear, that it is not time, it is not time, it is not time.)*"},
     "reed.reedwife": {"dc": 9, "text": "*(You don't reach for her; she is already the same cold as you, and recognition passes between you like current through water. Four hundred years she has abided in the doorway you walked all the way through — a soul that refused the Wall and let the river catch it on the threshold, neither in nor back, just *held*, in the green and the patience. She is lonelier than anything you have ever touched. She is also, you realise with a small private vertigo, what you might have been, had you flinched at the door. There but for the turning-around go you.)*"},
+    "under.pip": {"dc": 11, "text": "*(The fierce small flame you saw in the market burns lower now — not from sickness, but from sheer exhaustion, days of standing a watch no nine-year-old should ever stand. Your dead-touched sense reads the truth she's hiding even from herself: she is not afraid that her brother will die. She has already, somewhere behind the fists, accepted it. What she is terrified of is the morning *after* — the first dawn in her whole life with no small reason to be careful, no one smaller than herself to keep fed, nothing left to steal *for.* The boy is her tether to the world as surely as she is his. Pull one loose and the other drifts.)*"},
+    "under.wick": {"dc": 9, "text": "*(You don't have to reach. The little flame you felt all the way from the market is *here*, close enough to warm your dead hands if it had any warmth left to give, and it is so nearly out that looking at it directly feels like an intrusion. Days. Perhaps fewer. But your sense reads something else under the guttering, and it stops you cold: the boy is not *clinging* the way Wren clung at the water. He has already, quietly, with a child's terrible practicality, let *go* — and the only thread still tethering him here is not fear of the dark. It is the other small flame beside his, the fierce bright furious one, and the certainty that it cannot survive without something to burn *for.*)*"},
+    "under.knotwife": {"dc": 13, "text": "*(Your dead-touched senses settle over the blind weaver and find, to your surprise, no cold creeping in her at all — she is fully, stubbornly alive, more alive than half the breathing souls in the market above. But the *loom* — the loom is another matter. Every banner on it hums faintly against your perception, each thread a name spoken by someone who refused to let it become nothing, and woven through the oldest and deepest of them, like a splinter under a fingernail, is a single knotted *signature* that does not belong: a living hand's mark, four centuries old, tying this whole drowned machine together. She has been weaving *around* it her entire life, unable to see it, *feeling* for the one visitor who could.)*"},
 }
-for _c in MKT["conversations"] + REED["conversations"]:
+for _c in MKT["conversations"] + REED["conversations"] + UNDER["conversations"]:
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
-ALL_CONVS = MKT["conversations"] + REED["conversations"]
-EMBED = {"scene": MKT["scene"], "scenes": {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"]},
+ALL_CONVS = MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
+ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"], UNDER["scene"]["id"]: UNDER["scene"]}
+EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 
@@ -216,7 +224,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">two walkable zones · eleven souls · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">three walkable zones · fourteen souls · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -522,6 +530,11 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="reeds"){ ctx.strokeStyle=`hsl(${p.hue||90} 26% 30%)`; ctx.lineWidth=2; for(let i=-3;i<=3;i++){ const bx=s.x+i*4, sw=(i%2?3:-3); ctx.beginPath(); ctx.moveTo(bx,s.y+4); ctx.quadraticCurveTo(bx+sw,s.y-14,bx+sw*1.6,s.y-26-Math.abs(i)*2); ctx.stroke(); } ctx.fillStyle="#2a3322"; for(let i=-2;i<=2;i+=2){ ctx.beginPath(); ctx.ellipse(s.x+i*4+(i%2?3:-3),s.y-28-Math.abs(i)*2,1.6,4,0,0,7); ctx.fill(); } }
   else if(p.type==="piling"){ drawShadow(s.x,s.y+4); drawBox(s.x,s.y+3,12,30,"#4a3a26","#3a2c1c","#241a12"); ctx.fillStyle="#1d2733"; ctx.beginPath(); ctx.ellipse(s.x,s.y+5,9,4,0,0,7); ctx.fill(); }
   else if(p.type==="shrine"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,20,14,"#2c2838","#221f2e","#171420"); ctx.fillStyle="#3a3450"; ctx.fillRect(s.x-3,s.y-30,6,18); ctx.fillStyle="#5a5078"; ctx.fillRect(s.x-9,s.y-30,18,4); ctx.fillStyle="#9a86c8"; ctx.beginPath(); ctx.arc(s.x,s.y-34,3.5,0,7); ctx.fill(); }
+  else if(p.type==="bridgepillar"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+4,30,72,"#2a2734","#211e2a","#16141d"); ctx.fillStyle="#322e3e"; ctx.fillRect(s.x-15,s.y-74,30,6); ctx.strokeStyle="#15131b"; ctx.lineWidth=1; for(let i=1;i<4;i++){ ctx.beginPath(); ctx.moveTo(s.x-15,s.y-i*18); ctx.lineTo(s.x+15,s.y-i*18); ctx.stroke(); } }
+  else if(p.type==="brazier"){ drawShadow(s.x,s.y+5); ctx.strokeStyle="#3a3340"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-8,s.y+2); ctx.lineTo(s.x-5,s.y-14); ctx.moveTo(s.x+8,s.y+2); ctx.lineTo(s.x+5,s.y-14); ctx.stroke(); ctx.fillStyle="#2a2530"; ctx.beginPath(); ctx.ellipse(s.x,s.y-15,11,5,0,0,7); ctx.fill(); const fl=0.6+0.4*Math.sin(lastT/180); ctx.fillStyle=`rgba(${200+40*fl|0},${90+50*fl|0},40,${0.5+0.3*fl})`; ctx.beginPath(); ctx.moveTo(s.x-6,s.y-15); ctx.quadraticCurveTo(s.x,s.y-26-6*fl,s.x+6,s.y-15); ctx.closePath(); ctx.fill(); ctx.fillStyle=`rgba(255,200,90,${0.4+0.3*fl})`; ctx.beginPath(); ctx.arc(s.x,s.y-17,2.5,0,7); ctx.fill(); }
+  else if(p.type==="loom"){ drawShadow(s.x,s.y+5); ctx.strokeStyle="#4a3a26"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(s.x-16,s.y+4); ctx.lineTo(s.x-16,s.y-34); ctx.moveTo(s.x+16,s.y+4); ctx.lineTo(s.x+16,s.y-34); ctx.stroke(); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-18,s.y-34); ctx.lineTo(s.x+18,s.y-34); ctx.stroke(); ctx.strokeStyle="rgba(180,150,200,.5)"; ctx.lineWidth=1; for(let i=-12;i<=12;i+=4){ ctx.beginPath(); ctx.moveTo(s.x+i,s.y-32); ctx.lineTo(s.x+i,s.y-6); ctx.stroke(); } ctx.fillStyle=`hsl(${p.hue||280} 30% 40%)`; ctx.fillRect(s.x-13,s.y-16,26,9); }
+  else if(p.type==="pallet"){ drawShadow(s.x,s.y+4); drawDiamond(s.x,s.y,"#2a2622","#1a1714"); ctx.fillStyle="#3a3228"; ctx.beginPath(); ctx.moveTo(s.x-22,s.y); ctx.lineTo(s.x,s.y-9); ctx.lineTo(s.x+22,s.y); ctx.lineTo(s.x,s.y+9); ctx.closePath(); ctx.fill(); ctx.fillStyle="#473d2e"; ctx.beginPath(); ctx.ellipse(s.x-7,s.y-2,7,4,0,0,7); ctx.fill(); }
+  else if(p.type==="hangings"){ ctx.strokeStyle="#2a2530"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x-16,s.y-50); ctx.lineTo(s.x+16,s.y-48); ctx.stroke(); for(let k=-1;k<=1;k++){ const bx=s.x+k*13; ctx.fillStyle=`hsl(${(p.hue||280)+k*10} 30% ${30+k*4}%)`; ctx.beginPath(); ctx.moveTo(bx-6,s.y-49); ctx.lineTo(bx+6,s.y-49); ctx.lineTo(bx+5,s.y-22-((k+2)%2)*6); ctx.lineTo(bx-5,s.y-24-((k+1)%2)*6); ctx.closePath(); ctx.fill(); } }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }
@@ -763,7 +776,7 @@ out = (HTML.replace("__BLOB__", BLOB)
        .replace("__INTLABELS__", json.dumps(INT_LABELS, ensure_ascii=False)))
 dst = os.path.join(ROOT, "play", "town_market.html")
 open(dst, "w", encoding="utf-8").write(out)
-_npcs = len(MKT['scene']['npcs']) + len(REED['scene']['npcs'])
+_npcs = sum(len(s['npcs']) for s in ALL_SCENES.values())
 _beats = sum(len(c['nodes']) for c in ALL_CONVS)
-print(f"wrote play/town_market.html ({len(out)//1024} KB) — 2 walkable zones, {_npcs} souls, "
+print(f"wrote play/town_market.html ({len(out)//1024} KB) — {len(ALL_SCENES)} walkable zones, {_npcs} souls, "
       f"{_beats} dialogue beats, {len(ALL_CONVS)} conversations")

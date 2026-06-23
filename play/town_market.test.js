@@ -350,6 +350,55 @@ check("river checks carry their own nat-20/nat-1 scenes too", [cassian, vharn, r
   c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))));
 check("the Reed-Walk grows the new prop vocabulary (boat, reeds, shrine)",
   h.includes('p.type==="boat"') && h.includes('p.type==="reeds"') && h.includes('p.type==="shrine"'));
+
+// ---- third zone: The Underbridge — Pip's dying brother, and a thread that ties back to the river ----
+const UNDER = SCENES && SCENES.underbridge;
+check("a third zone (the Underbridge) ships too", UNDER && UNDER.npcs.length >= 3 && UNDER.w >= 8 && UNDER.h >= 6);
+check("the market has TWO exits now (the river and the stair down)", (SCN.exits || []).length >= 2 &&
+  (SCN.exits || []).some(x => x.to === "reedwalk") && (SCN.exits || []).some(x => x.to === "underbridge"));
+check("the Underbridge has a stair back up to the market", (UNDER.exits || []).some(x => x.to === "market"));
+const UBL = E.buildBlocked(UNDER);
+check("Underbridge NPCs/props block their tiles and stay reachable", UNDER.npcs.every(n => {
+  if (UBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(UNDER.playerStart.x, UNDER.playerStart.y, n.x, n.y, UBL, UNDER.w, UNDER.h);
+  return adj && ((adj[0] === UNDER.playerStart.x && adj[1] === UNDER.playerStart.y) ||
+    E.findPath(UNDER.playerStart.x, UNDER.playerStart.y, adj[0], adj[1], UBL, UNDER.w, UNDER.h).length > 0);
+}));
+check("the Underbridge grows the prop vocabulary (pillar, brazier, loom, pallet)",
+  h.includes('p.type==="bridgepillar"') && h.includes('p.type==="brazier"') && h.includes('p.type==="loom"') && h.includes('p.type==="pallet"'));
+
+const wick = CONVS.find(c => c.id === "under.wick");
+const underPip = CONVS.find(c => c.id === "under.pip");
+const knotwife = CONVS.find(c => c.id === "under.knotwife");
+check("the three Underbridge souls are present", wick && underPip && knotwife);
+// Pip-at-the-pallet pays off how you treated Pip in the market
+const up0 = underPip.nodes.find(n => n.id === "0");
+const helpedPip = E.newState(); helpedPip.bools["market.helped_pip"] = true;
+const scaredPip = E.newState(); scaredPip.bools["market.scared_pip"] = true;
+check("Pip greets you warmly if you helped her in the market, hostile if you scared her", up0.variants &&
+  E.pickVariantText(up0, goodGuy, helpedPip) !== E.pickVariantText(up0, goodGuy, scaredPip) &&
+  /grabbing|threatened|bite/i.test(E.pickVariantText(up0, goodGuy, scaredPip)));
+// Wick — the second flame your Returned-sense felt in the market — greets a Returned and a Kelemvorite distinctly
+const wk0 = wick.nodes.find(n => n.id === "0");
+const kelGuy = { ...goodGuy, deity: "Kelemvor" };
+check("Wick reacts to the Judge's servant and to having heard of you", wk0.variants &&
+  E.pickVariantText(wk0, kelGuy, helpedPip) !== E.pickVariantText(wk0, goodGuy, E.newState()));
+// THE deep cross-zone hinge: the Reed-Wife's "knot has a name" unlocks the Knotwife's buried history
+const kn0 = knotwife.nodes.find(n => n.id === "0");
+const knewName = E.newState(); knewName.bools["reed.knot_has_a_name"] = true;
+check("learning 'the knot has a name' at the river changes how the Knotwife greets you", kn0.variants &&
+  E.pickVariantText(knotwife.nodes.find(n => n.id === "0"), goodGuy, knewName) !== E.pickVariantText(kn0, goodGuy, E.newState()) &&
+  /Maren|guild-sister|name/i.test(E.pickVariantText(kn0, goodGuy, knewName)));
+// and the [HISTORY] reveal of Chancellor Venn is gated on having heard the phrase at the river
+const histChoice = knotwife.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "History");
+check("the Chancellor Venn revelation is gated on the river phrase", histChoice && histChoice.when && histChoice.when.flags &&
+  histChoice.when.flags.indexOf("reed.knot_has_a_name") >= 0 &&
+  E.choiceAvailable(scholar, knewName, histChoice, MODEL) === true && E.choiceAvailable(scholar, E.newState(), histChoice, MODEL) === false);
+// the new souls keep the deep stack: crit/fumble comedy + a Returned line each
+check("Underbridge checks carry their own nat-20/nat-1 scenes", [underPip, wick, knotwife].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))));
+check("each Underbridge soul offers a [RETURNED] line", [underPip, wick, knotwife].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
