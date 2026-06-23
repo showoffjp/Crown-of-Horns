@@ -17,7 +17,8 @@
       { "type": "barrel", "x": 8, "y": 2 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "market", "dest": { "x": 8, "y": 7 }, "label": "◂ break camp — back to the Market of the Causeway" }
+      { "x": 5, "y": 8, "to": "market", "dest": { "x": 8, "y": 7 }, "label": "◂ break camp — back to the Market of the Causeway" },
+      { "x": 5, "y": 0, "to": "wayshrine", "dest": { "x": 5, "y": 7 }, "label": "▴ on up the road — the Grey Wayshrine" }
     ],
     "npcs": [
       { "id": "thefire", "name": "the fire", "title": "a quiet hour — rest & take stock", "x": 5, "y": 4, "hue": 30, "sigil": "✦", "conv": "hearth.fire",

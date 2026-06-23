@@ -22,6 +22,7 @@ LAMPLIT = json.load(open(os.path.join(ROOT, "play", "lamplit.json"), encoding="u
 COUNTHOUSE = json.load(open(os.path.join(ROOT, "play", "counthouse.json"), encoding="utf-8"))
 HEARTH = json.load(open(os.path.join(ROOT, "play", "hearth.json"), encoding="utf-8"))
 ALDRIC = json.load(open(os.path.join(ROOT, "play", "aldric.json"), encoding="utf-8"))
+WAYSHRINE = json.load(open(os.path.join(ROOT, "play", "wayshrine.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -69,6 +70,9 @@ INT_LABELS = {
     "ald.aldric.regard": "Aldric Morn's regard",
     "ald.wessa.regard": "Wessa's regard",
     "ald.eithne.regard": "Eithne's regard",
+    "way.harbinger.regard": "the Harbinger's regard",
+    "way.orin.regard": "Justiciar Orin's regard",
+    "way.doget.regard": "Goodman Doget's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -107,20 +111,24 @@ NPC_SENSE = {
     "ald.aldric": {"dc": 14, "text": "*(You reach for the grey man and recoil from the sheer *mass* of cold in him — not the Wall's chill creeping in from outside, like the others, but a cold he has *swallowed*, a whole frozen sea of it held behind a dam of pure will. He is alive, and means to stay so until the work is done, but he has been *living beside the dead* so long that he has gone half-translucent to your sight, a man keeping vigil at the exact border you crossed. And there — the thing that stops your breath — your sense follows the cold to its source and finds it does not radiate *from* him at all. It radiates from the chair beside him. He thinks he carries his daughter's memory. He is carrying his daughter. He simply cannot see her. You can.)*"},
     "ald.wessa": {"dc": 11, "text": "*(The herald is warm, living, unspent — but your sense reads the particular strain of a soul standing watch over something it loves and fears in equal measure. She has hitched her whole young life to a great man's terrible cause, and some buried, honest part of her is counting the days until he asks her to do the unforgivable, and rehearsing, over and over, a refusal she is terrified she won't have the nerve to give. She is not afraid of dying for him. She is afraid of *killing* for him, and finding she liked being *certain* enough to do it.)*"},
     "ald.eithne": {"dc": 6, "text": "*(You do not reach for her. She is already your kind of cold, and she has been waiting — patient as only the dead can be — for a pair of eyes that could find her in the chair where she has sat, faded and unseen, for twenty years. Your sense needs no DC for this one; she *wants* to be perceived more than any soul you have ever touched. She is a thread snagged on her father's grief, a daughter who went into the Wall *looking* at the man she loved and left the looking-part of herself behind. She is not suffering. She is something worse: she is *lonely*, in the one chair in the world she refuses to leave, beside the one person who cannot tell she never left.)*"},
+    "way.harbinger": {"dc": 16, "text": "*(You turn your dead-touched sense on the robed nothing and it is like turning a candle on the night sky — your perception simply *falls into* it and keeps falling. There is no soul here to read, because it is not a soul: it is a *function* of one, an aspect, a single grey thought of an enormous bound mind reaching down a long cold arm to touch the road. But in the falling you brush, for one vertiginous instant, the *whole* of the thing behind it — and it is *tired*, in a way that has no bottom, the tiredness of a god who inherited a horror and has weighed every soul ground into it, one at a time, fairly, for three hundred years, hating every grain. It is not your enemy. It is the most *exhausted ally* you will ever almost have.)*"},
+    "way.orin": {"dc": 12, "text": "*(Living, hard, unspent — but your sense reads the particular fracture of a true believer who has read her own scripture too closely. Justiciar Orin guards a god she still loves and an order she has come to suspect is rotten at the root, and she holds the two apart by sheer discipline, the way you'd hold apart two wires that must not touch. She is not afraid of you, or of dying. She is afraid that the next thing she learns will be the one that makes her sword change sides — and that she will be *glad* when it does.)*"},
+    "way.doget": {"dc": 9, "text": "*(You reach for the old farmer and find the rarest thing on the whole causeway: a soul entirely at peace, square-ledgered, beloved, dying gentle at the end of a long ordinary good life — a fair death, the kind the system was *supposed* to give everyone and gives only the lucky. There is no cold in him to answer yours. There is only a warmth going quietly out, content, and one small new grief he has just chosen to carry across for a godless neighbour the Wall took — the first weight he has ever picked up that wasn't his to bear, and the lightest he has ever felt for it.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
-           + HEARTH["conversations"] + ALDRIC["conversations"]):
+           + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
-             + HEARTH["conversations"] + ALDRIC["conversations"])
+             + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
-              HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"]}
+              HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"],
+              WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -267,7 +275,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">eight walkable zones · a whole Act, from a cold market to the man who would tear down a god · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">nine walkable zones · a whole Act, from a cold market to the Judge's own grey scale · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -606,6 +614,9 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="hearthfire"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+5,44,38,"#2a2530","#201c28","#15121c"); ctx.fillStyle="#0e0c14"; ctx.beginPath(); ctx.moveTo(s.x-14,s.y-4); ctx.lineTo(s.x-14,s.y-26); ctx.lineTo(s.x+14,s.y-26); ctx.lineTo(s.x+14,s.y-4); ctx.closePath(); ctx.fill(); const fl=0.55+0.45*Math.sin(lastT/130), gl=ctx.createRadialGradient(s.x,s.y-12,2,s.x,s.y-12,30); gl.addColorStop(0,`rgba(255,180,90,${0.6+0.25*fl})`); gl.addColorStop(1,"rgba(255,140,50,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-12,30,0,7); ctx.fill(); for(let k=0;k<2;k++){ const w=8-k*3; ctx.fillStyle=`rgba(${245-k*15},${150+k*40+30*fl|0},${55+k*30},${0.85-k*0.2})`; ctx.beginPath(); ctx.moveTo(s.x-w,s.y-5); ctx.quadraticCurveTo(s.x,s.y-20-8*fl,s.x+w,s.y-5); ctx.closePath(); ctx.fill(); } ctx.fillStyle="#322c38"; ctx.fillRect(s.x-18,s.y-30,36,4); }
   else if(p.type==="bookshelf"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,26,56,"#34281a","#281e12","#1a130c"); for(let r=0;r<4;r++){ for(let i=0;i<5;i++){ ctx.fillStyle=`hsl(${(i*47+r*30)%360} 22% ${22+i*4}%)`; ctx.fillRect(s.x-12+i*5,s.y-52+r*13,4,11); } ctx.strokeStyle="#15100a"; ctx.beginPath(); ctx.moveTo(s.x-13,s.y-40+r*13); ctx.lineTo(s.x+13,s.y-40+r*13); ctx.stroke(); } }
   else if(p.type==="window"){ ctx.fillStyle="#1a1726"; ctx.beginPath(); ctx.moveTo(s.x-14,s.y-18); ctx.lineTo(s.x-14,s.y-46); ctx.lineTo(s.x+14,s.y-50); ctx.lineTo(s.x+14,s.y-22); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(120,140,190,.22)"; ctx.beginPath(); ctx.moveTo(s.x-12,s.y-20); ctx.lineTo(s.x-12,s.y-44); ctx.lineTo(s.x+12,s.y-48); ctx.lineTo(s.x+12,s.y-24); ctx.closePath(); ctx.fill(); ctx.strokeStyle="#2c2838"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x,s.y-22); ctx.lineTo(s.x,s.y-49); ctx.moveTo(s.x-13,s.y-34); ctx.lineTo(s.x+13,s.y-37); ctx.stroke(); }
+  else if(p.type==="greyshrine"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+5,22,30,"#3a3848","#2c2a38","#1d1c28"); ctx.strokeStyle="#8a90a8"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x,s.y-26); ctx.lineTo(s.x,s.y-58); ctx.stroke(); const tilt=2.6*Math.sin(lastT/900); ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(s.x-20,s.y-56-tilt); ctx.lineTo(s.x+20,s.y-56+tilt); ctx.stroke(); for(const sgn of [-1,1]){ const px=s.x+sgn*20, py=s.y-56+sgn*tilt; ctx.strokeStyle="#707088"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(px-5,py); ctx.lineTo(px,py+8); ctx.lineTo(px+5,py); ctx.stroke(); ctx.fillStyle="#9aa0b8"; ctx.beginPath(); ctx.ellipse(px,py+9,6,2.5,0,0,7); ctx.fill(); } const gl=ctx.createRadialGradient(s.x,s.y-44,2,s.x,s.y-44,24); gl.addColorStop(0,"rgba(150,170,210,.20)"); gl.addColorStop(1,"rgba(150,170,210,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-44,24,0,7); ctx.fill(); ctx.fillStyle="#aab0c8"; ctx.beginPath(); ctx.arc(s.x,s.y-56,3,0,7); ctx.fill(); }
+  else if(p.type==="milestone"){ drawShadow(s.x,s.y+3); ctx.fillStyle="#4a4838"; ctx.beginPath(); ctx.moveTo(s.x-8,s.y); ctx.lineTo(s.x-8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-26,s.x+8,s.y-20); ctx.lineTo(s.x+8,s.y); ctx.closePath(); ctx.fill(); ctx.fillStyle="#5a5848"; ctx.beginPath(); ctx.moveTo(s.x-8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-26,s.x+8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-23,s.x-8,s.y-20); ctx.fill(); ctx.strokeStyle="#2c2a22"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(s.x-4,s.y-13); ctx.lineTo(s.x+4,s.y-13); ctx.moveTo(s.x-4,s.y-9); ctx.lineTo(s.x+4,s.y-9); ctx.stroke(); }
+  else if(p.type==="cairn"){ drawShadow(s.x,s.y+4); ctx.fillStyle="#3a3730"; ctx.beginPath(); ctx.ellipse(s.x,s.y-2,13,7,0,0,7); ctx.fill(); ctx.fillStyle="#46443a"; ctx.beginPath(); ctx.ellipse(s.x-3,s.y-8,8,5,0,0,7); ctx.fill(); ctx.fillStyle="#52503f"; ctx.beginPath(); ctx.ellipse(s.x+2,s.y-13,6,4,0,0,7); ctx.fill(); ctx.fillStyle="#5a5848"; ctx.beginPath(); ctx.arc(s.x,s.y-19,4,0,7); ctx.fill(); }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }

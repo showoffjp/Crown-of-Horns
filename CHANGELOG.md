@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v4.86.0 — *"The Grey Wayshrine"* — a ninth zone: the Judge's own voice, and the secret under the whole saga (content)
+
+> You've heard the Choir (condemn the Faithless) and Aldric (tear it all down). On the road past camp stands a
+> grey wayshrine — and the **Judge of the Dead himself** sends an aspect to weigh the one soul his ledger can't
+> hold. Here the saga finally says its deepest, quietest truth out loud: *why the Wall exists at all.*
+
+- ◈ **A ninth zone — the Grey Wayshrine.** Reached up the road from the Hearth, completing a **nine-zone
+  connected map** (test-proven). New code-drawn props: the **grey balance-shrine** (its pans forever seeking
+  level), road **milestones**, grave **cairns**.
+- ◈ **the Grey Harbinger — an aspect of Kelemvor, the theological keystone.** Not a condemner like the Choir,
+  not a destroyer like Aldric — a *weigher*, sent because you are too unusual for the ordinary judging. Its
+  opening reads which campaign-road you're on (take the Crown / file the appeal / godless / stranger), and it
+  reveals the **deepest secret of the setting**: the Wall is not a prison but a **seawall**; the Faithless are
+  its **mortar**; behind it presses the **Hunger** — the curdled nothing of every unwitnessed soul — penned by a
+  Dawn-age **Concord** that the Judge *inherited and hates but is bound to keep,* because the day it fails, the
+  nothing pours in for *everyone.* The crux poses the question under the entire saga — *what will you do about the
+  Hunger when you open the Wall?* — with four real answers (build a **gate**, become a **witness**, stay
+  **honest** about not knowing, or recklessly let it **flood**) that get you blessed, allied, or warned that the
+  aspect will *unmake* you at the Wall if you arrive a flood.
+- ⚔️ **Justiciar Orin — the order's own sword, questioning.** A true believer who has read her scripture too
+  closely and suspects the order is rotten at the root; she can be talked from *arresting* you to *joining* you
+  to find out if the order deserves guarding (with nat-20/nat-1 on the standoff).
+- 🌾 **Goodman Doget — a fair death.** An old farmer who died gentle at eighty-one with a square ledger and a
+  wife waiting; the system working *as intended* for the lucky — and, once you show him his godless neighbour got
+  no shrine at all, a soul who chooses to carry an unfair death's name across with him.
+- 🎭 Full deep stack throughout: reactive greetings, the **Returned-sense** on each soul, a Returned line apiece,
+  dispositions, crit/fumble.
+- 🧪 **+12 gates** (now **905 checks**, all green): the ninth zone is keyed/reachable/collision-clean, the
+  nine-zone map is one connected graph, the Harbinger's four road-openings are distinct, the Concord and the
+  Unmade are revealed, the witness-answer gates on the Judge's question, a wise answer allies the aspect and a
+  reckless one earns the warning, and the Justiciar can be turned.
+
+---
+
 ## 👑 v4.85.0 — *"The Doomguide's Table"* — an eighth zone: tea with the man at the heart of the saga (content)
 
 > The Act-1 hub now has a *door out* — and it leads to the keystone of the whole campaign. Crack the local

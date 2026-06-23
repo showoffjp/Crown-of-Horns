@@ -672,6 +672,60 @@ check("the table's souls keep crit/fumble where rolled, and a [RETURNED] line ea
 // the Crown of Horns — the saga's central object — is named and explained here, bridging to the main quest
 check("the Crown of Horns is revealed at the table (the bridge into the main campaign)", aldric.nodes.some(n =>
   (n.effects || []).some(e => e.key === "ald.crown_revealed")) && /Crown of Horns/.test(JSON.stringify(aldric)));
+
+// ---- ninth zone: the Grey Wayshrine — the Judge's own voice, the deep cosmology, and a god's uncertainty ----
+const SHRINE = SCENES && SCENES.wayshrine;
+check("a ninth zone (the Grey Wayshrine) ships too", SHRINE && SHRINE.npcs.length >= 3 && SHRINE.w >= 8 && SHRINE.h >= 6);
+check("the road past camp leads on to the wayshrine", (CAMP.exits || []).some(x => x.to === "wayshrine"));
+check("all nine zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse", "hearth", "aldric", "wayshrine"].every(z => seen.has(z));
+})());
+const SHBL = E.buildBlocked(SHRINE);
+check("Wayshrine NPCs/props block their tiles and stay reachable", SHRINE.npcs.every(n => {
+  if (SHBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(SHRINE.playerStart.x, SHRINE.playerStart.y, n.x, n.y, SHBL, SHRINE.w, SHRINE.h);
+  return adj && ((adj[0] === SHRINE.playerStart.x && adj[1] === SHRINE.playerStart.y) ||
+    E.findPath(SHRINE.playerStart.x, SHRINE.playerStart.y, adj[0], adj[1], SHBL, SHRINE.w, SHRINE.h).length > 0);
+}));
+check("the Wayshrine grows the prop vocabulary (the grey shrine, milestones, cairns)",
+  h.includes('p.type==="greyshrine"') && h.includes('p.type==="milestone"') && h.includes('p.type==="cairn"'));
+
+const harb = CONVS.find(c => c.id === "way.harbinger");
+const orin = CONVS.find(c => c.id === "way.orin");
+const doget = CONVS.find(c => c.id === "way.doget");
+check("the three souls at the shrine are present (the Judge's aspect, his sword, a fair death)", harb && orin && doget);
+// the Harbinger's opening reads which campaign-road you took (take the Crown / file the appeal / godless / stranger)
+const h0 = harb.nodes.find(n => n.id === "0");
+const stCrown = E.newState(); stCrown.bools["ald.path_crown"] = true;
+const stAppeal = E.newState(); stAppeal.bools["ald.path_appeal"] = true;
+const faithlessSoul2 = { ...goodGuy, deity: "None" };
+const goddedStranger = { ...goodGuy, deity: "Oghma" };
+check("the Judge's aspect greets a Crown-taker, an appeal-filer, the godless and a stranger differently", h0.variants &&
+  new Set([E.pickVariantText(h0, goddedStranger, stCrown), E.pickVariantText(h0, goddedStranger, stAppeal),
+    E.pickVariantText(h0, faithlessSoul2, E.newState()), E.pickVariantText(h0, goddedStranger, E.newState())]).size === 4);
+// the deep cosmology — the Concord and the Unmade — is revealed here (the why under the whole saga)
+check("the Concord and the Unmade (the seawall, the Hunger) are revealed at the shrine", harb.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "way.concord_revealed") && (n.effects || []).some(e => e.key === "way.unmade_revealed")) ||
+  (harb.nodes.some(n => (n.effects || []).some(e => e.key === "way.concord_revealed")) &&
+   harb.nodes.some(n => (n.effects || []).some(e => e.key === "way.unmade_revealed"))));
+// the crux poses the question under the saga (what about the Hunger?) with divergent answers, one gated on the Judge's own question
+const hcrux = harb.nodes.find(n => n.id === "harb_crux");
+const witnessAns = hcrux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("way.the_question_asked") >= 0);
+check("the shrine's crux offers divergent answers, one gated on having been asked the Judge's question",
+  hcrux.choices.length >= 3 && witnessAns &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["way.the_question_asked"] = true; return s; })(), witnessAns, MODEL) === true &&
+  E.choiceAvailable(goodGuy, E.newState(), witnessAns, MODEL) === false);
+check("a wise answer allies the Judge's aspect; a reckless one earns a warning", harb.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "way.harbinger_allied")) && harb.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "way.harbinger_warned")));
+// the Justiciar can be turned from arrest to alliance — the order's own sword, questioning
+check("the Doomguard sword can be talked from arrest toward joining you", orin.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "party.orin_may_join")));
+check("the Wayshrine souls keep crit/fumble where rolled and a [RETURNED] line each",
+  orin.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble)) &&
+  [harb, orin, doget].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
