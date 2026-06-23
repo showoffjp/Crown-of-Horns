@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v4.76.0 — *"See the Roll Before You Make It"* — the BG3 pre-roll anticipation panel (system)
+
+> Like Baldur's Gate 3, an active check no longer just *happens.* Pick it, and a panel lays the whole thing
+> bare — your modifier broken down, the exact number you need on the die, your odds, the crit/fumble stakes —
+> and then *you* press **ROLL THE DICE.** The anticipation is the best part.
+
+- 🎲 **Pre-roll preview panel**, in both the market and the campaign dialogue sim. When you choose an active
+  check it shows:
+  - the **breakdown**: `d20  +3 CHA  +3 proficient  = +6` (ability modifier and proficiency as separate,
+    legible chips — or "+0 not proficient");
+  - **the number you need**: *"You need an 8 or higher on the die,"* automatically collapsing to *"only a
+    natural 20"* on an impossible check or *"anything but a natural 1"* on a trivial one;
+  - a **% chance bar**, green over 50, red under;
+  - the **crit stakes**: ✦ nat 20 → critical success · 💀 nat 1 → critical failure, flagged when there's a
+    *special* (comedic) outcome waiting;
+  - and a big gold **🎲 ROLL THE DICE** button — the roll only fires when *you* commit.
+- 🔢 The math is a pure, tested helper (`rollBreakdown`) so the panel can never lie: need = DC − bonus, odds =
+  `chanceToPass`, with correct edge-cases at the extremes.
+- 🧪 New gates pin the breakdown (mod + proficiency sum, the need-on-die, the chance, and the only-nat-20 /
+  only-nat-1 flags) and the wiring (no instant auto-roll — the preview comes first). Suite now **792 checks**,
+  all green.
+
+---
+
 ## 👑 v4.75.0 — *"Gutter-WHOOP"* — natural 20s & natural 1s, BG3-style, with the comedy turned up (system + content)
 
 > Roll a **natural 20** and something gloriously absurd happens; roll a **natural 1** and you eat shit in the

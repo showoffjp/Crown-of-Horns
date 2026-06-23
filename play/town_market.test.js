@@ -12,7 +12,7 @@ const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom
 const block = h.match(/\/\*<MKT>\*\/([\s\S]*?)\/\*<\/MKT>\*\//);
 check("MKT pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity,rollResult};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity,rollResult,rollBreakdown};")();
 
 check("abilityMod matches floor((score-10)/2)", E.abilityMod(10) === 0 && E.abilityMod(16) === 3 && E.abilityMod(17) === 3 && E.abilityMod(8) === -1);
 check("resolveCheck: roll+mod vs DC", E.resolveCheck(12, 15, 3) === true && E.resolveCheck(11, 15, 3) === false);
@@ -230,6 +230,20 @@ check("crit/fumble nodes carry their own effects & still resolve to an ending", 
   return c.nodes.every(n => (n.choices || []).every(ch =>
     (!ch.crit || byId[ch.crit]) && (!ch.fumble || byId[ch.fumble])));
 }));
+
+// ---- BG3-style pre-roll preview: the player sees the whole math before committing ----
+const cha = { cls: "Rogue", scores: [10, 16, 12, 13, 11, 16], race: "Tiefling", gender: "Male", background: "Charlatan", law: "Chaotic", morality: "Neutral", deity: "Tymora" };
+const bdP = E.rollBreakdown(cha, { skill: "Persuasion", ability: "Charisma", dc: 14 }, MODEL);
+check("pre-roll breakdown sums ability mod + proficiency", bdP.abilityMod === E.abilityMod(16) && bdP.prof === true &&
+  bdP.profBonus === MODEL.proficiencyBonus && bdP.bonus === E.abilityMod(16) + MODEL.proficiencyBonus);
+check("pre-roll tells you the number you need on the die", bdP.need === 14 - bdP.bonus && bdP.needShown === 14 - bdP.bonus);
+check("pre-roll chance matches chanceToPass", Math.abs(bdP.chance - E.chanceToPass(14, bdP.bonus)) < 1e-9);
+const trivial = E.rollBreakdown(cha, { skill: "Persuasion", ability: "Charisma", dc: 5 }, MODEL);
+const brutal = E.rollBreakdown({ ...cha, scores: [8, 8, 8, 8, 8, 6] }, { skill: null, ability: "Charisma", dc: 25 }, MODEL);
+check("a trivial check flags 'only a nat 1 can fail you'", trivial.onlyNat1 === true && trivial.onlyNat20 === false);
+check("an impossible check flags 'only a nat 20 can save you'", brutal.onlyNat20 === true && brutal.onlyNat1 === false);
+check("the pre-roll panel is wired (breakdown + a ROLL button)", h.includes("function rollPreview(") && h.includes("ROLL THE DICE") && h.includes("rollBreakdown(char,chk,MODEL)") && h.includes(".rollprev{"));
+check("choosing a check shows the preview before rolling (no instant auto-roll)", h.includes("rollPreview(ch,chk,bonus,resolve)"));
 
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
