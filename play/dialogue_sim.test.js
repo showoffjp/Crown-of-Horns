@@ -14,7 +14,17 @@ check("DLGSIM pure block found", !!block);
 const E = new Function(block[1] +
   "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass," +
   "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats," +
-  "glossaryHits,loreKnown,secretKnown,returnedClarity};")();
+  "glossaryHits,loreKnown,secretKnown,returnedClarity,rollResult};")();
+// BG3 crits reach the campaign sim too: nat 20 auto-succeeds, nat 1 auto-fails, with bespoke demo nodes
+check("rollResult: nat 20 auto-success, nat 1 auto-fail", E.rollResult(20, 30, -5).crit === true && E.rollResult(20, 30, -5).success === true &&
+  E.rollResult(1, 4, 10).fumble === true && E.rollResult(1, 4, 10).success === false && E.rollResult(13, 12, 0).success === true);
+check("the demo's Persuasion has a bespoke crit & fumble", (() => {
+  const conv = DATA0().conversations.find(c => c.id === "demo.threshold");
+  const ids = new Set(conv.nodes.map(n => n.id));
+  const p = conv.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  return p && p.crit && p.fumble && ids.has(p.crit) && ids.has(p.fumble);
+})());
+function DATA0(){ return JSON.parse(h.match(/const DATA = (\{[\s\S]*?\});\nconst BUILDS/)[1]); }
 
 // modifier = floor((score-10)/2), exactly as Abilities.cs
 check("abilityMod: 10 -> +0", E.abilityMod(10) === 0);

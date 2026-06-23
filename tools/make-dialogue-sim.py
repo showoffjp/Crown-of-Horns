@@ -205,6 +205,11 @@ HTML = r"""<!DOCTYPE html>
  @keyframes shake{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-3px) rotate(-8deg)}50%{transform:translateY(2px) rotate(7deg)}75%{transform:translateY(-2px) rotate(-5deg)}}
  .dice .calc{font-size:12.5px;color:#b9a8e0}
  .dice .res{font-weight:700;margin-left:auto}.dice .res.ok{color:#9fe0b0}.dice .res.bad{color:#e0a0a0}
+ .d20.nat20{background:radial-gradient(circle at 40% 35%,#5a4a1a,#2a2410);border-color:#e7c873;color:#ffe9a8;box-shadow:0 0 16px #e7c87388}
+ .d20.nat1{background:radial-gradient(circle at 40% 35%,#4a1a1a,#2a1010);border-color:#d06f6f;color:#ffc0c0;box-shadow:0 0 16px #b03a3a88}
+ .dice .res.crit{color:#ffe9a8;text-shadow:0 0 10px #e7c87399;animation:critpop .4s ease}
+ .dice .res.fumble{color:#ffb0b0;text-shadow:0 0 10px #d06f6f99;animation:critpop .4s ease}
+ @keyframes critpop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
  .card{background:linear-gradient(#16141d,#131119);border:1px solid #2a2636;border-radius:9px;padding:12px;margin-bottom:13px}
  .card h3{font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:#c9a24b;margin:0 0 9px;font-weight:600}
  .builds{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
@@ -306,6 +311,11 @@ const GLOSS_RE = GLOSS_INDEX.length ? new RegExp("\\b("+GLOSS_INDEX.map(o=>escRe
 // Pure, testable resolution — mirrors Assets/Scripts/Dialogue/DialogueRunner.cs + Abilities.cs.
 function abilityMod(score){ return Math.floor((score - 10) / 2); }              // floor((score-10)/2)
 function resolveCheck(roll, dc, mod){ return (roll + mod) >= dc; }              // roll = d20+mod; success = roll>=DC
+function rollResult(raw, dc, mod){                                              // BG3/5e crits: nat 20 auto-success, nat 1 auto-fail
+  if(raw===20) return { success:true,  crit:true,  fumble:false };
+  if(raw===1)  return { success:false, crit:false, fumble:true  };
+  return { success:(raw+mod)>=dc, crit:false, fumble:false };
+}
 function chanceToPass(dc, mod){ return Math.max(0, Math.min(20, 21 - (dc - mod))) / 20; }
 function newState(){ return { bools:{}, ints:{} }; }
 function applyEffects(state, effects){
@@ -574,34 +584,40 @@ function choose(n, ch, force){
   sfx('page'); pendingOpts.el.remove(); pendingOpts=null;
   addLine("me","You", stripBracket(ch.text)||"(continue)");
   history.push(JSON.parse(JSON.stringify(st)));
-  const chk=normCheck(ch); let next=ch.next;
-  const proceed=(success)=>{ if(chk && !success && ch.fail) next=ch.fail; applyEffects(st, ch.effects); renderState(); goNode(next); };
+  const chk=normCheck(ch);
+  const resolve=r=>{ let next; if(r.crit&&ch.crit) next=ch.crit; else if(r.fumble&&ch.fumble) next=ch.fumble;
+    else if(r.success) next=ch.next; else next=ch.fail||ch.next;
+    applyEffects(st, ch.effects); renderState(); goNode(next); };
   if(chk && isPassiveSkill(chk.skill)){ // passive: only appeared because you already pass — auto-success, no roll
     addLine("sys","",`(${chk.skill} — passive ${10+checkBonus(char,chk,MODEL)} vs DC ${chk.dc}: success)`);
-    applyEffects(st, ch.effects); renderState(); goNode(next); return; }
-  if(chk){ const bonus=checkBonus(char, chk, MODEL); if(force){ offerForced(chk, proceed); return; } rollDice(chk, bonus, proceed); }
-  else { applyEffects(st, ch.effects); renderState(); goNode(next); }
+    applyEffects(st, ch.effects); renderState(); goNode(ch.next); return; }
+  if(chk){ const bonus=checkBonus(char, chk, MODEL); if(force){ offerForced(ch, chk, bonus, resolve); return; } rollDice(chk, bonus, raw=>resolve(rollResult(raw, chk.dc, bonus))); }
+  else { applyEffects(st, ch.effects); renderState(); goNode(ch.next); }
 }
-function offerForced(chk, proceed){
+function offerForced(ch, chk, bonus, resolve){
   const box=document.createElement("div"); box.className="opts";
-  box.innerHTML=`<div class="muted" style="margin-bottom:4px">Preview either branch of this ${chk.skill||ABBR[chk.ability]} DC ${chk.dc} check:</div>`;
-  const mk=(label,cls,ok)=>{ const b=document.createElement("button"); b.className="opt"; b.innerHTML=`<span class="chip ${cls}">${label}</span>`;
-    b.onclick=()=>{ box.remove(); addLine("sys","",`(forced ${ok?'SUCCESS':'FAILURE'})`); proceed(ok); }; return b; };
-  box.appendChild(mk("✓ Take the success branch","ok",true)); box.appendChild(mk("✗ Take the failure branch","bad",false));
+  box.innerHTML=`<div class="muted" style="margin-bottom:4px">Preview any branch of this ${chk.skill||ABBR[chk.ability]} DC ${chk.dc} check:</div>`;
+  const mk=(label,cls,r,note)=>{ const b=document.createElement("button"); b.className="opt"; b.innerHTML=`<span class="chip ${cls}">${label}</span>`;
+    b.onclick=()=>{ box.remove(); addLine("sys","",`(forced — ${note})`); resolve(r); }; return b; };
+  box.appendChild(mk("✦ NATURAL 20 — critical success","ok",{success:true,crit:true,fumble:false},"natural 20"));
+  box.appendChild(mk("✓ success","ok",{success:true,crit:false,fumble:false},"success"));
+  box.appendChild(mk("✗ failure","bad",{success:false,crit:false,fumble:false},"failure"));
+  box.appendChild(mk("💀 NATURAL 1 — critical failure","bad",{success:false,crit:false,fumble:true},"natural 1"));
   document.getElementById("script").appendChild(box); scrollEnd();
 }
-function rollDice(chk, bonus, proceed){
+function rollDice(chk, bonus, onRaw){
   const wrap=document.createElement("div"); wrap.className="dice";
   wrap.innerHTML=`<div class="d20 rolling" id="d20">?</div><div class="calc">rolling ${chk.skill||ABBR[chk.ability]}…</div>`;
   document.getElementById("script").appendChild(wrap); scrollEnd(); sfx('dice');
   let ticks=0; const die=wrap.querySelector("#d20"), calc=wrap.querySelector(".calc");
   const spin=setInterval(()=>{ die.textContent=1+Math.floor(Math.random()*20); if(++ticks>=12){ clearInterval(spin); land(); } }, 42);
   function land(){
-    const roll=1+Math.floor(Math.random()*20), total=roll+bonus, ok=resolveCheck(roll, chk.dc, bonus);
-    die.classList.remove("rolling"); die.textContent=roll;
-    calc.innerHTML=`${roll} ${bonus>=0?'+':'−'} ${Math.abs(bonus)} <b>= ${total}</b> vs DC ${chk.dc}`;
-    const r=document.createElement("div"); r.className="res "+(ok?"ok":"bad"); r.textContent=ok?"SUCCESS":"FAIL"; wrap.appendChild(r);
-    sfx(ok?'good':'bad'); setTimeout(()=>proceed(ok), 560);
+    const raw=1+Math.floor(Math.random()*20), total=raw+bonus, r=rollResult(raw, chk.dc, bonus);
+    die.classList.remove("rolling"); die.textContent=raw; die.classList.toggle("nat20",r.crit); die.classList.toggle("nat1",r.fumble);
+    calc.innerHTML=`${raw} ${bonus>=0?'+':'−'} ${Math.abs(bonus)} <b>= ${total}</b> vs DC ${chk.dc}`;
+    const res=document.createElement("div"); res.className="res "+(r.success?"ok":"bad")+(r.crit?" crit":"")+(r.fumble?" fumble":"");
+    res.textContent = r.crit?"✦ NAT 20!" : r.fumble?"💀 NAT 1!" : (r.success?"SUCCESS":"FAIL"); wrap.appendChild(res);
+    sfx(r.crit?'crit':r.fumble?'fumble':r.success?'good':'bad'); setTimeout(()=>onRaw(raw), 700);
   }
 }
 function endScene(id){
@@ -702,6 +718,8 @@ function sfx(kind){ if(!sfxOn) return; try{ actx=actx||new (window.AudioContext|
   else if(kind==='dice'){ o.type='square'; o.frequency.setValueAtTime(180,t); o.frequency.linearRampToValueAtTime(120,t+0.12); env(0.005,0.12,0.04); o.start(t);o.stop(t+0.14); }
   else if(kind==='good'){ o.type='sine'; o.frequency.setValueAtTime(523,t); o.frequency.setValueAtTime(784,t+0.09); env(0.01,0.22,0.07); o.start(t);o.stop(t+0.26); }
   else if(kind==='bad'){ o.type='sawtooth'; o.frequency.setValueAtTime(196,t); o.frequency.exponentialRampToValueAtTime(98,t+0.2); env(0.01,0.22,0.06); o.start(t);o.stop(t+0.26); }
+  else if(kind==='crit'){ o.type='sine'; [523,659,784,1047].forEach((f,k)=>o.frequency.setValueAtTime(f,t+k*0.08)); env(0.01,0.42,0.08); o.start(t);o.stop(t+0.5); }
+  else if(kind==='fumble'){ o.type='sawtooth'; o.frequency.setValueAtTime(330,t); o.frequency.linearRampToValueAtTime(110,t+0.45); env(0.01,0.45,0.07); o.start(t);o.stop(t+0.5); }
 }
 window.addEventListener("keydown",e=>{ if(!pendingOpts) return; const n=parseInt(e.key,10);
   if(n>=1&&n<=9){ const btns=pendingOpts.el.querySelectorAll(".opt:not(.locked)"); if(btns[n-1]) btns[n-1].click(); } });

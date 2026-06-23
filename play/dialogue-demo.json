@@ -80,7 +80,7 @@
             { "text": "[MYRKUL] *(let the cold of the Bone Lord answer for you, and say nothing at all)*", "when": { "deity": "Myrkul" }, "next": "myrkul_conflict" },
             { "text": "[INTELLIGENCE] \"The Doomguide's dusk-order rests on the Third Codicil — which expressly exempts pilgrims of grief. I am one. Consult your own canon before you bar me on a misreading of it.\"", "when": { "ability": { "Intelligence": 15 } }, "next": "doctrine", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }] },
             { "text": "[STRENGTH] *(set a hand to the haft of his halberd, unhurried, and let him feel that you could simply take it from him)* \"I would rather not. But this Threshold opens tonight, one way or another.\"", "when": { "ability": { "Strength": 15 } }, "next": "strength", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -2 }] },
-            { "text": "[PERSUASION] \"You do not want to be the man who turned away the one soul who could have helped, on the night it mattered. I can see that fear on you already. So let me by, and be free of it.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 15 }, "next": "persuaded", "fail": "rebuff" },
+            { "text": "[PERSUASION] \"You do not want to be the man who turned away the one soul who could have helped, on the night it mattered. I can see that fear on you already. So let me by, and be free of it.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 15 }, "next": "persuaded", "fail": "rebuff", "crit": "persuade_crit", "fumble": "persuade_fumble" },
             { "text": "[INSIGHT] \"You keep glancing back over your shoulder, at the Wall. You're not guarding it from me, Justiciar. You're guarding *me* from *it.* What is happening up there tonight?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "insight_reveal", "fail": "rebuff" },
             { "text": "[INTIMIDATION] \"Look at me, and then look at how alone you are out here. The next thing across this causeway will be far less polite than I am being. Stand. Aside.\"", "check": { "skill": "Intimidation", "ability": "Charisma", "dc": 14 }, "next": "cowed", "fail": "angered" },
             { "text": "[LAWFUL] \"There is a proper form for a pilgrim's petition at a closed threshold, and you and I both know it. Let us observe it, by the book, and waste no more of the night.\"", "when": { "law": "Lawful" }, "next": "lawful_appeal", "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 1 }] },
@@ -164,6 +164,20 @@
           "text": "*(The fear you named lands true, and you watch him decide he would rather carry a reprimand than that particular regret.)* ...The man who turned you away. *(He grimaces.)* Gods help me, you're right — that's the exact ghost I've been arguing with all night. *(He stands aside.)* I'd sooner answer to the Doomguide for opening the gate than to myself for shutting it on the one who'd have mattered. Go up. *(lower)* And if you *are* that one — make me right.",
           "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 2 }],
           "auto": "why_here"
+        },
+        {
+          "id": "persuade_crit",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(✦ You speak, and the words go through six years of armour like it isn't there. The Justiciar's halberd-arm drops. His eyes shine. For one unguarded moment, in the dark on the causeway, a frightened man is simply, completely *seen* — and the relief of it nearly takes his knees.)* ...How do you *do* that. *(hoarse.)* I have stood this gate against pilgrims, against priests, against my own Doomguide, and you've unmade me with a *sentence.* *(he hauls the halberd fully aside, and there are tears on his face he doesn't bother to hide.)* Go. *Go up.* And — wait. *(he presses something into your hand: his own holy symbol, the grey balance, the one he's worn since his vows.)* Take it. If anything up there asks by what authority you walk the causeway, you tell it *Vane sent you*, and you hold that up, and you watch it *back down.* *(fierce, undone, freed.)* Six years I've wanted someone to give me a reason to open this gate instead of an order to keep it shut. You just — you *did.* Whatever you are. Whoever you are. The Threshold is *yours.*",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": 4 }, { "key": "demo.passed_threshold", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }],
+          "auto": "pass_warm"
+        },
+        {
+          "id": "persuade_fumble",
+          "speaker": "Justiciar Aldous Vane",
+          "text": "*(💀 You reach for *you don't want to be the man who turned away the one who mattered* — a fine line, a true line — and somewhere in the delivery it curdles into something that sounds, unmistakably, like a *threat against his career.* You watch the exact instant a frightened man decides he is more frightened of *you* than of his orders, and reaches for the comfort of the rulebook.)* …Is that so. *(flat, the warmth gone, the halberd levelling.)* 'I'll be the one you turned away.' *(he plants his feet.)* That's not a plea, pilgrim. That's a man telling me he'll be *trouble* whichever way I jump — and I have a *form* for trouble. It's called *the closed gate.* *(grim, immovable.)* You very nearly had me. I'll give you that. Right up until you reminded me precisely why the dusk-order exists. *(he jerks his chin down the causeway.)* Walk. And work on that — the part at the end, where the offer became the threat. It's the difference between a gate that opens and one that *doesn't.*",
+          "effects": [{ "key": "demo.vane.regard", "op": "AddInt", "amount": -1 }],
+          "auto": "turned"
         },
         {
           "id": "rebuff",

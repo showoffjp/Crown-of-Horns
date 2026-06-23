@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.75.0 — *"Gutter-WHOOP"* — natural 20s & natural 1s, BG3-style, with the comedy turned up (system + content)
+
+> Roll a **natural 20** and something gloriously absurd happens; roll a **natural 1** and you eat shit in the
+> funniest way the writer could imagine. The single best place in an RPG for gags, gaping amazement, and
+> catastrophe — now wired into the dice everywhere, with bespoke comedy on the juiciest checks.
+
+- 🎲 **The BG3 crit rule, faithfully** — a natural 20 **auto-succeeds against any DC**, a natural 1
+  **auto-fails against any bonus.** The d20 lands gold (`✦ NAT 20!`) with a little triumphant fanfare, or
+  blood-red (`💀 NAT 1!`) with a sad trombone. The "decide check results" preview now offers all four branches
+  (crit / success / failure / fumble) so you can read every outcome.
+- 🤣 **Bespoke crit & fumble scenes** on eight of the market's checks — and they are, I hope, *quite* fucking
+  funny:
+  - **Sable, nat 20:** you haggle so perfectly she has an existential crisis, shoves you the whole stall, and
+    tries to *adopt you as her grandchild.* **Nat 1:** your charming wink reads as a *seizure* and she flings
+    (possibly cursed) chicken at you.
+  - **Bram, nat 20:** you're so terrifying a twenty-year soldier *salutes, wets himself slightly,* and tries to
+    enlist under *you.* **Nat 1:** your big threat cracks into a *squeak* and he pats your head and gives you a
+    biscuit.
+  - **Pip, nat 1:** you slip on a cobble mid-loom and 'gutter-rat' comes out as **"gutter-WHOOP"**; the child
+    laughs so hard she lets you keep your purse. **Nat 20:** she's so awed she demands to be your *apprentice.*
+  - Plus **Tallow** (a lie so good he writes it down as *exemplary* / so over-egged he meets *"Kelemvor's
+    cousin who sells winkles"*), **Joss** (a conversion experience / he decides *you're* a god's agent),
+    **Calix** (he tears off his vestments, then gets cold / you accidentally *re-convert* him), **Wren** (she
+    trusts you with four secrets too many / your sincerity is so intense she flees the *teeth*), and the
+    dialogue sim's **Justiciar Vane** (gives you his own holy symbol / your plea curdles into a threat).
+- 🧩 The crit engine lives in **both** the market and the campaign dialogue sim; every other check across all
+  209 conversations now gets the nat-20/nat-1 rule and flair even without a custom node.
+- 🧪 New gates pin the crit rule (auto-success/fail vs extreme DCs), that the bespoke nodes exist and differ
+  from the normal branches, and that the comedy is actually in the text. Suite now **785 checks**, all green.
+
+---
+
 ## 👑 v4.74.0 — *"Your Reputation Precedes You"* — dispositions the NPCs react to (system + content)
 
 > The deepest Pillars-of-Eternity trick, now live: because your **reckoning persists across the whole visit**,

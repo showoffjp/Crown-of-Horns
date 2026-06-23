@@ -12,7 +12,7 @@ const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom
 const block = h.match(/\/\*<MKT>\*\/([\s\S]*?)\/\*<\/MKT>\*\//);
 check("MKT pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity,rollResult};")();
 
 check("abilityMod matches floor((score-10)/2)", E.abilityMod(10) === 0 && E.abilityMod(16) === 3 && E.abilityMod(17) === 3 && E.abilityMod(8) === -1);
 check("resolveCheck: roll+mod vs DC", E.resolveCheck(12, 15, 3) === true && E.resolveCheck(11, 15, 3) === false);
@@ -200,6 +200,36 @@ check("flipping only gender changes which options appear", (() => {
 // prior choices widen the set: having met Wren / earned dispositions unlocks more of the 50
 const richState = E.newState(); richState.bools["market.met_wren"] = true; richState.bools["market.holding_stone"] = true; richState.ints["disp.heretical"] = 1; richState.ints["disp.merciful"] = 2;
 check("what you've already done unlocks still more potential responses", visible(femaleCleric, richState) > visible(femaleCleric));
+
+// ---- BG3 critical hits & fumbles (nat 20 / nat 1) with unique comedic responses ----
+check("a natural 20 auto-succeeds against any DC", E.rollResult(20, 30, -5).success === true && E.rollResult(20, 30, -5).crit === true);
+check("a natural 1 auto-fails against any DC", E.rollResult(1, 5, 10).success === false && E.rollResult(1, 5, 10).fumble === true);
+check("ordinary rolls follow roll+mod vs DC", E.rollResult(14, 15, 3).success === true && E.rollResult(8, 15, 3).success === false &&
+  E.rollResult(14, 15, 3).crit === false && E.rollResult(8, 15, 3).fumble === false);
+// real checks route to dedicated comedic crit/fumble nodes, and those nodes exist
+let critChecks = 0, critNodesOk = true;
+for (const conv of CONVS) {
+  const ids = new Set(conv.nodes.map(n => n.id));
+  for (const n of conv.nodes) for (const ch of (n.choices || [])) {
+    if (ch.crit || ch.fumble) { critChecks++;
+      if (ch.crit && !ids.has(ch.crit)) critNodesOk = false;
+      if (ch.fumble && !ids.has(ch.fumble)) critNodesOk = false; }
+  }
+}
+check("multiple checks have bespoke crit & fumble responses", critChecks >= 6);
+check("every crit/fumble target node exists", critNodesOk);
+// the crit and fumble outcomes are genuinely different text from the normal pass/fail
+const sableHaggle = sable.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+const nodeText = (id) => { const n = sable.nodes.find(x => x.id === id); return n ? n.text : ""; };
+check("Sable's nat-20 / nat-1 are unique scenes (not the normal branches)", sableHaggle.crit && sableHaggle.fumble &&
+  nodeText(sableHaggle.crit) !== nodeText(sableHaggle.next) && nodeText(sableHaggle.fumble) !== nodeText(sableHaggle.fail) &&
+  /grandmother|pigeon|stool/i.test(nodeText(sableHaggle.crit)));   // the comedy is actually in there
+// a nat 20 still applies the choice's effects (and routes to the crit node), keeping story state honest
+check("crit/fumble nodes carry their own effects & still resolve to an ending", CONVS.every(c => {
+  const byId = {}; c.nodes.forEach(n => byId[n.id] = n);
+  return c.nodes.every(n => (n.choices || []).every(ch =>
+    (!ch.crit || byId[ch.crit]) && (!ch.fumble || byId[ch.fumble])));
+}));
 
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
