@@ -399,6 +399,61 @@ check("Underbridge checks carry their own nat-20/nat-1 scenes", [underPip, wick,
   c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))));
 check("each Underbridge soul offers a [RETURNED] line", [underPip, wick, knotwife].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- fourth zone: Past the Last Torch — the Wall of the Faithless, and three threads paid off at once ----
+const LAST = SCENES && SCENES.lasttorch;
+check("a fourth zone (Past the Last Torch) ships too", LAST && LAST.npcs.length >= 3 && LAST.w >= 8 && LAST.h >= 6);
+check("the Reed-Walk's causeway now climbs up to the Wall", (REED.exits || []).some(x => x.to === "lasttorch"));
+check("the last torch has a way back down the causeway", (LAST.exits || []).some(x => x.to === "reedwalk"));
+check("all four zones are reachable as a connected map", (() => {
+  // BFS the zone graph from the market via exits
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (!seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return seen.has("reedwalk") && seen.has("underbridge") && seen.has("lasttorch");
+})());
+const LBL = E.buildBlocked(LAST);
+check("Last-Torch NPCs/props block their tiles and stay reachable", LAST.npcs.every(n => {
+  if (LBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(LAST.playerStart.x, LAST.playerStart.y, n.x, n.y, LBL, LAST.w, LAST.h);
+  return adj && ((adj[0] === LAST.playerStart.x && adj[1] === LAST.playerStart.y) ||
+    E.findPath(LAST.playerStart.x, LAST.playerStart.y, adj[0], adj[1], LBL, LAST.w, LAST.h).length > 0);
+}));
+check("the Wall zone grows the prop vocabulary (wall, torch, greywort)",
+  h.includes('p.type==="wall"') && h.includes('p.type==="torch"') && h.includes('p.type==="greywort"'));
+
+const hale = CONVS.find(c => c.id === "lt.hale");
+const esuele = CONVS.find(c => c.id === "lt.esuele");
+const goodwin = CONVS.find(c => c.id === "lt.goodwin");
+check("the three Last-Torch souls are present", hale && esuele && goodwin);
+// PAYOFF 1 — Wick's cure: the greywort errand is gated on having learned of the root under the bridge, and ends by setting the cure flag
+const greyChoice = hale.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.flag === "under.knows_root");
+check("the greywort errand is gated on having learned of the root at the Underbridge", greyChoice && greyChoice.when && greyChoice.when.flag === "under.knows_root" &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["under.knows_root"] = true; return s; })(), greyChoice, MODEL) === true &&
+  E.choiceAvailable(goodGuy, E.newState(), greyChoice, MODEL) === false);
+const cureSet = (conv, flag) => conv.nodes.some(n => (n.effects || []).some(e => e.key === flag) ||
+  (n.choices || []).some(ch => (ch.effects || []).some(e => e.key === flag)));
+check("fetching greywort writes Wick's cure back into the shared state", cureSet(hale, "under.wick_cure"));
+// PAYOFF 2 — the Knotwife's lost daughter: Esuele greets you differently once you carry her mother's grief, and you can give it back
+const es0 = esuele.nodes.find(n => n.id === "0");
+const knewMum = E.newState(); knewMum.bools["under.knotwife_story"] = true;
+check("the soul in the Wall reacts to your having met her mother the weaver", es0.variants &&
+  E.pickVariantText(es0, goodGuy, knewMum) !== E.pickVariantText(es0, goodGuy, E.newState()) &&
+  /wool|mother|grief/i.test(E.pickVariantText(es0, goodGuy, knewMum)));
+const tellMum = esuele.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("under.knotwife_story") >= 0);
+check("you can only tell Esuele her mother never forgot her if you heard the Knotwife's grief", tellMum &&
+  E.choiceAvailable(goodGuy, knewMum, tellMum, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), tellMum, MODEL) === false);
+// PAYOFF 3 — Goodwin, the dead man who doesn't know it: the deep stack (crit/fumble + a Returned line) holds for the comic-morose soul too
+check("Last-Torch checks carry their own nat-20/nat-1 scenes", [hale, goodwin].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))));
+check("each Last-Torch soul offers a [RETURNED] line", [hale, esuele, goodwin].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+// the Wall itself reacts to a Returned walking up to it, and the greywort can be picked cold-handed
+check("a Returned can pick the greywort without braving the cold (a bespoke [RETURNED] gather)",
+  hale.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned" && /greywort_returned/.test(ch.next || ""))));
+check("the marquee moment lands: the Wall stirs when a Returned addresses it", (() => {
+  const wallStir = esuele.nodes.find(n => n.id === "esuele_returned");
+  return wallStir && (wallStir.effects || []).some(e => e.key === "lt.wall_stirs");
+})());
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));

@@ -18,7 +18,8 @@
       { "type": "barrel", "x": 7, "y": 5 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 6 }, "label": "◂ back to the market square" }
+      { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 6 }, "label": "◂ back to the market square" },
+      { "x": 5, "y": 0, "to": "lasttorch", "dest": { "x": 5, "y": 7 }, "label": "up the causeway, into the mist ▸ (past the last torch)" }
     ],
     "npcs": [
       { "id": "cassian", "name": "Old Cassian", "title": "the Boatman of the Last Mile", "x": 8, "y": 6, "hue": 200, "sigil": "C", "conv": "reed.cassian",

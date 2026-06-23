@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v4.81.0 — *"Past the Last Torch"* — the fourth zone, the Wall of the Faithless, and three threads paid off at once (content)
+
+> The causeway has an *end.* Climb the Reed-Walk past Sister Vharn, up through the mist, past the **last
+> burning torch on the whole crossing** — and you're at the foot of the **Wall of the Faithless** itself,
+> ten thousand faces pressed half-out of the grey stone. This is the zone the other three were pointing at,
+> and it cashes in their seeded threads.
+
+- 🧱 **A fourth zone — Past the Last Torch.** Reached by a new causeway exit at the *top* of the Reed-Walk
+  (slip past the Measurer). The map is now a connected four-zone hub: market ⇄ reed-walk ⇄ **the Wall**, with
+  the underbridge stair off the market. New code-drawn props: the **Wall** (with faces in the stone), a lone
+  guttering **torch**, glowing **greywort**, a dead marsh-tree.
+- 🕯️ **Brother Hale, Warden of the Last Torch** — a Doomguide freezing into his post a degree at a time (the
+  market's Returned-sense warned of exactly this in Brother Calix). He guards the way, hates it, and is the
+  guide to the cure: **fetch the greywort** from the Wall's foot (Survival check, with bespoke nat-20/nat-1
+  outcomes — and a Returned can pick it cold-handed while the Wall *gets out of the way*).
+- 🧩 **PAYOFF — Wick's cure.** The greywort errand is gated on having learned of the root under the bridge, and
+  fetching it writes `under.wick_cure` back into the shared state. The dying child three zones away can live
+  because of what you do at the Wall.
+- 🪦 **Esuele, a voice in the Wall** — **the Knotwife's lost daughter**, walked out past this torch a lifetime
+  ago, now a face in the stone worn down to a thimbleful of self. If you heard the blind weaver's grief under
+  the bridge, you can tell Esuele her mother **never stopped weaving her name** — and watch four centuries lift.
+  She also lays out the heresy from the inside: the Wall holds no sinners, only the poor and the unclaimed.
+- 🚢 **Goodwin, waiting for the boat** — a cheerful dead cloth-merchant who doesn't know he's died, sat on a rock
+  waiting for a ferry the Choir promised and never sent. Comic-morose relief: tell him the truth and set him
+  walking toward the light — or send him to gently un-wait the whole marsh of souls on their rocks.
+- 🎭 Full deep stack throughout: reactive identity/flag/disposition greetings, **nat-20/nat-1 crit & fumble
+  comedy**, the **Returned-sense** on each soul, a Returned line apiece — and the marquee moment of the whole
+  preview: **the Wall itself stirs** when a Returned addresses it.
+- 🧪 **+15 gates** (now **840 checks**, all green): the fourth zone is keyed, the four-zone map is provably one
+  connected graph, the Wall zone is collision-clean, and the three cross-zone payoffs are verified — the greywort
+  gate, the cure write-back, and Esuele's recognition of her mother.
+
+---
+
 ## 👑 v4.80.0 — *"The Underbridge"* — a third walkable zone, and a thread that ties the saga together (content)
 
 > The triptych is complete. From the market you can now take the **stair down** into the dark under the
