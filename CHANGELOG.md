@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.88.0 — *"The Night Market"* — an eleventh zone: breadth, weirdness, and a barter/shop interaction (content)
+
+> The narrative spine is complete, so this one adds *breadth* — a surreal palette-cleanser off the hub, and the
+> last interaction type the game wants: a **shop.** A bazaar only the dead-touched can find, where nobody deals
+> in coin, because the dead have none — they trade in **years, memories, and names.**
+
+- 🌙 **An eleventh zone — the Night Market.** Reached by a stair from the market "that wasn't there a moment
+  ago," completing an **eleven-zone connected map** (test-proven). Built entirely from the existing prop
+  vocabulary (stalls, braziers, hanging cloth) — no new art needed.
+- 🛒 **A real barter/shop loop, on the existing engine.** No new UI: the trade rides the `when.int` / `AddInt`
+  system already proven by dispositions. The **Pawn of Hours** buys *years off the grey end of your life* — each
+  trade accumulates `nm.years_given` (surfaced in the ledger), and the **back-of-stall merchandise unlocks only
+  once you've spent enough** (a genuine shop gate). Spend a year, get a borrowed hour; spend three, get a
+  measure of un-time the Wall's cold can't eat.
+- ❀ **Three vendors who are all cautionary tales that kept their stalls:** the **Pawn of Hours** (an appetite
+  building itself a life a stolen decade at a time — and the Wall's quiet second supplier); the
+  **Lost-and-Found** (a keeper of dropped memories who traded away her own life piece by piece and built a shop
+  around the last warm jar); and the **Regular** (a soul that sold its grief to stop hurting, learned too late
+  the ache *was* the love, and now drifts the aisles having sold even the memory of the door).
+- 🕯️ **The saga's heart, refracted:** the Night Market is the **Hunger** in microcosm — souls spent to nothing a
+  willing trade at a time — and a **witness** can still carry the Regular *out* by remembering it, exactly the
+  cure the Wayshrine named.
+- 🎭 Full deep stack: reactive greetings, the **Returned-sense** on each vendor, a Returned line apiece,
+  dispositions.
+- 🧪 **+12 gates** (now **929 checks**, all green): the eleventh zone is keyed/reachable/collision-clean, the
+  eleven-zone map is one connected graph, the trade resource accumulates and gates the back-stall goods, the
+  resource is surfaced in the ledger, and the witness-carries-a-soul-out beat is wired. The whole walkable Act now
+  spans **11 zones and 39 souls.**
+
+---
+
 ## 👑 v4.87.0 — *"The Threshold of the Crown's Road"* — a tenth zone: you meet yourself, and the saga's loop is revealed (content)
 
 > Where the road ends, the living cannot follow — and waiting at the dark door is the **Last Returned**: *you*,

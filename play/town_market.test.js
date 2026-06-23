@@ -773,6 +773,49 @@ check("the Threshold companions and the mirror each carry a [RETURNED] line", TH
   const c = CONVS.find(cc => cc.id === n.conv);
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
 }));
+
+// ---- eleventh zone: the Night Market — breadth + a new interaction type: barter/trade ----
+const NIGHT = SCENES && SCENES.nightmarket;
+check("an eleventh zone (the Night Market) ships too", NIGHT && NIGHT.npcs.length >= 3 && NIGHT.w >= 8 && NIGHT.h >= 6);
+check("a hidden stair from the market reaches the Night Market", (SCN.exits || []).some(x => x.to === "nightmarket"));
+check("all eleven zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse", "hearth", "aldric", "wayshrine", "threshold", "nightmarket"].every(z => seen.has(z));
+})());
+const NBL = E.buildBlocked(NIGHT);
+check("Night-Market NPCs/props block their tiles and stay reachable", NIGHT.npcs.every(n => {
+  if (NBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(NIGHT.playerStart.x, NIGHT.playerStart.y, n.x, n.y, NBL, NIGHT.w, NIGHT.h);
+  return adj && ((adj[0] === NIGHT.playerStart.x && adj[1] === NIGHT.playerStart.y) ||
+    E.findPath(NIGHT.playerStart.x, NIGHT.playerStart.y, adj[0], adj[1], NBL, NIGHT.w, NIGHT.h).length > 0);
+}));
+
+const pawn = CONVS.find(c => c.id === "nm.pawn");
+const mnemo = CONVS.find(c => c.id === "nm.mnemo");
+const regular = CONVS.find(c => c.id === "nm.regular");
+check("the three Night-Market vendors are present", pawn && mnemo && regular);
+// NEW INTERACTION — barter/trade: an accumulating resource (years given) spent and gated, all on the existing int engine
+const giveYear = pawn.nodes.find(n => n.id === "1").choices.find(ch =>
+  (ch.effects || []).some(e => e.key === "nm.years_given" && e.op === "AddInt" && e.amount > 0));
+check("you can trade a resource (give a year) that accumulates in the visit state", giveYear);
+const deepGoods = pawn.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.int && ch.when.int["nm.years_given"]);
+const spent3 = E.newState(); spent3.ints["nm.years_given"] = 3;
+check("the back-of-stall merchandise unlocks only once you've spent enough (a real shop gate)", deepGoods &&
+  E.choiceAvailable(goodGuy, spent3, deepGoods, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), deepGoods, MODEL) === false);
+check("the traded resource is surfaced in the ledger (an INT_LABEL)", h.includes("years you've traded away") && h.includes("nm.years_given"));
+// the zone keeps the deep stack and its own idiosyncratic theme (the market is a trap that eats souls a trade at a time)
+check("the Night Market warns it is a trap that spends souls (the Regular, the keeper)", regular.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "nm.market_warning")) || mnemo.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "nm.market_warning")));
+check("a witness can carry a spent soul out by remembering it (ties to the saga's core)", regular.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "nm.witnessed_regular")));
+check("each Night-Market vendor offers a [RETURNED] line", [pawn, mnemo, regular].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- grand totals across the whole walkable Act ----
+check("the playable Act spans eleven connected zones and 35+ souls", Object.keys(SCENES).length === 11 &&
+  Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 35);
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));

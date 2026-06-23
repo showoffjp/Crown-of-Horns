@@ -24,6 +24,7 @@ HEARTH = json.load(open(os.path.join(ROOT, "play", "hearth.json"), encoding="utf
 ALDRIC = json.load(open(os.path.join(ROOT, "play", "aldric.json"), encoding="utf-8"))
 WAYSHRINE = json.load(open(os.path.join(ROOT, "play", "wayshrine.json"), encoding="utf-8"))
 THRESHOLD = json.load(open(os.path.join(ROOT, "play", "threshold.json"), encoding="utf-8"))
+NIGHTMARKET = json.load(open(os.path.join(ROOT, "play", "nightmarket.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -77,6 +78,10 @@ INT_LABELS = {
     "thr.last.regard": "the Last Returned's regard",
     "thr.dace.regard": "Dace — at the edge",
     "thr.orin.regard": "Orin — at the edge",
+    "nm.pawn.regard": "the Pawn of Hours' regard",
+    "nm.mnemo.regard": "the Lost-and-Found's regard",
+    "nm.regular.regard": "the Regular's regard",
+    "nm.years_given": "years you've traded away",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -121,23 +126,27 @@ NPC_SENSE = {
     "thr.last": {"dc": 2, "text": "*(You do not reach for it. You cannot — there is no *across* to reach, because it is *you*, and your sense simply *closes the loop*, marrow to marrow, the way two mirrors face each other into infinity. The cold in it is your cold, run all the way down: a soul that walked this exact door, took the Crown, and spent two hundred years freezing into the very thing it broke the world to destroy. There is no DC. You know it the way you know your own name in the dark. And the most terrible thing your sense reads is not its *wrongness* — it is how *reasonable* every step that made it was, each one a *mercy*, each one a *just a little longer*, a road you could walk *right now* without once feeling yourself fall. It is not a warning you can *fight*. It is a warning you can only *out-love*.)*"},
     "thr.dace": {"dc": 11, "text": "*(The bond you built at a fire stands at your shoulder at the literal edge of the world, and your sense reads it clear: she is *terrified* — not of the door, not of the dead, but of *you*, of what you might come back as — and she has decided, in the way Dace decides things, to stand here *anyway*, sword bare, amending a campfire promise into a vow to save you *and* stop you. The fear and the loyalty are the same size in her, perfectly balanced, and the balance is the strongest thing on this threshold. She is the variable your future self never had.)*"},
     "thr.orin": {"dc": 12, "text": "*(The Justiciar stands with her oath spent and her blade bare and her whole trained certainty replaced by a single naked act of judgement, and your sense reads the vertigo of it: she has followed a counterexample to the end of the world and found *two* of it, and she is doing the bravest thing a soul of the order can do — choosing, with no doctrine and no rite and no superior, which of two identical souls to believe in. She came to learn if the order deserved guarding. She has decided it doesn't, and that *you* — the open one, the accompanied one — are what she guards instead.)*"},
+    "nm.pawn": {"dc": 13, "text": "*(You turn your sense on the long thin merchant and find no soul at all in the ordinary sense — only an *appetite* given shape, a thing made of *patience* and *other people's unspent time*, slowly, slowly accreting toward the one thing it lacks and craves: a life of its own, a first-hand one, with a death at the end it gets to choose. It is not evil so much as *starving* in a way that has no bottom, and it is building itself a body a stolen decade at a time. The horror your sense reads is how *fair* it is. It pays. It says thank you. It is the only thing on the causeway that does.)*"},
+    "nm.mnemo": {"dc": 11, "text": "*(The keeper of the jars reads, to your sense, as a soul worn almost to transparency — and you understand at once that she is a customer who never left, who traded away her whole life to this place a piece at a time until only one memory remained, and who built a shop around that last warm jar so she would never have to be alone with the knowledge of what she spent. She grieves every memory she keeps because each one is proof of the trade that emptied her. She is the Night Market's warning, wearing an apron.)*"},
+    "nm.regular": {"dc": 10, "text": "*(You reach for the threadbare shade and find barely anything to hold — a habit, a cheer, a set of empty pockets where a soul used to be. It sold itself to this place trade by trade, beginning with a single grief it wanted to be rid of, and learned too late that the ache was the love, and the love was the self. It cannot leave because it sold the memory of the door, the memory of why it came, the memory of who it was grieving. It is what the Hunger looks like from the *inside*, mid-process, still smiling. It is also, your sense insists, still *someone* — for exactly as long as one other soul refuses to let it be no one.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-           + THRESHOLD["conversations"]):
+           + THRESHOLD["conversations"] + NIGHTMARKET["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-             + THRESHOLD["conversations"])
+             + THRESHOLD["conversations"] + NIGHTMARKET["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
               HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"],
-              WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"]}
+              WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"],
+              NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -284,7 +293,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">ten walkable zones · a whole Act, from a cold market to the threshold of death and the self you might become · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">eleven walkable zones · a whole Act + a market that trades in years · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
