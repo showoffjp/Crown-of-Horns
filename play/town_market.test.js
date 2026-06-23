@@ -567,6 +567,55 @@ check("you can free the prisoner Crake (a gated Athletics escape with crit/fumbl
 check("Counting-House souls keep crit/fumble comedy and a [RETURNED] line each",
   [mereth, tallow2, crake].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))) &&
   [mereth, tallow2, crake].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- seventh zone: the Hearth — a denouement, and a NEW engine feature: conditionally-present souls ----
+const CAMP = SCENES && SCENES.hearth;
+check("a seventh zone (the Hearth) ships too", CAMP && CAMP.npcs.length >= 3 && CAMP.w >= 8 && CAMP.h >= 6);
+check("the market opens to a campsite (make camp)", (SCN.exits || []).some(x => x.to === "hearth"));
+check("all seven zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse", "hearth"].every(z => seen.has(z));
+})());
+check("the Hearth grows the prop vocabulary (campfire, log, bedroll, tree)",
+  h.includes('p.type==="campfire"') && h.includes('p.type==="log"') && h.includes('p.type==="bedroll"') && h.includes('p.type==="tree"'));
+
+// NEW ENGINE FEATURE — conditionally-present NPCs: souls with a `when` only appear when world-state matches
+check("the engine filters NPCs by world-state (npcVisible / activeNpcs)",
+  h.includes("function npcVisible(") && h.includes("function activeNpcs(") && h.includes("matchesWhen(char, st, n.when)"));
+check("collision + rendering use only the present souls", h.includes("activeNpcs()") &&
+  h.includes("function blockedNow(") && h.includes("BLOCKED=blockedNow()"));
+const camped = CAMP.npcs.filter(n => n.when);
+check("the Hearth's attendees are gated on who you saved (Dace recruited, Wren alive, Pip helped)",
+  camped.length >= 3 &&
+  CAMP.npcs.some(n => n.when && n.when.flag === "party.dace_recruited") &&
+  CAMP.npcs.some(n => n.when && n.when.flag === "reed.wren_lives") &&
+  CAMP.npcs.some(n => n.when && n.when.flag === "market.helped_pip"));
+check("an always-present anchor (the fire) remains so the camp is never empty", CAMP.npcs.some(n => !n.when));
+// verify the gate actually works through the real matcher: Dace present only when recruited
+const daceNpc = CAMP.npcs.find(n => n.id === "dace3");
+check("a conditional soul is hidden until its flag is set, then appears", daceNpc &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.dace_recruited"] = true; return s; })(), daceNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), daceNpc.when) === false);
+
+const fire = CONVS.find(c => c.id === "hearth.fire");
+const hdace = CONVS.find(c => c.id === "hearth.dace");
+const hwren = CONVS.find(c => c.id === "hearth.wren");
+const hpip = CONVS.find(c => c.id === "hearth.pip");
+check("the Hearth's four conversations are present", fire && hdace && hwren && hpip);
+// the fire's reflection reads your reckoning — a haunted, merciful and ruthless soul each take stock differently
+const f0 = fire.nodes.find(n => n.id === "0");
+const reck = (k) => { const s = E.newState(); s.ints[k] = 3; return s; };
+check("the fire's denouement reads your dominant disposition", f0.variants &&
+  new Set([E.pickVariantText(f0, goodGuy, reck("disp.haunted")), E.pickVariantText(f0, goodGuy, reck("disp.merciful")),
+    E.pickVariantText(f0, goodGuy, reck("disp.ruthless")), E.pickVariantText(f0, goodGuy, E.newState())]).size === 4);
+// the companion night-talk deepens with approval (an approval-gated layer — the camp/bonding interaction)
+const deepTalk = hdace.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.int && ch.when.int["city.dace.approval"]);
+check("Dace's night-talk unlocks a deeper line once her approval is high enough", deepTalk &&
+  E.choiceAvailable(confessor, (() => { const s = E.newState(); s.ints["city.dace.approval"] = 3; return s; })(), deepTalk, MODEL) === true &&
+  E.choiceAvailable(confessor, E.newState(), deepTalk, MODEL) === false);
+check("each Hearth soul still offers a [RETURNED] line", [fire, hdace, hwren, hpip].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));

@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.84.0 — *"The Hearth"* — a seventh zone, a denouement, and souls that appear on what you did (content + an engine feature)
+
+> Every Act needs its quiet after. **Make camp at the Hearth** — a fire in the dark past the city — and take
+> stock. And here the demo gains the engine feature the whole game is built on: **conditionally-present NPCs.**
+> The souls who gather at your fire are *exactly the ones you saved.* Save no one, and the fire burns alone.
+
+- 🔥 **A seventh zone — the Hearth.** A campfire denouement reached by a new "make camp" exit from the market,
+  completing a **seven-zone connected map** (test-proven). New code-drawn props: a living **campfire**, seating
+  **logs**, **bedrolls**, **trees**.
+- 🌟 **New engine feature: NPCs that appear on world-state.** A scene NPC may carry a `when` (the same matcher the
+  dialogue uses), and only spawns — rendered, blockable, talkable — when the world matches. `npcVisible` /
+  `activeNpcs` / `blockedNow` drive rendering, collision, and pathing off the *present* souls, recomputed when a
+  conversation changes state. This is how the game will populate every reactive scene.
+- 🫂 **The souls at the fire are the ones you saved:**
+  - **the fire itself** (always present) — a reflective *take-stock*, its denouement reading your dominant
+    disposition (haunted / merciful / ruthless / weary), with threads to reckon up the river, the Wall, the Choir,
+    and yourself.
+  - **Dace Iron** (if recruited) — your companion off-watch: an **approval-gated night-talk** (the camp/bonding
+    interaction) where she finally puts the sword down and tells you about the sister the Wall took.
+  - **Wren** (if she lives) — alive at your fire, eating a stolen apple, working out what to *do* with an "after"
+    she never expected — and deciding to become the one who *bothers*, for the next Wren.
+  - **Pip** (if you helped her) — warm for once, and if you cured **Wick**, sleeping with both eyes for the first
+    time in years because someone else is keeping the watch.
+- 🎭 Full deep stack throughout: reactive greetings, the **Returned-sense** on each soul (now turned *inward* at
+  the fire), a Returned line apiece, dispositions.
+- 🧪 **+13 gates** (now **879 checks**, all green): the seventh zone is keyed/reachable/collision-clean, the
+  seven-zone map is one connected graph, the conditional-NPC feature is wired and verified through the real
+  matcher (Dace hidden until recruited, then present), the fire's denouement reads your disposition, and the
+  companion night-talk gates on approval.
+
+---
+
 ## 👑 v4.83.0 — *"The Counting-House"* — a sixth zone, and the Act-1 climax: a confrontation that reads the whole web (content + a new interaction type)
 
 > Deeper into the city than the Lamplit Quarter sits the **Counting-House** — the Choir's local seat, where
