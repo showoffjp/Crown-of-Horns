@@ -11,6 +11,27 @@
 
 ---
 
+## 👑 v4.78.0 — *"Mind Where You Walk"* — real collision & A* pathfinding in the market (fix + system)
+
+> Fair feedback, fixed: the market's movement was a naive straight-line slide with **no collision** — you could
+> glide right through people, stalls, and the fountain. Now it's a proper grid mover with obstacles and
+> path-finding, the way an isometric CRPG should be.
+
+- 🚧 **Collision** — every prop *and* every NPC now blocks its tile. You can't stand inside a person or a stall
+  anymore; blocked tiles read darker on the floor, and the cursor shows *not-allowed* over them.
+- 🧭 **A\* pathfinding** — click anywhere and the player routes a real 8-directional path *around* obstacles (no
+  corner-cutting through diagonal blockers) instead of sliding through them. Click a blocked tile and it walks
+  to the nearest free tile beside it; click an NPC and it walks to a free tile *beside* them, then talks.
+- ✨ **Path preview** — faint gold waypoint dots trace the route, brighter at the destination, BG3-style.
+- 🧪 New gates prove it: every prop/NPC blocks its tile, **you can no longer path onto an NPC's tile** (the exact
+  bug reported), no path ever crosses a blocked tile, and all seven souls remain reachable via a free adjacent
+  tile. Suite now **798 checks**, all green.
+- 📝 *Honest note:* the dialogue dice are a stylized **web stand-in** (procedural SVG) — the real 3D die, and a
+  lot more polish, belong in the Unity build. These browser previews exist to prove the *logic and content*,
+  byte-for-byte; they're the blueprint, not the final paint.
+
+---
+
 ## 👑 v4.77.0 — *"The Die is Cast"* — an actual rolling d20 animation (system)
 
 > The flicker-die is gone. In its place: a **real, faceted d20** that tumbles in 3D, bounces when it lands,

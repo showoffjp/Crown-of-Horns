@@ -348,6 +348,34 @@ function secretKnown(char, entry, model){ if(!entry||!entry.secret) return false
 // THE RETURNED: a soul pulled back from the Wall perceives what the living can't — its clarity scales with
 // Wisdom (the soul's lucidity). Innate; never proficiency. 10 + WIS modifier vs the moment's sense-DC.
 function returnedClarity(char){ return 10 + abilityMod(char.scores[4]); }
+// ---- grid collision + A* pathfinding (so you can't walk through people, stalls, or the fountain) ----
+function tileKey(x,y){ return x+","+y; }
+function buildBlocked(scene){ const b={}; (scene.props||[]).forEach(p=>{ b[tileKey(p.x,p.y)]=1; });
+  (scene.npcs||[]).forEach(n=>{ b[tileKey(n.x,n.y)]=1; }); return b; }
+function inBounds(x,y,w,h){ return x>=0&&x<w&&y>=0&&y<h; }
+function findPath(sx,sy,gx,gy,blocked,w,h){   // 8-dir A*, no corner-cutting; returns [[x,y]…] from first step to goal, [] if none
+  if(sx===gx&&sy===gy) return [];
+  if(!inBounds(gx,gy,w,h)||blocked[tileKey(gx,gy)]) return [];
+  const dirs=[[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]];
+  const open=[{x:sx,y:sy,g:0,f:0,p:null}], best={}; best[tileKey(sx,sy)]=0;
+  while(open.length){
+    let bi=0; for(let i=1;i<open.length;i++) if(open[i].f<open[bi].f) bi=i;
+    const cur=open.splice(bi,1)[0];
+    if(cur.x===gx&&cur.y===gy){ const path=[]; let n=cur; while(n.p){ path.unshift([n.x,n.y]); n=n.p; } return path; }
+    for(const d of dirs){ const nx=cur.x+d[0], ny=cur.y+d[1]; if(!inBounds(nx,ny,w,h)||blocked[tileKey(nx,ny)]) continue;
+      if(d[0]&&d[1] && (blocked[tileKey(cur.x+d[0],cur.y)]||blocked[tileKey(cur.x,cur.y+d[1])])) continue;   // no corner cut
+      const ng=cur.g+(d[0]&&d[1]?1.414:1), k=tileKey(nx,ny);
+      if(best[k]!==undefined && best[k]<=ng+1e-6) continue; best[k]=ng;
+      open.push({x:nx,y:ny,g:ng,f:ng+Math.max(Math.abs(nx-gx),Math.abs(ny-gy)),p:cur}); } }
+  return [];
+}
+function nearestFreeAdjacent(sx,sy,gx,gy,blocked,w,h){   // the reachable free tile beside a target (e.g. an NPC) closest to you
+  const dirs=[[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]; let best=null,bestLen=1e9;
+  for(const d of dirs){ const nx=gx+d[0], ny=gy+d[1]; if(!inBounds(nx,ny,w,h)||blocked[tileKey(nx,ny)]) continue;
+    if(nx===sx&&ny===sy) return [nx,ny];
+    const path=findPath(sx,sy,nx,ny,blocked,w,h); if(path.length && path.length<bestLen){ bestLen=path.length; best=[nx,ny]; } }
+  return best;
+}
 /*</MKT>*/
 
 // ---- player character ----
@@ -400,41 +428,47 @@ SCENE.npcs.forEach(n=>{ n.tx=n.x; n.ty=n.y; });
 const TW=64, TH=32, OX=cv.width/2, OY=64;
 function iso(tx,ty){ return { x: OX+(tx-ty)*TW/2, y: OY+(tx+ty)*TH/2 }; }
 function unIso(sx,sy){ const a=(sx-OX)/(TW/2), b=(sy-OY)/(TH/2); return { tx:(a+b)/2, ty:(b-a)/2 }; }
-const player={ tx:SCENE.playerStart.x, ty:SCENE.playerStart.y, target:null, facing:1 };
+const player={ tx:SCENE.playerStart.x, ty:SCENE.playerStart.y, path:null, pathIdx:0, facing:1 };
+const BLOCKED=buildBlocked(SCENE);
 let hoverTile=null, hoverNpc=null, nearNpc=null, autoTalk=null, lastT=0;
 
 function npcAt(id){ return SCENE.npcs.find(n=>n.id===id); }
 function dist(ax,ay,bx,by){ return Math.hypot(ax-bx,ay-by); }
+function curTile(){ return [Math.round(player.tx), Math.round(player.ty)]; }
+function walkTo(gx,gy){ const c=curTile(); const p=findPath(c[0],c[1],gx,gy,BLOCKED,SCENE.w,SCENE.h);
+  if(p.length){ player.path=p; player.pathIdx=0; sfx('step'); return true; } return false; }
 
 cv.addEventListener("mousemove",e=>{ const r=cv.getBoundingClientRect(), sx=e.clientX-r.left, sy=e.clientY-r.top;
-  const t=unIso(sx,sy); hoverTile={tx:Math.round(t.tx),ty:Math.round(t.ty)};
+  const t=unIso(sx,sy), tx=Math.round(t.tx), ty=Math.round(t.ty);
+  hoverTile=inBounds(tx,ty,SCENE.w,SCENE.h)?{tx,ty}:null;
   hoverNpc=null; for(const n of SCENE.npcs){ const p=iso(n.tx,n.ty); if(Math.hypot(sx-p.x,sy-(p.y-26))<26){ hoverNpc=n; break; } }
-  cv.style.cursor = hoverNpc ? "pointer" : "default";
+  cv.style.cursor = hoverNpc ? "pointer" : (hoverTile && BLOCKED[tileKey(hoverTile.tx,hoverTile.ty)] ? "not-allowed" : "default");
 });
 cv.addEventListener("click",e=>{ if(document.getElementById("overlay").classList.contains("show")) return;
   const r=cv.getBoundingClientRect(), sx=e.clientX-r.left, sy=e.clientY-r.top;
-  if(hoverNpc){ const d=dist(player.tx,player.ty,hoverNpc.tx,hoverNpc.ty);
-    if(d<1.8){ talk(hoverNpc); } else { walkToward(hoverNpc); autoTalk=hoverNpc; } sfx('step'); return; }
-  const t=unIso(sx,sy); const tx=Math.max(0,Math.min(SCENE.w-1,Math.round(t.tx))), ty=Math.max(0,Math.min(SCENE.h-1,Math.round(t.ty)));
-  player.target={tx,ty}; autoTalk=null; sfx('step');
+  if(hoverNpc){ // approach the NPC — walk to a free tile beside them, then talk
+    if(dist(player.tx,player.ty,hoverNpc.tx,hoverNpc.ty)<1.7){ talk(hoverNpc); return; }
+    const c=curTile(), adj=nearestFreeAdjacent(c[0],c[1],hoverNpc.tx,hoverNpc.ty,BLOCKED,SCENE.w,SCENE.h);
+    if(adj && walkTo(adj[0],adj[1])){ autoTalk=hoverNpc; }
+    return; }
+  const t=unIso(sx,sy); let tx=Math.max(0,Math.min(SCENE.w-1,Math.round(t.tx))), ty=Math.max(0,Math.min(SCENE.h-1,Math.round(t.ty)));
+  if(BLOCKED[tileKey(tx,ty)]){ const c=curTile(), adj=nearestFreeAdjacent(c[0],c[1],tx,ty,BLOCKED,SCENE.w,SCENE.h); if(!adj) return; tx=adj[0]; ty=adj[1]; }
+  autoTalk=null; walkTo(tx,ty);
 });
-function walkToward(n){ // walk to a tile one step toward the player from the NPC
-  const dx=Math.sign(player.tx-n.tx), dy=Math.sign(player.ty-n.ty);
-  player.target={tx:n.tx+(dx||0), ty:n.ty+(dy||0)};
-}
 window.addEventListener("keydown",e=>{
   if(document.getElementById("overlay").classList.contains("show")) return;
-  if((e.key==="e"||e.key==="E") && nearNpc){ talk(nearNpc); }
+  if((e.key==="e"||e.key==="E") && nearNpc && dist(player.tx,player.ty,nearNpc.tx,nearNpc.ty)<1.7){ talk(nearNpc); }
 });
 
 function update(dt){
-  if(player.target){ const dx=player.target.tx-player.tx, dy=player.target.ty-player.ty, d=Math.hypot(dx,dy);
-    if(d<0.06){ player.tx=player.target.tx; player.ty=player.target.ty; player.target=null; }
-    else { const sp=4.2*dt; player.tx+=dx/d*Math.min(sp,d); player.ty+=dy/d*Math.min(sp,d); if(Math.abs(dx)>0.01) player.facing=dx>=0?1:-1; } }
-  // nearest NPC for the talk prompt + auto-talk on arrival
-  nearNpc=null; let best=1.8;
+  if(player.path && player.pathIdx<player.path.length){ const wp=player.path[player.pathIdx];
+    const dx=wp[0]-player.tx, dy=wp[1]-player.ty, d=Math.hypot(dx,dy);
+    if(d<0.08){ player.tx=wp[0]; player.ty=wp[1]; player.pathIdx++; if(player.pathIdx>=player.path.length) player.path=null; }
+    else { const sp=4.6*dt; player.tx+=dx/d*Math.min(sp,d); player.ty+=dy/d*Math.min(sp,d); if(Math.abs(dx)>0.01) player.facing=dx>=0?1:-1; } }
+  // nearest NPC for the talk prompt + auto-talk once you've arrived beside your target
+  nearNpc=null; let best=1.7;
   for(const n of SCENE.npcs){ const d=dist(player.tx,player.ty,n.tx,n.ty); if(d<best){ best=d; nearNpc=n; } }
-  if(autoTalk && dist(player.tx,player.ty,autoTalk.tx,autoTalk.ty)<1.8 && !player.target){ const n=autoTalk; autoTalk=null; talk(n); }
+  if(autoTalk && !player.path && dist(player.tx,player.ty,autoTalk.tx,autoTalk.ty)<1.7){ const n=autoTalk; autoTalk=null; talk(n); }
 }
 
 // ---- drawing ----
@@ -470,11 +504,15 @@ function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); dra
 }
 function render(){
   ctx.clearRect(0,0,cv.width,cv.height);
-  // floor
-  for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){ const s=iso(tx,ty);
-    const shade=((tx+ty)%2)?"#181620":"#1c1a26";
-    drawDiamond(s.x,s.y, hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty?"#2a2740":shade, "#13111a"); }
-  if(player.target){ const s=iso(player.target.tx,player.target.ty); drawDiamond(s.x,s.y,"rgba(231,200,115,.10)","rgba(231,200,115,.5)"); }
+  // floor (blocked tiles read darker; the hovered tile lights unless it's blocked)
+  for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){ const s=iso(tx,ty), bl=BLOCKED[tileKey(tx,ty)];
+    let shade=((tx+ty)%2)?"#181620":"#1c1a26"; if(bl) shade=((tx+ty)%2)?"#141019":"#16121f";
+    if(hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty) shade=bl?"#2a1620":"#2a2740";
+    drawDiamond(s.x,s.y, shade, "#13111a"); }
+  // path preview — faint dots along the route, brighter at the destination (BG3-style)
+  if(player.path){ for(let i=player.pathIdx;i<player.path.length;i++){ const wp=player.path[i], s=iso(wp[0],wp[1]), last=i===player.path.length-1;
+    if(last){ drawDiamond(s.x,s.y,"rgba(231,200,115,.12)","rgba(231,200,115,.6)"); }
+    ctx.beginPath(); ctx.arc(s.x,s.y,last?4:2.5,0,7); ctx.fillStyle=last?"#e7c873":"rgba(231,200,115,.5)"; ctx.fill(); } }
   // depth-sorted entities (props + npcs + player)
   const ents=[];
   SCENE.props.forEach(p=>ents.push({d:p.tx+p.ty + (p.type==="banner"?-0.5:0), draw:()=>drawProp(p)}));
@@ -488,7 +526,7 @@ function loop(t){ const dt=Math.min(0.05,(t-lastT)/1000||0); lastT=t; update(dt)
 let curConv=null, curNpc=null, pendingOpts=null, loreSeen={}, sensed=false;
 function talk(npc){
   curNpc=npc; curConv=CONVS.find(c=>c.id===npc.conv); if(!curConv) return;
-  player.target=null; autoTalk=null; loreSeen={}; sensed=false;
+  player.path=null; autoTalk=null; loreSeen={}; sensed=false;
   document.getElementById("dsig").textContent=npc.sigil; document.getElementById("dsig").style.background=`hsl(${npc.hue} 52% 62%)`;
   document.getElementById("dname").textContent=npc.name; document.getElementById("dtitle").textContent=npc.title;
   document.getElementById("dscript").innerHTML=""; document.getElementById("overlay").classList.add("show");

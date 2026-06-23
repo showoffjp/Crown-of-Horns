@@ -12,7 +12,7 @@ const ABILS6 = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom
 const block = h.match(/\/\*<MKT>\*\/([\s\S]*?)\/\*<\/MKT>\*\//);
 check("MKT pure block found", !!block);
 const E = new Function(block[1] +
-  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity,rollResult,rollBreakdown};")();
+  "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats,glossaryHits,loreKnown,returnedClarity,rollResult,rollBreakdown,buildBlocked,findPath,nearestFreeAdjacent,inBounds,tileKey};")();
 
 check("abilityMod matches floor((score-10)/2)", E.abilityMod(10) === 0 && E.abilityMod(16) === 3 && E.abilityMod(17) === 3 && E.abilityMod(8) === -1);
 check("resolveCheck: roll+mod vs DC", E.resolveCheck(12, 15, 3) === true && E.resolveCheck(11, 15, 3) === false);
@@ -274,7 +274,23 @@ check("conversations write real story flags", CONVS.some(c => c.nodes.some(n =>
 // ---- wiring: the scene engine + dialogue overlay are mounted ----
 check("script tags balanced", (h.match(/<script>/g) || []).length === (h.match(/<\/script>/g) || []).length);
 check("isometric board + projection wired", h.includes('id="board"') && h.includes("function iso(") && h.includes("function unIso("));
-check("click-to-move wired", h.includes("player.target") && h.includes('addEventListener("click"') && h.includes("function update("));
+check("click-to-move wired", h.includes("player.path") && h.includes('addEventListener("click"') && h.includes("function update(") && h.includes("function walkTo("));
+// ---- collision + A* pathfinding: you can't walk through people, stalls, or the fountain ----
+const SCN = DATA.scene, BL = E.buildBlocked ? E.buildBlocked(SCN) : null;
+check("every prop and NPC blocks its tile", BL && Object.keys(BL).length === SCN.props.length + SCN.npcs.length);
+check("you cannot path onto an NPC's tile (the walk-through bug, fixed)",
+  SCN.npcs.every(n => E.findPath(SCN.playerStart.x, SCN.playerStart.y, n.x, n.y, BL, SCN.w, SCN.h).length === 0));
+check("a path never crosses a blocked tile", (() => {
+  const p = E.findPath(SCN.playerStart.x, SCN.playerStart.y, 0, 0, BL, SCN.w, SCN.h);
+  return p.length > 0 && p.every(s => !BL[E.tileKey(s[0], s[1])]);
+})());
+check("every NPC is reachable via a free adjacent tile", SCN.npcs.every(n => {
+  const adj = E.nearestFreeAdjacent(SCN.playerStart.x, SCN.playerStart.y, n.x, n.y, BL, SCN.w, SCN.h);
+  if (!adj) return false;
+  return (adj[0] === SCN.playerStart.x && adj[1] === SCN.playerStart.y) ||
+    E.findPath(SCN.playerStart.x, SCN.playerStart.y, adj[0], adj[1], BL, SCN.w, SCN.h).length > 0;
+}));
+check("the path-following loop + path-preview dots are wired", h.includes("player.pathIdx") && h.includes("player.path"));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
