@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v4.83.0 — *"The Counting-House"* — a sixth zone, and the Act-1 climax: a confrontation that reads the whole web (content + a new interaction type)
+
+> Deeper into the city than the Lamplit Quarter sits the **Counting-House** — the Choir's local seat, where
+> Tallow's watching and Pell's lists and Vharn's measures all flow *up*, to one desk and one great brass scale.
+> This is the **Act-1 climax**, and it introduces the last interaction type the hub needed: the *boss
+> confrontation* — a high-stakes encounter whose every option is gated on what you did across all six zones.
+
+- 🏛️ **A sixth zone — the Counting-House.** Reached deeper in from the Lamplit Quarter, completing a six-zone
+  connected map (test-proven). New code-drawn props: the **great brass scale** of the Choir (its pans tilting),
+  clerks' **desks**, towering **ledger-shelves**, a barred **holding-cell**, candlelight.
+- ⚖️ **Canon Mereth Vael, High Measurer of the Causeway — the boss.** Not a cartoon: a genuine believer who
+  thinks the Wall is a *necessary* evil holding back a flood of unclaimed dead. Her opening and her every argument
+  read the whole saga — **expose Chancellor Venn** (gated on learning his name under the bridge), **prove the Wall
+  flinched** (gated on stirring it at the torch), **name her line-items back to her** (Wren, Crake, Wick,
+  Esuele), **bring a sworn sword** (gated on recruiting Dace), or **out-audit her own ledger** until its
+  arithmetic betrays it (a nat-20 that turns her). The crux then offers **real, divergent resolutions** — force
+  the souls' lawful **appeal**, cut **Venn's signature** with the Knotwife's pattern (gated on carrying it), walk
+  it **unfinished together**, or take the cold **chaos** path — most of which ally the Canon and crack the Wall.
+- 🙂 **Goodman Tallow, at his true desk.** The smiling market-watcher in his real setting. His welcome remembers
+  whether you sold Wren to him or saved her; unmask the hollow man, break him (crit: you threaten to make him
+  *forgotten* again and he shatters), or — if you're his kind — take his offer of a place in the work.
+- ⚰️ **Old Crake, marked, awaiting the causeway.** A gravedigger of sixty years, utterly at peace, darkly funny,
+  the one soul here unafraid to die — only afraid he buried *coats*, not people. Free him from his cell (gated
+  Athletics, crit/fumble), or, as a Returned, give him the one truth his spade never could.
+- 🎭 Full deep stack throughout: reactive identity/flag/disposition greetings, **nat-20/nat-1 crit & fumble
+  comedy**, the **Returned-sense** on each soul, a Returned line apiece.
+- 🧪 **+13 gates** (now **866 checks**, all green): the sixth zone is keyed/reachable/collision-clean, the six-zone
+  map is one connected graph, the boss's four cross-zone openings are distinct, the Venn/Wall/sword arguments and
+  the unpick resolution each gate on the deed that earns them, and a resolution provably allies the Canon.
+
+---
+
 ## 👑 v4.82.0 — *"The Lamplit Quarter"* — a fifth zone, your first companion, and a world that gossips (content + two new interaction types)
 
 > Climb *up* out of the market, away from the causeway, into the living city — the **Lamplit Quarter**, where

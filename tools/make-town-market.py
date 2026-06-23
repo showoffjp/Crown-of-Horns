@@ -19,6 +19,7 @@ REED = json.load(open(os.path.join(ROOT, "play", "reed-walk.json"), encoding="ut
 UNDER = json.load(open(os.path.join(ROOT, "play", "underbridge.json"), encoding="utf-8"))
 LASTTORCH = json.load(open(os.path.join(ROOT, "play", "lasttorch.json"), encoding="utf-8"))
 LAMPLIT = json.load(open(os.path.join(ROOT, "play", "lamplit.json"), encoding="utf-8"))
+COUNTHOUSE = json.load(open(os.path.join(ROOT, "play", "counthouse.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -57,6 +58,9 @@ INT_LABELS = {
     "city.mab.regard": "Mab's regard",
     "city.dace.approval": "Dace's approval",
     "city.pell.regard": "Pell's regard",
+    "ch.crake.regard": "Old Crake's regard",
+    "ch.tallow.regard": "Goodman Tallow's regard",
+    "ch.mereth.regard": "Canon Mereth's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -85,16 +89,20 @@ NPC_SENSE = {
     "city.mab": {"dc": 12, "text": "*(You reach for the brass-ringed keep and find her warm, alive, and quietly *unafraid* of you in a way almost nobody is — because some part of Mab made her peace with the cold a long time ago. Under the gossip and the grin your sense reads four decades of a different kind of weight: every Faithless regular who drank at her bar and then went up the causeway and never came down, each one a cup she still sets out, unbidden, on the longest night. She is not a rumour-mill. She is a *memorial* that happens to serve ale, and she has been waiting, without knowing it, for a soul who could tell her the cups meant something.)*"},
     "city.dace": {"dc": 11, "text": "*(The cold in your marrow meets a cold of a different kind in the sellsword — not the Wall's, but the lifelong chill of the Faithless who has never once been able to forget the empty space waiting for her in the stone. Your sense reads under the lazy menace to the truth she fights with: ten years of selling the only thing she owns to people she despises, hoarding a single unspent *yes* for a fight that would be worth it, and a creeping fear that the fight will never come and she'll die a blade-for-hire with the yes still in her, walking up the causeway like all the rest. She is not looking for an employer. She is looking for a reason. And she has just seen one walk into her square.)*"},
     "city.pell": {"dc": 14, "text": "*(Your sense settles over the neat clerk and recoils — not from cold, but from a vast and meticulous *emptiness*, a soul that has filed itself away as thoroughly as it files everyone else. There is no cruelty in him, which is the horror of it; there is only the *system*, and a small frightened man who long ago decided that to keep from being filed he would become the one who holds the pen. But your sense finds the splinter he can't: he is *unbought* too. Pell has no god either. He serves the machine that will, in the end, measure *him* — and on some buried ledger-line he knows it, and writes faster, as if a long enough list might somehow leave his own name off it.)*"},
+    "ch.crake": {"dc": 9, "text": "*(You reach for the old gravedigger in his cell and find, astonishingly, the most *settled* soul you have touched on this whole causeway — warmer than half the living, utterly without the cold dread that rots the rest. Sixty years of burying the marked has worn every fear smooth; he has made his peace so completely that your dead-touched sense slides off him like water off oiled leather. But under the peace there is one small unhealed thing, a single question he has carried spadeful by spadeful for six decades and never been able to answer: *was any of it real, or did I just bury coats?* He is the one soul here who is not afraid to die. He is only afraid he wasted his life laying the dead straight for nothing.)*"},
+    "ch.tallow": {"dc": 13, "text": "*(The same reading you took in the market, only worse for the nearness: the smiling man's soul is a *thimble*, spent almost to the bottom, the cold already past his wrists. But here, in the Choir's own house, your sense catches what the market hid — he *knows.* Somewhere under the pleasant mask, Goodman Tallow has worked out that every soul he files buys him not safety but a *faster* spending, and he does it anyway, because being the hand that holds the pen is the only thing that ever made a forgettable man *felt.* He would rather be cold and seen than warm and forgotten. The Wall will take him very soon, and he will smile the whole way, because the smiling is the last thing he has that anyone *looks* at.)*"},
+    "ch.mereth": {"dc": 15, "text": "*(You reach for the High Measurer and meet a soul like a vault door — sealed, deliberate, every feeling filed and shelved and locked, the most disciplined interior you have ever touched. She is alive, fully, no cold in her at all; she has not spent herself like Tallow, because she never let herself *care* enough to spend. And that is the horror and the tragedy of her both: she made herself a perfect bookkeeper by *amputating* the part that could be pulled on, thirty years ago, on purpose, and the scar tissue is the strongest thing in the room. But your sense finds the one live nerve she could not cut out — buried twenty years deep, a single name she still remembers because the mother would not stop coming to the door: *Esuele.* She has spent three decades not-feeling ten thousand souls, and the effort of not-feeling that *one* is the only thing in her that is still, quietly, screaming.)*"},
 }
-for _c in MKT["conversations"] + REED["conversations"] + UNDER["conversations"] + LASTTORCH["conversations"] + LAMPLIT["conversations"]:
+for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
+           + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
-             + LASTTORCH["conversations"] + LAMPLIT["conversations"])
+             + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
-              LAMPLIT["scene"]["id"]: LAMPLIT["scene"]}
+              LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -241,7 +249,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">five walkable zones · twenty souls · recruit a companion · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">six walkable zones · twenty-three souls · recruit a companion · face the Choir · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -562,6 +570,11 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="tavern"){ drawShadow(s.x,s.y+8); drawBox(s.x,s.y+6,52,40,"#3a2e22","#2c2218","#1f1810"); ctx.fillStyle="#241c14"; ctx.fillRect(s.x-8,s.y-18,16,24); const wl=0.6+0.4*Math.sin(lastT/300); ctx.fillStyle=`rgba(255,200,110,${0.4+0.3*wl})`; ctx.fillRect(s.x-22,s.y-30,9,9); ctx.fillRect(s.x+13,s.y-30,9,9); ctx.strokeStyle="#4a3a26"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x-26,s.y-44); ctx.lineTo(s.x,s.y-58); ctx.lineTo(s.x+26,s.y-44); ctx.stroke(); ctx.fillStyle="#e7c873"; ctx.font="600 9px Iowan Old Style, Georgia, serif"; ctx.textAlign="center"; ctx.fillText("The Sotted Saint",s.x,s.y-46); }
   else if(p.type==="table"){ drawShadow(s.x,s.y+4); drawBox(s.x,s.y+3,26,9,"#5a4632","#46361f","#332715"); ctx.fillStyle="#46361f"; ctx.fillRect(s.x-3,s.y-2,6,7); }
   else if(p.type==="noticeboard"){ drawShadow(s.x,s.y+3); ctx.strokeStyle="#3a2c1c"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-12,s.y+2); ctx.lineTo(s.x-12,s.y-22); ctx.moveTo(s.x+12,s.y+2); ctx.lineTo(s.x+12,s.y-22); ctx.stroke(); ctx.fillStyle="#4a3a26"; ctx.fillRect(s.x-15,s.y-36,30,18); ctx.fillStyle="#d8d2c2"; for(let i=0;i<3;i++){ ctx.fillRect(s.x-12+(i%2)*8,s.y-33+i*5,9,4); } }
+  else if(p.type==="bigscale"){ drawShadow(s.x,s.y+5); ctx.strokeStyle="#8a6f2e"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(s.x,s.y+4); ctx.lineTo(s.x,s.y-40); ctx.stroke(); const tilt=2.2*Math.sin(lastT/700); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-22,s.y-40-tilt); ctx.lineTo(s.x+22,s.y-40+tilt); ctx.stroke(); for(const sgn of [-1,1]){ const px=s.x+sgn*22, py=s.y-40+sgn*tilt; ctx.strokeStyle="#7a6228"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(px-6,py); ctx.lineTo(px,py+9); ctx.lineTo(px+6,py); ctx.stroke(); ctx.fillStyle="#b8932e"; ctx.beginPath(); ctx.ellipse(px,py+10,7,3,0,0,7); ctx.fill(); } ctx.fillStyle="#6a5424"; ctx.beginPath(); ctx.arc(s.x,s.y-40,3,0,7); ctx.fill(); }
+  else if(p.type==="desk"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,34,16,"#4a3826","#38291a","#261c11"); ctx.fillStyle="#d8d2c2"; ctx.fillRect(s.x-8,s.y-14,12,7); ctx.fillStyle="#2a2530"; ctx.fillRect(s.x+4,s.y-13,3,5); }
+  else if(p.type==="ledgershelf"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,28,56,"#3a2c1c","#2c2014","#1d1410"); for(let r=0;r<4;r++){ for(let i=0;i<4;i++){ ctx.fillStyle=`hsl(${(p.hue||40)+i*8} 26% ${24+i*5}%)`; ctx.fillRect(s.x-12+i*6,s.y-52+r*13,5,11); } ctx.strokeStyle="#15100a"; ctx.beginPath(); ctx.moveTo(s.x-13,s.y-40+r*13); ctx.lineTo(s.x+13,s.y-40+r*13); ctx.stroke(); } }
+  else if(p.type==="cell"){ drawShadow(s.x,s.y+5); drawDiamond(s.x,s.y,"#14121a","#0e0c14"); ctx.strokeStyle="#3a3744"; ctx.lineWidth=2.5; for(let i=-2;i<=2;i++){ ctx.beginPath(); ctx.moveTo(s.x+i*7,s.y+6); ctx.lineTo(s.x+i*7,s.y-40); ctx.stroke(); } ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-16,s.y-40); ctx.lineTo(s.x+16,s.y-40); ctx.moveTo(s.x-16,s.y-20); ctx.lineTo(s.x+16,s.y-20); ctx.stroke(); }
+  else if(p.type==="candle"){ const fl=0.6+0.4*Math.sin(lastT/120+p.x); ctx.fillStyle="#d8c8a0"; ctx.fillRect(s.x-2,s.y-14,4,14); const gl=ctx.createRadialGradient(s.x,s.y-18,1,s.x,s.y-18,14); gl.addColorStop(0,`rgba(255,210,130,${0.5+0.25*fl})`); gl.addColorStop(1,"rgba(255,180,80,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-18,14,0,7); ctx.fill(); ctx.fillStyle=`rgba(255,225,150,${0.85})`; ctx.beginPath(); ctx.moveTo(s.x-2,s.y-15); ctx.quadraticCurveTo(s.x,s.y-22-3*fl,s.x+2,s.y-15); ctx.closePath(); ctx.fill(); }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }

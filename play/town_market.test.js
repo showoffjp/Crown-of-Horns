@@ -508,6 +508,65 @@ check("a recruited companion becomes a usable option in later scenes", daceBacku
 check("Lamplit checks carry their own nat-20/nat-1 scenes, and each soul a [RETURNED] line",
   [dace, pell].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))) &&
   [dace, mab, pell].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- sixth zone: the Counting-House — the Act-1 climax, a confrontation that reads the WHOLE web ----
+const HOUSE = SCENES && SCENES.counthouse;
+check("a sixth zone (the Counting-House) ships too", HOUSE && HOUSE.npcs.length >= 3 && HOUSE.w >= 8 && HOUSE.h >= 6);
+check("the Lamplit Quarter leads deeper in to the Choir's seat", (CITY.exits || []).some(x => x.to === "counthouse"));
+check("all six zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse"].every(z => seen.has(z));
+})());
+const HBL = E.buildBlocked(HOUSE);
+check("Counting-House NPCs/props block their tiles and stay reachable", HOUSE.npcs.every(n => {
+  if (HBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(HOUSE.playerStart.x, HOUSE.playerStart.y, n.x, n.y, HBL, HOUSE.w, HOUSE.h);
+  return adj && ((adj[0] === HOUSE.playerStart.x && adj[1] === HOUSE.playerStart.y) ||
+    E.findPath(HOUSE.playerStart.x, HOUSE.playerStart.y, adj[0], adj[1], HBL, HOUSE.w, HOUSE.h).length > 0);
+}));
+check("the Counting-House grows the prop vocabulary (the great scale, desks, a cell)",
+  h.includes('p.type==="bigscale"') && h.includes('p.type==="desk"') && h.includes('p.type==="cell"'));
+
+const mereth = CONVS.find(c => c.id === "ch.mereth");
+const tallow2 = CONVS.find(c => c.id === "ch.tallow");
+const crake = CONVS.find(c => c.id === "ch.crake");
+check("the three Counting-House souls are present", mereth && tallow2 && crake);
+// the boss confrontation reads the whole web — four DISTINCT openings on what you've done
+const me0 = mereth.nodes.find(n => n.id === "0");
+const stWall = E.newState(); stWall.bools["lt.wall_stirs"] = true;
+const stVenn = E.newState(); stVenn.bools["under.venn_revealed"] = true;
+const stChoir = E.newState(); stChoir.bools["reed.choir_friend"] = true;
+check("Canon Mereth greets a Wall-shaker, a name-bearer, a Choir-friend and a stranger differently", me0.variants &&
+  new Set([E.pickVariantText(me0, goodGuy, stWall), E.pickVariantText(me0, goodGuy, stVenn),
+    E.pickVariantText(me0, goodGuy, stChoir), E.pickVariantText(me0, goodGuy, E.newState())]).size === 4 &&
+  /Venn/i.test(E.pickVariantText(me0, goodGuy, stVenn)));
+// the confrontation gates whole arguments on cross-zone achievements (Venn, the Wall, the unpicking-pattern, a sworn sword)
+const m1 = mereth.nodes.find(n => n.id === "1");
+const vennArg = m1.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("under.venn_revealed") >= 0);
+const wallArg = m1.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("lt.wall_stirs") >= 0);
+const swordArg = m1.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("party.dace_recruited") >= 0);
+check("expose-Venn, the-Wall-flinched, and bring-a-sword are each gated on the deed that earns them", vennArg && wallArg && swordArg &&
+  E.choiceAvailable(scholar, stVenn, vennArg, MODEL) === true && E.choiceAvailable(scholar, E.newState(), vennArg, MODEL) === false &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["party.dace_recruited"] = true; return s; })(), swordArg, MODEL) === true &&
+  E.choiceAvailable(goodGuy, E.newState(), swordArg, MODEL) === false);
+// the crux offers multiple resolutions (appeal / unpick / together / chaos), and the unpick path is itself gated on carrying the pattern
+const crux = mereth.nodes.find(n => n.id === "mereth_crux");
+const unpickPath = crux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("under.unpicking_pattern") >= 0);
+check("the climax offers several real resolutions, with the unpick path gated on the weaver's pattern",
+  crux.choices.length >= 3 && unpickPath &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["under.unpicking_pattern"] = true; return s; })(), unpickPath, MODEL) === true &&
+  E.choiceAvailable(goodGuy, E.newState(), unpickPath, MODEL) === false);
+check("at least one resolution allies the Canon and begins to crack the Wall", mereth.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "ch.mereth_allied")));
+// Tallow (the market watcher) and Crake (a marked prisoner) round out the climax with the deep stack
+check("Tallow's market betrayal/rescue is remembered at his Choir desk", tallow2.nodes.find(n => n.id === "0").variants.some(v =>
+  v.when && v.when.flags && (v.when.flags.indexOf("reed.betrayed_wren") >= 0 || v.when.flags.indexOf("reed.wren_lives") >= 0)));
+check("you can free the prisoner Crake (a gated Athletics escape with crit/fumble)", crake.nodes.find(n => n.id === "1").choices.some(ch =>
+  (ch.check || {}).skill === "Athletics" && ch.crit && ch.fumble));
+check("Counting-House souls keep crit/fumble comedy and a [RETURNED] line each",
+  [mereth, tallow2, crake].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))) &&
+  [mereth, tallow2, crake].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
