@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v4.85.0 — *"The Doomguide's Table"* — an eighth zone: tea with the man at the heart of the saga (content)
+
+> The Act-1 hub now has a *door out* — and it leads to the keystone of the whole campaign. Crack the local
+> Choir and a herald brings a summons: **tea with Aldric Morn**, the broken Doomguide of Kelemvor who watched the
+> Wall take his godless daughter and now means to depose a god and tear it down, *no matter who he must burn.*
+> This is where the cold little Act-1 world hands off to the main story — and it lands its hardest gut-punch.
+
+- 🫖 **An eighth zone — the Doomguide's Table.** Reached by a summons-exit from the Lamplit Quarter, completing an
+  **eight-zone connected map** (test-proven). New code-drawn props: the steaming **tea table** (a cup poured for
+  an empty chair), **chairs**, a **hearthfire**, **bookshelves**, a cold **window**.
+- 🕯️ **Aldric Morn — the keystone confrontation.** Not a villain: a good man ruined into monstrous arithmetic,
+  morally the equal of the Canon and Doomguide Vayle. His opening and every argument read your **entire Act** —
+  ally of the cracked Canon, friend of the Choir, servant of the Judge, or stranger. Name his daughter instead of
+  his plan; out-theologize his apotheosis until *he* names the god-shaped trap he's walking into; or **show him
+  the gentle road** you cracked open at the counting-house and watch twenty years of certainty break. He reveals
+  the **Crown of Horns** and asks the one thing only a Returned can give: to walk into death, and come back.
+- 👧 **Eithne — the daughter in the empty chair, seen by you alone.** The new conditional-NPC + Returned-sense
+  systems pay off here in the saga's cruelest, tenderest beat: Aldric's mortared daughter *followed him home from
+  the Wall* on a thread of his grief, and has sat beside him for twenty years, unseen, while he pours her tea.
+  Only your dead-touched eyes can find her. Her one wish is that her father *stop* — and if you come to suspect
+  the thread, you can carry her voice to him, and give a grieving man the reunion (and the release) he never
+  knew was an arm's length away.
+- 🛡️ **Wessa, the herald** — the young soldier who half-worships and half-fears the great man she serves, and is
+  terrified of the day he asks her to do the unforgivable and she says yes.
+- 🎭 The crux offers real, divergent bridges into the campaign: ally him for the lawful **appeal**, take the
+  **Crown** yourself (with his warning about who must be willing to *uncrown* you), reunite him with **Eithne**,
+  or **refuse** him outright — and even refused, he leaves the door open for the gentle road.
+- 🧪 **+14 gates** (now **893 checks**, all green): the eighth zone is keyed/reachable/collision-clean, the
+  eight-zone map is one connected graph, Aldric's four cross-zone openings are distinct, the gentle-road and
+  daughter-reunion options gate on the deeds that earn them, a resolution puts down the matches, the unseen
+  daughter has the lowest sense-DC of any soul, and the Crown of Horns is revealed as the bridge to the main quest.
+
+---
+
 ## 👑 v4.84.0 — *"The Hearth"* — a seventh zone, a denouement, and souls that appear on what you did (content + an engine feature)
 
 > Every Act needs its quiet after. **Make camp at the Hearth** — a fire in the dark past the city — and take

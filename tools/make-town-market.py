@@ -21,6 +21,7 @@ LASTTORCH = json.load(open(os.path.join(ROOT, "play", "lasttorch.json"), encodin
 LAMPLIT = json.load(open(os.path.join(ROOT, "play", "lamplit.json"), encoding="utf-8"))
 COUNTHOUSE = json.load(open(os.path.join(ROOT, "play", "counthouse.json"), encoding="utf-8"))
 HEARTH = json.load(open(os.path.join(ROOT, "play", "hearth.json"), encoding="utf-8"))
+ALDRIC = json.load(open(os.path.join(ROOT, "play", "aldric.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -65,6 +66,9 @@ INT_LABELS = {
     "hearth.dace.bond": "Dace — your bond",
     "hearth.wren.regard": "Wren's regard",
     "hearth.pip.regard": "Pip's trust in you",
+    "ald.aldric.regard": "Aldric Morn's regard",
+    "ald.wessa.regard": "Wessa's regard",
+    "ald.eithne.regard": "Eithne's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -100,20 +104,23 @@ NPC_SENSE = {
     "hearth.dace": {"dc": 11, "text": "*(The cold in your marrow meets the lifelong chill in the sellsword and finds it, tonight, a little warmer than the Lamplit Quarter left it. The empty space in the Wall still waits for her — she is Faithless, it always will — but your sense reads something laid down beside the old grief now: a *yes*, spent at last, and a back she has decided to guard, and the dangerous, fragile beginnings of *trust* in a soul who keeps its small promises. She put her sword in the dirt tonight. For Dace Iron, that is a thing nearer to prayer than anything a god ever got from her.)*"},
     "hearth.wren": {"dc": 10, "text": "*(The mark is still on her — a coin of winter under the breastbone, exactly where she says — and your dead-touched sense will not pretend otherwise; the Choir's brand does not lift because a girl chose the fire over the water. But around it now there is a stubborn, growing warmth the cold cannot reach, a future being lived on purpose and out of spite, every stolen breath a small defeat for the thing that measured her. She is proof, sitting at a fire, eating an apple. Of all the things you carried off the causeway, she is the one that warms your cold hands most.)*"},
     "hearth.pip": {"dc": 11, "text": "*(You reach gently for the child and find — for the first time since the market — the fierce small flame burning *easy*, not guttering, not braced, just warm. The second flame that was so nearly out is steadier too, somewhere close and mending. Your sense reads under the old hunted watchfulness to the thing six years of street stamped out and one fire is, impossibly, rekindling: the simple animal knowledge that someone else is keeping watch, and she is allowed, tonight, to close both eyes. It is a very small thing. It is, you suspect, the whole of what salvation actually is.)*"},
+    "ald.aldric": {"dc": 14, "text": "*(You reach for the grey man and recoil from the sheer *mass* of cold in him — not the Wall's chill creeping in from outside, like the others, but a cold he has *swallowed*, a whole frozen sea of it held behind a dam of pure will. He is alive, and means to stay so until the work is done, but he has been *living beside the dead* so long that he has gone half-translucent to your sight, a man keeping vigil at the exact border you crossed. And there — the thing that stops your breath — your sense follows the cold to its source and finds it does not radiate *from* him at all. It radiates from the chair beside him. He thinks he carries his daughter's memory. He is carrying his daughter. He simply cannot see her. You can.)*"},
+    "ald.wessa": {"dc": 11, "text": "*(The herald is warm, living, unspent — but your sense reads the particular strain of a soul standing watch over something it loves and fears in equal measure. She has hitched her whole young life to a great man's terrible cause, and some buried, honest part of her is counting the days until he asks her to do the unforgivable, and rehearsing, over and over, a refusal she is terrified she won't have the nerve to give. She is not afraid of dying for him. She is afraid of *killing* for him, and finding she liked being *certain* enough to do it.)*"},
+    "ald.eithne": {"dc": 6, "text": "*(You do not reach for her. She is already your kind of cold, and she has been waiting — patient as only the dead can be — for a pair of eyes that could find her in the chair where she has sat, faded and unseen, for twenty years. Your sense needs no DC for this one; she *wants* to be perceived more than any soul you have ever touched. She is a thread snagged on her father's grief, a daughter who went into the Wall *looking* at the man she loved and left the looking-part of herself behind. She is not suffering. She is something worse: she is *lonely*, in the one chair in the world she refuses to leave, beside the one person who cannot tell she never left.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
-           + HEARTH["conversations"]):
+           + HEARTH["conversations"] + ALDRIC["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
-             + HEARTH["conversations"])
+             + HEARTH["conversations"] + ALDRIC["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
-              HEARTH["scene"]["id"]: HEARTH["scene"]}
+              HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -260,7 +267,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">seven walkable zones · the souls at your fire are the ones you saved · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">eight walkable zones · a whole Act, from a cold market to the man who would tear down a god · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -594,6 +601,11 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="log"){ drawShadow(s.x,s.y+4); ctx.fillStyle="#4a3826"; ctx.beginPath(); ctx.ellipse(s.x,s.y-3,16,7,0,0,7); ctx.fill(); ctx.fillStyle="#5a4632"; ctx.fillRect(s.x-16,s.y-7,32,5); ctx.fillStyle="#6a5440"; ctx.beginPath(); ctx.ellipse(s.x-16,s.y-4,4,5,0,0,7); ctx.fill(); ctx.strokeStyle="#3a2c1c"; ctx.beginPath(); ctx.ellipse(s.x-16,s.y-4,2,3,0,0,7); ctx.stroke(); }
   else if(p.type==="bedroll"){ drawShadow(s.x,s.y+3); ctx.fillStyle=`hsl(${(p.x*53)%360} 18% 30%)`; ctx.beginPath(); ctx.moveTo(s.x-20,s.y); ctx.lineTo(s.x,s.y-8); ctx.lineTo(s.x+20,s.y); ctx.lineTo(s.x,s.y+8); ctx.closePath(); ctx.fill(); ctx.fillStyle=`hsl(${(p.x*53)%360} 18% 40%)`; ctx.beginPath(); ctx.ellipse(s.x-9,s.y-1,7,4,0,0,7); ctx.fill(); }
   else if(p.type==="tree"){ drawShadow(s.x,s.y+4); ctx.fillStyle="#2c2218"; ctx.fillRect(s.x-3,s.y-22,6,24); ctx.fillStyle="#1e3326"; ctx.beginPath(); ctx.arc(s.x,s.y-34,15,0,7); ctx.fill(); ctx.fillStyle="#24402e"; ctx.beginPath(); ctx.arc(s.x-7,s.y-30,10,0,7); ctx.arc(s.x+8,s.y-32,11,0,7); ctx.fill(); ctx.fillStyle="#2c4e38"; ctx.beginPath(); ctx.arc(s.x+2,s.y-40,9,0,7); ctx.fill(); }
+  else if(p.type==="teatable"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,30,12,"#4a3826","#38291a","#261c11"); const st=0.5+0.5*Math.sin(lastT/240); ctx.fillStyle="#9a8a6a"; ctx.beginPath(); ctx.ellipse(s.x-6,s.y-14,4,3,0,0,7); ctx.fill(); ctx.fillStyle="#8a7a5a"; ctx.beginPath(); ctx.ellipse(s.x+6,s.y-14,4,3,0,0,7); ctx.fill(); ctx.strokeStyle=`rgba(200,200,210,${0.18+0.16*st})`; ctx.lineWidth=1.4; ctx.beginPath(); ctx.moveTo(s.x-6,s.y-17); ctx.quadraticCurveTo(s.x-9,s.y-25,s.x-6,s.y-31); ctx.moveTo(s.x+6,s.y-17); ctx.quadraticCurveTo(s.x+3,s.y-25,s.x+6,s.y-31); ctx.stroke(); }
+  else if(p.type==="chair"){ drawShadow(s.x,s.y+3); ctx.fillStyle="#3a2c1c"; ctx.fillRect(s.x-7,s.y-10,14,8); ctx.fillStyle="#2c2014"; ctx.fillRect(s.x-7,s.y-26,4,18); ctx.fillRect(s.x+3,s.y-26,4,18); }
+  else if(p.type==="hearthfire"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+5,44,38,"#2a2530","#201c28","#15121c"); ctx.fillStyle="#0e0c14"; ctx.beginPath(); ctx.moveTo(s.x-14,s.y-4); ctx.lineTo(s.x-14,s.y-26); ctx.lineTo(s.x+14,s.y-26); ctx.lineTo(s.x+14,s.y-4); ctx.closePath(); ctx.fill(); const fl=0.55+0.45*Math.sin(lastT/130), gl=ctx.createRadialGradient(s.x,s.y-12,2,s.x,s.y-12,30); gl.addColorStop(0,`rgba(255,180,90,${0.6+0.25*fl})`); gl.addColorStop(1,"rgba(255,140,50,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-12,30,0,7); ctx.fill(); for(let k=0;k<2;k++){ const w=8-k*3; ctx.fillStyle=`rgba(${245-k*15},${150+k*40+30*fl|0},${55+k*30},${0.85-k*0.2})`; ctx.beginPath(); ctx.moveTo(s.x-w,s.y-5); ctx.quadraticCurveTo(s.x,s.y-20-8*fl,s.x+w,s.y-5); ctx.closePath(); ctx.fill(); } ctx.fillStyle="#322c38"; ctx.fillRect(s.x-18,s.y-30,36,4); }
+  else if(p.type==="bookshelf"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,26,56,"#34281a","#281e12","#1a130c"); for(let r=0;r<4;r++){ for(let i=0;i<5;i++){ ctx.fillStyle=`hsl(${(i*47+r*30)%360} 22% ${22+i*4}%)`; ctx.fillRect(s.x-12+i*5,s.y-52+r*13,4,11); } ctx.strokeStyle="#15100a"; ctx.beginPath(); ctx.moveTo(s.x-13,s.y-40+r*13); ctx.lineTo(s.x+13,s.y-40+r*13); ctx.stroke(); } }
+  else if(p.type==="window"){ ctx.fillStyle="#1a1726"; ctx.beginPath(); ctx.moveTo(s.x-14,s.y-18); ctx.lineTo(s.x-14,s.y-46); ctx.lineTo(s.x+14,s.y-50); ctx.lineTo(s.x+14,s.y-22); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(120,140,190,.22)"; ctx.beginPath(); ctx.moveTo(s.x-12,s.y-20); ctx.lineTo(s.x-12,s.y-44); ctx.lineTo(s.x+12,s.y-48); ctx.lineTo(s.x+12,s.y-24); ctx.closePath(); ctx.fill(); ctx.strokeStyle="#2c2838"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x,s.y-22); ctx.lineTo(s.x,s.y-49); ctx.moveTo(s.x-13,s.y-34); ctx.lineTo(s.x+13,s.y-37); ctx.stroke(); }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }

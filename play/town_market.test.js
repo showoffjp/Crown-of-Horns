@@ -616,6 +616,62 @@ check("Dace's night-talk unlocks a deeper line once her approval is high enough"
   E.choiceAvailable(confessor, E.newState(), deepTalk, MODEL) === false);
 check("each Hearth soul still offers a [RETURNED] line", [fire, hdace, hwren, hpip].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- eighth zone: the Doomguide's Table — the bridge into the main saga, the keystone confrontation ----
+const TABLE = SCENES && SCENES.aldric;
+check("an eighth zone (the Doomguide's Table) ships too", TABLE && TABLE.npcs.length >= 3 && TABLE.w >= 8 && TABLE.h >= 6);
+check("the Lamplit Quarter carries a summons to Aldric's table", (CITY.exits || []).some(x => x.to === "aldric"));
+check("all eight zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse", "hearth", "aldric"].every(z => seen.has(z));
+})());
+const TBL = E.buildBlocked(TABLE);
+check("Aldric's-Table NPCs/props block their tiles and stay reachable", TABLE.npcs.every(n => {
+  if (TBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(TABLE.playerStart.x, TABLE.playerStart.y, n.x, n.y, TBL, TABLE.w, TABLE.h);
+  return adj && ((adj[0] === TABLE.playerStart.x && adj[1] === TABLE.playerStart.y) ||
+    E.findPath(TABLE.playerStart.x, TABLE.playerStart.y, adj[0], adj[1], TBL, TABLE.w, TABLE.h).length > 0);
+}));
+check("the Doomguide's Table grows the prop vocabulary (tea table, chair, hearthfire, bookshelf)",
+  h.includes('p.type==="teatable"') && h.includes('p.type==="chair"') && h.includes('p.type==="hearthfire"') && h.includes('p.type==="bookshelf"'));
+
+const aldric = CONVS.find(c => c.id === "ald.aldric");
+const wessa = CONVS.find(c => c.id === "ald.wessa");
+const eithne = CONVS.find(c => c.id === "ald.eithne");
+check("the three souls at the table are present (Aldric, his herald, his unseen daughter)", aldric && wessa && eithne);
+// the keystone confrontation reads the Act-1 web — distinct openings for an ally-of-the-Canon, a Choir-friend, a Kelemvorite, and a stranger
+const a0 = aldric.nodes.find(n => n.id === "0");
+const stCanon = E.newState(); stCanon.bools["ch.mereth_allied"] = true;
+const stChoirF = E.newState(); stChoirF.bools["reed.choir_friend"] = true;
+const kelGuy2 = { ...goodGuy, deity: "Kelemvor" };
+check("Aldric greets the Canon's ally, a Choir-friend, a Kelemvorite and a stranger differently", a0.variants &&
+  new Set([E.pickVariantText(a0, goodGuy, stCanon), E.pickVariantText(a0, goodGuy, stChoirF),
+    E.pickVariantText(a0, kelGuy2, E.newState()), E.pickVariantText(a0, goodGuy, E.newState())]).size === 4);
+// showing him the gentle road is gated on having actually cracked the Canon
+const a1 = aldric.nodes.find(n => n.id === "1");
+const gentleOpt = a1.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("ch.mereth_allied") >= 0);
+check("you can only show Aldric the gentle road if you cracked the Canon", gentleOpt &&
+  E.choiceAvailable(goodGuy, stCanon, gentleOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), gentleOpt, MODEL) === false);
+// the crux offers real divergent endings, and the reunion path is gated on his having come to suspect the thread
+const acrux = aldric.nodes.find(n => n.id === "ald_crux");
+const reunionOpt = acrux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("ald.suspects_thread") >= 0);
+check("the keystone crux offers divergent endings, with the daughter-reunion gated on suspecting the thread",
+  acrux.choices.length >= 3 && reunionOpt &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["ald.suspects_thread"] = true; return s; })(), reunionOpt, MODEL) === true &&
+  E.choiceAvailable(goodGuy, E.newState(), reunionOpt, MODEL) === false);
+check("at least one resolution allies Aldric and makes him put down the matches", aldric.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "ald.matches_down")));
+// the daughter only the Returned can see — her whole conversation, and a [RETURNED] line, exist
+check("the unseen daughter has the lowest sense-DC of any soul (she wants to be seen)", eithne.returned && eithne.returned.dc <= 7);
+check("Eithne's plea (that her father stop) can be carried to Aldric — the threads connect",
+  eithne.nodes.some(n => (n.effects || []).some(e => e.key === "ald.eithne_plea")) &&
+  aldric.nodes.some(n => (n.effects || []).some(e => e.key === "ald.eithne_heard")));
+check("the table's souls keep crit/fumble where rolled, and a [RETURNED] line each",
+  [aldric, wessa, eithne].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+// the Crown of Horns — the saga's central object — is named and explained here, bridging to the main quest
+check("the Crown of Horns is revealed at the table (the bridge into the main campaign)", aldric.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "ald.crown_revealed")) && /Crown of Horns/.test(JSON.stringify(aldric)));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
