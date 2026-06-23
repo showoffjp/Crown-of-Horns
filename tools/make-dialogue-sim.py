@@ -87,19 +87,19 @@ BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 # transforms the reactive demo. Order of scores: STR,DEX,CON,INT,WIS,CHA.
 BUILDS = [
     {"name": "The Returned", "cls": "Fighter", "scores": [16, 14, 15, 10, 12, 13],
-     "race": "Human", "background": "Soldier", "law": "Lawful", "morality": "Neutral", "deity": "Kelemvor",
+     "race": "Human", "gender": "Male", "background": "Soldier", "law": "Lawful", "morality": "Neutral", "deity": "Kelemvor",
      "blurb": "A plain human soldier of the Judge — leads with order and the book."},
     {"name": "The Scholar", "cls": "Wizard", "scores": [10, 14, 12, 16, 14, 11],
-     "race": "Half-Elf", "background": "Sage", "law": "Neutral", "morality": "Good", "deity": "Oghma",
+     "race": "Half-Elf", "gender": "Female", "background": "Sage", "law": "Neutral", "morality": "Good", "deity": "Oghma",
      "blurb": "Half-elf sage of Oghma — out-reads the doctrine; strong INSIGHT & lore."},
     {"name": "The Confessor", "cls": "Cleric", "scores": [13, 10, 14, 11, 17, 12],
-     "race": "Human", "background": "Acolyte", "law": "Lawful", "morality": "Good", "deity": "Kelemvor",
+     "race": "Human", "gender": "Female", "background": "Acolyte", "law": "Lawful", "morality": "Good", "deity": "Kelemvor",
      "blurb": "A cleric of Kelemvor — kin to the gatekeeper; the best WISDOM."},
     {"name": "The Silver Tongue", "cls": "Rogue", "scores": [10, 16, 12, 13, 11, 16],
-     "race": "Tiefling", "background": "Charlatan", "law": "Chaotic", "morality": "Neutral", "deity": "Tymora",
+     "race": "Tiefling", "gender": "Male", "background": "Charlatan", "law": "Chaotic", "morality": "Neutral", "deity": "Tymora",
      "blurb": "A tiefling charlatan — fiend-blood the church distrusts; the best CHARISMA."},
     {"name": "The Warden", "cls": "Ranger", "scores": [14, 16, 13, 11, 14, 10],
-     "race": "Elf", "background": "Folk Hero", "law": "Neutral", "morality": "Neutral", "deity": "None",
+     "race": "Elf", "gender": "Female", "background": "Folk Hero", "law": "Neutral", "morality": "Neutral", "deity": "None",
      "blurb": "An elf who serves no god — walks toward the Wall as one of the Faithless."},
 ]
 
@@ -174,7 +174,7 @@ HTML = r"""<!DOCTYPE html>
  .sense{margin:2px 0 6px;padding:9px 12px;border-left:3px solid #3a6a8a;background:#0f1922;border-radius:0 8px 8px 0;font-size:13.5px;color:#a8c8d8;font-style:italic}
  .sense .lk{color:#7fc8e0;font-weight:600;font-style:normal;letter-spacing:.3px;font-size:11px;display:block;margin-bottom:3px}
  .reckon{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:12px}.reckon .nm{width:78px}.reckon .pips{flex:1;letter-spacing:1px}.reckon .rk{font-variant-numeric:tabular-nums;color:#8a8198}
- .tg.disp{color:#d8b0e8;border-color:#5a3a6a;background:#1f1726}.tg.returned{color:#cbb8f0;border-color:#5a4a8a;background:#1a1626}
+ .tg.disp{color:#d8b0e8;border-color:#5a3a6a;background:#1f1726}.tg.returned{color:#cbb8f0;border-color:#5a4a8a;background:#1a1626}.tg.gender{color:#e0a8c0;border-color:#6a3a52;background:#241622}
  .opts{display:flex;flex-direction:column;gap:9px;margin-top:6px}
  .opt{text-align:left;background:linear-gradient(#1b1726,#16121f);border:1px solid #34304a;color:#e8e2d2;border-radius:10px;padding:11px 14px;cursor:pointer;font:inherit;font-size:14.5px;transition:.12s;position:relative}
  .opt:hover{border-color:#c9a24b;background:linear-gradient(#241d33,#1b1628)}
@@ -342,6 +342,7 @@ function matchesWhen(char, state, when){
   if(!when) return true;
   const inOr=(v,val)=> Array.isArray(v) ? v.indexOf(val)>=0 : v===val;
   if(when.race!==undefined && !inOr(when.race, char.race)) return false;
+  if(when.gender!==undefined && !inOr(when.gender, char.gender)) return false;
   if(when.class!==undefined && !inOr(when.class, char.cls)) return false;
   if(when.background!==undefined && !inOr(when.background, char.background)) return false;
   if(when.deity!==undefined && !inOr(when.deity, char.deity)) return false;
@@ -410,10 +411,10 @@ function renderWho(){
     MODEL.laws.flatMap(l=>MODEL.moralities.map(m=>{ const v=l+" "+m; const cur=(char.law+" "+char.morality)===v;
       return `<option${cur?' selected':''}>${esc(v)}</option>`; })).join("")+`</select></div>`;
   document.getElementById("whoGrid").innerHTML =
-    sel("Race", MODEL.races, char.race) + sel("Class", MODEL.classes, char.cls) +
+    sel("Race", MODEL.races, char.race) + sel("Gender", MODEL.genders, char.gender) + sel("Class", MODEL.classes, char.cls) +
     sel("Background", MODEL.backgrounds, char.background) + sel("Deity", MODEL.deities, char.deity) + align;
 }
-function field2key(f){ return {Race:"race",Class:"cls",Background:"background",Deity:"deity"}[f]; }
+function field2key(f){ return {Race:"race",Gender:"gender",Class:"cls",Background:"background",Deity:"deity"}[f]; }
 function setAlign(v){ const [l,m]=v.split(" "); char.law=l; char.morality=m; char.name="Custom"; char.blurb=""; buildIdx=-1; renderBuilds(); rerenderChoices(); refreshYouAre(); }
 function renderAbil(){
   document.getElementById("abil").innerHTML = ABILS.map((a,i)=>{
@@ -511,6 +512,7 @@ function tagFor(ch){ // BG3-style identity tag chip derived from the choice's ta
   if(ch.tag) return {cls:ch.tag, label:(ch.tagLabel||ch.tag.toUpperCase())};
   const w=ch.when; if(!w) return null;
   if(w.race!==undefined) return {cls:"race", label:[].concat(w.race).join("/")};
+  if(w.gender!==undefined) return {cls:"gender", label:[].concat(w.gender).join("/")};
   if(w.class!==undefined) return {cls:"class", label:[].concat(w.class).join("/")};
   if(w.background!==undefined) return {cls:"background", label:[].concat(w.background).join("/")};
   if(w.deity!==undefined) return {cls:"faith", label:[].concat(w.deity).map(d=>d==="None"?"Faithless":d).join("/")};

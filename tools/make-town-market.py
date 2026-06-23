@@ -19,19 +19,19 @@ MODEL = DEMO["characterModel"]
 
 BUILDS = [
     {"name": "The Returned", "cls": "Fighter", "scores": [16, 14, 15, 10, 12, 13],
-     "race": "Human", "background": "Soldier", "law": "Lawful", "morality": "Neutral", "deity": "Kelemvor",
+     "race": "Human", "gender": "Male", "background": "Soldier", "law": "Lawful", "morality": "Neutral", "deity": "Kelemvor",
      "blurb": "A plain human soldier of the Judge."},
     {"name": "The Scholar", "cls": "Wizard", "scores": [10, 14, 12, 16, 14, 11],
-     "race": "Half-Elf", "background": "Sage", "law": "Neutral", "morality": "Good", "deity": "Oghma",
+     "race": "Half-Elf", "gender": "Female", "background": "Sage", "law": "Neutral", "morality": "Good", "deity": "Oghma",
      "blurb": "Half-elf sage — sharp INSIGHT & lore."},
     {"name": "The Confessor", "cls": "Cleric", "scores": [13, 10, 14, 11, 17, 12],
-     "race": "Human", "background": "Acolyte", "law": "Lawful", "morality": "Good", "deity": "Kelemvor",
+     "race": "Human", "gender": "Female", "background": "Acolyte", "law": "Lawful", "morality": "Good", "deity": "Kelemvor",
      "blurb": "A cleric of Kelemvor — the best WISDOM."},
     {"name": "The Silver Tongue", "cls": "Rogue", "scores": [10, 16, 12, 13, 11, 16],
-     "race": "Tiefling", "background": "Charlatan", "law": "Chaotic", "morality": "Neutral", "deity": "Tymora",
+     "race": "Tiefling", "gender": "Male", "background": "Charlatan", "law": "Chaotic", "morality": "Neutral", "deity": "Tymora",
      "blurb": "A tiefling charlatan — the best CHARISMA."},
     {"name": "The Warden", "cls": "Ranger", "scores": [14, 16, 13, 11, 14, 10],
-     "race": "Elf", "background": "Folk Hero", "law": "Neutral", "morality": "Neutral", "deity": "None",
+     "race": "Elf", "gender": "Female", "background": "Folk Hero", "law": "Neutral", "morality": "Neutral", "deity": "None",
      "blurb": "An elf who serves no god — one of the Faithless."},
 ]
 
@@ -53,6 +53,7 @@ NPC_SENSE = {
     "market.calix": {"dc": 12, "text": "*(Your dead-touched senses reach the young priest and recoil from what's already begun in him: the Wall's cold has crept up past his knees, grey and patient, the way frost takes a windowpane from the edges in. He has stood the causeway too long. A man becomes what he guards, if he guards it without love — and Calix has run clean out of love for his post. Another year of watching the Faithless go in, and he'll be standing on the wrong side of his own Wall, and not remember crossing.)*"},
     "market.wren": {"dc": 11, "text": "*(You don't have to look for the mark. It *finds* you — cold light pouring off her like breath off a winter river, a brand the harvesters laid on her soul that the living can't see and she can only feel. Days. Fewer than she's letting herself count. She is godless and gentle and entirely without sin, and she has been measured for a wall, and she is buying apples because the apples are sweet and the apples are *now.*)*"},
     "market.tallow": {"dc": 13, "text": "*(You reach for the smiling man's soul the way you'd reach into a coat you expect to be full — and your senses close on *almost nothing.* He has spent himself a coin at a time, a name at a time, year on year, until what's left would barely fill a thimble. He thinks his tithes and his service have bought him safety. They've only hollowed him faster. The Wall is not reaching for him later, with the rest. It is reaching for him *now*, and the cold has already found his fingers — he simply mistakes it for the draught off the river.)*"},
+    "market.joss": {"dc": 10, "text": "*(You barely have to reach at all; the madman's soul is *standing open*, like a door left wide in winter. He has been to the edge of the Wall and pressed his face to it and listened, and a sliver of the cold came home in him and never left — the same sliver that lives in you. He is not raving at nothing. He is raving at the *exact* thing you are. Of every soul in this square, he is the one who will believe every word you'd never dare say aloud — because he already heard it, in the stone, in a voice he loved.)*"},
 }
 for _c in MKT["conversations"]:
     if _c["id"] in NPC_SENSE:
@@ -151,6 +152,9 @@ HTML = r"""<!DOCTYPE html>
  .tg.check{color:#c9a24b;border-color:#5a4a2a;background:#211c10}
  .tg.disp{color:#d8b0e8;border-color:#5a3a6a;background:#1f1726}
  .tg.returned{color:#cbb8f0;border-color:#5a4a8a;background:#1a1626}
+ .tg.gender{color:#e0a8c0;border-color:#6a3a52;background:#241622}
+ .breadth{margin-top:10px;padding:8px 11px;border:1px dashed #4a4368;border-radius:8px;font-size:11.5px;color:#9a90b4;background:#15121d}
+ .breadth b{color:#cbb8f0}
  .ck{margin-top:6px;font-size:11.5px;color:#b9a8e0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
  .chip{display:inline-block;font-size:10.5px;border:1px solid #3a3550;border-radius:5px;padding:1px 6px;color:#c9a24b}
  .chip.ok{color:#9fe0b0;border-color:#2c4a32}.chip.bad{color:#e0a0a0;border-color:#5a2c2c}.chip.prof{color:#f0c890;border-color:#6a4f2a}.chip.fx{color:#9ec8e8;border-color:#27405a}
@@ -249,6 +253,7 @@ function checkBonus(char, check, model){ const i=["Strength","Dexterity","Consti
 function matchesWhen(char, state, when){ if(!when) return true;
   const i=(v,val)=>Array.isArray(v)?v.indexOf(val)>=0:v===val;
   if(when.race!==undefined && !i(when.race,char.race)) return false;
+  if(when.gender!==undefined && !i(when.gender,char.gender)) return false;
   if(when.class!==undefined && !i(when.class,char.cls)) return false;
   if(when.background!==undefined && !i(when.background,char.background)) return false;
   if(when.deity!==undefined && !i(when.deity,char.deity)) return false;
@@ -298,14 +303,14 @@ function renderBuilds(){
   renderWho(); renderAbil(); renderProf();
 }
 function setBuild(i){ buildIdx=i; char=JSON.parse(JSON.stringify(BUILDS[i])); renderBuilds(); }
-function field2key(f){ return {Race:"race",Class:"cls",Background:"background",Deity:"deity"}[f]; }
+function field2key(f){ return {Race:"race",Gender:"gender",Class:"cls",Background:"background",Deity:"deity"}[f]; }
 function setField(f,v){ char[f]=v; char.name="Custom"; char.blurb=""; buildIdx=-1; renderBuilds(); }
 function setAlign(v){ const[l,m]=v.split(" "); char.law=l; char.morality=m; char.name="Custom"; char.blurb=""; buildIdx=-1; renderBuilds(); }
 function bump(i,d){ char.scores[i]=Math.max(1,Math.min(20,char.scores[i]+d)); char.name="Custom"; char.blurb=""; buildIdx=-1; renderBuilds(); }
 function renderWho(){
   const sel=(f,opts,val)=>`<div><label>${f.toUpperCase()}</label><select onchange="setField('${field2key(f)}',this.value)">`+opts.map(o=>`<option${o===val?' selected':''}>${esc(o)}</option>`).join("")+`</select></div>`;
   const align=`<div><label>ALIGNMENT</label><select onchange="setAlign(this.value)">`+MODEL.laws.flatMap(l=>MODEL.moralities.map(m=>{const v=l+" "+m;return `<option${(char.law+" "+char.morality)===v?' selected':''}>${esc(v)}</option>`;})).join("")+`</select></div>`;
-  document.getElementById("whoGrid").innerHTML=sel("Race",MODEL.races,char.race)+sel("Class",MODEL.classes,char.cls)+sel("Background",MODEL.backgrounds,char.background)+sel("Deity",MODEL.deities,char.deity)+align;
+  document.getElementById("whoGrid").innerHTML=sel("Race",MODEL.races,char.race)+sel("Gender",MODEL.genders,char.gender)+sel("Class",MODEL.classes,char.cls)+sel("Background",MODEL.backgrounds,char.background)+sel("Deity",MODEL.deities,char.deity)+align;
 }
 function renderAbil(){ document.getElementById("abil").innerHTML=ABILS.map((a,i)=>{const m=abilityMod(char.scores[i]),dlg=(a==="Intelligence"||a==="Wisdom"||a==="Charisma");
   return `<div class="ab${dlg?' dlg':''}"><div class="k">${ABBR[a]}</div><div class="v">${char.scores[i]}</div><div class="m">${m>=0?'+':''}${m}</div><div class="step"><button onclick="bump(${i},-1)">▼</button><button onclick="bump(${i},1)">▲</button></div></div>`;}).join(""); }
@@ -459,6 +464,7 @@ function normCheck(ch){ if(ch.check) return ch.check; if(ch.checkDC) return {ski
 function tagFor(ch){ if(ch.tag) return {cls:ch.tag, label:(ch.tagLabel||ch.tag.toUpperCase())};
   const w=ch.when; if(!w) return null;
   if(w.race!==undefined) return {cls:"race",label:[].concat(w.race).join("/")};
+  if(w.gender!==undefined) return {cls:"gender",label:[].concat(w.gender).join("/")};
   if(w.class!==undefined) return {cls:"class",label:[].concat(w.class).join("/")};
   if(w.background!==undefined) return {cls:"background",label:[].concat(w.background).join("/")};
   if(w.deity!==undefined) return {cls:"faith",label:[].concat(w.deity).map(d=>d==="None"?"Faithless":d).join("/")};
@@ -485,6 +491,11 @@ function paintChoices(){ if(!pendingOpts) return; const {node:n,el:opts}=pending
     b.innerHTML=inner; if(ok) b.onclick=()=>choose(n,ch,force); opts.appendChild(b);
   });
   if(!num){ const d=document.createElement("div"); d.className="muted"; d.textContent="(no choice here fits this character — toggle “show choices I don't qualify for”, or change who you are)"; opts.appendChild(d); }
+  // the breadth readout — how many of ALL authored responses fit who you are & what you've done
+  const total=n.choices.length, fits=n.choices.filter(ch=>choiceAvailable(char,st,ch,MODEL)).length;
+  if(total>=8){ const tally=document.createElement("div"); tally.className="breadth";
+    tally.innerHTML=`✦ <b>${fits}</b> of <b>${total}</b> authored responses fit who you are and what you've done — the rest are gated by race, gender, faith, class, alignment, your stats, your reckoning, and the choices behind you.`;
+    opts.appendChild(tally); }
 }
 function lockReason(ch){ const t=tagFor(ch); const chk=normCheck(ch);
   if(chk && isPassiveSkill(chk.skill) && !passiveBeats(char,chk,MODEL)){ const sc=10+checkBonus(char,chk,MODEL); return `passive ${esc(chk.skill)} ${sc} &lt; DC ${chk.dc} — you don't notice this`; }

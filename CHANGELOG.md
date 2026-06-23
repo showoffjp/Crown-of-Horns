@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v4.73.0 — *"Fifty Ways to Answer a Madman"* — the complexity ceiling, demonstrated (content + system)
+
+> The thesis you described — *the player sees four or five options, but there could be 30+ behind them, gated by
+> story beats, prior choices, standing, charisma, race, religion, gender, class… ad infinitum* — built, proved,
+> and made **visible.** Plus **gender** as a new reactive axis, and a little well-placed profanity for spice.
+
+- 🗣️ **Mad Joss, the Fountain-Prophet** — a cracked, grief-mad oracle who rants that the Wall isn't justice but
+  a *larder*: the gods are frightened, and every Faithless soul is one more *no* they'll never have to hear. His
+  single central beat authors **50 distinct responses**, gated across *every* axis at once:
+  - **race** (all nine), **gender** (Female/Male), **deity** (all seven), **class** (all five), **background**
+    (all seven), **alignment** (lawful/chaotic, good/evil), **ability thresholds** (STR/INT/WIS/CHA ≥ 15),
+    **passive lore** (Religion/Arcana), **active checks** (Persuasion/Intimidation/Deception), **dispositions**
+    (Heretical/Haunted/Merciful), and **prior choices** (met Wren, hold the charm-seller's stone, Calix's
+    doubt), plus the **[RETURNED]** path where he kneels because *you are the proof his prophecy was true.*
+  - Each of the five shipped builds sees a *different* **12–15 of the 50**; the rest are invisible. A live
+    **"✦ N of 50 authored responses fit who you are and what you've done"** readout makes the iceberg visible.
+- ⚧ **Gender** is now a full reactive axis (Female / Male) across **both** the market and the dialogue sim —
+  selectable in character creation, gate-able via `when.gender`, tagged in the choice UI.
+- 🤬 **Spice, judiciously applied** — the souls who'd actually swear now do (Joss, a sacked soldier, a chaotic
+  tongue, a tiefling preaching to the choir). Used where it lands, not as wallpaper.
+- 🧪 New gates pin the 30+-option node, that gender genuinely changes the visible set, that no build is ever
+  left with a dead node, and that prior choices widen the pool. Suite now **771 checks**, all green.
+
+---
+
 ## 👑 v4.72.0 — *"Six Souls on the Causeway"* — the market doubles, and their fates interlock (content)
 
 > You asked to flesh it all out with as much quality dialogue as we can — so the walkable Market grows from

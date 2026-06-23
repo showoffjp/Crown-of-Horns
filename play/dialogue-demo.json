@@ -1,6 +1,7 @@
 {
   "characterModel": {
     "races": ["Human", "Elf", "Half-Elf", "Tiefling", "Drow", "Dwarf", "Half-Orc", "Gnome", "Halfling"],
+    "genders": ["Female", "Male"],
     "classes": ["Fighter", "Wizard", "Cleric", "Rogue", "Ranger"],
     "backgrounds": ["Acolyte", "Soldier", "Noble", "Criminal", "Sage", "Folk Hero", "Charlatan"],
     "laws": ["Lawful", "Neutral", "Chaotic"],

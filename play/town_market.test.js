@@ -157,6 +157,28 @@ const metWren = E.newState(); metWren.bools["market.met_wren"] = true;
 check("you can only vouch for Wren to Tallow after you've met her", decOpt && decOpt.when && decOpt.when.flag === "market.met_wren" &&
   E.choiceAvailable(goodGuy, metWren, decOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), decOpt, MODEL) === false);
 
+// ---- the "30+ authored options, you see a handful" thesis (Mad Joss's mega-node) ----
+const joss = CONVS.find(c => c.id === "market.joss");
+const mega = joss.nodes.find(n => n.id === "1");
+check("the mega-node authors 30+ potential responses", mega.choices.length >= 30);
+check("gender is a real reactive axis", MODEL.genders && MODEL.genders.length === 2 &&
+  mega.choices.some(ch => ch.when && ch.when.gender === "Female") && mega.choices.some(ch => ch.when && ch.when.gender === "Male"));
+const visible = (c, state) => mega.choices.filter(ch => E.choiceAvailable(c, state || E.newState(), ch, MODEL)).length;
+// each character sees only a fraction of the whole — and a *different* fraction
+const femaleCleric = { cls: "Cleric", scores: [13, 10, 14, 11, 17, 12], race: "Human", gender: "Female", background: "Acolyte", law: "Lawful", morality: "Good", deity: "Kelemvor" };
+const maleTiefling = { cls: "Rogue", scores: [10, 16, 12, 13, 11, 16], race: "Tiefling", gender: "Male", background: "Charlatan", law: "Chaotic", morality: "Neutral", deity: "Tymora" };
+check("any one character sees far fewer than all the options", visible(femaleCleric) < mega.choices.length / 2 && visible(maleTiefling) < mega.choices.length / 2);
+check("every character still has something to say (never a dead node)", visible(femaleCleric) >= 3 && visible(maleTiefling) >= 3);
+const setOf = (c) => mega.choices.filter(ch => E.choiceAvailable(c, E.newState(), ch, MODEL)).map(ch => ch.text).join("|");
+check("different identities surface visibly different option sets", setOf(femaleCleric) !== setOf(maleTiefling));
+check("flipping only gender changes which options appear", (() => {
+  const f = { ...femaleCleric }, m = { ...femaleCleric, gender: "Male" };
+  return setOf(f) !== setOf(m);
+})());
+// prior choices widen the set: having met Wren / earned dispositions unlocks more of the 50
+const richState = E.newState(); richState.bools["market.met_wren"] = true; richState.bools["market.holding_stone"] = true; richState.ints["disp.heretical"] = 1; richState.ints["disp.merciful"] = 2;
+check("what you've already done unlocks still more potential responses", visible(femaleCleric, richState) > visible(femaleCleric));
+
 // ---- every NPC conversation completes for every shipped character ----
 const isEnd = (conv, id, byId) => !id || id === "END" || id === "end" || !byId[id];
 function autoPlay(conv, who) {
