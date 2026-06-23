@@ -16,7 +16,8 @@
       { "type": "barrel", "x": 9, "y": 8 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "hearth", "dest": { "x": 5, "y": 1 }, "label": "◂ back down the road to the Hearth" }
+      { "x": 5, "y": 8, "to": "hearth", "dest": { "x": 5, "y": 1 }, "label": "◂ back down the road to the Hearth" },
+      { "x": 5, "y": 0, "to": "threshold", "dest": { "x": 5, "y": 7 }, "label": "▴ where the road ends — the Threshold of the Crown's Road" }
     ],
     "npcs": [
       { "id": "harbinger", "name": "the Grey Harbinger", "title": "an aspect of the Judge of the Dead", "x": 5, "y": 4, "hue": 220, "sigil": "◈", "conv": "way.harbinger",

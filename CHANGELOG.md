@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.87.0 — *"The Threshold of the Crown's Road"* — a tenth zone: you meet yourself, and the saga's loop is revealed (content)
+
+> Where the road ends, the living cannot follow — and waiting at the dark door is the **Last Returned**: *you*,
+> from a future that already took the Crown and spent two hundred years freezing into the very thing it broke the
+> world to destroy, crawled back through the crack in time to make you answer the one question it didn't. The
+> capstone of the whole Act, and the saga's deepest twist.
+
+- ∞ **A tenth zone — the Threshold of the Crown's Road.** Reached past the wayshrine, completing a **ten-zone
+  connected map** (test-proven). New code-drawn prop: the **death-door** — a dark archway with cold light rising
+  through it, the threshold only a Returned can walk.
+- ∞ **the Last Returned — the mirror, your worst ending given a voice.** Its opening reads the *exact* road you're
+  on (witness / reckless / Crown-taker / accompanied / alone) and answers it as the soul who walked it. It reveals
+  the saga's central twist — **the masks are the same soul, looping**: a braid of Returned, each one *certain* it
+  learned enough to break the cycle, each one becoming the Wall by a slightly kinder road. And it names the *only*
+  exit: a soul that walks the door **accompanied**, **names who may uncrown it beforehand**, and **hands the Crown
+  away immediately** rather than keeping it for one more *reasonable* mercy. Break the loop and you lay your future
+  self, at last, to rest — witnessed, unfrozen, free.
+- 🛡️ **The companions who followed appear at the edge** — Dace (if recruited) and Orin (if she joined), via the
+  conditional-NPC system, now doing party duty: they are *the variable your future self never had*, and they'll
+  amend a campfire promise into a vow to both *save* you and *stop* you.
+- 🎭 Full deep stack throughout: reactive greetings (five distinct mirror-openings), the **Returned-sense** on each
+  soul (the Last Returned at sense-DC 2 — it is *literally you*), a Returned line apiece, dispositions.
+- 🧪 **+12 gates** (now **917 checks**, all green): the tenth zone is keyed/reachable/collision-clean, the ten-zone
+  map is one connected graph, the mirror's five road-openings are distinct, the loop is revealed, the
+  name-an-uncrowner and hand-the-Crown-away answers gate on your anchor and on knowing the loop, and breaking it
+  lays your future self to rest.
+
+---
+
 ## 👑 v4.86.0 — *"The Grey Wayshrine"* — a ninth zone: the Judge's own voice, and the secret under the whole saga (content)
 
 > You've heard the Choir (condemn the Faithless) and Aldric (tear it all down). On the road past camp stands a

@@ -726,6 +726,53 @@ check("the Doomguard sword can be talked from arrest toward joining you", orin.n
 check("the Wayshrine souls keep crit/fumble where rolled and a [RETURNED] line each",
   orin.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble)) &&
   [harb, orin, doget].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
+// ---- tenth zone: the Threshold of the Crown's Road — the mirror, the loop, the capstone ----
+const THRESH = SCENES && SCENES.threshold;
+check("a tenth zone (the Threshold) ships too", THRESH && THRESH.npcs.length >= 3 && THRESH.w >= 8 && THRESH.h >= 6);
+check("the road ends at the Threshold (the wayshrine leads on to it)", (SHRINE.exits || []).some(x => x.to === "threshold"));
+check("all ten zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit", "counthouse", "hearth", "aldric", "wayshrine", "threshold"].every(z => seen.has(z));
+})());
+check("the Threshold grows the prop vocabulary (the death-door)", h.includes('p.type==="deathdoor"'));
+
+const last = CONVS.find(c => c.id === "thr.last");
+check("the Last Returned (your future self) is present at the door", last);
+// the conditional companions follow you to the edge (the conditional-NPC system, used for party)
+const camped2 = THRESH.npcs.filter(n => n.when);
+check("companions who joined you appear at the edge (Dace if recruited, Orin if she joined)", camped2.length >= 2 &&
+  THRESH.npcs.some(n => n.when && n.when.flag === "party.dace_recruited") &&
+  THRESH.npcs.some(n => n.when && n.when.flag === "party.orin_may_join"));
+// the mirror's opening reads which road you're on — a witness-answerer, a reckless-answerer, a Crown-taker, an accompanied soul, and a lone stranger
+const l0 = last.nodes.find(n => n.id === "0");
+const stWit = E.newState(); stWit.bools["way.named_witness"] = true;
+const stRk = E.newState(); stRk.bools["way.answer_reckless"] = true;
+const stCr = E.newState(); stCr.bools["ald.path_crown"] = true;
+const stAnchor = E.newState(); stAnchor.bools["thr.has_anchor"] = true;
+check("your future self greets you differently by the road you've walked (witness/reckless/Crown/anchored/alone)", l0.variants &&
+  new Set([E.pickVariantText(l0, goodGuy, stWit), E.pickVariantText(l0, goodGuy, stRk),
+    E.pickVariantText(l0, goodGuy, stCr), E.pickVariantText(l0, goodGuy, stAnchor),
+    E.pickVariantText(l0, goodGuy, E.newState())]).size === 5);
+// the loop — the masks are the same soul, looping — is revealed here, the saga's deepest twist
+check("the loop (the masks are the same Returned, looping) is revealed at the door", last.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "thr.loop_revealed")));
+// the crux offers ways to break the loop, two gated on what you carry (an anchor / knowing the loop)
+const lcrux = last.nodes.find(n => n.id === "last_crux");
+const nameOpt = lcrux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("thr.has_anchor") >= 0);
+const handOpt = lcrux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("thr.loop_revealed") >= 0);
+check("the capstone crux offers loop-breaking answers, gated on your anchor and on knowing the loop", lcrux.choices.length >= 3 && nameOpt && handOpt &&
+  E.choiceAvailable(goodGuy, stAnchor, nameOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), nameOpt, MODEL) === false &&
+  E.choiceAvailable(goodGuy, (() => { const s = E.newState(); s.bools["thr.loop_revealed"] = true; return s; })(), handOpt, MODEL) === true);
+check("breaking the loop lays your future self to rest", last.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "thr.loop_broken")) && last.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "thr.last_at_rest")));
+check("your future self has the lowest sense-DC of all (it is literally you)", last.returned && last.returned.dc <= 3);
+check("the Threshold companions and the mirror each carry a [RETURNED] line", THRESH.npcs.every(n => {
+  const c = CONVS.find(cc => cc.id === n.conv);
+  return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
+}));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
