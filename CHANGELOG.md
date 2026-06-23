@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.82.0 — *"The Lamplit Quarter"* — a fifth zone, your first companion, and a world that gossips (content + two new interaction types)
+
+> Climb *up* out of the market, away from the causeway, into the living city — the **Lamplit Quarter**, where
+> the Sword Coast still drinks and schemes and the Choir keeps its quiet books. This zone introduces **two whole
+> interaction types the full game needs:** *recruiting a companion* (with an approval score), and *a world that
+> remembers everything you've done.*
+
+- 🏙️ **A fifth zone — the Lamplit Quarter.** The market now opens *up* into the Lower City as well as down to
+  the causeway, so it's a true five-zone hub (and the test proves all five form one connected graph). New
+  code-drawn props: glowing **lampposts**, the **Sotted Saint** tavern with lit windows and a sign, tables, a
+  notice-board.
+- 🗡️ **Dace Iron — recruit your first companion.** A Faithless blade-for-hire who's turned down a month of Choir
+  coin and is waiting for the one fight worth her steel. Pitch her by Insight, Persuasion, or kinship — and on
+  success she **joins** (`party.dace_recruited`), with her own **approval score** (a brand-new reactive axis) and
+  nat-20/nat-1 outcomes (crit: she slams her sword into the table as a vow; fumble: finger-guns, and she throws
+  you out). Recruit her and she shows up as backup in a *later* scene.
+- 🍺 **Mab, keep of the Sotted Saint — a world that remembers.** Her welcome reads your deeds across *all five
+  zones*: shook the Wall and she greets you as the legend the Quarter's whispering about; saved Wren and you're
+  the apple-girl's saviour; befriended the Choir and her grin goes cold and she warns you to keep that quiet.
+  Trade her the truth of the Wall and choose whether to spread *hope* through the Quarter or sit on it.
+- 📒 **Pell, the Choir's ledger-clerk — the quiet middle of the machine.** The forgettable man who *writes the
+  marked down.* Unmask him (Insight), break him (Intimidation), con him colleague-to-colleague (Deception), or
+  bring **Dace** as muscle — and strike names off the list. His greeting flips if you're already a Choir-friend.
+  A Returned breaks him simply by existing: there is *no column* in his book for a soul that cancelled its own
+  death.
+- 🎭 Full deep stack throughout: reactive identity/flag/disposition greetings, **nat-20/nat-1 crit & fumble
+  comedy**, the **Returned-sense** on each soul, a Returned line apiece.
+- 🧪 **+13 gates** (now **853 checks**, all green): the fifth zone is keyed/reachable/collision-clean, the five-zone
+  map is one connected graph, companion recruitment sets a party flag + tracks approval, the recruited companion
+  becomes a usable option later, and Mab's & Pell's greetings provably read the cross-zone flags.
+
+---
+
 ## 👑 v4.81.0 — *"Past the Last Torch"* — the fourth zone, the Wall of the Faithless, and three threads paid off at once (content)
 
 > The causeway has an *end.* Climb the Reed-Walk past Sister Vharn, up through the mist, past the **last

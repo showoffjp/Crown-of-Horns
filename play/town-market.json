@@ -21,7 +21,8 @@
     ],
     "exits": [
       { "x": 5, "y": 8, "to": "reedwalk", "dest": { "x": 5, "y": 7 }, "label": "the reed-walk & the causeway ▸" },
-      { "x": 1, "y": 8, "to": "underbridge", "dest": { "x": 5, "y": 6 }, "label": "▾ down the stair, to the Underbridge" }
+      { "x": 1, "y": 8, "to": "underbridge", "dest": { "x": 5, "y": 6 }, "label": "▾ down the stair, to the Underbridge" },
+      { "x": 5, "y": 0, "to": "lamplit", "dest": { "x": 5, "y": 7 }, "label": "▴ up into the Lamplit Quarter (the Lower City)" }
     ],
     "npcs": [
       { "id": "sable", "name": "Mother Sable", "title": "the Bone-Charm Seller", "x": 2, "y": 3, "hue": 290, "sigil": "MS", "conv": "market.sable",

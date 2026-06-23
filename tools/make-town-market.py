@@ -18,6 +18,7 @@ MKT = json.load(open(os.path.join(ROOT, "play", "town-market.json"), encoding="u
 REED = json.load(open(os.path.join(ROOT, "play", "reed-walk.json"), encoding="utf-8"))
 UNDER = json.load(open(os.path.join(ROOT, "play", "underbridge.json"), encoding="utf-8"))
 LASTTORCH = json.load(open(os.path.join(ROOT, "play", "lasttorch.json"), encoding="utf-8"))
+LAMPLIT = json.load(open(os.path.join(ROOT, "play", "lamplit.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -53,6 +54,9 @@ INT_LABELS = {
     "lt.hale.regard": "Brother Hale's regard",
     "lt.esuele.regard": "Esuele's regard",
     "lt.goodwin.regard": "Goodwin's regard",
+    "city.mab.regard": "Mab's regard",
+    "city.dace.approval": "Dace's approval",
+    "city.pell.regard": "Pell's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -78,14 +82,19 @@ NPC_SENSE = {
     "lt.hale": {"dc": 11, "text": "*(You reach for the Warden and recoil from how far the cold has already come into him — past the knees, the sense the market gave you of Brother Calix made flesh and then left out in it for four more years. He is not dying so much as *freezing into the post*, becoming the thing he guards a degree at a time. But under the frost there is still a man, and the man is *screaming*, very quietly, behind a parade-ground face, and what he is screaming is *let me off this watch before I forget I was ever warm.*)*"},
     "lt.esuele": {"dc": 8, "text": "*(You don't have to reach. You are the same cold as the whole Wall, and it knows you — ten thousand faces turn a fraction toward the one of their own that *got away.* But this one, level with your eyes, is nearly *gone*: a soul worn down to a thimbleful, the oldest memories already taken by the stone, only the sharpest few left — a mother's hands, the smell of wool, the word *no.* Your sense reads the cruelty exactly: it is not pain that unmakes the Mortared. It is *erasure*, a piece at a time, oldest first, until a face that was a *who* no longer knows it. And this one is *days* of forgetting from the bottom.)*"},
     "lt.goodwin": {"dc": 10, "text": "*(Your sense brushes the cheerful waiting man and finds — gently, almost comically — a soul that does not yet know it has died. No cold creeps in him because he is already, wholly, on the far side of it; he simply hasn't noticed, the way a sleeper hasn't noticed the dream. He is not marked, not mortared, not dissolving — only *waiting*, with a terrible patient faith, on a rock at the edge of the afterlife, for a boat the Choir promised and was never going to send. The kindest and cruellest thing you could do to him is the same thing: tell him the truth.)*"},
+    "city.mab": {"dc": 12, "text": "*(You reach for the brass-ringed keep and find her warm, alive, and quietly *unafraid* of you in a way almost nobody is — because some part of Mab made her peace with the cold a long time ago. Under the gossip and the grin your sense reads four decades of a different kind of weight: every Faithless regular who drank at her bar and then went up the causeway and never came down, each one a cup she still sets out, unbidden, on the longest night. She is not a rumour-mill. She is a *memorial* that happens to serve ale, and she has been waiting, without knowing it, for a soul who could tell her the cups meant something.)*"},
+    "city.dace": {"dc": 11, "text": "*(The cold in your marrow meets a cold of a different kind in the sellsword — not the Wall's, but the lifelong chill of the Faithless who has never once been able to forget the empty space waiting for her in the stone. Your sense reads under the lazy menace to the truth she fights with: ten years of selling the only thing she owns to people she despises, hoarding a single unspent *yes* for a fight that would be worth it, and a creeping fear that the fight will never come and she'll die a blade-for-hire with the yes still in her, walking up the causeway like all the rest. She is not looking for an employer. She is looking for a reason. And she has just seen one walk into her square.)*"},
+    "city.pell": {"dc": 14, "text": "*(Your sense settles over the neat clerk and recoils — not from cold, but from a vast and meticulous *emptiness*, a soul that has filed itself away as thoroughly as it files everyone else. There is no cruelty in him, which is the horror of it; there is only the *system*, and a small frightened man who long ago decided that to keep from being filed he would become the one who holds the pen. But your sense finds the splinter he can't: he is *unbought* too. Pell has no god either. He serves the machine that will, in the end, measure *him* — and on some buried ledger-line he knows it, and writes faster, as if a long enough list might somehow leave his own name off it.)*"},
 }
-for _c in MKT["conversations"] + REED["conversations"] + UNDER["conversations"] + LASTTORCH["conversations"]:
+for _c in MKT["conversations"] + REED["conversations"] + UNDER["conversations"] + LASTTORCH["conversations"] + LAMPLIT["conversations"]:
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
-ALL_CONVS = MKT["conversations"] + REED["conversations"] + UNDER["conversations"] + LASTTORCH["conversations"]
+ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
+             + LASTTORCH["conversations"] + LAMPLIT["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
-              UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"]}
+              UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
+              LAMPLIT["scene"]["id"]: LAMPLIT["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -232,7 +241,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">four walkable zones · seventeen souls · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">five walkable zones · twenty souls · recruit a companion · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -549,6 +558,10 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="torch"){ drawShadow(s.x,s.y+4); ctx.strokeStyle="#3a3340"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(s.x,s.y+2); ctx.lineTo(s.x,s.y-40); ctx.stroke(); ctx.fillStyle="#2a2530"; ctx.beginPath(); ctx.ellipse(s.x,s.y-40,9,4,0,0,7); ctx.fill(); const fl=0.6+0.4*Math.sin(lastT/140), gl=ctx.createRadialGradient(s.x,s.y-50,2,s.x,s.y-50,30); gl.addColorStop(0,`rgba(255,200,110,${0.5+0.2*fl})`); gl.addColorStop(1,"rgba(255,160,60,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-50,30,0,7); ctx.fill(); ctx.fillStyle=`rgba(${235+20*fl|0},${130+50*fl|0},50,.92)`; ctx.beginPath(); ctx.moveTo(s.x-7,s.y-42); ctx.quadraticCurveTo(s.x,s.y-62-10*fl,s.x+7,s.y-42); ctx.closePath(); ctx.fill(); ctx.fillStyle=`rgba(255,225,150,${0.7+0.2*fl})`; ctx.beginPath(); ctx.moveTo(s.x-3,s.y-44); ctx.quadraticCurveTo(s.x,s.y-54-6*fl,s.x+3,s.y-44); ctx.closePath(); ctx.fill(); }
   else if(p.type==="greywort"){ const gl=0.5+0.5*Math.sin(lastT/300); ctx.fillStyle=`rgba(150,200,210,${0.10+0.10*gl})`; ctx.beginPath(); ctx.ellipse(s.x,s.y,16,8,0,0,7); ctx.fill(); ctx.strokeStyle=`rgba(170,205,200,${0.6+0.3*gl})`; ctx.lineWidth=1.5; for(let i=-2;i<=2;i++){ ctx.beginPath(); ctx.moveTo(s.x+i*4,s.y+3); ctx.quadraticCurveTo(s.x+i*5,s.y-9,s.x+i*6,s.y-16); ctx.stroke(); } ctx.fillStyle=`rgba(200,235,225,${0.7+0.3*gl})`; for(let i=-2;i<=2;i++){ ctx.beginPath(); ctx.arc(s.x+i*6,s.y-16,1.8,0,7); ctx.fill(); } }
   else if(p.type==="deadtree"){ drawShadow(s.x,s.y+4); ctx.strokeStyle="#2c2622"; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(s.x,s.y+2); ctx.lineTo(s.x-1,s.y-30); ctx.stroke(); ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(s.x-1,s.y-18); ctx.lineTo(s.x-12,s.y-30); ctx.moveTo(s.x-1,s.y-22); ctx.lineTo(s.x+11,s.y-32); ctx.moveTo(s.x-1,s.y-28); ctx.lineTo(s.x-7,s.y-40); ctx.moveTo(s.x-1,s.y-28); ctx.lineTo(s.x+6,s.y-41); ctx.stroke(); }
+  else if(p.type==="lamppost"){ drawShadow(s.x,s.y+3); ctx.strokeStyle="#26242e"; ctx.lineWidth=3.5; ctx.beginPath(); ctx.moveTo(s.x,s.y+2); ctx.lineTo(s.x,s.y-44); ctx.stroke(); const fl=0.6+0.4*Math.sin(lastT/220), gl=ctx.createRadialGradient(s.x,s.y-48,1,s.x,s.y-48,26); gl.addColorStop(0,`rgba(255,210,120,${0.45+0.2*fl})`); gl.addColorStop(1,"rgba(255,180,70,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-48,26,0,7); ctx.fill(); ctx.fillStyle="#3a3340"; ctx.fillRect(s.x-5,s.y-52,10,10); ctx.fillStyle=`rgba(255,225,150,${0.7+0.25*fl})`; ctx.fillRect(s.x-3,s.y-50,6,6); }
+  else if(p.type==="tavern"){ drawShadow(s.x,s.y+8); drawBox(s.x,s.y+6,52,40,"#3a2e22","#2c2218","#1f1810"); ctx.fillStyle="#241c14"; ctx.fillRect(s.x-8,s.y-18,16,24); const wl=0.6+0.4*Math.sin(lastT/300); ctx.fillStyle=`rgba(255,200,110,${0.4+0.3*wl})`; ctx.fillRect(s.x-22,s.y-30,9,9); ctx.fillRect(s.x+13,s.y-30,9,9); ctx.strokeStyle="#4a3a26"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x-26,s.y-44); ctx.lineTo(s.x,s.y-58); ctx.lineTo(s.x+26,s.y-44); ctx.stroke(); ctx.fillStyle="#e7c873"; ctx.font="600 9px Iowan Old Style, Georgia, serif"; ctx.textAlign="center"; ctx.fillText("The Sotted Saint",s.x,s.y-46); }
+  else if(p.type==="table"){ drawShadow(s.x,s.y+4); drawBox(s.x,s.y+3,26,9,"#5a4632","#46361f","#332715"); ctx.fillStyle="#46361f"; ctx.fillRect(s.x-3,s.y-2,6,7); }
+  else if(p.type==="noticeboard"){ drawShadow(s.x,s.y+3); ctx.strokeStyle="#3a2c1c"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x-12,s.y+2); ctx.lineTo(s.x-12,s.y-22); ctx.moveTo(s.x+12,s.y+2); ctx.lineTo(s.x+12,s.y-22); ctx.stroke(); ctx.fillStyle="#4a3a26"; ctx.fillRect(s.x-15,s.y-36,30,18); ctx.fillStyle="#d8d2c2"; for(let i=0;i<3;i++){ ctx.fillRect(s.x-12+(i%2)*8,s.y-33+i*5,9,4); } }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }

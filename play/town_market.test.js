@@ -454,6 +454,60 @@ check("the marquee moment lands: the Wall stirs when a Returned addresses it", (
   const wallStir = esuele.nodes.find(n => n.id === "esuele_returned");
   return wallStir && (wallStir.effects || []).some(e => e.key === "lt.wall_stirs");
 })());
+
+// ---- fifth zone: the Lamplit Quarter — two NEW interaction types: recruiting a companion, and a world that gossips ----
+const CITY = SCENES && SCENES.lamplit;
+check("a fifth zone (the Lamplit Quarter) ships too", CITY && CITY.npcs.length >= 3 && CITY.w >= 8 && CITY.h >= 6);
+check("the market opens UP into the living city as well as down to the causeway", (SCN.exits || []).some(x => x.to === "lamplit"));
+check("all five zones form one connected map from the market", (() => {
+  const seen = new Set(["market"]); const q = ["market"];
+  while (q.length) { const z = q.shift(); (SCENES[z].exits || []).forEach(x => { if (SCENES[x.to] && !seen.has(x.to)) { seen.add(x.to); q.push(x.to); } }); }
+  return ["reedwalk", "underbridge", "lasttorch", "lamplit"].every(z => seen.has(z));
+})());
+const CIBL = E.buildBlocked(CITY);
+check("Lamplit NPCs/props block their tiles and stay reachable", CITY.npcs.every(n => {
+  if (CIBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(CITY.playerStart.x, CITY.playerStart.y, n.x, n.y, CIBL, CITY.w, CITY.h);
+  return adj && ((adj[0] === CITY.playerStart.x && adj[1] === CITY.playerStart.y) ||
+    E.findPath(CITY.playerStart.x, CITY.playerStart.y, adj[0], adj[1], CIBL, CITY.w, CITY.h).length > 0);
+}));
+check("the city grows the prop vocabulary (lamppost, tavern, table)",
+  h.includes('p.type==="lamppost"') && h.includes('p.type==="tavern"') && h.includes('p.type==="table"'));
+
+const dace = CONVS.find(c => c.id === "city.dace");
+const mab = CONVS.find(c => c.id === "city.mab");
+const pell = CONVS.find(c => c.id === "city.pell");
+check("the three Lamplit souls are present", dace && mab && pell);
+// NEW INTERACTION 1 — recruiting a companion: a [PERSUASION] pitch that, on success, sets a party flag (and accrues approval)
+const recruitChoice = dace.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+check("Dace can be recruited as a companion (a pitch that sets a party flag)", recruitChoice && recruitChoice.crit && recruitChoice.fumble &&
+  dace.nodes.some(n => (n.effects || []).some(e => e.key === "party.dace_recruited")));
+check("recruiting tracks an approval score (a new reactive axis)", dace.nodes.some(n =>
+  ((n.effects || []).concat(...(n.choices || []).map(ch => ch.effects || []))).some(e => e.key === "city.dace.approval")));
+// NEW INTERACTION 2 — a world that remembers: Mab's welcome reads your deeds across ALL the other zones
+const m0 = mab.nodes.find(n => n.id === "0");
+const wallSt = E.newState(); wallSt.bools["lt.wall_stirs"] = true;
+const savedSt = E.newState(); savedSt.bools["reed.wren_lives"] = true;
+const choirSt = E.newState(); choirSt.bools["reed.choir_friend"] = true;
+check("the tavern-keep gossips about what you did at the Wall, the river, and with the Choir", m0.variants &&
+  new Set([E.pickVariantText(m0, goodGuy, wallSt), E.pickVariantText(m0, goodGuy, savedSt),
+    E.pickVariantText(m0, goodGuy, choirSt), E.pickVariantText(m0, goodGuy, E.newState())]).size === 4);
+check("a Wall-shaker is greeted as legend; a Choir-friend is greeted with cold suspicion",
+  /Wall moved|flinched|spooked/i.test(E.pickVariantText(m0, goodGuy, wallSt)) &&
+  /Choir|helpful one|keep that.*off your/i.test(E.pickVariantText(m0, goodGuy, choirSt)));
+// the Choir's informant likewise flips on whether you served or crossed the Choir at the river
+const p0 = pell.nodes.find(n => n.id === "0");
+check("the Choir's ledger-clerk greets a Choir-friend as an asset, distinct from a stranger", p0.variants &&
+  E.pickVariantText(p0, goodGuy, choirSt) !== E.pickVariantText(p0, goodGuy, E.newState()) &&
+  /helpful|Tallow|friend|service/i.test(E.pickVariantText(p0, goodGuy, choirSt)));
+// a recruited companion shows up as backup in a later interaction (party flag read in Pell's tree)
+const daceBackup = pell.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.flag === "party.dace_recruited");
+const recruited = E.newState(); recruited.bools["party.dace_recruited"] = true;
+check("a recruited companion becomes a usable option in later scenes", daceBackup &&
+  E.choiceAvailable(goodGuy, recruited, daceBackup, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), daceBackup, MODEL) === false);
+check("Lamplit checks carry their own nat-20/nat-1 scenes, and each soul a [RETURNED] line",
+  [dace, pell].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))) &&
+  [dace, mab, pell].every(c => c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));
