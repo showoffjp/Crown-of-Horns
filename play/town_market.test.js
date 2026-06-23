@@ -291,6 +291,65 @@ check("every NPC is reachable via a free adjacent tile", SCN.npcs.every(n => {
     E.findPath(SCN.playerStart.x, SCN.playerStart.y, adj[0], adj[1], BL, SCN.w, SCN.h).length > 0;
 }));
 check("the path-following loop + path-preview dots are wired", h.includes("player.pathIdx") && h.includes("player.path"));
+
+// ---- second walkable zone: The Reed-Walk, reached by a causeway exit, sharing the visit state ----
+const SCENES = DATA.scenes; const REED = SCENES && SCENES.reedwalk;
+check("a second zone (the Reed-Walk) ships alongside the market", REED && REED.npcs.length >= 4 && REED.w >= 8 && REED.h >= 6);
+check("both zones are keyed by id and the market is the start scene", SCENES && SCENES.market && SCENES.reedwalk && DATA.scene.id === "market");
+check("the market has a glowing exit that points at the reed-walk", (SCN.exits || []).some(x => x.to === "reedwalk" && x.dest));
+check("the reed-walk has an exit back to the market", (REED.exits || []).some(x => x.to === "market" && x.dest));
+check("every exit lands on an in-bounds destination tile", Object.values(SCENES).every(s => (s.exits || []).every(x =>
+  x.dest.x >= 0 && x.dest.x < SCENES[x.to].w && x.dest.y >= 0 && x.dest.y < SCENES[x.to].h)));
+check("exit tiles are walkable (not blocked) and reachable from each zone's start", Object.values(SCENES).every(s => {
+  const bl = E.buildBlocked(s);
+  return (s.exits || []).every(x => !bl[E.tileKey(x.x, x.y)] &&
+    ((x.x === s.playerStart.x && x.y === s.playerStart.y) ||
+      E.findPath(s.playerStart.x, s.playerStart.y, x.x, x.y, bl, s.w, s.h).length > 0));
+}));
+check("zone-travel is wired (loadScene + a fade + a step-onto-exit trigger)",
+  h.includes("function loadScene(") && h.includes("function travelTo(") && h.includes("function exitAt(") && h.includes("traveling"));
+// the reed-walk's NPCs are collision-clean too — no walking through the boatman
+const RBL = E.buildBlocked(REED);
+check("Reed-Walk NPCs/props block their tiles and stay reachable", REED.npcs.every(n => {
+  if (RBL[E.tileKey(n.x, n.y)] !== 1) return false;
+  const adj = E.nearestFreeAdjacent(REED.playerStart.x, REED.playerStart.y, n.x, n.y, RBL, REED.w, REED.h);
+  return adj && ((adj[0] === REED.playerStart.x && adj[1] === REED.playerStart.y) ||
+    E.findPath(REED.playerStart.x, REED.playerStart.y, adj[0], adj[1], RBL, REED.w, REED.h).length > 0);
+}));
+
+// ---- the river PAYS OFF the market: flags you set in one zone change how souls greet you in the other ----
+const cassian = CONVS.find(c => c.id === "reed.cassian");
+const vharn = CONVS.find(c => c.id === "reed.vharn");
+const reedWren = CONVS.find(c => c.id === "reed.wren");
+const reedwife = CONVS.find(c => c.id === "reed.reedwife");
+check("the four river souls are present", cassian && vharn && reedWren && reedwife);
+// Sister Vharn's welcome flips on what you did to Wren back in the market — the cross-zone hinge
+const v0 = vharn.nodes.find(n => n.id === "0");
+const betrayedSt = E.newState(); betrayedSt.bools["market.betrayed_wren"] = true;
+const protSt = E.newState(); protSt.bools["market.protected_wren"] = true;
+check("Vharn greets a Wren-betrayer as a friend and a Wren-protector as a threat", v0.variants &&
+  E.pickVariantText(v0, goodGuy, betrayedSt) !== E.pickVariantText(v0, goodGuy, protSt) &&
+  /Tallow|friend|gave us|helpful/i.test(E.pickVariantText(v0, goodGuy, betrayedSt)) &&
+  /meddler|where is she|stood between/i.test(E.pickVariantText(v0, goodGuy, protSt)));
+// river-Wren remembers the market too: gratitude if protected, heartbreak if betrayed
+const rw0 = reedWren.nodes.find(n => n.id === "0");
+check("river-Wren opens with relief if you saved her, and betrayal if you sold her",
+  E.pickVariantText(rw0, goodGuy, protSt) !== E.pickVariantText(rw0, goodGuy, betrayedSt) &&
+  /Judas|smiled|gave it to him/i.test(E.pickVariantText(rw0, goodGuy, betrayedSt)));
+// the Deception cover at Vharn is gated on having protected Wren (you only lie for someone you saved)
+const vDec = vharn.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Deception");
+check("you can only lie to Vharn to cover a Wren you actually protected", vDec && vDec.when && vDec.when.flag === "market.protected_wren" &&
+  E.choiceAvailable(goodGuy, protSt, vDec, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), vDec, MODEL) === false);
+// giving Sable's holding-stone to river-Wren is gated on actually carrying it out of the market
+const wStone = reedWren.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.flag === "market.holding_stone");
+const stoneSt = E.newState(); stoneSt.bools["market.holding_stone"] = true;
+check("Sable's holding-stone can be handed to Wren only if you took it from the market", wStone &&
+  E.choiceAvailable(goodGuy, stoneSt, wStone, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), wStone, MODEL) === false);
+// the river souls keep the deep stack: crit/fumble, dispositions, a Returned line each
+check("river checks carry their own nat-20/nat-1 scenes too", [cassian, vharn, reedWren].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.crit && ch.fumble))));
+check("the Reed-Walk grows the new prop vocabulary (boat, reeds, shrine)",
+  h.includes('p.type==="boat"') && h.includes('p.type==="reeds"') && h.includes('p.type==="shrine"'));
 check("NPC tokens + talk prompt drawn", h.includes("function drawToken(") && h.includes("talk (E)"));
 check("approach-to-talk wired (click + E key)", h.includes("function talk(") && h.includes('e.key==="E"'));
 check("dialogue overlay + reactive engine wired", h.includes("function goNode(") && h.includes("function paintChoices(") && h.includes("pickVariantText(n,char,st)"));

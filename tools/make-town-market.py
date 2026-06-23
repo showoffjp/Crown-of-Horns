@@ -15,6 +15,7 @@ import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEMO = json.load(open(os.path.join(ROOT, "play", "dialogue-demo.json"), encoding="utf-8"))
 MKT = json.load(open(os.path.join(ROOT, "play", "town-market.json"), encoding="utf-8"))
+REED = json.load(open(os.path.join(ROOT, "play", "reed-walk.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -40,6 +41,10 @@ INT_LABELS = {
     "market.bram.regard": "Sergeant Bram's regard",
     "market.pip.regard": "Pip's trust in you",
     "market.wren.regard": "Wren's trust in you",
+    "reed.cassian.regard": "Old Cassian's regard",
+    "reed.vharn.regard": "Sister Vharn's regard",
+    "reed.wren.regard": "Wren's trust in you",
+    "reed.reedwife.regard": "the Reed-Wife's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -55,12 +60,18 @@ NPC_SENSE = {
     "market.wren": {"dc": 11, "text": "*(You don't have to look for the mark. It *finds* you — cold light pouring off her like breath off a winter river, a brand the harvesters laid on her soul that the living can't see and she can only feel. Days. Fewer than she's letting herself count. She is godless and gentle and entirely without sin, and she has been measured for a wall, and she is buying apples because the apples are sweet and the apples are *now.*)*"},
     "market.tallow": {"dc": 13, "text": "*(You reach for the smiling man's soul the way you'd reach into a coat you expect to be full — and your senses close on *almost nothing.* He has spent himself a coin at a time, a name at a time, year on year, until what's left would barely fill a thimble. He thinks his tithes and his service have bought him safety. They've only hollowed him faster. The Wall is not reaching for him later, with the rest. It is reaching for him *now*, and the cold has already found his fingers — he simply mistakes it for the draught off the river.)*"},
     "market.joss": {"dc": 10, "text": "*(You barely have to reach at all; the madman's soul is *standing open*, like a door left wide in winter. He has been to the edge of the Wall and pressed his face to it and listened, and a sliver of the cold came home in him and never left — the same sliver that lives in you. He is not raving at nothing. He is raving at the *exact* thing you are. Of every soul in this square, he is the one who will believe every word you'd never dare say aloud — because he already heard it, in the stone, in a voice he loved.)*"},
+    "reed.cassian": {"dc": 11, "text": "*(The river's cold is your cold, and it answers the old boatman's like a tuning-fork: he is not quite among the living anymore. Forty years of ferrying has worn him thin as a coin rubbed smooth, half his soul already paid downstream to the water he serves. He does not know he is dying by inches into his own river. He thinks it is just the damp in his knees. The oar in his hands has rowed thirteen thousand souls to the mist, and the thirteen-thousand-and-first will be him, and he has no idea, and some part of him is so very tired that it would be a mercy.)*"},
+    "reed.vharn": {"dc": 14, "text": "*(You reach for the Measurer's soul and find it walled — not hollow like Tallow's, but *fortified*, every doubt bricked up behind liturgy, a cell she built around her own conscience and threw away the key to. And yet the cold gets in. There, behind the third course of bricks: three hundred and eleven faces she will not let herself count, and one of them, freshest, has an apple in its hand. The wall around her heart is exactly as strong as the Wall she serves — which is to say, it holds against everyone but the one soul stubborn enough to keep saying a name.)*"},
+    "reed.wren": {"dc": 10, "text": "*(The mark blazes off her even brighter here, this close to the stone — but your dead-touched sense reads something the brand can't hide: she is not ready. Whatever she tells herself, whatever brave arithmetic she's done in the cold water, the living animal of her is *clinging*, white-knuckled, to every small sweet now it can find — the apple, the cold on her ankles, the sound of your boots on the shingle. She came here to end it. Her own soul is screaming, in a voice only you can hear, that it is not time, it is not time, it is not time.)*"},
+    "reed.reedwife": {"dc": 9, "text": "*(You don't reach for her; she is already the same cold as you, and recognition passes between you like current through water. Four hundred years she has abided in the doorway you walked all the way through — a soul that refused the Wall and let the river catch it on the threshold, neither in nor back, just *held*, in the green and the patience. She is lonelier than anything you have ever touched. She is also, you realise with a small private vertigo, what you might have been, had you flinched at the door. There but for the turning-around go you.)*"},
 }
-for _c in MKT["conversations"]:
+for _c in MKT["conversations"] + REED["conversations"]:
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
-EMBED = {"scene": MKT["scene"], "conversations": MKT["conversations"], "model": MODEL, "glossary": GLOSSARY}
+ALL_CONVS = MKT["conversations"] + REED["conversations"]
+EMBED = {"scene": MKT["scene"], "scenes": {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"]},
+         "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 
 HTML = r"""<!DOCTYPE html>
@@ -205,13 +216,14 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">walk the square · meet three souls · the way they answer depends on who you are</span>
+ <span class="sub">two walkable zones · eleven souls · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
  <div class="scenecol">
+  <div style="display:flex;align-items:center;gap:8px"><span style="color:#7f8aa0;font-size:11px;letter-spacing:1.2px;text-transform:uppercase">▸ now in</span><span id="zonename" style="color:#bcd6ec;font-size:14px;font-style:italic">The Market of the Causeway</span></div>
   <canvas id="board" width="760" height="470"></canvas>
-  <div class="hint" id="hint"><b>Click</b> the ground to walk. Approach an NPC and <b>click them</b> (or press <b>E</b>) to talk. Change <b>who you are</b> on the right, then talk again — they notice.</div>
+  <div class="hint" id="hint"><b>Click</b> the ground to walk. Approach an NPC and <b>click them</b> (or press <b>E</b>) to talk. Walk onto a glowing <b style="color:#bcd6ec">∙ causeway tile</b> to cross to the next zone — what you did in one carries to the other. Change <b>who you are</b> on the right, then talk again — they notice.</div>
  </div>
  <div class="side">
   <div class="card">
@@ -252,7 +264,8 @@ HTML = r"""<!DOCTYPE html>
 const DATA = __BLOB__;
 const BUILDS = __BUILDS__;
 const INT_LABELS = __INTLABELS__;
-const SCENE = DATA.scene, CONVS = DATA.conversations, MODEL = DATA.model, GLOSS = DATA.glossary;
+let SCENE = DATA.scene;   // the active zone (swapped by loadScene when you cross an exit)
+const SCENES = DATA.scenes || {market:DATA.scene}, CONVS = DATA.conversations, MODEL = DATA.model, GLOSS = DATA.glossary;
 const ABILS = ["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"];
 const ABBR  = {Strength:"STR",Dexterity:"DEX",Constitution:"CON",Intelligence:"INT",Wisdom:"WIS",Charisma:"CHA"};
 // Pillars-of-Eternity-style dispositions — your choices accrue a reckoning that persists across the visit
@@ -423,14 +436,25 @@ function renderState(){
 
 // ====================== the market scene (canvas) ======================
 const cv=document.getElementById("board"), ctx=cv.getContext("2d");
-SCENE.props.forEach(p=>{ p.tx=p.x; p.ty=p.y; });   // scene authored in x/y; the engine draws in tx/ty
-SCENE.npcs.forEach(n=>{ n.tx=n.x; n.ty=n.y; });
+function normScene(s){ if(s._normed) return s; (s.props||[]).forEach(p=>{ p.tx=p.x; p.ty=p.y; }); (s.npcs||[]).forEach(n=>{ n.tx=n.x; n.ty=n.y; }); (s.exits||[]).forEach(x=>{ x.tx=x.x; x.ty=x.y; }); s._normed=true; return s; }
+Object.values(SCENES).forEach(normScene); normScene(SCENE);   // every zone authored in x/y; the engine draws in tx/ty
 const TW=64, TH=32, OX=cv.width/2, OY=64;
 function iso(tx,ty){ return { x: OX+(tx-ty)*TW/2, y: OY+(tx+ty)*TH/2 }; }
 function unIso(sx,sy){ const a=(sx-OX)/(TW/2), b=(sy-OY)/(TH/2); return { tx:(a+b)/2, ty:(b-a)/2 }; }
 const player={ tx:SCENE.playerStart.x, ty:SCENE.playerStart.y, path:null, pathIdx:0, facing:1 };
-const BLOCKED=buildBlocked(SCENE);
-let hoverTile=null, hoverNpc=null, nearNpc=null, autoTalk=null, lastT=0;
+let BLOCKED=buildBlocked(SCENE);
+let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, traveling=false, fade=0, lastT=0;
+function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
+// ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
+function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=buildBlocked(SCENE);
+  const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
+  hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
+  const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
+  sfx('talk'); }
+function travelTo(ex){ if(traveling) return; traveling=true; fade=0;
+  const tick=()=>{ fade=Math.min(1,fade+0.08); if(fade<1){ requestAnimationFrame(tick); }
+    else { loadScene(ex.to, ex.dest); fade=1; const out=()=>{ fade=Math.max(0,fade-0.07); if(fade>0) requestAnimationFrame(out); else traveling=false; }; requestAnimationFrame(out); } };
+  requestAnimationFrame(tick); }
 
 function npcAt(id){ return SCENE.npcs.find(n=>n.id===id); }
 function dist(ax,ay,bx,by){ return Math.hypot(ax-bx,ay-by); }
@@ -442,10 +466,14 @@ cv.addEventListener("mousemove",e=>{ const r=cv.getBoundingClientRect(), sx=e.cl
   const t=unIso(sx,sy), tx=Math.round(t.tx), ty=Math.round(t.ty);
   hoverTile=inBounds(tx,ty,SCENE.w,SCENE.h)?{tx,ty}:null;
   hoverNpc=null; for(const n of SCENE.npcs){ const p=iso(n.tx,n.ty); if(Math.hypot(sx-p.x,sy-(p.y-26))<26){ hoverNpc=n; break; } }
-  cv.style.cursor = hoverNpc ? "pointer" : (hoverTile && BLOCKED[tileKey(hoverTile.tx,hoverTile.ty)] ? "not-allowed" : "default");
+  hoverExit = hoverTile ? exitAt(hoverTile.tx,hoverTile.ty) : null;
+  cv.style.cursor = (hoverNpc||hoverExit) ? "pointer" : (hoverTile && BLOCKED[tileKey(hoverTile.tx,hoverTile.ty)] ? "not-allowed" : "default");
 });
-cv.addEventListener("click",e=>{ if(document.getElementById("overlay").classList.contains("show")) return;
+cv.addEventListener("click",e=>{ if(document.getElementById("overlay").classList.contains("show")||traveling) return;
   const r=cv.getBoundingClientRect(), sx=e.clientX-r.left, sy=e.clientY-r.top;
+  if(hoverExit){ // a causeway tile — walk to it, then the world changes
+    if(curTile()[0]===hoverExit.tx && curTile()[1]===hoverExit.ty){ travelTo(hoverExit); return; }
+    autoTalk=null; walkTo(hoverExit.tx,hoverExit.ty); return; }
   if(hoverNpc){ // approach the NPC — walk to a free tile beside them, then talk
     if(dist(player.tx,player.ty,hoverNpc.tx,hoverNpc.ty)<1.7){ talk(hoverNpc); return; }
     const c=curTile(), adj=nearestFreeAdjacent(c[0],c[1],hoverNpc.tx,hoverNpc.ty,BLOCKED,SCENE.w,SCENE.h);
@@ -469,6 +497,7 @@ function update(dt){
   nearNpc=null; let best=1.7;
   for(const n of SCENE.npcs){ const d=dist(player.tx,player.ty,n.tx,n.ty); if(d<best){ best=d; nearNpc=n; } }
   if(autoTalk && !player.path && dist(player.tx,player.ty,autoTalk.tx,autoTalk.ty)<1.7){ const n=autoTalk; autoTalk=null; talk(n); }
+  if(!player.path && !traveling){ const ex=exitAt(curTile()[0],curTile()[1]); if(ex) travelTo(ex); }   // step onto a causeway tile → cross to the next zone
 }
 
 // ---- drawing ----
@@ -489,6 +518,10 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="crate"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+5,26,16,"#6a4f2e","#553f24","#3e2d18"); }
   else if(p.type==="barrel"){ drawShadow(s.x,s.y+6); ctx.fillStyle="#4a3722"; ctx.beginPath(); ctx.ellipse(s.x,s.y-12,11,5,0,0,7); ctx.fill(); ctx.fillStyle="#5a4329"; ctx.fillRect(s.x-11,s.y-12,22,16); ctx.fillStyle="#3e2d18"; ctx.beginPath(); ctx.ellipse(s.x,s.y+4,11,5,0,0,7); ctx.fill(); ctx.fillStyle="#6a4f2e"; ctx.beginPath(); ctx.ellipse(s.x,s.y-12,11,5,0,0,7); ctx.fill(); }
   else if(p.type==="banner"){ ctx.strokeStyle="#3a2f22"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x,s.y-46); ctx.stroke(); ctx.fillStyle=`hsl(${p.hue} 44% 44%)`; ctx.beginPath(); ctx.moveTo(s.x,s.y-46); ctx.lineTo(s.x+22,s.y-42); ctx.lineTo(s.x+18,s.y-24); ctx.lineTo(s.x,s.y-28); ctx.closePath(); ctx.fill(); }
+  else if(p.type==="boat"){ drawShadow(s.x,s.y+6); ctx.fillStyle="#3a2c1c"; ctx.beginPath(); ctx.moveTo(s.x-30,s.y-2); ctx.quadraticCurveTo(s.x,s.y+12,s.x+30,s.y-2); ctx.lineTo(s.x+24,s.y-9); ctx.quadraticCurveTo(s.x,s.y+2,s.x-24,s.y-9); ctx.closePath(); ctx.fill(); ctx.fillStyle="#4d3a24"; ctx.beginPath(); ctx.moveTo(s.x-24,s.y-9); ctx.quadraticCurveTo(s.x,s.y+2,s.x+24,s.y-9); ctx.quadraticCurveTo(s.x,s.y-4,s.x-24,s.y-9); ctx.closePath(); ctx.fill(); ctx.strokeStyle="#2a2030"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(s.x+14,s.y-7); ctx.lineTo(s.x+30,s.y-34); ctx.stroke(); }
+  else if(p.type==="reeds"){ ctx.strokeStyle=`hsl(${p.hue||90} 26% 30%)`; ctx.lineWidth=2; for(let i=-3;i<=3;i++){ const bx=s.x+i*4, sw=(i%2?3:-3); ctx.beginPath(); ctx.moveTo(bx,s.y+4); ctx.quadraticCurveTo(bx+sw,s.y-14,bx+sw*1.6,s.y-26-Math.abs(i)*2); ctx.stroke(); } ctx.fillStyle="#2a3322"; for(let i=-2;i<=2;i+=2){ ctx.beginPath(); ctx.ellipse(s.x+i*4+(i%2?3:-3),s.y-28-Math.abs(i)*2,1.6,4,0,0,7); ctx.fill(); } }
+  else if(p.type==="piling"){ drawShadow(s.x,s.y+4); drawBox(s.x,s.y+3,12,30,"#4a3a26","#3a2c1c","#241a12"); ctx.fillStyle="#1d2733"; ctx.beginPath(); ctx.ellipse(s.x,s.y+5,9,4,0,0,7); ctx.fill(); }
+  else if(p.type==="shrine"){ drawShadow(s.x,s.y+5); drawBox(s.x,s.y+4,20,14,"#2c2838","#221f2e","#171420"); ctx.fillStyle="#3a3450"; ctx.fillRect(s.x-3,s.y-30,6,18); ctx.fillStyle="#5a5078"; ctx.fillRect(s.x-9,s.y-30,18,4); ctx.fillStyle="#9a86c8"; ctx.beginPath(); ctx.arc(s.x,s.y-34,3.5,0,7); ctx.fill(); }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
   const glow=opts.glow; if(glow){ ctx.beginPath(); ctx.ellipse(s.x,s.y,20,10,0,0,7); ctx.fillStyle="rgba(231,200,115,.18)"; ctx.fill(); ctx.strokeStyle="rgba(231,200,115,.55)"; ctx.lineWidth=2; ctx.stroke(); }
@@ -509,6 +542,11 @@ function render(){
     let shade=((tx+ty)%2)?"#181620":"#1c1a26"; if(bl) shade=((tx+ty)%2)?"#141019":"#16121f";
     if(hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty) shade=bl?"#2a1620":"#2a2740";
     drawDiamond(s.x,s.y, shade, "#13111a"); }
+  // zone exits — a glowing causeway tile you can walk onto to cross to the next scene
+  (SCENE.exits||[]).forEach(x=>{ const s=iso(x.tx,x.ty), pulse=0.5+0.32*Math.sin(lastT/380);
+    drawDiamond(s.x,s.y,`rgba(110,168,200,${0.12+0.10*pulse})`,`rgba(150,200,230,${0.5+0.4*pulse})`);
+    ctx.fillStyle=`rgba(180,214,236,${0.6+0.3*pulse})`; ctx.font="600 11px Iowan Old Style, Georgia, serif"; ctx.textAlign="center";
+    for(let k=0;k<3;k++){ ctx.globalAlpha=(0.18+0.12*pulse)*(1-k*0.28); ctx.fillText("∙",s.x,s.y-8-k*7); } ctx.globalAlpha=1; });
   // path preview — faint dots along the route, brighter at the destination (BG3-style)
   if(player.path){ for(let i=player.pathIdx;i<player.path.length;i++){ const wp=player.path[i], s=iso(wp[0],wp[1]), last=i===player.path.length-1;
     if(last){ drawDiamond(s.x,s.y,"rgba(231,200,115,.12)","rgba(231,200,115,.6)"); }
@@ -519,6 +557,11 @@ function render(){
   SCENE.npcs.forEach(n=>ents.push({d:n.tx+n.ty, draw:()=>drawToken(n.tx,n.ty,n.hue,n.name,{glow:nearNpc===n||hoverNpc===n, prompt:nearNpc===n})}));
   ents.push({d:player.tx+player.ty, draw:()=>drawToken(player.tx,player.ty,46,null,{player:true})});
   ents.sort((a,b)=>a.d-b.d).forEach(e=>e.draw());
+  // exit label on hover — tells you where the causeway goes
+  if(hoverExit&&hoverExit.label){ const s=iso(hoverExit.tx,hoverExit.ty); ctx.font="600 12px Iowan Old Style, Georgia, serif"; const w=ctx.measureText(hoverExit.label).width;
+    ctx.fillStyle="rgba(12,16,22,.86)"; ctx.fillRect(s.x-w/2-7,s.y-44,w+14,18); ctx.fillStyle="#bcd6ec"; ctx.textAlign="center"; ctx.fillText(hoverExit.label,s.x,s.y-31); }
+  // travel fade — the world dissolves and reforms as you cross
+  if(fade>0){ ctx.fillStyle=`rgba(7,9,14,${fade})`; ctx.fillRect(0,0,cv.width,cv.height); }
 }
 function loop(t){ const dt=Math.min(0.05,(t-lastT)/1000||0); lastT=t; update(dt); render(); requestAnimationFrame(loop); }
 
@@ -720,5 +763,7 @@ out = (HTML.replace("__BLOB__", BLOB)
        .replace("__INTLABELS__", json.dumps(INT_LABELS, ensure_ascii=False)))
 dst = os.path.join(ROOT, "play", "town_market.html")
 open(dst, "w", encoding="utf-8").write(out)
-print(f"wrote play/town_market.html ({len(out)//1024} KB) — {len(MKT['scene']['npcs'])} NPCs, "
-      f"{sum(len(c['nodes']) for c in MKT['conversations'])} dialogue beats, walkable {MKT['scene']['w']}×{MKT['scene']['h']} square")
+_npcs = len(MKT['scene']['npcs']) + len(REED['scene']['npcs'])
+_beats = sum(len(c['nodes']) for c in ALL_CONVS)
+print(f"wrote play/town_market.html ({len(out)//1024} KB) — 2 walkable zones, {_npcs} souls, "
+      f"{_beats} dialogue beats, {len(ALL_CONVS)} conversations")

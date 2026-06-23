@@ -1,5 +1,6 @@
 {
   "scene": {
+    "id": "market", "name": "The Market of the Causeway",
     "w": 11, "h": 9,
     "playerStart": { "x": 5, "y": 6 },
     "props": [
@@ -17,6 +18,9 @@
       { "type": "banner", "x": 10, "y": 1, "hue": 30 },
       { "type": "banner", "x": 0, "y": 8, "hue": 210 },
       { "type": "crate", "x": 1, "y": 2 }
+    ],
+    "exits": [
+      { "x": 5, "y": 8, "to": "reedwalk", "dest": { "x": 5, "y": 7 }, "label": "the reed-walk & the causeway ▸" }
     ],
     "npcs": [
       { "id": "sable", "name": "Mother Sable", "title": "the Bone-Charm Seller", "x": 2, "y": 3, "hue": 290, "sigil": "MS", "conv": "market.sable",

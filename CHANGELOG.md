@@ -11,6 +11,43 @@
 
 ---
 
+## 👑 v4.79.0 — *"The Reed-Walk"* — a second walkable zone, and a river that remembers (content + system)
+
+> The market was an island. Now it has a **shore.** Walk to the bottom of the square, step onto a glowing
+> **causeway tile**, and the world dissolves and reforms around you on the **Reed-Walk** — the cold riverside
+> below the market, where the road to the Wall of the Faithless begins. The two zones share one visit-state, so
+> **what you did in the market follows you down to the water.**
+
+- 🗺️ **A second zone — the Reed-Walk.** A whole new isometric scene in the same file: river shallows, a moored
+  ferry, a wayshrine, reed-beds. New props are drawn in code (boat, reeds, pilings, shrine), so it stays a single
+  self-contained HTML with no external art.
+- 🚪 **Zone travel.** Glowing causeway tiles you can walk onto (or click) to cross between scenes, with a fade
+  transition and a "now in" zone banner. `loadScene` swaps the board and rebuilds collision; the shared `st`
+  carries every flag, regard, and disposition across the crossing.
+- 🌊 **Four new souls, each deep and reactive:**
+  - **Old Cassian**, the boatman of the last mile — ferries the bought-and-blessed and makes the godless *walk*;
+    offer to *come back and tell him what's across*, and forty years of stoicism break (nat-20: he weeps and
+    offers you the river; nat-1: you fall in the shallows with *flair*).
+  - **Sister Vharn**, a Measurer of the Choir — the soul-weigher who marks the Faithless. **Her welcome flips on
+    the market:** betray Wren to Tallow and Vharn greets you as a friend by name; protect Wren and she's hunting
+    you. Lie to cover Wren (Deception, gated on having saved her), out-argue her doctrine (Religion), or read the
+    crack in her (Insight → 311 faces she won't count).
+  - **the Reed-Wife** — a weaver drowned four centuries ago who refused the Wall and let the river keep her;
+    comedic-creepy lore-giver who'll trade the crossing's deepest secret (Arcana crit: *the knot has a name, and
+    it's a bureaucrat's*) for someone who won't walk *faster.*
+  - **Wren, again**, at the water's edge — the emotional centre. She opens with **relief if you saved her**,
+    **heartbreak if you sold her** (*"you Judas with a kind face"*), wariness if you only met her. Talk her back
+    from the causeway (Persuasion / Insight / Religion), hand her **Sable's holding-stone** if you carried it out
+    of the market, or honor her choice and stand so she doesn't walk it unseen.
+- 🎭 The full deep stack travels with the new souls: reactive identity/flag/disposition greetings, **nat-20/nat-1
+  crit comedy**, passive lore, the **Returned-sense** on each, and a Returned dialogue line apiece.
+- 🧪 **+15 new gates** (now **813 checks**, all green): both zones keyed & reachable, exits walkable and landing
+  in-bounds, the Reed-Walk's NPCs collision-clean, and the **cross-zone payoff** proven — Vharn's and river-Wren's
+  greetings provably differ on `protected_wren` vs `betrayed_wren`, and the Deception/holding-stone options gate
+  on the market flags.
+
+---
+
 ## 👑 v4.78.0 — *"Mind Where You Walk"* — real collision & A* pathfinding in the market (fix + system)
 
 > Fair feedback, fixed: the market's movement was a naive straight-line slide with **no collision** — you could
