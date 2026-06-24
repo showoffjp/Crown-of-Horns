@@ -153,6 +153,34 @@
           "flag": "party.sparrow_recruited"
         },
         "hail": "*(she leans in a doorway that didn't used to be here — a clean, well-made door, the kind a soul walks through on purpose — with a ring of impossible keys at her belt and a younger shade beside her she's plainly training, and when she sees you the old quick grin breaks out, unchanged by the years because the dead don't age, only deepen)*"
+      },
+      {
+        "id": "dace5",
+        "name": "Dace Iron",
+        "title": "your first companion, years on",
+        "x": 3,
+        "y": 2,
+        "hue": 20,
+        "sigil": "DI",
+        "conv": "epi.dace",
+        "when": {
+          "flag": "party.dace_recruited"
+        },
+        "hail": "*(the sellsword leans against a tree with her sword wrapped and slung and unbloodied, older, the lazy menace worn down into something almost like ease, and when she sees you the hard grin breaks out — the grin of a soul that spent a yes it had hoarded ten years and never once regretted the spending)*"
+      },
+      {
+        "id": "orin3",
+        "name": "Orin",
+        "title": "the justiciar who chose, years on",
+        "x": 7,
+        "y": 2,
+        "hue": 210,
+        "sigil": "JO",
+        "conv": "epi.orin",
+        "when": {
+          "flag": "party.orin_may_join"
+        },
+        "hail": "*(a woman who was once a Justiciar of the Choir stands without the grey of the order, without a writ, without the certainty she came in with — and wears instead the harder-won calm of a soul that followed a counterexample to the end of the world and chose, with no doctrine to hide behind, what to guard)*"
       }
     ]
   },
@@ -1490,6 +1518,300 @@
             {
               "key": "epi.sparrow_gives_key",
               "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "epi.dace",
+      "title": "Dace Iron, Years On",
+      "npc": "Dace Iron",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Dace Iron",
+          "onEnter": [
+            {
+              "key": "epi.dace_talk",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "thr.dace_here"
+                ]
+              },
+              "text": "*(She pushes off the tree and crosses to you, and the old wary distance is just gone.)* …There you are. *(she grips your arm, soldier to soldier)* The cold one I followed to the literal edge of the world. *(a crooked grin)* I stood at that threshold with my sword bare, you know — terrified of what you'd come back as, swearing I'd save you *and* stop you both — and you came back *you.* Just you. *(she shakes her head)* Ten years I sold the only thing I owned to people I despised, hoarding one unspent *yes* for a fight worth it. *(she taps her wrapped sword)* Spent it on you. Best coin I ever laid down. *Sit*, cold one. Tell me you've been getting into trouble worth a sellsword's time.*"
+            },
+            {
+              "text": "*(She ambles over with the unhurried ease of a soul that finally stopped bracing, and claps your cold shoulder.)* …Still cold. Still *you.* *(a grin)* Good. I had money on it — well, I had a *hope* on it, which from Dace Iron is a wilder bet than money. *(she settles)* You know what you did, cold one? You gave a Faithless blade-for-hire a reason. Ten years I waited for a fight that'd be *worth* the dying, certain it'd never come, certain I'd go up that causeway like all the rest with the one yes still in me, unspent. *(she meets your eyes)* And then you walked into my square. *Ask* me what I did with the years after, traveler. It's a better story than the ten before it.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Dace Iron",
+          "text": "*(She sits easy, sword across her knees out of habit more than need, and watches you with the frank warmth she'd never have shown the day you met.)* Go on, then. *(a grin)* Ask. I've nothing left to guard — that's the whole novelty of it.",
+          "choices": [
+            {
+              "text": "\"What did you do with the years, Dace? Ten of them you sold your sword waiting for one worth it. What came after that fight at the edge of the world?\"",
+              "next": "dace_e_after",
+              "effects": [
+                {
+                  "key": "epi.dace.years",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You were Faithless, Dace — there's a space in the Wall with your name on it. Years on, knowing what we know now — does it still wait for you?\"",
+              "next": "dace_e_wall"
+            },
+            {
+              "text": "*(one who came back from the Wall, to the one still marked for it)* \"We made each other a vow at a fire once, and a harder one at the threshold — I'd come back, you'd guard my back and stop me both. We both kept them. So tell me true, Dace, soldier to soldier: was throwing in with a cold dead thing worth the ten warm years you had left to sell?\"",
+              "tag": "returned",
+              "next": "dace_e_vow",
+              "effects": [
+                {
+                  "key": "epi.dace.years",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Good to see you whole, Dace. Keep that sword wrapped.\"",
+              "next": "dace_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "dace_e_after",
+          "speaker": "Dace Iron",
+          "text": "*(She laughs, low and real.)* …What I *did.* *(she turns the wrapped sword over)* Funny thing, cold one. Once you've spent the one yes you hoarded a decade — turns out you've a *lot* of yeses left. Who knew. *(a grin)* I stopped selling the sword. Started *lending* it — free, to souls who couldn't pay and needed it most. The Faithless, mostly. The almshouse-keepers, the ferry-folk, anyone the Choir's enforcers leaned on. *(she meets your eyes)* Became a kind of — gods, I hate the word — a *protector.* Dace Iron, who'd have sold her own grandmother for coin and a clean exit, standing guard over godless paupers for *nothing*, because a cold dead thing once stood between me and a future I'd written off and said *you're worth a yes.* *(quietly)* You didn't just recruit a sellsword, traveler. You showed a soul that spent its life as a blade-for-hire that it could be a *shield* instead. I've guarded more lives in the years after than I ended in all the ones before. The ledger's in the black now. First time in my death it ever has been.",
+          "effects": [
+            {
+              "key": "epi.dace_protector",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_e_wall",
+          "speaker": "Dace Iron",
+          "text": "*(Her jaw tightens, the old grief surfacing, but it's worn smoother now.)* …The space in the Wall. *(she's quiet a moment)* Aye. It's there. I'm still Faithless, cold one — never took a god, never will, that empty socket in the stone's got my name carved in it same as ever. *(she looks at you)* But here's what *changed*, traveler: I stopped being *afraid* of it. *(a hard grin)* Because of what *you* did to the Wall — whatever it was, the souls all tell it different — the stone's not what it was. Some say it's coming down. Some say a dead clerk's emptying it one name at a time. *(she shrugs)* I don't know which. But I know this: I spent ten years *certain* the Wall was the end of me, and it made me *cruel* — hoarding, selling, trusting no one. And then I watched the one soul the Wall *lost* walk around on its own two legs, and I thought: *if it lost one, it can lose me too.* *(quietly)* I'll likely still go in, cold one. Faithless go where the Faithless go. But I'll go *unafraid*, and I'll go having spent my death as a *shield*, and if there's a cold soul out there still pulling names off that Wall — *(a fierce grin)* — well. I'll wait. I'm good at waiting. And I've earned a soul worth waiting for me.",
+          "effects": [
+            {
+              "key": "epi.dace_unafraid",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_e_vow",
+          "speaker": "Dace Iron",
+          "text": "*(She goes still, and the grin fades into something graver and truer, and she answers the way she answers everything that matters: plainly.)* …Worth it. *(a long breath)* You want it soldier to soldier, cold one, so here it is, no armor on it: the ten years I had left to sell were *nothing.* Grey coin, spent on grey people, in a grey waiting for a grey end. I'd have traded the lot for one clean fight and not blinked. *(she meets your eyes)* And then you gave me something the ten years never could — not a fight worth dying *for*, but a cause worth *living* for, which is rarer and harder and I didn't even know I wanted it. *(quietly)* We kept our vows, you and I. I guarded your back at the edge of the world. You came home from the door. And in the *between* — the years after — I found out the vow wasn't the point. The *between* was. The fires, the road, the souls we pulled out of the cold together. *(fierce, wet-eyed)* So was it worth the ten warm years? Cold one, those ten years weren't *warm.* They were just *unspent.* You're the one who made my death worth anything at all. I'd throw in with you again tomorrow, and the day after, and every day there is. That's not a sellsword's loyalty. I don't *have* that anymore. That's just — *yours.* Freely. The one thing I never sold.",
+          "effects": [
+            {
+              "key": "epi.dace_devoted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_e_leave",
+          "speaker": "Dace Iron",
+          "text": "*(She stands, and grips your cold hand in her warm scarred one, and there's nothing wary left in it at all.)* …Go on, then, cold one. Drift where your feet take you. *(a crooked grin)* But know there's a sellsword-turned-shield out there who'll come running the day you send for her, no coin asked, no yes hoarded — because the one yes I had, I already spent on you, and it turns out spending it didn't empty me. It *filled* me. *(she steps back, lifts her wrapped sword in a soldier's salute)* Mind your back where I can't guard it. And if it ever comes to a fight worth the dying — *(fierce, fond)* — you send for Dace Iron. I'll be there before the second blow lands. That's a vow, cold one. My last and best one. The only coin I'll ever give away for free.",
+          "effects": [
+            {
+              "key": "epi.dace.years",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "epi.orin",
+      "title": "Orin, Years On",
+      "npc": "Orin",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Orin",
+          "onEnter": [
+            {
+              "key": "epi.orin_talk",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "thr.orin_here"
+                ]
+              },
+              "text": "*(She inclines her head, the old discipline still in the spine but the grey of the order long gone from her.)* …The Returned. *(quietly)* I stood at the Threshold with you — two of you, the open one and the cold mirror — and I did the bravest thing the order ever taught me to fear: I chose, with no doctrine, no rite, no superior, which of two identical souls to believe in. *(a thin, hard-won smile)* I chose the one that walked accompanied. The one that judged itself. *(she meets your eyes)* I came to that edge to learn whether the order deserved guarding. I decided it didn't — and that *you* were what I'd guard instead. Years on, cold one, I've not once regretted the choosing. Sit. I'd hear what became of the soul I staked my whole certainty on.*"
+            },
+            {
+              "text": "*(She regards you with the steady, stripped-down calm of a soul that gave up its certainties and found something harder underneath.)* …You. *(a slow nod)* The counterexample. *(a thin smile)* Do you know what you cost me, traveler? Everything I came in with. The order, the writ, the certainty that the law I served was the law worth serving. I followed your contradiction to its end and it *unmade* all of it. *(quietly)* And I have never been more grateful to be unmade. A justiciar who guards a god she's stopped trusting is a sword pointed the wrong way. You turned mine around. *Ask*, cold one. Ask what a justiciar does after she stops being one.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Orin",
+          "text": "*(She stands at parade-rest out of thirty years' habit, but her eyes are not a servant's eyes anymore.)* Ask, Returned. *(quietly)* I traded a lifetime of certainties for one honest doubt at the edge of the world. I find I have a great deal more to say now that I'm sure of less.",
+          "choices": [
+            {
+              "text": "\"What does a justiciar do after she stops being one, Orin? You gave up the order at the threshold. What did you build where it used to be?\"",
+              "next": "orin_e_after",
+              "effects": [
+                {
+                  "key": "epi.orin.years",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You followed a counterexample to the end of the world, Orin. Was it worth it — losing the order, the god, the certainty? Or do you ever miss the simplicity of believing?\"",
+              "next": "orin_e_cost"
+            },
+            {
+              "text": "*(the open soul to the one who chose it)* \"You chose me at the threshold — the accompanied one, the one that doubts itself — over a version of me that was certain and alone. That choice was the variable my future self never had. So tell me, Orin: knowing it could still go wrong, knowing I might yet become the cold mirror you spared me from — would you make the same choice again?\"",
+              "tag": "returned",
+              "next": "orin_e_choice",
+              "effects": [
+                {
+                  "key": "epi.orin.years",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Stand easy, Orin. You earned it.\"",
+              "next": "orin_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "orin_e_after",
+          "speaker": "Orin",
+          "text": "*(She is quiet a moment, choosing words with a swordsman's economy.)* …What I built. *(she almost smiles)* I expected to build nothing, cold one. I thought a justiciar who quit the order would simply *stop* — a sword set down, a soul adrift. *(she shakes her head)* Instead I found there were a great many souls who needed exactly what I was, only pointed *true*: someone trained in the law, who knew its every form and seal and loophole, and who'd turned against the rot at its root. *(she meets your eyes)* I became — the souls have no word for it, so they made one — a *counter-justiciar.* I find the unlawful reckonings before they're served. I name the forged writs. I stand between the Choir's enforcers and the Faithless they'd drag off, and I *argue*, in the order's own language, until the writ collapses. *(quietly, fierce)* Every skill they gave me to *guard* the Wall, I now use to *unmake* it. There is a justice in that, cold one, sharper than any the order ever taught me: that the law's best weapon turned on the law itself. You did not just recruit a justiciar. You *re-aimed* one. And a re-aimed justiciar, it turns out, is the Choir's worst nightmare — because she knows exactly where the bodies are filed.",
+          "effects": [
+            {
+              "key": "epi.orin_counter_justiciar",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_e_cost",
+          "speaker": "Orin",
+          "text": "*(The question lands somewhere old, and she answers it with hard honesty.)* …Do I miss believing. *(a long pause)* Yes. *(simply)* I'll not pretend otherwise, cold one — you'd hear the lie. There is a *peace* in certainty that I will never have again, the peace of a soul that knows its place and its law and its god and never has to *choose.* I gave that up at the threshold, and some grey mornings I'd give a great deal to have it back. *(she meets your eyes)* But here is what I learned, traveler, and it was worth the price: that peace was *purchased.* The order sold me certainty and the coin I paid was my conscience — I just didn't see the bill until I stood at the edge of the world and watched it serve up *two* of you and demand I follow the rule instead of the truth. *(quietly)* A certain soul is a *comfortable* soul. It is rarely a *good* one. The two come apart exactly when it matters most. *(she straightens)* So no, cold one — I do not want the certainty back. I want the *doubt.* The doubt is what kept me from guarding the wrong soul at the one moment a wrong choice would have damned us both. I'll take a lifetime of hard honest doubt over one more hour of comfortable certainty. *You* taught me the difference. It cost me everything. It was the best trade of my death.",
+          "effects": [
+            {
+              "key": "epi.orin_chose_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_e_choice",
+          "speaker": "Orin",
+          "text": "*(She holds your gaze a long, level moment — the swordsman's stillness before the truest cut — and then answers without a flicker of hesitation.)* …Would I choose you again. Knowing it could still go wrong. *(quietly)* Yes. *(she does not soften it)* And here is the thing your question misses, cold one — the thing I learned standing between two of you with my oath in ruins: the choice was *never* about which of you was safe. The certain one, the cold mirror, *swore* it was safe. *Promised* it had it handled, had the Crown mastered, would not fall. *(her eyes are fierce)* And you — the open one — you said *'I don't know if I can be trusted.'* *(she leans in)* I did not choose the soul most likely to stay good, Returned. I chose the soul that *doubted it would.* Because the doubt is the safeguard. The certainty is the fall. The Last Returned didn't become a monster despite its certainty — it became one *because* of it, the moment it stopped asking. *(quietly, absolute)* So yes. I'd choose you again, every time, *precisely because* you might still go wrong and you *know* it. A soul that guards itself doesn't need me to guard it. But it's the one worth standing beside — because it's the only kind that will *let* me stop it, if the day ever comes. And it won't come, cold one. Not because you're certain it won't. Because you're not.",
+          "effects": [
+            {
+              "key": "epi.orin_would_choose_again",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_e_leave",
+          "speaker": "Orin",
+          "text": "*(She inclines her head, the old salute, but offered now to an equal and not a superior.)* …Go, then, Returned. *(quietly)* I'll hold the law's own weapons against the law, as long as there's a Wall left standing and a Faithless soul it would drag off. *(a thin, hard smile)* It is good work. Honest work. The first I've done in thirty years that I'd answer for at any court, before any god, with a clear conscience. *(she meets your eyes)* You gave me that, cold one. Not a cause — I had causes, the order is *made* of causes. You gave me a *doubt*, and a doubt is a harder and truer gift, because a soul that doubts is a soul that can still be *moved* — toward mercy, toward truth, toward the third door. *(she steps back)* Mind your own doubt, Returned. Feed it. It's the one blade the Crown can't turn. I'll be guarding the Faithless where you can't — and watching, always, in case the day comes when the soul I chose needs choosing *for*, one last time. *Gods willing, it never will. But I'll be here. That's what choosing you meant.*",
+          "effects": [
+            {
+              "key": "epi.orin.years",
+              "op": "AddInt",
+              "amount": 1
             }
           ],
           "auto": "END"

@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.4.0 — *"Dace and Orin, Years On"* — companion parity: the older companions get their epilogue codas (content)
+
+> A parity pass. Sennet and the Sparrow each got the full four-beat arc (recruit → fire → threshold → epilogue);
+> **Dace** and **Orin** had everything but the last beat. Now they have it — and their years-after lands the same
+> weight as the newer companions'.
+- 🗡️ **Dace Iron's coda** (gated on `party.dace_recruited`): the Faithless sellsword who hoarded one unspent *yes*
+  for ten grey years and spent it on you. Years on, she turned a blade-for-hire into a **shield-for-free** — guarding
+  godless paupers, almshouse-keepers, ferry-folk for no coin — and waits for the Wall *unafraid*, because she watched
+  the one soul it lost walk free. A [RETURNED] "soldier to soldier" beat: the ten years weren't warm, they were
+  *unspent*; you made her death worth anything at all; she'd throw in again every day there is, and that loyalty is
+  the one thing she never sold.
+- ⚖️ **Orin's coda** (gated on `party.orin_may_join`): the justiciar who traded a lifetime of certainties for one
+  honest doubt at the threshold. Years on, she's a **counter-justiciar** — turning every skill the Choir gave her to
+  *guard* the Wall against the Wall itself, finding the unlawful reckonings, naming the forged writs, arguing the
+  Faithless free in the order's own language. A [RETURNED] exchange: she'd choose you again *precisely because* you
+  might still go wrong and *know* it — certainty is the fall, doubt is the safeguard — and she watches still, ready
+  to choose *for* you one last time if the day ever comes, praying it never will.
+- 👁️ **Two new Returned-senses** for the codas (the Faithless chill melted by a cause spent freely; the soul that
+  paid the highest price in the tally and counts it the best trade of its death).
+- 🧪 **+2 gates** (now **1,123 checks**, all green). **All four recruitable companions now span the full saga** —
+  recruit to years-after. **108 souls.**
+
+---
+
 ## 👑 v6.3.0 — *"The Side-Roads"* — the payoff pass: the epilogue chronicler reads the new structures (content)
 
 > Not a new zone — a **cohesion pass.** The fourteen self-contained side-structures built across v4.94–v6.2.0 all

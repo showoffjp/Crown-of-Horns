@@ -952,6 +952,23 @@ check("the Sparrow's years-after coda appears only if recruited, paying off the 
 check("her coda reads whether she scouted the throne-room exit, and pays off the Sparrow's Wing", epiSparrow &&
   epiSparrow.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("thr.sparrow_scouts") >= 0) &&
   epiSparrow.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sparrow_wing")) && epiSparrow.returned);
+// companion parity: Dace and Orin now get the four-beat epilogue coda Sennet & the Sparrow have
+const epiDace = CONVS.find(c => c.id === "epi.dace");
+const epiDaceNpc = EPI.npcs.find(n => n.conv === "epi.dace");
+check("Dace's years-after coda completes her arc (recruit→fire→threshold→epilogue), gated on recruitment", epiDace && epiDaceNpc &&
+  epiDaceNpc.when && epiDaceNpc.when.flag === "party.dace_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.dace_recruited"] = true; return s; })(), epiDaceNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), epiDaceNpc.when) === false &&
+  epiDace.nodes.some(n => (n.effects || []).some(e => e.key === "epi.dace_protector")) &&
+  epiDace.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && epiDace.returned);
+const epiOrin = CONVS.find(c => c.id === "epi.orin");
+const epiOrinNpc = EPI.npcs.find(n => n.conv === "epi.orin");
+check("Orin's years-after coda completes her arc (wayshrine→threshold→epilogue), gated on her joining", epiOrin && epiOrinNpc &&
+  epiOrinNpc.when && epiOrinNpc.when.flag === "party.orin_may_join" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.orin_may_join"] = true; return s; })(), epiOrinNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), epiOrinNpc.when) === false &&
+  epiOrin.nodes.some(n => (n.effects || []).some(e => e.key === "epi.orin_counter_justiciar")) &&
+  epiOrin.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && epiOrin.returned);
 check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
   const c = CONVS.find(cc => cc.id === n.conv);
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
