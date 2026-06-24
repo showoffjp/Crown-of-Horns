@@ -11,6 +11,29 @@
 
 ---
 
+## 👑 v5.6.0 — *"The Siege of the Almshouse"* — a twenty-third zone: a siege held by witness, not the sword (content)
+
+> A sixth new structure — the **siege** — and, true to the saga, one whose win condition is *moral, not martial.*
+> The Choir's enforcement arm, forty strong under **Justiciar Vane**, lays siege to the last almshouse in the
+> Lamplit Quarter that will shelter the Faithless. You hold it — but never with a blade.
+- 🛡️ **A twenty-third zone — the Siege** (off the Lamplit Quarter). Three roles: **Goodwife Orla** (a Wall-warden of
+  nineteen years who *walked* and now runs the refuge), the **sheltered** (a Faithless mother and three children),
+  and **Justiciar Vane** (the career man at the door, who took Orla's old post).
+- 🗝️ **Hold it four ways, none of them a fight:** **rally the room** (Persuasion — nat-20 *un-names the slur*, turning
+  cowering prey into a proud congregation forty enforcers can't bear to drag off with their own men watching);
+  **evacuate** down a warden's old river-drain (Investigation — then stall Vane long enough to empty the room behind
+  his own voice); expose the **writ as unlawful** (the forged Concord again — a career Justiciar can't risk serving
+  on a fraud); or **stand in the breach** as the [RETURNED] (the enforcers serve the Wall, and cannot drag a child
+  past living proof that the Wall can be escaped — their nerve breaks).
+- 💔 **Vane is winnable, not beatable** — the nat-20 persuasion makes him realize he replaced the warden who walked,
+  and walks himself, six years late; lesser successes get a deferral or a legal withdrawal. The sheltered mother
+  reads how you fought, names her baby for the cured bridge-boy, and gives the siege its stakes in four names.
+- 👁️ **Three new Returned-senses.** 🧪 **+10 gates** (now **1,049 checks**, all green). **23 zones, 82 souls** — six
+  fresh structures this stretch (bargain, trial, heist, devil-pact, self-trial, siege), every one resolved by the
+  saga's thesis: *witness, not force.*
+
+---
+
 ## 👑 v5.5.0 — *"The Assize of the Returned"* — a twenty-second zone: the trial flipped (you are the accused) (content)
 
 > A fifth new structure, and an inversion of the Reckoning Court: there you *defended* a soul from the Wall; here

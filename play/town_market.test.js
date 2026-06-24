@@ -1221,6 +1221,39 @@ check("the witness is the sum of the dead you touched, and its variant reads mer
 check("each Assize soul carries a [RETURNED] line + a Returned-sense", [arbiter, accuser, aswitness].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-third zone: the Siege of the Almshouse — a siege held by witness, not the sword ----
+const SIE = SCENES && SCENES.siege;
+check("a twenty-third zone (the Siege) ships as a defend-the-refuge set-piece", SIE && SIE.npcs.length >= 3);
+check("the Siege is reached off the Lamplit Quarter", (SCENES.lamplit.exits || []).some(x => x.to === "siege"));
+const orla = CONVS.find(c => c.id === "si.warden");
+const vane = CONVS.find(c => c.id === "si.herald");
+const sheltered = CONVS.find(c => c.id === "si.refugee");
+check("the siege's three roles are present (the defender, the besieger's herald, the sheltered)", orla && vane && sheltered);
+const orlaMenu = orla.nodes.find(n => n.id === "1");
+check("the defense is multi-approach — rally the room (Persuasion) or find an evacuation (Investigation)", orlaMenu &&
+  orlaMenu.choices.some(ch => (ch.check || {}).skill === "Persuasion" && ch.crit && ch.fumble) &&
+  orlaMenu.choices.some(ch => (ch.check || {}).skill === "Investigation"));
+const vaneMenu = vane.nodes.find(n => n.id === "1");
+check("the siege is won by WITNESS, not the sword — every resolution lifts it without a battle", vaneMenu &&
+  ["vane_persuade", "vane_stand"].every(id => vane.nodes.find(n => n.id === id).effects.some(e => e.key === "si.siege_lifted")));
+check("the [RETURNED] stand-in-the-breach breaks the enforcers' nerve (the Wall's servants face the one who walked out)",
+  vaneMenu.choices.some(ch => ch.tag === "returned" && ch.next === "vane_stand") &&
+  vane.nodes.find(n => n.id === "vane_stand").effects.some(e => e.key === "si.broke_their_nerve"));
+check("the forged-Concord evidence works here too — an unlawful writ a career Justiciar can't risk serving", (() => {
+  const v = vaneMenu.choices.find(ch => ch.when && (ch.when.flags || []).indexOf("ch.venn_confirmed") >= 0);
+  const known = E.newState(); known.bools["ch.venn_confirmed"] = true;
+  return v && E.choiceAvailable(goodGuy, known, v, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), v, MODEL) === false;
+})());
+check("a stall-for-evacuation option opens only once Orla's drain is found (siege as a clock)", (() => {
+  const v = vaneMenu.choices.find(ch => ch.next === "vane_stall");
+  return v && v.when && (v.when.flags || []).indexOf("si.drain_open") >= 0;
+})());
+check("the sheltered mother reads how you fought, and the nat-20 rally un-names the slur (a congregation, not prey)",
+  orla.nodes.find(n => n.id === "orla_rally_crit").effects.some(e => e.key === "si.congregation") &&
+  sheltered.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("si.siege_lifted") >= 0));
+check("each Siege soul carries a [RETURNED] line + a Returned-sense", [orla, vane, sheltered].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
