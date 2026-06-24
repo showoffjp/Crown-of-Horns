@@ -1425,6 +1425,30 @@ check("teaching the apprentice the secret (or quitting averted) keeps the art al
 check("each Deathsong soul carries a [RETURNED] line + a Returned-sense", [caCantor, caUnsung, caAppr].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-first zone: the Locked Room — a memory-dive (free a soul by showing it its worst night TRUE) ----
+const MR = SCENES && SCENES.memory;
+check("a thirty-first zone (the Locked Room) ships — a memory-dive structure", MR && MR.npcs.length >= 3);
+check("the memory is entered off the Reed-Walk", (SCENES.reedwalk.exits || []).some(x => x.to === "memory"));
+const mrDreamer = CONVS.find(c => c.id === "mr.dreamer");
+const mrEcho = CONVS.find(c => c.id === "mr.echo");
+const mrDoor = CONVS.find(c => c.id === "mr.door");
+check("the dive's three pieces are present (the looping dreamer, the frozen echo, the unseen way out)", mrDreamer && mrEcho && mrDoor);
+check("the dreamer relives a guilt-DISTORTED memory — and the echo holds the true version", mrDreamer.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "mr.heard_his_version")) && mrEcho.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "mr.knows_she_forgave")));
+check("you can only free the dreamer once you've learned the truth from the frozen woman first (real dive logic)", (() => {
+  const free = mrDreamer.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "dream_freed");
+  const truth = E.newState(); truth.bools["mr.knows_truth"] = true;
+  return free && free.when && (free.when.flags || []).indexOf("mr.knows_truth") >= 0 &&
+    E.choiceAvailable(goodGuy, truth, free, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), free, MODEL) === false;
+})());
+check("freeing the dreamer breaks the loop (the cup never falls again)", mrDreamer.nodes.find(n => n.id === "dream_freed") &&
+  mrDreamer.nodes.find(n => n.id === "dream_freed").effects.some(e => e.key === "mr.loop_broken"));
+check("the way out reads the saga's deepest pattern — every self-built cage is 'I don't deserve to leave'", mrDoor &&
+  /do not deserve|don't deserve|allowed to|self-built|own cage/i.test(JSON.stringify(mrDoor.nodes)));
+check("each Locked-Room piece carries a [RETURNED] line + a Returned-sense", [mrDreamer, mrEcho, mrDoor].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

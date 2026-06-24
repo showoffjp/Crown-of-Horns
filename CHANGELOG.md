@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.2.0 — *"The Locked Room"* — a thirty-first zone: a memory-dive (free a soul by showing it the truth) (content)
+
+> A fourteenth new structure — the **memory-dive** — and a new *mechanic*: you step *inside* a soul's worst night,
+> a single minute worn into a groove ten thousand repetitions deep, and you free it not by argument but by showing
+> it the memory **true** — because it remembers wrong. Guilt repainted the scene.
+- 🌀 **A thirty-first zone — the Locked Room** (entered off the Reed-Walk, with your dead-touched senses). Three
+  pieces of one frozen night: **Coll**, the dreamer looping on the cup, the cruel word, the flinch; **the Frozen
+  Woman**, his wife Edda, held mid-gesture; and **the Way Out**, a window he will not turn to face.
+- 🔍 **Real dive logic.** Coll relives the night as a *murder* — he said something cruel, she stormed out in fury,
+  took a chill and died hating him. But reach into the frozen echo and the truth is the opposite: Edda knew him
+  thirty years, forgave the frightened word *between the door and the step*, was planning the supper to make it
+  right — and the fever that took her *didn't care what he said.* You can only **free** the dreamer once you've
+  learned the true version from her first (the beats are gated on it) — and freeing him **breaks the loop** (the cup
+  hangs unfallen; he turns, for the first time, to the window).
+- 🪟 **The dive names the saga's deepest pattern.** The Way Out reads what every self-built cage on the causeway is
+  made of — the Reed-Wife, the philosopher, the confessor, all of them holding their own cell doors shut from the
+  inside — *not "I cannot leave" but "I do not deserve to."* The window was never locked. The key is never absolution
+  from outside; it's the soul finally believing it's allowed to set the weight down and come to the supper kept warm
+  past all reason, by a love waiting just past the glass.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,116 checks**, all green). **31 zones, 106 souls** —
+  fourteen self-contained structures, every one resolved on *witness, not force.*
+
+---
+
 ## 👑 v6.1.0 — *"The Last Deathsong"* — a thirtieth zone: a teaching structure (learn the craft) (content)
 
 > A thirteenth new structure — the **teaching**, where you don't free a soul, you *learn a craft* — and it's the
