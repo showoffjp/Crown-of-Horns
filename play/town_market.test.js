@@ -1378,6 +1378,31 @@ check("an Insight read names the performance (sorry it's kept him here, not sorr
 check("each Unburdening soul carries a [RETURNED] line + a Returned-sense", [cfThief, cfCoward, cfCruel].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-ninth zone: the Boasting-Ring — a contest where being witnessed beats the Wall (the 100-soul milestone) ----
+const BO = SCENES && SCENES.boast;
+check("a twenty-ninth zone (the Boasting-Ring) ships — a contest structure", BO && BO.npcs.length >= 3);
+check("the Boasting-Ring is reached off the Night Market", (SCENES.nightmarket.exits || []).some(x => x.to === "boast"));
+const boRing = CONVS.find(c => c.id === "bo.ringmaster");
+const boChamp = CONVS.find(c => c.id === "bo.champion");
+const boQuiet = CONVS.find(c => c.id === "bo.quiet");
+check("the ring's three roles are present (the ringmaster, the champion, the fading quiet one)", boRing && boChamp && boQuiet);
+check("the ring's secret: boasting is witness made loud — a soul too vivid to be forgotten can't be un-made", boRing.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "bo.ring_is_witness")));
+check("the champion is starving behind the crown (Insight) and can be freed by being let to lose", boChamp.nodes.find(n => n.id === "1").choices.some(ch =>
+  (ch.check || {}).skill === "Insight") && boChamp.nodes.some(n => (n.effects || []).some(e => e.key === "bo.champ_redeemed")));
+check("the fading quiet soul's small true story can be reframed as the grand thing it always was", boQuiet.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "bo.reframed_quiet")));
+check("the milestone payoff: champion yields the crown, sweeper is crowned and saved (needs both the reframe and the yield)", (() => {
+  const crown = boQuiet.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "quiet_crowned");
+  const both = E.newState(); both.bools["bo.champ_will_yield"] = true; both.bools["bo.reframed_quiet"] = true;
+  return crown && crown.when && E.choiceAvailable(goodGuy, both, crown, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), crown, MODEL) === false &&
+    boQuiet.nodes.find(n => n.id === "quiet_crowned").effects.some(e => e.key === "bo.quiet_saved");
+})());
+check("each Boasting-Ring soul carries a [RETURNED] line + a Returned-sense", [boRing, boChamp, boQuiet].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+check("the causeway now spans 29 connected zones and 100 souls — the milestone", Object.keys(SCENES).length >= 29 &&
+  Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 100);
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

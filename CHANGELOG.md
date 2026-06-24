@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.0.0 — *"The Boasting-Ring"* — a twenty-ninth zone, and the hundredth soul 🎉 (content)
+
+> A milestone release: a twelfth new structure — the **contest** — that crosses the walkable saga past **100 souls**
+> across **29 zones** and **1,100 green checks.** And the structure is the saga's whole thesis turned into a party:
+> the dead stave off the Wall by telling the grandest *true* story of their lives, because to be witnessed, loudly,
+> by many, is to be too vivid for the Hunger to un-make.
+- 🔥 **A twenty-ninth zone — the Boasting-Ring** (off the Night Market). Three souls: **Big Sorrel**, the ringmaster
+  who disguised the cleverest mercy on the causeway as a drinking game (a machine that holds the forgotten in the
+  world, forty witnesses at once); **the Reigning Tongue**, the undefeated champion *starving behind his crown*
+  because he's spent his one true story and started to lie; and **the Smallest Voice**, a temple-sweeper fading
+  fastest because a gentle ordinary life doesn't boast easy.
+- 🏆 **The structure pays off the whole saga.** Take the log and tell your own grand true story (you walked *out* of
+  the Wall — the boast that breaks the ring). Read the champion (Insight) as a soul hollowed by false boasts, and
+  free him by letting him *lose* — the one move the game can't counter. And reframe the sweeper's "nothing" — forty
+  years keeping clean stone for the grieving to fall on — as the grand thing it always was; with the champion's
+  yielded crown, the **humblest soul in the ring is crowned and saved**, fading stopped, proof a small life
+  well-lived outboasts any dragon-slaying.
+- 👁️ **Three new Returned-senses.** 🧪 **+10 gates** — the suite crosses **1,100 checks**, all green.
+- 🌟 **The milestone:** the walkable causeway is now **29 connected zones, 100 souls, 973 dialogue beats** — a
+  complete saga (Prologue → the Court of the Dead → the years after) threaded with **two full four-beat companion
+  arcs** (Sennet, the Sparrow) and **twelve self-contained side-structures**: investigation, monster-redemption,
+  riddle-vault, barter, companion-recruit, courtroom, god's-bargain, heist, self-trial, siege, wake, whodunit,
+  reunion, disputation, confession, and contest — every one resolved by the saga's single thesis: *witness, not
+  force; the third door, not the necessary cruelty.*
+
+---
+
 ## 👑 v5.11.0 — *"The Unburdening"* — a twenty-eighth zone: a confession structure (witness, don't absolve) (content)
 
 > An eleventh new structure — the **confession** — where *you* are the one who hears, and the mechanic is your
