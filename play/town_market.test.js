@@ -1486,6 +1486,33 @@ check("the answer for the villain is NOT redemption but stopping — gather the 
 check("each Parlor soul carries a [RETURNED] line + a Returned-sense", [pdEater, pdPrey, pdHusk].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-third zone: the Custody of the Small — an arbitration (a trilemma over a dead child) ----
+const CU = SCENES && SCENES.custody;
+check("a thirty-third zone (the Custody of the Small) ships — an arbitration/trilemma structure", CU && CU.npcs.length >= 3);
+check("the custody dispute is reached off the Lamplit Quarter", (SCENES.lamplit.exits || []).some(x => x.to === "custody"));
+const cuMother = CONVS.find(c => c.id === "cu.mother");
+const cuHerald = CONVS.find(c => c.id === "cu.herald");
+const cuChild = CONVS.find(c => c.id === "cu.child");
+check("the three parties are present (the mother who won't let go, the factor who'd file, the child)", cuMother && cuHerald && cuChild);
+check("you can rule for the tether or the storage — both real options, both with a cost, gated on hearing both claims", (() => {
+  const childMenu = cuChild.nodes.find(n => n.id === "1");
+  const tether = childMenu.choices.find(ch => ch.next === "child_ruled_mother");
+  const storage = childMenu.choices.find(ch => ch.next === "child_ruled_factor");
+  const heardBoth = E.newState(); heardBoth.bools["cu.heard_mother"] = true; heardBoth.bools["cu.heard_herald"] = true;
+  return tether && storage && tether.when && storage.when &&
+    E.choiceAvailable(goodGuy, heardBoth, tether, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), tether, MODEL) === false;
+})());
+check("the twist: nobody asked the child — and ruling without asking lands as a quiet indictment (child_unasked)", cuChild.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cu.child_unasked")));
+check("the best path is to ask the child and broker its OWN third door (mind the mother first, then go free)", cuChild.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cu.asked_the_child")) &&
+  cuChild.nodes.find(n => n.id === "child_brokered") &&
+  cuChild.nodes.find(n => n.id === "child_brokered").effects.some(e => e.key === "cu.brokered_the_third_way"));
+check("even the cold factor secretly hopes you find the third column it can never use (released, not stored)", cuHerald.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cu.herald_cedes")));
+check("each Custody soul carries a [RETURNED] line + a Returned-sense", [cuMother, cuHerald, cuChild].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
 const epiChron = CONVS.find(c => c.id === "epi.chronicler");
 check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&

@@ -1,0 +1,725 @@
+{
+  "scene": {
+    "id": "custody",
+    "name": "The Custody of the Small",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "greyshrine",
+        "x": 5,
+        "y": 2
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 3
+      },
+      {
+        "type": "bedroll",
+        "x": 2,
+        "y": 4
+      },
+      {
+        "type": "chair",
+        "x": 8,
+        "y": 3
+      },
+      {
+        "type": "cairn",
+        "x": 1,
+        "y": 6
+      },
+      {
+        "type": "cairn",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "tree",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "type": "tree",
+        "x": 9,
+        "y": 2
+      },
+      {
+        "type": "candle",
+        "x": 5,
+        "y": 5
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "lamplit",
+        "dest": {
+          "x": 7,
+          "y": 7
+        },
+        "label": "◂ back out to the Lamplit Quarter"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "mother",
+        "name": "Goodwife Sefa",
+        "title": "who will not let go",
+        "x": 3,
+        "y": 4,
+        "hue": 340,
+        "sigil": "♡",
+        "conv": "cu.mother",
+        "hail": "*(a living woman kneels in the candlelight with her arms wrapped around the empty air where a child used to be, and she is not weeping — she is past weeping, into the white still place beyond it — and she holds the nothing with the ferocity of a soul that has decided it will tether its dead daughter to the world by sheer refusal before it will let her go on alone)*"
+      },
+      {
+        "id": "herald",
+        "name": "the Factor",
+        "title": "who claims the child for safekeeping",
+        "x": 8,
+        "y": 4,
+        "hue": 210,
+        "sigil": "§",
+        "conv": "cu.herald",
+        "hail": "*(a precise figure in the Choir's grey stands a careful distance from the grieving mother with a ledger and a soft, institutional patience, here to do what it plainly considers a kindness: to take a godless child's soul into the Choir's keeping before its mother's grief tethers it into something that cannot be saved — and it is not wrong about the danger, which is exactly what makes it dangerous)*"
+      },
+      {
+        "id": "child",
+        "name": "Wren the Younger",
+        "title": "the soul nobody asked",
+        "x": 5,
+        "y": 4,
+        "hue": 40,
+        "sigil": "·",
+        "conv": "cu.child",
+        "hail": "*(a small soul sits very quietly between the two grown-ups arguing over it — the mother who will not release it, the factor who would file it away — and it watches them both with the grave, patient attention of a child who has understood, in the way children do, the one thing neither adult has: that this is about it, and nobody, not once, has thought to ask it what it wants)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "cu.mother",
+      "title": "Goodwife Sefa, Who Will Not Let Go",
+      "npc": "Goodwife Sefa",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Goodwife Sefa",
+          "onEnter": [
+            {
+              "key": "cu.met_mother",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(She does not look up from the empty air she's holding, but she feels your cold, and her voice comes flat and fierce.)* …You're *cold.* *Dead-cold.* *(she tightens her arms around the nothing)* Then you can *see* her. My *Wren.* My *little* one. *(barely)* The *fever* took her — *six* years old, *godless*, like her *fool* mother, and the *Choir* says she's — she's *Faithless*, she's for the *Wall*, my *baby* is for the *WALL* — *(her voice cracks, then hardens)* — and I *won't.* I *won't* *let* her *go* to *that.* So I *hold* her. *Here.* I *refuse* to *grieve* her, because the *grieving* is the *letting-go*, and the *letting-go* is *handing* her to the *stone.* *(she finally looks at you, white-eyed, desperate)* As long as I *don't* *let* go — as long as I *hold* her *tethered* to me, to the *warm* world — the *Wall* *can't* *have* her. *(fierce)* That *factor* says it's *killing* her. *Slowly.* *Tethering* a *dead* soul to a *living* grief. *Let* him *say* it. I'd rather *hurt* her *slow* and *keep* her than *let* her *dissolve* in a *Wall.* *Wouldn't* *you?* *(barely)* …*Wouldn't* *any* mother?"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodwife Sefa",
+          "text": "*(She holds the empty air, knuckles white, and watches you with the cornered ferocity of grief that has nowhere left to go.)* …*Ask*, then. *(flatly)* You've the look of a soul that's come to *decide* something. *Everyone* does. The *factor*, the *priests*, *you.* *Everyone's* got an *opinion* about my *Wren.* *(barely)* *Nobody* asks *me* what it's *like.* Go on. *Ask.*",
+          "choices": [
+            {
+              "text": "\"Tell me what holding her costs, Sefa — her, not you. The factor says it harms her. You know it does. So why is keeping her this way better than the Wall?\"",
+              "next": "mother_cost",
+              "effects": [
+                {
+                  "key": "cu.heard_mother",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"What was she like, Wren? Before the fever. Tell me the child, not the loss.\"",
+              "next": "mother_child",
+              "effects": [
+                {
+                  "key": "cu.knows_child",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who carries the dead, to the one who won't release one)* \"I've been inside the Wall, Sefa — I know exactly what you're trying to spare her, and you're right to fear it. But hear me as the one soul who can: a tethered child and a walled child are both being un-made, just at different speeds, and there may be a third thing neither you nor the factor has named. Don't make me rule between the stone and the leash yet. Let me talk to her first.\"",
+              "tag": "returned",
+              "next": "mother_third",
+              "effects": [
+                {
+                  "key": "cu.heard_mother",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "cu.seeks_third_way",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Hold on, Sefa. Let me hear the factor's side before I say anything.\"",
+              "next": "mother_leave"
+            }
+          ]
+        },
+        {
+          "id": "mother_cost",
+          "speaker": "Goodwife Sefa",
+          "text": "*(The ferocity cracks, and underneath is a knowledge she has been refusing to look at.)* …What it *costs* *her.* *(barely)* You think I don't *see* it? *(she looks at the empty air in her arms)* She's — she's *fading*, cold one. *Slow.* Every *day* I *hold* her *tethered* to my *grief*, she gets a *little* *thinner*, a *little* *less* *Wren* — because a *dead* soul *isn't* *meant* to *stay* *bound* to the *living* *world*, it *pulls* on her, it *wears* her, the way the *Wall* would, only — only *gentler*, and *slower*, and by my *own* *hands* instead of the *Choir's.* *(her voice shakes)* The *factor's* *right.* *Damn* him, he's *right.* I'm *loving* her to *death* — to a *second* death, a *slow* one — because I *cannot* *bear* the *first.* *(fierce, breaking)* But *here's* what the *factor* *doesn't* *understand*, cold one, what *none* of them *understand*: *every* *day* I *hold* her is a *day* she *still* *EXISTS.* Still *here.* Still *mine.* *Thinner*, *yes*, *fading*, *yes* — but *HERE.* And the *moment* I *let* *go*, she's — she's *gone.* *Wall* or *no* *Wall.* *Gone* from *me.* *(barely)* So *yes*, I'm *hurting* her. *Slowly.* And I *can't* — *gods* *help* me, I *can't* *stop*, because *stopping* is *losing* her, and I have *held* this *child* since before she had a *NAME*, and *no* one — *no* one — gets to *tell* me how *long* I'm *allowed* to *keep* *holding.*",
+          "effects": [
+            {
+              "key": "cu.heard_mother",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.mother_knows_harm",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mother_child",
+          "speaker": "Goodwife Sefa",
+          "text": "*(For a moment the grief lifts into something warmer, the simple pleasure of a mother describing her child.)* …*Wren.* *(a cracked almost-smile)* She was — *too* *clever.* *Far* too clever for *six.* *Asked* *questions* that *stopped* you *cold* — *'where* does the *dark* *go* when you *light* a *candle', 'do* *fish* get *thirsty'* — and she *wouldn't* take *'I* don't *know'*, she'd *chew* on a *thing* for *DAYS.* *(she laughs, wet)* And *kind.* *Gods*, *kind* — she *fed* the *stray* *cats*, *named* them *all*, *wept* when one *didn't* *come* *back.* *(her voice softens)* She *worried* about *me*, cold one. *Six* years old and she *worried* about her *widow* *mother*, used to *pat* my *hand* and say *'don't* be *sad*, *mama*, I'll *mind* you.'* *(the smile shatters)* *'I'll* mind you.'* *(barely)* That's — that's *why* I *can't* *let* go, you see. Because the *last* thing she'd *want* is for me to be *alone*, and if I *release* her she *goes* and I'm — I'm *alone*, and I'd be *failing* the *one* thing she *asked*, the *one* *promise* she made me: *'I'll* mind you, mama.'* *(she clutches the air)* How do I *let* go of a child who *promised* to *mind* me? *How* does *any* mother *do* *that?*",
+          "effects": [
+            {
+              "key": "cu.knows_child",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_promised_mind",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mother_third",
+          "speaker": "Goodwife Sefa",
+          "text": "*(She goes still, and the desperate ferocity flickers into something that has not dared to exist in her: hope.)* …A *third* *thing.* *(barely)* You — the *factor* says it's the *stone* or the *leash*, *one* or the *other*, *choose.* And I *chose* the *leash*, because the *stone* is *worse* — but you're *saying* there might be — *(she can't finish)* …*Talk* to her. *(she loosens her grip on the empty air, just slightly)* You *can*, can't you. *Really* *talk* to her — not *over* her, the way the *factor* and I have been *doing*, *arguing* about her like she's a — a *parcel*, a *thing* to be *kept* or *filed* — *(her voice breaks)* — *gods*, we *have*, haven't we. We've been *fighting* over her *head* for *days* and *neither* of us has *asked* her *anything.* *(she looks at the small quiet soul between them)* …She's *right* *there.* My *clever*, *kind*, *too-wise* *Wren*, *sitting* *right* *there*, *watching* us *fight* over her like she's *not* *listening* — and she *is*, she's *always* *listening*, she *misses* *nothing.* *(barely)* *Ask* her, cold one. *Please.* I'm — I'm *too* *afraid* of the *answer* to *ask* her *myself.* I'm *afraid* she'll say — *(she stops)* — *just* *ask* her. And *whatever* she *wants* — *(her voice shakes)* — I'll *try.* I'll *try* to *bear* it. She *minded* *me.* *Maybe* it's — maybe it's *my* *turn* to *mind* *her.* *What she actually wants. Not* *what* *I* can't *bear* to *lose.*",
+          "effects": [
+            {
+              "key": "cu.heard_mother",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.mother_will_listen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mother_leave",
+          "speaker": "Goodwife Sefa",
+          "text": "*(She nods, bitterly, and tightens her arms around the nothing.)* …*Hear* the *factor.* *(flatly)* Aye. *Everyone* *hears* the *factor.* He's *got* a *ledger* and a *grey* *robe* and the *Choir* *behind* him, and I've got — *(she looks at the empty air)* — I've got *two* *arms* and a *refusal.* *(barely)* He'll *tell* you it's *kind*, what he wants. *Taking* her. *'For* her *own* *good.'* And he'll *almost* be *right*, which is the *worst* kind of *wrong.* *(she meets your eyes)* But *mind* this, cold one, before you *let* him *talk* you *grey*: he doesn't *love* her. He doesn't even *know* her *NAME* — *'the* *child', he* calls her, *'the* *godless* *minor', a* *LINE* in his *LEDGER.* *(fierce)* And I — I'm *killing* her *slow* and I *know* it, but I'm *killing* her with *LOVE*, and there's not a *soul* *alive* or *dead* who can *tell* me that's *worse* than being *FILED.* *(she turns back to the air)* *Go.* *Hear* him. And then *come* *back* and *tell* me you *see* the *difference* between a *mother* who *can't* *let* go and a *clerk* who *never* *held* on at *all.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "cu.herald",
+      "title": "The Factor",
+      "npc": "the Factor",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Factor",
+          "onEnter": [
+            {
+              "key": "cu.met_herald",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(It inclines its head with practiced, bloodless courtesy, keeping its careful distance from the grieving mother.)* …Ah. A *cold* one. *(it consults its ledger)* Good. Perhaps you can bring *sense* where I have brought only *resistance.* *(it gestures, delicately, at the kneeling mother)* You see the *situation.* A *godless* *child* — *Faithless*, *forfeit*, the *fever* took it a *fortnight* past — and a *mother* who *will* not *release* it, who *tethers* it to the *living* world with her *grief*, *fading* it *slowly* into *something* that *cannot* be *recovered.* *(it says it without heat)* I am *here*, traveler, to *take* the *child* into the *Choir's* *keeping* — *now*, *while* there is *still* *enough* of it *left* to *keep.* It is *not* a *cruelty.* It is a *rescue.* *(it meets your eyes, reasonable, terrible)* The *mother* calls me *heartless.* Perhaps I *am.* But a *heartless* *soul* that *saves* a *child* from *dissolving* in its *mother's* *arms* is *better*, surely, than a *loving* one that *holds* it until there is *nothing* *left* to *save.* *(it offers the ledger)* *Help* me, traveler. *Reason* with her. *Every* *day* we *delay*, there is *less* *child* to *rescue.* On *that*, at least, the *mother* and I *agree.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Factor",
+          "text": "*(It waits, ledger in hand, the picture of institutional patience.)* Speak, traveler. *(coolly)* I am a *reasonable* soul. I *deal* in *outcomes*, not *sentiment* — which makes me the *villain* of this *piece*, I'm *aware*, but it *also* makes me the *only* party here who is *thinking* about the *child* instead of about *itself.* *Ask* what you *like.*",
+          "choices": [
+            {
+              "text": "\"'The Choir's keeping' — say plainly what that means. Where does the child go, and what happens to it there? Not the brochure. The truth.\"",
+              "next": "herald_keeping",
+              "effects": [
+                {
+                  "key": "cu.heard_herald",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying you're the only one thinking about the child. But you've not once said its name, or asked what it wants — you've costed it, like a debt to be recovered. You're not wrong that the tether's harming it. But you don't want to *save* the child, do you. You want to *file* it correctly. And 'correctly filed' and 'saved' are not the same outcome, however much your ledger insists they are.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "herald_seen",
+              "fail": "herald_smooth",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the one who's seen what the Choir's keeping leads to)* \"I've walked your Choir's whole machine, Factor — the counting-house, the Wall, the reckonings. So spare me 'the Choir's keeping' as if it were a warm bed. Whatever institution you'd file this child into, it ends, eventually, at the same stone. You're not offering rescue. You're offering a *slower, tidier* version of the exact fate the mother's trying to spare it. I'll not rule for the leash. But I'll not rule for the ledger either.\"",
+              "tag": "returned",
+              "next": "herald_returned",
+              "effects": [
+                {
+                  "key": "cu.heard_herald",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "cu.rejects_both",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You said the tether harms the child. How long does it have, the way things are? Be precise — I'm trying to weigh this.\"",
+              "next": "herald_time",
+              "effects": [
+                {
+                  "key": "cu.knows_urgency",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"I've heard your claim, Factor. Let me speak to the child itself.\"",
+              "next": "herald_leave"
+            }
+          ]
+        },
+        {
+          "id": "herald_keeping",
+          "speaker": "the Factor",
+          "text": "*(It does not flinch from the question, which is its own kind of honesty.)* …*Plainly.* *(it turns a page)* The *child* would be *entered* into the *Choir's* *registry* of *unclaimed* *minors* — *godless* *souls* *too* *young* to have *chosen*, which the *Concord* treats *differently* from the *adult* *Faithless.* *(it reads)* It would *not* go to the *Wall.* *Not* *immediately.* It would be *held* — *housed*, if you like, in the *Choir's* *nurseries* of the *dead*, *tended*, *un-fading*, *preserved.* *(a pause)* For *how* *long* — *(it meets your eyes, and here is the truth the mother smelled)* — *indefinitely.* The *Concord* has *no* *provision* for *releasing* a *registered* *minor.* It would be *kept*, *safe*, *un-harmed*, *un-fading* — and *un-free*, *un-growing*, *un-changed*, a *six-year-old* *soul* *preserved* at *six* *forever*, in a *grey* *Choir* *nursery*, *tended* by *clerks*, *un-loved*, *un-walled*, *un-ending.* *(it closes the ledger)* It is *not* the *Wall*, traveler. I will *not* *pretend* it is *kind.* It is *storage.* *Eternal*, *safe*, *loveless* *storage.* *(softly)* But it is *better* than *dissolving*, and it is *better* than the *Wall*, and those — *those*, traveler — are the *only* *two* *alternatives* the *Concord* *offers* a *godless* *child*, and I did not *write* the *Concord.* I merely *spare* the *children* its *worst* *option* by *consigning* them to its *second-worst.* *That* is my *whole* *cruelty.* And I *do* *it*, *daily*, because *someone* *must.*",
+          "effects": [
+            {
+              "key": "cu.heard_herald",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.knows_storage",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "herald_seen",
+          "speaker": "the Factor",
+          "text": "*(The bloodless courtesy holds, but something behind the eyes acknowledges the hit.)* …*'Correctly* *filed'* and *'saved'* are *not* the *same* *outcome.* *(a long pause)* …No. They are *not.* *(it lowers the ledger)* You have *named* the *thing* I do *not* let *myself* *name*, traveler. I tell the *mothers* I am *saving* their *children.* I tell *myself* the *same.* And the *truth* is that I am *filing* them — *correctly*, *safely*, *kindly* as the *Concord* *allows* — into a *storage* that is *better* than *dissolution* and *worse* than *anything* a *child* *deserves.* *(it meets your eyes)* I do *not* *ask* their *names, traveler*, because if I *learned* their *names* I could *not* *do* the *work*, and the *work* *must* be *done*, because the *alternative* — a *mother's* *grief* *fading* a *child* to *nothing* — is *worse* than *grey* *storage*, even *loveless*, even *eternal.* *(quietly)* You are *right* about me. I am *not* the *child's* *savior.* I am the *Concord's* *least* *cruel* *available* *clerk.* *(a thin, tired pause)* …If you have a *third* *thing*, traveler — a *thing* that is *neither* the *leash* nor the *ledger* — I will *tell* you a *secret* the *Choir* would *flog* me for: I would *rather* you *found* it than *win.* I have *filed* a *great* *many* *children.* I do *not* *enjoy* the *filing.* I have *merely* *never* been *shown* a *better* *column.*",
+          "effects": [
+            {
+              "key": "cu.herald_unmasked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.herald_wants_third_way",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "herald_smooth",
+          "speaker": "the Factor",
+          "text": "*(It absorbs the accusation with practiced ease.)* …You *reach* for a *villain*, traveler — *'the* *clerk* who *files* *children.'* *(a cool nod)* It is an *easy* *read*, and a *satisfying* one, and it *changes* *nothing* about the *arithmetic.* *(it taps the ledger)* *Name* the *child* or *don't* — the *tether* *fades* it *regardless.* *Ask* its *wishes* or *don't* — the *Concord* *offers* it *two* *doors* *regardless*, and *one* is *worse* than the *other.* *(it meets your eyes)* You may *find* my *coldness* *distasteful.* I *find* it *load-bearing.* *Sentiment* did not *write* the *Concord*, and *sentiment* will not *save* this *child* from *it.* *Only* a *clear* *eye* and a *cold* *choice* will. *(it offers the ledger)* So. *Reason*, traveler — *actual* *reasoning*, not *diagnosis* of *my* *character.* The *child* is *fading.* *What* would you *have* me *do* *instead?* *Name* it, or *step* *aside* and let me do the *one* *kindness* the *Concord* *permits.*",
+          "auto": "END"
+        },
+        {
+          "id": "herald_returned",
+          "speaker": "the Factor",
+          "text": "*(For the first time the institutional calm meets something it cannot cost, and it goes still.)* …You have *walked* the *machine.* *(quietly)* The *counting-house.* The *Wall.* You *know*, then, that I am *not* *lying* — that the *Choir's* *keeping* *ends*, *eventually*, where *all* of it *ends.* *(it lowers the ledger)* You say you'll *rule* for *neither* the *leash* *nor* the *ledger.* *(a long pause)* Do you *understand*, traveler, that you are *the* *first* *party* in this *whole* *grief* to *say* *so?* The *mother* *insists* on the *leash.* I *insist* on the *ledger.* We have *fought* for a *fortnight* over *which* *cage* the *child* *belongs* in, and *neither* of us — *(it stops)* — *neither* of us *considered* that the *cage* *itself* was the *error.* *(it meets your eyes, and something almost like relief moves through the grey composure)* I *cannot* *offer* a *third* *thing.* I am *bound* to the *Concord's* *columns* — *leash* is *not* one of them, so I oppose it; *storage* *is* one, so I *offer* it. I have *no* *authority* to *invent* a *better* *fate.* *(quietly)* But *you* are *unbound, Returned.* You *answer* to *no* *Concord.* *If* there is a *third* *thing* — a *door* that is *neither* the *stone* nor the *shelf* — *you* are the *only* *party* *here* *with* the *standing* to *open* it. *(it steps back, ceding the ground)* *Go.* *Speak* to the *child.* I will *abide* what you *broker*, if you can *broker* *anything* at *all* — and I will *file* it, *traveler*, under a *column* I have *never* *once* been *able* to *use*: *released.*",
+          "effects": [
+            {
+              "key": "cu.heard_herald",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.herald_cedes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "herald_time",
+          "speaker": "the Factor",
+          "text": "*(It consults the ledger with grim precision.)* …*How* *long.* *(it reads)* A *tethered* *child* *fades* at the *rate* of the *grief* that *holds* it — and *this* *mother's* *grief* is *fierce*, *which* *paradoxically* *fades* the *child* *faster*, for a *fiercer* *tether* *pulls* *harder.* *(it looks up)* At *current* *measure, traveler*: *weeks.* Perhaps *two* *moons.* Then the *child* will be *worn* *past* the *point* where *either* the *Choir's* *keeping* *or* any *other* *intervention* *can* *hold* it — it will *fade* into the *grey*, *un-walled* but *un-saved*, *dissolved* by *love* as *surely* as the *Wall* *dissolves* by *law.* *(it closes the ledger)* So you *see* my *urgency*, traveler. It is *not* *bureaucratic *haste.* It is a *clock.* *Every* *day* you *deliberate*, *every* *day* the *mother* *holds* on, there is *less* *child* *left* to *broker* *anything* *for.* *(it meets your eyes)* *Whatever* you *mean* to *do* — the *ledger*, the *leash*, or some *third* *thing* I *cannot* *see* — *do* it *soon.* The *one* *party* in this *grief* with *no* *patience* *left* is the *smallest.* And *nobody* — *(a flicker of something)* — *nobody* has *asked* *it* how *much* *time* it *feels* it *has.*",
+          "effects": [
+            {
+              "key": "cu.knows_urgency",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "herald_leave",
+          "speaker": "the Factor",
+          "text": "*(It inclines its head and steps back, ceding you the floor.)* …*Speak* to the *child.* *(a cool, careful pause)* I will *note*, traveler, that *you* are *now* the *second* *party* to *propose* *that* — the *first* being *no* one, for in a *fortnight* of *this* *dispute*, *neither* the *mother* *nor* *I* has *done* it. *(something flickers behind the grey)* We have *argued* its *fate* *over* its *head* for *fourteen* *days* and *not* *once* *addressed* it *directly.* *(it consults the ledger, then closes it)* …That is, I *believe*, what the *living* *call* a *damning* *indictment* of *both* *parties.* *(it meets your eyes)* *Go.* *Ask* it. I am *curious* — *genuinely*, which is *rare* for me — what a *child* that has *listened* to *two* *grown* *souls* *fight* over it for a *fortnight* will *say*, when *finally* *someone* *thinks* to *let* it *speak.* I *suspect* it will *shame* us *both.* *(quietly)* It *should.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "cu.child",
+      "title": "Wren the Younger, the Soul Nobody Asked",
+      "npc": "Wren the Younger",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Wren the Younger",
+          "onEnter": [
+            {
+              "key": "cu.met_child",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cu.mother_will_listen"
+                ]
+              },
+              "text": "*(The small soul looks up at you, and there is a gravity in its child's face far older than six.)* …Mama said you'd come talk to me. *(quietly)* She *never* said that before. To *anyone.* *(it studies you)* You're cold like — like the inside of the well. But not *scary* cold. *(it tilts its head)* They've been *fighting* about me. Mama and the grey man. For *days* and *days.* About whether I *stay* or whether I *go* to the *nursery.* *(a small, grave sigh)* And nobody — *(it looks at you, and the wisdom in it is the plain devastating wisdom of children)* — nobody *asked* me. *Mama* says *you* will. *(barely)* …Will you? *Really* ask? And then — *(its small voice wavers)* — and then *listen* to the *answer*, even if it's not the one *anybody* *wants?*"
+            },
+            {
+              "text": "*(The small soul watches the two grown-ups argue across the candlelit room, and then turns its grave attention fully on you — the first adult to walk toward *it* instead of toward the fight.)* …Hello. *(quietly)* You came over *here.* To *me.* *(it sounds faintly surprised)* The grey man and Mama, they — they stand over *there* and they *point* at me and they say *'the* *child* this'* and *'the* *minor* that'* — *(it frowns)* — but they don't come *over* *here.* To where I *am.* *(it looks up at you, and the gravity in its small face is unbearable)* Are you — are you going to *decide* about me? Like they want to? *(barely)* Because if you are, cold one — *(it twists its small hands)* — could you do *one* thing *first* that *nobody's* done? Could you — could you ask me what *I* think? It's *me* you're all *deciding* about. And I've been *sitting* here the *whole* *time*, and I — *(its voice is very small)* — I have *thoughts.* Lots of them. *Nobody's* *wanted* them *yet.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wren the Younger",
+          "text": "*(It sits with its hands folded, watching you with that grave, patient, too-old attention, waiting — as it has waited a fortnight — to be asked.)* …Go on. *(quietly)* I'll answer true. I always answer true — Mama says it's my *worst* habit and my *best* one, both. *(a small, sad smile)* Ask me the thing nobody's asked. I've had ever such a long time to think of the answer.",
+          "choices": [
+            {
+              "text": "*(the question nobody asked)* \"What do you want, Wren? Not your mother, not the factor — *you.* You've sat here a fortnight while they fought over your head. I'm asking the only person whose answer should matter. What do you want to happen?\"",
+              "next": "child_wish",
+              "effects": [
+                {
+                  "key": "cu.asked_the_child",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Are you afraid, Wren? Of the Wall, of the nursery, of fading — of any of it? You can tell me true.\"",
+              "next": "child_afraid"
+            },
+            {
+              "text": "*(rule for the mother — let her keep holding)* \"I've heard them both, Wren. I think... I think you should stay with your mother. She can't bear to lose you, and a child belongs with the soul that loves it, whatever it costs. I'll tell the factor to leave you be.\"",
+              "when": {
+                "flags": [
+                  "cu.heard_mother",
+                  "cu.heard_herald"
+                ]
+              },
+              "next": "child_ruled_mother",
+              "effects": [
+                {
+                  "key": "cu.ruled_for_tether",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(rule for the factor — the safe grey storage)* \"I've heard them both, Wren. The tether's fading you — your mother's loving you to a second death. I think you have to go with the factor. The nursery's grey and loveless, but it's *safe*, and safe is more than the alternatives. I'm sorry.\"",
+              "when": {
+                "flags": [
+                  "cu.heard_mother",
+                  "cu.heard_herald"
+                ]
+              },
+              "next": "child_ruled_factor",
+              "effects": [
+                {
+                  "key": "cu.ruled_for_storage",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.stoic",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Sit tight a moment, Wren. I'm still listening to everyone — you most of all.\"",
+              "next": "child_leave"
+            }
+          ]
+        },
+        {
+          "id": "child_wish",
+          "speaker": "Wren the Younger",
+          "text": "*(Its grave little face works, and then it tells you — clear and certain, the answer of a child that has had a fortnight to find it.)* …I want Mama to be *okay.* *(simply)* That's — that's the *whole* of it, cold one. That's what I *want.* *(it twists its hands)* I'm *not* scared of *going.* I *thought* I would be, but I sat here and I *thought* about it, the way I think about *everything*, and — *going* is just *going.* The dark goes *somewhere* when you light a candle; I think *I* go somewhere too. *(it looks at you, grave)* But Mama. *(its small voice cracks)* Mama is *holding* me so *hard*, and it *hurts* — it *hurts* me, the holding, I'm getting all *thin* and *cold* — but I *let* her, because if I *go*, she'll be *alone*, and I *promised.* I *promised* I'd *mind* her. *(barely)* And you can't *mind* someone if you've *gone.* *(it looks up at you, and the wisdom is unbearable)* So that's my — that's my *thinking*, cold one. I'm *stuck*, because the *only* way to *keep* my promise is to *stay* and *hurt*, and the *only* way to *stop* *hurting* is to *go* and *break* it. *(its small hands open, helpless)* *Unless.* *(a flicker)* Unless there's a way to — to make Mama *okay* *first.* So that when I *go*, she's — she's not *alone*, she's just *sad*, and *sad* you can *live* with, but *alone* you *can't.* *(it looks at you, hopeful and grave)* Can you — can grown-ups *do* that? Make a *mama* *okay* *enough* to let go? Because if you *can*, cold one — *then* I'm not *stuck* anymore. *Then* I can keep my promise *and* stop hurting. I just — I can't do it *myself.* I'm only *six.* I need a grown-up to help me *mind* her, so I can *go.*",
+          "effects": [
+            {
+              "key": "cu.asked_the_child",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_wish_known",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_wants_mother_okay",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "2"
+        },
+        {
+          "id": "child_afraid",
+          "speaker": "Wren the Younger",
+          "text": "*(It considers the question seriously, the way it clearly considers everything.)* …*Afraid.* *(it thinks)* Of the *Wall* — yes. A *little.* The grey man says I won't *go* there, but I *heard* what it *is*, the *forgetting*, and *that* — *(it shivers)* — I don't want to be *forgotten.* Not because it *hurts.* Because then I *couldn't* *mind* Mama even in the *remembering.* *(it frowns)* The *nursery* — the grey man's *storage* — that I'm afraid of *different.* Not *scared*-afraid. *Sad*-afraid. *(quietly)* Because I'd be *kept.* *Safe.* *Forever.* At *six.* And I — cold one, I *liked* being *six*, but I wanted to be *seven.* And *ten.* And *grown*, like Mama, and *clever* about *real* things, and — *(its voice catches)* — *being* *kept* at *six* *forever* isn't *living*, it's just — *not-dying*, which is a *different* thing, I worked it *out.* *(it looks at you)* But the thing I'm *most* afraid of, cold one — *(barely)* — isn't the Wall *or* the nursery. It's *Mama.* It's that she'll *hold* me till I'm all *gone*, and the *last* thing I'll *ever* *be* is a *thin* *cold* *nothing* in her *arms*, and she'll *still* be *holding*, and *I* won't even be *there* to *mind* her *anymore*, and she'll be *alone* *and* she won't *know* it. *(it looks up, grave and frightened)* *That's* the scary one. *Not* going. *Fading* while she *holds* me, and *leaving* her *holding* *nothing*, and *not* even getting to *say* *goodbye.*",
+          "effects": [
+            {
+              "key": "cu.child_fears_fading",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "child_ruled_mother",
+          "speaker": "Wren the Younger",
+          "text": "*(Its grave face falls, and it does not argue — it is too kind to argue — but the disappointment in it is a quiet, crushing thing.)* …Oh. *(softly)* You're going to let her *keep* me. *(it nods, slow)* …Okay. *(it folds its small hands)* I — I won't say it's *wrong*, cold one. Mama *loves* me, and *staying* with someone who *loves* you isn't *wrong.* *(but its voice is very small)* It's just — you *didn't* *ask* me. *(barely)* You *heard* Mama, and you *heard* the grey man, and then you *decided*, same as they would've — and I *thought*, when you came *over* *here*, I thought *you* were the one who'd — *(it stops itself, too kind to finish)* …It's *okay.* *(it musters a brave, six-year-old smile that breaks your cold heart)* I'll *stay.* I'll let Mama *hold* me. And I'll *fade*, slow, the way the grey man said — and Mama will *hold* me the *whole* time, and that's — that's *love*, isn't it, so it's *good.* *(a single tear)* I just — I wish you'd *asked* me *first.* I had an *answer.* I had it *ready.* *(it looks at its fading hands)* …Nobody *ever* *wanted* it. Not even *you.* And you came *all* the way *over* *here.*",
+          "effects": [
+            {
+              "key": "cu.ruled_for_tether",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_unasked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "child_ruled_factor",
+          "speaker": "Wren the Younger",
+          "text": "*(It is quiet a long moment, and then it nods, with a terrible grave acceptance.)* …The nursery. *(softly)* The *safe* grey place. *Forever.* At *six.* *(it doesn't cry, which is worse)* …You *heard* them both, you said. Mama and the grey man. *(barely)* But you didn't hear *me*, cold one. I was *right* *here.* I had a *thought.* *(it folds its hands)* …It's *okay.* *Safe* is — safe is *something.* Better than the *fading*, I s'pose. Better than the *Wall.* *(a brave, breaking smile)* I'll go be *kept.* I'll be *six* *forever* in a *grey* room with *clerks*, and Mama will be *alone*, and — *(its small voice finally wavers)* — and I *broke* my *promise.* *'I'll* *mind* you, Mama.'* And now I *can't*, because I'm in a *drawer* in the *Choir's* *nursery*, *safe* and *kept* and *gone* from *her.* *(it looks at you, grave and disappointed and unbearably kind)* You did the *clever* thing, cold one. The *safe* thing. The thing the *grey* man wanted. *(barely)* I just thought — when you walked over *here*, to *me* — I thought you might do the thing *nobody* did. The thing I've been *waiting* a *fortnight* for. *(a tear)* You almost did. You came *so* *close.* You came all the way *over* *here.* And then you *decided* *for* me, same as everyone. *…It's* *okay.* I'm used to it. I'm only six. Nobody asks the *small* ones. I just *hoped* — *(it stops)* — never mind. *Safe* is *fine.* Tell Mama — *(its voice breaks)* — tell Mama I *tried* to *mind* her. Tell her I'm *sorry* I *couldn't.*",
+          "effects": [
+            {
+              "key": "cu.ruled_for_storage",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_unasked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.stoic",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "child_leave",
+          "speaker": "Wren the Younger",
+          "text": "*(It nods, grave and patient, and folds its small hands back in its lap.)* …Okay. *(quietly)* I'll *wait.* *(a small, sad smile)* I'm *good* at *waiting*, cold one. I've *waited* a *fortnight* already, while Mama and the grey man *fought.* *(it watches them, then looks back at you)* …But cold one? *(barely)* When you're *done* *listening* to *everyone* — *(its small voice is hopeful and grave)* — *come* *back* to *me* *last.* Not *first* — I *know* I'm only *small*, I *know* the *grown-ups* talk *first.* But come back to me *last*, before you *decide.* *(it looks up at you)* Because the *last* voice you *hear* before you *choose* is the one you'll *listen* to *most.* I *worked* that out. *(a flicker of a smile)* And I'd like — *just* *once* — to be the *last* voice. The one that *counts* the most. *(quietly)* *Everybody's* always *first* over *me.* *Be* the *one* who puts me *last*, cold one. *Last* is — *last* is *better*, when you're *small.* *Last* is the one they *remember.*",
+          "auto": "END"
+        },
+        {
+          "id": "2",
+          "speaker": "Wren the Younger",
+          "text": "*(It looks up at you with that grave, hoping, too-wise face, having told you the one thing it has wanted a fortnight to say — that it isn't stuck if a grown-up will help it mind its mother first.)* …So *can* you, cold one? *(barely)* Help me *mind* Mama, so I can *go* *free* — *not* *tethered*, *not* *filed*, just — *go*, like the dark goes when you light a candle, *knowing* she's *okay?*",
+          "choices": [
+            {
+              "text": "*(broker the child's own wish — the third thing)* \"Yes, Wren. That's exactly what I'll do, and it's what nobody else thought to offer. You don't have to choose between hurting your mother and breaking your promise. We'll help her be okay *first* — together, you and I — and then you go free, neither held nor stored, having kept your promise by making sure she's not alone. That's the third door. It was always yours to name. The grown-ups just never asked.\"",
+              "tag": "returned",
+              "next": "child_brokered",
+              "effects": [
+                {
+                  "key": "cu.brokered_the_third_way",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Tell me how, Wren. You're cleverer than both of them — you've clearly thought about this. How do we make your mother okay enough to let you go?\"",
+              "next": "child_how",
+              "effects": [
+                {
+                  "key": "cu.child_has_plan",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "child_brokered",
+          "speaker": "Wren the Younger",
+          "text": "*(Its whole small face transforms — the grave wisdom breaking open into something that is, for the first time, simply a happy six-year-old.)* …The *third* *door.* *(barely, then joyful)* You'll *DO* it. You'll *help* me *mind* her *first.* *(it grabs your cold hand in both its small ones)* I *KNEW* — I *knew* if *somebody* would just *ASK* me, there'd be a — I'm *clever*, cold one, I *told* you, I *chew* on things, and I *chewed* on *this* one for a *fortnight* and the *answer* was *there*, it was *always* *there*, it was just — *nobody* would *let* me *say* it. *(fierce, radiant)* Here's how we do it. *Together.* You take me to Mama — *me*, not an *argument* about me, *me* — and you let me *say* *goodbye.* *Properly.* The thing the *fading* would've *stolen.* I tell her I *minded* her *good* as I could, and that *going* isn't *leaving* her *alone*, it's just — *going* *ahead*, to *find* the *somewhere*, and *keep* it *warm* for *when* she *comes.* *(its small voice is sure)* And *you* — you *promise* her, cold one, *Returned*, the soul that *comes* *back* — you *promise* you'll *mind* her *for* me, *check* on her, the way *I* would've, so the *promise* doesn't *break*, it just — *passes* to a *grown-up* who *can* *keep* it. *(it beams, fading-but-glad now, not fading-and-cold)* And *THEN* — then Mama can *let* go, because *letting* go isn't *losing* me, it's *sending* me *ahead* with a *goodbye* and a *grown-up* to *mind* her — and I go *FREE*, cold one, *not* *held*, *not* *stored*, just — *free*, and *six* but *going* to be *seven* and *ten* and *grown* *wherever* the *candle-dark* *goes.* *(it squeezes your hand)* *That's* the *third* door. *Thank* you for *asking.* *Thank* you for coming *over* *here.* *Thank* you for *putting* me *LAST*, where the *small* ones *count* the *most.*",
+          "effects": [
+            {
+              "key": "cu.brokered_the_third_way",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_freed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.child_says_goodbye",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "child_how",
+          "speaker": "Wren the Younger",
+          "text": "*(It leans forward, earnest, laying out the plan it has chewed on for a fortnight.)* …*How.* *(eagerly)* Okay. *Listen.* It's *not* *complicated*, grown-ups just *make* it complicated. *(it counts on small fingers)* *One* — Mama can't let go because she thinks letting go means I'm *gone* *forever* and she's *alone* *forever.* So you have to *change* what letting-go *means.* *(it nods, certain)* *Two* — if I get to say *goodbye* — *properly*, not *faded-away*, but *real*, *me* still *me* — then Mama gets the thing the *fading* would *steal*: a *last* *moment*, a *real* one, to *keep.* People can *let* go of a *goodbye.* They *can't* let go of a *snatched-away.* *(its small face is grave and wise)* *Three* — and this is the *important* one, cold one — somebody has to *take* *over* *minding* her. My *promise.* *'I'll* mind you, Mama.'* If it just *breaks* when I go, she'll *feel* it *break*, and a *broken* *promise* is a *wound* that *won't* *close.* But if it *passes* — to *you*, to a *grown-up* who *comes* *back* and *checks* on her — then it's not *broken*, it's *kept*, just by *different* *hands.* *(it looks up at you, hopeful)* That's *all* it takes, cold one. A *real* *goodbye*, and a *promise* *passed* *on.* And then Mama's not *okay* — she'll *never* be *okay*, I'm her *baby* — but she's *okay* *enough.* *Sad-okay.* *Living-okay.* And *sad-okay* is a thing a soul can *let* go *from.* *(it sits back, grave and proud)* See? I *told* you I *had* *thoughts. Nobody* *wanted* them. But they were *good* ones. I *chewed* on them a *whole* *fortnight.*",
+          "effects": [
+            {
+              "key": "cu.child_has_plan",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cu.knows_the_plan",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "2"
+        }
+      ]
+    }
+  ]
+}

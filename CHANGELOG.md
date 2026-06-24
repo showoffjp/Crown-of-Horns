@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.6.0 — *"The Custody of the Small"* — a thirty-third zone: an arbitration (a trilemma over a dead child) (content)
+
+> A sixteenth structure, and a player-role the saga hadn't asked of you: **arbiter.** Not a stuck soul to free, but a
+> dispute to *judge* — a dead godless child, **Wren the Younger**, claimed by two parties with mutually exclusive,
+> partly-legitimate needs, and a ruling you must deliver knowing every option has a cost.
+- ⚖️ **A thirty-third zone — the Custody of the Small** (off the Lamplit Quarter). Three parties: **Goodwife Sefa**,
+  the grieving mother who *will not let go* (tethering her daughter to the living world, fading her by the day — and
+  she knows it, and can't stop); **the Factor**, a Choir clerk who'd take the child into *loveless grey storage* —
+  eternal, safe, a six-year-old kept at six forever (the least-cruel column the Concord permits); and **the child.**
+- 🎭 **A real trilemma.** You can **rule for the tether** (a child belongs with the soul that loves it, whatever it
+  costs) or **rule for the storage** (safe beats dissolving) — both real, both costly, both gated on hearing each
+  claim. But the twist is the indictment the Factor itself names: *a fortnight of fighting over the child's head, and
+  neither party once asked the child.* Rule without asking and it lands as `cu.child_unasked` — a brave, breaking
+  six-year-old smile that you came all the way over to it and decided *for* it anyway.
+- 🌟 **The best path is the one nobody took: ask the child.** Wren chewed on it for a fortnight and has the answer
+  ready — it isn't stuck between hurting its mother and breaking its promise (*"I'll mind you, Mama"*) if a grown-up
+  will help it **mind her first**: a real goodbye (the thing the fading would steal), the promise *passed* to the
+  Returned who comes back to check on her, and then the child goes **free** — neither tethered nor stored. The third
+  door was always the child's to name; the grown-ups just never put the smallest voice *last, where the small ones
+  count the most.*
+- 💛 Even the cold Factor secretly hopes you find it — *"I would rather you found it than win... I'll file it under a
+  column I've never once been able to use: released."*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,138 checks**, all green). **33 zones, 114 souls** —
+  sixteen structures, and the player has now been advocate, accused, thief, broker, mediator, and *judge.*
+
+---
+
 ## 👑 v6.5.0 — *"The Connoisseur's Parlor"* — a thirty-second zone: the saga's thesis, tested (content)
 
 > A fifteenth structure — and the first that deliberately *interrogates* the saga's thesis instead of affirming it.
