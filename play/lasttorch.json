@@ -98,6 +98,16 @@
           "y": 7
         },
         "label": "▸ where the Wall runs thin — a woman kneels, listening"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "beacon",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a half-built cairn that won't stand — a beacon for the lost dead"
       }
     ],
     "npcs": [

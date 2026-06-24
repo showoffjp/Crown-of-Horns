@@ -1558,6 +1558,25 @@ check("the [RETURNED] can carry the living's true need and the dead's true fear 
 check("each Moot soul carries a [RETURNED] line + a Returned-sense", [mtKeeper, mtElder, mtYoung].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-sixth zone: the Cairn That Won't Stand — a construction structure (build a beacon of true names) ----
+const BC = SCENES && SCENES.beacon;
+check("a thirty-sixth zone (the Cairn That Won't Stand) ships — a construction/building structure", BC && BC.npcs.length >= 3);
+check("the beacon site is reached off the last torch", (SCENES.lasttorch.exits || []).some(x => x.to === "beacon"));
+const bcArch = CONVS.find(c => c.id === "bc.architect");
+const bcLab = CONVS.find(c => c.id === "bc.laborer");
+const bcLost = CONVS.find(c => c.id === "bc.lost");
+check("the build's three souls are present (the architect with the vision, the doubting laborer, the lost new-dead)", bcArch && bcLab && bcLost);
+check("the cairn won't stand because it's built of grandeur — Investigation finds it's the material, not the craft", bcArch.nodes.find(n => n.id === "1").choices.some(ch =>
+  (ch.check || {}).skill === "Investigation") && bcArch.nodes.find(n => n.id === "arch_material") &&
+  bcArch.nodes.find(n => n.id === "arch_material").effects.some(e => e.key === "bc.realizes_wrong_stone"));
+check("the saga's thesis as masonry: a marker for the forgotten holds only on true names (the small ones bind)", bcArch.nodes.find(n => n.id === "arch_keystone") &&
+  bcArch.nodes.find(n => n.id === "arch_keystone").effects.some(e => e.key === "bc.cobb_understands") &&
+  bcLab.nodes.some(n => (n.effects || []).some(e => e.key === "bc.small_stones_hold")));
+check("the lost new-dead's own true name (Eddin) becomes the keystone — the foundation every saved soul rests on", bcLost.nodes.find(n => n.id === "lost_keystone") &&
+  bcLost.nodes.find(n => n.id === "lost_keystone").effects.some(e => e.key === "bc.eddin_keystone"));
+check("each Beacon soul carries a [RETURNED] line + a Returned-sense", [bcArch, bcLab, bcLost].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
 const epiChron = CONVS.find(c => c.id === "epi.chronicler");
 check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&

@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.10.0 — *"The Cairn That Won't Stand"* — a thirty-sixth zone: a construction (build a beacon of true names) (content)
+
+> A nineteenth structure, and a fresh *activity* — you don't free a soul or judge a dispute, you help **build**
+> something. **Master Cobb** raised a lighthouse in life that brought ten thousand ships home, and now cannot make a
+> single stone of a beacon for the lost dead stand — and the reason is the saga's whole thesis rendered as masonry.
+- 🪨 **A thirty-sixth zone — the Cairn That Won't Stand** (off the last torch). Three souls: **Cobb**, the
+  master-builder who has the vision and the craft and keeps failing; **Goodwife Pell**, his neighbor who hauls stones
+  she's stopped believing will hold, just so he isn't building his grief alone; and **a Newly-Dead**, turning lost
+  circles with no marker to find — the living proof of why the beacon matters.
+- 🧱 **The thesis as masonry.** Cobb quarries his stones from the *honored* dead — GLORY, REMEMBRANCE, the names of
+  kings — and they slide, because a king is held by ten thousand living mouths and needs no holding, *and a stone
+  that needs no holding cannot bind.* **Investigation** finds it's the *material*, not the craft; a **[RETURNED]**
+  names the secret: a marker for the forgotten holds only on *true names* — the small real ones, the forgotten,
+  because *a name that needs holding is the only stone that binds.* (Pell, who's hauled every stone, has noticed it
+  herself: the grand ones slide fastest, the small ones almost hold.)
+- 🕯️ **The keystone is the lost soul itself.** The Newly-Dead — *Eddin, a fisher, drowned yesterday in a fouled net*,
+  certain it's nothing — gives you its true name before the Hunger takes it, and *that* becomes the keystone: the
+  foundation the whole beacon stands on, so no soul after it ever turns in the dark alone. *"Tell the next lost soul
+  that finds its way by us — a fisher named Eddin is holding it up."*
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,162 checks**, all green). **36 zones, 123 souls** —
+  nineteen structures, and the player has now been advocate, accused, thief, broker, mediator, judge, and *builder.*
+
+---
+
 ## 👑 v6.9.0 — *"The Harder Roads"* — payoff pass completed: the chronicler now reads all 18 structures (content)
 
 > A cohesion pass. The side-roads payoff (v6.3.0) covered the first batch of structures; four more shipped since
