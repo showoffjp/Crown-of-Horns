@@ -835,6 +835,41 @@ check("naming the caged soul (Sela) is gated on having learned her name, and bre
 check("the real solve is freeing the prisoner, not taking the hoard", vWarden.nodes.some(n =>
   (n.effects || []).some(e => e.key === "vault.freed_tithe")));
 
+// ---- thirteenth zone: the Court of the Dead — the finale, through the death-door ----
+const COURT = SCENES && SCENES.court;
+check("a thirteenth zone (the Court of the Dead) ships too", COURT && COURT.npcs.length >= 3);
+check("the death-door at the Threshold opens into the Court", (SCENES.threshold.exits || []).some(x => x.to === "court"));
+const kelC = CONVS.find(c => c.id === "court.kelemvor");
+const crownC = CONVS.find(c => c.id === "court.crown");
+check("the finale's three presences are here (the Judge, the Crown, the first appellant)", kelC && crownC && CONVS.find(c => c.id === "court.esuele"));
+// the Judge's welcome reads which road you walked here on (loop-broken / appeal / Crown-seeker / stranger)
+const k0 = kelC.nodes.find(n => n.id === "0");
+const stLoop = E.newState(); stLoop.bools["thr.loop_broken"] = true;
+const stApp = E.newState(); stApp.bools["ald.appeal_pledged"] = true;
+const stKr = E.newState(); stKr.bools["ald.path_crown"] = true; stKr.bools["way.named_keeper"] = true;
+check("Kelemvor greets the loop-breaker, the appeal-bringer, the Crown-seeker and a stranger differently", k0.variants &&
+  new Set([E.pickVariantText(k0, goodGuy, stLoop), E.pickVariantText(k0, goodGuy, stApp),
+    E.pickVariantText(k0, goodGuy, stKr), E.pickVariantText(k0, goodGuy, E.newState())]).size === 4);
+// the Crown of Horns is a temptation that uses your own voice and can be beaten by self-knowledge
+check("the Crown tempts in your own voice and can be refused by naming your own weakness", crownC.nodes.some(n =>
+  (n.choices || []).some(ch => ch.tag === "returned" && ch.next === "crown_refused")) &&
+  crownC.nodes.some(n => (n.effects || []).some(e => e.key === "court.crown_beaten")));
+// the finale offers four divergent endings, the appeal one gated on having pledged it
+const kcrux = kelC.nodes.find(n => n.id === "kel_crux");
+const appealEnd = kcrux.choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("ald.appeal_pledged") >= 0);
+check("the Court's crux offers several endings, the appeal one gated on the road that earned it",
+  kcrux.choices.length >= 4 && appealEnd &&
+  E.choiceAvailable(goodGuy, stApp, appealEnd, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), appealEnd, MODEL) === false);
+const endingFlags = new Set();
+kelC.nodes.forEach(n => (n.choices || []).concat(n).forEach(x => (x.effects || []).forEach(e => { if (/^court\.ending_/.test(e.key)) endingFlags.add(e.key); })));
+check("the finale resolves to several distinct endings (witness-wall / appeal / relieve / crown)", endingFlags.size >= 4);
+check("taking the Crown is the tragic ending (you become the tyrant); the others resolve the saga", kelC.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "court.became_tyrant")) && kelC.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "court.saga_resolved")));
+check("each Court soul carries a [RETURNED] line", [kelC, crownC, CONVS.find(c => c.id === "court.esuele")].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+check("the Court grows the prop vocabulary (the throne)", h.includes('p.type==="throne"'));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

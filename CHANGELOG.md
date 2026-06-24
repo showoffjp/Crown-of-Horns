@@ -11,6 +11,41 @@
 
 ---
 
+## 👑 v4.90.0 — *"The Court of the Dead"* — a thirteenth zone: the finale, and the choice that ends the saga (content)
+
+> Through the death-door at the Threshold lies the place the whole road was always walking toward — the **Court
+> of the Dead**, where the Crown of Horns turns at the foot of a throne held by **Kelemvor himself**, the Judge,
+> bound to a Wall he hates and waiting an age for the one soul who could end it without becoming it. The capstone
+> of the entire walkable saga.
+
+- ⚖️ **A thirteenth zone — the Court of the Dead.** Reached *through* the death-door at the Threshold,
+  completing a **thirteen-zone connected map** (test-verified as fully reachable). New code-drawn prop: the
+  antlered **throne.**
+- 👑 **Kelemvor, the Judge of the Dead — the finale.** Not the corpse-king of the songs: a tired man grown vast,
+  who judges fairly but is *bound* by the Concord to wall the Faithless *unjudged*, and *forbidden to witness*
+  the souls who most need it. His opening reads which road you walked here on (loop-broken / appeal-bringer /
+  Crown-seeker / stranger), and the crux offers **four divergent endings to the saga**: **rebuild the Wall out
+  of the witnessed** (the seawall stays, but of volunteers, named and proud); **force the souls' lawful appeal**
+  (empty it by precedent, one just verdict at a time, forever); **relieve the tired god** (take the throne the
+  honest way, handed and checked, and let Kelemvor rest); or **take the Crown** and become the next tyrant — the
+  one tragic ending, where the grey cold starts at the boots.
+- ♛ **The Crown of Horns itself — a temptation that speaks in your own voice.** A "the One Ring"-style object
+  that argues, reasonably, warmly, for being worn — and can be beaten not by humility (which it loves and turns)
+  but by **naming your own weakness and putting a guard on it.** Refuse it, and even the Crown is, strangely,
+  glad to have met the soul who could.
+- 👧 **Esuele, the first name on the appeal** — present (via the conditional-NPC system) if you pledged the appeal
+  at Aldric's table, brought up out of the Wall to stand whole before the Judge's own seat as living proof that
+  *memory beats the Wall.*
+- 🎭 Full deep stack: reactive greetings, the **Returned-sense** on each (Kelemvor at DC 18, the Crown at DC 20 —
+  it looks *back*), a Returned line apiece, dispositions.
+- 🧪 **+10 gates** (now **944 checks**, all green): the finale is keyed/reachable/collision-clean, the
+  thirteen-zone map is fully connected, the Judge's four road-openings are distinct, the Crown's self-knowledge
+  refusal is wired, the appeal-ending gates on having pledged it, and the four endings resolve (three resolve the
+  saga; taking the Crown makes you the tyrant). **13 zones, 45 souls** — a whole saga, walkable, from a cold
+  market to the throne of the dead.
+
+---
+
 ## 👑 v4.89.0 — *"The Vault of Tens"* — a twelfth zone: a riddle-puzzle where wit beats correctness (content)
 
 > The last core interaction the game wants is a **puzzle** — and the bible's "Vault of Tens" gets built: a

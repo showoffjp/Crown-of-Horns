@@ -15,7 +15,8 @@
       { "type": "cairn", "x": 7, "y": 6 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "wayshrine", "dest": { "x": 5, "y": 1 }, "label": "◂ back down the road to the Grey Wayshrine" }
+      { "x": 5, "y": 8, "to": "wayshrine", "dest": { "x": 5, "y": 1 }, "label": "◂ back down the road to the Grey Wayshrine" },
+      { "x": 5, "y": 0, "to": "court", "dest": { "x": 5, "y": 7 }, "label": "▴ through the door — the Court of the Dead" }
     ],
     "npcs": [
       { "id": "lastreturned", "name": "the Last Returned", "title": "you, from a future that already lost", "x": 5, "y": 3, "hue": 270, "sigil": "∞", "conv": "thr.last",

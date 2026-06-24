@@ -26,6 +26,7 @@ WAYSHRINE = json.load(open(os.path.join(ROOT, "play", "wayshrine.json"), encodin
 THRESHOLD = json.load(open(os.path.join(ROOT, "play", "threshold.json"), encoding="utf-8"))
 NIGHTMARKET = json.load(open(os.path.join(ROOT, "play", "nightmarket.json"), encoding="utf-8"))
 VAULT = json.load(open(os.path.join(ROOT, "play", "vault.json"), encoding="utf-8"))
+COURT = json.load(open(os.path.join(ROOT, "play", "court.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -87,6 +88,9 @@ INT_LABELS = {
     "vault.pedant.regard": "the Petrified Pedant's regard",
     "vault.tithe.regard": "the Tenth's trust in you",
     "vault.riddle_won": "riddles bested",
+    "court.kelemvor.regard": "Kelemvor's regard",
+    "court.crown.regard": "the Crown's hold on you",
+    "court.esuele.regard": "Esuele's regard",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -137,24 +141,30 @@ NPC_SENSE = {
     "vault.warden": {"dc": 14, "text": "*(You turn your sense on the great bronze head and find, behind the boredom and the bell-toll voice, a soul — an actual soul, bound into the metal so long ago it has half-forgotten it was ever anything else. It volunteered, once, thinking it an honour to guard. The binding made it a thing that asks; the centuries made it a thing that is bored; and the boredom, your sense reads with a chill, is just loneliness wearing armour. It has mortared a thousand clever souls into its walls not from cruelty but because none of them ever once saw the lonely person inside the lock. It does not want to be solved. It wants to be visited.)*"},
     "vault.pedant": {"dc": 11, "text": "*(The half-stone scholar reads, to your sense, as a soul caught at the exact instant of its worst quality: pride, fossilised. He was clever and correct and so busy being both that he never noticed the riddle was never about being right. The stone took him from the boots up while he was still citing his sources. But under the petrified vanity there is a live and decent grief now — for the cage he never asked about, the person he never saw, the turn he spent on himself. He has had a very long time to become humble, and is most of the way there, which is the cruellest place to be: wise, and rooted to the spot.)*"},
     "vault.tithe": {"dc": 9, "text": "*(You reach for the small soul in the alcove and your sense recoils from the slow horror of it: not a treasure, not a monster — a person, a lamp-lighter named Sela, taken as the living stake at the centre of a binding because a game needs something to be at risk. Centuries of clever strangers have come to win the door behind her and walked past the cage without once meeting her eyes, and she has begun, under all that looking-through, to believe she is what they called her — a thing, a tithe, a tenth — and to forget her own name. She is not dying. She is being slowly un-personed by inattention, which your sense knows for the truest face of the Hunger there is.)*"},
+    "court.kelemvor": {"dc": 18, "text": "*(You turn your sense on the grey giant and it is like turning it on a *mountain that grieves* — vast past reading, an age deep, every soul ever weighed laid in him like strata. But your dead-touched sight, which the Wall sharpened precisely for this, finds the one thing the songs never tell: the Judge of the Dead is not cruel and is not free. He is a tired man grown enormous, bound to a Concord he loathes, *forbidden to witness* the very souls who most need it, and so lonely on his cold throne that the loneliness has calcified into something the living mistake for indifference. He has been waiting — bound, silent, unable even to ask — for one soul who could end his Wall without becoming it. He is the most powerful being you have ever stood before, and the most desperate to be *relieved.*)*"},
+    "court.crown": {"dc": 20, "text": "*(You should not look at it with the sense. You know this the instant you do, because it looks *back*, and it is delighted to be seen. The Crown of Horns has no soul to read — it is the *absence* of one, shaped into a circlet, a hunger for a head — and your perception slides across it and finds only your own reflection, amplified, the exact pitch of every reason you ever had to believe you could be trusted with power. It is the Concord's cruelest joke: the means to free the dead, engineered so that whoever wields it becomes the next thing that needs freeing. It does not want to corrupt you. It wants to be *worn*, and it has never, in any age, failed to make that sound like your own best idea.)*"},
+    "court.esuele": {"dc": 6, "text": "*(You reach for her and find — to your aching relief — a soul that has *steadied.* The thimbleful that was nearly gone in the Wall has stopped tipping; carried in out of the wind of forgetting, witnessed across a causeway and a god's own road, Esuele is *holding.* Faded still, frightened still, but *here*, and *whole-ish*, and *hers.* Your sense reads no cold creeping in her now — only a terrified, carefully-rationed hope, and the dawning understanding that she is not the appeal's victim but its *first witness*, standing straight before the Judge's own seat as living proof that memory beats his Wall. She is what salvation looks like one third of the way done.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-           + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]):
+           + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
+           + COURT["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
 ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
-             + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"])
+             + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
+             + COURT["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
               HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"],
               WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"],
-              NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"]}
+              NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"],
+              COURT["scene"]["id"]: COURT["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -301,7 +311,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">twelve walkable zones · a whole Act + a barter market + a riddle-vault where wit beats correctness · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">thirteen walkable zones · the whole road, from a cold market to the Court of the Dead and the choice that ends the saga · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -643,6 +653,7 @@ function drawProp(p){ const s=iso(p.tx,p.ty);
   else if(p.type==="greyshrine"){ drawShadow(s.x,s.y+6); drawBox(s.x,s.y+5,22,30,"#3a3848","#2c2a38","#1d1c28"); ctx.strokeStyle="#8a90a8"; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(s.x,s.y-26); ctx.lineTo(s.x,s.y-58); ctx.stroke(); const tilt=2.6*Math.sin(lastT/900); ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(s.x-20,s.y-56-tilt); ctx.lineTo(s.x+20,s.y-56+tilt); ctx.stroke(); for(const sgn of [-1,1]){ const px=s.x+sgn*20, py=s.y-56+sgn*tilt; ctx.strokeStyle="#707088"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(px-5,py); ctx.lineTo(px,py+8); ctx.lineTo(px+5,py); ctx.stroke(); ctx.fillStyle="#9aa0b8"; ctx.beginPath(); ctx.ellipse(px,py+9,6,2.5,0,0,7); ctx.fill(); } const gl=ctx.createRadialGradient(s.x,s.y-44,2,s.x,s.y-44,24); gl.addColorStop(0,"rgba(150,170,210,.20)"); gl.addColorStop(1,"rgba(150,170,210,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-44,24,0,7); ctx.fill(); ctx.fillStyle="#aab0c8"; ctx.beginPath(); ctx.arc(s.x,s.y-56,3,0,7); ctx.fill(); }
   else if(p.type==="milestone"){ drawShadow(s.x,s.y+3); ctx.fillStyle="#4a4838"; ctx.beginPath(); ctx.moveTo(s.x-8,s.y); ctx.lineTo(s.x-8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-26,s.x+8,s.y-20); ctx.lineTo(s.x+8,s.y); ctx.closePath(); ctx.fill(); ctx.fillStyle="#5a5848"; ctx.beginPath(); ctx.moveTo(s.x-8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-26,s.x+8,s.y-20); ctx.quadraticCurveTo(s.x,s.y-23,s.x-8,s.y-20); ctx.fill(); ctx.strokeStyle="#2c2a22"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(s.x-4,s.y-13); ctx.lineTo(s.x+4,s.y-13); ctx.moveTo(s.x-4,s.y-9); ctx.lineTo(s.x+4,s.y-9); ctx.stroke(); }
   else if(p.type==="cairn"){ drawShadow(s.x,s.y+4); ctx.fillStyle="#3a3730"; ctx.beginPath(); ctx.ellipse(s.x,s.y-2,13,7,0,0,7); ctx.fill(); ctx.fillStyle="#46443a"; ctx.beginPath(); ctx.ellipse(s.x-3,s.y-8,8,5,0,0,7); ctx.fill(); ctx.fillStyle="#52503f"; ctx.beginPath(); ctx.ellipse(s.x+2,s.y-13,6,4,0,0,7); ctx.fill(); ctx.fillStyle="#5a5848"; ctx.beginPath(); ctx.arc(s.x,s.y-19,4,0,7); ctx.fill(); }
+  else if(p.type==="throne"){ drawShadow(s.x,s.y+8); drawBox(s.x,s.y+6,40,30,"#2a2738","#201d2c","#15131e"); ctx.fillStyle="#322e40"; ctx.beginPath(); ctx.moveTo(s.x-20,s.y-20); ctx.lineTo(s.x-20,s.y-64); ctx.lineTo(s.x-12,s.y-58); ctx.lineTo(s.x-12,s.y-20); ctx.closePath(); ctx.fill(); ctx.beginPath(); ctx.moveTo(s.x+20,s.y-20); ctx.lineTo(s.x+20,s.y-64); ctx.lineTo(s.x+12,s.y-58); ctx.lineTo(s.x+12,s.y-20); ctx.closePath(); ctx.fill(); ctx.fillStyle="#3a3550"; ctx.fillRect(s.x-12,s.y-58,24,40); for(let i=-1;i<=1;i++){ ctx.strokeStyle="#8a6f2e"; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(s.x+i*8,s.y-58); ctx.lineTo(s.x+i*10,s.y-74-Math.abs(i)*4); ctx.stroke(); } const gl=ctx.createRadialGradient(s.x,s.y-44,2,s.x,s.y-44,34); gl.addColorStop(0,"rgba(150,170,210,.16)"); gl.addColorStop(1,"rgba(150,170,210,0)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(s.x,s.y-44,34,0,7); ctx.fill(); }
   else if(p.type==="deathdoor"){ drawShadow(s.x,s.y+8); ctx.fillStyle="#1a1824"; drawBox(s.x-22,s.y+6,16,74,"#2a2738","#201d2c","#15131e"); drawBox(s.x+22,s.y+6,16,74,"#2a2738","#201d2c","#15131e"); ctx.fillStyle="#26233200"; ctx.fillStyle="#201d2c"; ctx.beginPath(); ctx.moveTo(s.x-30,s.y-66); ctx.lineTo(s.x-30,s.y-72); ctx.quadraticCurveTo(s.x,s.y-92,s.x+30,s.y-72); ctx.lineTo(s.x+30,s.y-66); ctx.quadraticCurveTo(s.x,s.y-84,s.x-30,s.y-66); ctx.closePath(); ctx.fill(); const pulse=0.5+0.5*Math.sin(lastT/520); const gl=ctx.createLinearGradient(s.x,s.y+6,s.x,s.y-70); gl.addColorStop(0,`rgba(150,170,210,${0.05+0.05*pulse})`); gl.addColorStop(0.6,`rgba(120,150,200,${0.16+0.10*pulse})`); gl.addColorStop(1,"rgba(80,110,170,0.02)"); ctx.fillStyle=gl; ctx.beginPath(); ctx.moveTo(s.x-22,s.y+6); ctx.lineTo(s.x-22,s.y-70); ctx.quadraticCurveTo(s.x,s.y-86,s.x+22,s.y-70); ctx.lineTo(s.x+22,s.y+6); ctx.closePath(); ctx.fill(); for(let i=0;i<7;i++){ const t=(lastT/1100+i/7)%1, yy=s.y+4-t*72, a=Math.sin(t*Math.PI); ctx.fillStyle=`rgba(180,200,230,${0.22*a})`; ctx.beginPath(); ctx.arc(s.x+(i-3)*6,yy,1.3,0,7); ctx.fill(); } }
 }
 function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); drawShadow(s.x,s.y+2);
