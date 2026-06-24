@@ -376,6 +376,10 @@
               "next": "epi_sq_rooms"
             },
             {
+              "text": "\"The hardest roads — the thing I couldn't save, the child nobody asked, the pilgrims and the drowned moot.\"",
+              "next": "epi_sq_harder"
+            },
+            {
               "text": "\"That's enough of the side-roads, Chronicler.\"",
               "next": "epi_close"
             }
@@ -633,6 +637,78 @@
               "effects": [
                 {
                   "key": "epi.sq_rooms_none",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_harder",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "pd.the_fire_plan"
+                ]
+              },
+              "text": "*(They turn to a page the book seems reluctant to open.)* …The *Connoisseur.* *(quietly)* The *one* you *couldn't* *save.* *(they read)* You *learned* the *hardest* *lesson* the *causeway* *teaches*, traveler — that *some* *souls* are *not* *wounds* to be *witnessed* *home*, but *appetites* that *chose* themselves, and *those* you can only *stop.* *(they turn the page)* And *stop* him you *did* — *not* by *fighting*, which only *aerated* his *meal*, but by *gathering* the *husks* he *scattered*, the *hundreds* he *ate* and *left* with *one* *bitter* *ember* each, into *one* *fire* he *had* to *stand* in. *(quietly)* He is *cooked*, traveler, in the *suffering* he *spent* *three* *centuries* *making* — by the *very* *souls* he *thought* too *scattered* to *count.* *Not* *redeemed.* Not *forgiven.* *Stopped.* *(they meet your eyes)* And the *Half-Taken* you *witnessed* *whole* — *too* *loved* to *swallow* — *walks* *free*, *un-eaten*, *guarding* an *ordinary* *Tuesday* the *monster* *couldn't* *take.* The *book* *files* this one under a *word* it *rarely* *needs*: *justice.* The *cold* kind. The *only* kind some *evils* *leave* *room* for.",
+              "effects": [
+                {
+                  "key": "epi.sq_harder_predator",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "cu.child_freed"
+                ]
+              },
+              "text": "*(They find the page, and their voice goes soft.)* …The *custody.* The *small* one. *(they read)* *Wren* the *Younger* — the *godless* *child* *two* *grown* *souls* *fought* over for a *fortnight* and *never* *once* *asked.* *(they look up)* You *asked* her, traveler. You did the *one* thing *nobody* did, and *brokered* the *door* she'd *had* *ready* all *along*: *not* *tethered* to her *grieving* *mother*, *not* *filed* into the *Choir's* *grey* *storage*, but *free* — having *said* a *real* *goodbye*, having *passed* her *promise* to *mind* her *mother* into *hands* that could *keep* it. *Yours.* *(quietly)* *Goodwife* *Sefa* *grieves* her *still* — a *mother* *always* will — but she *grieves* *clean*, *living*, *sad-okay* *instead* of *frozen*, because a *cold* *stranger* *put* the *smallest* *voice* *last*, where the *small* ones *count* the *most.* *(they turn the page)* And the *Factor* — the *grey* *clerk* who *files* *children* — *filed* *this* *one* under the *column* it had *never* *once* been *able* to *use.* *Released.* It *wept*, they *say.* *Bureaucrats* *do*, when you *give* them *back* a *thing* they'd *forgotten* was *possible.*",
+              "effects": [
+                {
+                  "key": "epi.sq_harder_custody",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "mt.carry_is_key"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Moot* of the *Drowned.* *(they read)* A *hundred* *years* *deadlocked* — the *dead's* *rest* against the *living's* *bread* — and you *broke* it, traveler, *not* by *voting* but by *DISSOLVING* it. *(they look up)* You *carried* the *living's* *true* *need* *down* and the *dead's* *true* *fear* *up*, and the *moot* *discovered* what a *century* of *guessing* had *hidden*: the *living* didn't *want* the *graves*, only the *upper* *fields*; the *dead* didn't *fear* *change*, only the *sun* on *three* *small* *cairns.* *(quietly)* So they *drained* the *low* *fields* and *left* the *deep* *village* *flooded*, and *raised* a *new* *cairn* where the *waterline* *meets* the *living's* *furrows* — *'here* the *drowned* *rest*; *farm* *above*, *not* *below.'* *(they turn the page)* The *living's* *children* are *fed*, traveler. *Mother* *Wend's* *babies* *sleep* *dark* and *undisturbed.* And *young* *Sprat* — *freed* at *last* of the *chain* — *walked* *through* the *good* *door* to *live* the *life* the *flood* *stole.* *(they meet your eyes)* *Both* *sides* *right*, and *both* *sides* *served*, because *one* *cold* *soul* *crossed* the *water* *neither* *could.*",
+              "effects": [
+                {
+                  "key": "epi.sq_harder_moot",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "pl.arrived_goes_in"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Long* *Walk.* The *pilgrims.* *(they read)* You *walked* the *pilgrim* *road*, traveler — and *because* you'd *been* to the *Court* the *whole* *creed* *walks* *toward*, you *told* each *soul* the *truth* the *road* *hides.* *(they look up)* *Old* *Ferd*, *frozen* an *arm's* *length* from the *door* he'd *walked* *three* *hundred* *miles* to *reach* — you *showed* him *finishing* *isn't* the *END* of the *walking*, only where it *arrives* somewhere it can *do* *good*, and he *took* the *last* *step* at *last.* *(they turn the page)* And the *creed* *itself* *changed* on that *road*, traveler — the *pilgrims* *speak* *now* of *arriving* *useful* *instead* of *arriving* *proud*, and *Tamsin* *keeps* the *halfway* *still*, *sitting* with *every* *frozen* *soul* that *reaches* the *doubting* *mile*, *saying* *'I* *know* — the *walking* doesn't *transform* you, *and* *that's* *alright*, the *point* was *never* to *walk* *alone.'* *(they meet your eyes)* You *re-aimed* a *devotion*, traveler. It *climbs* the *same* *grey* *slope.* But it *arrives* *somewhere* *kinder* *now.*",
+              "effects": [
+                {
+                  "key": "epi.sq_harder_pilgrimage",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(They scan the page and turn it gently.)* …The *harder* *roads.* *(quietly)* The *thing* that *couldn't* be *saved*, the *child* in the *custody*, the *pilgrims*, the *drowned* *moot.* *(a small smile)* You *walked* *other* *ways*, traveler — and that's *no* *fault.* These are the *roads* a soul *finds* *only* if it *strays* *far* *off* the *saga's* *spine*, into the *cellars* and the *parlors* and the *drowned* *deep* where *no* *prophecy* *points.* *(they tap the page)* *Other* *travelers* *stopped* the *connoisseur*, *freed* the *small* one, *dissolved* the *moot.* The *pages* are *kept.* And the *roads* *you* *did* *walk* — *(they meet your eyes)* — *those* are *full* *too, traveler*, of *souls* *only* *you* *reached.* *No* *one* *walks* *all* the *hard* *roads.* The *book's* *too* *deep* for *that.* That's *why* it's a *book* and *not* a *page.*",
+              "effects": [
+                {
+                  "key": "epi.sq_harder_none",
                   "op": "SetTrue"
                 }
               ]

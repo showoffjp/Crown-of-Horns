@@ -1587,8 +1587,18 @@ check("the side-roads payoff reads the songs-and-rooms reactively (the deathsong
     E.pickVariantText(rooms, goodGuy, song) !== E.pickVariantText(rooms, goodGuy, E.newState()) &&
     E.pickVariantText(rooms, goodGuy, loop) !== E.pickVariantText(rooms, goodGuy, E.newState());
 })());
+check("the side-roads payoff reads the HARDER roads reactively (the connoisseur stopped, the child freed, the moot dissolved)", (() => {
+  const harder = epiChron.nodes.find(n => n.id === "epi_sq_harder");
+  const pred = E.newState(); pred.bools["pd.the_fire_plan"] = true;
+  const cust = E.newState(); cust.bools["cu.child_freed"] = true;
+  const moot = E.newState(); moot.bools["mt.carry_is_key"] = true;
+  return harder && harder.variants &&
+    E.pickVariantText(harder, goodGuy, pred) !== E.pickVariantText(harder, goodGuy, E.newState()) &&
+    E.pickVariantText(harder, goodGuy, cust) !== E.pickVariantText(harder, goodGuy, E.newState()) &&
+    E.pickVariantText(harder, goodGuy, moot) !== E.pickVariantText(harder, goodGuy, E.newState());
+})());
 check("every side-roads cluster has a default (a soul that walked other roads still gets a years-after line)", (() => {
-  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms"].every(id => {
+  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms", "epi_sq_harder"].every(id => {
     const node = epiChron.nodes.find(n => n.id === id);
     return node && node.variants && node.variants.some(v => !v.when) &&
       E.pickVariantText(node, goodGuy, E.newState()).length > 0;

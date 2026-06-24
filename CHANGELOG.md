@@ -11,6 +11,29 @@
 
 ---
 
+## 👑 v6.9.0 — *"The Harder Roads"* — payoff pass completed: the chronicler now reads all 18 structures (content)
+
+> A cohesion pass. The side-roads payoff (v6.3.0) covered the first batch of structures; four more shipped since
+> (the Connoisseur, the Custody, the Long Walk, the Moot). Now the epilogue Chronicler reads *all eighteen* — a
+> fourth **harder roads** cluster pays off the newest, so nothing built is left out of the years-after.
+- 📖 **A fourth Chronicler cluster — *the harder roads*** — reactive to the four newest structures:
+  - **The Connoisseur** (`pd.the_fire_plan`): the soul-eater *cooked in the suffering he spent three centuries
+    making, by the souls he thought too scattered to count* — not redeemed, *stopped*; the Half-Taken walks free,
+    too loved to swallow. Filed under *justice — the cold kind.*
+  - **The Custody** (`cu.child_freed`): Wren freed — neither tethered nor stored — having said a real goodbye and
+    passed her promise to the Returned; Sefa grieves *clean* now; and the Factor *filed it under the column it had
+    never once been able to use: released. It wept.*
+  - **The Moot** (`mt.carry_is_key`): the century deadlock dissolved — the low fields drained and farmed, the deep
+    village left flooded, a new cairn at the waterline (*farm above, not below*); the living's children fed, Wend's
+    babies undisturbed, and young Sprat freed at last to walk the good door.
+  - **The Long Walk** (`pl.arrived_goes_in`): Old Ferd took the last step; the whole creed re-aimed to *arrive useful,
+    not proud*, and Tamsin keeps the halfway for every frozen pilgrim after.
+- 🕯️ A graceful **default** as ever, for a run that walked other ways.
+- 🧪 **+1 gate** (now **1,155 checks**, all green). **The years-after now pays off every one of the 18 side-structures
+  built this run** — the side-content lands in the ending, complete.
+
+---
+
 ## 👑 v6.8.0 — *"The Moot of the Drowned"* — a thirty-fifth zone: a collective-decision structure (content)
 
 > An eighteenth structure — a **moot**, a crowd to sway rather than a single soul, and a genuine living-vs-dead
