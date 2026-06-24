@@ -1535,6 +1535,29 @@ check("the arrived soul is trapped by its own success (finishing un-makes the pi
 check("each Long-Walk soul carries a [RETURNED] line + a Returned-sense", [plStart, plDoubt, plArr].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-fifth zone: the Moot of the Drowned — a collective-decision structure (break a century deadlock) ----
+const MT = SCENES && SCENES.moot;
+check("a thirty-fifth zone (the Moot of the Drowned) ships — a moot/collective-decision structure", MT && MT.npcs.length >= 3);
+check("the moot is reached down from the Underbridge (the drowned village)", (SCENES.underbridge.exits || []).some(x => x.to === "moot"));
+const mtKeeper = CONVS.find(c => c.id === "mt.keeper");
+const mtElder = CONVS.find(c => c.id === "mt.elder");
+const mtYoung = CONVS.find(c => c.id === "mt.young");
+check("the moot's three voices are present (the neutral keeper, the keep-it-drowned elder, the drain-it young)", mtKeeper && mtElder && mtYoung);
+check("it's a real living-vs-dead conflict where BOTH sides are right (the dead's rest vs the living's bread)", mtKeeper.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "mt.knows_both_right")));
+check("the deadlock is really grief and escape wearing water as a mask — and the keeper points you under the water", mtKeeper.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "mt.knows_wend_children")) && mtKeeper.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "mt.knows_sprat_wants_out")));
+check("the elder's true fear (three small graves) unlocks only once the keeper reveals it — real moot logic", (() => {
+  const c = mtElder.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "elder_children");
+  const known = E.newState(); known.bools["mt.knows_wend_children"] = true;
+  return c && c.when && E.choiceAvailable(goodGuy, known, c, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), c, MODEL) === false;
+})());
+check("the [RETURNED] can carry the living's true need and the dead's true fear across — dissolving the tie, not breaking it", mtKeeper.nodes.find(n => n.id === "keep_carry") &&
+  mtKeeper.nodes.find(n => n.id === "keep_carry").effects.some(e => e.key === "mt.carry_is_key"));
+check("each Moot soul carries a [RETURNED] line + a Returned-sense", [mtKeeper, mtElder, mtYoung].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
 const epiChron = CONVS.find(c => c.id === "epi.chronicler");
 check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&

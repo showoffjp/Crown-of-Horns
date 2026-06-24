@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v6.8.0 — *"The Moot of the Drowned"* — a thirty-fifth zone: a collective-decision structure (content)
+
+> An eighteenth structure — a **moot**, a crowd to sway rather than a single soul, and a genuine living-vs-dead
+> conflict where *both sides are right.* A flooded village's dead have been deadlocked for a century: the living
+> above the water want to drain the flood and reclaim the rich bottomland their children go thin without; draining it
+> exposes the drowned village — the resting dead — to the sun and the plough.
+- ⚖️ **A thirty-fifth zone — the Moot of the Drowned** (down from the Underbridge). Three voices: **the Tide-Reader**
+  (the neutral keeper who calls the question and counts the even vote, year after year), **Old Mother Wend** (who
+  votes to keep it drowned — the dead's rest), and **Sprat** (who votes to drain it — the living's bread).
+- 🎭 **A real deadlock, honestly built.** The keeper lays out that it's *not good against evil* — the dead's rest
+  against the living's bread, neither worth less, the tide bringing them up *even* every moot. Both rulings are
+  defensible. But the keeper, sworn to neutrality, names what it has never dared say to the circle: *a moot held even
+  for a century is not one that can't decide — it's one that doesn't want to,* because both sides are arguing the
+  water and meaning something else.
+- 🌊 **The thing under the water.** Wend isn't guarding the dead's rest — she's guarding *three small graves* (Bett,
+  Corin, little Max who was two) from the sun, and can't bear the light to find her children. Sprat doesn't care about
+  the turnips — he drowned at fourteen, cheated of a life, and wants *permission to move on*; the flood is the chain
+  binding the whole circle. Each votes its secret heart and calls it a vote about a field — and neither, in a century,
+  has once asked the other what they're holding.
+- 🌉 **The [RETURNED] dissolves the tie instead of breaking it.** You can cross — carry the living's *true* need (not
+  all the land, not the graves, perhaps just the upper fields) down, and the dead's *true* fear (not "no change ever"
+  but "don't let the sun touch the children's graves") up — replacing a century of guesses with what the other side
+  actually says. (The elder's and the young one's true-fear beats are gated on the keeper first revealing what lies
+  under the water — real moot logic.)
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,154 checks**, all green). **35 zones, 120 souls** —
+  eighteen structures, and the player has now mediated not just a soul but *a hundred-year political deadlock.*
+
+---
+
 ## 👑 v6.7.0 — *"The Long Walk"* — a thirty-fourth zone: a pilgrimage (a road of stations) (content)
 
 > A seventeenth structure, and a *moving* one — a road, not a room. The souls who refuse to be ferried to the Court
