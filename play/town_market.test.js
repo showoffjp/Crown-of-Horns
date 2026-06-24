@@ -1624,6 +1624,32 @@ check("every side-roads cluster has a default (a soul that walked other roads st
   });
 })());
 
+// ---- thirty-seventh zone: the House That Remembers — a sentient-building structure (a soul that became its house) ----
+const HO = SCENES && SCENES.house;
+check("a thirty-seventh zone (the House That Remembers) ships — a sentient-building structure", HO && HO.npcs.length >= 3);
+check("the house is reached down the lane off the Weeping House", (SCENES.weeping.exits || []).some(x => x.to === "house"));
+const hoHouse = CONVS.find(c => c.id === "ho.house");
+const hoKeeper = CONVS.find(c => c.id === "ho.keeper");
+const hoWick = CONVS.find(c => c.id === "ho.newcomer");
+check("the three souls are present (the house itself, the keeper who loved its maker, the child who could inherit it)", hoHouse && hoKeeper && hoWick);
+check("the house thinks it IS the walls — and the [RETURNED] reframe is the saga's thesis: it's the love lived in it, not the timber", (() => {
+  const truth = hoHouse.nodes.find(n => n.id === "house_truth");
+  return hoHouse.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "house_truth") &&
+    truth && truth.effects.some(e => e.key === "ho.house_understands") && truth.effects.some(e => e.key === "ho.house_freed");
+})());
+check("Bessa's grief hides a forty-year love, and the [RETURNED] offers a third way: the house can STAY and stop being afraid", (() => {
+  const third = hoKeeper.nodes.find(n => n.id === "keep_third");
+  return hoKeeper.nodes.some(n => (n.effects || []).some(e => e.key === "ho.keeper_loved_coll")) &&
+    third && third.effects.some(e => e.key === "ho.keeper_third_way");
+})());
+check("the living child is the keystone — loving the house as a friend, she could inherit it rather than end it", (() => {
+  const carry = hoWick.nodes.find(n => n.id === "wick_carry");
+  return hoKeeper.nodes.some(n => (n.effects || []).some(e => e.key === "ho.child_could_save")) &&
+    carry && carry.effects.some(e => e.key === "ho.carries_wick_love");
+})());
+check("each House soul carries a [RETURNED] line + a Returned-sense", [hoHouse, hoKeeper, hoWick].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

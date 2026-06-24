@@ -17,7 +17,8 @@
       { "type": "barrel", "x": 0, "y": 6 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 1, "y": 7 }, "label": "◂ back out into the Lamplit Quarter" }
+      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 1, "y": 7 }, "label": "◂ back out into the Lamplit Quarter" },
+      { "x": 9, "y": 7, "to": "house", "dest": { "x": 5, "y": 7 }, "label": "▸ down the lane to the old house being renovated — The House That Remembers" }
     ],
     "npcs": [
       { "id": "matron", "name": "the Lady of the House", "title": "waiting, and will not stop", "x": 5, "y": 3, "hue": 280, "sigil": "L", "conv": "wh.matron",

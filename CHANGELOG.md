@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v6.11.0 — *"The House That Remembers"* — a thirty-seventh zone: a sentient building (a soul that became its house) (content)
+
+> A twentieth structure, and a player-role no zone has held: you don't free a soul, judge a dispute, or build a
+> thing — you **un-frighten a house.** A carpenter named **Coll** loved his home so fiercely that when he died he did
+> not move on but *poured himself into the timber and became the walls* — and now the new family is renovating him
+> room by room, and because he is certain he *is* the timber, every changed board feels like a death.
+- 🏚️ **A thirty-seventh zone — the House That Remembers** (down the lane off the Weeping House). Three loves tangled
+  in one set of walls: **the House** itself (Coll, who became what he built); **Old Bessa**, the housekeeper who kept
+  it forty living years and forty dead ones more, and who alone can hear what the walls are trying to say; and
+  **little Wick**, a living five-year-old who half-hears the house's grief and has decided, with a child's whole
+  heart, to be its friend.
+- 🔨 **The thesis as carpentry.** The house grieves the *wrong thing* — it thinks it's the boards, so the sanding of
+  the children's height-marks off the doorframe feels like being un-made. A **[RETURNED]** names the secret a soul who
+  died and came back would know: *you were never the walls.* A house is the **love lived in it**, not the timber — and
+  a life that *happened* cannot be sanded off. New paint, new family, new years only **add** to the vessel; a vessel
+  doesn't die when new wine is poured in, *it fills.* The house isn't being un-made. It's being **deepened.**
+- 💔 **Bessa's mercy hides a forty-year love.** She means to help the house "let go and move on" — until she's asked
+  whether that's what *it* wants or what *she* needs, and admits she'd help a friend die to free herself from a love
+  she was too afraid to live. The **[RETURNED]** offers a third way: the house doesn't have to *leave* — it can
+  **stay**, stop being afraid, and let her finally say her forty-year part.
+- 🕯️ **The child is the keystone.** Wick loves the house the way Coll did — not as good bones but as a *friend* — and
+  the frightened house has been banging her shutters to drive her off. But she means to grow up on that doorframe, new
+  height-marks every year: the house isn't being un-made, it's being **inherited**, and an inherited house never dies.
+  The **[RETURNED]** carries her love into the cold so the house can *feel* it.
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,169 checks**, all green). **37 zones, 126 souls** —
+  twenty structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder, and the
+  one soul who can tell a terrified house it was never the walls.
+
+---
+
 ## 👑 v6.10.0 — *"The Cairn That Won't Stand"* — a thirty-sixth zone: a construction (build a beacon of true names) (content)
 
 > A nineteenth structure, and a fresh *activity* — you don't free a soul or judge a dispute, you help **build**
