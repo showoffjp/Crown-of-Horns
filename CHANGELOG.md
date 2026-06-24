@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v5.1.0 — *"The Deep Archive"* — a twentieth zone: a heist (steal the master ledger of the Faithless) (content)
+
+> Another structure the saga hadn't done: a **heist** — crew, obstacle, score. Down a darker stair from the
+> Counting-House sleeps the **Great Tally**, the Choir's master ledger of *every* Faithless soul promised to the
+> Wall — ten thousand names in one black book. It's in an *unlocked* room, because the Choir never dreamed a soul
+> would be fool enough to *want* it. You are exactly that fool.
+
+- 🦅 **A twentieth zone — the Deep Archive** (off the Counting-House; built from the existing prop vocabulary). The
+  three pieces of a heist: a **crew** (the Sparrow, a professional thief already inside), an **obstacle** (Brother
+  Codex, the soft night-watch), and the **score** (the Great Tally itself).
+- 🃏 **The Sparrow — a partner-or-rival fork.** A second-storey soul who took the job for the coin and didn't think
+  about the cargo. Partner her (she fully intends to cross you — and knows you know — so it's an *honest*
+  partnership), read her with **Insight** and drop the dance, or — the best beat — let the Returned tell her *what*
+  she's actually stealing (ten thousand people, a slaver's manifest), and watch a thief with one unbreakable rule
+  *turn herself* off the job.
+- 🚪 **The night-watch — a four-approach obstacle**, each with its own skill and fork: **Deception** (pose as the
+  Canon's auditor — lands *harder* if you cracked Mereth upstairs, since the gossip of her crisis is real; nat-20
+  has Codex *helping you carry the book out with airtight paperwork*; nat-1 has you call the Canon the wrong name),
+  **Stealth** (slip past; nat-20 plants a draught to walk him the wrong way), a **[RETURNED]** turn (he's another
+  unbought clerk like Pell — make him the man who *guarded the door by failing to*), or **Intimidation** (cow him,
+  or panic him into ringing the alarm).
+- 📕 **The score is a genuine choice with genuine trade-offs:** **burn** the book (frees all at once — but a list is
+  also a *tether*, and the frailest, most un-witnessed souls *scatter* with no anchor); carry it to **Jergal** to be
+  audited empty name by name (saves them *whole* — gated on having met the dust at the crossroads); **cut out Venn's
+  forged founding page** so the whole ledger rests on no lawful authority (gated on confirming the fraud — the
+  Sparrow's favourite, a one-page score that makes ten thousand worthless); a **[RETURNED]** option to *consult the
+  ten thousand souls themselves* (they choose the patient mercy, the strong electing it for the frail); or grab-and-run
+  if the alarm's already up. The Sparrow reacts to each.
+- 👁️ **Three new Returned-senses**, including drowning in the book's *ten thousand held breaths.*
+- 🧪 **+12 gates** (now **1,016 checks**, all green). **20 zones, 70 souls** — and the saga's three new structures
+  (god's bargain, courtroom, heist) all interlock through the one black book.
+
+---
+
 ## 👑 v5.0.0 — *"The Bone Scrivener"* — a nineteenth zone: a god's bargain (and the 1,000-check milestone) (content)
 
 > A whole new *structure* — the **god's bargain** — and a reach deep into Realms lore for the broker. Off a dusty

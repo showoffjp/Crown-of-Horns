@@ -1086,6 +1086,47 @@ check("refusing the bargain is its own honest path — and teaches the way to em
 check("each Scrivener soul carries a [RETURNED] line + a Returned-sense", [jergal, petitioner, wisp].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twentieth zone: the Deep Archive — a heist structure (steal the master ledger of the Faithless) ----
+const ARC = SCENES && SCENES.archive;
+check("a twentieth zone (the Deep Archive) ships as a heist set-piece", ARC && ARC.npcs.length >= 3);
+check("the Archive is reached by a darker stair from the Counting-House", (SCENES.counthouse.exits || []).some(x => x.to === "archive"));
+const sparrow = CONVS.find(c => c.id === "hs.sparrow");
+const codex = CONVS.find(c => c.id === "hs.archivist");
+const tally = CONVS.find(c => c.id === "hs.tally");
+check("the heist's three pieces are present (the crew/thief, the obstacle/watch, the score/ledger)", sparrow && codex && tally);
+check("the inside thief (the Sparrow) offers a partner-or-rival fork, and can be turned off the slaver's job", sparrow &&
+  sparrow.nodes.some(n => (n.effects || []).some(e => e.key === "hs.partnered")) &&
+  sparrow.nodes.some(n => (n.effects || []).some(e => e.key === "hs.sparrow_allied")));
+const codexMenu = codex.nodes.find(n => n.id === "1");
+check("the night-watch is a multi-approach obstacle — bluff, slip past, turn, or cow (each with skill + fork)", codexMenu &&
+  codexMenu.choices.some(ch => (ch.check || {}).skill === "Deception" && ch.crit && ch.fumble) &&
+  codexMenu.choices.some(ch => (ch.check || {}).skill === "Stealth") &&
+  codexMenu.choices.some(ch => (ch.check || {}).skill === "Intimidation") &&
+  codexMenu.choices.some(ch => ch.tag === "returned"));
+check("the Deception bluff lands harder once you've cracked the Canon upstairs (the gossip is real)", (() => {
+  const v = codex.nodes.find(n => n.id === "0").variants;
+  return v.some(x => x.when && (x.when.flags || []).indexOf("ch.mereth_cracked") >= 0);
+})());
+const tallyMenu = tally.nodes.find(n => n.id === "1");
+const bypassed = E.newState(); bypassed.bools["hs.archivist_bypassed"] = true;
+check("the score is a real choice — burn it, deliver it to Jergal, or cut out the forged founding page",
+  tally.nodes.find(n => n.id === "tally_burn") && tally.nodes.find(n => n.id === "tally_burn").effects.some(e => e.key === "hs.list_destroyed") &&
+  tally.nodes.find(n => n.id === "tally_jergal") && tally.nodes.find(n => n.id === "tally_jergal").effects.some(e => e.key === "hs.jergal_gets_book") &&
+  tally.nodes.find(n => n.id === "tally_venn") && tally.nodes.find(n => n.id === "tally_venn").effects.some(e => e.key === "hs.law_unmade"));
+check("burning frees all but scatters the frail; delivering to Jergal saves them whole (a real trade-off)",
+  tally.nodes.find(n => n.id === "tally_burn").effects.some(e => e.key === "hs.frail_scattered") &&
+  tally.nodes.find(n => n.id === "tally_jergal").effects.some(e => e.key === "hs.tally_safe"));
+const jergalScore = tallyMenu.choices.find(ch => ch.next === "tally_jergal");
+check("the safe-delivery option only opens if you've actually met Jergal at the crossroads", jergalScore && jergalScore.when &&
+  (jergalScore.when.flags || []).indexOf("sc.met_jergal") >= 0);
+const vennScore = tallyMenu.choices.find(ch => ch.next === "tally_venn");
+check("the elegant page-cut option only opens if you confirmed the forged Concord", vennScore && vennScore.when &&
+  (vennScore.when.flags || []).indexOf("ch.venn_confirmed") >= 0);
+check("a [RETURNED] score lets you consult the ten thousand souls themselves before choosing", tallyMenu.choices.some(ch =>
+  ch.tag === "returned" && tally.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "hs.souls_consented")));
+check("each Deep-Archive soul carries a [RETURNED] line + a Returned-sense", [sparrow, codex, tally].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
