@@ -1058,6 +1058,34 @@ check("the reeve's acquittal is gated on the prosecution collapsing first (a rea
 check("each Reckoning-Court soul carries a [RETURNED] line + a Returned-sense", [annet, sevard, reeve].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- nineteenth zone: the Bone Scrivener — a god's-bargain structure (Jergal, the First Lord of the Dead) ----
+const SCR = SCENES && SCENES.scrivener;
+check("a nineteenth zone (the Bone Scrivener) ships as a god's-bargain set-piece", SCR && SCR.npcs.length >= 3);
+check("the Scrivener keeps a desk off the Grey Wayshrine (a dusty side-path)", (SCENES.wayshrine.exits || []).some(x => x.to === "scrivener"));
+const jergal = CONVS.find(c => c.id === "sc.jergal");
+const petitioner = CONVS.find(c => c.id === "sc.petitioner");
+const wisp = CONVS.find(c => c.id === "sc.nameless");
+check("the bargain's three souls are present (the broker, the one deciding, the one who paid)", jergal && petitioner && wisp);
+check("Jergal is the First Lord of the Dead — Kelemvor's predecessor, who resigned the office to tedium", jergal &&
+  /First Lord|Jergal|before your .?Kelemvor|gave the whole|resign/i.test(JSON.stringify(jergal.nodes)));
+const bargainMenu = jergal.nodes.find(n => n.id === "2");
+check("the bargain offers three coins of self — a year, a memory, or a name — each striking a soul off the Wall", bargainMenu &&
+  bargainMenu.choices.some(ch => /year/i.test(ch.text)) && bargainMenu.choices.some(ch => /memory/i.test(ch.text)) &&
+  bargainMenu.choices.some(ch => ch.tag === "returned" && /name/i.test(ch.text)) &&
+  ["jergal_pay_year", "jergal_pay_memory", "jergal_pay_name"].every(id => jergal.nodes.find(n => n.id === id && (n.effects || []).some(e => e.key === "sc.faithless_saved"))));
+// the clever path: pay nothing by outwitting the ledger — but only once you've learned the book owes you
+const outwit = bargainMenu.choices.find(ch => (ch.check || {}).skill === "Persuasion");
+const owedState = E.newState(); owedState.bools["sc.knows_owed"] = true;
+check("an outwit path (assign the debt the cosmos already owes you) unlocks only after learning the ledger sums to zero", outwit &&
+  outwit.crit && outwit.fumble &&
+  E.choiceAvailable(goodGuy, owedState, outwit, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), outwit, MODEL) === false);
+check("the nat-20 outwit escalates to emptying the Wall itself (the structure's biggest swing)", jergal.nodes.find(n => n.id === "jergal_outwit_crit") &&
+  jergal.nodes.find(n => n.id === "jergal_outwit_crit").effects.some(e => e.key === "sc.jergal_audits_wall"));
+check("refusing the bargain is its own honest path — and teaches the way to empty the book at the throne", jergal.nodes.find(n => n.id === "jergal_refuse") &&
+  jergal.nodes.find(n => n.id === "jergal_refuse").effects.some(e => e.key === "sc.knows_empty_the_book"));
+check("each Scrivener soul carries a [RETURNED] line + a Returned-sense", [jergal, petitioner, wisp].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

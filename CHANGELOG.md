@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v5.0.0 — *"The Bone Scrivener"* — a nineteenth zone: a god's bargain (and the 1,000-check milestone) (content)
+
+> A whole new *structure* — the **god's bargain** — and a reach deep into Realms lore for the broker. Off a dusty
+> side-path from the Grey Wayshrine sits **Jergal**, the *First Lord of the Dead*: the being who held Kelemvor's
+> office aeons before him, invented the very idea of a ledger of souls, and then grew so *bored* across eternity
+> that he handed the whole grim portfolio to three hungry mortals and took a clerk's desk. He wants nothing, fears
+> nothing, lacks nothing — which makes him the one honest broker on the causeway, and his bargains the most
+> dangerous kind: *fair.*
+
+- ✶ **A nineteenth zone — the Bone Scrivener** (off the Wayshrine; built from the existing prop vocabulary). Three
+  souls: the **broker** (Jergal), the **one deciding** (Goodman Harl, a father wavering over the price to save his
+  godless daughter), and the **one who already paid** (a nameless wisp who gave up its own name to strike a child
+  off the Wall, drifting un-grieving into the quiet).
+- ⚖️ **The bargain itself — a structure, not a switch.** Jergal can *un-write* a soul from the Wall's rolls
+  entirely — not crack it, *erase* it — but the book must sum to zero, so the credit is a piece of yourself, paid
+  in a currency the ledger accepts: a **year** of your life (from the grey far end you'd never notice), a **memory**
+  (the warmest you own — heavier, so it balances a whole soul), or the heaviest coin, a **name** (a [RETURNED]
+  beat: your *own*, the one the harvest already half-took — finishing the Wall's theft yourself to rob it of the
+  finishing). Each strikes a Faithless soul truly free.
+- 🧮 **The clever path: out-account the inventor of accounting.** Learn that the ledger sums to zero and that *you*
+  are a credit spent and returned — money the universe owes itself — and a **Persuasion** check lets you *assign*
+  that standing debt instead of paying a new coin, striking the soul free for nothing but wit (gated on having
+  learned the ledger-law; nat-20/nat-1). The **nat-20** escalates to the structure's biggest swing: the Wall is
+  revealed as a *vault of uncollected debts*, and a delighted Jergal sets out to spend his eternity of tedium
+  gleefully **auditing the whole thing empty.**
+- 🚪 **Refusing is its own honest path** — name the bargain as the Wall's arithmetic in a politer robe, and Jergal
+  (who'd *like* to be put out of work) tells you the real answer: don't buy souls off one year at a time, **empty
+  the book of the lie at the throne.**
+- 👁️ **Three new Returned-senses**, including reading a *god who set itself down* — tedium worn into bedrock, the
+  one being with no angle at all.
+- 🧪 **+11 gates** — and the headless suite crosses **1,004 checks**, all green. **19 zones, 67 souls.**
+
+---
+
 ## 👑 v4.99.0 — *"Annet, Years On"* — the Reckoning Court pays off in the epilogue (content)
 
 > A side quest deserves a coda. Spare Goodwife Annet at the trial and, in **"Some Years After,"** you find her old
