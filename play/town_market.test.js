@@ -948,6 +948,40 @@ check("the monster offers a force fork (intimidate) with nat-20/nat-1, distinct 
 check("each Cistern soul carries a [RETURNED] line", [gnaw, berinC, CONVS.find(c => c.id === "ci.sedge")].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 
+// ---- seventeenth zone: the Mapmaker's Wagon — a recruitable third companion + a moral fork ----
+const CART = SCENES && SCENES.cartographer;
+check("a seventeenth zone (the Mapmaker's Wagon) ships as a companion vignette", CART && CART.npcs.length >= 3);
+check("the Wagon is reachable off the Hearth (a lantern off the road)", (SCENES.hearth.exits || []).some(x => x.to === "cartographer"));
+const sennetC = CONVS.find(c => c.id === "cg.sennet");
+const tibbC = CONVS.find(c => c.id === "cg.tibb");
+const vaelC = CONVS.find(c => c.id === "cg.vael");
+check("the wagon's three souls are present (the dying mapmaker, the worried apprentice, the patient buyer)", sennetC && tibbC && vaelC);
+const sennetMenu = sennetC.nodes.find(n => n.id === "1");
+const recruitOpt = sennetMenu.choices.find(ch => ch.tag === "returned");
+check("the Returned can offer to walk the deep country for Sennet — a [RETURNED]-tagged recruit path", !!recruitOpt);
+const recruitNode = sennetC.nodes.find(n => n.id === recruitOpt.next);
+check("recruiting Sennet sets party.sennet_recruited and saves their life (cg.sennet_lives)", recruitNode &&
+  recruitNode.effects.some(e => e.key === "party.sennet_recruited") && recruitNode.effects.some(e => e.key === "cg.sennet_lives"));
+check("a Persuasion hire offers a second recruit path with nat-20/nat-1 forks", sennetMenu.choices.some(ch =>
+  (ch.check || {}).skill === "Persuasion" && ch.crit && ch.fumble));
+const sennetCost = sennetMenu.choices.find(ch => (ch.check || {}).skill === "Insight" && ch.when && (ch.when.flags || []).indexOf("cg.sennet_dying") >= 0);
+const dyingKnown = E.newState(); dyingKnown.bools["cg.sennet_dying"] = true;
+check("the cutting Insight at Sennet is flag-gated — it only opens once you've learned they're dying", sennetCost &&
+  E.matchesWhen(goodGuy, dyingKnown, sennetCost.when) === true && E.matchesWhen(goodGuy, E.newState(), sennetCost.when) === false);
+check("Tibb is the one who surfaces the clue (cg.sennet_dying), the apprentice's burden", tibbC.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cg.sennet_dying")));
+const vaelMenu = vaelC.nodes.find(n => n.id === "1");
+check("Goodman Vael can be routed (Intimidation nat-20 redeems the grieving widower) or dug in — a real fork", (() => {
+  const intim = vaelMenu.choices.find(ch => (ch.check || {}).skill === "Intimidation");
+  const routed = intim && vaelC.nodes.find(n => n.id === intim.crit);
+  return intim && routed && routed.effects.some(e => e.key === "cg.vael_redeemed");
+})());
+check("Vael's secret (a widower buying a door to his dead wife) is reachable by Insight DC 15", vaelMenu.choices.some(ch =>
+  (ch.check || {}).skill === "Insight" && (ch.check || {}).dc >= 15) &&
+  vaelC.nodes.some(n => (n.effects || []).some(e => e.key === "cg.vael_grief")));
+check("each Wagon soul carries a [RETURNED] line", [sennetC, tibbC, vaelC].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

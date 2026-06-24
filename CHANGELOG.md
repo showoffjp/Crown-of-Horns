@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v4.94.0 — *"The Mapmaker's Wagon"* — a seventeenth zone: a recruitable third companion + a grief-redemption fork (content)
+
+> Back to what matters most — story. A new zone off the Hearth road that does two things at once: it gives the
+> party a **third companion** with a premise no other CRPG has (a cartographer who *surveys the afterlife*), and
+> it hangs a complete moral fork off a single quiet antagonist — a patient buyer who turns out to be a grieving
+> widower. The recruit only works *because of who you are*: a Returned is the one soul who can walk the blank
+> middle of a map of the dead and come back to report the bearings.
+
+- 🗺️ **A seventeenth zone — the Mapmaker's Wagon.** A lantern off the Hearth road; built from the existing prop
+  vocabulary plus one new hand-drawn **covered wagon** (canvas sewn from map-margins, a chart spilling off the
+  tailboard). Three souls: **Sennet**, **Tibb**, **Goodman Vael**.
+- 🧭 **Sennet, Cartographer of the Dead — a third recruitable companion.** They are drawing the first *true* atlas
+  of the afterlife — survey-grade, taken by standing too close to death and *measuring* — and it is killing them
+  a lost year of warmth at a time. Because the **Returned** goes *in* and comes *out*, you can offer to be the
+  surveyor where no living foot can go: recruit them (sets `party.sennet_recruited` + `cg.sennet_lives` + the
+  `cg.atlas_quest`), and finish their life's work without it finishing them. A second **Persuasion** hire-path
+  carries nat-20/nat-1 forks (the crit puts your *name on the title cartouche*; the fumble calls it "death-doodles"
+  and wounds them).
+- 🕯️ **Tibb, the apprentice, worried sick** — surfaces the cost: an **Insight** read (or the Returned's own
+  kinship) reveals Sennet is *dying* (`cg.sennet_dying`), which unlocks the cutting clue-gated Insight at Sennet.
+- 🤝 **Goodman Vael — a grief-redemption fork.** A patient buyer who wants the *working* door-map, not a
+  comfort-copy. Only the Returned (or an Insight DC 15) sees the truth: a **widower** chasing a door to his dead
+  wife. **Intimidate** him and a **nat-20 routs him** by naming the one thing his patience can't outlast — *she'd
+  have hated it* (`cg.vael_redeemed`, a mercy remembered); a nat-1 or a flat threat only digs him in. The Returned
+  can also warn him, soul-to-soul, that the doors lead only to the cold.
+- 🎭 Full deep stack as ever: reactive openings (on `court.met_kelemvor` / `lt.wall_stirs` / godless / Choir-friend),
+  the **Returned-sense** on all three souls, a [RETURNED] line apiece, dispositions, and approval/regard axes.
+- 🧪 **+11 gates** (now **977 checks**, all green): the zone is keyed/reachable/collision-clean, both recruit paths
+  set the party flag, the dying-clue gates the Insight, Vael's redeem/dig-in fork carries nat-20/nat-1, and his
+  secret is reachable. **17 zones, 57 souls** — and the party has a third chair at the fire.
+
+---
+
 ## 👑 v4.93.0 — *"The Old Cistern"* — a sixteenth zone: a monster-with-a-reason side quest (redeem or destroy) (content)
 
 > Another self-contained side quest, another fresh structure: the Planescape move — the *monster you can redeem
