@@ -31,6 +31,7 @@ EPILOGUE = json.load(open(os.path.join(ROOT, "play", "epilogue.json"), encoding=
 WEEPING = json.load(open(os.path.join(ROOT, "play", "weepinghouse.json"), encoding="utf-8"))
 CISTERN = json.load(open(os.path.join(ROOT, "play", "cistern.json"), encoding="utf-8"))
 CARTOGRAPHER = json.load(open(os.path.join(ROOT, "play", "cartographer.json"), encoding="utf-8"))
+TRIAL = json.load(open(os.path.join(ROOT, "play", "trial.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -173,6 +174,9 @@ NPC_SENSE = {
     "ci.sedge": {"dc": 10, "text": "*(You reach for the washerwoman and find a soul being eaten alive from the inside — not by the cistern-thing directly, but by the particular horror it deals: she is losing the people she loves and cannot even grieve them, because the grief needs a face and a name to attach to, and those are exactly what the thing takes. Your sense reads the gap where a child used to be — a little dress she folds and weeps over and cannot place — and understands that this is the Hunger's truest cruelty, the one the Wall itself practises: it does not just take the dead, it takes the *missing*, so the living are left aching at a hole with nothing on the other end of it.)*"},
     "ci.berin": {"dc": 12, "text": "*(Your sense settles on the old man and finds, against all the thinning around him, a memory like a struck flint — hard, bright, and held by sheer furious will. He is the one soul the cistern-thing cannot file down, and your sense reads exactly why: he holds the forgotten one's name not out of love but out of *shame*, and shame is the one kind of remembering that will not let go. He passed a pauper-sweep every dawn for thirty years and never learned her name until the day she froze unmourned — and now he carries it like a stone, the last witness on a whole row that chose to forget, exhausting himself nightly to keep one name out of the nothing.)*"},
     "ci.gnaw": {"dc": 8, "text": "*(You do not so much reach for it as *recognize* it — because you have felt this exact cold at the Wall, and this is a single crumb of it, broken off and crawled up a well. Your dead-touched sense reads the thing past its hunger: it is not a monster and was never born one. It is a person — a pauper named Nettie, though she has forgotten it — forgotten so completely, by a whole row, for so long, that she curdled into a fragment of the Hunger and learned to do to others what was done to her. There is no malice in it. There is only a starvation so total it has eaten even the memory of having been full. And under the appetite, flinching from the names you carry, there is still — barely — a who, waiting to be looked at.)*"},
+    "tr.annet": {"dc": 9, "text": "*(You turn your dead-touched sense on the woman in the dock and find — against the grey cold of this whole buried room — a soul so *warm* it is almost an affront to the place: forty years of catching the living have left her lit from within, each child she ever pulled into the light a small steady coal banked in her, none of them gone out. Your sense reads no fear of death in her at all; she made that peace long ago. What it reads instead is the Wall's particular obscenity, sharpened to a point: she is the *most witnessed soul in this building* — half the Quarter would weep to know she's here — and the Concord means to feed precisely *her* to the nothing, because the one thing she lacks is the one thing it counts. She is not Faithless. She is faith itself, kept with people instead of Powers. Mortaring her would not strengthen the seawall. It would be the sea devouring the lighthouse.)*"},
+    "tr.measurer": {"dc": 13, "text": "*(You reach for the grey prosecutor and find, behind the unhurried certainty, a soul like a clean-swept room with one locked door. He is not cruel — your sense finds no appetite for the Wall in him, none of Tallow's hollowing or Vharn's bricked-up dread. He is something rarer and sadder: a *thorough* man, who reads the deeds before the indictment because thoroughness is the one virtue he has, and who has therefore *known*, in precise detail, the goodness of every soul he has helped wall — and filed that knowledge behind the locked door so he can keep reading the line. Your sense reads what is behind the door: eleven years of midwives and ferrymen and herb-wives, each one read and understood and condemned, stacked like ledgers in a man who cannot stop being thorough and cannot bear what his thoroughness has shown him. He is one good argument away from opening that door himself. He has been waiting, without knowing it, for someone to make him.)*"},
+    "tr.reeve": {"dc": 11, "text": "*(You turn your sense on the old man above the scale and read a soul worn to a grey nub by the cheapest transaction in the Realms: a trained magistrate's conscience, sold for a warm room and a fed old age, six words a night. There is no cruelty in him and never was — only a slow, twenty-year drowning of the man he used to be under the weight of his own comfort. Your sense finds, buried deep and still faintly warm, the magistrate they hired him to impersonate: a soul that once weighed evidence and mitigation and doubt, walled up alive behind a pension exactly as surely as the Faithless are walled behind the Concord. He is not bought past redeeming. He is bought *cheaply* — which means a brave enough word, tonight, could cost less than he fears to buy the old jurist back. He is praying, in a voice he won't let himself hear, for a reason to be braver than his warm room.)*"},
     "cg.sennet": {"dc": 13, "text": "*(You reach for the mapmaker and your dead-touched sense recoils from how much of them is already *gone over* — not the spent thimble of a Tallow, not the dissolving-edges of the Mortared, but a soul *frostbitten in the marrow*, the cold gone into the joints and the lungs and the slow chambers of the heart, a degree taken every time they stood at an edge and *measured.* They are not dying of a sickness. They are dying of *proximity*, the way a hand left too long in winter water dies — and the most terrible thing your sense reads is that they *know*, exactly, to the survey, and have simply *decided* that an un-blanked map is worth the warmth it costs. The cold in them is your cold, friend. They have been walking toward your country their whole life, a half-mile at a time, with a spyglass and a steady hand, and they are nearly *there.*)*"},
     "cg.tibb": {"dc": 10, "text": "*(You turn your sense on the apprentice and find no cold in them at all — only a great, exhausting, entirely living *love*, the particular ache of a young soul keeping a vigil it never asked for and cannot win. Your sense reads the arithmetic they carry: the count of their master's surveys, kept nightly, alone, a sum that gets smaller and that they cannot make stop. They are not afraid of the dead. They are afraid of the *morning after* — the first dawn with the ink-stone cold and no one to grind for — and they have been praying, without a god to pray to, for exactly one thing to walk up to the wagon: a soul that could finish the map *without* finishing the mapmaker. You are, your sense tells you with a small chill, the answer to a prayer the lad was too frightened to say aloud.)*"},
     "cg.vael": {"dc": 14, "text": "*(You reach for the patient buyer and your sense slides off the soft surface and falls into the *grief* underneath — vast, cold, and perfectly still, the patience of a man who has nothing left to be impatient *for.* There is no malice in him, which is the danger: only a hole exactly the shape of one person, and a will that has decided, with terrible reason, to spend everything filling it. Your sense reads the thing he will not say even to himself — that the door he means to buy does not lead to his wife, only to the cold you carry — and reads, too, the one lever that could move a man who has out-waited grief itself: not fear, not coin, but the memory of what *she* would have *wanted*, which is the single bearing his patient map of vengeance does not include.)*"},
@@ -183,7 +187,7 @@ for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
            + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
            + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
-           + CISTERN["conversations"] + CARTOGRAPHER["conversations"]):
+           + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
@@ -192,7 +196,7 @@ ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
              + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
              + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
-             + CISTERN["conversations"] + CARTOGRAPHER["conversations"])
+             + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
@@ -201,7 +205,8 @@ ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene
               NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"],
               COURT["scene"]["id"]: COURT["scene"], EPILOGUE["scene"]["id"]: EPILOGUE["scene"],
               WEEPING["scene"]["id"]: WEEPING["scene"], CISTERN["scene"]["id"]: CISTERN["scene"],
-              CARTOGRAPHER["scene"]["id"]: CARTOGRAPHER["scene"]}
+              CARTOGRAPHER["scene"]["id"]: CARTOGRAPHER["scene"],
+              TRIAL["scene"]["id"]: TRIAL["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -348,7 +353,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">sixteen walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">eighteen walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">

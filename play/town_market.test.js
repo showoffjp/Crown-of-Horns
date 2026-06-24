@@ -1013,6 +1013,40 @@ check("Vael's secret (a widower buying a door to his dead wife) is reachable by 
 check("each Wagon soul carries a [RETURNED] line", [sennetC, tibbC, vaelC].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- eighteenth zone: the Reckoning Court — a courtroom side quest (defend a soul from the Wall) ----
+const TRI = SCENES && SCENES.trial;
+check("an eighteenth zone (the Reckoning Court) ships as side content", TRI && TRI.npcs.length >= 3);
+check("the Court is reached down a stair from the Counting-House", (SCENES.counthouse.exits || []).some(x => x.to === "trial"));
+const annet = CONVS.find(c => c.id === "tr.annet");
+const sevard = CONVS.find(c => c.id === "tr.measurer");
+const reeve = CONVS.find(c => c.id === "tr.reeve");
+check("the trial's three roles are present (the accused, the prosecutor, the reeve who pronounces)", annet && sevard && reeve);
+const sevMenu = sevard.nodes.find(n => n.id === "1");
+check("the prosecution can be argued down by Persuasion or Insight, each with nat-20/nat-1", sevMenu &&
+  sevMenu.choices.some(ch => (ch.check || {}).skill === "Persuasion" && ch.crit && ch.fumble) &&
+  sevMenu.choices.some(ch => (ch.check || {}).skill === "Insight"));
+// evidence you gathered upstairs in the Counting-House climax unlocks two decisive arguments
+const trVennArg = sevMenu.choices.find(ch => ch.when && (ch.when.flags || []).indexOf("ch.venn_confirmed") >= 0);
+const trMerethArg = sevMenu.choices.find(ch => ch.when && (ch.when.flags || []).indexOf("ch.mereth_cracked") >= 0);
+const trVennState = E.newState(); trVennState.bools["ch.venn_confirmed"] = true;
+check("confirming the forged Concord (Venn) unlocks a decisive argument that voids the case", trVennArg &&
+  E.choiceAvailable(goodGuy, trVennState, trVennArg, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), trVennArg, MODEL) === false &&
+  sevard.nodes.find(n => n.id === trVennArg.next).effects.some(e => e.key === "tr.annet_spared"));
+check("cracking the High Measurer upstairs unlocks a second decisive argument (a stay)", trMerethArg &&
+  sevard.nodes.find(n => n.id === trMerethArg.next).effects.some(e => e.key === "tr.annet_spared"));
+check("only the Returned can testify to what the Wall actually does to a soul (a [RETURNED] argument)",
+  sevMenu.choices.some(ch => ch.tag === "returned") &&
+  sevard.nodes.some(n => (n.effects || []).some(e => e.key === "tr.testimony_given")));
+check("the accused can ultimately be spared — multiple paths set tr.annet_spared",
+  [sevard, reeve].some(c => c.nodes.filter(n => (n.effects || []).some(e => e.key === "tr.annet_spared")).length >= 2));
+check("the reeve's acquittal is gated on the prosecution collapsing first (a real two-step)", (() => {
+  const acquit = reeve.nodes.find(n => n.id === "1").choices.find(ch => ch.when && (ch.when.flags || []).indexOf("tr.annet_spared") >= 0);
+  const spared = E.newState(); spared.bools["tr.annet_spared"] = true;
+  return acquit && E.choiceAvailable(goodGuy, spared, acquit, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), acquit, MODEL) === false;
+})());
+check("each Reckoning-Court soul carries a [RETURNED] line + a Returned-sense", [annet, sevard, reeve].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

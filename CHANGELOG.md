@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v4.98.0 — *"The Reckoning Court"* — an eighteenth zone: a courtroom side quest (defend a soul from the Wall) (content)
+
+> A structure the saga hadn't done yet: a **trial.** The Choir holds summary *reckonings* in a cellar under the
+> Counting-House — quiet, gallery-less, a form completed in the dark — to condemn the Faithless to the Wall. Tonight
+> the accused is **Goodwife Annet**, a godless midwife who caught half the Quarter's children across forty years,
+> charged with the one-line crime of having *served no god.* You are the only gallery she gets. Be the trouble.
+
+- ⚖️ **An eighteenth zone — the Reckoning Court** (down a new stair from the Counting-House; built from the existing
+  prop vocabulary — the big scale of judgement, a dock, the prosecutor's desk, banners and braziers). Three roles:
+  the **accused**, the **prosecutor**, and the **reeve who pronounces.**
+- 🗣️ **A real trial you argue, many ways.** Against **Brother Sevard** (a *thorough* man, not a cruel one — he reads
+  the deeds before the indictment and has filed eleven years of midwives behind a locked door): **Persuasion**
+  (a tax on kindness — nat-20 turns the Wall's own theology against it: walling the *witnessed* to dam the
+  *unwitnessed* feeds the sea it's meant to hold back), **Insight** (the charge names a *state of being*, not an
+  act), **Intimidation** (a mob of grateful mothers — nat-20 threatens the one thing a clerk can't survive: a
+  *public record*), and two **evidence-gated** decisive arguments that pay off the Counting-House climax — the
+  forged founding Concord (`ch.venn_confirmed`) and the High Measurer's cracked faith (`ch.mereth_cracked`).
+- 👁️ **A [RETURNED] argument unique to you:** the only soul who ever walked back out of the Wall can give **sworn
+  testimony** to what "forfeiture" actually does — opening the closed door in the middle of the courtroom.
+- 🔨 **A two-step verdict.** Sparing Annet collapses the prosecution first (`tr.annet_spared`); only *then* does the
+  **Reeve Oddleif** acquittal unlock — and he's a magistrate who sold his conscience for a warm room and a pension,
+  whom you can move (Persuasion nat-20 makes him *count* how many of his thousand sentences were Annets) to recant
+  every pronouncement and vacate the bench. Each role has nat-20/nat-1 forks, a [RETURNED] line, and a Returned-sense.
+- 🧪 **+10 gates** (now **993 checks**, all green): the zone is keyed/reachable, the argument paths and crit/fumble
+  forks are present, the evidence gates open only with the upstairs flags, the testimony path is Returned-only, and
+  the acquittal is gated on the prosecution collapsing first. **18 zones, 63 souls.**
+
+---
+
 ## 👑 v4.97.0 — *"Sennet, Years On"* — the cartographer's arc completes in the epilogue (content)
 
 > The third companion's thread now runs the full length of the saga: recruited at the **wagon**, warmed at the
