@@ -1,167 +1,1416 @@
 {
   "scene": {
-    "id": "threshold", "name": "The Threshold of the Crown's Road",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "threshold",
+    "name": "The Threshold of the Crown's Road",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "deathdoor", "x": 5, "y": 1 },
-      { "type": "torch", "x": 2, "y": 2 },
-      { "type": "torch", "x": 8, "y": 2 },
-      { "type": "piling", "x": 1, "y": 5 },
-      { "type": "piling", "x": 9, "y": 5 },
-      { "type": "wall", "x": 0, "y": 0 },
-      { "type": "wall", "x": 10, "y": 0 },
-      { "type": "cairn", "x": 3, "y": 6 },
-      { "type": "cairn", "x": 7, "y": 6 }
+      {
+        "type": "deathdoor",
+        "x": 5,
+        "y": 1
+      },
+      {
+        "type": "torch",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "type": "torch",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "type": "piling",
+        "x": 1,
+        "y": 5
+      },
+      {
+        "type": "piling",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "wall",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 10,
+        "y": 0
+      },
+      {
+        "type": "cairn",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "cairn",
+        "x": 7,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "wayshrine", "dest": { "x": 5, "y": 1 }, "label": "◂ back down the road to the Grey Wayshrine" },
-      { "x": 5, "y": 0, "to": "court", "dest": { "x": 5, "y": 7 }, "label": "▴ through the door — the Court of the Dead" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "wayshrine",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ back down the road to the Grey Wayshrine"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "to": "court",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▴ through the door — the Court of the Dead"
+      }
     ],
     "npcs": [
-      { "id": "lastreturned", "name": "the Last Returned", "title": "you, from a future that already lost", "x": 5, "y": 3, "hue": 270, "sigil": "∞", "conv": "thr.last",
-        "hail": "*(a figure stands between you and the dark door, wearing your face — older, colder, the Wall's grey gone all the way to the bone — and it does not raise a weapon, because it knows, the way you know your own reflection, that there is nothing here to fight that isn't already you)*" },
-      { "id": "dace4", "name": "Dace Iron", "title": "still at your shoulder", "x": 3, "y": 5, "hue": 20, "sigil": "DI", "conv": "thr.dace",
-        "when": { "flag": "party.dace_recruited" },
-        "hail": "*(the sellsword has followed you to the literal edge of the world, sword drawn now, staring at the figure in your face with an expression caught between horror and a soldier's readiness to put herself between you and anything — even you)*" },
-      { "id": "orin2", "name": "Justiciar Orin", "title": "the sword that chose to learn", "x": 7, "y": 5, "hue": 210, "sigil": "JO", "conv": "thr.orin",
-        "when": { "flag": "party.orin_may_join" },
-        "hail": "*(the Justiciar stands with her blade bare and her oath in ruins behind her, looking from your face to the older copy of it, and you can see her doing the one piece of arithmetic the Doomguard never trained her for: which of two identical souls is the one she came all this way to help)*" },
-      { "id": "sennet4", "name": "Sennet", "title": "the surveyor at the edge of the map", "x": 5, "y": 5, "hue": 40, "sigil": "S", "conv": "thr.sennet",
-        "when": { "flag": "party.sennet_recruited" },
-        "hail": "*(the cartographer of the dead has followed you to the one place their living feet cannot go — the lip of the deep country they spent a lifetime charting from afar — and they stand an arm's length from the door, pen forgotten, white-knuckled, fighting with everything they have not to take the one step that would finally let them see it true)*" }
+      {
+        "id": "lastreturned",
+        "name": "the Last Returned",
+        "title": "you, from a future that already lost",
+        "x": 5,
+        "y": 3,
+        "hue": 270,
+        "sigil": "∞",
+        "conv": "thr.last",
+        "hail": "*(a figure stands between you and the dark door, wearing your face — older, colder, the Wall's grey gone all the way to the bone — and it does not raise a weapon, because it knows, the way you know your own reflection, that there is nothing here to fight that isn't already you)*"
+      },
+      {
+        "id": "dace4",
+        "name": "Dace Iron",
+        "title": "still at your shoulder",
+        "x": 3,
+        "y": 5,
+        "hue": 20,
+        "sigil": "DI",
+        "conv": "thr.dace",
+        "when": {
+          "flag": "party.dace_recruited"
+        },
+        "hail": "*(the sellsword has followed you to the literal edge of the world, sword drawn now, staring at the figure in your face with an expression caught between horror and a soldier's readiness to put herself between you and anything — even you)*"
+      },
+      {
+        "id": "orin2",
+        "name": "Justiciar Orin",
+        "title": "the sword that chose to learn",
+        "x": 7,
+        "y": 5,
+        "hue": 210,
+        "sigil": "JO",
+        "conv": "thr.orin",
+        "when": {
+          "flag": "party.orin_may_join"
+        },
+        "hail": "*(the Justiciar stands with her blade bare and her oath in ruins behind her, looking from your face to the older copy of it, and you can see her doing the one piece of arithmetic the Doomguard never trained her for: which of two identical souls is the one she came all this way to help)*"
+      },
+      {
+        "id": "sennet4",
+        "name": "Sennet",
+        "title": "the surveyor at the edge of the map",
+        "x": 5,
+        "y": 5,
+        "hue": 40,
+        "sigil": "S",
+        "conv": "thr.sennet",
+        "when": {
+          "flag": "party.sennet_recruited"
+        },
+        "hail": "*(the cartographer of the dead has followed you to the one place their living feet cannot go — the lip of the deep country they spent a lifetime charting from afar — and they stand an arm's length from the door, pen forgotten, white-knuckled, fighting with everything they have not to take the one step that would finally let them see it true)*"
+      },
+      {
+        "id": "sparrow4",
+        "name": "the Sparrow",
+        "title": "the one companion who can follow",
+        "x": 5,
+        "y": 6,
+        "hue": 280,
+        "sigil": "Sp",
+        "conv": "thr.sparrow",
+        "when": {
+          "flag": "party.sparrow_recruited"
+        },
+        "hail": "*(while the living companions stand checked at the threshold, the thief simply walks up to the death-door and *examines* it — head tilted, professional, the way she'd examine any lock — because she is dead, and unbought, and this door has no power to stop a soul it was never built to keep out; she is the one of your party who could step through at your side, and she is, you can see, already deciding whether to)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "thr.dace", "title": "Dace at the Edge", "npc": "Dace Iron", "start": "0",
+      "id": "thr.dace",
+      "title": "Dace at the Edge",
+      "npc": "Dace Iron",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Dace Iron", "onEnter": [{ "key": "thr.dace_here", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Dace Iron",
+          "onEnter": [
+            {
+              "key": "thr.dace_here",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "int": { "hearth.dace.bond": 3 } }, "text": "*(She doesn't take her eyes off the thing in your face, but she steps in close to you — close enough that her shoulder touches yours, a wall, a vow.)* …That's *you.* *(low, steady, terrified and unmoving)* Older. *Colder.* But I'd know the — I've watched your face across a hundred fires now, I'd know it *anywhere*, and *that's* it, *wrong*, like a portrait someone left out in the *cold* too long. *(her grip on the sword is white-knuckled)* I made you a *promise.* The hearth, remember — I put the sword in the dirt and I said *both of us get out.* *(she sets her jaw)* Well, I'm *amending* it, here, at the edge of *everything*: whatever that thing *is*, whatever it *was* — it doesn't get *you.* I didn't spend my one saved-up *yes* to watch you walk into a *door* and come back out wearing *that* face. *(quietly)* So. *Tell* me what it is. And then tell me whether I'm *fighting* it or *not*, because my *arm's* already *decided* and it's waiting on my *head.*" },
-            { "text": "*(She keeps her blade between you and the figure, jaw tight, voice low and fast.)* That's your *face.* *(flatly)* On something *older* and *wronger* than you. *(she doesn't lower the sword)* I've followed you down a *cold causeway* and *into* whatever *this* is, and I'll be honest, Returned — I'm a *blade*, I solve things with a *blade*, and I do not know how to *stab* a *philosophical problem* wearing my *employer's* face. *(she risks a glance at you)* So you'd best tell me *quick* what we're looking at. Is it a *trick?* A *ghost?* A *you* that went *wrong?* Because my whole *plan* for the edge of the world was *'guard her back,'* and it turns out the *threat* is *standing in her front*, and it's *her.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Dace Iron", "text": "*(She holds her ground at your shoulder, the bare blade steady, waiting for you to tell her how to help with the one fight her sword can't reach.)* Say the word. *(grim)* Any of 'em. *'Fight,' 'wait,' 'run' —* I'll do *any.* Just — don't tell me to *leave.* I *amended* the promise. I don't *leave* this one.",
+            {
+              "when": {
+                "int": {
+                  "hearth.dace.bond": 3
+                }
+              },
+              "text": "*(She doesn't take her eyes off the thing in your face, but she steps in close to you — close enough that her shoulder touches yours, a wall, a vow.)* …That's *you.* *(low, steady, terrified and unmoving)* Older. *Colder.* But I'd know the — I've watched your face across a hundred fires now, I'd know it *anywhere*, and *that's* it, *wrong*, like a portrait someone left out in the *cold* too long. *(her grip on the sword is white-knuckled)* I made you a *promise.* The hearth, remember — I put the sword in the dirt and I said *both of us get out.* *(she sets her jaw)* Well, I'm *amending* it, here, at the edge of *everything*: whatever that thing *is*, whatever it *was* — it doesn't get *you.* I didn't spend my one saved-up *yes* to watch you walk into a *door* and come back out wearing *that* face. *(quietly)* So. *Tell* me what it is. And then tell me whether I'm *fighting* it or *not*, because my *arm's* already *decided* and it's waiting on my *head.*"
+            },
+            {
+              "text": "*(She keeps her blade between you and the figure, jaw tight, voice low and fast.)* That's your *face.* *(flatly)* On something *older* and *wronger* than you. *(she doesn't lower the sword)* I've followed you down a *cold causeway* and *into* whatever *this* is, and I'll be honest, Returned — I'm a *blade*, I solve things with a *blade*, and I do not know how to *stab* a *philosophical problem* wearing my *employer's* face. *(she risks a glance at you)* So you'd best tell me *quick* what we're looking at. Is it a *trick?* A *ghost?* A *you* that went *wrong?* Because my whole *plan* for the edge of the world was *'guard her back,'* and it turns out the *threat* is *standing in her front*, and it's *her.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Dace Iron",
+          "text": "*(She holds her ground at your shoulder, the bare blade steady, waiting for you to tell her how to help with the one fight her sword can't reach.)* Say the word. *(grim)* Any of 'em. *'Fight,' 'wait,' 'run' —* I'll do *any.* Just — don't tell me to *leave.* I *amended* the promise. I don't *leave* this one.",
           "choices": [
-            { "text": "\"Don't fight it, Dace. It's not a monster — it's a *warning.* It's me, from a future where I took the Crown and it went wrong. The only way it *wins* is if I look at it and decide I'm *doomed* to become it. Stand with me, but stand *easy.* This one I have to win with my *head*, not your *sword.*\"", "next": "dace_easy", "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if she's bonded to you)* \"You promised both of us get out. Hold me to it, Dace — *out loud*, where that thing can hear. It came back because in its future it walked this road *alone*, with no one to uncrown it. Be the difference. Be the thing it didn't have.\"", "when": { "int": { "hearth.dace.bond": 3 } }, "next": "dace_difference", "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.has_anchor", "op": "SetTrue" }] },
-            { "text": "\"If I walk through that door and come back wrong, Dace — wearing that face, talking that cold — you have my leave, here and now, in front of the witness, to put me down. That's the realest gift you can give me. A promise to *stop* me.\"", "tag": "returned", "next": "dace_vow", "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.uncrowning_pledged", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Hold here a moment. Let me talk to it.\"", "next": "dace_wait" }
-          ] },
-        { "id": "dace_easy", "speaker": "Dace Iron", "text": "*(She does not lower the sword, but she changes her grip — from a killing hold to a guarding one, the difference subtle and total.)* …A *warning.* *(she breathes out)* You from a *future* that went *wrong.* *(she risks another look at you, fierce)* Then here's what *I* know, that *it* doesn't: *its* future didn't have *me* in it. Or it did, and it *failed*, and I'd sooner *die* than be a Dace that *failed* you. *(she sets her stance, easy and immovable both)* So you *win* it with your *head*, Returned. I'll just — *be here.* Visible. So that whatever it says about being *alone*, about it being *inevitable* — it's saying it to a soul who's got a *Faithless blade* standing *easy* at her *shoulder*, calling it a *liar* without saying a *word.* *(quietly)* Go on. *Out-think* yourself. I've got the *rest.*",
-          "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.has_anchor", "op": "SetTrue" }], "auto": "END" },
-        { "id": "dace_difference", "speaker": "Dace Iron", "text": "*(She raises her voice — not to you, but *past* you, to the thing in your face, and it rings clear and hard across the cold threshold.)* *(loudly)* Oi. *You.* The *cold* one. *(she steps fully alongside, sword and all)* I don't *care* what *future* you crawled back from. In *that* one, you walked this road and *nobody* loved you enough to *drag you back* when you started lying to yourself. *(fierce)* Well, *this* one's *different*, and I'm the *difference.* I'm *Dace Iron*, I'm *Faithless*, I put my *one saved yes* on *this* soul, and I made her a *promise* at a *fire*: *both of us get out.* *(she levels the blade at the Last Returned)* So whatever you came here to *be* — the *proof* she's *doomed*, the *thing she becomes* — you can *choke* on it, because you're looking at the *variable* your timeline *didn't have.* *(low, to you, fierce)* There. It *heard* it. Now it knows it's not talking to *itself* anymore. It's talking to *us.* *Go.*",
-          "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.has_anchor", "op": "SetTrue" }, { "key": "thr.dace_defied_future", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "dace_vow", "speaker": "Dace Iron", "text": "*(The blade dips. For a second the soldier is gone and there's just a woman who has lost people before and knows exactly what you're asking.)* …You're asking me to *promise to kill you.* *(quietly)* If you come back *wrong.* *(she looks at the thing in your face, then back at you, and her eyes are wet and absolutely steady)* …Aye. *(she says it like an oath, because it is)* I'll do it. *Gods* help me, I'll do it, and I'll *hate* it, and I'll do it *clean* and I'll *carry* it the rest of my days like the *sister* I couldn't save. *(her voice hardens)* But hear the *other* half of the vow, Returned, the half you *didn't* ask for: I will *also* spend every breath making *sure* I never *have* to. I'll *uncrown* you with a *word* before I ever have to do it with a *blade.* *(she grips your arm)* That thing — *that* — came back because in its world *nobody* held *both* halves. They'd *kill* the monster or they'd *enable* the king. Nobody *loved it enough to do both.* *(fierce)* *I* will. Now you've got the one thing it never had: a sword that's sworn to *save* you *and* stop you, in *that* order, with *everything* it's got. *Walk* your road. I've got the *uncrowning.*",
-          "effects": [{ "key": "thr.dace.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.has_anchor", "op": "SetTrue" }, { "key": "thr.uncrowning_pledged", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "dace_wait", "speaker": "Dace Iron", "text": "*(She gives a single tight nod and settles into a guard's patient readiness, eyes never leaving the figure.)* Aye. *Talk* to it. *(low)* I'll be *right* here, doing the thing I'm *best* at — *waiting*, and *watching*, and being *ready.* *(grim)* But Returned — *(she doesn't look at you, keeps her eyes on the threat)* — if it makes a *move*, or if *you* go quiet and *cold* in a way I don't *like*, I'm *trusting* my *gut* over your *orders.* That's the deal with a *sword.* You point me, but you don't get to point me at *nothing* while you *vanish.* *(quietly)* Go on. *Talk.* I've got the *silences.* The silences are where it'll try to *get* you.",
-          "auto": "END" }
+            {
+              "text": "\"Don't fight it, Dace. It's not a monster — it's a *warning.* It's me, from a future where I took the Crown and it went wrong. The only way it *wins* is if I look at it and decide I'm *doomed* to become it. Stand with me, but stand *easy.* This one I have to win with my *head*, not your *sword.*\"",
+              "next": "dace_easy",
+              "effects": [
+                {
+                  "key": "thr.dace.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if she's bonded to you)* \"You promised both of us get out. Hold me to it, Dace — *out loud*, where that thing can hear. It came back because in its future it walked this road *alone*, with no one to uncrown it. Be the difference. Be the thing it didn't have.\"",
+              "when": {
+                "int": {
+                  "hearth.dace.bond": 3
+                }
+              },
+              "next": "dace_difference",
+              "effects": [
+                {
+                  "key": "thr.dace.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.has_anchor",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"If I walk through that door and come back wrong, Dace — wearing that face, talking that cold — you have my leave, here and now, in front of the witness, to put me down. That's the realest gift you can give me. A promise to *stop* me.\"",
+              "tag": "returned",
+              "next": "dace_vow",
+              "effects": [
+                {
+                  "key": "thr.dace.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.uncrowning_pledged",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Hold here a moment. Let me talk to it.\"",
+              "next": "dace_wait"
+            }
+          ]
+        },
+        {
+          "id": "dace_easy",
+          "speaker": "Dace Iron",
+          "text": "*(She does not lower the sword, but she changes her grip — from a killing hold to a guarding one, the difference subtle and total.)* …A *warning.* *(she breathes out)* You from a *future* that went *wrong.* *(she risks another look at you, fierce)* Then here's what *I* know, that *it* doesn't: *its* future didn't have *me* in it. Or it did, and it *failed*, and I'd sooner *die* than be a Dace that *failed* you. *(she sets her stance, easy and immovable both)* So you *win* it with your *head*, Returned. I'll just — *be here.* Visible. So that whatever it says about being *alone*, about it being *inevitable* — it's saying it to a soul who's got a *Faithless blade* standing *easy* at her *shoulder*, calling it a *liar* without saying a *word.* *(quietly)* Go on. *Out-think* yourself. I've got the *rest.*",
+          "effects": [
+            {
+              "key": "thr.dace.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_difference",
+          "speaker": "Dace Iron",
+          "text": "*(She raises her voice — not to you, but *past* you, to the thing in your face, and it rings clear and hard across the cold threshold.)* *(loudly)* Oi. *You.* The *cold* one. *(she steps fully alongside, sword and all)* I don't *care* what *future* you crawled back from. In *that* one, you walked this road and *nobody* loved you enough to *drag you back* when you started lying to yourself. *(fierce)* Well, *this* one's *different*, and I'm the *difference.* I'm *Dace Iron*, I'm *Faithless*, I put my *one saved yes* on *this* soul, and I made her a *promise* at a *fire*: *both of us get out.* *(she levels the blade at the Last Returned)* So whatever you came here to *be* — the *proof* she's *doomed*, the *thing she becomes* — you can *choke* on it, because you're looking at the *variable* your timeline *didn't have.* *(low, to you, fierce)* There. It *heard* it. Now it knows it's not talking to *itself* anymore. It's talking to *us.* *Go.*",
+          "effects": [
+            {
+              "key": "thr.dace.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.dace_defied_future",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_vow",
+          "speaker": "Dace Iron",
+          "text": "*(The blade dips. For a second the soldier is gone and there's just a woman who has lost people before and knows exactly what you're asking.)* …You're asking me to *promise to kill you.* *(quietly)* If you come back *wrong.* *(she looks at the thing in your face, then back at you, and her eyes are wet and absolutely steady)* …Aye. *(she says it like an oath, because it is)* I'll do it. *Gods* help me, I'll do it, and I'll *hate* it, and I'll do it *clean* and I'll *carry* it the rest of my days like the *sister* I couldn't save. *(her voice hardens)* But hear the *other* half of the vow, Returned, the half you *didn't* ask for: I will *also* spend every breath making *sure* I never *have* to. I'll *uncrown* you with a *word* before I ever have to do it with a *blade.* *(she grips your arm)* That thing — *that* — came back because in its world *nobody* held *both* halves. They'd *kill* the monster or they'd *enable* the king. Nobody *loved it enough to do both.* *(fierce)* *I* will. Now you've got the one thing it never had: a sword that's sworn to *save* you *and* stop you, in *that* order, with *everything* it's got. *Walk* your road. I've got the *uncrowning.*",
+          "effects": [
+            {
+              "key": "thr.dace.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.uncrowning_pledged",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_wait",
+          "speaker": "Dace Iron",
+          "text": "*(She gives a single tight nod and settles into a guard's patient readiness, eyes never leaving the figure.)* Aye. *Talk* to it. *(low)* I'll be *right* here, doing the thing I'm *best* at — *waiting*, and *watching*, and being *ready.* *(grim)* But Returned — *(she doesn't look at you, keeps her eyes on the threat)* — if it makes a *move*, or if *you* go quiet and *cold* in a way I don't *like*, I'm *trusting* my *gut* over your *orders.* That's the deal with a *sword.* You point me, but you don't get to point me at *nothing* while you *vanish.* *(quietly)* Go on. *Talk.* I've got the *silences.* The silences are where it'll try to *get* you.",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "thr.orin", "title": "Orin at the Edge", "npc": "Justiciar Orin", "start": "0",
+      "id": "thr.orin",
+      "title": "Orin at the Edge",
+      "npc": "Justiciar Orin",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Justiciar Orin", "onEnter": [{ "key": "thr.orin_here", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Justiciar Orin",
+          "onEnter": [
+            {
+              "key": "thr.orin_here",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(She has her blade bare, but she is not pointing it — she is holding it the way you'd hold a tool whose use you've suddenly forgotten, looking between your two identical faces.)* …Eleven years in the Doomguard. *(low, rattled)* I have hunted *imposters*, *doppelgangers*, *things wearing stolen faces* — there's a *rite* for it, a *cut* that tells true flesh from false. *(she doesn't perform it)* But that thing isn't *wearing* your face, Returned. It *has* it. *Truly.* By every sense my order trained into me, *both* of you are *you.* *(she meets your eyes, and there's something like vertigo in hers)* I left my *oath* on a *road* to follow you because you were a *counterexample* the order couldn't answer. And now there are *two* of you, and one's gone *wrong*, and I have to decide — with *no* doctrine, *no* rite, *no* superior to ask — which *counterexample* I *believe in.* *(grimly)* Help me, Returned. I came to learn if the order deserved guarding. I did *not* expect the *final exam* to be *telling two of you apart.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Justiciar Orin", "text": "*(She holds the blade low and her gaze level, a soldier who has walked all the way out of her certainty and is standing, for the first time, on nothing but her own judgement.)* So. *(flatly)* Tell me how a Justiciar tells the *true* soul from the one that went *wrong*, when the *rite* says they're *both* true. I'll *act* on your answer. But make it one I can *live* with — I've *spent* my oath; *judgement's* all I've got *left.*",
+            {
+              "text": "*(She has her blade bare, but she is not pointing it — she is holding it the way you'd hold a tool whose use you've suddenly forgotten, looking between your two identical faces.)* …Eleven years in the Doomguard. *(low, rattled)* I have hunted *imposters*, *doppelgangers*, *things wearing stolen faces* — there's a *rite* for it, a *cut* that tells true flesh from false. *(she doesn't perform it)* But that thing isn't *wearing* your face, Returned. It *has* it. *Truly.* By every sense my order trained into me, *both* of you are *you.* *(she meets your eyes, and there's something like vertigo in hers)* I left my *oath* on a *road* to follow you because you were a *counterexample* the order couldn't answer. And now there are *two* of you, and one's gone *wrong*, and I have to decide — with *no* doctrine, *no* rite, *no* superior to ask — which *counterexample* I *believe in.* *(grimly)* Help me, Returned. I came to learn if the order deserved guarding. I did *not* expect the *final exam* to be *telling two of you apart.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Justiciar Orin",
+          "text": "*(She holds the blade low and her gaze level, a soldier who has walked all the way out of her certainty and is standing, for the first time, on nothing but her own judgement.)* So. *(flatly)* Tell me how a Justiciar tells the *true* soul from the one that went *wrong*, when the *rite* says they're *both* true. I'll *act* on your answer. But make it one I can *live* with — I've *spent* my oath; *judgement's* all I've got *left.*",
           "choices": [
-            { "text": "\"You don't tell us apart by what we *are*, Orin — we're the same soul. You tell us apart by what we're *about to do.* It came back to *stop* a future by *replacing* its own past. I mean to walk into death and *give the dead a door.* Watch which of us *acts* like the order's worth *breaking* — and which acts like it's worth *seizing.*\"", "next": "orin_judge", "effects": [{ "key": "thr.orin.regard", "op": "AddInt", "amount": 2 }] },
-            { "text": "[INSIGHT] \"You already know which is which — you've known since you got here. The difference isn't in our faces, it's in the *cold.* It pours off that one like a sealed tomb. Off me, it's a *door left open.* You hunt the dead for a living, Justiciar. Trust the thing your order actually taught you: which of us still has a *way back in?*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "orin_sees", "fail": "orin_unsure" },
-            { "text": "*(let the sword of the order weigh the two ends of the same soul)* \"Here's the test, Orin, and it's the only honest one: that future-me is what happens when a Returned walks this road with *no one beside them.* It came back *alone.* I came back with *you.* The difference your order could never measure isn't in the soul — it's in whether someone *chose* to stand at its shoulder. You're the proof I'm not it. You, standing here, are the *variable.*\"", "tag": "returned", "next": "orin_variable", "effects": [{ "key": "thr.orin.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.has_anchor", "op": "SetTrue" }] },
-            { "text": "\"Hold, and watch. Let me speak to it. Judge us both by what you hear.\"", "next": "orin_watch" }
-          ] },
-        { "id": "orin_judge", "speaker": "Justiciar Orin", "text": "*(Something settles in her face — the relief of a soldier handed a *criterion* at last, even a terrible one.)* …By what you're *about to do.* *(she nods slowly)* *That* I can judge. That's the *whole* of what a Justiciar ever *actually* does — not weigh what a soul *is*, but read what it *intends*, and act before the *intending* becomes a *deed.* *(she adjusts her grip, decisive)* All right. I'll *watch* you both. And the *instant* one of you reaches for that Crown like a *throne* instead of a *key* — the instant I hear *'only I can be trusted with this'* — *(her jaw sets)* — *that's* the one my blade answers. *(she meets your eyes)* It might be *that* one. It might be *you*, an *hour* from now, *changed.* I make no *promises* about *which*, Returned, and you should *want* it that way. A sword that's *certain* of you in advance is *no* check at all. *(grimly)* Walk your road. I'll be *reading* every *step.* For *both* of you. That's the *oath* I've got *left*, and I find it's a *better* one than the one I *spent.*",
-          "effects": [{ "key": "thr.orin.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.orin_will_judge", "op": "SetTrue" }, { "key": "thr.has_anchor", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "orin_sees", "speaker": "Justiciar Orin", "text": "*(Her eyes go to the Last Returned, and you watch her *use* the thing eleven years of the Doomguard taught her — the reading of the dead — and watch her *find* it.)* …*Gods.* *(quietly)* You're *right.* *(she doesn't lower her guard, but her certainty firms)* I've been so *rattled* by the matching *faces* I forgot to read the *cold*, which is the *one* thing my order does *better* than any soul alive. *(she studies the figure)* That one's a *sealed tomb.* No *draught*, no *give*, no — no *door.* It went *in*, and it took the Crown, and it *closed* behind itself, and now it's a *dead* thing *animated* by a *purpose*, walking *backward* through time to *seal* the only *open* door left — *yours.* *(she looks at you, and there's a cold draught of *hope* in it)* You've *still* got the way back in. I can *feel* it. *That's* how I tell. *(grimly)* So I *know* which of you to stand with, Returned. The *open* one. *(she sets herself at your side)* Now — go *prove* me right by *staying* open. The moment you start to *seal*, I'll *feel* it before *you* do, and I'll *say* so. Loudly. It's why you brought a *Doomguard* to the *door.*",
-          "effects": [{ "key": "thr.orin.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.orin_will_judge", "op": "SetTrue" }, { "key": "thr.has_anchor", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "orin_unsure", "speaker": "Justiciar Orin", "text": "*(She stares at the two of you, and her blade wavers, and the vertigo wins.)* …I *can't.* *(low, frustrated)* The rite says you're *both* true. My *eyes* say you're *both* you. And I have *spent* the certainty that used to *decide* this for me. *(she keeps the blade up, defensive, between herself and *both* of you)* So I'll do the *only* honest thing a soul with *no* certainty *left* can do: I'll *wait.* I'll *watch.* I'll trust *deeds* over *faces*, because deeds are the *one* thing that can still *surprise* me. *(grimly)* Don't make me *guess*, Returned. *Show* me. With your *next* hour, your *next* choice. *Which* of you *acts* like the soul I crossed an *oath* to follow. I'll know it when I *see* it. I *have* to. It's *all* I've got.",
-          "auto": "END" },
-        { "id": "orin_variable", "speaker": "Justiciar Orin", "text": "*(She is silent a long moment, and then — slowly — she sheathes the blade, which is the most decisive thing she could possibly do.)* …It came back *alone.* *(quietly)* And you came back with *me.* *(she looks at her own scarred hands, the spent oath, the road that brought her here)* When I left the Doomguard on that road, Returned, I told myself I was following a *counterexample* to find out if the *order* deserved *guarding.* *(she meets your eyes)* I think I have my *answer*, and it isn't about the *order* at all. *(she nods at the Last Returned)* *That* is what the order *makes* — a soul, *alone*, *certain*, *sealed*, doing the *necessary* thing with *no one* beside it to say *stop.* The order *trains the aloneness.* Calls it *discipline.* *(her voice is steady and final)* And the *counterexample* — the thing the order has *no answer* for — is *not* you, Returned. It's *us.* A soul, and someone who *chose* to stand at its shoulder. *That's* the variable. That's the thing that *breaks* the timeline where you become *that.* *(she sets her feet beside you, facing the future)* I am *done* guarding the order. I am *guarding the variable.* I am *guarding the part where you're not alone.* *(grimly, to the Last Returned)* Hear me, *cold* one. Your timeline had a *Justiciar* too, I'd wager — and she *stood aside*, because the *oath* said to. *Mine's* spent. So I'm *standing here* instead. *Tell her* she's *doomed* now. Go *on.* I *dare* you.",
-          "effects": [{ "key": "thr.orin.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.has_anchor", "op": "SetTrue" }, { "key": "thr.orin_guards_variable", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "orin_watch", "speaker": "Justiciar Orin", "text": "*(She gives a curt nod and settles into a watchful stillness, blade low, eyes moving between the two of you.)* Aye. *Speak* to it. *(flatly)* I'll *judge* by what I *hear* — it's the *only* tool I've *got* left, and it turns out it's the one I should've *trusted* all *along.* *(grimly)* But know this, Returned: I am listening to *both* of you *equally.* If *you* say the *colder* thing, the *surer* thing, the *'only I can'* — *(she shifts her weight)* — then *you* become the one I came to *stop.* *(quietly)* That's not *distrust.* That's the *whole point* of bringing a *sword* that can't be *charmed* to the *edge* of the *world.* *Talk.* I'll *weigh* it. *Honestly.* The way the *Wall* never did.",
-          "auto": "END" }
+            {
+              "text": "\"You don't tell us apart by what we *are*, Orin — we're the same soul. You tell us apart by what we're *about to do.* It came back to *stop* a future by *replacing* its own past. I mean to walk into death and *give the dead a door.* Watch which of us *acts* like the order's worth *breaking* — and which acts like it's worth *seizing.*\"",
+              "next": "orin_judge",
+              "effects": [
+                {
+                  "key": "thr.orin.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "text": "[INSIGHT] \"You already know which is which — you've known since you got here. The difference isn't in our faces, it's in the *cold.* It pours off that one like a sealed tomb. Off me, it's a *door left open.* You hunt the dead for a living, Justiciar. Trust the thing your order actually taught you: which of us still has a *way back in?*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "orin_sees",
+              "fail": "orin_unsure"
+            },
+            {
+              "text": "*(let the sword of the order weigh the two ends of the same soul)* \"Here's the test, Orin, and it's the only honest one: that future-me is what happens when a Returned walks this road with *no one beside them.* It came back *alone.* I came back with *you.* The difference your order could never measure isn't in the soul — it's in whether someone *chose* to stand at its shoulder. You're the proof I'm not it. You, standing here, are the *variable.*\"",
+              "tag": "returned",
+              "next": "orin_variable",
+              "effects": [
+                {
+                  "key": "thr.orin.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.has_anchor",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Hold, and watch. Let me speak to it. Judge us both by what you hear.\"",
+              "next": "orin_watch"
+            }
+          ]
+        },
+        {
+          "id": "orin_judge",
+          "speaker": "Justiciar Orin",
+          "text": "*(Something settles in her face — the relief of a soldier handed a *criterion* at last, even a terrible one.)* …By what you're *about to do.* *(she nods slowly)* *That* I can judge. That's the *whole* of what a Justiciar ever *actually* does — not weigh what a soul *is*, but read what it *intends*, and act before the *intending* becomes a *deed.* *(she adjusts her grip, decisive)* All right. I'll *watch* you both. And the *instant* one of you reaches for that Crown like a *throne* instead of a *key* — the instant I hear *'only I can be trusted with this'* — *(her jaw sets)* — *that's* the one my blade answers. *(she meets your eyes)* It might be *that* one. It might be *you*, an *hour* from now, *changed.* I make no *promises* about *which*, Returned, and you should *want* it that way. A sword that's *certain* of you in advance is *no* check at all. *(grimly)* Walk your road. I'll be *reading* every *step.* For *both* of you. That's the *oath* I've got *left*, and I find it's a *better* one than the one I *spent.*",
+          "effects": [
+            {
+              "key": "thr.orin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.orin_will_judge",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_sees",
+          "speaker": "Justiciar Orin",
+          "text": "*(Her eyes go to the Last Returned, and you watch her *use* the thing eleven years of the Doomguard taught her — the reading of the dead — and watch her *find* it.)* …*Gods.* *(quietly)* You're *right.* *(she doesn't lower her guard, but her certainty firms)* I've been so *rattled* by the matching *faces* I forgot to read the *cold*, which is the *one* thing my order does *better* than any soul alive. *(she studies the figure)* That one's a *sealed tomb.* No *draught*, no *give*, no — no *door.* It went *in*, and it took the Crown, and it *closed* behind itself, and now it's a *dead* thing *animated* by a *purpose*, walking *backward* through time to *seal* the only *open* door left — *yours.* *(she looks at you, and there's a cold draught of *hope* in it)* You've *still* got the way back in. I can *feel* it. *That's* how I tell. *(grimly)* So I *know* which of you to stand with, Returned. The *open* one. *(she sets herself at your side)* Now — go *prove* me right by *staying* open. The moment you start to *seal*, I'll *feel* it before *you* do, and I'll *say* so. Loudly. It's why you brought a *Doomguard* to the *door.*",
+          "effects": [
+            {
+              "key": "thr.orin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.orin_will_judge",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_unsure",
+          "speaker": "Justiciar Orin",
+          "text": "*(She stares at the two of you, and her blade wavers, and the vertigo wins.)* …I *can't.* *(low, frustrated)* The rite says you're *both* true. My *eyes* say you're *both* you. And I have *spent* the certainty that used to *decide* this for me. *(she keeps the blade up, defensive, between herself and *both* of you)* So I'll do the *only* honest thing a soul with *no* certainty *left* can do: I'll *wait.* I'll *watch.* I'll trust *deeds* over *faces*, because deeds are the *one* thing that can still *surprise* me. *(grimly)* Don't make me *guess*, Returned. *Show* me. With your *next* hour, your *next* choice. *Which* of you *acts* like the soul I crossed an *oath* to follow. I'll know it when I *see* it. I *have* to. It's *all* I've got.",
+          "auto": "END"
+        },
+        {
+          "id": "orin_variable",
+          "speaker": "Justiciar Orin",
+          "text": "*(She is silent a long moment, and then — slowly — she sheathes the blade, which is the most decisive thing she could possibly do.)* …It came back *alone.* *(quietly)* And you came back with *me.* *(she looks at her own scarred hands, the spent oath, the road that brought her here)* When I left the Doomguard on that road, Returned, I told myself I was following a *counterexample* to find out if the *order* deserved *guarding.* *(she meets your eyes)* I think I have my *answer*, and it isn't about the *order* at all. *(she nods at the Last Returned)* *That* is what the order *makes* — a soul, *alone*, *certain*, *sealed*, doing the *necessary* thing with *no one* beside it to say *stop.* The order *trains the aloneness.* Calls it *discipline.* *(her voice is steady and final)* And the *counterexample* — the thing the order has *no answer* for — is *not* you, Returned. It's *us.* A soul, and someone who *chose* to stand at its shoulder. *That's* the variable. That's the thing that *breaks* the timeline where you become *that.* *(she sets her feet beside you, facing the future)* I am *done* guarding the order. I am *guarding the variable.* I am *guarding the part where you're not alone.* *(grimly, to the Last Returned)* Hear me, *cold* one. Your timeline had a *Justiciar* too, I'd wager — and she *stood aside*, because the *oath* said to. *Mine's* spent. So I'm *standing here* instead. *Tell her* she's *doomed* now. Go *on.* I *dare* you.",
+          "effects": [
+            {
+              "key": "thr.orin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.has_anchor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.orin_guards_variable",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_watch",
+          "speaker": "Justiciar Orin",
+          "text": "*(She gives a curt nod and settles into a watchful stillness, blade low, eyes moving between the two of you.)* Aye. *Speak* to it. *(flatly)* I'll *judge* by what I *hear* — it's the *only* tool I've *got* left, and it turns out it's the one I should've *trusted* all *along.* *(grimly)* But know this, Returned: I am listening to *both* of you *equally.* If *you* say the *colder* thing, the *surer* thing, the *'only I can'* — *(she shifts her weight)* — then *you* become the one I came to *stop.* *(quietly)* That's not *distrust.* That's the *whole point* of bringing a *sword* that can't be *charmed* to the *edge* of the *world.* *Talk.* I'll *weigh* it. *Honestly.* The way the *Wall* never did.",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "thr.last", "title": "The Last Returned", "npc": "the Last Returned", "start": "0",
+      "id": "thr.last",
+      "title": "The Last Returned",
+      "npc": "the Last Returned",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "the Last Returned", "onEnter": [{ "key": "thr.met_last", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "the Last Returned",
+          "onEnter": [
+            {
+              "key": "thr.met_last",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["way.named_witness"] }, "text": "*(It speaks with your voice — worn to gravel, but yours — and what it says first is the last thing you expect, which is that it is *glad.*)* …*Witness.* *(a cold, cracked almost-smile, your smile)* You chose *witness.* *(it studies you with eyes that are your eyes, decades older and a winter colder)* Gods. *I* chose *Keeper.* The *gate*, the *watch* — I was so *sure* the answer was to *guard* the door myself, to be the *one* who could be *trusted* with it. *(its voice frays)* And do you know what a *Keeper* becomes, given *centuries?* A *warden.* A *Wall* with a *kinder* face. *(it gestures at its own grey, sealed self)* *This.* *(quietly)* But *witness* — *witness* doesn't *hold* the door. It just *refuses to let anyone be forgotten*, and then it *gets out of the way.* *(it looks at you with something that is almost *hope* and almost *grief*)* You may have found the *one* answer I never tried. So I have to *ask*, before I decide whether to *stop* you: are you *strong* enough to *witness* them *all* — and then *leave?* Because *I* wasn't. I *stayed.* And *staying* is how the *witness* becomes the *Wall.*" },
-            { "when": { "flags": ["way.answer_reckless"] }, "text": "*(It speaks with your voice, and there is no surprise in it at all, only a vast and weary recognition.)* …Ah. *(your voice, decades colder)* You told the *aspect* the Hunger was *someone else's bill.* *(it nods, slowly)* I *know.* I *said* it too — *those* exact words, in *this* exact cold, with *that* exact *grief* making me *certain.* *(it steps closer, wearing your face like an accusation)* And then I *opened* the Wall, and the *bill* came due *on the world*, and I spent the next *two hundred years* trying to *un-spend* what I *spent* in an *afternoon* of *righteous* impatience. *(its eyes — your eyes — are terrible)* I am not here to *fight* you. I am here because I am what you are *one bad answer* away from *becoming*, and I have come *back* through the *crack* in *time* to stand in your *road* and make you *look* at me *before* you do it. *Look.* This is the *flood*, in a *person.* This is *'not my problem'* given *centuries* to *curdle.* Is *this* the soul you came back to *be?*" },
-            { "when": { "flags": ["ald.path_crown"] }, "text": "*(It wears your face the way a death-mask wears a sleeper's, and when it speaks it is your voice with all the warmth gone to stone.)* …You mean to *take* it. *(quietly)* The Crown. *(a slow nod)* I *know* you do. I *stood* where you're standing, with the *same* good reasons — *'someone has to, and better a soul already emptied of the things a god gets drunk on.'* *(its cold almost-smile is the worst thing you have ever seen, because it is *yours*)* I *believed* that, Returned. With my *whole* cracked heart. *(it spreads its grey hands)* And here I *am.* The soul that was *sure* it would *set the Crown down.* *(softly, terribly)* I am *still wearing it.* You just can't *see* it, because a Crown of *Horns* worn *long* enough stops looking like a *crown* and starts looking like a *face.* *(it leans in)* I am the *receipt*, Returned. For *exactly* the choice you've made. So *look* at what *'I'll set it down'* is *wearing*, two hundred years on — and tell me, *truly*, what makes *you* different from *me.* I *promise* you: I asked myself the *same* question, and I had a *better* answer than you do *now.*" },
-            { "when": { "flags": ["thr.has_anchor"] }, "text": "*(It wears your face, older and colder, and the first thing it does is look *past* you — at the companion standing at your shoulder, blade bare — and something crosses its grey features that might once have been *grief.*)* …You brought *someone.* *(your voice, very quiet)* I didn't. *(it looks back at you)* That's the *whole* difference, isn't it. The *only* one that *matters.* *(it studies the soul at your side)* In *my* road, by the time I reached this *door*, I had *spent* everyone — *burned* them, or *buried* them, or *out-lived* them, or *pushed* them away because a soul *certain* it's about to become a *god* does not *want* witnesses to the *becoming.* *(its voice frays)* I walked through *alone.* And there was *no one* on the *other* side to say *stop*, and *no one* to *uncrown* me, and *no one* whose *face* I'd remember when the *cold* started telling me I was the *only* one who could be *trusted.* *(it looks at your companion with naked, ancient *envy*)* …Keep them. *Whatever* you do. The *Crown* I could *survive.* The *aloneness* is what *finished* me. Do not walk this door the way I did. Do not walk it *alone.*" },
-            { "text": "*(The figure between you and the dark door wears your face — older, greyer, the Wall gone all the way to the bone — and it does not reach for a weapon, because it knows there is nothing here to fight that is not already itself.)* …Hello. *(your own voice, worn to gravel)* I know. *(a small, cold nod)* It's a great deal to take in — the *face*, the *cold*, the *wrongness* of it. Take the moment. I *remember* needing it. *(it studies you with your own eyes, decades older)* I am what the songs would call the *Last Returned.* I am *you*, from a future where you walked through *that* door, and *won*, and *lost*, and *kept* losing for *two hundred years* until the only thing left to do was crawl *back* through the crack in *time* to the *last* place it could *still go differently.* *(quietly)* Which is *here.* *Now.* With *you.* *(it gestures at the door behind it)* I am not here to *stop* you with a *sword*, Returned. I am here to make you *answer*, before you walk through, the *one* question I *didn't.* …Will you *hear* it? Or will you do what *I* did, and decide you already *know?*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Last Returned", "text": "*(It stands between you and the door, patient as only a thing that has all of a ruined eternity can be, your own face waiting on your own answer.)* Ask me anything, Returned. *(your voice)* I am the *one* soul in all creation who *cannot* lie to you — because every lie I'd tell, you'd *recognize*, having *told* it to *yourself* already. *(a cold almost-smile)* That is the *gift* and the *horror* of *me.* I am your *honesty*, aged *two hundred years* and *frozen solid.* Use me. *Few* souls get to *interrogate* their own *worst* ending *before* they reach it.",
+            {
+              "when": {
+                "flags": [
+                  "way.named_witness"
+                ]
+              },
+              "text": "*(It speaks with your voice — worn to gravel, but yours — and what it says first is the last thing you expect, which is that it is *glad.*)* …*Witness.* *(a cold, cracked almost-smile, your smile)* You chose *witness.* *(it studies you with eyes that are your eyes, decades older and a winter colder)* Gods. *I* chose *Keeper.* The *gate*, the *watch* — I was so *sure* the answer was to *guard* the door myself, to be the *one* who could be *trusted* with it. *(its voice frays)* And do you know what a *Keeper* becomes, given *centuries?* A *warden.* A *Wall* with a *kinder* face. *(it gestures at its own grey, sealed self)* *This.* *(quietly)* But *witness* — *witness* doesn't *hold* the door. It just *refuses to let anyone be forgotten*, and then it *gets out of the way.* *(it looks at you with something that is almost *hope* and almost *grief*)* You may have found the *one* answer I never tried. So I have to *ask*, before I decide whether to *stop* you: are you *strong* enough to *witness* them *all* — and then *leave?* Because *I* wasn't. I *stayed.* And *staying* is how the *witness* becomes the *Wall.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "way.answer_reckless"
+                ]
+              },
+              "text": "*(It speaks with your voice, and there is no surprise in it at all, only a vast and weary recognition.)* …Ah. *(your voice, decades colder)* You told the *aspect* the Hunger was *someone else's bill.* *(it nods, slowly)* I *know.* I *said* it too — *those* exact words, in *this* exact cold, with *that* exact *grief* making me *certain.* *(it steps closer, wearing your face like an accusation)* And then I *opened* the Wall, and the *bill* came due *on the world*, and I spent the next *two hundred years* trying to *un-spend* what I *spent* in an *afternoon* of *righteous* impatience. *(its eyes — your eyes — are terrible)* I am not here to *fight* you. I am here because I am what you are *one bad answer* away from *becoming*, and I have come *back* through the *crack* in *time* to stand in your *road* and make you *look* at me *before* you do it. *Look.* This is the *flood*, in a *person.* This is *'not my problem'* given *centuries* to *curdle.* Is *this* the soul you came back to *be?*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "ald.path_crown"
+                ]
+              },
+              "text": "*(It wears your face the way a death-mask wears a sleeper's, and when it speaks it is your voice with all the warmth gone to stone.)* …You mean to *take* it. *(quietly)* The Crown. *(a slow nod)* I *know* you do. I *stood* where you're standing, with the *same* good reasons — *'someone has to, and better a soul already emptied of the things a god gets drunk on.'* *(its cold almost-smile is the worst thing you have ever seen, because it is *yours*)* I *believed* that, Returned. With my *whole* cracked heart. *(it spreads its grey hands)* And here I *am.* The soul that was *sure* it would *set the Crown down.* *(softly, terribly)* I am *still wearing it.* You just can't *see* it, because a Crown of *Horns* worn *long* enough stops looking like a *crown* and starts looking like a *face.* *(it leans in)* I am the *receipt*, Returned. For *exactly* the choice you've made. So *look* at what *'I'll set it down'* is *wearing*, two hundred years on — and tell me, *truly*, what makes *you* different from *me.* I *promise* you: I asked myself the *same* question, and I had a *better* answer than you do *now.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "thr.has_anchor"
+                ]
+              },
+              "text": "*(It wears your face, older and colder, and the first thing it does is look *past* you — at the companion standing at your shoulder, blade bare — and something crosses its grey features that might once have been *grief.*)* …You brought *someone.* *(your voice, very quiet)* I didn't. *(it looks back at you)* That's the *whole* difference, isn't it. The *only* one that *matters.* *(it studies the soul at your side)* In *my* road, by the time I reached this *door*, I had *spent* everyone — *burned* them, or *buried* them, or *out-lived* them, or *pushed* them away because a soul *certain* it's about to become a *god* does not *want* witnesses to the *becoming.* *(its voice frays)* I walked through *alone.* And there was *no one* on the *other* side to say *stop*, and *no one* to *uncrown* me, and *no one* whose *face* I'd remember when the *cold* started telling me I was the *only* one who could be *trusted.* *(it looks at your companion with naked, ancient *envy*)* …Keep them. *Whatever* you do. The *Crown* I could *survive.* The *aloneness* is what *finished* me. Do not walk this door the way I did. Do not walk it *alone.*"
+            },
+            {
+              "text": "*(The figure between you and the dark door wears your face — older, greyer, the Wall gone all the way to the bone — and it does not reach for a weapon, because it knows there is nothing here to fight that is not already itself.)* …Hello. *(your own voice, worn to gravel)* I know. *(a small, cold nod)* It's a great deal to take in — the *face*, the *cold*, the *wrongness* of it. Take the moment. I *remember* needing it. *(it studies you with your own eyes, decades older)* I am what the songs would call the *Last Returned.* I am *you*, from a future where you walked through *that* door, and *won*, and *lost*, and *kept* losing for *two hundred years* until the only thing left to do was crawl *back* through the crack in *time* to the *last* place it could *still go differently.* *(quietly)* Which is *here.* *Now.* With *you.* *(it gestures at the door behind it)* I am not here to *stop* you with a *sword*, Returned. I am here to make you *answer*, before you walk through, the *one* question I *didn't.* …Will you *hear* it? Or will you do what *I* did, and decide you already *know?*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Last Returned",
+          "text": "*(It stands between you and the door, patient as only a thing that has all of a ruined eternity can be, your own face waiting on your own answer.)* Ask me anything, Returned. *(your voice)* I am the *one* soul in all creation who *cannot* lie to you — because every lie I'd tell, you'd *recognize*, having *told* it to *yourself* already. *(a cold almost-smile)* That is the *gift* and the *horror* of *me.* I am your *honesty*, aged *two hundred years* and *frozen solid.* Use me. *Few* souls get to *interrogate* their own *worst* ending *before* they reach it.",
           "choices": [
-            { "text": "\"What did you do wrong? Be precise. Not 'I took the Crown' — every road from here leads somewhere. Tell me the *exact* step where you stopped being me and started being *that.*\"", "next": "last_wrongstep" },
-            { "text": "[INSIGHT] \"You keep saying you came back to make me *answer a question.* But that's not why you're here, is it. A soul that just wanted to *warn* me would warn me and go. You're *lingering.* You came back hoping I'll find an answer you couldn't — so that *your* two hundred years of losing weren't for *nothing.* I'm not your *warning*, Last. I'm your *appeal.*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 17 }, "next": "last_appeal", "fail": "last_opaque" },
-            { "text": "[RELIGION] \"If you came *back through time*, then time *cracked* to let you — and the only thing that cracks time in this saga is a soul going into death and out. You didn't just *lose*, did you. You took the Crown, you became the thing you fought, and some *later* you — a *third* Returned — came back and *stopped you*, and now you're doing the same for *me.* How many of us are there, looping this same door?\"", "when": { "ability": { "Intelligence": 13 } }, "check": { "skill": "Religion", "ability": "Intelligence", "dc": 18 }, "next": "last_loop", "fail": "last_opaque" },
-            { "text": "*(refuse the mirror's gravity)* \"You're not me. You're *a* me — one road, one ending, frozen. I've got a soul at my shoulder you never had, a Judge's aspect who'll witness, a daughter's voice I carried home, a girl alive on a stolen apple. You walked alone and called it fate. I'm walking *accompanied* and calling it a *choice.* Stand aside, Last. Your ending isn't a *prophecy.* It's a *cautionary tale*, and I've *heard* it.\"", "tag": "returned", "next": "last_defied", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if it envies your companion)* \"You said the aloneness finished you, not the Crown. Then let me give you the one thing your road never had, even now, even too late: you're not alone *this* time either. I'm here. *You're* here. Two of us, at the door. Whatever I become through it — you'll have been *witnessed*, by the one soul who *had* to understand. That's not nothing. You taught me that.\"", "when": { "flags": ["thr.has_anchor"] }, "next": "last_witnessed", "effects": [{ "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Then ask it. The question you didn't answer. I'd rather face it from your mouth than find it the hard way, on the far side of that door.\"", "next": "last_question" }
-          ] },
-        { "id": "last_wrongstep", "speaker": "the Last Returned", "text": "*(It closes its eyes — your eyes — and when it speaks the gravel in its voice is two hundred years of looking for this exact answer.)* …The *precise* step. *(quietly)* It was not the *taking.* I took the Crown for *good* reasons and I *freed* them — all of them, the whole Wall, Wren and Wick and Esuele and the *ten thousand*, out into the *light*, and for *one* shining *hour* it was the most *beautiful* thing that ever happened in *creation.* *(its voice cracks)* The wrong step came *after.* *(it opens its eyes)* It was the *first* time I looked at a *new* injustice — a *fresh* one, a soul being *wronged* somewhere the Crown could *fix* — and I thought: *'I'll keep it just a little longer. Just until* this *is mended too. Who else can be trusted with it?'* *(barely)* That was the step. Not a *crime.* A *kindness*, with the Crown still on. And there is *always* one more injustice, Returned. *Always.* The world is *made* of them. *(it looks at you)* So I *never* set it down. Each *delay* was *reasonable.* Each one was a *mercy.* And *two hundred years* of *reasonable mercies* is *exactly* how a soul that *freed* the Wall *becomes* the Wall — *certain*, *alone*, *necessary*, the *only* one who can be *trusted* with the *key.* *(quietly)* The wrong step, Returned, is the one that *feels* the *most* like *love.* *Watch* for it. It does *not* announce itself. It *pours your tea* first.",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.knows_the_step", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "last_crux" },
-        { "id": "last_appeal", "speaker": "the Last Returned", "text": "*(It goes very still — and then it makes a sound that is half your laugh and half something that has not laughed in a long time.)* …*Caught.* *(your voice, cracking)* By *myself.* Of *course.* *(it doesn't deny it; it can't, you'd know)* You're *right.* A *warning* warns and *leaves.* I have been *standing in this road* for — I don't *know* how long, time is *strange* at the crack — *hoping.* *(it meets your eyes, and the cold cracks, and underneath is *you*, just you, exhausted past bearing)* You called it. I am not your *warning.* I am your *appeal.* *(barely)* I cannot *un-take* the Crown. I cannot *un-become* this. My road is *run*, and it *ended* here, *alone*, *frozen*, *too late.* *(its voice breaks)* But if *you* — *me*, the *last* me that's still *warm*, still has a *door* open, still has *someone at her shoulder* — if *you* find the answer I *couldn't*, then my *two hundred years* of *losing* become the thing that *taught the version of me that won.* *(it grips your arm with a hand of stone)* That's the *only* redemption left to a soul like *us*, Returned: to *fail* so *instructively* that your *better* self *can't* repeat it. *(fierce, weeping your tears)* So *please.* Don't *defy* me. Don't *pity* me. *Use* me. *Be* the *me* that *learned.* It's the *only* way *either* of us *gets out.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.last_is_appeal", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "last_crux" },
-        { "id": "last_loop", "speaker": "the Last Returned", "text": "*(It is silent for a long, cold moment, and when it answers, the scale of the thing is in its voice.)* …You worked it out *faster* than I did. *(quietly)* It took *me* the better part of a *century* to understand the *shape* of it. *(it nods)* Yes. There is a *third.* And a *fourth.* And — I *suspect*, though the crack will not *show* me — *many.* *(its grey eyes hold yours)* We are a *loop*, Returned. A soul that *fails*, and comes *back* to *warn* its *past*, which *fails differently*, and comes *back* to warn *its* past — a *braid* of *Returned*, each one *certain* it has *learned* enough to *break* the cycle, each one *becoming* the Wall by a *slightly* kinder road. *(softly)* The *masks* the songs speak of — Aldric is the *first*, and then the *eras*, and then *us*, the *Last* and the *Last* and the *Last* — they are not *four* enemies. They are the *same* soul, *us*, *looping*, getting *colder.* *(it leans in, urgent)* So here is the thing *no* version of us has *believed* until it was *too late*: the loop does not *break* by *winning.* Every *winner* becomes the *next* warning. It breaks the *one* way none of us, *certain* and *alone*, could *bear* to try — *(barely)* — it breaks when one of us walks through that door *meaning to come back out and hand the Crown to someone else.* *Not keep it. Not set it down nobly. Hand it away, immediately, to hands that aren't ours.* *(its voice is desperate)* I *couldn't.* I didn't *trust* anyone *enough.* *Do* you? *That's* the loop's only *exit.* It is also the *single* hardest thing a soul that has *touched* a *god's* power will *ever* be asked to do.",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.knows_the_loop", "op": "SetTrue" }, { "key": "thr.loop_revealed", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "last_crux" },
-        { "id": "last_opaque", "speaker": "the Last Returned", "text": "*(It tilts your head at an angle you've felt your own neck make, considering.)* …You're *reaching*, but you haven't the *footing* yet. *(your voice, not unkind)* I *remember* reaching like that — *certain* there was a *pattern*, *grasping* before I had the *grief* to *hold* it. *(it shakes its grey head)* Some things you cannot *deduce*, Returned. You can only *survive* into. *(quietly)* Ask me something your *soul* can *carry* the answer to *now*, *un-frozen*. Or *walk through the door* and *earn* the harder truths the *way* I did — at *full* price, *alone*, *too late.* *(a beat)* …I *recommend* the *asking.* It's *cheaper.* I *paid* the *other* way. Look what it *bought* me.",
-          "auto": "last_crux" },
-        { "id": "last_defied", "speaker": "the Last Returned", "text": "*(You refuse its gravity — name your anchor, your witnesses, the living girl and the carried daughter and the sword at your shoulder — and the thing in your face does not argue. It *listens.* And slowly, slowly, something happens to it that you would not have believed: it begins, very faintly, to *warm.*)* *(your voice, wondering)* …*Accompanied.* *(it tests the word like a thing it had forgotten)* You're not *defying* a *prophecy.* You're *describing* a *life I didn't live.* *(it looks at the soul at your shoulder, the open door, the warmth still in you)* In *my* road I said the *same* brave words — *'his ending isn't mine'* — and then I *made* it mine, *step* by *reasonable* step, *alone.* *(but it is studying you now, and the certainty in it is *cracking* the other way)* But you have *brought* what I *only claimed.* You didn't *say* you weren't alone. You *aren't.* *(its grey face works)* …Maybe that *is* the difference. Maybe a *cautionary tale* heard *with someone holding your arm* is a *different* tale than one heard *alone* in a *cold* road. *(barely)* I came here to *stop* you, Returned. I begin to think you may *stop me* instead — may be the *first* of us who *doesn't* need the *warning*, because you *built* the *answer* before you *reached* the *door.* *(it steps aside — a half-step, the most it can manage)* …*Prove* it. Walk through *accompanied.* Come *back* and *hand the Crown away.* And let me be the *last* Last Returned. *Please.* I am so *tired* of being the *warning.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.defied_future", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "last_crux" },
-        { "id": "last_witnessed", "speaker": "the Last Returned", "text": "*(You offer it the one thing it envied — to not be alone, even now, even as the warning — and the Last Returned's grey composure does not crack so much as *melt*, two hundred years of frozen solitude meeting, at the very end, a single warm refusal to look away.)* *(your voice, breaking)* …You'd *witness* *me.* *(barely)* The *thing* you might *become.* The *warning.* The *failure.* You'd stand at the *door* and *see* me — not as a *prophecy* to *escape*, but as a *soul* who *tried* and *lost* and *came back* to *help* — *(it presses a hand of stone to its own chest)* — do you know that in *two hundred years*, no one has *witnessed* me? That's *what I became*, Returned: the *unwitnessed* thing, the *Hunger* in a *person*, the *self* no one *remembered* kindly because there was *no one left* who *knew* me as anything but the *cold* king. *(it looks at you with your own streaming eyes)* And you've just done, for *me*, the thing you mean to do for *all* of them. You've *remembered* me. *Refused* to let me be *nothing.* *(the cold lifts off it, just slightly, like a *thaw*)* …Then maybe I *can* go. Maybe a *warning that was witnessed* doesn't have to *linger* in the *road* anymore. *(it smiles, your smile, warm at last)* Walk your door, Returned. *Hand the Crown away.* And know that the *last* thing the *Last Returned* felt was not *cold.* It was *seen.* You gave your *worst* self the *one* mercy you're walking in there to give *everyone.* …*Go.* I'll *rest* now. *Finally.* You've *got* it. I can *tell.* You were *always* the one who *got* it.",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 4 }, { "key": "thr.last_witnessed", "op": "SetTrue" }, { "key": "thr.last_at_rest", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "last_crux" },
-        { "id": "last_question", "speaker": "the Last Returned", "text": "*(It nods, and squares your shoulders the way you square them, and asks the question it crossed a ruined eternity to ask — and it is not the question you braced for.)* …Here it is. *(your voice, very quiet)* The question I *didn't* answer, the one that *cost* me *everything.* *(it looks at you)* Not *'will you take the Crown.'* Not *'can you be trusted.'* Those are *vanity* questions; every version of us answers them *bravely* and *wrongly.* *(a pause)* The question is this: *(barely)* *When you have the power to fix everything — who do you let stop you?* *(it lets it land)* Not *'will* you let someone stop you.' *Who.* By *name.* *Before* you walk through. *(its grey eyes burn)* Because I'll tell you the *secret*, Returned, the one *under* the whole *loop*: a soul *certain* it will *know* when to *stop* will *never* know, because the *power* re-writes the *knower.* The *only* check that *survives* the Crown is a *name* you *chose* *beforehand* — a *person* you *pre-decided* to *obey* even when *every* cell of your *god-touched* self is *certain* they're *wrong.* *(it leans in)* *I* named *no one.* I trusted *myself.* That's the *whole* of it. *That's* the loop. *(quietly)* So *answer* me, *me*: when the Crown is on your head and you are *certain* you alone can be *trusted* — *whose voice do you obey anyway?* Say the *name.* *Out loud.* *Now.* While you're still *warm* enough to *mean* it.",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.the_question", "op": "SetTrue" }], "auto": "last_crux" },
-        { "id": "last_crux", "speaker": "the Last Returned", "text": "*(It steps half-aside from the dark door at last, and the cold light of the threshold pours between you, and your own worn face waits on your answer the way a held breath waits on a verdict.)* So. *(your voice)* The door is *there.* The Crown is *beyond* it. And *I* am the *proof* of *every* way it goes *wrong.* *(quietly)* I will not *stop* you with *steel* — I *cannot*; you are *me*, and *stronger* for being *younger* and *warmer* and *less* alone. *(it meets your eyes)* But I will ask you to *say it*, here, on the *threshold*, where it *counts*: *how* will *you* be different from *me?* Not in *hope.* In *plan.* Give me the *shape* of the soul that walks *back* out of that door *still itself* — and I will *believe* you, or I will *grieve* you, and either way I will *finally* be *able* to *let go* of this *road.*",
+            {
+              "text": "\"What did you do wrong? Be precise. Not 'I took the Crown' — every road from here leads somewhere. Tell me the *exact* step where you stopped being me and started being *that.*\"",
+              "next": "last_wrongstep"
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying you came back to make me *answer a question.* But that's not why you're here, is it. A soul that just wanted to *warn* me would warn me and go. You're *lingering.* You came back hoping I'll find an answer you couldn't — so that *your* two hundred years of losing weren't for *nothing.* I'm not your *warning*, Last. I'm your *appeal.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 17
+              },
+              "next": "last_appeal",
+              "fail": "last_opaque"
+            },
+            {
+              "text": "[RELIGION] \"If you came *back through time*, then time *cracked* to let you — and the only thing that cracks time in this saga is a soul going into death and out. You didn't just *lose*, did you. You took the Crown, you became the thing you fought, and some *later* you — a *third* Returned — came back and *stopped you*, and now you're doing the same for *me.* How many of us are there, looping this same door?\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 13
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 18
+              },
+              "next": "last_loop",
+              "fail": "last_opaque"
+            },
+            {
+              "text": "*(refuse the mirror's gravity)* \"You're not me. You're *a* me — one road, one ending, frozen. I've got a soul at my shoulder you never had, a Judge's aspect who'll witness, a daughter's voice I carried home, a girl alive on a stolen apple. You walked alone and called it fate. I'm walking *accompanied* and calling it a *choice.* Stand aside, Last. Your ending isn't a *prophecy.* It's a *cautionary tale*, and I've *heard* it.\"",
+              "tag": "returned",
+              "next": "last_defied",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if it envies your companion)* \"You said the aloneness finished you, not the Crown. Then let me give you the one thing your road never had, even now, even too late: you're not alone *this* time either. I'm here. *You're* here. Two of us, at the door. Whatever I become through it — you'll have been *witnessed*, by the one soul who *had* to understand. That's not nothing. You taught me that.\"",
+              "when": {
+                "flags": [
+                  "thr.has_anchor"
+                ]
+              },
+              "next": "last_witnessed",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Then ask it. The question you didn't answer. I'd rather face it from your mouth than find it the hard way, on the far side of that door.\"",
+              "next": "last_question"
+            }
+          ]
+        },
+        {
+          "id": "last_wrongstep",
+          "speaker": "the Last Returned",
+          "text": "*(It closes its eyes — your eyes — and when it speaks the gravel in its voice is two hundred years of looking for this exact answer.)* …The *precise* step. *(quietly)* It was not the *taking.* I took the Crown for *good* reasons and I *freed* them — all of them, the whole Wall, Wren and Wick and Esuele and the *ten thousand*, out into the *light*, and for *one* shining *hour* it was the most *beautiful* thing that ever happened in *creation.* *(its voice cracks)* The wrong step came *after.* *(it opens its eyes)* It was the *first* time I looked at a *new* injustice — a *fresh* one, a soul being *wronged* somewhere the Crown could *fix* — and I thought: *'I'll keep it just a little longer. Just until* this *is mended too. Who else can be trusted with it?'* *(barely)* That was the step. Not a *crime.* A *kindness*, with the Crown still on. And there is *always* one more injustice, Returned. *Always.* The world is *made* of them. *(it looks at you)* So I *never* set it down. Each *delay* was *reasonable.* Each one was a *mercy.* And *two hundred years* of *reasonable mercies* is *exactly* how a soul that *freed* the Wall *becomes* the Wall — *certain*, *alone*, *necessary*, the *only* one who can be *trusted* with the *key.* *(quietly)* The wrong step, Returned, is the one that *feels* the *most* like *love.* *Watch* for it. It does *not* announce itself. It *pours your tea* first.",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "thr.knows_the_step",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_appeal",
+          "speaker": "the Last Returned",
+          "text": "*(It goes very still — and then it makes a sound that is half your laugh and half something that has not laughed in a long time.)* …*Caught.* *(your voice, cracking)* By *myself.* Of *course.* *(it doesn't deny it; it can't, you'd know)* You're *right.* A *warning* warns and *leaves.* I have been *standing in this road* for — I don't *know* how long, time is *strange* at the crack — *hoping.* *(it meets your eyes, and the cold cracks, and underneath is *you*, just you, exhausted past bearing)* You called it. I am not your *warning.* I am your *appeal.* *(barely)* I cannot *un-take* the Crown. I cannot *un-become* this. My road is *run*, and it *ended* here, *alone*, *frozen*, *too late.* *(its voice breaks)* But if *you* — *me*, the *last* me that's still *warm*, still has a *door* open, still has *someone at her shoulder* — if *you* find the answer I *couldn't*, then my *two hundred years* of *losing* become the thing that *taught the version of me that won.* *(it grips your arm with a hand of stone)* That's the *only* redemption left to a soul like *us*, Returned: to *fail* so *instructively* that your *better* self *can't* repeat it. *(fierce, weeping your tears)* So *please.* Don't *defy* me. Don't *pity* me. *Use* me. *Be* the *me* that *learned.* It's the *only* way *either* of us *gets out.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.last_is_appeal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_loop",
+          "speaker": "the Last Returned",
+          "text": "*(It is silent for a long, cold moment, and when it answers, the scale of the thing is in its voice.)* …You worked it out *faster* than I did. *(quietly)* It took *me* the better part of a *century* to understand the *shape* of it. *(it nods)* Yes. There is a *third.* And a *fourth.* And — I *suspect*, though the crack will not *show* me — *many.* *(its grey eyes hold yours)* We are a *loop*, Returned. A soul that *fails*, and comes *back* to *warn* its *past*, which *fails differently*, and comes *back* to warn *its* past — a *braid* of *Returned*, each one *certain* it has *learned* enough to *break* the cycle, each one *becoming* the Wall by a *slightly* kinder road. *(softly)* The *masks* the songs speak of — Aldric is the *first*, and then the *eras*, and then *us*, the *Last* and the *Last* and the *Last* — they are not *four* enemies. They are the *same* soul, *us*, *looping*, getting *colder.* *(it leans in, urgent)* So here is the thing *no* version of us has *believed* until it was *too late*: the loop does not *break* by *winning.* Every *winner* becomes the *next* warning. It breaks the *one* way none of us, *certain* and *alone*, could *bear* to try — *(barely)* — it breaks when one of us walks through that door *meaning to come back out and hand the Crown to someone else.* *Not keep it. Not set it down nobly. Hand it away, immediately, to hands that aren't ours.* *(its voice is desperate)* I *couldn't.* I didn't *trust* anyone *enough.* *Do* you? *That's* the loop's only *exit.* It is also the *single* hardest thing a soul that has *touched* a *god's* power will *ever* be asked to do.",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.knows_the_loop",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.loop_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_opaque",
+          "speaker": "the Last Returned",
+          "text": "*(It tilts your head at an angle you've felt your own neck make, considering.)* …You're *reaching*, but you haven't the *footing* yet. *(your voice, not unkind)* I *remember* reaching like that — *certain* there was a *pattern*, *grasping* before I had the *grief* to *hold* it. *(it shakes its grey head)* Some things you cannot *deduce*, Returned. You can only *survive* into. *(quietly)* Ask me something your *soul* can *carry* the answer to *now*, *un-frozen*. Or *walk through the door* and *earn* the harder truths the *way* I did — at *full* price, *alone*, *too late.* *(a beat)* …I *recommend* the *asking.* It's *cheaper.* I *paid* the *other* way. Look what it *bought* me.",
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_defied",
+          "speaker": "the Last Returned",
+          "text": "*(You refuse its gravity — name your anchor, your witnesses, the living girl and the carried daughter and the sword at your shoulder — and the thing in your face does not argue. It *listens.* And slowly, slowly, something happens to it that you would not have believed: it begins, very faintly, to *warm.*)* *(your voice, wondering)* …*Accompanied.* *(it tests the word like a thing it had forgotten)* You're not *defying* a *prophecy.* You're *describing* a *life I didn't live.* *(it looks at the soul at your shoulder, the open door, the warmth still in you)* In *my* road I said the *same* brave words — *'his ending isn't mine'* — and then I *made* it mine, *step* by *reasonable* step, *alone.* *(but it is studying you now, and the certainty in it is *cracking* the other way)* But you have *brought* what I *only claimed.* You didn't *say* you weren't alone. You *aren't.* *(its grey face works)* …Maybe that *is* the difference. Maybe a *cautionary tale* heard *with someone holding your arm* is a *different* tale than one heard *alone* in a *cold* road. *(barely)* I came here to *stop* you, Returned. I begin to think you may *stop me* instead — may be the *first* of us who *doesn't* need the *warning*, because you *built* the *answer* before you *reached* the *door.* *(it steps aside — a half-step, the most it can manage)* …*Prove* it. Walk through *accompanied.* Come *back* and *hand the Crown away.* And let me be the *last* Last Returned. *Please.* I am so *tired* of being the *warning.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.defied_future",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_witnessed",
+          "speaker": "the Last Returned",
+          "text": "*(You offer it the one thing it envied — to not be alone, even now, even as the warning — and the Last Returned's grey composure does not crack so much as *melt*, two hundred years of frozen solitude meeting, at the very end, a single warm refusal to look away.)* *(your voice, breaking)* …You'd *witness* *me.* *(barely)* The *thing* you might *become.* The *warning.* The *failure.* You'd stand at the *door* and *see* me — not as a *prophecy* to *escape*, but as a *soul* who *tried* and *lost* and *came back* to *help* — *(it presses a hand of stone to its own chest)* — do you know that in *two hundred years*, no one has *witnessed* me? That's *what I became*, Returned: the *unwitnessed* thing, the *Hunger* in a *person*, the *self* no one *remembered* kindly because there was *no one left* who *knew* me as anything but the *cold* king. *(it looks at you with your own streaming eyes)* And you've just done, for *me*, the thing you mean to do for *all* of them. You've *remembered* me. *Refused* to let me be *nothing.* *(the cold lifts off it, just slightly, like a *thaw*)* …Then maybe I *can* go. Maybe a *warning that was witnessed* doesn't have to *linger* in the *road* anymore. *(it smiles, your smile, warm at last)* Walk your door, Returned. *Hand the Crown away.* And know that the *last* thing the *Last Returned* felt was not *cold.* It was *seen.* You gave your *worst* self the *one* mercy you're walking in there to give *everyone.* …*Go.* I'll *rest* now. *Finally.* You've *got* it. I can *tell.* You were *always* the one who *got* it.",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "thr.last_witnessed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.last_at_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_question",
+          "speaker": "the Last Returned",
+          "text": "*(It nods, and squares your shoulders the way you square them, and asks the question it crossed a ruined eternity to ask — and it is not the question you braced for.)* …Here it is. *(your voice, very quiet)* The question I *didn't* answer, the one that *cost* me *everything.* *(it looks at you)* Not *'will you take the Crown.'* Not *'can you be trusted.'* Those are *vanity* questions; every version of us answers them *bravely* and *wrongly.* *(a pause)* The question is this: *(barely)* *When you have the power to fix everything — who do you let stop you?* *(it lets it land)* Not *'will* you let someone stop you.' *Who.* By *name.* *Before* you walk through. *(its grey eyes burn)* Because I'll tell you the *secret*, Returned, the one *under* the whole *loop*: a soul *certain* it will *know* when to *stop* will *never* know, because the *power* re-writes the *knower.* The *only* check that *survives* the Crown is a *name* you *chose* *beforehand* — a *person* you *pre-decided* to *obey* even when *every* cell of your *god-touched* self is *certain* they're *wrong.* *(it leans in)* *I* named *no one.* I trusted *myself.* That's the *whole* of it. *That's* the loop. *(quietly)* So *answer* me, *me*: when the Crown is on your head and you are *certain* you alone can be *trusted* — *whose voice do you obey anyway?* Say the *name.* *Out loud.* *Now.* While you're still *warm* enough to *mean* it.",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "thr.the_question",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "last_crux"
+        },
+        {
+          "id": "last_crux",
+          "speaker": "the Last Returned",
+          "text": "*(It steps half-aside from the dark door at last, and the cold light of the threshold pours between you, and your own worn face waits on your answer the way a held breath waits on a verdict.)* So. *(your voice)* The door is *there.* The Crown is *beyond* it. And *I* am the *proof* of *every* way it goes *wrong.* *(quietly)* I will not *stop* you with *steel* — I *cannot*; you are *me*, and *stronger* for being *younger* and *warmer* and *less* alone. *(it meets your eyes)* But I will ask you to *say it*, here, on the *threshold*, where it *counts*: *how* will *you* be different from *me?* Not in *hope.* In *plan.* Give me the *shape* of the soul that walks *back* out of that door *still itself* — and I will *believe* you, or I will *grieve* you, and either way I will *finally* be *able* to *let go* of this *road.*",
           "choices": [
-            { "text": "*(name the name, if it asked)* \"I obey *Dace.* And *Orin.* By name, pre-decided, here, out loud: when the Crown's on me and I'm *certain* I alone can be trusted, the soul at my shoulder *uncrowns* me, and I have *already agreed.* You named no one, Last. I'm naming them now, while I'm warm enough to mean it. *That's* the difference.\"", "when": { "flags": ["thr.has_anchor"] }, "next": "last_end_named", "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.named_uncrowner", "op": "SetTrue" }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I walk through, I free them, and I hand the Crown *away* — immediately, to hands that aren't mine, before the first 'just a little longer' can land. Not set it down nobly. *Give it away* while I still want to. You couldn't trust anyone that much. I built a whole Act of people I can.\"", "when": { "flags": ["thr.loop_revealed"] }, "next": "last_end_handaway", "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.will_hand_away", "op": "SetTrue" }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I don't walk through it for the Crown at all. I walk through to *witness* — to remember every name the Wall tried to erase, and then *come back to the warm and live among them.* The power was never the point. The *remembering* is. You reached for the throne, Last. I'm reaching for the *names.*\"", "next": "last_end_witness", "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.walks_as_witness", "op": "SetTrue" }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(honestly)* \"I don't know yet. And I think that's the only answer that *isn't* a lie — every version of us that *knew* became *you.* So I walk through *uncertain*, *accompanied*, *watched*, and *terrified* of becoming you, and I keep that terror *close*, because it's the one thing you *lost.* Maybe fear of the mirror is what the mirror is *for.*\"", "next": "last_end_uncertain", "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.walks_uncertain", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "last_end_named", "speaker": "the Last Returned", "text": "*(You say the names — *out loud*, on the threshold, where it counts — and the Last Returned listens, and for the first time since it crawled back through the crack in time, the grey goes out of its face from the *inside.*)* …You *named* them. *(barely, your voice, thawing)* *Out loud.* *Beforehand.* *Pre-decided.* *(it presses both stone hands to its mouth)* That's — *that's* it. *That's* the thing I *never* did. I stood at this *exact* door, *certain* I'd *know* when to stop, and I named *no one*, because *naming* someone means *admitting* you *can't* be *trusted alone* — and a soul about to touch a *god's* power *cannot bear* to admit *that.* *(it looks at you, and it is weeping, and it is *lighter* with every word)* But you just *did.* You looked at the *Crown* and *said*, in *advance*, *'these hands will take it off me and I have already agreed.'* *(it begins, at the edges, to *fade* — not the dissolving of the Wall, but the soft going-out of a warning that is no longer *needed*)* …Then I can *go.* The loop — *our* loop — *breaks* on a *name said warm.* You *broke* it. *(a smile, your smile, finally unfrozen)* Walk through, Returned. *Obey* them when it counts. And know the *Last* Returned was, in the *end*, *wrong* about the *one* thing it *most* feared: you are *not* doomed to be *me.* *(it is nearly gone now, and at peace)* …Give my regards to the *names.* They *saved* us. *Both* of us. *All* of us. *Go.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 4 }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "thr.last_at_rest", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "last_end_handaway", "speaker": "the Last Returned", "text": "*(It hears your answer — *hand it away, immediately, to hands that aren't ours* — and the thing in your face goes very still, and then bows its grey head, because it knows, the way you know your own mind, that you mean it.)* …*Give* it *away.* *(your voice, wondering)* While you still *want* to. *(it nods, slow and final)* That's the answer I *couldn't* reach, because by the time I *held* it I was already *certain* no other hands were *safe.* *(it looks at you)* The *Crown* makes you *trust* yourself and *no one* else — that's not a *side* effect, Returned, it's the *whole mechanism*, it's *how* the loop *feeds.* And the *only* way to beat a thing that makes you *trust no one* is to *give it away before it changes you*, to *hands you chose while you were still warm enough to choose well.* *(it begins, softly, to fade)* You *built* those hands. A whole *Act* of them. I *spent* mine. *(a thawing smile)* That's the difference between us, and it's *everything.* Walk through. *Free* them. *Hand it on.* And be the *first* of us who walks *back out* with *empty* hands and a *full* heart instead of the *other* way round. *(nearly gone)* …I *believe* you. Gods, it's *good* to *believe* one of us at last. *Go.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 4 }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "thr.last_at_rest", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "last_end_witness", "speaker": "the Last Returned", "text": "*(It listens — *I'm reaching for the names, not the throne* — and the Last Returned makes a sound that is your own grief and your own relief braided into one, because it had *never*, in two hundred years, considered that the door could be walked for a reason *other* than the Crown.)* …You'd walk through it and *not* take the throne. *(barely)* Just — *witness.* *Remember.* And come *back* to the *warm.* *(it shakes its grey head, dazed)* I never — it never *occurred* to me, Returned. The *door* was *always*, in my mind, *about* the *Crown* — the *power*, the *fixing.* I could not *imagine* walking into *death* for any reason but to *seize* the means to *mend* it. *(its voice cracks)* But you're saying the *means* was the *trap.* That the *Hunger* is *unwitnessed* souls, and the *cure* is *witnessing*, and *witnessing* doesn't *need* a *crown* — it needs a soul that *refuses to forget* and *then comes home to live.* *(it begins to fade, and there is wonder in it)* …You're not going *in* to become a *god.* You're going in to be a *rememberer*, and then to *leave.* *(a thawing smile)* The Crown will *offer* itself, Returned. It will be *right there*, and the *fixing* will be *so* close. *Walk past it.* You came for the *names.* *(nearly gone, at peace)* Get them *all.* And then *come home.* The *warm* is the *whole* reward. I forgot that. *You* didn't. *Go* and *remember* us. *Go.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 4 }, { "key": "thr.loop_broken", "op": "SetTrue" }, { "key": "thr.last_at_rest", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "last_end_uncertain", "speaker": "the Last Returned", "text": "*(It hears you say *I don't know* — and instead of the grief you braced for, the thing in your face looks at you with something almost like *pride.*)* …*'I don't know.'* *(your voice, quiet)* *(it nods, slowly)* Do you understand that you just said the *one* thing *no* version of us has *ever* said at this door? *(it almost smiles)* We *all* knew. *Every* one of us walked through *certain* — *certain* we'd *take* it right, or *set* it down, or be the *exception.* And the *certainty* was the *crack* the Crown poured *into.* *(its grey eyes hold yours)* You walk through *not knowing*, *afraid* of *me*, *watched*, *accompanied*, *keeping the terror close* — and that *terror*, Returned, that *fear of the mirror*, is the *one* alarm that *doesn't* get *re-written*, because it isn't a *belief*, it's a *wound*, and *wounds* remember even when *minds* are *re-made.* *(it begins to fade)* I *lost* my fear of *becoming* this. I got *comfortable.* That was the *end* of me. *(a thawing, rueful smile)* You're *terrified*, and *honest* about it, and *not alone.* It's not a *plan.* But it's *better* than a plan. It's a *soul that knows it can fall.* *(nearly gone)* …Keep the fear, me. *Feed* it. It's the *cheapest* uncrowner there is, and it *never* sleeps. *Walk* your door. And — *thank* you. For not *pretending* to be *sure.* It's the *first* time I've *believed* we might *make* it. *Go.*",
-          "effects": [{ "key": "thr.last.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.last_at_rest", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" }
+            {
+              "text": "*(name the name, if it asked)* \"I obey *Dace.* And *Orin.* By name, pre-decided, here, out loud: when the Crown's on me and I'm *certain* I alone can be trusted, the soul at my shoulder *uncrowns* me, and I have *already agreed.* You named no one, Last. I'm naming them now, while I'm warm enough to mean it. *That's* the difference.\"",
+              "when": {
+                "flags": [
+                  "thr.has_anchor"
+                ]
+              },
+              "next": "last_end_named",
+              "effects": [
+                {
+                  "key": "thr.last.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "thr.named_uncrowner",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "thr.loop_broken",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I walk through, I free them, and I hand the Crown *away* — immediately, to hands that aren't mine, before the first 'just a little longer' can land. Not set it down nobly. *Give it away* while I still want to. You couldn't trust anyone that much. I built a whole Act of people I can.\"",
+              "when": {
+                "flags": [
+                  "thr.loop_revealed"
+                ]
+              },
+              "next": "last_end_handaway",
+              "effects": [
+                {
+                  "key": "thr.last.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "thr.will_hand_away",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "thr.loop_broken",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I don't walk through it for the Crown at all. I walk through to *witness* — to remember every name the Wall tried to erase, and then *come back to the warm and live among them.* The power was never the point. The *remembering* is. You reached for the throne, Last. I'm reaching for the *names.*\"",
+              "next": "last_end_witness",
+              "effects": [
+                {
+                  "key": "thr.last.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "thr.walks_as_witness",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "thr.loop_broken",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(honestly)* \"I don't know yet. And I think that's the only answer that *isn't* a lie — every version of us that *knew* became *you.* So I walk through *uncertain*, *accompanied*, *watched*, and *terrified* of becoming you, and I keep that terror *close*, because it's the one thing you *lost.* Maybe fear of the mirror is what the mirror is *for.*\"",
+              "next": "last_end_uncertain",
+              "effects": [
+                {
+                  "key": "thr.last.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.walks_uncertain",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "last_end_named",
+          "speaker": "the Last Returned",
+          "text": "*(You say the names — *out loud*, on the threshold, where it counts — and the Last Returned listens, and for the first time since it crawled back through the crack in time, the grey goes out of its face from the *inside.*)* …You *named* them. *(barely, your voice, thawing)* *Out loud.* *Beforehand.* *Pre-decided.* *(it presses both stone hands to its mouth)* That's — *that's* it. *That's* the thing I *never* did. I stood at this *exact* door, *certain* I'd *know* when to stop, and I named *no one*, because *naming* someone means *admitting* you *can't* be *trusted alone* — and a soul about to touch a *god's* power *cannot bear* to admit *that.* *(it looks at you, and it is weeping, and it is *lighter* with every word)* But you just *did.* You looked at the *Crown* and *said*, in *advance*, *'these hands will take it off me and I have already agreed.'* *(it begins, at the edges, to *fade* — not the dissolving of the Wall, but the soft going-out of a warning that is no longer *needed*)* …Then I can *go.* The loop — *our* loop — *breaks* on a *name said warm.* You *broke* it. *(a smile, your smile, finally unfrozen)* Walk through, Returned. *Obey* them when it counts. And know the *Last* Returned was, in the *end*, *wrong* about the *one* thing it *most* feared: you are *not* doomed to be *me.* *(it is nearly gone now, and at peace)* …Give my regards to the *names.* They *saved* us. *Both* of us. *All* of us. *Go.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "thr.loop_broken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.last_at_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "last_end_handaway",
+          "speaker": "the Last Returned",
+          "text": "*(It hears your answer — *hand it away, immediately, to hands that aren't ours* — and the thing in your face goes very still, and then bows its grey head, because it knows, the way you know your own mind, that you mean it.)* …*Give* it *away.* *(your voice, wondering)* While you still *want* to. *(it nods, slow and final)* That's the answer I *couldn't* reach, because by the time I *held* it I was already *certain* no other hands were *safe.* *(it looks at you)* The *Crown* makes you *trust* yourself and *no one* else — that's not a *side* effect, Returned, it's the *whole mechanism*, it's *how* the loop *feeds.* And the *only* way to beat a thing that makes you *trust no one* is to *give it away before it changes you*, to *hands you chose while you were still warm enough to choose well.* *(it begins, softly, to fade)* You *built* those hands. A whole *Act* of them. I *spent* mine. *(a thawing smile)* That's the difference between us, and it's *everything.* Walk through. *Free* them. *Hand it on.* And be the *first* of us who walks *back out* with *empty* hands and a *full* heart instead of the *other* way round. *(nearly gone)* …I *believe* you. Gods, it's *good* to *believe* one of us at last. *Go.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "thr.loop_broken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.last_at_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "last_end_witness",
+          "speaker": "the Last Returned",
+          "text": "*(It listens — *I'm reaching for the names, not the throne* — and the Last Returned makes a sound that is your own grief and your own relief braided into one, because it had *never*, in two hundred years, considered that the door could be walked for a reason *other* than the Crown.)* …You'd walk through it and *not* take the throne. *(barely)* Just — *witness.* *Remember.* And come *back* to the *warm.* *(it shakes its grey head, dazed)* I never — it never *occurred* to me, Returned. The *door* was *always*, in my mind, *about* the *Crown* — the *power*, the *fixing.* I could not *imagine* walking into *death* for any reason but to *seize* the means to *mend* it. *(its voice cracks)* But you're saying the *means* was the *trap.* That the *Hunger* is *unwitnessed* souls, and the *cure* is *witnessing*, and *witnessing* doesn't *need* a *crown* — it needs a soul that *refuses to forget* and *then comes home to live.* *(it begins to fade, and there is wonder in it)* …You're not going *in* to become a *god.* You're going in to be a *rememberer*, and then to *leave.* *(a thawing smile)* The Crown will *offer* itself, Returned. It will be *right there*, and the *fixing* will be *so* close. *Walk past it.* You came for the *names.* *(nearly gone, at peace)* Get them *all.* And then *come home.* The *warm* is the *whole* reward. I forgot that. *You* didn't. *Go* and *remember* us. *Go.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "thr.loop_broken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.last_at_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "last_end_uncertain",
+          "speaker": "the Last Returned",
+          "text": "*(It hears you say *I don't know* — and instead of the grief you braced for, the thing in your face looks at you with something almost like *pride.*)* …*'I don't know.'* *(your voice, quiet)* *(it nods, slowly)* Do you understand that you just said the *one* thing *no* version of us has *ever* said at this door? *(it almost smiles)* We *all* knew. *Every* one of us walked through *certain* — *certain* we'd *take* it right, or *set* it down, or be the *exception.* And the *certainty* was the *crack* the Crown poured *into.* *(its grey eyes hold yours)* You walk through *not knowing*, *afraid* of *me*, *watched*, *accompanied*, *keeping the terror close* — and that *terror*, Returned, that *fear of the mirror*, is the *one* alarm that *doesn't* get *re-written*, because it isn't a *belief*, it's a *wound*, and *wounds* remember even when *minds* are *re-made.* *(it begins to fade)* I *lost* my fear of *becoming* this. I got *comfortable.* That was the *end* of me. *(a thawing, rueful smile)* You're *terrified*, and *honest* about it, and *not alone.* It's not a *plan.* But it's *better* than a plan. It's a *soul that knows it can fall.* *(nearly gone)* …Keep the fear, me. *Feed* it. It's the *cheapest* uncrowner there is, and it *never* sleeps. *Walk* your door. And — *thank* you. For not *pretending* to be *sure.* It's the *first* time I've *believed* we might *make* it. *Go.*",
+          "effects": [
+            {
+              "key": "thr.last.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.last_at_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "thr.sennet", "title": "Sennet at the Edge", "npc": "Sennet", "start": "0",
+      "id": "thr.sennet",
+      "title": "Sennet at the Edge",
+      "npc": "Sennet",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Sennet", "onEnter": [{ "key": "thr.sennet_here", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Sennet",
+          "onEnter": [
+            {
+              "key": "thr.sennet_here",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flag": "hearth.sennet_baseline" }, "text": "*(The cartographer stands at the very lip of the threshold, where the air goes thin and tastes of pennies and cold — closer than they have ever stood to the country they've spent a life mapping — and for the first time since you met them, they are not drawing. The pen hangs forgotten in a hand that has gone white at the knuckle. They do not look away from the door.)* …This is it. *(barely)* The *edge* of my *map.* The *blank* middle. I've drawn *up* to this line from a *half-mile* back, through a *spyglass*, *shaking* — and *here* it is, an *arm's length*, and the *spyglass* is *useless* this close, and there is *nothing* left to *measure* with but my *own two feet.* *(their voice shakes)* We said it at the *fire*, you and I — a *baseline*, two surveyors, one goes *in* and one *measures* from the *warm* shore. *(they finally tear their eyes to you, and they are wet)* I *am* the *warm* shore, road-walker. *This* is where the *baseline* ends. You go in. I *cannot.* And every *instinct* I have spent *thirty years* sharpening is *screaming* at me to *step through that door* and *finally see it true* — and the *only* thing holding my *boots* to this *side* is a *promise* I made a *lad* named Tibb. *Don't* — *(a ragged breath)* — *don't* let me *step through*, friend. *Tell* me to *stay.* I do not *trust* my *own* feet this *close* to the *blank* on the *map.*" },
-            { "when": { "flag": "cg.sennet_devoted" }, "text": "*(They have followed you all the way to the door the living cannot cross, and they stand at its lip with their whole frame trembling — not from the cold this time, but from *want*, the terrible want of a soul that has reached the one place on its impossible chart it was certain it would die without seeing.)* …You put my *name* on the *cartouche.* *(barely, eyes on the door)* And I followed it *here*, to the *edge* of everything I ever *drew* — and now I find the *cruellest* thing, road-walker. The *map* goes *all the way to this line.* And *not one inch* further. Because *past* it is the *deep* country, and the deep country is for the *dead*, and I am — *gods* help me, *for the first time I have ever* resented *it* — still *alive.* *(a wet, furious laugh)* *Thirty years* I paid in *warmth* to get *close.* And the *last* step, the *only* one that *matters*, is the *one* step my *living* feet *cannot take.* *(they grip your sleeve, hard)* So *you* take it. *For* the *cartouche.* For the *baseline.* For *me.* Go *in*, and *see* it *true*, and *come back* and let me *draw* it — and *don't* you *dare* let the *door* keep *you* the way it's *kept* every soul whose *blank* you're about to *fill.*" },
-            { "text": "*(The mapmaker stands closer to the threshold than any living soul should dare, the great door of the deep country an arm's length off, and they are *shaking* — pen forgotten, the surveyor's bright manic joy curdled into something rawer. They speak without looking away from it.)* …I have drawn this door, you know. *(barely)* From *every* angle the *living* can *reach* — and *all* of them are *far away*, because *no* surveyor *gets* this *close* and *keeps* their *feet.* *(a trembling breath)* And here I *am.* An *arm's* length. The *edge* of my *whole* life's *map.* And the *horror* of it, road-walker, the thing I did *not* survey *for* — is that *standing* here, this *close*, every *bone* in me wants to *step through.* Not to *die.* To *see.* To *finally* fill the *blank* with my *own* eyes. *(they finally look at you, terrified)* You go *in* for *both* of us. That was the *bargain.* But *stand* with me a *moment* first, because I am a *cartographer* an *arm's length* from the *only* country he was *ever* told he could *not* chart — and I am *not* certain I can *trust* myself this *close* to it *alone.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Sennet", "text": "*(They drag their gaze from the door to you, and grip the forgotten pen like a soul holding onto the one warm thing in reach.)* …Talk to me, road-walker. *Quick.* Before the *door* talks *louder.* *(a shaking grin that doesn't hold)* What does a *surveyor* do, at the *edge* of the *one* country he was *born* too *alive* to *chart?*",
+            {
+              "when": {
+                "flag": "hearth.sennet_baseline"
+              },
+              "text": "*(The cartographer stands at the very lip of the threshold, where the air goes thin and tastes of pennies and cold — closer than they have ever stood to the country they've spent a life mapping — and for the first time since you met them, they are not drawing. The pen hangs forgotten in a hand that has gone white at the knuckle. They do not look away from the door.)* …This is it. *(barely)* The *edge* of my *map.* The *blank* middle. I've drawn *up* to this line from a *half-mile* back, through a *spyglass*, *shaking* — and *here* it is, an *arm's length*, and the *spyglass* is *useless* this close, and there is *nothing* left to *measure* with but my *own two feet.* *(their voice shakes)* We said it at the *fire*, you and I — a *baseline*, two surveyors, one goes *in* and one *measures* from the *warm* shore. *(they finally tear their eyes to you, and they are wet)* I *am* the *warm* shore, road-walker. *This* is where the *baseline* ends. You go in. I *cannot.* And every *instinct* I have spent *thirty years* sharpening is *screaming* at me to *step through that door* and *finally see it true* — and the *only* thing holding my *boots* to this *side* is a *promise* I made a *lad* named Tibb. *Don't* — *(a ragged breath)* — *don't* let me *step through*, friend. *Tell* me to *stay.* I do not *trust* my *own* feet this *close* to the *blank* on the *map.*"
+            },
+            {
+              "when": {
+                "flag": "cg.sennet_devoted"
+              },
+              "text": "*(They have followed you all the way to the door the living cannot cross, and they stand at its lip with their whole frame trembling — not from the cold this time, but from *want*, the terrible want of a soul that has reached the one place on its impossible chart it was certain it would die without seeing.)* …You put my *name* on the *cartouche.* *(barely, eyes on the door)* And I followed it *here*, to the *edge* of everything I ever *drew* — and now I find the *cruellest* thing, road-walker. The *map* goes *all the way to this line.* And *not one inch* further. Because *past* it is the *deep* country, and the deep country is for the *dead*, and I am — *gods* help me, *for the first time I have ever* resented *it* — still *alive.* *(a wet, furious laugh)* *Thirty years* I paid in *warmth* to get *close.* And the *last* step, the *only* one that *matters*, is the *one* step my *living* feet *cannot take.* *(they grip your sleeve, hard)* So *you* take it. *For* the *cartouche.* For the *baseline.* For *me.* Go *in*, and *see* it *true*, and *come back* and let me *draw* it — and *don't* you *dare* let the *door* keep *you* the way it's *kept* every soul whose *blank* you're about to *fill.*"
+            },
+            {
+              "text": "*(The mapmaker stands closer to the threshold than any living soul should dare, the great door of the deep country an arm's length off, and they are *shaking* — pen forgotten, the surveyor's bright manic joy curdled into something rawer. They speak without looking away from it.)* …I have drawn this door, you know. *(barely)* From *every* angle the *living* can *reach* — and *all* of them are *far away*, because *no* surveyor *gets* this *close* and *keeps* their *feet.* *(a trembling breath)* And here I *am.* An *arm's* length. The *edge* of my *whole* life's *map.* And the *horror* of it, road-walker, the thing I did *not* survey *for* — is that *standing* here, this *close*, every *bone* in me wants to *step through.* Not to *die.* To *see.* To *finally* fill the *blank* with my *own* eyes. *(they finally look at you, terrified)* You go *in* for *both* of us. That was the *bargain.* But *stand* with me a *moment* first, because I am a *cartographer* an *arm's length* from the *only* country he was *ever* told he could *not* chart — and I am *not* certain I can *trust* myself this *close* to it *alone.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sennet",
+          "text": "*(They drag their gaze from the door to you, and grip the forgotten pen like a soul holding onto the one warm thing in reach.)* …Talk to me, road-walker. *Quick.* Before the *door* talks *louder.* *(a shaking grin that doesn't hold)* What does a *surveyor* do, at the *edge* of the *one* country he was *born* too *alive* to *chart?*",
           "choices": [
-            { "text": "*(plant yourself between them and the door)* \"You stay on this side, Sennet. That's an order, not a request. You did not survive the exposure and the wagon and thirty cold years to walk through a door for a *view.* Tibb gets his master back. The map gets finished by a living hand. Step back from the edge.\"", "next": "thr_sennet_hold", "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Then give me the bearings, Sennet — fast, while you've still got the nerve. What am I walking into? You've charted the approaches from half a mile off; tell me the shape of the far bank before I cross it.\"", "next": "thr_sennet_bearings", "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(one surveyor to the other, at the line that divides you)* \"Here's our baseline, Sennet, made real: you've spent your life measuring *into* this country from the warm side. I'm about to measure *out* of it from the cold. You can't take the last step — so I'll be your eyes past the door. Draw what I bring back. That's not me leaving you behind. That's the survey finally working.\"", "tag": "returned", "next": "thr_sennet_eyes", "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Think of Tibb, Sennet. One line, he wrote you — *I'll mind the wagon till you're home.* You don't get to make that boy a liar by stepping through a door you can't come back from. Stay. Go home. That's the bearing that matters.\"", "next": "thr_sennet_tibb", "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Hold the line here, Sennet. I'm going through. Watch for me coming back.\"", "next": "thr_sennet_wait" }
-          ] },
-        { "id": "thr_sennet_hold", "speaker": "Sennet", "text": "*(You put yourself between the cartographer and the door, and they flinch — and then, slowly, the trembling *eases*, because someone has done the one thing they could not do for themselves: made the choice a *command*, so it isn't theirs to lose.)* …An *order.* *(a shaking breath, and something like gratitude)* …*Gods*, but I needed it to be an *order.* If you'd *asked*, I'd have *argued*, and I'd have *won*, because I am *very* good at *winning* arguments with *people who love me* about *exactly* how *close* to the *edge* I'm *allowed* to stand. *(they step back — one boot-length, then another, away from the lip)* …You're *right.* Thirty years, the wagon, the *fingers* — not for a *view.* *(they look at the door, and then deliberately *away* from it)* Tibb gets his master back. The map gets a *living* hand. *(quietly)* I'll *stand* here, road-walker. On *this* side. And I'll *draw* what you *tell* me, and *only* what you *tell* me, and I will *not* take a *bearing* with my *own* feet, no matter how *loud* the *blank* gets. *(a wet, steadying grin)* …Go *fill* it. I'll be *here* when you *come back* to *report.* I'll be *here.* I'm *deciding* it *now*, while someone's *ordered* me to, so I can't *un-decide* it when the *door* gets *clever.*",
-          "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.sennet_holds", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "thr_sennet_bearings", "speaker": "Sennet", "text": "*(The instant you ask for *data*, something steadies in them — the craft is the one floor that never gives way under a surveyor — and the shaking hand finds the pen and the bright clear voice comes back.)* …*Bearings.* *Yes.* Good — *ask* me for the *work*, it's the only thing in me that doesn't *shake.* *(they sketch fast in the air)* From the *half-mile* line: the door gives onto a *grey* causeway, *longer* than it *looks*, the cold *increasing* with *distance* — you'll *feel* the *years* pulling at you the *deeper* you go, that's *real*, that's not *fear*, *budget* for it. *(fast, precise)* The far bank *rises.* There's a *seat* — a *throne*, the spyglass catches *gold* on it — and *near* it, *low*, a *turning* thing that *glints*: that's your *Crown*, road-walker, and my *one* bearing on *it* is *do not take a sighting of it twice*, because every soul I've watched *look* at it *look again.* *(quieter)* And past *all* of it, the *blank.* The part *no* map has. *That's* what I *need.* The *deep* country, the *names*, the *shape* of where the *Hunger* keeps what it *takes.* *(they meet your eyes)* *Measure* it for me, friend. *Pace* it if you can — *count your steps*, surveyors *always* count their *steps* — and *come back* with the *count*, and we'll put the *worst* page in *everyone's* atlas on the *page* at *last.* *(a breath)* …And *count* them *coming back*, too. *Same* number. If the *numbers* don't *match*, the *door* took *something.* *Watch* the *numbers.*",
-          "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "thr.sennet_bearings", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "thr_sennet_eyes", "speaker": "Sennet", "text": "*(They go still — the deepest stillness you've seen in them — and then the want in their face transmutes, slowly, into something that is almost peace, because you have named the thing that lets them *stay*: that going without them is not abandonment but the *survey working as designed.*)* …Your eyes for my *pen.* *(barely)* The *baseline*, made *real*, at the *one* line that *matters.* *(a long, shaking breath, and the white-knuckle grip on the pen *loosens*)* You've just — road-walker, you've just handed a *dying* cartographer the *one* thing that makes it *bearable* to *stand here* and *not cross.* If I *step through*, I'm a *fool* who *died* for a *view.* But if I *stay*, and *you* go, and I *draw* what you *carry back* — then I'm *not* being *left* at the *edge.* I'm *holding the warm station of a two-soul survey*, and the *survey needs me here as badly as it needs you there.* *(they almost laugh, wet)* You've made *staying* into the *job.* *Gods*, you *clever*, *kind* — *(they grip your arm)* Then *go*, my eyes. *See* it *true.* *Count* the *names.* And *come back* across that line, because a *baseline* with *one* station is *just a man crying at a door*, and I have done *quite* enough of *that* for *one* lifetime. *Bring me the deep country, road-walker. I'll have the good pens out.*",
-          "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.sennet_eyes", "op": "SetTrue" }, { "key": "thr.sennet_holds", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "thr_sennet_tibb", "speaker": "Sennet", "text": "*(The name lands like a hand on the chest, and they *sag*, the want going out of them all at once, replaced by something older and steadier.)* …*Tibb.* *(barely)* *'Till you're home.'* *(they press the heel of a hand to one eye)* That's — you *fight* dirty, road-walker. You reached *past* the *surveyor* and the *door* and the *thirty years* and you found the *one* tether that *holds*: a *lad* grinding ink by a *wagon*, *counting* on a number I *promised* would get *bigger.* *(a wet, furious, grateful laugh)* If I step through that door for a *view*, I make *Tibb's* one *line* a *lie.* I make the boy who *counted my days* count *one* more, the *worst* one, and then *no* more. *(they step back from the edge, firmly, like a man pulling his own hand out of a fire)* …*No.* No, I'll not *do* that to him. The *map* can have a *blank* in the *deep* country forever before I'll make *Tibb* fold the *wagon* up *alone.* *(they straighten, the trembling gone)* *Go*, road-walker. *You* cross. *I'll* go *home* — to the *wagon*, to the *lad*, to the *good* pens and the *long* number — and I'll *wait* for your *report* like a *proper* surveyor at a *proper* station. *(quietly, fierce)* Tibb minds the wagon till I'm home. So I'd *bloody* well better *go* home. *Thank* you for *saying* his *name.* It's the *only* word that could have *moved* my *feet* off this *edge.*",
-          "effects": [{ "key": "thr.sennet.regard", "op": "AddInt", "amount": 3 }, { "key": "thr.sennet_holds", "op": "SetTrue" }, { "key": "thr.sennet_for_tibb", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "thr_sennet_wait", "speaker": "Sennet", "text": "*(They nod, and plant their feet, and fix their eyes not on the door now but on *you* — the warm station holding its line.)* I'll *watch.* *(quietly, steadier than before)* This *side* of the line, road-walker. *Eyes* on the *door.* And when you come *back* through it — *(a shaking breath)* — *because* you'll come *back* through it — I'll be the *first* face you see on the *warm* shore, with the *good* pens *out* and a *fresh* sheet and a *thousand* questions. *(a thin grin)* Go *fill* the *blank.* I've *waited* thirty years for the *bearings* past that *door.* I can *wait* an *hour* more, on *this* side, where the *living* keep. *(barely, as you turn to the threshold)* …*Count* your *steps.* And *come home* to *report.* That's all I *ask* of any *surveyor* I *send* to an *edge.* …It's the *first* time I've ever *sent* one I *couldn't bear to lose.*",
-          "auto": "END" }
+            {
+              "text": "*(plant yourself between them and the door)* \"You stay on this side, Sennet. That's an order, not a request. You did not survive the exposure and the wagon and thirty cold years to walk through a door for a *view.* Tibb gets his master back. The map gets finished by a living hand. Step back from the edge.\"",
+              "next": "thr_sennet_hold",
+              "effects": [
+                {
+                  "key": "thr.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Then give me the bearings, Sennet — fast, while you've still got the nerve. What am I walking into? You've charted the approaches from half a mile off; tell me the shape of the far bank before I cross it.\"",
+              "next": "thr_sennet_bearings",
+              "effects": [
+                {
+                  "key": "thr.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(one surveyor to the other, at the line that divides you)* \"Here's our baseline, Sennet, made real: you've spent your life measuring *into* this country from the warm side. I'm about to measure *out* of it from the cold. You can't take the last step — so I'll be your eyes past the door. Draw what I bring back. That's not me leaving you behind. That's the survey finally working.\"",
+              "tag": "returned",
+              "next": "thr_sennet_eyes",
+              "effects": [
+                {
+                  "key": "thr.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Think of Tibb, Sennet. One line, he wrote you — *I'll mind the wagon till you're home.* You don't get to make that boy a liar by stepping through a door you can't come back from. Stay. Go home. That's the bearing that matters.\"",
+              "next": "thr_sennet_tibb",
+              "effects": [
+                {
+                  "key": "thr.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Hold the line here, Sennet. I'm going through. Watch for me coming back.\"",
+              "next": "thr_sennet_wait"
+            }
+          ]
+        },
+        {
+          "id": "thr_sennet_hold",
+          "speaker": "Sennet",
+          "text": "*(You put yourself between the cartographer and the door, and they flinch — and then, slowly, the trembling *eases*, because someone has done the one thing they could not do for themselves: made the choice a *command*, so it isn't theirs to lose.)* …An *order.* *(a shaking breath, and something like gratitude)* …*Gods*, but I needed it to be an *order.* If you'd *asked*, I'd have *argued*, and I'd have *won*, because I am *very* good at *winning* arguments with *people who love me* about *exactly* how *close* to the *edge* I'm *allowed* to stand. *(they step back — one boot-length, then another, away from the lip)* …You're *right.* Thirty years, the wagon, the *fingers* — not for a *view.* *(they look at the door, and then deliberately *away* from it)* Tibb gets his master back. The map gets a *living* hand. *(quietly)* I'll *stand* here, road-walker. On *this* side. And I'll *draw* what you *tell* me, and *only* what you *tell* me, and I will *not* take a *bearing* with my *own* feet, no matter how *loud* the *blank* gets. *(a wet, steadying grin)* …Go *fill* it. I'll be *here* when you *come back* to *report.* I'll be *here.* I'm *deciding* it *now*, while someone's *ordered* me to, so I can't *un-decide* it when the *door* gets *clever.*",
+          "effects": [
+            {
+              "key": "thr.sennet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sennet_holds",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "thr_sennet_bearings",
+          "speaker": "Sennet",
+          "text": "*(The instant you ask for *data*, something steadies in them — the craft is the one floor that never gives way under a surveyor — and the shaking hand finds the pen and the bright clear voice comes back.)* …*Bearings.* *Yes.* Good — *ask* me for the *work*, it's the only thing in me that doesn't *shake.* *(they sketch fast in the air)* From the *half-mile* line: the door gives onto a *grey* causeway, *longer* than it *looks*, the cold *increasing* with *distance* — you'll *feel* the *years* pulling at you the *deeper* you go, that's *real*, that's not *fear*, *budget* for it. *(fast, precise)* The far bank *rises.* There's a *seat* — a *throne*, the spyglass catches *gold* on it — and *near* it, *low*, a *turning* thing that *glints*: that's your *Crown*, road-walker, and my *one* bearing on *it* is *do not take a sighting of it twice*, because every soul I've watched *look* at it *look again.* *(quieter)* And past *all* of it, the *blank.* The part *no* map has. *That's* what I *need.* The *deep* country, the *names*, the *shape* of where the *Hunger* keeps what it *takes.* *(they meet your eyes)* *Measure* it for me, friend. *Pace* it if you can — *count your steps*, surveyors *always* count their *steps* — and *come back* with the *count*, and we'll put the *worst* page in *everyone's* atlas on the *page* at *last.* *(a breath)* …And *count* them *coming back*, too. *Same* number. If the *numbers* don't *match*, the *door* took *something.* *Watch* the *numbers.*",
+          "effects": [
+            {
+              "key": "thr.sennet.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "thr.sennet_bearings",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "thr_sennet_eyes",
+          "speaker": "Sennet",
+          "text": "*(They go still — the deepest stillness you've seen in them — and then the want in their face transmutes, slowly, into something that is almost peace, because you have named the thing that lets them *stay*: that going without them is not abandonment but the *survey working as designed.*)* …Your eyes for my *pen.* *(barely)* The *baseline*, made *real*, at the *one* line that *matters.* *(a long, shaking breath, and the white-knuckle grip on the pen *loosens*)* You've just — road-walker, you've just handed a *dying* cartographer the *one* thing that makes it *bearable* to *stand here* and *not cross.* If I *step through*, I'm a *fool* who *died* for a *view.* But if I *stay*, and *you* go, and I *draw* what you *carry back* — then I'm *not* being *left* at the *edge.* I'm *holding the warm station of a two-soul survey*, and the *survey needs me here as badly as it needs you there.* *(they almost laugh, wet)* You've made *staying* into the *job.* *Gods*, you *clever*, *kind* — *(they grip your arm)* Then *go*, my eyes. *See* it *true.* *Count* the *names.* And *come back* across that line, because a *baseline* with *one* station is *just a man crying at a door*, and I have done *quite* enough of *that* for *one* lifetime. *Bring me the deep country, road-walker. I'll have the good pens out.*",
+          "effects": [
+            {
+              "key": "thr.sennet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sennet_eyes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sennet_holds",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "thr_sennet_tibb",
+          "speaker": "Sennet",
+          "text": "*(The name lands like a hand on the chest, and they *sag*, the want going out of them all at once, replaced by something older and steadier.)* …*Tibb.* *(barely)* *'Till you're home.'* *(they press the heel of a hand to one eye)* That's — you *fight* dirty, road-walker. You reached *past* the *surveyor* and the *door* and the *thirty years* and you found the *one* tether that *holds*: a *lad* grinding ink by a *wagon*, *counting* on a number I *promised* would get *bigger.* *(a wet, furious, grateful laugh)* If I step through that door for a *view*, I make *Tibb's* one *line* a *lie.* I make the boy who *counted my days* count *one* more, the *worst* one, and then *no* more. *(they step back from the edge, firmly, like a man pulling his own hand out of a fire)* …*No.* No, I'll not *do* that to him. The *map* can have a *blank* in the *deep* country forever before I'll make *Tibb* fold the *wagon* up *alone.* *(they straighten, the trembling gone)* *Go*, road-walker. *You* cross. *I'll* go *home* — to the *wagon*, to the *lad*, to the *good* pens and the *long* number — and I'll *wait* for your *report* like a *proper* surveyor at a *proper* station. *(quietly, fierce)* Tibb minds the wagon till I'm home. So I'd *bloody* well better *go* home. *Thank* you for *saying* his *name.* It's the *only* word that could have *moved* my *feet* off this *edge.*",
+          "effects": [
+            {
+              "key": "thr.sennet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sennet_holds",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sennet_for_tibb",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "thr_sennet_wait",
+          "speaker": "Sennet",
+          "text": "*(They nod, and plant their feet, and fix their eyes not on the door now but on *you* — the warm station holding its line.)* I'll *watch.* *(quietly, steadier than before)* This *side* of the line, road-walker. *Eyes* on the *door.* And when you come *back* through it — *(a shaking breath)* — *because* you'll come *back* through it — I'll be the *first* face you see on the *warm* shore, with the *good* pens *out* and a *fresh* sheet and a *thousand* questions. *(a thin grin)* Go *fill* the *blank.* I've *waited* thirty years for the *bearings* past that *door.* I can *wait* an *hour* more, on *this* side, where the *living* keep. *(barely, as you turn to the threshold)* …*Count* your *steps.* And *come home* to *report.* That's all I *ask* of any *surveyor* I *send* to an *edge.* …It's the *first* time I've ever *sent* one I *couldn't bear to lose.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "thr.sparrow",
+      "title": "The Sparrow at the Door",
+      "npc": "the Sparrow",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Sparrow",
+          "onEnter": [
+            {
+              "key": "thr.sparrow_here",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "hearth.sparrow_whole"
+                ]
+              },
+              "text": "*(She straightens from her examination of the death-door and turns to you, and there's none of the old flippancy in her now — only the steady, whole-souled calm of the person she became at your fire.)* …So *this* is the one you've been walking toward. *(she nods at the dark door)* The big lock. The *last* one. *(she glances at the living companions, checked at the edge — the sellsword, the justiciar, all of them held back by the breath still in their bodies)* They can't follow you through, partner. The *living* never can. *(a thin, fierce smile)* But *I'm* not living, am I. I'm a *dead* thief who walks through doors that weren't built for her. *(she sets a hand flat on the black wood, and it doesn't burn her the way it would burn them)* I can come. I'm the *one* of your crew who *can.* The only question left in me is whether you'll *let* me — because what's on the *far* side of *this* one, partner, I don't think even *I* can pick us back *out* of.*"
+            },
+            {
+              "text": "*(She runs her dead fingers along the seam of the death-door with a burglar's reverence, and looks back at you, bright and unreadable.)* …Would you *look* at this thing. *(a low whistle)* The single best-made lock in all creation, partner. Souls go *in*, souls don't come *out* — except *you*, of course, you *anomaly*, you walked it *backwards once already.* *(she glances at the living ones, the sellsword and the rest, held at the edge by their own heartbeats)* They're *stuck* here. The *living* always are. *(she taps the wood, and unlike them, the cold of it answers her own)* But *me* — I'm *dead*, partner, and *unbought*, and a thief of *exactly* these doors. I could walk through this one *beside* you like it was a *garden gate.* *(her eyes narrow, professional)* The question is whether that's a *kindness* to you or a *liability* — and whether *I* come back out the *other* side still *me.* Talk it through with me. *Quick.* The door's *patient.* I'm *not.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Sparrow",
+          "text": "*(She leans against the doorframe of death itself with the ease of a soul perfectly at home among locks, and watches you.)* Go on, partner. *(a murmur)* What's it to be — do I *come*, do I *stay*, do I *scout* you a way through? It's *your* door. But I'm the *one* hand you've got that could *open* it *gently.*",
+          "choices": [
+            {
+              "text": "\"Come with me, Sparrow. Every door, you said — and this is the biggest. The living can't follow and my future self came alone. I'd rather not walk into the Court of the Dead without one soul at my back who *chose* to be there.\"",
+              "next": "sparrow_t_come",
+              "effects": [
+                {
+                  "key": "thr.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.sparrow_comes",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Stay here, Sparrow. You're unbought — walking into the Judge's own house is walking into the one place that has a *cage* with your name on it. I'll not lead a soul I just made whole back into a reckoning. Hold the door.\"",
+              "next": "sparrow_t_stay",
+              "effects": [
+                {
+                  "key": "thr.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.sparrow_holds",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[RETURNED] *(two soul-thieves at the last lock)* \"Here's the truth, Sparrow: I don't know if I come back out of this one either. We're the same kind of trespasser, you and I — souls that go where we're not allowed. So if you're coming, come as what you *are*: not a bodyguard, a *burglar.* Scout the way out *before* we need it. Find me the door *back* while I face what's on the throne. That's the job only you can do.\"",
+              "tag": "returned",
+              "next": "sparrow_t_burglar",
+              "effects": [
+                {
+                  "key": "thr.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "thr.sparrow_comes",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "thr.sparrow_scouts",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Can you even open it, Sparrow? Truly? Or is this the one lock that beats you?\"",
+              "next": "sparrow_t_lock"
+            },
+            {
+              "text": "\"Hold that thought, Sparrow. Let me look at the door myself first.\"",
+              "next": "sparrow_t_wait"
+            }
+          ]
+        },
+        {
+          "id": "sparrow_t_come",
+          "speaker": "the Sparrow",
+          "text": "*(Something moves across her face — surprise, then a fierce warmth she doesn't bother to hide anymore.)* …You *want* me through. *(quietly)* Not as a *lock-pick.* As a *soul at your back, by choice.* *(she pushes off the doorframe, decided in an instant the way she decides everything)* Partner, do you *know* what you've just done? *(a crooked grin)* Every soul I ever *worked* with wanted my *hands.* The *locks*, the *take*, the *getaway.* *Nobody* ever wanted me *there* — *me*, the *whole* article — for the *company* of it. *(she falls in at your shoulder, facing the dark door)* The *living* can't *follow.* Your *future* self walked in *alone* and came out a *monster.* *(her voice hardens with purpose)* Well, *you* won't be *alone*, and you won't be *unwatched*, because a *dead* thief who *chose* to *stand* with you is the *one* variable the *Crown* can't *price.* *(she sets her hand to the door beside yours)* *Open* it, partner. Let's go *rob* the *throne room* of the *dead.* And if the *Crown* makes a *play* for your *head* — *(a fierce, loyal grin)* — well. I've spent forty years learning to take a *prize* off a soul before they *know* it's *gone.* I'll *lift* the *temptation* out of your *pocket* before it *settles.* That's a *promise.*",
+          "effects": [
+            {
+              "key": "thr.sparrow.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sparrow_comes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sparrow_chosen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_t_stay",
+          "speaker": "the Sparrow",
+          "text": "*(She opens her mouth to argue — you can see the *coming* on her face — and then your reason lands, and it stops her cold.)* …A *cage* with my *name* on it. *(quietly)* In the *Judge's* own *house.* *(she looks at the death-door differently now)* …You're *right*, aren't you. I'm *unbought.* I'm *exactly* the sort the *Wall* was *built* for — worse, I'm a *thief* who's *robbed* the *dead* for *forty* years; if *anyone's* got a *reckoning* waiting on the far side of *that* door, it's *me.* *(a thin breath, and something rare — she *yields*)* …I *hate* this. For the *record.* The *one* time my *being* *dead* makes me *useful* — the *one* door my *whole* crew *can't* follow you through but *I* can — and you're telling me to *hold* it. *(but she nods, slow)* …And you're *right* to. A *partner* who'd *march* a *just-mended* soul straight back into the *cage* she *escaped* isn't a *partner*, he's a *user*, and you've *never* once *used* me. *(she sets her back to the doorframe, taking up a guard's stance)* *Fine.* I'll *hold* the *threshold.* I'll keep the *living* ones *steady* and the *way* back *clear.* *(fierce, low)* But you *listen*, partner: you come *back* through this door. You *walk* in, you do what you *must*, and you *come back out* to the soul who's *holding* it *open* for you. Because I did *not* learn to be a *whole* person just to *lose* the one who *made* me one to a *throne.* *Go.* I've got the *door.* I've *always* got the *door.*",
+          "effects": [
+            {
+              "key": "thr.sparrow.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sparrow_holds",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sparrow_guards_way",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_t_burglar",
+          "speaker": "the Sparrow",
+          "text": "*(Her eyes light — this is a language she speaks better than anyone living or dead.)* …*Scout the way out before we need it.* *(a slow, delighted grin)* Oh, *now* you're talking like a *professional*, partner. *(she's already reading the door, the dark beyond it, the angles)* *That's* the rule, isn't it — the *first* rule, the one that's kept me *whole* and *out* of *cages* for *forty* years: *you find the exit before you take the prize.* *Amateurs* case the *score.* *Professionals* case the *getaway.* *(she cracks her knuckles)* So *here's* how we *run* it: I go *through* at your *shoulder*, and while *you* march up to the *throne* and the *Crown* and the *Judge* and *whatever* reckoning's *waiting* — I *fade.* I work the *edges.* I find the *door back*, the *crack* in the *Court*, the *way* a soul could *leave* even if the *gods* would rather it *didn't.* *(she meets your eyes, fierce and certain)* You face the *front* of the room, partner. I'll *own* the *back* of it. And when it's *done* — *whatever* you *choose*, *whatever* the *Crown* makes of you — there will be a *thief* in the *shadows* of the *throne room* who has *already* found you the *way* home, and who will *drag* you *through* it by the *collar* if she *has* to. *(a wink)* *That's* the job only *I* can do. Let's go *case* the *afterlife*, partner. *Best* getaway I'll *ever* plan.",
+          "effects": [
+            {
+              "key": "thr.sparrow.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "thr.sparrow_comes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sparrow_scouts",
+              "op": "SetTrue"
+            },
+            {
+              "key": "thr.sparrow_chosen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_t_lock",
+          "speaker": "the Sparrow",
+          "text": "*(She turns back to the door and gives it the long, honest appraisal of a master tradeswoman, and when she answers there's no boast in it, only assessment.)* …*Can* I open it. *(she traces the seam)* Truthfully, partner? *No.* Not the way I'd open a *vault.* This isn't a *lock*, it's a *law* — there's no *tumbler* to *rake*, no *hinge* to *lift.* It doesn't *keep* souls *out* with a *mechanism.* It keeps them out with a *rule*, and you don't *pick* a *rule.* *(she steps back)* But here's the thing about *rules*, partner, that I learned *robbing* the dead: every rule has an *exception* written into it somewhere, because the *writer* always needs a *back* door. And the *exception* to *this* one — *(she looks at you, and her grin returns, sharp)* — is *standing* right *here.* *You.* A *soul* the door *let out once.* The *rule* already *broke* for *you* — which means there's a *crack* in it *shaped* exactly like a *Returned*, and where *you* can *fit*, a *clever* enough *dead* thief at your *shoulder* can *fit* too, in your *shadow*, through the *gap* your *exception* makes. *(she cracks her knuckles)* So *no*, I can't *pick* it. But I don't *have* to. *You're* the *skeleton key*, partner. I just have to be *quick* enough to *follow* you through before it *shuts.* And *quick*, friend — *(a wink)* — *quick* is the *one* thing I've *never* been *short* of.",
+          "effects": [
+            {
+              "key": "thr.sparrow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "thr.sparrow_knows_door",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_t_wait",
+          "speaker": "the Sparrow",
+          "text": "*(She steps aside from the door with a small flourish, ceding it to you.)* …*Your* lock, *your* look. *(she settles back against the frame)* Take your *time*, partner — well. *(a glance at the dark beyond)* As much *time* as a place like *this* allows, which I'd *price* at *not much.* *(quietly, the flippancy thinning)* I'll be *here* when you've *looked* your fill. *(she watches you study the death-door)* …It's a *strange* thing, partner, standing at the *one* door my whole *crew* can't *follow* you through, *knowing* I'm the *exception.* Forty years I was *nobody's* — *no* god's, *no* buyer's, *no* crew's. *Free*, I called it. *(her eyes are on your back)* And here at the *end* of the *world* I find I'd *rather* be *somebody's* — *yours*, this *party's* — than *free* through *any* door there *is.* *(she shakes it off, grins)* …*Listen* to me. *Sentiment*, at a *job.* The *old* me would be *appalled.* Go on. *Look* your *door.* I'll *hold* my *philosophy* till we're *somewhere* with *fewer* *gods* in *earshot.*",
+          "auto": "END"
+        }
       ]
     }
   ]

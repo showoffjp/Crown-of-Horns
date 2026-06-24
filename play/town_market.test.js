@@ -765,6 +765,17 @@ check("Sennet follows to the Threshold only if recruited, and cannot cross (gate
 check("at the edge you can hold Sennet back from the door, or make them your eyes past it (a [RETURNED] beat)", thrSennet &&
   thrSennet.nodes.some(n => (n.effects || []).some(e => e.key === "thr.sennet_holds")) &&
   thrSennet.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned" && /eyes/.test(ch.next || ""))) && thrSennet.returned);
+// the Sparrow is the one companion who CAN cross — a dead soul, the exception the death-door makes
+const thrSparrow = CONVS.find(c => c.id === "thr.sparrow");
+const thrSparrowNpc = THRESH.npcs.find(n => n.conv === "thr.sparrow");
+check("the Sparrow follows to the Threshold only if recruited — and, being dead, can actually cross", thrSparrow && thrSparrowNpc &&
+  thrSparrowNpc.when && thrSparrowNpc.when.flag === "party.sparrow_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sparrow_recruited"] = true; return s; })(), thrSparrowNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), thrSparrowNpc.when) === false);
+check("at the door you can take her through (she scouts the way out) or have her hold it — a real fork", thrSparrow &&
+  thrSparrow.nodes.some(n => (n.effects || []).some(e => e.key === "thr.sparrow_comes")) &&
+  thrSparrow.nodes.some(n => (n.effects || []).some(e => e.key === "thr.sparrow_holds")) &&
+  thrSparrow.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && thrSparrow.returned);
 // the mirror's opening reads which road you're on — a witness-answerer, a reckless-answerer, a Crown-taker, an accompanied soul, and a lone stranger
 const l0 = last.nodes.find(n => n.id === "0");
 const stWit = E.newState(); stWit.bools["way.named_witness"] = true;
@@ -931,6 +942,16 @@ check("the midwife's coda reads HOW the reckoning broke (the reeve's recantation
   epiAnnet.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("tr.reeve_recants") >= 0) &&
   epiAnnet.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("tr.concord_void") >= 0) &&
   epiAnnet.returned);
+// the Sparrow's years-after coda — a dead companion who turned "steal people back" into a vocation
+const epiSparrow = CONVS.find(c => c.id === "epi.sparrow");
+const epiSparrowNpc = EPI.npcs.find(n => n.conv === "epi.sparrow");
+check("the Sparrow's years-after coda appears only if recruited, paying off the fourth-companion arc", epiSparrow && epiSparrowNpc &&
+  epiSparrowNpc.when && epiSparrowNpc.when.flag === "party.sparrow_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sparrow_recruited"] = true; return s; })(), epiSparrowNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), epiSparrowNpc.when) === false);
+check("her coda reads whether she scouted the throne-room exit, and pays off the Sparrow's Wing", epiSparrow &&
+  epiSparrow.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("thr.sparrow_scouts") >= 0) &&
+  epiSparrow.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sparrow_wing")) && epiSparrow.returned);
 check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
   const c = CONVS.find(cc => cc.id === n.conv);
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));

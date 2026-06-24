@@ -1,177 +1,1207 @@
 {
   "scene": {
-    "id": "epilogue", "name": "Some Years After",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "epilogue",
+    "name": "Some Years After",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "hearthfire", "x": 8, "y": 2 },
-      { "type": "greyshrine", "x": 5, "y": 2 },
-      { "type": "log", "x": 4, "y": 5 },
-      { "type": "log", "x": 6, "y": 5 },
-      { "type": "tree", "x": 1, "y": 1 },
-      { "type": "tree", "x": 10, "y": 1 },
-      { "type": "tree", "x": 0, "y": 5 },
-      { "type": "candle", "x": 3, "y": 4 },
-      { "type": "candle", "x": 7, "y": 6 },
-      { "type": "cairn", "x": 2, "y": 6 }
+      {
+        "type": "hearthfire",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "type": "greyshrine",
+        "x": 5,
+        "y": 2
+      },
+      {
+        "type": "log",
+        "x": 4,
+        "y": 5
+      },
+      {
+        "type": "log",
+        "x": 6,
+        "y": 5
+      },
+      {
+        "type": "tree",
+        "x": 1,
+        "y": 1
+      },
+      {
+        "type": "tree",
+        "x": 10,
+        "y": 1
+      },
+      {
+        "type": "tree",
+        "x": 0,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 7,
+        "y": 6
+      },
+      {
+        "type": "cairn",
+        "x": 2,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "court", "dest": { "x": 5, "y": 2 }, "label": "◂ back to the Court of the Dead" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "court",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ back to the Court of the Dead"
+      }
     ],
     "npcs": [
-      { "id": "chronicler", "name": "the Chronicler", "title": "who keeps the tally of after", "x": 5, "y": 4, "hue": 200, "sigil": "✒", "conv": "epi.chronicler",
-        "hail": "*(an old keeper of records sits by a re-made wayshrine with a great book open on their knee, and they look up at you with the particular recognition of someone who has been writing your story for years and has finally met its subject)*" },
-      { "id": "wren4", "name": "Wren", "title": "years on, and living", "x": 2, "y": 4, "hue": 340, "sigil": "W", "conv": "epi.wren",
-        "when": { "flag": "reed.wren_lives" },
-        "hail": "*(a woman who is not young anymore stands by the water that runs past this place, and there are lines on her face that are mostly from laughing, and an apple-tree behind her that she clearly planted, and she turns and *beams*)*" },
-      { "id": "pip4", "name": "Pip", "title": "grown, and not alone", "x": 8, "y": 5, "hue": 150, "sigil": "P", "conv": "epi.pip",
-        "when": { "flag": "market.helped_pip" },
-        "hail": "*(a young woman with quick hands and a steady gaze leans in a doorway, and she has the look of someone who keeps a roof over more heads than her own now, and when she sees you her whole hard-won composure cracks into the grin of a delighted child)*" },
-      { "id": "sennet5", "name": "Sennet", "title": "the surveyor, and the atlas finished", "x": 8, "y": 4, "hue": 40, "sigil": "S", "conv": "epi.sennet",
-        "when": { "flag": "party.sennet_recruited" },
-        "hail": "*(an old cartographer sits at a proper table under the trees with a great bound book closed and clasped before them — finished, at last — and beside them a grown apprentice grinds ink out of pure habit, and when the mapmaker sees you their lined face breaks open, and they lay a hand flat on the cover of the book as if to say: here it is, the one we made, and you are the reason it has a last page instead of a blank one)*" },
-      { "id": "annet2", "name": "Goodwife Annet", "title": "still catching, years on", "x": 3, "y": 6, "hue": 30, "sigil": "A", "conv": "epi.annet",
-        "when": { "flag": "tr.annet_spared" },
-        "hail": "*(a very old woman with a midwife's bag still slung across her and a babe — someone else's, freshly caught — dozing against her shoulder, stands among the trees with her reddened hands and her unbroken chin, and when she sees you the steadiness cracks into a grin, because she is the one soul here who was supposed to be dissolving in a wall right now, and is instead very much, very stubbornly, alive)*" }
+      {
+        "id": "chronicler",
+        "name": "the Chronicler",
+        "title": "who keeps the tally of after",
+        "x": 5,
+        "y": 4,
+        "hue": 200,
+        "sigil": "✒",
+        "conv": "epi.chronicler",
+        "hail": "*(an old keeper of records sits by a re-made wayshrine with a great book open on their knee, and they look up at you with the particular recognition of someone who has been writing your story for years and has finally met its subject)*"
+      },
+      {
+        "id": "wren4",
+        "name": "Wren",
+        "title": "years on, and living",
+        "x": 2,
+        "y": 4,
+        "hue": 340,
+        "sigil": "W",
+        "conv": "epi.wren",
+        "when": {
+          "flag": "reed.wren_lives"
+        },
+        "hail": "*(a woman who is not young anymore stands by the water that runs past this place, and there are lines on her face that are mostly from laughing, and an apple-tree behind her that she clearly planted, and she turns and *beams*)*"
+      },
+      {
+        "id": "pip4",
+        "name": "Pip",
+        "title": "grown, and not alone",
+        "x": 8,
+        "y": 5,
+        "hue": 150,
+        "sigil": "P",
+        "conv": "epi.pip",
+        "when": {
+          "flag": "market.helped_pip"
+        },
+        "hail": "*(a young woman with quick hands and a steady gaze leans in a doorway, and she has the look of someone who keeps a roof over more heads than her own now, and when she sees you her whole hard-won composure cracks into the grin of a delighted child)*"
+      },
+      {
+        "id": "sennet5",
+        "name": "Sennet",
+        "title": "the surveyor, and the atlas finished",
+        "x": 8,
+        "y": 4,
+        "hue": 40,
+        "sigil": "S",
+        "conv": "epi.sennet",
+        "when": {
+          "flag": "party.sennet_recruited"
+        },
+        "hail": "*(an old cartographer sits at a proper table under the trees with a great bound book closed and clasped before them — finished, at last — and beside them a grown apprentice grinds ink out of pure habit, and when the mapmaker sees you their lined face breaks open, and they lay a hand flat on the cover of the book as if to say: here it is, the one we made, and you are the reason it has a last page instead of a blank one)*"
+      },
+      {
+        "id": "annet2",
+        "name": "Goodwife Annet",
+        "title": "still catching, years on",
+        "x": 3,
+        "y": 6,
+        "hue": 30,
+        "sigil": "A",
+        "conv": "epi.annet",
+        "when": {
+          "flag": "tr.annet_spared"
+        },
+        "hail": "*(a very old woman with a midwife's bag still slung across her and a babe — someone else's, freshly caught — dozing against her shoulder, stands among the trees with her reddened hands and her unbroken chin, and when she sees you the steadiness cracks into a grin, because she is the one soul here who was supposed to be dissolving in a wall right now, and is instead very much, very stubbornly, alive)*"
+      },
+      {
+        "id": "sparrow5",
+        "name": "the Sparrow",
+        "title": "the thief who steals people back",
+        "x": 7,
+        "y": 6,
+        "hue": 280,
+        "sigil": "Sp",
+        "conv": "epi.sparrow",
+        "when": {
+          "flag": "party.sparrow_recruited"
+        },
+        "hail": "*(she leans in a doorway that didn't used to be here — a clean, well-made door, the kind a soul walks through on purpose — with a ring of impossible keys at her belt and a younger shade beside her she's plainly training, and when she sees you the old quick grin breaks out, unchanged by the years because the dead don't age, only deepen)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "epi.chronicler", "title": "The Tally of After", "npc": "the Chronicler", "start": "0",
+      "id": "epi.chronicler",
+      "title": "The Tally of After",
+      "npc": "the Chronicler",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "the Chronicler", "onEnter": [{ "key": "epi.met_chronicler", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "the Chronicler",
+          "onEnter": [
+            {
+              "key": "epi.met_chronicler",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["court.ending_witness_wall"] }, "text": "*(They close the great book over one finger and regard you with a warmth that has had years to deepen.)* …It's *you.* *(softly)* The one who *re-made* the Wall. *(they pat the bench)* I have been keeping the tally ever since — the *witnessed* tally, the *new* one — and I will tell you what no song quite manages: it *holds.* The seawall *stands*, and the Hunger stays *penned*, and the souls who *keep* it now are not the *thrown-away* screaming, but the *remembered*, standing *gladly*, named, in rotation, *proud* of the dark they hold back. *(their eyes shine)* You did not *tear down* the Wall of the Faithless, traveler. You did the *harder* thing. You made it *worth standing in.* Sit. Let me tell you what became of them all — the ones you carried out of the cold." },
-            { "when": { "flags": ["court.ending_appeal"] }, "text": "*(They look up from a page densely written with names, each one crossed through with a single clean line — not a deletion, you realise, but a *verdict delivered.*)* …The one who chose the *slow* miracle. *(a tired, proud smile)* I keep the *docket*, traveler. The appeal you opened. *(they turn the great book toward you, and it is *full*, page on page of names, each one *heard*)* It is *generations*, now, and it has *never once* stopped — Judge after Judge, scribe after scribe, *name* after *name*, the Wall emptying *one fair verdict at a time*, exactly as you swore it would. *(quietly)* The songs got *bored* of it, just as Kelemvor said they would. *No* dragon. *No* throne. Just the *longest, most stubborn act of justice* the realms of the dead have ever *sustained.* *(they meet your eyes)* It is the *least* glorious thing you could have done. It is the *only* one still *working.* Sit. Let me tell you who walked *out* of the stone, because of the door you *forced.*" },
-            { "when": { "flags": ["court.ending_relieve"] }, "text": "*(They rise, and bow — actually *bow* — with the careful reverence one gives not a hero but a *throne.*)* …*Judge.* *(quietly)* Or — you'll forgive an old chronicler — the one who *was* a traveler, and *chose* to take up the *grey* seat the *honest* way, *handed* and *witnessed* and *checked*, so that a *tired* god could finally *rest.* *(they straighten)* He *did* rest, you know. Kelemvor-that-was. Walked through his own door at *last*, a *man* again, and the *records* say he was *smiling.* *(they pat the bench)* And *you* keep his seat *differently* — with the *people* who swore to *uncrown* you always at your *shoulder*, *obeying* them when it *counts*, the loop *broken* for good. *(their eyes are wet)* No song *believes* it, a *kind* god of the dead. But I keep the *tally*, and the *tally* says it's *true.* Sit, your Honour. Let me tell you what became of the souls you *judged fair* — starting with the ones you *saved* before you ever *wore* the grey." },
-            { "when": { "flags": ["court.became_tyrant"] }, "text": "*(They do not rise. They do not smile. They close the great book slowly, and when they look at you there is grief in it, and pity, and no fear at all — because there is nothing left in you to fear that isn't already grieving too.)* …Ah. *(quietly)* *You.* *(they set the book aside)* I keep the tally even of the *sorrowful* endings, traveler — *especially* those. *(heavily)* You took the Crown. You tore the Wall down in an *afternoon*, as you said you would, and for *one* shining hour it was the most *beautiful* thing the realms had ever *seen.* *(their voice lowers)* And then the Hunger came *through*, and you *built* a *new* wall to *hold* it, of *new* mortar, *certain* you were *kinder* than the Dawn — and the *cold* started at your *boots*, and somewhere in the long grey *centuries* since, a *cold* soul walked into your hall and *named* you the *thing you came to destroy.* *(they meet your eyes, gentle and terrible)* You are *here*, at the *tally of after*, because some part of you *remembers* being *warm.* Sit. I will tell you what became of them — the ones you *saved*, before you *became* the thing they needed *saving from.* You *should* hear it. It is the *one* mercy I can still do you." },
-            { "text": "*(They study you — the cold on you, the road behind you, the *un-decided* air of a soul still in the middle of its choosing — and they smile, not unkindly, and turn to a fresh page.)* …A traveler still *in* the story. *(they dip their pen)* How *rare.* Most who reach my bench are *done* — *resolved*, one way or another, their *tally* ready to be *kept.* But *you* — your page is *still being written.* *(they gesture at the bench)* No matter. Sit anyway. A *chronicler* can tell you what became of the souls you've *already* touched, even if your *own* ending is *unwritten.* *(their eyes are kind)* Sometimes *hearing* how the *small* mercies *landed* is what *decides* the *large* one. Sit. Let me tell you the *tally so far.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Chronicler", "text": "*(They smooth the great book open across their knee, and the firelight catches a thousand names written in a careful hand.)* Whose *after* would you hear, traveler? *(quietly)* I keep them all — the *saved* and the *spent*, the *freed* and the *forgotten.* Every soul you passed on that long cold road left a *mark* in my book, and *every* mark has an *after.* *Ask.*",
+            {
+              "when": {
+                "flags": [
+                  "court.ending_witness_wall"
+                ]
+              },
+              "text": "*(They close the great book over one finger and regard you with a warmth that has had years to deepen.)* …It's *you.* *(softly)* The one who *re-made* the Wall. *(they pat the bench)* I have been keeping the tally ever since — the *witnessed* tally, the *new* one — and I will tell you what no song quite manages: it *holds.* The seawall *stands*, and the Hunger stays *penned*, and the souls who *keep* it now are not the *thrown-away* screaming, but the *remembered*, standing *gladly*, named, in rotation, *proud* of the dark they hold back. *(their eyes shine)* You did not *tear down* the Wall of the Faithless, traveler. You did the *harder* thing. You made it *worth standing in.* Sit. Let me tell you what became of them all — the ones you carried out of the cold."
+            },
+            {
+              "when": {
+                "flags": [
+                  "court.ending_appeal"
+                ]
+              },
+              "text": "*(They look up from a page densely written with names, each one crossed through with a single clean line — not a deletion, you realise, but a *verdict delivered.*)* …The one who chose the *slow* miracle. *(a tired, proud smile)* I keep the *docket*, traveler. The appeal you opened. *(they turn the great book toward you, and it is *full*, page on page of names, each one *heard*)* It is *generations*, now, and it has *never once* stopped — Judge after Judge, scribe after scribe, *name* after *name*, the Wall emptying *one fair verdict at a time*, exactly as you swore it would. *(quietly)* The songs got *bored* of it, just as Kelemvor said they would. *No* dragon. *No* throne. Just the *longest, most stubborn act of justice* the realms of the dead have ever *sustained.* *(they meet your eyes)* It is the *least* glorious thing you could have done. It is the *only* one still *working.* Sit. Let me tell you who walked *out* of the stone, because of the door you *forced.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "court.ending_relieve"
+                ]
+              },
+              "text": "*(They rise, and bow — actually *bow* — with the careful reverence one gives not a hero but a *throne.*)* …*Judge.* *(quietly)* Or — you'll forgive an old chronicler — the one who *was* a traveler, and *chose* to take up the *grey* seat the *honest* way, *handed* and *witnessed* and *checked*, so that a *tired* god could finally *rest.* *(they straighten)* He *did* rest, you know. Kelemvor-that-was. Walked through his own door at *last*, a *man* again, and the *records* say he was *smiling.* *(they pat the bench)* And *you* keep his seat *differently* — with the *people* who swore to *uncrown* you always at your *shoulder*, *obeying* them when it *counts*, the loop *broken* for good. *(their eyes are wet)* No song *believes* it, a *kind* god of the dead. But I keep the *tally*, and the *tally* says it's *true.* Sit, your Honour. Let me tell you what became of the souls you *judged fair* — starting with the ones you *saved* before you ever *wore* the grey."
+            },
+            {
+              "when": {
+                "flags": [
+                  "court.became_tyrant"
+                ]
+              },
+              "text": "*(They do not rise. They do not smile. They close the great book slowly, and when they look at you there is grief in it, and pity, and no fear at all — because there is nothing left in you to fear that isn't already grieving too.)* …Ah. *(quietly)* *You.* *(they set the book aside)* I keep the tally even of the *sorrowful* endings, traveler — *especially* those. *(heavily)* You took the Crown. You tore the Wall down in an *afternoon*, as you said you would, and for *one* shining hour it was the most *beautiful* thing the realms had ever *seen.* *(their voice lowers)* And then the Hunger came *through*, and you *built* a *new* wall to *hold* it, of *new* mortar, *certain* you were *kinder* than the Dawn — and the *cold* started at your *boots*, and somewhere in the long grey *centuries* since, a *cold* soul walked into your hall and *named* you the *thing you came to destroy.* *(they meet your eyes, gentle and terrible)* You are *here*, at the *tally of after*, because some part of you *remembers* being *warm.* Sit. I will tell you what became of them — the ones you *saved*, before you *became* the thing they needed *saving from.* You *should* hear it. It is the *one* mercy I can still do you."
+            },
+            {
+              "text": "*(They study you — the cold on you, the road behind you, the *un-decided* air of a soul still in the middle of its choosing — and they smile, not unkindly, and turn to a fresh page.)* …A traveler still *in* the story. *(they dip their pen)* How *rare.* Most who reach my bench are *done* — *resolved*, one way or another, their *tally* ready to be *kept.* But *you* — your page is *still being written.* *(they gesture at the bench)* No matter. Sit anyway. A *chronicler* can tell you what became of the souls you've *already* touched, even if your *own* ending is *unwritten.* *(their eyes are kind)* Sometimes *hearing* how the *small* mercies *landed* is what *decides* the *large* one. Sit. Let me tell you the *tally so far.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Chronicler",
+          "text": "*(They smooth the great book open across their knee, and the firelight catches a thousand names written in a careful hand.)* Whose *after* would you hear, traveler? *(quietly)* I keep them all — the *saved* and the *spent*, the *freed* and the *forgotten.* Every soul you passed on that long cold road left a *mark* in my book, and *every* mark has an *after.* *Ask.*",
           "choices": [
-            { "text": "*(the souls of the causeway — the apple-girl, the boatman, the drowned weaver)* \"What became of the river?\"", "next": "epi_river" },
-            { "text": "*(the children under the bridge, and the blind weaver, and her daughter in the stone)* \"What became of the bridge?\"", "next": "epi_bridge" },
-            { "text": "*(the Choir's people — the smiling man, the clerk, the Canon, the freezing warden)* \"What became of the Choir?\"", "next": "epi_choir" },
-            { "text": "*(the ones who walked the road beside you, and the man whose grief began it)* \"What became of my companions — and of Aldric?\"", "next": "epi_company" },
-            { "text": "*(the cold thing you are; the road still ahead)* \"And what became of me?\"", "tag": "returned", "next": "epi_self" },
-            { "text": "\"That's tally enough, Chronicler. Let me sit with it a while.\"", "next": "epi_close" }
-          ] },
-        { "id": "epi_river", "speaker": "the Chronicler", "text": "*(They turn to a page that smells, faintly, of cold reed-water.)* The river. *(they trace the names)* *(If you saved her, the tally is sweet: Wren — the apple-girl — *lived*, and is *living still*, loud and inconvenient and exactly as much trouble to the tidy as she promised, and she has spent her stolen years standing at that same cold water talking the next marked soul back from it, one after another, a saviour minting saviours. If you sold her, the page is shorter, and the ink is smudged, and I will not read it aloud unless you ask; some afters are a kindness to leave closed.)* *(softer)* Old Cassian the boatman rowed his thirteen-thousand-and-first at last — *himself* — and the records say a soul met him on the far bank to tell him, finally, what he'd been rowing toward, and that he *wept*, and that it was *good.* And the Reed-Wife — four centuries drowned — was *witnessed*, in the end, by the one cold soul who could; and a witnessed soul, traveler, does not *abide* in a doorway forever. She got to *finish.* You gave the *lonely* water a *last* kindness it had waited an age for.)*",
-          "effects": [{ "key": "epi.heard_river", "op": "SetTrue" }], "auto": "END" },
-        { "id": "epi_bridge", "speaker": "the Chronicler", "text": "*(They turn to a page worn soft, the way a page goes when it is read often and with love.)* The bridge. *(quietly)* *(If you fetched the greywort, the tally sings: the boy — Wick — *lived*, and grew, and never did run quite right on that leg, but ran *far* enough, and is *bossy* and *clever* and *alive*, and tells the story of the cold one who walked past the last torch for a *root* as though it were a *fireside tale*, which — traveler — it has *become.* And Pip beside him, grown, who keeps a *roof* now over every bridge-child the causeway throws away, because someone once kept the watch so *she* could close both eyes.)* *(their voice gentles)* The Knotwife wove until her hands gave out, and they say that on the last day her blind face *turned*, sudden, toward an empty room, and she *smiled*, and said a single name — *Esuele* — as though her daughter had, at long last, come *home* to tell her she could *stop.* *(softly)* And whether Esuele walked *out* of the stone by your *appeal*, or *steadied* in it because you *witnessed* her, or stands *gladly* now as a *keeper* of the re-made Wall — every version of the tally, traveler, ends the same way: *the weaver got to rest, because the daughter got to be seen.* You did that. With a *name*, carried a long cold way.)*",
-          "effects": [{ "key": "epi.heard_bridge", "op": "SetTrue" }], "auto": "END" },
-        { "id": "epi_choir", "speaker": "the Chronicler", "text": "*(They turn to a page written in two inks — one cold and clerical, one, later, warmer.)* The Choir. *(a wry, sad smile)* *(Canon Mereth Vael — the High Measurer — kept the books, in the end, *honest.* Whether she widened the crack from inside, or audited her own ledger till it broke her, or simply *doubted* at the right moment, the tally says she spent the rest of her thorough life *un-filing* what she'd filed, and died at her desk with the docket *open*, which for a soul like her is the nearest thing to a *prayer answered.* Goodman Tallow, the smiling man — the cold found his fingers, just as your sense foretold; but if you *broke* him, or *turned* him, the records note he spent his last spendings *warning* the marked instead of *filing* them, and was, at the very end, *seen* by someone, which is all the forgettable man ever wanted.)* *(quietly)* And the freezing Warden at the last torch, and the Justiciar who spent her oath, and the clerk Pell with his little book — the machine that *fed* the Wall did not fall to a *blade*, traveler. It fell the way machines *truly* fall: *one functionary at a time*, each deciding the book was *wrong.* You did not *destroy* the Choir. You *un-convinced* it. That lasts *longer.*)*",
-          "effects": [{ "key": "epi.heard_choir", "op": "SetTrue" }], "auto": "END" },
-        { "id": "epi_company", "speaker": "the Chronicler", "text": "*(They turn to a page near the front of the book, the one the spine falls open to, the one most often read.)* Your company. *(warmly)* *(Dace Iron, if she threw in with you — she never did spend that one saved 'yes' on anything but *you*, and she guarded your back to the very door of death and *amended* her campfire vow into a thing that *broke a timeline*; the tally says she is *still* at your shoulder, in whatever after you chose, *exactly* as she swore — both of you out, both of you *here.* Justiciar Orin, if she joined — she found the order *didn't* deserve guarding, and guarded the *variable* instead, and the Doomguard, the records dryly note, *never did get its sword back.*)* *(their voice softens, and slows)* And Aldric Morn. *(quietly)* The man whose *grief* began the whole long road. If you showed him the *gentle* way — he put down the *matches*, every one. And if you turned, and looked at the *empty chair*, and carried his *daughter's voice* to him — *Eithne*, who followed him home on a thread of love and sat *unseen* for twenty years — then the tally records the *one* line I have never written *dry-eyed*: *that a grieving father, at the very last, got to hear his honest girl say 'stop, Papa — I'm here — you can rest' — and that he did, and he was, and she walked beside him through the door at last, both of them seen, both of them home.*)* *(they look at you)* That, traveler, was *your* doing. The whole saga turned on a *man* and a *chair*, and you were the *only* soul alive who could see what *sat* in it.)*",
-          "effects": [{ "key": "epi.heard_company", "op": "SetTrue" }], "auto": "END" },
-        { "id": "epi_self", "speaker": "the Chronicler", "text": "*(They are quiet for a long moment, and then they turn — not to a written page, but to the *last* page, the one that is still *blank.*)* …*You.* *(softly)* That, traveler, is the *one* after I *cannot* write, because you are *still writing it.* *(they set down the pen)* But I will tell you what the *tally* of all the *others* says about you, which is more than you'd guess. *(they meet your eyes)* It says: a *cold* thing walked out of the *Wall of the Faithless*, and instead of *raging*, or *grasping*, or *crowning* itself, it went *soul by soul* down the *cruelest* road in the realms and *refused*, *every time*, to let the arithmetic *win.* It carried *names.* It learned that the *Hunger* starves not on *walls* but on *memory*, and that the only power worth a damn is the *witnessing* the gods themselves were *forbidden* to do. *(quietly)* You came back from death asking only that it *matter* the forgotten were *real.* And the tally says — in *every* hand that *ever* kept it — *it mattered.* You *made* it matter. *(they slide the blank last page toward you)* What you *become*, now, with the cold still in your wrists and the long road still ahead — *that*, only *you* can write. But you do not write it *alone*, and you do not write it *unwitnessed.* *I* will keep the tally. *(a small, fierce smile)* Make it a *good* one. You've given me *better* material than any chronicler in the realms. *Don't* you *dare* stop *now.*",
-          "effects": [{ "key": "epi.heard_self", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "epi_close", "speaker": "the Chronicler", "text": "*(They nod, and close the great book gently, keeping a thumb in your page.)* Sit as long as you like, traveler. *(quietly)* The *fire's* warm, and the *water's* near, and the souls who *survived* you are *close* — *(they nod toward the figures by the trees and the doorway)* — go and *hear* them, if you've not. An *epilogue* read in a *book* is a *cold* thing. An epilogue *spoken* by a soul who's *living* it — *(a smile)* — *that's* the only kind worth keeping. *(they reopen the book to your blank last page, pen ready)* And when you've a mind to *write* the *rest* of yourself, you know where the *Chronicler* sits. *(softly)* I'm not going *anywhere.* Someone has to *keep* the *names.* It's the *whole* of the job, in the *end.* It's the whole of *everything*, in the end. *You* taught the *realms* that. The *least* an old scribe can do is *believe* it.",
-          "effects": [{ "key": "epi.rested", "op": "SetTrue" }], "auto": "END" }
+            {
+              "text": "*(the souls of the causeway — the apple-girl, the boatman, the drowned weaver)* \"What became of the river?\"",
+              "next": "epi_river"
+            },
+            {
+              "text": "*(the children under the bridge, and the blind weaver, and her daughter in the stone)* \"What became of the bridge?\"",
+              "next": "epi_bridge"
+            },
+            {
+              "text": "*(the Choir's people — the smiling man, the clerk, the Canon, the freezing warden)* \"What became of the Choir?\"",
+              "next": "epi_choir"
+            },
+            {
+              "text": "*(the ones who walked the road beside you, and the man whose grief began it)* \"What became of my companions — and of Aldric?\"",
+              "next": "epi_company"
+            },
+            {
+              "text": "*(the cold thing you are; the road still ahead)* \"And what became of me?\"",
+              "tag": "returned",
+              "next": "epi_self"
+            },
+            {
+              "text": "\"That's tally enough, Chronicler. Let me sit with it a while.\"",
+              "next": "epi_close"
+            }
+          ]
+        },
+        {
+          "id": "epi_river",
+          "speaker": "the Chronicler",
+          "text": "*(They turn to a page that smells, faintly, of cold reed-water.)* The river. *(they trace the names)* *(If you saved her, the tally is sweet: Wren — the apple-girl — *lived*, and is *living still*, loud and inconvenient and exactly as much trouble to the tidy as she promised, and she has spent her stolen years standing at that same cold water talking the next marked soul back from it, one after another, a saviour minting saviours. If you sold her, the page is shorter, and the ink is smudged, and I will not read it aloud unless you ask; some afters are a kindness to leave closed.)* *(softer)* Old Cassian the boatman rowed his thirteen-thousand-and-first at last — *himself* — and the records say a soul met him on the far bank to tell him, finally, what he'd been rowing toward, and that he *wept*, and that it was *good.* And the Reed-Wife — four centuries drowned — was *witnessed*, in the end, by the one cold soul who could; and a witnessed soul, traveler, does not *abide* in a doorway forever. She got to *finish.* You gave the *lonely* water a *last* kindness it had waited an age for.)*",
+          "effects": [
+            {
+              "key": "epi.heard_river",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_bridge",
+          "speaker": "the Chronicler",
+          "text": "*(They turn to a page worn soft, the way a page goes when it is read often and with love.)* The bridge. *(quietly)* *(If you fetched the greywort, the tally sings: the boy — Wick — *lived*, and grew, and never did run quite right on that leg, but ran *far* enough, and is *bossy* and *clever* and *alive*, and tells the story of the cold one who walked past the last torch for a *root* as though it were a *fireside tale*, which — traveler — it has *become.* And Pip beside him, grown, who keeps a *roof* now over every bridge-child the causeway throws away, because someone once kept the watch so *she* could close both eyes.)* *(their voice gentles)* The Knotwife wove until her hands gave out, and they say that on the last day her blind face *turned*, sudden, toward an empty room, and she *smiled*, and said a single name — *Esuele* — as though her daughter had, at long last, come *home* to tell her she could *stop.* *(softly)* And whether Esuele walked *out* of the stone by your *appeal*, or *steadied* in it because you *witnessed* her, or stands *gladly* now as a *keeper* of the re-made Wall — every version of the tally, traveler, ends the same way: *the weaver got to rest, because the daughter got to be seen.* You did that. With a *name*, carried a long cold way.)*",
+          "effects": [
+            {
+              "key": "epi.heard_bridge",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_choir",
+          "speaker": "the Chronicler",
+          "text": "*(They turn to a page written in two inks — one cold and clerical, one, later, warmer.)* The Choir. *(a wry, sad smile)* *(Canon Mereth Vael — the High Measurer — kept the books, in the end, *honest.* Whether she widened the crack from inside, or audited her own ledger till it broke her, or simply *doubted* at the right moment, the tally says she spent the rest of her thorough life *un-filing* what she'd filed, and died at her desk with the docket *open*, which for a soul like her is the nearest thing to a *prayer answered.* Goodman Tallow, the smiling man — the cold found his fingers, just as your sense foretold; but if you *broke* him, or *turned* him, the records note he spent his last spendings *warning* the marked instead of *filing* them, and was, at the very end, *seen* by someone, which is all the forgettable man ever wanted.)* *(quietly)* And the freezing Warden at the last torch, and the Justiciar who spent her oath, and the clerk Pell with his little book — the machine that *fed* the Wall did not fall to a *blade*, traveler. It fell the way machines *truly* fall: *one functionary at a time*, each deciding the book was *wrong.* You did not *destroy* the Choir. You *un-convinced* it. That lasts *longer.*)*",
+          "effects": [
+            {
+              "key": "epi.heard_choir",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_company",
+          "speaker": "the Chronicler",
+          "text": "*(They turn to a page near the front of the book, the one the spine falls open to, the one most often read.)* Your company. *(warmly)* *(Dace Iron, if she threw in with you — she never did spend that one saved 'yes' on anything but *you*, and she guarded your back to the very door of death and *amended* her campfire vow into a thing that *broke a timeline*; the tally says she is *still* at your shoulder, in whatever after you chose, *exactly* as she swore — both of you out, both of you *here.* Justiciar Orin, if she joined — she found the order *didn't* deserve guarding, and guarded the *variable* instead, and the Doomguard, the records dryly note, *never did get its sword back.*)* *(their voice softens, and slows)* And Aldric Morn. *(quietly)* The man whose *grief* began the whole long road. If you showed him the *gentle* way — he put down the *matches*, every one. And if you turned, and looked at the *empty chair*, and carried his *daughter's voice* to him — *Eithne*, who followed him home on a thread of love and sat *unseen* for twenty years — then the tally records the *one* line I have never written *dry-eyed*: *that a grieving father, at the very last, got to hear his honest girl say 'stop, Papa — I'm here — you can rest' — and that he did, and he was, and she walked beside him through the door at last, both of them seen, both of them home.*)* *(they look at you)* That, traveler, was *your* doing. The whole saga turned on a *man* and a *chair*, and you were the *only* soul alive who could see what *sat* in it.)*",
+          "effects": [
+            {
+              "key": "epi.heard_company",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_self",
+          "speaker": "the Chronicler",
+          "text": "*(They are quiet for a long moment, and then they turn — not to a written page, but to the *last* page, the one that is still *blank.*)* …*You.* *(softly)* That, traveler, is the *one* after I *cannot* write, because you are *still writing it.* *(they set down the pen)* But I will tell you what the *tally* of all the *others* says about you, which is more than you'd guess. *(they meet your eyes)* It says: a *cold* thing walked out of the *Wall of the Faithless*, and instead of *raging*, or *grasping*, or *crowning* itself, it went *soul by soul* down the *cruelest* road in the realms and *refused*, *every time*, to let the arithmetic *win.* It carried *names.* It learned that the *Hunger* starves not on *walls* but on *memory*, and that the only power worth a damn is the *witnessing* the gods themselves were *forbidden* to do. *(quietly)* You came back from death asking only that it *matter* the forgotten were *real.* And the tally says — in *every* hand that *ever* kept it — *it mattered.* You *made* it matter. *(they slide the blank last page toward you)* What you *become*, now, with the cold still in your wrists and the long road still ahead — *that*, only *you* can write. But you do not write it *alone*, and you do not write it *unwitnessed.* *I* will keep the tally. *(a small, fierce smile)* Make it a *good* one. You've given me *better* material than any chronicler in the realms. *Don't* you *dare* stop *now.*",
+          "effects": [
+            {
+              "key": "epi.heard_self",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_close",
+          "speaker": "the Chronicler",
+          "text": "*(They nod, and close the great book gently, keeping a thumb in your page.)* Sit as long as you like, traveler. *(quietly)* The *fire's* warm, and the *water's* near, and the souls who *survived* you are *close* — *(they nod toward the figures by the trees and the doorway)* — go and *hear* them, if you've not. An *epilogue* read in a *book* is a *cold* thing. An epilogue *spoken* by a soul who's *living* it — *(a smile)* — *that's* the only kind worth keeping. *(they reopen the book to your blank last page, pen ready)* And when you've a mind to *write* the *rest* of yourself, you know where the *Chronicler* sits. *(softly)* I'm not going *anywhere.* Someone has to *keep* the *names.* It's the *whole* of the job, in the *end.* It's the whole of *everything*, in the end. *You* taught the *realms* that. The *least* an old scribe can do is *believe* it.",
+          "effects": [
+            {
+              "key": "epi.rested",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "epi.wren", "title": "Wren, Years On", "npc": "Wren", "start": "0",
+      "id": "epi.wren",
+      "title": "Wren, Years On",
+      "npc": "Wren",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Wren", "onEnter": [{ "key": "epi.wren_talk", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Wren",
+          "onEnter": [
+            {
+              "key": "epi.wren_talk",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(She crosses the grass to you the way you'd cross to family you thought you'd lost, and takes your cold hands in both her warm older ones, and doesn't flinch at the chill, and laughs through the start of tears.)* …Look at you. *(she squeezes)* Still cold. Still *you.* *(she steps back to take you in)* Do you *see* it? *(she gestures — at the tree, the water, the quiet)* I planted that *apple-tree* the first spring. It *fruits* now. I *eat* them, every autumn, slow, like I'm getting away with *something* — because I *am*, I'm getting away with a whole *life* I *stole* back at a cold river, and you're the *fence* I sold the theft to. *(fiercely fond)* Sit with me a minute, you. I've *years* of being *alive* to report, and *one* soul in all the world who'll understand exactly how *impossible* every ordinary day of it has been." }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Wren", "text": "*(She settles by the water, the apple-tree at her back, and looks at you with a contentment that still, after all these years, surprises her to feel.)* Go on. *(a smile)* Ask me anything. I'm an *open book* — a *long* one, now, thank the cold and *you* for the *pages.*",
+            {
+              "text": "*(She crosses the grass to you the way you'd cross to family you thought you'd lost, and takes your cold hands in both her warm older ones, and doesn't flinch at the chill, and laughs through the start of tears.)* …Look at you. *(she squeezes)* Still cold. Still *you.* *(she steps back to take you in)* Do you *see* it? *(she gestures — at the tree, the water, the quiet)* I planted that *apple-tree* the first spring. It *fruits* now. I *eat* them, every autumn, slow, like I'm getting away with *something* — because I *am*, I'm getting away with a whole *life* I *stole* back at a cold river, and you're the *fence* I sold the theft to. *(fiercely fond)* Sit with me a minute, you. I've *years* of being *alive* to report, and *one* soul in all the world who'll understand exactly how *impossible* every ordinary day of it has been."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wren",
+          "text": "*(She settles by the water, the apple-tree at her back, and looks at you with a contentment that still, after all these years, surprises her to feel.)* Go on. *(a smile)* Ask me anything. I'm an *open book* — a *long* one, now, thank the cold and *you* for the *pages.*",
           "choices": [
-            { "text": "\"Did you do it, Wren? What you said at the fire — become the one who *bothers*, for the next marked soul at the water?\"", "next": "wren_e_bothered", "effects": [{ "key": "epi.wren.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Were you happy, Wren? The whole long ordinary stolen lot of it — was it *good?*\"", "next": "wren_e_happy" },
-            { "text": "*(one marked soul to the one who marked her free)* \"The mark, Wren. The coin of winter under your breastbone. Is it — did it ever —\"", "tag": "returned", "next": "wren_e_mark", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Just glad you're here, Wren. That's the whole of what I came to say.\"", "next": "wren_e_leave" }
-          ] },
-        { "id": "wren_e_bothered", "speaker": "Wren", "text": "*(Her face lights, fierce and proud.)* …*Hundreds.* *(quietly, and it's the proudest, quietest thing)* I lost count somewhere past a *hundred.* Marked souls, at the cold water, working up the nerve to walk a road that didn't *need* them yet. And I'd come and *sit* with them — not *preach*, never *preach*, you taught me *that* — just *sit*, and *be* alive *at* them, proof you can be *measured* for a wall and still be *eating apples* forty years on. *(she wipes her eye)* Some I talked back. Some I *didn't* — you don't win them *all*, that's the part that *aches.* But the ones I *did* — *(she looks at you)* — every *one* of them was *you*, bothering, *through* me. You didn't save *one* girl at a river, all those years ago. You started a *line* of them. A *chain* of *bothering*, running down the years, each link a soul who lived *because* the last one *stayed.* *(fiercely)* That's your *real* monument, cold one. Not a *statue.* A *habit*, passed soul to soul, of *refusing to let go.*",
-          "effects": [{ "key": "epi.wren.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.wren_bothered", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wren_e_happy", "speaker": "Wren", "text": "*(She's quiet a moment, turning an apple — there is always, you notice, an apple — over in her weathered hands.)* …*Good.* *(softly)* Not *easy.* Don't let me *lie* to you, of all souls — there were *hard* years, and *grief*, and a *winter* I didn't think I'd *clear.* The *mark* doesn't make you *immortal*, only *defiant*, and *defiance* gets *tired.* *(she meets your eyes)* But *good?* *(a slow, certain smile)* Oh, *yes.* The *apples* were sweet *every* single autumn. I was *loved*, and I *loved* back, and I *mattered* to souls who'd have *drowned* without me. *(quietly)* You asked me once, at a fire, what I'd *do* with an after I never expected. And the answer turned out to be the *oldest* one there is: I *lived* it. *Ordinary.* *Tuesday* after *Tuesday* after *Tuesday.* *(she laughs, wet)* An old farmer told you to mind your *Tuesdays*, didn't he — I *heard* about that, the tally gets *around* — well, he was *right*, and I *minded* every *one*, because *you* gave me a life *made* of them when I'd already *measured* the *depth* of the *water.* *(she presses your cold hand)* *Good*, cold one. The *answer* is *good.* The whole *stolen* lot of it. *Worth* the *theft*, a *thousand* times over.",
-          "effects": [{ "key": "epi.wren.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.wren_happy", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wren_e_mark", "speaker": "Wren", "text": "*(She doesn't flinch — she's never flinched, not since the water — but her free hand drifts to her sternum, to the old cold place, the way it always has.)* …It's still *there.* *(quietly)* It never *left*, cold one. The coin of winter. I *felt* it every *day* of every *one* of these years, a little *seed* of the Wall, *patient*, *waiting.* *(she meets your eyes, steady)* But here's the thing the *fear* never understood, back at the water: *the mark was never the* clock *I thought it was.* It didn't *count down.* It just — *was.* A *cold spot* I learned to *carry*, the way you carry a *scar*, or a *grief*, or a *name* you lost. *(softly)* And whatever *ending* you *chose*, out there at the throne — *(she touches the cold place, and then, wondering, presses harder)* …do you know, it's *warmer* than it was. *This* year. *Warmer* than *last.* As though the *thing* it was a *seed* of is — *(she searches your face)* — is being *un-made*, somewhere, *slowly*, by someone who *witnessed* the *whole* Wall it grew from. *(her eyes fill)* That's *you*, isn't it. Even *now.* Even *here.* You're *still* — *(fiercely)* — you never *did* stop *bothering*, did you. Not even with a *god's* worth of *names* to carry. You came *back* to a quiet field years on to make *sure* the *coin* under one apple-woman's *heart* was *thawing.* *(she laughs, and weeps, and holds your cold hand to the warming cold place)* …It is. *Feel.* It is.",
-          "effects": [{ "key": "epi.wren.regard", "op": "AddInt", "amount": 4 }, { "key": "epi.wren_thawing", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wren_e_leave", "speaker": "Wren", "text": "*(She smiles, and walks you a few steps toward the fire and the water and the quiet, her arm through your cold one.)* Glad I'm here. *(she echoes it, fond)* *Me* too, cold one. *Every* day. That's the *whole* of the *miracle*, isn't it — not the *grand* parts. Just: *me* too. *Every* day. *(she stops, and looks at you, and there are decades of gratitude in it)* Go and see *Pip*, before you drift off to *wherever* the *cold* ones drift. She's *grown*, you know. *Magnificent.* Keeps a *roof* over half the *causeway's* lost children. *(a fierce, wet grin)* We're *all* still *bothering*, cold one. The *whole* lot of us you *saved.* You started a *fashion.* *(she squeezes your arm)* Mind your *Tuesdays.* Wherever you're *going.* You *earned* a few of your *own.*",
-          "effects": [{ "key": "epi.wren.regard", "op": "AddInt", "amount": 1 }], "auto": "END" }
+            {
+              "text": "\"Did you do it, Wren? What you said at the fire — become the one who *bothers*, for the next marked soul at the water?\"",
+              "next": "wren_e_bothered",
+              "effects": [
+                {
+                  "key": "epi.wren.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Were you happy, Wren? The whole long ordinary stolen lot of it — was it *good?*\"",
+              "next": "wren_e_happy"
+            },
+            {
+              "text": "*(one marked soul to the one who marked her free)* \"The mark, Wren. The coin of winter under your breastbone. Is it — did it ever —\"",
+              "tag": "returned",
+              "next": "wren_e_mark",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Just glad you're here, Wren. That's the whole of what I came to say.\"",
+              "next": "wren_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "wren_e_bothered",
+          "speaker": "Wren",
+          "text": "*(Her face lights, fierce and proud.)* …*Hundreds.* *(quietly, and it's the proudest, quietest thing)* I lost count somewhere past a *hundred.* Marked souls, at the cold water, working up the nerve to walk a road that didn't *need* them yet. And I'd come and *sit* with them — not *preach*, never *preach*, you taught me *that* — just *sit*, and *be* alive *at* them, proof you can be *measured* for a wall and still be *eating apples* forty years on. *(she wipes her eye)* Some I talked back. Some I *didn't* — you don't win them *all*, that's the part that *aches.* But the ones I *did* — *(she looks at you)* — every *one* of them was *you*, bothering, *through* me. You didn't save *one* girl at a river, all those years ago. You started a *line* of them. A *chain* of *bothering*, running down the years, each link a soul who lived *because* the last one *stayed.* *(fiercely)* That's your *real* monument, cold one. Not a *statue.* A *habit*, passed soul to soul, of *refusing to let go.*",
+          "effects": [
+            {
+              "key": "epi.wren.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.wren_bothered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_e_happy",
+          "speaker": "Wren",
+          "text": "*(She's quiet a moment, turning an apple — there is always, you notice, an apple — over in her weathered hands.)* …*Good.* *(softly)* Not *easy.* Don't let me *lie* to you, of all souls — there were *hard* years, and *grief*, and a *winter* I didn't think I'd *clear.* The *mark* doesn't make you *immortal*, only *defiant*, and *defiance* gets *tired.* *(she meets your eyes)* But *good?* *(a slow, certain smile)* Oh, *yes.* The *apples* were sweet *every* single autumn. I was *loved*, and I *loved* back, and I *mattered* to souls who'd have *drowned* without me. *(quietly)* You asked me once, at a fire, what I'd *do* with an after I never expected. And the answer turned out to be the *oldest* one there is: I *lived* it. *Ordinary.* *Tuesday* after *Tuesday* after *Tuesday.* *(she laughs, wet)* An old farmer told you to mind your *Tuesdays*, didn't he — I *heard* about that, the tally gets *around* — well, he was *right*, and I *minded* every *one*, because *you* gave me a life *made* of them when I'd already *measured* the *depth* of the *water.* *(she presses your cold hand)* *Good*, cold one. The *answer* is *good.* The whole *stolen* lot of it. *Worth* the *theft*, a *thousand* times over.",
+          "effects": [
+            {
+              "key": "epi.wren.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.wren_happy",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_e_mark",
+          "speaker": "Wren",
+          "text": "*(She doesn't flinch — she's never flinched, not since the water — but her free hand drifts to her sternum, to the old cold place, the way it always has.)* …It's still *there.* *(quietly)* It never *left*, cold one. The coin of winter. I *felt* it every *day* of every *one* of these years, a little *seed* of the Wall, *patient*, *waiting.* *(she meets your eyes, steady)* But here's the thing the *fear* never understood, back at the water: *the mark was never the* clock *I thought it was.* It didn't *count down.* It just — *was.* A *cold spot* I learned to *carry*, the way you carry a *scar*, or a *grief*, or a *name* you lost. *(softly)* And whatever *ending* you *chose*, out there at the throne — *(she touches the cold place, and then, wondering, presses harder)* …do you know, it's *warmer* than it was. *This* year. *Warmer* than *last.* As though the *thing* it was a *seed* of is — *(she searches your face)* — is being *un-made*, somewhere, *slowly*, by someone who *witnessed* the *whole* Wall it grew from. *(her eyes fill)* That's *you*, isn't it. Even *now.* Even *here.* You're *still* — *(fiercely)* — you never *did* stop *bothering*, did you. Not even with a *god's* worth of *names* to carry. You came *back* to a quiet field years on to make *sure* the *coin* under one apple-woman's *heart* was *thawing.* *(she laughs, and weeps, and holds your cold hand to the warming cold place)* …It is. *Feel.* It is.",
+          "effects": [
+            {
+              "key": "epi.wren.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "epi.wren_thawing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_e_leave",
+          "speaker": "Wren",
+          "text": "*(She smiles, and walks you a few steps toward the fire and the water and the quiet, her arm through your cold one.)* Glad I'm here. *(she echoes it, fond)* *Me* too, cold one. *Every* day. That's the *whole* of the *miracle*, isn't it — not the *grand* parts. Just: *me* too. *Every* day. *(she stops, and looks at you, and there are decades of gratitude in it)* Go and see *Pip*, before you drift off to *wherever* the *cold* ones drift. She's *grown*, you know. *Magnificent.* Keeps a *roof* over half the *causeway's* lost children. *(a fierce, wet grin)* We're *all* still *bothering*, cold one. The *whole* lot of us you *saved.* You started a *fashion.* *(she squeezes your arm)* Mind your *Tuesdays.* Wherever you're *going.* You *earned* a few of your *own.*",
+          "effects": [
+            {
+              "key": "epi.wren.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "epi.pip", "title": "Pip, Grown", "npc": "Pip", "start": "0",
+      "id": "epi.pip",
+      "title": "Pip, Grown",
+      "npc": "Pip",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Pip", "onEnter": [{ "key": "epi.pip_talk", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Pip",
+          "onEnter": [
+            {
+              "key": "epi.pip_talk",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flag": "under.wick_cure" }, "text": "*(The composure of a woman who runs a household holds for exactly as long as it takes her to place your face — and then it *shatters*, gloriously, into the grin of the street-child who once weighed you over a stolen copper, and she crosses the ground at a run.)* —*it's YOU!* *(she catches herself just short of barrelling into you, suddenly shy, suddenly nine again)* …it's you. *(her voice cracks)* Wick's *inside.* He's — cold one, he's *grown*, he's *taller* than me, the *cheek* of it, after I spent a *week* counting his *breaths* — and he's got the *Knotwife's* old loom, he *weaves* now, *banners*, for the souls the — *(she stops, wipes her face, laughs)* — listen to me, *babbling*, I run a whole *house* and I can't get a *sentence* out because the *cold one who came down the stair* is *standing in my* — *(fiercely)* — get *in* here. You're *family.* I *decided* it years ago, by a brazier, and you *still* don't get a *say.*" },
-            { "text": "*(The woman in the doorway places your face, and the years and the hard-won composure fall away all at once, and underneath is the street-child who learned, once, by a cold brazier, that a grown-up could be trusted with her closed eyes.)* …*S'you.* *(barely)* I *kept* watch for *you*, you know. For *years.* *Half-expecting.* *(she steps out, scrubbing at her eyes, furious and delighted)* Nobody comes *back.* That's the *rule* of the *causeway* — the *kind* ones *leave*, and they *mean* to return, and they *don't.* *(her voice breaks)* And *you* — *cold*, and *dead*, and *busy* with the *whole afterlife* — *you* came *back* to a *grown* street-rat's *doorway* just to — *(she gives up, and grins through the tears)* — get *in* here, you *impossible* thing. You've a *great* deal to *answer* for, and *all* of it's *good.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Pip", "text": "*(She leans in her doorway — *her* doorway, *her* roof, *her* hard-won safe place — and looks at you with the steady gaze of someone who keeps a great many people fed, and the bright eyes of someone who never quite stopped being the kid you trusted.)* So. *(a grin)* Ask. I've got a *house* to run, but the *house* can *wait* — the *house* exists *because* of a *fire* you sat at, so the *house* can *bloody well hold on* while I talk to the soul that *built* it.",
+            {
+              "when": {
+                "flag": "under.wick_cure"
+              },
+              "text": "*(The composure of a woman who runs a household holds for exactly as long as it takes her to place your face — and then it *shatters*, gloriously, into the grin of the street-child who once weighed you over a stolen copper, and she crosses the ground at a run.)* —*it's YOU!* *(she catches herself just short of barrelling into you, suddenly shy, suddenly nine again)* …it's you. *(her voice cracks)* Wick's *inside.* He's — cold one, he's *grown*, he's *taller* than me, the *cheek* of it, after I spent a *week* counting his *breaths* — and he's got the *Knotwife's* old loom, he *weaves* now, *banners*, for the souls the — *(she stops, wipes her face, laughs)* — listen to me, *babbling*, I run a whole *house* and I can't get a *sentence* out because the *cold one who came down the stair* is *standing in my* — *(fiercely)* — get *in* here. You're *family.* I *decided* it years ago, by a brazier, and you *still* don't get a *say.*"
+            },
+            {
+              "text": "*(The woman in the doorway places your face, and the years and the hard-won composure fall away all at once, and underneath is the street-child who learned, once, by a cold brazier, that a grown-up could be trusted with her closed eyes.)* …*S'you.* *(barely)* I *kept* watch for *you*, you know. For *years.* *Half-expecting.* *(she steps out, scrubbing at her eyes, furious and delighted)* Nobody comes *back.* That's the *rule* of the *causeway* — the *kind* ones *leave*, and they *mean* to return, and they *don't.* *(her voice breaks)* And *you* — *cold*, and *dead*, and *busy* with the *whole afterlife* — *you* came *back* to a *grown* street-rat's *doorway* just to — *(she gives up, and grins through the tears)* — get *in* here, you *impossible* thing. You've a *great* deal to *answer* for, and *all* of it's *good.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Pip",
+          "text": "*(She leans in her doorway — *her* doorway, *her* roof, *her* hard-won safe place — and looks at you with the steady gaze of someone who keeps a great many people fed, and the bright eyes of someone who never quite stopped being the kid you trusted.)* So. *(a grin)* Ask. I've got a *house* to run, but the *house* can *wait* — the *house* exists *because* of a *fire* you sat at, so the *house* can *bloody well hold on* while I talk to the soul that *built* it.",
           "choices": [
-            { "text": "\"Tell me about the roof, Pip. Whose heads are under it?\"", "next": "pip_e_roof", "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if her brother lived)* \"And Wick. The little brother you counted breaths for. He really —\"", "when": { "flag": "under.wick_cure" }, "next": "pip_e_wick", "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(the watch you once stood so she could sleep)* \"Do you still keep watch, Pip? With both eyes? Or did you ever learn to let someone else hold it?\"", "tag": "returned", "next": "pip_e_watch", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Just had to see you'd made it, Pip. You have. Beyond anything.\"", "next": "pip_e_leave" }
-          ] },
-        { "id": "pip_e_roof", "speaker": "Pip", "text": "*(She glances back through the doorway, and her whole face goes soft with a fierce proprietary love.)* …*Bridge-kids.* *(quietly)* The ones the causeway throws away. The *lifters*, the *runners*, the *littles* with *wrong legs* and *no* coppers and *no* god and *no one.* *(she counts on quick fingers)* Eleven, this winter. Was *nine* in the autumn — took in *two* more off the *crates*, same crates *I* worked, and I *know* those crates, I know *exactly* the *arithmetic* of a kid who only takes from *spare.* *(she meets your eyes)* I feed them. I *teach* them — *not* lifting, or — *well*, a *little* lifting, for *emergencies*, a *trade's* a *trade* — but *letters*, mostly. *Sums.* How to *sleep with both eyes.* *(her voice roughens)* Because *somebody* sat a watch for *me*, once, by a *brazier*, and told me the dark could be on *my* side for *one* night — and it turned out *one* night was *enough* to *believe* there could be *more.* *(fiercely)* So now *I'm* the watch. For *eleven.* Soon *twelve.* *(she looks at you)* You didn't save *a* street-kid, cold one. You saved the *one* who *grew up* to save *the rest.* That's — *(she swallows)* — that's *better* than a *cure.* That's a *cure* that *spreads.*",
-          "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.pip_keeps_roof", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_e_wick", "speaker": "Pip", "text": "*(She *beams*, the particular helpless beam of a sibling whose brother *lived.*)* …He's *insufferable.* *(joyfully)* *Tall*, and *clever*, and he *weaves* — took up the *Knotwife's* loom when she passed, says it's the *one* trade where a *bad leg* doesn't *matter*, you *sit* to do it. *(she laughs)* He makes *banners* now. *True* ones — names *woven* in, for souls the *old* Choir would've left *nameless*, so *someone* always *remembers* them. *(her voice catches)* He says — he *says*, the *cheek* of him — that he learned it from a *cold one* who told him, dying on a *pallet*, that the *graves* he was *scared* of going into *meant* something if *someone remembered.* *(she wipes her eyes)* He *remembers*, cold one. *Professionally.* He turned the *worst* night of *both* our lives — the *cough*, the *grey* lips, the *counting* — into a *whole life* of making *sure* no soul goes into the dark *un-named.* *(fiercely proud)* You went *past the last torch* for a *root*, for a *kid* you'd known an *hour.* And the kid *grew up* and spends his *every* day *paying* it *forward* in *thread.* *(she grins through tears)* Come *in* and *see* him. He'll *cry.* He *cries* at *everything* now — says it's *allowed*, now he's not *bracing* anymore. *(softly)* You did *that.* You made my brother a soul who's *allowed* to *cry.* I'll never — there's no *thanking* it. So I just *built* things with it. A *whole* life of *things.*",
-          "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 4 }, { "key": "epi.wick_weaves", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_e_watch", "speaker": "Pip", "text": "*(She goes quiet, and her hand finds the doorframe — *her* doorframe — and grips it, and the answer takes a moment, because it's the truest one she has.)* …I learned. *(softly)* It took — gods, it took *years*, cold one. The *eyes* don't *un-learn* the *doorways* in a *night*, even after the *best* night. *(she meets your gaze)* But the *house* — eleven *kids*, soon twelve — you *can't* keep a watch over *eleven* with your *own* two eyes, it's not *possible*, you'd *die* of it. So I *taught* them to keep watch *for each other.* *Rotas.* The *bigger* ones mind the *littler* ones, and then *they* get *minded* back, and *no one* — *(her voice cracks)* — *no one* in *my* house *ever* has to keep *both* eyes open *alone.* *(fiercely)* *That's* what you gave me, by that brazier. Not a *night's* sleep. The *idea* that a watch could be *shared.* That *safe* isn't a thing you *win* alone — it's a thing you *build*, between *people*, in *turns.* *(quietly)* So *yes*, cold one. I let someone *else* hold the watch. *Every* night. *Eleven* someones. And I *sleep* — *both* eyes — because the *dark*, in *my* house, is on *everybody's* side. *(she smiles, wet and whole)* You asked if I still keep watch *alone.* *No.* *That's* the *whole* of what I grew up to *un-learn.* And it's the *best* thing I *know.*",
-          "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 4 }, { "key": "epi.pip_shared_watch", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_e_leave", "speaker": "Pip", "text": "*(She catches your cold sleeve as you turn, the old quick hands still quick, and her eyes are fierce and wet.)* …Don't you *vanish* now. *(quietly)* You came *back* once — broke the *rule*, the *kind ones leave* rule — so you can *bloody well* come back *again.* *(she lets go, slow)* The *house* is *here.* The *door's* always — *(she laughs, cracked)* — gods, listen to *me*, telling a *cold one* who walks through *death itself* that *my* door's *open.* *(softly)* But it *is.* For *you.* *Always.* You're the *reason* there's a *door* at all. *(she steps back into her doorway, her roof, her safe place, and lifts a hand)* Mind how you *drift*, cold one. And — *(fiercely, the child and the woman both)* — *thank you.* For coming down the *stair.* For sitting the *watch.* For *eleven* kids who'll *never* know your *name* and are *alive* because of it anyway. *That's* the *best* kind of *saving*, I reckon. The kind nobody has to *remember* for it to *count.*",
-          "effects": [{ "key": "epi.pip.regard", "op": "AddInt", "amount": 1 }], "auto": "END" }
+            {
+              "text": "\"Tell me about the roof, Pip. Whose heads are under it?\"",
+              "next": "pip_e_roof",
+              "effects": [
+                {
+                  "key": "epi.pip.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if her brother lived)* \"And Wick. The little brother you counted breaths for. He really —\"",
+              "when": {
+                "flag": "under.wick_cure"
+              },
+              "next": "pip_e_wick",
+              "effects": [
+                {
+                  "key": "epi.pip.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the watch you once stood so she could sleep)* \"Do you still keep watch, Pip? With both eyes? Or did you ever learn to let someone else hold it?\"",
+              "tag": "returned",
+              "next": "pip_e_watch",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Just had to see you'd made it, Pip. You have. Beyond anything.\"",
+              "next": "pip_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "pip_e_roof",
+          "speaker": "Pip",
+          "text": "*(She glances back through the doorway, and her whole face goes soft with a fierce proprietary love.)* …*Bridge-kids.* *(quietly)* The ones the causeway throws away. The *lifters*, the *runners*, the *littles* with *wrong legs* and *no* coppers and *no* god and *no one.* *(she counts on quick fingers)* Eleven, this winter. Was *nine* in the autumn — took in *two* more off the *crates*, same crates *I* worked, and I *know* those crates, I know *exactly* the *arithmetic* of a kid who only takes from *spare.* *(she meets your eyes)* I feed them. I *teach* them — *not* lifting, or — *well*, a *little* lifting, for *emergencies*, a *trade's* a *trade* — but *letters*, mostly. *Sums.* How to *sleep with both eyes.* *(her voice roughens)* Because *somebody* sat a watch for *me*, once, by a *brazier*, and told me the dark could be on *my* side for *one* night — and it turned out *one* night was *enough* to *believe* there could be *more.* *(fiercely)* So now *I'm* the watch. For *eleven.* Soon *twelve.* *(she looks at you)* You didn't save *a* street-kid, cold one. You saved the *one* who *grew up* to save *the rest.* That's — *(she swallows)* — that's *better* than a *cure.* That's a *cure* that *spreads.*",
+          "effects": [
+            {
+              "key": "epi.pip.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.pip_keeps_roof",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_e_wick",
+          "speaker": "Pip",
+          "text": "*(She *beams*, the particular helpless beam of a sibling whose brother *lived.*)* …He's *insufferable.* *(joyfully)* *Tall*, and *clever*, and he *weaves* — took up the *Knotwife's* loom when she passed, says it's the *one* trade where a *bad leg* doesn't *matter*, you *sit* to do it. *(she laughs)* He makes *banners* now. *True* ones — names *woven* in, for souls the *old* Choir would've left *nameless*, so *someone* always *remembers* them. *(her voice catches)* He says — he *says*, the *cheek* of him — that he learned it from a *cold one* who told him, dying on a *pallet*, that the *graves* he was *scared* of going into *meant* something if *someone remembered.* *(she wipes her eyes)* He *remembers*, cold one. *Professionally.* He turned the *worst* night of *both* our lives — the *cough*, the *grey* lips, the *counting* — into a *whole life* of making *sure* no soul goes into the dark *un-named.* *(fiercely proud)* You went *past the last torch* for a *root*, for a *kid* you'd known an *hour.* And the kid *grew up* and spends his *every* day *paying* it *forward* in *thread.* *(she grins through tears)* Come *in* and *see* him. He'll *cry.* He *cries* at *everything* now — says it's *allowed*, now he's not *bracing* anymore. *(softly)* You did *that.* You made my brother a soul who's *allowed* to *cry.* I'll never — there's no *thanking* it. So I just *built* things with it. A *whole* life of *things.*",
+          "effects": [
+            {
+              "key": "epi.pip.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "epi.wick_weaves",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_e_watch",
+          "speaker": "Pip",
+          "text": "*(She goes quiet, and her hand finds the doorframe — *her* doorframe — and grips it, and the answer takes a moment, because it's the truest one she has.)* …I learned. *(softly)* It took — gods, it took *years*, cold one. The *eyes* don't *un-learn* the *doorways* in a *night*, even after the *best* night. *(she meets your gaze)* But the *house* — eleven *kids*, soon twelve — you *can't* keep a watch over *eleven* with your *own* two eyes, it's not *possible*, you'd *die* of it. So I *taught* them to keep watch *for each other.* *Rotas.* The *bigger* ones mind the *littler* ones, and then *they* get *minded* back, and *no one* — *(her voice cracks)* — *no one* in *my* house *ever* has to keep *both* eyes open *alone.* *(fiercely)* *That's* what you gave me, by that brazier. Not a *night's* sleep. The *idea* that a watch could be *shared.* That *safe* isn't a thing you *win* alone — it's a thing you *build*, between *people*, in *turns.* *(quietly)* So *yes*, cold one. I let someone *else* hold the watch. *Every* night. *Eleven* someones. And I *sleep* — *both* eyes — because the *dark*, in *my* house, is on *everybody's* side. *(she smiles, wet and whole)* You asked if I still keep watch *alone.* *No.* *That's* the *whole* of what I grew up to *un-learn.* And it's the *best* thing I *know.*",
+          "effects": [
+            {
+              "key": "epi.pip.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "epi.pip_shared_watch",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_e_leave",
+          "speaker": "Pip",
+          "text": "*(She catches your cold sleeve as you turn, the old quick hands still quick, and her eyes are fierce and wet.)* …Don't you *vanish* now. *(quietly)* You came *back* once — broke the *rule*, the *kind ones leave* rule — so you can *bloody well* come back *again.* *(she lets go, slow)* The *house* is *here.* The *door's* always — *(she laughs, cracked)* — gods, listen to *me*, telling a *cold one* who walks through *death itself* that *my* door's *open.* *(softly)* But it *is.* For *you.* *Always.* You're the *reason* there's a *door* at all. *(she steps back into her doorway, her roof, her safe place, and lifts a hand)* Mind how you *drift*, cold one. And — *(fiercely, the child and the woman both)* — *thank you.* For coming down the *stair.* For sitting the *watch.* For *eleven* kids who'll *never* know your *name* and are *alive* because of it anyway. *That's* the *best* kind of *saving*, I reckon. The kind nobody has to *remember* for it to *count.*",
+          "effects": [
+            {
+              "key": "epi.pip.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "epi.sennet", "title": "Sennet, Years On — the Atlas Finished", "npc": "Sennet", "start": "0",
+      "id": "epi.sennet",
+      "title": "Sennet, Years On — the Atlas Finished",
+      "npc": "Sennet",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Sennet", "onEnter": [{ "key": "epi.sennet_talk", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Sennet",
+          "onEnter": [
+            {
+              "key": "epi.sennet_talk",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flag": "thr.sennet_eyes" }, "text": "*(They rise from the table slower than they once did — the joints never did fully thaw — but the face that turns to you is *old* in the way they were never supposed to get to be, and they grip your cold hands in both of their warm lined ones and laugh until it's nearly weeping.)* …My *eyes.* *(barely)* The soul who went *in* so I could *stay* on the *warm* side and *draw.* *(they pull you to the table, to the great clasped book)* *There.* *(a hand flat on the cover)* It's *done.* The *atlas.* The first *true* one. Every *bearing* you ever *paced* me back from that *door* — the *grey* causeway, the *far* bank, the *deep* country, the *blank* — it's all *on the page* now, in the *deep-country* ink, in a *living* hand, because a *Returned* once stood at the *edge* of the world and told a *frightened* surveyor that *staying* was the *job.* *(they wipe their eyes, fierce and glad)* I did *not* step through, friend. *Not* that day, *not* any day. I went *home*, to the *wagon*, to *Tibb* — and I *drew* what you *carried* out, year on year, until the *worst* page in *everyone's* atlas was *un-blanked* at *last.* *(a wet grin)* You kept your *count* coming *back.* *Same* number, *every* time. I *checked.* I *always* checked." },
-            { "when": { "flag": "cg.sennet_devoted" }, "text": "*(The old cartographer lays a hand flat on the great clasped book and *beams* at you, the manic brightness aged down into something steady and deep and warm.)* …The name on the *cartouche.* *(they tap the cover)* It's *printed*, now, friend. *In* the *book.* Right where I *said* I'd put it, that day at the *wagon* — the *deep-country* ink, where it'll *outlast* us *both.* *(they open the clasp, turn to the title page, and there it is: your name, beside theirs, on the first true atlas of the dead)* Every *library* that takes a *copy* takes *you* with it. Every *grieving* soul who opens it to find their *dead* aren't *nowhere* — they read *your* name first, and never know it was a *cold* thing that walked the country so a *warm* hand could *draw* it. *(they grip your arm)* I got *old*, road-walker. *Me.* The surveyor who was *certain* he'd die at an *edge* with a *spyglass* in his *hand.* I got *old*, and I *finished* the *work*, and I did it *both* — the thing I was *sure* I'd have to *choose* between. *Because* of *you.*" },
-            { "text": "*(An old soul at a proper table under the trees, the great book finished and clasped before them — they look up at you and their lined face cracks into the grin you remember, less manic now, worn warm by years they were never promised.)* …*There* you are. *(they pat the bench beside them)* Sit, sit — I'm *old* now, I've *earned* the right to make a *Returned* sit *down* and *look* at what we *made.* *(a hand on the book)* It's *finished*, friend. The *atlas.* The country of the *dead*, *surveyed* — not *guessed*, not a *priest's* diagram — *measured*, *true*, down to the *last reed.* *(quietly, wondering)* I was *dying* when you found me. *Two* surveys left, maybe *three.* And here I sit with *grey* in my *hair* and a *finished* book and *Tibb* grown and *grumbling* at his *own* apprentice, and the only *reason* — the *whole* reason — is that a *cold* soul walked up to a *wagon* and decided a *mad* mapmaker's *life* was worth the *saving.* *(they meet your eyes, fierce and grateful)* Ask me, road-walker. Ask me how it *ends* — the *one* story I can *finally* tell you the *end* of, because I *lived* to *write* it." }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Sennet", "text": "*(They settle back, a hand resting on the finished book the way a soul rests a hand on something it spent its whole life reaching for.)* Go on. *(a soft grin)* I've *time* now — that's the *miracle* of it, the thing I *never* had: *time.* Spend some of it on an *old* surveyor.",
+            {
+              "when": {
+                "flag": "thr.sennet_eyes"
+              },
+              "text": "*(They rise from the table slower than they once did — the joints never did fully thaw — but the face that turns to you is *old* in the way they were never supposed to get to be, and they grip your cold hands in both of their warm lined ones and laugh until it's nearly weeping.)* …My *eyes.* *(barely)* The soul who went *in* so I could *stay* on the *warm* side and *draw.* *(they pull you to the table, to the great clasped book)* *There.* *(a hand flat on the cover)* It's *done.* The *atlas.* The first *true* one. Every *bearing* you ever *paced* me back from that *door* — the *grey* causeway, the *far* bank, the *deep* country, the *blank* — it's all *on the page* now, in the *deep-country* ink, in a *living* hand, because a *Returned* once stood at the *edge* of the world and told a *frightened* surveyor that *staying* was the *job.* *(they wipe their eyes, fierce and glad)* I did *not* step through, friend. *Not* that day, *not* any day. I went *home*, to the *wagon*, to *Tibb* — and I *drew* what you *carried* out, year on year, until the *worst* page in *everyone's* atlas was *un-blanked* at *last.* *(a wet grin)* You kept your *count* coming *back.* *Same* number, *every* time. I *checked.* I *always* checked."
+            },
+            {
+              "when": {
+                "flag": "cg.sennet_devoted"
+              },
+              "text": "*(The old cartographer lays a hand flat on the great clasped book and *beams* at you, the manic brightness aged down into something steady and deep and warm.)* …The name on the *cartouche.* *(they tap the cover)* It's *printed*, now, friend. *In* the *book.* Right where I *said* I'd put it, that day at the *wagon* — the *deep-country* ink, where it'll *outlast* us *both.* *(they open the clasp, turn to the title page, and there it is: your name, beside theirs, on the first true atlas of the dead)* Every *library* that takes a *copy* takes *you* with it. Every *grieving* soul who opens it to find their *dead* aren't *nowhere* — they read *your* name first, and never know it was a *cold* thing that walked the country so a *warm* hand could *draw* it. *(they grip your arm)* I got *old*, road-walker. *Me.* The surveyor who was *certain* he'd die at an *edge* with a *spyglass* in his *hand.* I got *old*, and I *finished* the *work*, and I did it *both* — the thing I was *sure* I'd have to *choose* between. *Because* of *you.*"
+            },
+            {
+              "text": "*(An old soul at a proper table under the trees, the great book finished and clasped before them — they look up at you and their lined face cracks into the grin you remember, less manic now, worn warm by years they were never promised.)* …*There* you are. *(they pat the bench beside them)* Sit, sit — I'm *old* now, I've *earned* the right to make a *Returned* sit *down* and *look* at what we *made.* *(a hand on the book)* It's *finished*, friend. The *atlas.* The country of the *dead*, *surveyed* — not *guessed*, not a *priest's* diagram — *measured*, *true*, down to the *last reed.* *(quietly, wondering)* I was *dying* when you found me. *Two* surveys left, maybe *three.* And here I sit with *grey* in my *hair* and a *finished* book and *Tibb* grown and *grumbling* at his *own* apprentice, and the only *reason* — the *whole* reason — is that a *cold* soul walked up to a *wagon* and decided a *mad* mapmaker's *life* was worth the *saving.* *(they meet your eyes, fierce and grateful)* Ask me, road-walker. Ask me how it *ends* — the *one* story I can *finally* tell you the *end* of, because I *lived* to *write* it."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sennet",
+          "text": "*(They settle back, a hand resting on the finished book the way a soul rests a hand on something it spent its whole life reaching for.)* Go on. *(a soft grin)* I've *time* now — that's the *miracle* of it, the thing I *never* had: *time.* Spend some of it on an *old* surveyor.",
           "choices": [
-            { "text": "\"The atlas, Sennet. It's done — what did it become? Who reads it now?\"", "next": "sennet_e_atlas", "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"And Tibb? The lad who counted your days, who wrote you that one line — how did he come out of it all?\"", "next": "sennet_e_tibb", "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(one cold soul to the one who walked the warm shore beside you)* \"The cold, Sennet. The exposure, the frostbite in the joints. We were the same kind of cold, you and I, the day we met. All these years on — where did yours go?\"", "tag": "returned", "next": "sennet_e_cold", "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Were you glad of it, Sennet? The whole long extra lot of it — the years you weren't supposed to get. Was it worth being talked down off the edge?\"", "next": "sennet_e_glad" },
-            { "text": "\"Rest easy, Sennet. You finished the one map that mattered. I'll let you sit with it.\"", "next": "sennet_e_leave" }
-          ] },
-        { "id": "sennet_e_atlas", "speaker": "Sennet", "text": "*(They open the great book, slow, reverent, and turn it so you can see — page on page of the grey country, charted true, in the tiny deep-country hand.)* …It went *everywhere.* *(quietly, amazed)* That's the part I *never* let myself *hope* for. The *Choir* tried to *ban* it, of course — a *true* map of the dead makes their *Wall* look like the *cruelty* it *was* — but you *cracked* the Choir, road-walker, years back, and a *banned* book in a *cracked* church is just a book that *everyone* reads. *(a wet laugh)* *Copyists* make *copies* faster than I can *count* them. *Every* temple of *Kelemvor* keeps one *chained* in the *nave* now — for the *bereaved.* A mother loses a *child*, unbought, *godless*, and instead of a *priest* saying *'fear for them'*, she's *handed* my *book*, and she *opens* it, and she *sees*: not a *terror*, not a *blank* — a *country.* A *grey* shore. A *far* bank. A *real* place her *love* went *to.* *(they close the book, gentle)* I made the *map* I wished I'd had, the day my *mother* died. And now *no* soul who loses *theirs* has to stand where I *stood*, looking at a *blank* page marked *'here be terrors.'* *(barely)* That's — that's the *whole* of it, friend. That's what it *became.* A *comfort*, made *true*, in *every* grieving *hand* that needs it. We *un-blanked* the *worst* page in the *world.*",
-          "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "epi.sennet_atlas_lives", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sennet_e_tibb", "speaker": "Sennet", "text": "*(Their whole face goes soft, and they glance toward the grown apprentice still grinding ink at the table's end out of three decades of habit.)* …*Tibb.* *(fondly)* Tibb is a *master* cartographer now, friend. *Better* than I *ever* was — steadier *hand*, and *none* of my *idiot* habit of standing too *close* to the *edge*, because the lad *watched* what that *cost*, and *learned.* *(a crooked grin)* He has his *own* apprentice now. A *frightened* one, who *grinds* the *ink* and *counts* the *days* and *watches* their *master* — and I have caught *Tibb* catching *himself* about to do something *reckless*, and *stopping*, because he *remembers* a *promise* a *Returned* once got an old fool to *keep.* *(their voice roughens)* He still has the *letter*, you know. The *one* line — *'I'll mind the wagon till you're home.'* Keeps it *pressed* in the *back* of the *atlas.* Says it's the *truest* thing either of us ever *wrote.* *(they wipe their eyes)* He got his *master* back, road-walker. *Whole.* For *years* and *years.* And he spent every *one* of them making *sure* I came *home* from *every* survey — *same* count, *coming back* — until I got *too old* to *go*, and now *he* does the *fieldwork*, and *I* sit at the *warm* table and *draw.* *(a wet, glad laugh)* The boy *minds* the *wagon*. Still. Always. Only now it's *his.*",
-          "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 2 }, { "key": "epi.sennet_tibb_master", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sennet_e_cold", "speaker": "Sennet", "text": "*(They flex the old left hand — the one Tibb told you to watch, a lifetime ago — and it opens, slow but *full*, all the way.)* …Where did it *go.* *(quietly)* It *receded*, friend. The way *yours* never can, and I *know* that, and I have *never* once forgotten it. *(they look at you, and there is an old grief in it, and an old gratitude)* The *day* we met we were the *same* cold — me *creeping* toward your *country* a *bearing* at a *time*, you *carrying* it *home* in your *bones.* And then you *gave* me a *fire*, and a *reason* to stand *back* from the *edges*, and the *creeping* *stopped.* Mine *backed out.* Year on year, the *warmth* won *back* the *joints*, the *lungs*, the *slow* chambers — not *all* of it, never *all*, four fingers still *ache* in the *wet* — but the *cold* in me *lost.* *(softly)* And *yours* didn't. *That's* the thing I sit with, old, by this *warm* table. You *spent* your cold *un-freezing* mine. You walked *into* the *deep* country so *I* could come *out* of the *edge* of it. *(they grip your hand, and don't flinch at the chill)* I never *could* warm your *wrists*, friend. *Nobody* could. But I *drew* you a *map* of the *country* you carry, so *true* that when you *finally* go *back* to it — *years* and *years* from now, I *pray* — you'll know *exactly* where you *are.* It's the *only* warmth I had to *give* a *cold* soul. A *map* home. *(barely)* It's in the *book.* Last *page.* I drew it *for* you.",
-          "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.sennet_map_home", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sennet_e_glad", "speaker": "Sennet", "text": "*(They are quiet a moment, looking out at the trees, the water, the grown apprentice, the finished book — taking a bearing, you realize, on the whole shape of a life they weren't supposed to have.)* …*Glad.* *(softly)* I have had *years*, friend, to *survey* that *question*, and here is my *measured* answer: I did not know, the day you found me, that I was *unhappy.* I thought I was *content* — *driven*, *purposeful*, *dying* well in *service* of a *great* work. *(a crooked smile)* I was *wrong.* I was a *soul racing its own death so it would never have to sit still long enough to feel how alone it was at every cold edge.* *(quietly)* And then you sat me at a *fire*, with *people*, and made me *map the camp* instead of the *grave*, and I learned the thing thirty years of *brilliance* never taught me: that the *work* was never the *point.* The *work* was how I *reached* for the *warm* without *admitting* I *wanted* it. *(they meet your eyes)* So — *glad?* Road-walker, you didn't just give me *years.* You gave me the *one* thing my *whole* clever life was *built* to *avoid*: *time enough to be happy, and the company to be happy with.* *(a wet, radiant grin)* *Worth* being talked off the edge? I'd have been a *fool* of *catastrophic* proportions to *step* through that door. And I have been *many* kinds of *fool*, friend — but *thanks* to you, *never* that one. *Never* that one.",
-          "effects": [{ "key": "epi.sennet.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.sennet_glad", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sennet_e_leave", "speaker": "Sennet", "text": "*(They lay both hands flat on the finished book and give you the old ink-stained salute, slower now, and infinitely more settled.)* …*Sit* with it. *(a soft grin)* That's the *one* instruction I never could *follow*, my whole *racing* life — and you *taught* it to me, road-walker, at a *fire*, a lifetime ago. *Sit* with it. *(quietly)* Go on, then. *Drift* where your *cold* feet take you — you always *did*, restless *thing.* But *know* this, every *mile*: there is a *table* under these *trees* with an *old* surveyor at it, and a *finished* book, and a *warm* lamp, and your *name* in the *cartouche* — and *any* time your *road* brings you *near*, there is a *chair.* *(barely)* You *found* me dying at the *edge* of my *map.* You *leave* me *old*, at its *centre*, with the *whole* thing *drawn.* *(a wet, glad smile)* That's the *finest* survey *either* of us ever *ran*, friend. *Mind* the *edges.* And come *home* when you can. There's *always* a *bearing* here for *you.*",
-          "auto": "END" }
+            {
+              "text": "\"The atlas, Sennet. It's done — what did it become? Who reads it now?\"",
+              "next": "sennet_e_atlas",
+              "effects": [
+                {
+                  "key": "epi.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"And Tibb? The lad who counted your days, who wrote you that one line — how did he come out of it all?\"",
+              "next": "sennet_e_tibb",
+              "effects": [
+                {
+                  "key": "epi.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(one cold soul to the one who walked the warm shore beside you)* \"The cold, Sennet. The exposure, the frostbite in the joints. We were the same kind of cold, you and I, the day we met. All these years on — where did yours go?\"",
+              "tag": "returned",
+              "next": "sennet_e_cold",
+              "effects": [
+                {
+                  "key": "epi.sennet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Were you glad of it, Sennet? The whole long extra lot of it — the years you weren't supposed to get. Was it worth being talked down off the edge?\"",
+              "next": "sennet_e_glad"
+            },
+            {
+              "text": "\"Rest easy, Sennet. You finished the one map that mattered. I'll let you sit with it.\"",
+              "next": "sennet_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "sennet_e_atlas",
+          "speaker": "Sennet",
+          "text": "*(They open the great book, slow, reverent, and turn it so you can see — page on page of the grey country, charted true, in the tiny deep-country hand.)* …It went *everywhere.* *(quietly, amazed)* That's the part I *never* let myself *hope* for. The *Choir* tried to *ban* it, of course — a *true* map of the dead makes their *Wall* look like the *cruelty* it *was* — but you *cracked* the Choir, road-walker, years back, and a *banned* book in a *cracked* church is just a book that *everyone* reads. *(a wet laugh)* *Copyists* make *copies* faster than I can *count* them. *Every* temple of *Kelemvor* keeps one *chained* in the *nave* now — for the *bereaved.* A mother loses a *child*, unbought, *godless*, and instead of a *priest* saying *'fear for them'*, she's *handed* my *book*, and she *opens* it, and she *sees*: not a *terror*, not a *blank* — a *country.* A *grey* shore. A *far* bank. A *real* place her *love* went *to.* *(they close the book, gentle)* I made the *map* I wished I'd had, the day my *mother* died. And now *no* soul who loses *theirs* has to stand where I *stood*, looking at a *blank* page marked *'here be terrors.'* *(barely)* That's — that's the *whole* of it, friend. That's what it *became.* A *comfort*, made *true*, in *every* grieving *hand* that needs it. We *un-blanked* the *worst* page in the *world.*",
+          "effects": [
+            {
+              "key": "epi.sennet.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.sennet_atlas_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sennet_e_tibb",
+          "speaker": "Sennet",
+          "text": "*(Their whole face goes soft, and they glance toward the grown apprentice still grinding ink at the table's end out of three decades of habit.)* …*Tibb.* *(fondly)* Tibb is a *master* cartographer now, friend. *Better* than I *ever* was — steadier *hand*, and *none* of my *idiot* habit of standing too *close* to the *edge*, because the lad *watched* what that *cost*, and *learned.* *(a crooked grin)* He has his *own* apprentice now. A *frightened* one, who *grinds* the *ink* and *counts* the *days* and *watches* their *master* — and I have caught *Tibb* catching *himself* about to do something *reckless*, and *stopping*, because he *remembers* a *promise* a *Returned* once got an old fool to *keep.* *(their voice roughens)* He still has the *letter*, you know. The *one* line — *'I'll mind the wagon till you're home.'* Keeps it *pressed* in the *back* of the *atlas.* Says it's the *truest* thing either of us ever *wrote.* *(they wipe their eyes)* He got his *master* back, road-walker. *Whole.* For *years* and *years.* And he spent every *one* of them making *sure* I came *home* from *every* survey — *same* count, *coming back* — until I got *too old* to *go*, and now *he* does the *fieldwork*, and *I* sit at the *warm* table and *draw.* *(a wet, glad laugh)* The boy *minds* the *wagon*. Still. Always. Only now it's *his.*",
+          "effects": [
+            {
+              "key": "epi.sennet.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.sennet_tibb_master",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sennet_e_cold",
+          "speaker": "Sennet",
+          "text": "*(They flex the old left hand — the one Tibb told you to watch, a lifetime ago — and it opens, slow but *full*, all the way.)* …Where did it *go.* *(quietly)* It *receded*, friend. The way *yours* never can, and I *know* that, and I have *never* once forgotten it. *(they look at you, and there is an old grief in it, and an old gratitude)* The *day* we met we were the *same* cold — me *creeping* toward your *country* a *bearing* at a *time*, you *carrying* it *home* in your *bones.* And then you *gave* me a *fire*, and a *reason* to stand *back* from the *edges*, and the *creeping* *stopped.* Mine *backed out.* Year on year, the *warmth* won *back* the *joints*, the *lungs*, the *slow* chambers — not *all* of it, never *all*, four fingers still *ache* in the *wet* — but the *cold* in me *lost.* *(softly)* And *yours* didn't. *That's* the thing I sit with, old, by this *warm* table. You *spent* your cold *un-freezing* mine. You walked *into* the *deep* country so *I* could come *out* of the *edge* of it. *(they grip your hand, and don't flinch at the chill)* I never *could* warm your *wrists*, friend. *Nobody* could. But I *drew* you a *map* of the *country* you carry, so *true* that when you *finally* go *back* to it — *years* and *years* from now, I *pray* — you'll know *exactly* where you *are.* It's the *only* warmth I had to *give* a *cold* soul. A *map* home. *(barely)* It's in the *book.* Last *page.* I drew it *for* you.",
+          "effects": [
+            {
+              "key": "epi.sennet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.sennet_map_home",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sennet_e_glad",
+          "speaker": "Sennet",
+          "text": "*(They are quiet a moment, looking out at the trees, the water, the grown apprentice, the finished book — taking a bearing, you realize, on the whole shape of a life they weren't supposed to have.)* …*Glad.* *(softly)* I have had *years*, friend, to *survey* that *question*, and here is my *measured* answer: I did not know, the day you found me, that I was *unhappy.* I thought I was *content* — *driven*, *purposeful*, *dying* well in *service* of a *great* work. *(a crooked smile)* I was *wrong.* I was a *soul racing its own death so it would never have to sit still long enough to feel how alone it was at every cold edge.* *(quietly)* And then you sat me at a *fire*, with *people*, and made me *map the camp* instead of the *grave*, and I learned the thing thirty years of *brilliance* never taught me: that the *work* was never the *point.* The *work* was how I *reached* for the *warm* without *admitting* I *wanted* it. *(they meet your eyes)* So — *glad?* Road-walker, you didn't just give me *years.* You gave me the *one* thing my *whole* clever life was *built* to *avoid*: *time enough to be happy, and the company to be happy with.* *(a wet, radiant grin)* *Worth* being talked off the edge? I'd have been a *fool* of *catastrophic* proportions to *step* through that door. And I have been *many* kinds of *fool*, friend — but *thanks* to you, *never* that one. *Never* that one.",
+          "effects": [
+            {
+              "key": "epi.sennet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.sennet_glad",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sennet_e_leave",
+          "speaker": "Sennet",
+          "text": "*(They lay both hands flat on the finished book and give you the old ink-stained salute, slower now, and infinitely more settled.)* …*Sit* with it. *(a soft grin)* That's the *one* instruction I never could *follow*, my whole *racing* life — and you *taught* it to me, road-walker, at a *fire*, a lifetime ago. *Sit* with it. *(quietly)* Go on, then. *Drift* where your *cold* feet take you — you always *did*, restless *thing.* But *know* this, every *mile*: there is a *table* under these *trees* with an *old* surveyor at it, and a *finished* book, and a *warm* lamp, and your *name* in the *cartouche* — and *any* time your *road* brings you *near*, there is a *chair.* *(barely)* You *found* me dying at the *edge* of my *map.* You *leave* me *old*, at its *centre*, with the *whole* thing *drawn.* *(a wet, glad smile)* That's the *finest* survey *either* of us ever *ran*, friend. *Mind* the *edges.* And come *home* when you can. There's *always* a *bearing* here for *you.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "epi.annet", "title": "Goodwife Annet, Years On", "npc": "Goodwife Annet", "start": "0",
+      "id": "epi.annet",
+      "title": "Goodwife Annet, Years On",
+      "npc": "Goodwife Annet",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Goodwife Annet", "onEnter": [{ "key": "epi.annet_talk", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Goodwife Annet",
+          "onEnter": [
+            {
+              "key": "epi.annet_talk",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["tr.reeve_recants"] }, "text": "*(She crosses to you slow — she's truly old now — with someone else's newborn dozing on her shoulder, and her free hand finds your cold one and grips it hard, unflinching.)* …*You.* *(a fierce, wet grin)* The cold one who made the *racket.* *(she squeezes)* Do you know what you *started*, that night in the *cellar?* The old reeve — *Oddleif* — he didn't just *let me walk.* He *recanted.* *(quietly, awed)* Stood up off that bench and named every soul he'd ever *sentenced* a *murder*, and *signed* it, and the *signing* — friend, that *paper* got *out.* *Copied.* *Nailed* to the Counting-House *door.* A *thousand* names, a *reeve's* own hand calling the *Wall* what it *was.* *(she shifts the babe)* They couldn't *un-nail* it. The *Quarter* read it. And once the *Quarter* read what was done in its *sleep*, the *quiet* little reckonings were *over* — you can't hold a *secret* trial once the *secret's* on the *door.* *(she meets your eyes)* I came here tonight to *thank* you for *my* years. But it wasn't *just* mine you saved, cold one. It was *every* godless soul the *cellar* never *got* to, after. *Hundreds.* On account of one *racket*, and one *old man* you *reminded* how to be *brave.*" },
-            { "when": { "flags": ["tr.concord_void"] }, "text": "*(She makes her way over slow, an old woman with a midwife's bag still slung on, and takes your cold hand in her chapped one without a flicker.)* …The *cold* one. *(a grim, satisfied grin)* The one who knew about *Venn.* *(she squeezes)* That *prosecutor* — *Sevard* — he *tore up* my *indictment*, you know, the night you spoke of the *forged* Concord. And then the *thorough* devil did exactly what a *thorough* devil does: he went to the *archive*, and he read *every* seal, and they were *all* the same *dead* clerk's *forged* hand. *(quietly)* And he *couldn't* stop *reading* them. *Couldn't* stop *un-writing* them. Spent his *last* years at it — *every* reckoning he could *reach*, *voided*, *for want of a valid law.* *(she shakes her head)* He died at that *desk*, friend, *mid-ledger*, having *un-made* more of the *Wall's* paperwork than any *hero* with a *sword* ever did. *Your* doing. You handed a *broken* clerk the *one* fact that turned his *thoroughness* into a *weapon.*" },
-            { "text": "*(She comes to you slow — properly old now — with a borrowed newborn asleep on her shoulder, and grips your cold hand in her warm chapped one, steady as the day you met her in the dock.)* …Still cold. *(a dry, delighted grin)* And still *meddling*, I'd wager. *(she squeezes)* Look at me, friend. *Old.* *Above*-ground. With *someone else's* babe asleep on my *shoulder* — caught her *myself*, dawn before last, breech, turned her in *time.* *(her chin lifts)* I was *meant* to be *mortar*, that night you found me. *Dissolving* in a *wall* for the *crime* of *catching babies without a god's leave.* And instead I got — *(she gestures at the trees, the quiet, the sleeping child)* — *this.* *More* years of *exactly* the *work* they tried to *damn* me for. *(she meets your eyes)* I don't *know* what *gavel* fell, in the end, or *whose* nerve you *found* down in that *cellar.* But I *walked out.* And I have been *walking out* every *dawn* since, *bag* on my *shoulder*, into *one* more *life* that needed *catching.* *Ask* me, cold one. Ask an *old* godless midwife how it all came *out.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Goodwife Annet", "text": "*(She settles onto a log with the ease of a body that has earned its rest and not taken nearly enough of it, the babe still dozing, and looks at you with the level, unhurried attention she once gave a hundred labouring mothers.)* Go on, then. *(a faint grin)* You came when *no one* comes, last time. *Least* I can do is *answer* you, this time.",
+            {
+              "when": {
+                "flags": [
+                  "tr.reeve_recants"
+                ]
+              },
+              "text": "*(She crosses to you slow — she's truly old now — with someone else's newborn dozing on her shoulder, and her free hand finds your cold one and grips it hard, unflinching.)* …*You.* *(a fierce, wet grin)* The cold one who made the *racket.* *(she squeezes)* Do you know what you *started*, that night in the *cellar?* The old reeve — *Oddleif* — he didn't just *let me walk.* He *recanted.* *(quietly, awed)* Stood up off that bench and named every soul he'd ever *sentenced* a *murder*, and *signed* it, and the *signing* — friend, that *paper* got *out.* *Copied.* *Nailed* to the Counting-House *door.* A *thousand* names, a *reeve's* own hand calling the *Wall* what it *was.* *(she shifts the babe)* They couldn't *un-nail* it. The *Quarter* read it. And once the *Quarter* read what was done in its *sleep*, the *quiet* little reckonings were *over* — you can't hold a *secret* trial once the *secret's* on the *door.* *(she meets your eyes)* I came here tonight to *thank* you for *my* years. But it wasn't *just* mine you saved, cold one. It was *every* godless soul the *cellar* never *got* to, after. *Hundreds.* On account of one *racket*, and one *old man* you *reminded* how to be *brave.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "tr.concord_void"
+                ]
+              },
+              "text": "*(She makes her way over slow, an old woman with a midwife's bag still slung on, and takes your cold hand in her chapped one without a flicker.)* …The *cold* one. *(a grim, satisfied grin)* The one who knew about *Venn.* *(she squeezes)* That *prosecutor* — *Sevard* — he *tore up* my *indictment*, you know, the night you spoke of the *forged* Concord. And then the *thorough* devil did exactly what a *thorough* devil does: he went to the *archive*, and he read *every* seal, and they were *all* the same *dead* clerk's *forged* hand. *(quietly)* And he *couldn't* stop *reading* them. *Couldn't* stop *un-writing* them. Spent his *last* years at it — *every* reckoning he could *reach*, *voided*, *for want of a valid law.* *(she shakes her head)* He died at that *desk*, friend, *mid-ledger*, having *un-made* more of the *Wall's* paperwork than any *hero* with a *sword* ever did. *Your* doing. You handed a *broken* clerk the *one* fact that turned his *thoroughness* into a *weapon.*"
+            },
+            {
+              "text": "*(She comes to you slow — properly old now — with a borrowed newborn asleep on her shoulder, and grips your cold hand in her warm chapped one, steady as the day you met her in the dock.)* …Still cold. *(a dry, delighted grin)* And still *meddling*, I'd wager. *(she squeezes)* Look at me, friend. *Old.* *Above*-ground. With *someone else's* babe asleep on my *shoulder* — caught her *myself*, dawn before last, breech, turned her in *time.* *(her chin lifts)* I was *meant* to be *mortar*, that night you found me. *Dissolving* in a *wall* for the *crime* of *catching babies without a god's leave.* And instead I got — *(she gestures at the trees, the quiet, the sleeping child)* — *this.* *More* years of *exactly* the *work* they tried to *damn* me for. *(she meets your eyes)* I don't *know* what *gavel* fell, in the end, or *whose* nerve you *found* down in that *cellar.* But I *walked out.* And I have been *walking out* every *dawn* since, *bag* on my *shoulder*, into *one* more *life* that needed *catching.* *Ask* me, cold one. Ask an *old* godless midwife how it all came *out.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodwife Annet",
+          "text": "*(She settles onto a log with the ease of a body that has earned its rest and not taken nearly enough of it, the babe still dozing, and looks at you with the level, unhurried attention she once gave a hundred labouring mothers.)* Go on, then. *(a faint grin)* You came when *no one* comes, last time. *Least* I can do is *answer* you, this time.",
           "choices": [
-            { "text": "\"The work, Annet. All these years you weren't supposed to have — what did you do with them?\"", "next": "annet_e_work", "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"And the others, Annet? The godless souls who came after you, to the cellar. Did the racket we made change anything for them?\"", "next": "annet_e_others", "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(one godless soul to another, years on)* \"You kept faith with people instead of Powers, Annet — that was the heresy they'd have walled you for. Was it worth it? Knowing no god ever caught *you*, at the end — only a cold stranger who happened by?\"", "tag": "returned", "next": "annet_e_creed", "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Good catching to you, Annet. Get that one home.\"", "next": "annet_e_leave" }
-          ] },
-        { "id": "annet_e_work", "speaker": "Goodwife Annet", "text": "*(She laughs, low and warm, and pats the sleeping babe.)* …What did I *do* with them. *(a grin)* *Caught.* What *else.* *(she counts on her chapped fingers)* *Hundreds* more, friend, since the cellar. Breeches and twins and the *bad* ones in the *small* hours — and I *trained* up *four* girls to do it *after* me, godless *every* one, because some *fool* taught me that the *work* is the *truest* faith there is and I'll be *damned* — *ha* — if I let it *die* with my *hands.* *(she sobers, just slightly)* But here's the thing I *didn't* expect, cold one. The *naming.* *(quietly)* After the cellar — after I *learned* I'd *live* — I started *asking* the mothers if I might *name* the ones I caught. And they *let* me, mostly, on account of the *story* got *round* — *'that's the midwife the Choir tried to wall, and a cold stranger saved.'* *(her eyes are bright)* So there's a whole *generation* on this causeway, friend, walking around with names an *old godless woman* gave them — and *every* name is a *thank-you* I couldn't say *out loud* to a *stranger* who *vanished.* *Look* for them. *Annet's* children. They're *everywhere* now. That's what I *did* with the years. I *seeded* the whole *Quarter* with *proof* you were *here.*",
-          "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 2 }, { "key": "epi.annet_seeded", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "annet_e_others", "speaker": "Goodwife Annet", "text": "*(Her face goes grave, and there is something almost like vindication in it, hard-won and quiet.)* …The *others.* *(she nods slowly)* That's the *one* that *matters*, isn't it. Not *me* — I'm *one* old woman, *one* dock, *one* night. *(she leans in)* But a *reckoning*, friend, *lives* on being *unseen.* A *form* in the *dark*, *filed* before *dawn*, *no* gallery, *no* trouble. And *you* made *mine* a *racket.* You made the *prosecutor* fold, or the *reeve* recant, or *both* — I heard it *told* a *dozen* ways — and a *folded* prosecutor and a *recanting* reeve *don't go quietly back* to the *cellar.* *(fierce)* The *quiet* broke, that night. And once it *broke*, it *stayed* broke — the *Quarter* knew to *watch* the Counting-House after dark, the *midwives* and *ferrymen* knew there were *souls* who'd *come* and make *trouble.* *(she meets your eyes)* I can't tell you a *number.* Nobody *counts* the souls a *broken silence* never *let* get *walled.* But it's not *small*, cold one. It's the *opposite* of small. *You* didn't just save *one* godless midwife. You taught a whole *causeway* that the *cellar* could be *fought* — and a thing that can be *fought* stops being a thing that *wins.*",
-          "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 2 }, { "key": "epi.annet_silence_broke", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "annet_e_creed", "speaker": "Goodwife Annet", "text": "*(She is quiet a long moment, looking at the sleeping child on her shoulder, and when she answers it is without a flicker of doubt — the surest thing you have ever heard a soul say.)* …Worth it. *(softly)* You ask a *strange* question, cold one, and I'll give you the *true* answer, which is: *no god ever caught me*, that's so — and I never *wanted* one to. *(she meets your eyes, fierce and calm)* Because here's the thing the *Choir* never understood, the thing the *Wall* was *built* to *punish* and *couldn't*: I didn't keep faith with *people* hoping to be *caught* at the *end.* I kept faith with *people* because *catching* is the *whole* of it. The *work.* The *next* mother. There *is* no *reward* after, and there was *never* meant to be — the *reward* was the *forty years of warm hands in the cold dark*, and I *had* those, *every* one. *(a slow grin)* And then, when the *bill* came due, and *no* god stood up for the *godless* woman — *you* did. A *cold* stranger, who owed me *nothing*, who kept faith with a *person* over a *Power* the *exact* same way *I* had. *(quietly, and there are tears in it now)* *That's* the answer, friend. *Was it worth it?* I spent my *life* believing that *souls* keeping faith with *each other* was *stronger* than *anything* a *god* sells. And then a *Returned* walked into a *cellar* and *proved* me *right*, with *my* life as the *evidence.* *(she grips your hand)* *No* god caught me. A *person* did. *That's* not the *consolation* prize, cold one. *That's* the *whole* sermon. You *are* the sermon. You always *were.*",
-          "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 3 }, { "key": "epi.annet_creed_vindicated", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "annet_e_leave", "speaker": "Goodwife Annet", "text": "*(She shifts the sleeping babe to her other shoulder and gives you the grave, grateful nod of a woman who does not waste words.)* …Go on, then. *(quietly)* I've a *delivery* to get this one *home* to. *(she pats the little back)* Work's never *done*, friend — that's the *blessing* of it, the thing the *gods* never understood and the *Wall* never could: there's *always* another *dawn*, another *mother*, another *small* one wanting *catching.* *(she meets your cold eyes, steady as ever)* You gave me *years* of it. *Years* I'd already *signed* away. *(a flicker, fierce and bright)* Every babe I've caught since that *night* in the *cellar* is *alive* because a *cold* stranger thought a *godless* old midwife was worth making a *racket* over. *(she turns to go, then pauses)* They'll not *remember* your *name*, those children. *(a grin)* But I *named* a *fair* few of them *anyway.* *Ask* around. You'll *hear* it. *Your* doing, friend. *Loud* as I could make it.",
-          "effects": [{ "key": "epi.annet.regard", "op": "AddInt", "amount": 1 }], "auto": "END" }
+            {
+              "text": "\"The work, Annet. All these years you weren't supposed to have — what did you do with them?\"",
+              "next": "annet_e_work",
+              "effects": [
+                {
+                  "key": "epi.annet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"And the others, Annet? The godless souls who came after you, to the cellar. Did the racket we made change anything for them?\"",
+              "next": "annet_e_others",
+              "effects": [
+                {
+                  "key": "epi.annet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(one godless soul to another, years on)* \"You kept faith with people instead of Powers, Annet — that was the heresy they'd have walled you for. Was it worth it? Knowing no god ever caught *you*, at the end — only a cold stranger who happened by?\"",
+              "tag": "returned",
+              "next": "annet_e_creed",
+              "effects": [
+                {
+                  "key": "epi.annet.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Good catching to you, Annet. Get that one home.\"",
+              "next": "annet_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "annet_e_work",
+          "speaker": "Goodwife Annet",
+          "text": "*(She laughs, low and warm, and pats the sleeping babe.)* …What did I *do* with them. *(a grin)* *Caught.* What *else.* *(she counts on her chapped fingers)* *Hundreds* more, friend, since the cellar. Breeches and twins and the *bad* ones in the *small* hours — and I *trained* up *four* girls to do it *after* me, godless *every* one, because some *fool* taught me that the *work* is the *truest* faith there is and I'll be *damned* — *ha* — if I let it *die* with my *hands.* *(she sobers, just slightly)* But here's the thing I *didn't* expect, cold one. The *naming.* *(quietly)* After the cellar — after I *learned* I'd *live* — I started *asking* the mothers if I might *name* the ones I caught. And they *let* me, mostly, on account of the *story* got *round* — *'that's the midwife the Choir tried to wall, and a cold stranger saved.'* *(her eyes are bright)* So there's a whole *generation* on this causeway, friend, walking around with names an *old godless woman* gave them — and *every* name is a *thank-you* I couldn't say *out loud* to a *stranger* who *vanished.* *Look* for them. *Annet's* children. They're *everywhere* now. That's what I *did* with the years. I *seeded* the whole *Quarter* with *proof* you were *here.*",
+          "effects": [
+            {
+              "key": "epi.annet.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.annet_seeded",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "annet_e_others",
+          "speaker": "Goodwife Annet",
+          "text": "*(Her face goes grave, and there is something almost like vindication in it, hard-won and quiet.)* …The *others.* *(she nods slowly)* That's the *one* that *matters*, isn't it. Not *me* — I'm *one* old woman, *one* dock, *one* night. *(she leans in)* But a *reckoning*, friend, *lives* on being *unseen.* A *form* in the *dark*, *filed* before *dawn*, *no* gallery, *no* trouble. And *you* made *mine* a *racket.* You made the *prosecutor* fold, or the *reeve* recant, or *both* — I heard it *told* a *dozen* ways — and a *folded* prosecutor and a *recanting* reeve *don't go quietly back* to the *cellar.* *(fierce)* The *quiet* broke, that night. And once it *broke*, it *stayed* broke — the *Quarter* knew to *watch* the Counting-House after dark, the *midwives* and *ferrymen* knew there were *souls* who'd *come* and make *trouble.* *(she meets your eyes)* I can't tell you a *number.* Nobody *counts* the souls a *broken silence* never *let* get *walled.* But it's not *small*, cold one. It's the *opposite* of small. *You* didn't just save *one* godless midwife. You taught a whole *causeway* that the *cellar* could be *fought* — and a thing that can be *fought* stops being a thing that *wins.*",
+          "effects": [
+            {
+              "key": "epi.annet.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.annet_silence_broke",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "annet_e_creed",
+          "speaker": "Goodwife Annet",
+          "text": "*(She is quiet a long moment, looking at the sleeping child on her shoulder, and when she answers it is without a flicker of doubt — the surest thing you have ever heard a soul say.)* …Worth it. *(softly)* You ask a *strange* question, cold one, and I'll give you the *true* answer, which is: *no god ever caught me*, that's so — and I never *wanted* one to. *(she meets your eyes, fierce and calm)* Because here's the thing the *Choir* never understood, the thing the *Wall* was *built* to *punish* and *couldn't*: I didn't keep faith with *people* hoping to be *caught* at the *end.* I kept faith with *people* because *catching* is the *whole* of it. The *work.* The *next* mother. There *is* no *reward* after, and there was *never* meant to be — the *reward* was the *forty years of warm hands in the cold dark*, and I *had* those, *every* one. *(a slow grin)* And then, when the *bill* came due, and *no* god stood up for the *godless* woman — *you* did. A *cold* stranger, who owed me *nothing*, who kept faith with a *person* over a *Power* the *exact* same way *I* had. *(quietly, and there are tears in it now)* *That's* the answer, friend. *Was it worth it?* I spent my *life* believing that *souls* keeping faith with *each other* was *stronger* than *anything* a *god* sells. And then a *Returned* walked into a *cellar* and *proved* me *right*, with *my* life as the *evidence.* *(she grips your hand)* *No* god caught me. A *person* did. *That's* not the *consolation* prize, cold one. *That's* the *whole* sermon. You *are* the sermon. You always *were.*",
+          "effects": [
+            {
+              "key": "epi.annet.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.annet_creed_vindicated",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "annet_e_leave",
+          "speaker": "Goodwife Annet",
+          "text": "*(She shifts the sleeping babe to her other shoulder and gives you the grave, grateful nod of a woman who does not waste words.)* …Go on, then. *(quietly)* I've a *delivery* to get this one *home* to. *(she pats the little back)* Work's never *done*, friend — that's the *blessing* of it, the thing the *gods* never understood and the *Wall* never could: there's *always* another *dawn*, another *mother*, another *small* one wanting *catching.* *(she meets your cold eyes, steady as ever)* You gave me *years* of it. *Years* I'd already *signed* away. *(a flicker, fierce and bright)* Every babe I've caught since that *night* in the *cellar* is *alive* because a *cold* stranger thought a *godless* old midwife was worth making a *racket* over. *(she turns to go, then pauses)* They'll not *remember* your *name*, those children. *(a grin)* But I *named* a *fair* few of them *anyway.* *Ask* around. You'll *hear* it. *Your* doing, friend. *Loud* as I could make it.",
+          "effects": [
+            {
+              "key": "epi.annet.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "epi.sparrow",
+      "title": "The Sparrow, Years On",
+      "npc": "the Sparrow",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Sparrow",
+          "onEnter": [
+            {
+              "key": "epi.sparrow_talk",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "thr.sparrow_scouts"
+                ]
+              },
+              "text": "*(She pushes off the doorframe and crosses to you, and the ring of keys at her belt sings, and she catches you in a quick hard embrace that the old her would never have risked.)* …*There* you are, partner. *(she holds you at arm's length, grinning)* The soul I cased the *afterlife's* getaway for. *(she taps the keys)* Did you ever *doubt* I'd find you the way *out* of that *throne* room? *(a fierce, warm laugh)* Best *scout* I ever *ran* — and it *taught* me a *trade*, partner. Turns out, once you've found the *back* door out of *death's own court*, every *lesser* lock in *creation* looks like an *invitation.* *(she gestures at the younger shade)* So I *kept* doing it. *Steal people back.* You *said* it, that night in the *archive*, like it was a *line.* I made it a *life.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "hearth.sparrow_whole"
+                ]
+              },
+              "text": "*(She steps out of the well-made doorway and the keys at her belt chime, and she looks at you with the settled, whole-souled warmth she found at your fire and never lost.)* …Partner. *(a soft grin)* You're a *sight.* *(she spreads her hands at the doorway, the keys, the apprentice)* Look what you *made*, cold one. A *thief* with *one* rule and a *split* soul — and you *introduced* the *halves*, and *this* is what *grew* out of the *seam.* *(she taps the key-ring)* I *stayed*, you know. *Could* have moved on — found a *good* door, *walked* through it, taken my *rest.* *(she shakes her head, fond)* But there were *still* souls in *cages*, partner, and I'm the *best* lock there *ever* was, and a soul can't *retire* on a *whole* heart when it *knows* what *yours* taught it. So I *stayed.* And I *work.*"
+            },
+            {
+              "text": "*(She leans in the clean new doorway with a ring of impossible keys at her hip, and when she sees you the years fall away from her grin — though the dead don't age, this one has plainly *deepened*, gone from quick and wary to quick and *sure.*)* …Well, *well.* If it isn't the *cold* article that *ruined* my *career.* *(she crosses to you, warm)* Best *ruin* that ever *befell* a *thief*, partner. *(she jingles the key-ring)* I've a *trade* now — a *real* one, the *first* I've not been *ashamed* of in *forty* years of *dying.* And it's *your* fault, *entirely*, and I've come to the *years-after* to *thank* you for it and *never* let you *forget* it. *Ask* me. *Ask* what a *reformed* thief of the *dead* does with an *eternity* and a *cause.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Sparrow",
+          "text": "*(She settles a hip against the doorframe, keys jingling, perfectly at ease — a soul that finally found the one room it doesn't want to rob.)* Go on, partner. *(a grin)* Pick your *lock.* I've *time* — the dead have *nothing* *but* — and there's *no* soul in all the *after* I'd rather *spend* it on.",
+          "choices": [
+            {
+              "text": "\"What's the trade, Sparrow? The keys, the apprentice — tell me what you built with all this time.\"",
+              "next": "sparrow_e_trade",
+              "effects": [
+                {
+                  "key": "epi.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You're dead, Sparrow, and whole now, and free to move on to a good door. Why are you still *here*, still working?\"",
+              "next": "sparrow_e_stay",
+              "effects": [
+                {
+                  "key": "epi.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(one trespasser of death to the other, at the end of it all)* \"We both went where we weren't allowed, Sparrow — me out of the Wall, you through every door the dead put up. I always wondered which of us would find peace first. So tell me true: a thief who can pick the lock on *any* door, even the good one at the end — are you ever going to walk through it yourself? Or is steal-people-back the door you'd rather keep open forever?\"",
+              "tag": "returned",
+              "next": "sparrow_e_door",
+              "effects": [
+                {
+                  "key": "epi.sparrow.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Any of them you couldn't save, Sparrow? In all the years of stealing people back — the ones the lock beat?\"",
+              "next": "sparrow_e_lost"
+            },
+            {
+              "text": "\"Good thieving to you, Sparrow. Keep opening doors.\"",
+              "next": "sparrow_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "sparrow_e_trade",
+          "speaker": "the Sparrow",
+          "text": "*(She unhooks the key-ring and lets it spin on one finger, each key a different impossible shape.)* …The *trade.* *(her eyes shine)* I *steal people back*, partner. For a *living* — well. For a *dying.* *(she nods at the younger shade)* After the *throne* room, after *you* did *whatever* you did to the *Wall* — there were *still* cages, partner. *Old* ones. *Forgotten* souls the *new* order *missed*, locked in *bargains* and *vaults* and *debts* nobody *remembered* the *key* to. *(she catches the ring)* So I *find* them. I *pick* the *lock.* And I *let* them *out* — *no* fee, *no* buyer, *no* coin — because it turns out the *one* score worth *making*, the *only* one, is the soul you *take* off a *Wall* and *hand* back its *own* freedom. *(she grins at the apprentice)* And I *teach* it. There's a *whole* *crew* now, partner — *thieves* of the *dead* who *steal* the *dead* *free* — and we *call* ourselves, *gods* help us, the *Sparrow's* *Wing.* *(a wink)* Every *cage* in the *after* has a *Sparrow* coming for its *lock*, *eventually.* That's the *trade* I *built* on a *line* you *tossed* me in an *archive.* *Best* *fence* I ever *had*, cold one — and all you *dealt* in was *better* *ideas.*",
+          "effects": [
+            {
+              "key": "epi.sparrow.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.sparrow_wing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_e_stay",
+          "speaker": "the Sparrow",
+          "text": "*(The grin gentles, and for a moment the old wariness flickers — not fear now, but the honesty of a soul that has examined its own lock.)* …Why am I *still* here. *(she turns a key over)* *Could* move on. You're *right.* I'm *whole*, I'm *unhaunted*, there's a *good* door with my *name* on it, *open*, *waiting* — I can *feel* it, partner, the *warm* one, the *rest.* *(quietly)* And I *will* walk through it. *Someday.* *(she looks at the apprentice, the keys)* But here's the thing I *learned*, dying and *whole*: I spent *forty* years *free* and *miserable* — *no* god, *no* crew, *no* cause, just *quick* hands and an *empty* take. And then *you* gave me a *door* worth *opening*, and I found out *freedom* was never the *point.* *Purpose* was. *(she meets your eyes)* The *good* door will *keep.* The *rest* will *keep.* It's the *one* thing rest is *good* at — *waiting.* But there's a soul in a *cage* *somewhere* in the *after* *right now* who *doesn't* know a *Sparrow's* *coming*, and I'll *not* take my *rest* while I've a *lock* left to *pick* and a *crew* to *teach.* *(a fierce, warm grin)* I'll go through the *good* door when there's *no* one *left* who *needs* me to *stay* on *this* side of it. Which is to say — *(a wink)* — *not* for a *good* long *while* yet, partner. The *after's* got a *lot* of *cages.* And I've got a *lot* of *keys.*",
+          "effects": [
+            {
+              "key": "epi.sparrow.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.sparrow_stays",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_e_door",
+          "speaker": "the Sparrow",
+          "text": "*(She goes still, and the key-ring stops spinning, and she gives your question the long, honest weight it asks for — two trespassers of death, reckoning at the end.)* …Will I ever walk through it *myself.* *(quietly)* The *good* door. The *one* lock I *could* pick and *never* have. *(a slow breath)* You *see* me, partner. You *always* did — it's the *cold* in you, the *seeing.* *(she looks at the warm door, the one only she could open and won't)* …*Yes.* I'll walk through it. I *promise* you that, because I *know* you'll *worry* — you're the *worrying* sort, under all the *cold.* I'll not turn into a *Reed-Wife*, *abiding* in a *doorway* for *four* centuries, *too* afraid to *cross.* *(fierce)* But not *yet.* And here's the *true* reason, the one *only* another *trespasser* would *understand*: I spent my *whole* existence *taking* things through doors they weren't *meant* to go through. *Stealing.* *Trespassing.* *Going* where I *wasn't* *allowed.* (she grins, wet-eyed) And *now* — for the *first* time — I go where I'm not allowed to *let other souls out.* The *same* trespass, partner. The *same* *quick* hands. *Pointed* at *mercy* instead of *take.* I'm not *staying* out of *fear* of the *good* door. I'm staying because I *finally* found the *one* trespass *worth* committing *forever* — and when I *do* walk through that *warm* door, at the *last*, I want to walk through it *empty-handed*, with *every* cage in the *after* *picked* *clean* behind me. *(softly)* *Then* I'll *rest.* *Earned.* Not *free* — *earned.* You taught me the *difference*, cold one. It's the *only* thing I ever *kept* that I didn't *steal.*",
+          "effects": [
+            {
+              "key": "epi.sparrow.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "epi.sparrow_will_rest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_e_lost",
+          "speaker": "the Sparrow",
+          "text": "*(The brightness dims, and she's quiet a moment, and the honesty that costs her something surfaces.)* …The ones the *lock* beat. *(she turns a key over, slow)* *Aye.* There are *some.* There are *always* some. *(quietly)* A *thief* learns *early*, partner: you *don't* save *all* of them. Some *cages* are *older* than the *keys.* Some souls are *too* far *gone* into the *nothing* before I *reach* them — *un-witnessed* so *long* there's *no* lock *left* to *pick*, only a *fading*, and you can't *steal* back a soul that's *forgotten* it was *ever* a *who.* *(she meets your eyes)* I keep a *list.* The ones I was *too* *late* for. *(a thin breath)* The *old* me kept a list of *scores.* The *new* me keeps a list of *failures*, and *visits* it, and *learns* the *locks* I *couldn't* *pick* so the *next* Sparrow *can.* *(fierce, low)* That's the *difference* you *made* in me, cold one, when you *named* what I *was* and *didn't* flinch: the *old* thief *forgot* the ones she *lost.* The *new* one *carries* them — *not* as *guilt*, as *instruction.* *Every* soul I *couldn't* save is a *lesson* in a *lock*, and *every* lesson is a soul some *other* *thief* *will.* *(she pockets the keys)* I don't save *all* of them, partner. But I save *more* every *year* — because I *let* the *lost* ones *teach* me. The *Wall* *forgot* its *dead.* I made *very* sure my *crew* *never* will.",
+          "effects": [
+            {
+              "key": "epi.sparrow.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "epi.sparrow_carries_lost",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sparrow_e_leave",
+          "speaker": "the Sparrow",
+          "text": "*(She catches your hand, quick and warm, and presses something into it — a single small key, plain and worn.)* …Take this, partner. *(she folds your cold fingers over it)* *First* lock I ever picked for a *cause* instead of a *coin* — the *archive*, the *Tally*, the night you *turned* me. I kept the *key* to the *cage* I *helped* you *empty.* *(a crooked grin)* Now *you* keep it. So that *wherever* your *cold* feet take you, you've a *Sparrow's* key in your *pocket* — and a soul who *learned*, from *you*, that the *only* doors worth a *thief's* time are the ones with *people* on the *wrong* side of them. *(she steps back toward the well-made doorway and the waiting apprentice)* *Mind* how you *drift*, cold one. And if you *ever* find a *cage* you *can't* *crack* — *(she taps the key-ring, a promise)* — you *send* for the *Sparrow's* *Wing.* There's *no* lock in all the *after* we *won't* *come* for. You *made* us. We'll *never* *forget* the *making.* *(a last grin, fierce and whole)* *Best* score of my *death*, partner — and I *gave* it *away* for *free.* You'd be *proud.* You *taught* me *how.*",
+          "effects": [
+            {
+              "key": "epi.sparrow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "epi.sparrow_gives_key",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
       ]
     }
   ]

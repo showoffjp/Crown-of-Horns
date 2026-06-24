@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v5.3.0 — *"The Sparrow's Wing"* — the fourth companion's arc completes (Threshold + epilogue) (content)
+
+> The Sparrow gets the full companion treatment Sennet got — but with a twist that's hers alone. She is *dead*,
+> and so, unlike the living companions checked at the Threshold, **she is the one soul in your party who can follow
+> you through the death-door.**
+
+- 🚪 **The Sparrow at the Threshold** (gated on `party.sparrow_recruited`). While Dace, Orin and Sennet are held at
+  the edge by the breath still in their bodies, the dead thief simply *examines* the death-door like any other lock
+  — and she's the *exception* the door makes (a soul it already let out once is a Returned-shaped crack she can slip
+  through in your shadow). A real fork: **take her through** (she comes not as a bodyguard but a *burglar* — fades
+  into the throne room and scouts your way *back out before you need it*, the first rule of the trade), or **have her
+  hold the door** (you won't march a just-mended, unbought soul back into the one house with a cage for her name).
+- 📜 **Her years-after coda** (joining the epilogue's conditional souls). The dead don't age — they *deepen* — and
+  the Sparrow turned the line you tossed her in the archive into a *life*: she **steals people back.** A whole crew,
+  the **Sparrow's Wing**, picking the locks on the after's remaining cages — no fee, no buyer, the freed soul its own
+  reward. Four threads: the trade she built; why she stays instead of taking her earned rest (purpose over freedom);
+  a **[RETURNED]** reckoning between two trespassers of death (she'll walk the good door at the last, *empty-handed,
+  every cage picked clean behind her*); and the ones she was too late for (carried not as guilt but as instruction).
+  A reactive opening reads whether she scouted the throne-room exit.
+- 👁️ **Two new Returned-senses** — the one party-member for whom the Threshold is a *workplace*, and the soul that
+  changed its whole nature without losing its edge.
+- 🧪 **+4 gates** (now **1,023 checks**, all green). The Sparrow now spans heist → fire → door → years-after, exactly
+  like Sennet — two complete four-beat companion arcs in the walkable saga. **73 souls.**
+
+---
+
 ## 👑 v5.2.0 — *"The Sparrow"* — a fourth recruitable companion, turned mid-heist (content)
 
 > The heist's inside thief becomes the saga's fourth companion. The Sparrow took the Tally job for the coin and
