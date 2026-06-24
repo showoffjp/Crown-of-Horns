@@ -1165,6 +1165,30 @@ check("the recruited Sparrow joins the Hearth fire, gated on party.sparrow_recru
   E.matchesWhen(goodGuy, E.newState(), hSparrowNpc.when) === false &&
   hSparrow.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && hSparrow.returned);
 
+// ---- twenty-first zone: the Advocate's Booth — a negotiation-with-a-devil structure (read the fine print) ----
+const ADV = SCENES && SCENES.advocate;
+check("a twenty-first zone (the Advocate's Booth) ships as a devil-negotiation set-piece", ADV && ADV.npcs.length >= 3);
+check("the Advocate keeps a booth at the dark edge of the Night Market", (SCENES.nightmarket.exits || []).some(x => x.to === "advocate"));
+const crede = CONVS.find(c => c.id === "ad.crede");
+const bonded = CONVS.find(c => c.id === "ad.bonded");
+const imp = CONVS.find(c => c.id === "ad.imp");
+check("the negotiation's three souls are present (the devil-advocate, the bonded soul, the bound clerk)", crede && bonded && imp);
+const credeMenu = crede.nodes.find(n => n.id === "1");
+check("the contract is read, not just signed — Investigation finds the trap clause, Insight finds the real motive", credeMenu &&
+  credeMenu.choices.some(ch => (ch.check || {}).skill === "Investigation") &&
+  credeMenu.choices.some(ch => (ch.check || {}).skill === "Insight") &&
+  crede.nodes.find(n => n.id === "crede_fineprint").effects.some(e => e.key === "ad.found_clause_nine") &&
+  crede.nodes.find(n => n.id === "crede_motive").effects.some(e => e.key === "ad.crede_unmasked"));
+check("the [RETURNED] reading voids the devil's whole estate (unowned means unownable, by Hell too)", credeMenu.choices.some(ch =>
+  ch.tag === "returned" && crede.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "ad.estate_voided")));
+check("the bonded soul is a warning the player can witness to peace, not just pity", bonded &&
+  bonded.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+  bonded.nodes.some(n => (n.effects || []).some(e => e.key === "ad.bonded_at_peace")) && bonded.returned);
+check("the bound clerk Sevenpence can be FREED by a Returned declaring his padded task complete", imp &&
+  imp.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+  imp.nodes.find(n => n.id === "imp_freed") && imp.nodes.find(n => n.id === "imp_freed").effects.some(e => e.key === "ad.freed_sevenpence") &&
+  imp.nodes.some(n => (n.effects || []).some(e => e.key === "ad.knows_crede_fears_signing")) && imp.returned);
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

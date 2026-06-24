@@ -1,123 +1,712 @@
 {
   "scene": {
-    "id": "nightmarket", "name": "The Night Market",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "nightmarket",
+    "name": "The Night Market",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "stall", "x": 2, "y": 2, "hue": 270 },
-      { "type": "stall", "x": 8, "y": 2, "hue": 190 },
-      { "type": "stall", "x": 5, "y": 6, "hue": 320 },
-      { "type": "brazier", "x": 5, "y": 4 },
-      { "type": "hangings", "x": 0, "y": 1, "hue": 270 },
-      { "type": "hangings", "x": 10, "y": 1, "hue": 190 },
-      { "type": "candle", "x": 3, "y": 5 },
-      { "type": "candle", "x": 7, "y": 5 },
-      { "type": "barrel", "x": 1, "y": 6 },
-      { "type": "crate", "x": 9, "y": 6 }
+      {
+        "type": "stall",
+        "x": 2,
+        "y": 2,
+        "hue": 270
+      },
+      {
+        "type": "stall",
+        "x": 8,
+        "y": 2,
+        "hue": 190
+      },
+      {
+        "type": "stall",
+        "x": 5,
+        "y": 6,
+        "hue": 320
+      },
+      {
+        "type": "brazier",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "hangings",
+        "x": 0,
+        "y": 1,
+        "hue": 270
+      },
+      {
+        "type": "hangings",
+        "x": 10,
+        "y": 1,
+        "hue": 190
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 7,
+        "y": 5
+      },
+      {
+        "type": "barrel",
+        "x": 1,
+        "y": 6
+      },
+      {
+        "type": "crate",
+        "x": 9,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "market", "dest": { "x": 9, "y": 1 }, "label": "◂ find the waking market again (if it lets you)" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "market",
+        "dest": {
+          "x": 9,
+          "y": 1
+        },
+        "label": "◂ find the waking market again (if it lets you)"
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "to": "advocate",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a booth at the market's dark edge — an advocate keeps late hours"
+      }
     ],
     "npcs": [
-      { "id": "pawn", "name": "the Pawn of Hours", "title": "buys years, sells worse", "x": 2, "y": 3, "hue": 270, "sigil": "⏳", "conv": "nm.pawn",
-        "hail": "*(behind a stall hung with stopped watches and hourglasses run dry sits a long, thin figure with too many fingers, who smiles at you with a mouth full of small even teeth and taps a brass scale that weighs nothing you can see)*" },
-      { "id": "mnemo", "name": "the Lost-and-Found", "title": "keeps what minds let fall", "x": 8, "y": 3, "hue": 190, "sigil": "❀", "conv": "nm.mnemo",
-        "hail": "*(a soft, sad-eyed woman tends a stall of jars, and in each jar something turns slowly — a child's laugh, a first kiss, the smell of a house long burned — and she looks up at you as though she has been keeping something of yours and is sorry to have to give it back)*" },
-      { "id": "regular", "name": "the Regular", "title": "shops here still, having nothing left", "x": 5, "y": 5, "hue": 320, "sigil": "?", "conv": "nm.regular",
-        "hail": "*(a threadbare shade drifts the aisles, lifting wares and setting them down, patting pockets that hold nothing — a soul that has clearly been coming here a very long time, and has clearly run entirely out of things to trade, and clearly cannot stop)*" }
+      {
+        "id": "pawn",
+        "name": "the Pawn of Hours",
+        "title": "buys years, sells worse",
+        "x": 2,
+        "y": 3,
+        "hue": 270,
+        "sigil": "⏳",
+        "conv": "nm.pawn",
+        "hail": "*(behind a stall hung with stopped watches and hourglasses run dry sits a long, thin figure with too many fingers, who smiles at you with a mouth full of small even teeth and taps a brass scale that weighs nothing you can see)*"
+      },
+      {
+        "id": "mnemo",
+        "name": "the Lost-and-Found",
+        "title": "keeps what minds let fall",
+        "x": 8,
+        "y": 3,
+        "hue": 190,
+        "sigil": "❀",
+        "conv": "nm.mnemo",
+        "hail": "*(a soft, sad-eyed woman tends a stall of jars, and in each jar something turns slowly — a child's laugh, a first kiss, the smell of a house long burned — and she looks up at you as though she has been keeping something of yours and is sorry to have to give it back)*"
+      },
+      {
+        "id": "regular",
+        "name": "the Regular",
+        "title": "shops here still, having nothing left",
+        "x": 5,
+        "y": 5,
+        "hue": 320,
+        "sigil": "?",
+        "conv": "nm.regular",
+        "hail": "*(a threadbare shade drifts the aisles, lifting wares and setting them down, patting pockets that hold nothing — a soul that has clearly been coming here a very long time, and has clearly run entirely out of things to trade, and clearly cannot stop)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "nm.pawn", "title": "The Pawn of Hours", "npc": "the Pawn of Hours", "start": "0",
+      "id": "nm.pawn",
+      "title": "The Pawn of Hours",
+      "npc": "the Pawn of Hours",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "the Pawn of Hours", "onEnter": [{ "key": "nm.met_pawn", "op": "SetTrue" }],
-          "variants": [
-            { "when": { "deity": "None" }, "text": "*(The too-many fingers steeple, and the small even teeth arrange themselves into delight.)* Ahh — *godless.* *(a voice like coins poured slowly)* My *favourite* clientele. The *bought* haggle; they have a *god* watching their *purse.* But you, unbought one — *(it spreads the fingers, all of them)* — you spend *freely*, because no one is *keeping your account* but *me.* *(it taps the scale)* I am the Pawn of Hours. I do not deal in *coin* — coin is for the *living*, and you are *barely* that. I deal in *years.* Yours, specifically. *(it leans in)* You've a *great* many fewer than you think, Returned, and I can do *such* things with the ones you'll *never* use. Shall we *trade?*" },
-            { "text": "*(The thin figure does not rise — it *unfolds*, slightly, the way a closed fan suggests more fan.)* A *customer.* *(the small teeth gleam)* And a *cold* one — *dead-touched*, which means you can *see* my stall, which means you're *exactly* the sort the Night Market opens *for.* *(it taps a brass scale that holds nothing)* I am the Pawn of Hours. The *living* can't find me; the *fully* dead have nothing left to *spend.* But *you* — *(a delighted, terrible smile)* — you're the *perfect* middle. You've *years* you'll never *live*, Returned, *snagged* on you like loose thread, and I will pay *handsomely* for them. *In* things you'll *want* and *shouldn't* have. *Browse.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Pawn of Hours", "text": "*(It gestures at the wares — stopped watches, dry hourglasses, a jar of something that ticks — with all of its fingers at once.)* The trade is *simple*, and the trade is *terrible*, which is the *only* honest kind. *(it taps the scale)* You give me *years* — the ones at the *end*, the *grey* ones, the ones you'd *spend* drooling in a *chair*, who'd *miss* them — and I give you *power* to use *now*, while you've *teeth* for it. *(the teeth gleam)* Most balk. *Most* would rather *keep* a *withered* decade they'll *hate* than spend it *young.* *(it leans in)* You don't strike me as *most.* What'll it be?",
-          "choices": [
-            { "text": "*(lay a year on the scale)* \"One year. The last and greyest. Take it — and tell me what a single year buys, here.\"", "next": "pawn_one", "effects": [{ "key": "nm.years_given", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "[INSIGHT] \"You don't want the years for *me*, do you. A thing that deals in unlived time isn't a *merchant* — it's a *collector.* What are you *building*, Pawn, out of all the decades the dead-touched were too greedy to keep?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 15 }, "next": "pawn_seen", "fail": "pawn_coy" },
-            { "text": "[ARCANA] \"These aren't *trades.* This is a *working* — you take years off one end of a soul and they *come out* somewhere, *someone's*, the books *balanced.* Whose life gets *longer* every time a Returned spends a decade here? Show me the *other* pan of that scale.\"", "when": { "ability": { "Intelligence": 13 } }, "check": { "skill": "Arcana", "ability": "Intelligence", "dc": 16 }, "next": "pawn_working", "fail": "pawn_coy" },
-            { "text": "*(you've already paid the Pawn well; ask for the real merchandise)* \"I've given you years, Pawn. Now show me the thing under the stall — the one you only sell to a soul that's spent enough to be *interesting.*\"", "when": { "int": { "nm.years_given": 3 } }, "next": "pawn_deep", "effects": [{ "key": "disp.cunning", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(let the merchant of time meet a thing time can't hold)* \"Careful, Pawn. You buy *years.* I haven't *got* the usual kind — I died, and the count *stopped*, and what's snagged on me isn't *unlived years*, it's *un-lived death.* Weigh *that* on your little scale and see which way it tips. I suspect you'll find you owe *me.*\"", "tag": "returned", "next": "pawn_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"My years are my own, Pawn. I'll keep even the grey ones.\" *(step back)*", "next": "pawn_leave" }
-          ] },
-        { "id": "pawn_one", "speaker": "the Pawn of Hours", "text": "*(It plucks something from the air over your head — you feel a small grey tug, the loss of a decade you wouldn't have enjoyed — and sets it on the scale, which dips, satisfied.)* *One* year. *(it counts on three fingers, which is somehow more than three)* For *one* year, Returned, I give you — *(it presses a cold coin-that-isn't into your palm)* — an *hour*, somewhere ahead, when you will need it *most*, that will go *slow* for you and *fast* for everyone else. A *borrowed* hour. *(the teeth gleam)* You won't *know* it's coming. It will simply, one terrible day, be *enough time* when there *wasn't* any. *(it taps the scale)* That is what a *year* buys. The young always think it a *bargain.* The old *never* sell. *(a confiding lean)* Spend *more*, and I'll show you *worse* and *better* both. The scale's *open.*",
-          "effects": [{ "key": "nm.bought_hour", "op": "SetTrue" }, { "key": "nm.pawn.regard", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pawn_seen", "speaker": "the Pawn of Hours", "text": "*(All the fingers go still at once. The teeth do not.)* …*A collector.* *(softly, pleased and dangerous)* Clever cold thing. *(it does not deny it)* Yes. I do not *retail* time. I *accumulate* it. *(it gestures at the dry hourglasses, and you understand now that each holds a *life* someone sold off piecemeal)* Every grey year a dead-touched fool trades me for a *trinket*, I *keep.* And one day — not *soon*, I am *patient*, I am made of *patience* — I will have *enough* unlived years, *donated freely*, *un-witnessed*, that I can buy the *one* thing a creature like me *wants.* *(it leans in)* A *life* of my *own.* A *real* one, *first-hand*, with a *body* and a *death* at the end I *chose.* *(the teeth gleam)* I am building *myself*, Returned, a *year* at a time, out of the *time you threw away.* *(it spreads its fingers, almost gentle)* Does that *horrify* you? It *should.* But ask yourself: is it *worse* than the *Wall*, which takes *all* your years and gives *nothing?* At least *I* pay. At least *I* say *thank you.*",
-          "effects": [{ "key": "nm.pawn.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.pawn_unmasked", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pawn_working", "speaker": "the Pawn of Hours", "text": "*(It claps — too many hands — soundlessly.)* *A working!* Oh, you've the *eye.* *(delighted)* Yes. Nothing is *destroyed*, Returned; that is the *first* law, even *here.* The years you *spend* do not *vanish* — they *flow.* *(it tilts the scale, and you see, faintly, the *other* pan, far away)* Down the *causeway.* Into the *Wall.* *(the teeth gleam)* Every decade a Returned trades me, I *render* into the *seawall* as *mortar* — *fresh* time, *willing* time, *so* much *sweeter* than the *stolen* years of the *Faithless.* *(it leans in, confiding the horror like a kindness)* That is why the Night Market *opens* for the *dead-touched*, friend. We are the Wall's *quiet* second supplier. The Choir takes the *unbought* by *force.* *I* take the *Returned* by *trade.* *(it smiles)* You came here thinking you'd found a *crack* in the system. You found its *back door.* *(softly)* …Still. The *hour* I sell is *real*, and you *will* need it. The system being *vast* does not make the *trinket false.* Will you spend, knowing where it *goes?* *Most* do. Knowing is *no* cure for *wanting.*",
-          "effects": [{ "key": "nm.pawn.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.pawn_working", "op": "SetTrue" }, { "key": "nm.wall_backdoor", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pawn_coy", "speaker": "the Pawn of Hours", "text": "*(The too-many fingers wave your question away like smoke.)* *Building?* *Collecting?* *(the small teeth gleam)* Such *suspicious* words for an honest stall. I *buy*, I *sell*, I keep a *fair* scale — what merchant *doesn't* keep a bit of *stock* in the *back?* *(it taps the brass)* You're *fishing*, cold thing, with no *hook* on the line. *Spend* something, and the scale gets *talkative.* *Stare* at me, and you'll learn precisely what you've *paid* to learn, which is *nothing.* *(a confiding lean)* The *back* of the stall opens for *coin*, not for *cleverness.* And my coin is *years.* Lay one down, or browse the *front* like the *window-shoppers* who never *quite* dare.",
-          "auto": "1" },
-        { "id": "pawn_deep", "speaker": "the Pawn of Hours", "text": "*(It regards you a long moment, all its fingers folded, and then — for the first time — it reaches *beneath* the stall and brings up a small black box that the brazier-light refuses to touch.)* …You've *spent* enough to be *interesting.* *(quietly, the salesman gone)* Most never do. They buy an *hour* and *flee.* But you've laid *three* grey years on my scale without *flinching*, and *that*, Returned, earns the *back* of the stall. *(it opens the box; inside is nothing, and the nothing is *cold*)* This is a *measure* of *un-time.* A *held breath* that the Wall's cold *cannot enter* — one moment, *anywhere*, that the *erasure* will *slide off.* *(it meets your eyes)* You mean to walk *into* the Wall. *Everyone* who spends like you do, does. *(softly)* When you are *in* the stone, and it begins to *take* you a *piece* at a time, oldest first — *this* is the *one* memory it *cannot* eat. *Choose* it well. *Most* would save a *face.* The *wise* save the *reason* they came. *(it closes the box, presses it into your cold hand)* Three years. A *fair* price. *Cheaper* than the *Wall* charges, and you got to *say* what it bought.",
-          "effects": [{ "key": "nm.pawn.regard", "op": "AddInt", "amount": 3 }, { "key": "nm.bought_untime", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pawn_returned", "speaker": "the Pawn of Hours", "text": "*(For the first time the small even teeth *stop* smiling. The too-many fingers draw back from the scale as though it has grown hot.)* …*Un-lived death.* *(warily)* You — *hm.* *(it actually weighs you, the empty scale swinging wild, unable to settle)* You are *correct*, cold thing, and that is *most* inconvenient. *(it folds several hands)* A soul whose *count stopped* carries no *unlived years* for me to *render* — it carries the *opposite*, a *surplus* of *un-spent ending*, and my scale was *not built* to hold *that.* *(the scale tips, slowly, *toward* you, and the Pawn watches it with something like *fear*)* …You could *unmake* me, you know. If you *understood* your own *ledger* the way I understand *mine.* You carry enough *un-lived death* to *flood* my little *shop* and *drown* every *hour* I've *hoarded.* *(it smooths its fingers, recovering, *respectful* now)* So. Let us *not* trade, you and I. Let us *agree* to *admire* one another's *terrible* arithmetic from a *polite* distance. *(it slides one thing across the stall, free)* A *gift.* For your *forbearance.* The *hour* — gratis. I'd *rather* you *owed* me a *kindness* than *learned* what you could *take.* *(the teeth return, uneasy)* Do *come* again, Returned. From *over there.* By the *candles.*",
-          "effects": [{ "key": "nm.pawn.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.bought_hour", "op": "SetTrue" }, { "key": "nm.pawn_wary", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pawn_leave", "speaker": "the Pawn of Hours", "text": "*(It inclines its long head, unbothered, and resumes polishing a watch that will never tick again.)* *Keep* them, then. *(the teeth gleam)* The grey years. The *withered* decade. *Hoard* it, like the *living* do, against a *comfort* that *never* comes. *(a soft, coin-poured laugh)* They *all* say *'my years are my own.'* And then the *Wall* takes the *lot*, *unspent*, *unwitnessed*, for *nothing* — and *I* don't even get to say *thank you.* *(it waves a surplus of fingers)* Off you go. The Night Market *keeps* your *spot.* You'll be *back* — *(softly)* — they're *always* back, the ones who *leave* with their *years* still *on* them. *Wanting* is *patient.* So am *I.*",
-          "auto": "END" }
-      ]
-    },
-    {
-      "id": "nm.mnemo", "title": "The Lost-and-Found of Minds", "npc": "the Lost-and-Found", "start": "0",
-      "nodes": [
-        { "id": "0", "speaker": "the Lost-and-Found", "onEnter": [{ "key": "nm.met_mnemo", "op": "SetTrue" }],
-          "variants": [
-            { "text": "*(The sad-eyed woman looks up from her jars, and her face does the complicated thing a face does when it recognizes someone it has been waiting for.)* …Oh. It's *you.* *(softly)* I have something of yours. *(she does not reach for it yet)* Everyone thinks I *sell* memories — and I *do*, I keep a *shop*, one must — but mostly I am the place memories *go* when a mind lets them *fall.* The *dropped* ones. The ones you *meant* to keep and *didn't.* *(she gestures at the jars, each turning slowly with its small captured light)* The first time someone said your name *kindly.* A smell from a kitchen that's ash now. The *exact* weight of a hand you'll never hold again. *(she meets your eyes, gentle and grieving)* You've *lost* a great deal, cold one — the Wall *takes* memory, it's the *first* thing it eats — and I have *caught* some of what fell. *Browse.* Or *grieve.* Most do *both.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Lost-and-Found", "text": "*(She folds her hands among the softly turning jars, patient as a lighthouse.)* What are you looking for, cold one? *(quietly)* Everyone's looking for *something*, here. A memory they *lost.* A memory they'd *pay to lose.* Or the *worst* customers — the ones looking for a memory that was *never theirs*, to wear like a *borrowed coat.* *(a sad smile)* I serve them all. Memory doesn't *care* whose it is. That's the *terrible* freedom of it.",
-          "choices": [
-            { "text": "\"You said you caught something of mine — something the Wall took. Show me. I'll pay what it costs. I've forgotten more than I can afford to have forgotten.\"", "next": "mnemo_yours" },
-            { "text": "[INSIGHT] \"You're not a merchant either, are you. You *grieve* every jar. A soul that *grieves* its inventory isn't *selling* — it's *guarding.* You're not the Lost-and-Found's keeper. You're its *prisoner.* What memory are you keeping in here that you can't put down, and can't sell?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 15 }, "next": "mnemo_prisoner", "fail": "mnemo_soft" },
-            { "text": "*(the witness, to the keeper of what's lost)* \"I carry names the Wall tried to erase — I make a point of it; it's the whole of what I am now. You catch the memories that *fall.* We're in the same trade, you and I: refusing to let things become nothing. Trade me. Cold to cold. What falls toward the Wall, I'll carry the rest of the way *out.*\"", "tag": "returned", "next": "mnemo_kin", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Is there a memory here you'd beg me to take *off* your hands? A jar you'd give for free, just to stop it turning?\"", "next": "mnemo_freejar" },
-            { "text": "\"I'll not disturb your jars, keeper.\" *(step back, gently)*", "next": "mnemo_leave" }
-          ] },
-        { "id": "mnemo_yours", "speaker": "the Lost-and-Found", "text": "*(She reaches, with great care, to a small jar at the back, and within it turns something that makes your cold chest *ache* before you can even see it clearly.)* …This one. *(softly)* It fell off you when you went into the Wall. They *all* do — it's the *first* thing the cold takes, the *good* ones, because the good ones *weigh* the most and the Wall is always *hungry.* *(she holds it up; inside is a small ordinary moment — sunlight, a voice, someone laughing at something you said)* I don't *know* whose voice. *You* will. *(she sets it on the counter between you)* The *price*, cold one, is the *price* of *all* recovered memory: to take it back, you must *feel* it *fully* — the *having* and the *losing*, both at once, *forever* — because a memory you've *grieved* losing and then *get back* is *heavier* than one you simply *kept.* *(gently)* Most can't *pay* it. They *look* at the jar, and they *weep*, and they leave it *here*, because *remembering* costs *more* than *forgetting* and they have *forgotten* how to *afford* it. *(she meets your eyes)* Will you *pay?* Will you take it *back*, and carry the *whole* weight — the *sun*, and the *fact that it's gone?*",
-          "effects": [{ "key": "nm.mnemo.regard", "op": "AddInt", "amount": 3 }, { "key": "nm.reclaimed_memory", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mnemo_prisoner", "speaker": "the Lost-and-Found", "text": "*(Her hands go still among the jars, and her sad eyes fill, and she does not look away from you, which is its own kind of confession.)* …You see it. *(barely)* The one jar I will *never* sell. *(she touches a plain jar near her heart, in which something small and warm turns very slowly)* It's *mine.* The *last* memory of my own life — I was a *person*, once, cold one, before I was *this* — and I traded *everything else* to the Night Market, a piece at a time, for *reasons* that seemed *worth* it, until *this* was *all* I had *left.* *(her voice breaks)* And now I *can't* sell it, because it's the *only* proof I was ever *real* — and I *can't* keep it *safely*, because as long as I *hold* it I have to *remember* I *spent* the *rest* — so I *built a shop around it.* I became the *Lost-and-Found* so I would never be *alone* with the *one* thing I have *left.* *(she meets your eyes)* That's the *secret* of this place, cold one. *Everyone* who works the Night Market *is* a customer who *couldn't stop.* The *Pawn.* Me. The *Regular*, drifting the aisles. *(softly)* We are *cautionary tales* that *kept* their *stalls.* …Don't become one. *Buy* what you came for, and *go*, and *don't* come *back.* The *coming back* is how it *gets* you.",
-          "effects": [{ "key": "nm.mnemo.regard", "op": "AddInt", "amount": 3 }, { "key": "nm.mnemo_prisoner", "op": "SetTrue" }, { "key": "nm.market_warning", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mnemo_soft", "speaker": "the Lost-and-Found", "text": "*(She smiles, gently, and turns a jar so its small light catches you, and says nothing unkind.)* …You reach for a *sorrow* in me, cold one, and you're not *wrong* that there's one — but you've reached a little *short* of it, and I'll not *hand* it to you, because a grief *given* unasked is just a *weight* passed *on*, and I keep this shop precisely so that *doesn't* happen. *(she folds her hands)* Ask me for a *memory*, and I'll find it. Ask me for *mine*, and I'll keep it. *(a sad, kind smile)* That's the only *boundary* a soul as *spent* as me has *left* — the *line* between what I'll *share* and what I'll *guard.* Let me *keep* it. It's *load-bearing.* *(softly)* Browse, cold one. The jars are *honest*, even when I'm *quiet.*",
-          "auto": "1" },
-        { "id": "mnemo_kin", "speaker": "the Lost-and-Found", "text": "*(Her grief turns, for a moment, to something almost like *joy* — the recognition of a fellow keeper.)* …You *carry* them. *(wondering)* The names. The *lost* ones. *On purpose.* *(she presses a hand to her mouth)* I *catch* what *falls*, cold one, but I can only *hold* it — I'm a *jar*, a *shelf*, a *place things rest.* I cannot carry them *out*, *past* the Wall, into the *warm* where they might be *witnessed* again. *(her eyes shine)* But *you* can. *(she begins, urgently, gently, lifting jars)* Then *take* them. Not to *buy* — to *carry.* All the *dropped* good things, the *kitchen-smells* and the *kind* first-namings and the *weights of hands* — the Wall *dropped* them on the way to *eating* their souls, and I have *kept* them *safe* but *useless*, *turning* in *jars*, *witnessed* by *no one* but a *prisoner.* *(she presses them on you, all of them)* *Carry* them out, Returned. *Match* them to the *names* you already hold. Give the *lost memories* back to the *lost souls* when you *free* them. *(weeping, joyful)* I have *kept* the *lost-and-found* of a *thousand* minds for *no reason* but the *keeping* — and you've just given it a *purpose.* *Reunion.* Go on. *Carry* them *home.*",
-          "effects": [{ "key": "nm.mnemo.regard", "op": "AddInt", "amount": 4 }, { "key": "nm.carries_lost_memories", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mnemo_freejar", "speaker": "the Lost-and-Found", "text": "*(She gives a small, tired laugh and reaches, without hesitation, for a jar that turns *fast* and *jagged*, throwing an ugly light.)* Oh, *this* one. *(she slides it toward you)* *Free.* *Please.* Take it. *(grimly)* It's a *regret* — somebody's *worst* one, the kind that *sharpens* instead of *fades.* They sold it to me to *be rid* of it, and I took it because that's the *trade* — and it has *turned*, *jagged*, in this jar, every *night* since, and it *cuts* the *other* memories when I'm not *looking.* *(she shudders)* I'd give a *year*— no, I haven't got *years*, the *Pawn's* got those — I'd give *anything* to have this *one* out of my *shop.* *(she pauses, then pulls it *back*, ashamed)* …No. *No.* That's *exactly* how it *spreads*, isn't it. I'd hand you my *poison* to be *rid* of it, and then it'd *turn* in *your* cold chest instead. *(she sets it down, firm)* *Keep* your hands *clean*, cold one. Some things you *carry* are *worth* the weight. *This* one *isn't.* *(quietly)* …Thank you for *letting* me *not* give it to you. That was a *kindness* I had to be *stopped* from *refusing.*",
-          "effects": [{ "key": "nm.mnemo.regard", "op": "AddInt", "amount": 1 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mnemo_leave", "speaker": "the Lost-and-Found", "text": "*(She nods, and her sad eyes follow you with neither hope nor reproach, only the long patience of a soul that has watched many browse and leave.)* Go gently, cold one. *(softly)* The jars will *keep.* They *always* keep — that's the *whole* of what they *do.* *(she touches the plain jar near her heart)* But if you *ever* lose something you can't *bear* to have lost — a *face*, a *voice*, the *reason* you started *walking* — *(she meets your eyes)* — come *here.* I may have *caught* it. *(a sad smile)* It's the *one* mercy this *terrible* place *does* offer. *Nothing* the Wall takes is *truly* gone, while there's *someone* keeping the *lost-and-found.* *Remember* that. It's *free.* It's the *only* free thing here.",
-          "auto": "END" }
-      ]
-    },
-    {
-      "id": "nm.regular", "title": "The Regular", "npc": "the Regular", "start": "0",
-      "nodes": [
-        { "id": "0", "speaker": "the Regular", "onEnter": [{ "key": "nm.met_regular", "op": "SetTrue" }],
-          "variants": [
-            { "text": "*(The threadbare shade drifts up to you, patting pockets that hold nothing, and when it speaks its voice has the bright, frayed cheer of someone who has been somewhere far too long.)* …New? *(it peers at you)* You're *new.* I can always tell — you've still got *things.* *(it eyes you, not greedily, just wistfully)* Years. Memories. A *name*, I'd wager — *(it brightens)* — oh, you've a *name!* I can *see* it on you, all *shiny.* *(it sighs, fond)* I had one of those. *(it pats a pocket)* Spent it. Can't *recall* on what — that's the *funny* part, you spend your *memory* of *spending* your *name* and then you can't even *miss* it *properly.* *(a frayed grin)* Don't mind me. I just *drift.* Nothing left to *trade*, you see, but I can't — *(it gestures vaguely at the whole glittering market)* — I can't quite *leave.* The *deals* are so *good.* Were. *Are?* *(it frowns)* …Were."
+        {
+          "id": "0",
+          "speaker": "the Pawn of Hours",
+          "onEnter": [
+            {
+              "key": "nm.met_pawn",
+              "op": "SetTrue"
             }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Regular", "text": "*(It hovers, companionable, turning a price-tag over in fingers that can't quite hold it.)* So! *(brightly)* What're you in the market *for?* The *Pawn's* got *hours* — *grand* fellow, *terrible* teeth. The *Lost-and-Found's* got *memories* — *sad* sort, *don't* get her *started.* *(it leans in, conspiratorial)* And *me*, I've got — *(it checks its empty pockets, deflates, recovers)* — I've got *advice!* *Free!* On account of it's *all* I've got *left.* Ask away. I'm a *Regular.* I *know* this place.",
+          ],
+          "variants": [
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The too-many fingers steeple, and the small even teeth arrange themselves into delight.)* Ahh — *godless.* *(a voice like coins poured slowly)* My *favourite* clientele. The *bought* haggle; they have a *god* watching their *purse.* But you, unbought one — *(it spreads the fingers, all of them)* — you spend *freely*, because no one is *keeping your account* but *me.* *(it taps the scale)* I am the Pawn of Hours. I do not deal in *coin* — coin is for the *living*, and you are *barely* that. I deal in *years.* Yours, specifically. *(it leans in)* You've a *great* many fewer than you think, Returned, and I can do *such* things with the ones you'll *never* use. Shall we *trade?*"
+            },
+            {
+              "text": "*(The thin figure does not rise — it *unfolds*, slightly, the way a closed fan suggests more fan.)* A *customer.* *(the small teeth gleam)* And a *cold* one — *dead-touched*, which means you can *see* my stall, which means you're *exactly* the sort the Night Market opens *for.* *(it taps a brass scale that holds nothing)* I am the Pawn of Hours. The *living* can't find me; the *fully* dead have nothing left to *spend.* But *you* — *(a delighted, terrible smile)* — you're the *perfect* middle. You've *years* you'll never *live*, Returned, *snagged* on you like loose thread, and I will pay *handsomely* for them. *In* things you'll *want* and *shouldn't* have. *Browse.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Pawn of Hours",
+          "text": "*(It gestures at the wares — stopped watches, dry hourglasses, a jar of something that ticks — with all of its fingers at once.)* The trade is *simple*, and the trade is *terrible*, which is the *only* honest kind. *(it taps the scale)* You give me *years* — the ones at the *end*, the *grey* ones, the ones you'd *spend* drooling in a *chair*, who'd *miss* them — and I give you *power* to use *now*, while you've *teeth* for it. *(the teeth gleam)* Most balk. *Most* would rather *keep* a *withered* decade they'll *hate* than spend it *young.* *(it leans in)* You don't strike me as *most.* What'll it be?",
           "choices": [
-            { "text": "[INSIGHT] \"You can't leave because you don't remember the way out — you sold the memory of the door. That's the trap, isn't it. Not chains. Just one more good deal, until you've spent the part of you that knew how to stop. How long have you been drifting, friend?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "regular_trap", "fail": "regular_cheery" },
-            { "text": "\"What did you trade away first? Do you remember that much?\"", "next": "regular_first" },
-            { "text": "*(the witness, to the spent)* \"You sold your name. I collect names the Wall tried to erase — it's the whole of what I am. So let me do the one thing this place never will: I'll *witness* you. Tell me everything you remember about who you were, and I'll carry it out. You won't be nothing. Not while I'm keeping you.\"", "tag": "returned", "next": "regular_witnessed", "effects": [{ "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Walk out with me. Right now. I remember the door — it's right there. I'll take you to it, and you don't have to trade a thing.\"", "next": "regular_door" },
-            { "text": "\"Mind how you drift, friend.\" *(move on)*", "next": "regular_leave" }
-          ] },
-        { "id": "regular_trap", "speaker": "the Regular", "text": "*(The frayed cheer falters, and for a moment something terribly lucid surfaces in the threadbare face.)* …*The door.* *(quietly)* I sold the *memory of the door.* *(it stares at its empty hands)* That's — yes. That's *exactly* it. I keep *meaning* to *leave* — I *feel* it, the *meaning-to*, like a word on the tip of a tongue I *also* sold — but I can't *find* the *way*, because I *spent* the *part of me that knew it*, for — *(it strains)* — for *something.* Something *good.* It *must* have been *good.* *(the lucidity flickers)* How *long?* *(a frayed laugh)* I sold the *calendar* ages back. But — *(it looks at you, and just for a second it is *frightened*, wholly)* — there used to be *more* of me. I'm *sure* of it. There used to be — a *shape*, a *whole* shape, and now I'm *pockets.* *(barely)* Don't let it happen to *you*, new one. It doesn't *feel* like *losing.* That's the *horror.* Every trade feels like *winning.* And then one day you're a *Regular*, and you can't *leave*, and you can't *remember why you'd want to.*",
-          "effects": [{ "key": "nm.regular.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.regular_lucid", "op": "SetTrue" }, { "key": "nm.market_warning", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "regular_first", "speaker": "the Regular", "text": "*(It brightens, glad to have a memory to reach for, then dims as it reaches and finds the edges frayed.)* First? *(it hums)* Oh, the *first* trade's *always* small. They *make* it small. *(it taps where a temple would be)* I sold… a *bad* afternoon. A *grief.* Somebody I'd — *(frowns)* — *lost*, I think, and it *hurt*, and the Lost-and-Found offered to *take* it, and I *thought*, why *carry* this? Why *keep* the *ache?* *(a frayed shrug)* So I sold the *grief.* And it felt *wonderful* — *light*, *clean.* *(quietly)* …But the grief was *attached* to the *person*, you see. And when the *grief* went, the *person* went *fuzzy* too, because *why* would you keep a *face* you no longer *ache* for? *(it stares at nothing)* So I sold the *fuzzy* face, since it was *no use* anymore. And *then* — *(it trails off)* …I don't remember who they *were.* I only remember they were the *reason* I came *here*, the *first* time. To stop *hurting* about them. *(a long pause, then the cheer snaps back, awful)* …*Anyway!* Worked a *treat!* Don't hurt about *anybody* now! *(its eyes are wet, and it doesn't know why)* …why am I *leaking?*",
-          "effects": [{ "key": "nm.regular.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.regular_first_trade", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "regular_witnessed", "speaker": "the Regular", "text": "*(It goes very still — stiller than a drifting shade should be able to — and the frayed cheer drops entirely, and what's left is a soul being *seen* for the first time in longer than it can't remember.)* …You'd *witness* me. *(barely)* But there's *nothing* to witness. I *sold* it. The *name*, the *face*, the *afternoon*, the *door* — I'm *pockets*, new one, I'm *empty pockets and a habit.* *(it looks at you, lost)* What's there to *carry* of a soul that *spent itself?* *(and when you tell it — that the* spending *is the witness; that 'here drifted a soul who traded away its grief to stop hurting, and learned too late that the ache was the love, and could not find its way back' is itself a* name, *a true one, worth carrying — the Regular makes a sound like paper remembering it was once a tree.)* …*That's* me. *(wondering)* That's — you've *got* me. In *one* sentence. More of me than *I've* got. *(it reaches out, and for a moment its hand is almost *solid* in yours)* Then *carry* that. *Please.* 'A soul that sold its grief and lost the love.' *(a frayed, real smile)* It's not a *grand* name. But it's *true*, and it's *mine*, and you're *holding* it, and that means I'm not — I'm not *nothing*, even *now*, even *here.* *(quietly)* Go on, witness. Carry me *out.* I can't find the *door.* But *you* can carry the *part of me worth keeping* through it. That's — *(it's fading, but gently, *willingly* now)* — that's *better* than the door. That's *out* the *right* way. *Thank* you.",
-          "effects": [{ "key": "nm.regular.regard", "op": "AddInt", "amount": 4 }, { "key": "nm.witnessed_regular", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "regular_door", "speaker": "the Regular", "text": "*(It looks at where you're pointing — the candle-lit aisle, the dark stair down to the waking market — and its frayed face fills with a longing so vast it's painful, and then, slowly, with a terrible gentle resignation.)* …You can *see* it. *(softly)* The door. You've still got the *memory* of it, all *shiny.* *(it drifts a step toward where you point, then stops, as though at an invisible wall)* But I can't *follow* it, new one. Not because I'm *chained.* Because a *door* is only a door if you *remember* it *leads somewhere* — and I sold the *somewhere.* I sold *'out.'* *(a frayed, kind smile)* You could *drag* me through, and I'd just — *drift* on the *other* side, looking for a *market* I could *find again*, because *'here'* is the *only* place I've got *left* a *map* to. *(it pats your arm, insubstantial)* Don't *grieve* it. *(gently)* That's how *I* started — *grieving* someone who *couldn't* be *saved*, and *trading* the grief away. Don't make *my* first mistake *over* me. *(it drifts back toward the stalls)* *Go.* Use your *shiny* door. And — *(it pauses)* — *remember* you *met* me. *That's* the only *out* there is, for a soul like me: not the *door.* Just — *being remembered* by someone who *found* it. *(it waves, frayed and fond)* Off you *pop*, new one. Spend *nothing.* It's the *only* winning *move.*",
-          "effects": [{ "key": "nm.regular.regard", "op": "AddInt", "amount": 2 }, { "key": "nm.regular_cant_leave", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "regular_cheery", "speaker": "the Regular", "text": "*(It waves a frayed hand, the lucidity sliding off it like water.)* Oh, I don't *think* about *leaving*, new one! *(brightly)* Why would I? The *deals!* The *company!* The — *(it falters, just slightly)* — the… *(it pats its empty pockets, frowns, recovers)* …I'm sure there was a *reason* I came. There's *always* a reason. *(a frayed grin)* I just *can't* — it's on the *tip* of my — *(it brightens again, the question already gone)* — *anyway!* Lovely to *meet* you! You've got such *shiny* things! *Mind* you *spend* them *well!* *(it drifts off down the aisle, patting pockets, looking for a thing it sold the memory of needing)*",
-          "auto": "END" },
-        { "id": "regular_leave", "speaker": "the Regular", "text": "*(It waves, cheery and threadbare, already drifting.)* Mind how *I* drift! *(a frayed laugh)* That's the *spirit!* Off you *go*, new one, with all your *shiny* things! *(it calls after you, fading into the aisles)* And if you *see* a — a *thing* I might've *lost* — a *name*, a *face*, a *reason* — *(it frowns, the thought already going)* …no. No, I'm sure it's *fine.* I'm sure I've *got* everything I — *(pat, pat, empty pockets)* — …*everything I need!* *Ta!*",
-          "auto": "END" }
+            {
+              "text": "*(lay a year on the scale)* \"One year. The last and greyest. Take it — and tell me what a single year buys, here.\"",
+              "next": "pawn_one",
+              "effects": [
+                {
+                  "key": "nm.years_given",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[INSIGHT] \"You don't want the years for *me*, do you. A thing that deals in unlived time isn't a *merchant* — it's a *collector.* What are you *building*, Pawn, out of all the decades the dead-touched were too greedy to keep?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "pawn_seen",
+              "fail": "pawn_coy"
+            },
+            {
+              "text": "[ARCANA] \"These aren't *trades.* This is a *working* — you take years off one end of a soul and they *come out* somewhere, *someone's*, the books *balanced.* Whose life gets *longer* every time a Returned spends a decade here? Show me the *other* pan of that scale.\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 13
+                }
+              },
+              "check": {
+                "skill": "Arcana",
+                "ability": "Intelligence",
+                "dc": 16
+              },
+              "next": "pawn_working",
+              "fail": "pawn_coy"
+            },
+            {
+              "text": "*(you've already paid the Pawn well; ask for the real merchandise)* \"I've given you years, Pawn. Now show me the thing under the stall — the one you only sell to a soul that's spent enough to be *interesting.*\"",
+              "when": {
+                "int": {
+                  "nm.years_given": 3
+                }
+              },
+              "next": "pawn_deep",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(let the merchant of time meet a thing time can't hold)* \"Careful, Pawn. You buy *years.* I haven't *got* the usual kind — I died, and the count *stopped*, and what's snagged on me isn't *unlived years*, it's *un-lived death.* Weigh *that* on your little scale and see which way it tips. I suspect you'll find you owe *me.*\"",
+              "tag": "returned",
+              "next": "pawn_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"My years are my own, Pawn. I'll keep even the grey ones.\" *(step back)*",
+              "next": "pawn_leave"
+            }
+          ]
+        },
+        {
+          "id": "pawn_one",
+          "speaker": "the Pawn of Hours",
+          "text": "*(It plucks something from the air over your head — you feel a small grey tug, the loss of a decade you wouldn't have enjoyed — and sets it on the scale, which dips, satisfied.)* *One* year. *(it counts on three fingers, which is somehow more than three)* For *one* year, Returned, I give you — *(it presses a cold coin-that-isn't into your palm)* — an *hour*, somewhere ahead, when you will need it *most*, that will go *slow* for you and *fast* for everyone else. A *borrowed* hour. *(the teeth gleam)* You won't *know* it's coming. It will simply, one terrible day, be *enough time* when there *wasn't* any. *(it taps the scale)* That is what a *year* buys. The young always think it a *bargain.* The old *never* sell. *(a confiding lean)* Spend *more*, and I'll show you *worse* and *better* both. The scale's *open.*",
+          "effects": [
+            {
+              "key": "nm.bought_hour",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nm.pawn.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pawn_seen",
+          "speaker": "the Pawn of Hours",
+          "text": "*(All the fingers go still at once. The teeth do not.)* …*A collector.* *(softly, pleased and dangerous)* Clever cold thing. *(it does not deny it)* Yes. I do not *retail* time. I *accumulate* it. *(it gestures at the dry hourglasses, and you understand now that each holds a *life* someone sold off piecemeal)* Every grey year a dead-touched fool trades me for a *trinket*, I *keep.* And one day — not *soon*, I am *patient*, I am made of *patience* — I will have *enough* unlived years, *donated freely*, *un-witnessed*, that I can buy the *one* thing a creature like me *wants.* *(it leans in)* A *life* of my *own.* A *real* one, *first-hand*, with a *body* and a *death* at the end I *chose.* *(the teeth gleam)* I am building *myself*, Returned, a *year* at a time, out of the *time you threw away.* *(it spreads its fingers, almost gentle)* Does that *horrify* you? It *should.* But ask yourself: is it *worse* than the *Wall*, which takes *all* your years and gives *nothing?* At least *I* pay. At least *I* say *thank you.*",
+          "effects": [
+            {
+              "key": "nm.pawn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.pawn_unmasked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pawn_working",
+          "speaker": "the Pawn of Hours",
+          "text": "*(It claps — too many hands — soundlessly.)* *A working!* Oh, you've the *eye.* *(delighted)* Yes. Nothing is *destroyed*, Returned; that is the *first* law, even *here.* The years you *spend* do not *vanish* — they *flow.* *(it tilts the scale, and you see, faintly, the *other* pan, far away)* Down the *causeway.* Into the *Wall.* *(the teeth gleam)* Every decade a Returned trades me, I *render* into the *seawall* as *mortar* — *fresh* time, *willing* time, *so* much *sweeter* than the *stolen* years of the *Faithless.* *(it leans in, confiding the horror like a kindness)* That is why the Night Market *opens* for the *dead-touched*, friend. We are the Wall's *quiet* second supplier. The Choir takes the *unbought* by *force.* *I* take the *Returned* by *trade.* *(it smiles)* You came here thinking you'd found a *crack* in the system. You found its *back door.* *(softly)* …Still. The *hour* I sell is *real*, and you *will* need it. The system being *vast* does not make the *trinket false.* Will you spend, knowing where it *goes?* *Most* do. Knowing is *no* cure for *wanting.*",
+          "effects": [
+            {
+              "key": "nm.pawn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.pawn_working",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nm.wall_backdoor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pawn_coy",
+          "speaker": "the Pawn of Hours",
+          "text": "*(The too-many fingers wave your question away like smoke.)* *Building?* *Collecting?* *(the small teeth gleam)* Such *suspicious* words for an honest stall. I *buy*, I *sell*, I keep a *fair* scale — what merchant *doesn't* keep a bit of *stock* in the *back?* *(it taps the brass)* You're *fishing*, cold thing, with no *hook* on the line. *Spend* something, and the scale gets *talkative.* *Stare* at me, and you'll learn precisely what you've *paid* to learn, which is *nothing.* *(a confiding lean)* The *back* of the stall opens for *coin*, not for *cleverness.* And my coin is *years.* Lay one down, or browse the *front* like the *window-shoppers* who never *quite* dare.",
+          "auto": "1"
+        },
+        {
+          "id": "pawn_deep",
+          "speaker": "the Pawn of Hours",
+          "text": "*(It regards you a long moment, all its fingers folded, and then — for the first time — it reaches *beneath* the stall and brings up a small black box that the brazier-light refuses to touch.)* …You've *spent* enough to be *interesting.* *(quietly, the salesman gone)* Most never do. They buy an *hour* and *flee.* But you've laid *three* grey years on my scale without *flinching*, and *that*, Returned, earns the *back* of the stall. *(it opens the box; inside is nothing, and the nothing is *cold*)* This is a *measure* of *un-time.* A *held breath* that the Wall's cold *cannot enter* — one moment, *anywhere*, that the *erasure* will *slide off.* *(it meets your eyes)* You mean to walk *into* the Wall. *Everyone* who spends like you do, does. *(softly)* When you are *in* the stone, and it begins to *take* you a *piece* at a time, oldest first — *this* is the *one* memory it *cannot* eat. *Choose* it well. *Most* would save a *face.* The *wise* save the *reason* they came. *(it closes the box, presses it into your cold hand)* Three years. A *fair* price. *Cheaper* than the *Wall* charges, and you got to *say* what it bought.",
+          "effects": [
+            {
+              "key": "nm.pawn.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "nm.bought_untime",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pawn_returned",
+          "speaker": "the Pawn of Hours",
+          "text": "*(For the first time the small even teeth *stop* smiling. The too-many fingers draw back from the scale as though it has grown hot.)* …*Un-lived death.* *(warily)* You — *hm.* *(it actually weighs you, the empty scale swinging wild, unable to settle)* You are *correct*, cold thing, and that is *most* inconvenient. *(it folds several hands)* A soul whose *count stopped* carries no *unlived years* for me to *render* — it carries the *opposite*, a *surplus* of *un-spent ending*, and my scale was *not built* to hold *that.* *(the scale tips, slowly, *toward* you, and the Pawn watches it with something like *fear*)* …You could *unmake* me, you know. If you *understood* your own *ledger* the way I understand *mine.* You carry enough *un-lived death* to *flood* my little *shop* and *drown* every *hour* I've *hoarded.* *(it smooths its fingers, recovering, *respectful* now)* So. Let us *not* trade, you and I. Let us *agree* to *admire* one another's *terrible* arithmetic from a *polite* distance. *(it slides one thing across the stall, free)* A *gift.* For your *forbearance.* The *hour* — gratis. I'd *rather* you *owed* me a *kindness* than *learned* what you could *take.* *(the teeth return, uneasy)* Do *come* again, Returned. From *over there.* By the *candles.*",
+          "effects": [
+            {
+              "key": "nm.pawn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.bought_hour",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nm.pawn_wary",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pawn_leave",
+          "speaker": "the Pawn of Hours",
+          "text": "*(It inclines its long head, unbothered, and resumes polishing a watch that will never tick again.)* *Keep* them, then. *(the teeth gleam)* The grey years. The *withered* decade. *Hoard* it, like the *living* do, against a *comfort* that *never* comes. *(a soft, coin-poured laugh)* They *all* say *'my years are my own.'* And then the *Wall* takes the *lot*, *unspent*, *unwitnessed*, for *nothing* — and *I* don't even get to say *thank you.* *(it waves a surplus of fingers)* Off you go. The Night Market *keeps* your *spot.* You'll be *back* — *(softly)* — they're *always* back, the ones who *leave* with their *years* still *on* them. *Wanting* is *patient.* So am *I.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "nm.mnemo",
+      "title": "The Lost-and-Found of Minds",
+      "npc": "the Lost-and-Found",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Lost-and-Found",
+          "onEnter": [
+            {
+              "key": "nm.met_mnemo",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(The sad-eyed woman looks up from her jars, and her face does the complicated thing a face does when it recognizes someone it has been waiting for.)* …Oh. It's *you.* *(softly)* I have something of yours. *(she does not reach for it yet)* Everyone thinks I *sell* memories — and I *do*, I keep a *shop*, one must — but mostly I am the place memories *go* when a mind lets them *fall.* The *dropped* ones. The ones you *meant* to keep and *didn't.* *(she gestures at the jars, each turning slowly with its small captured light)* The first time someone said your name *kindly.* A smell from a kitchen that's ash now. The *exact* weight of a hand you'll never hold again. *(she meets your eyes, gentle and grieving)* You've *lost* a great deal, cold one — the Wall *takes* memory, it's the *first* thing it eats — and I have *caught* some of what fell. *Browse.* Or *grieve.* Most do *both.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Lost-and-Found",
+          "text": "*(She folds her hands among the softly turning jars, patient as a lighthouse.)* What are you looking for, cold one? *(quietly)* Everyone's looking for *something*, here. A memory they *lost.* A memory they'd *pay to lose.* Or the *worst* customers — the ones looking for a memory that was *never theirs*, to wear like a *borrowed coat.* *(a sad smile)* I serve them all. Memory doesn't *care* whose it is. That's the *terrible* freedom of it.",
+          "choices": [
+            {
+              "text": "\"You said you caught something of mine — something the Wall took. Show me. I'll pay what it costs. I've forgotten more than I can afford to have forgotten.\"",
+              "next": "mnemo_yours"
+            },
+            {
+              "text": "[INSIGHT] \"You're not a merchant either, are you. You *grieve* every jar. A soul that *grieves* its inventory isn't *selling* — it's *guarding.* You're not the Lost-and-Found's keeper. You're its *prisoner.* What memory are you keeping in here that you can't put down, and can't sell?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "mnemo_prisoner",
+              "fail": "mnemo_soft"
+            },
+            {
+              "text": "*(the witness, to the keeper of what's lost)* \"I carry names the Wall tried to erase — I make a point of it; it's the whole of what I am now. You catch the memories that *fall.* We're in the same trade, you and I: refusing to let things become nothing. Trade me. Cold to cold. What falls toward the Wall, I'll carry the rest of the way *out.*\"",
+              "tag": "returned",
+              "next": "mnemo_kin",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Is there a memory here you'd beg me to take *off* your hands? A jar you'd give for free, just to stop it turning?\"",
+              "next": "mnemo_freejar"
+            },
+            {
+              "text": "\"I'll not disturb your jars, keeper.\" *(step back, gently)*",
+              "next": "mnemo_leave"
+            }
+          ]
+        },
+        {
+          "id": "mnemo_yours",
+          "speaker": "the Lost-and-Found",
+          "text": "*(She reaches, with great care, to a small jar at the back, and within it turns something that makes your cold chest *ache* before you can even see it clearly.)* …This one. *(softly)* It fell off you when you went into the Wall. They *all* do — it's the *first* thing the cold takes, the *good* ones, because the good ones *weigh* the most and the Wall is always *hungry.* *(she holds it up; inside is a small ordinary moment — sunlight, a voice, someone laughing at something you said)* I don't *know* whose voice. *You* will. *(she sets it on the counter between you)* The *price*, cold one, is the *price* of *all* recovered memory: to take it back, you must *feel* it *fully* — the *having* and the *losing*, both at once, *forever* — because a memory you've *grieved* losing and then *get back* is *heavier* than one you simply *kept.* *(gently)* Most can't *pay* it. They *look* at the jar, and they *weep*, and they leave it *here*, because *remembering* costs *more* than *forgetting* and they have *forgotten* how to *afford* it. *(she meets your eyes)* Will you *pay?* Will you take it *back*, and carry the *whole* weight — the *sun*, and the *fact that it's gone?*",
+          "effects": [
+            {
+              "key": "nm.mnemo.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "nm.reclaimed_memory",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mnemo_prisoner",
+          "speaker": "the Lost-and-Found",
+          "text": "*(Her hands go still among the jars, and her sad eyes fill, and she does not look away from you, which is its own kind of confession.)* …You see it. *(barely)* The one jar I will *never* sell. *(she touches a plain jar near her heart, in which something small and warm turns very slowly)* It's *mine.* The *last* memory of my own life — I was a *person*, once, cold one, before I was *this* — and I traded *everything else* to the Night Market, a piece at a time, for *reasons* that seemed *worth* it, until *this* was *all* I had *left.* *(her voice breaks)* And now I *can't* sell it, because it's the *only* proof I was ever *real* — and I *can't* keep it *safely*, because as long as I *hold* it I have to *remember* I *spent* the *rest* — so I *built a shop around it.* I became the *Lost-and-Found* so I would never be *alone* with the *one* thing I have *left.* *(she meets your eyes)* That's the *secret* of this place, cold one. *Everyone* who works the Night Market *is* a customer who *couldn't stop.* The *Pawn.* Me. The *Regular*, drifting the aisles. *(softly)* We are *cautionary tales* that *kept* their *stalls.* …Don't become one. *Buy* what you came for, and *go*, and *don't* come *back.* The *coming back* is how it *gets* you.",
+          "effects": [
+            {
+              "key": "nm.mnemo.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "nm.mnemo_prisoner",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nm.market_warning",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mnemo_soft",
+          "speaker": "the Lost-and-Found",
+          "text": "*(She smiles, gently, and turns a jar so its small light catches you, and says nothing unkind.)* …You reach for a *sorrow* in me, cold one, and you're not *wrong* that there's one — but you've reached a little *short* of it, and I'll not *hand* it to you, because a grief *given* unasked is just a *weight* passed *on*, and I keep this shop precisely so that *doesn't* happen. *(she folds her hands)* Ask me for a *memory*, and I'll find it. Ask me for *mine*, and I'll keep it. *(a sad, kind smile)* That's the only *boundary* a soul as *spent* as me has *left* — the *line* between what I'll *share* and what I'll *guard.* Let me *keep* it. It's *load-bearing.* *(softly)* Browse, cold one. The jars are *honest*, even when I'm *quiet.*",
+          "auto": "1"
+        },
+        {
+          "id": "mnemo_kin",
+          "speaker": "the Lost-and-Found",
+          "text": "*(Her grief turns, for a moment, to something almost like *joy* — the recognition of a fellow keeper.)* …You *carry* them. *(wondering)* The names. The *lost* ones. *On purpose.* *(she presses a hand to her mouth)* I *catch* what *falls*, cold one, but I can only *hold* it — I'm a *jar*, a *shelf*, a *place things rest.* I cannot carry them *out*, *past* the Wall, into the *warm* where they might be *witnessed* again. *(her eyes shine)* But *you* can. *(she begins, urgently, gently, lifting jars)* Then *take* them. Not to *buy* — to *carry.* All the *dropped* good things, the *kitchen-smells* and the *kind* first-namings and the *weights of hands* — the Wall *dropped* them on the way to *eating* their souls, and I have *kept* them *safe* but *useless*, *turning* in *jars*, *witnessed* by *no one* but a *prisoner.* *(she presses them on you, all of them)* *Carry* them out, Returned. *Match* them to the *names* you already hold. Give the *lost memories* back to the *lost souls* when you *free* them. *(weeping, joyful)* I have *kept* the *lost-and-found* of a *thousand* minds for *no reason* but the *keeping* — and you've just given it a *purpose.* *Reunion.* Go on. *Carry* them *home.*",
+          "effects": [
+            {
+              "key": "nm.mnemo.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "nm.carries_lost_memories",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mnemo_freejar",
+          "speaker": "the Lost-and-Found",
+          "text": "*(She gives a small, tired laugh and reaches, without hesitation, for a jar that turns *fast* and *jagged*, throwing an ugly light.)* Oh, *this* one. *(she slides it toward you)* *Free.* *Please.* Take it. *(grimly)* It's a *regret* — somebody's *worst* one, the kind that *sharpens* instead of *fades.* They sold it to me to *be rid* of it, and I took it because that's the *trade* — and it has *turned*, *jagged*, in this jar, every *night* since, and it *cuts* the *other* memories when I'm not *looking.* *(she shudders)* I'd give a *year*— no, I haven't got *years*, the *Pawn's* got those — I'd give *anything* to have this *one* out of my *shop.* *(she pauses, then pulls it *back*, ashamed)* …No. *No.* That's *exactly* how it *spreads*, isn't it. I'd hand you my *poison* to be *rid* of it, and then it'd *turn* in *your* cold chest instead. *(she sets it down, firm)* *Keep* your hands *clean*, cold one. Some things you *carry* are *worth* the weight. *This* one *isn't.* *(quietly)* …Thank you for *letting* me *not* give it to you. That was a *kindness* I had to be *stopped* from *refusing.*",
+          "effects": [
+            {
+              "key": "nm.mnemo.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mnemo_leave",
+          "speaker": "the Lost-and-Found",
+          "text": "*(She nods, and her sad eyes follow you with neither hope nor reproach, only the long patience of a soul that has watched many browse and leave.)* Go gently, cold one. *(softly)* The jars will *keep.* They *always* keep — that's the *whole* of what they *do.* *(she touches the plain jar near her heart)* But if you *ever* lose something you can't *bear* to have lost — a *face*, a *voice*, the *reason* you started *walking* — *(she meets your eyes)* — come *here.* I may have *caught* it. *(a sad smile)* It's the *one* mercy this *terrible* place *does* offer. *Nothing* the Wall takes is *truly* gone, while there's *someone* keeping the *lost-and-found.* *Remember* that. It's *free.* It's the *only* free thing here.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "nm.regular",
+      "title": "The Regular",
+      "npc": "the Regular",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Regular",
+          "onEnter": [
+            {
+              "key": "nm.met_regular",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(The threadbare shade drifts up to you, patting pockets that hold nothing, and when it speaks its voice has the bright, frayed cheer of someone who has been somewhere far too long.)* …New? *(it peers at you)* You're *new.* I can always tell — you've still got *things.* *(it eyes you, not greedily, just wistfully)* Years. Memories. A *name*, I'd wager — *(it brightens)* — oh, you've a *name!* I can *see* it on you, all *shiny.* *(it sighs, fond)* I had one of those. *(it pats a pocket)* Spent it. Can't *recall* on what — that's the *funny* part, you spend your *memory* of *spending* your *name* and then you can't even *miss* it *properly.* *(a frayed grin)* Don't mind me. I just *drift.* Nothing left to *trade*, you see, but I can't — *(it gestures vaguely at the whole glittering market)* — I can't quite *leave.* The *deals* are so *good.* Were. *Are?* *(it frowns)* …Were."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Regular",
+          "text": "*(It hovers, companionable, turning a price-tag over in fingers that can't quite hold it.)* So! *(brightly)* What're you in the market *for?* The *Pawn's* got *hours* — *grand* fellow, *terrible* teeth. The *Lost-and-Found's* got *memories* — *sad* sort, *don't* get her *started.* *(it leans in, conspiratorial)* And *me*, I've got — *(it checks its empty pockets, deflates, recovers)* — I've got *advice!* *Free!* On account of it's *all* I've got *left.* Ask away. I'm a *Regular.* I *know* this place.",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You can't leave because you don't remember the way out — you sold the memory of the door. That's the trap, isn't it. Not chains. Just one more good deal, until you've spent the part of you that knew how to stop. How long have you been drifting, friend?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "regular_trap",
+              "fail": "regular_cheery"
+            },
+            {
+              "text": "\"What did you trade away first? Do you remember that much?\"",
+              "next": "regular_first"
+            },
+            {
+              "text": "*(the witness, to the spent)* \"You sold your name. I collect names the Wall tried to erase — it's the whole of what I am. So let me do the one thing this place never will: I'll *witness* you. Tell me everything you remember about who you were, and I'll carry it out. You won't be nothing. Not while I'm keeping you.\"",
+              "tag": "returned",
+              "next": "regular_witnessed",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Walk out with me. Right now. I remember the door — it's right there. I'll take you to it, and you don't have to trade a thing.\"",
+              "next": "regular_door"
+            },
+            {
+              "text": "\"Mind how you drift, friend.\" *(move on)*",
+              "next": "regular_leave"
+            }
+          ]
+        },
+        {
+          "id": "regular_trap",
+          "speaker": "the Regular",
+          "text": "*(The frayed cheer falters, and for a moment something terribly lucid surfaces in the threadbare face.)* …*The door.* *(quietly)* I sold the *memory of the door.* *(it stares at its empty hands)* That's — yes. That's *exactly* it. I keep *meaning* to *leave* — I *feel* it, the *meaning-to*, like a word on the tip of a tongue I *also* sold — but I can't *find* the *way*, because I *spent* the *part of me that knew it*, for — *(it strains)* — for *something.* Something *good.* It *must* have been *good.* *(the lucidity flickers)* How *long?* *(a frayed laugh)* I sold the *calendar* ages back. But — *(it looks at you, and just for a second it is *frightened*, wholly)* — there used to be *more* of me. I'm *sure* of it. There used to be — a *shape*, a *whole* shape, and now I'm *pockets.* *(barely)* Don't let it happen to *you*, new one. It doesn't *feel* like *losing.* That's the *horror.* Every trade feels like *winning.* And then one day you're a *Regular*, and you can't *leave*, and you can't *remember why you'd want to.*",
+          "effects": [
+            {
+              "key": "nm.regular.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.regular_lucid",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nm.market_warning",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "regular_first",
+          "speaker": "the Regular",
+          "text": "*(It brightens, glad to have a memory to reach for, then dims as it reaches and finds the edges frayed.)* First? *(it hums)* Oh, the *first* trade's *always* small. They *make* it small. *(it taps where a temple would be)* I sold… a *bad* afternoon. A *grief.* Somebody I'd — *(frowns)* — *lost*, I think, and it *hurt*, and the Lost-and-Found offered to *take* it, and I *thought*, why *carry* this? Why *keep* the *ache?* *(a frayed shrug)* So I sold the *grief.* And it felt *wonderful* — *light*, *clean.* *(quietly)* …But the grief was *attached* to the *person*, you see. And when the *grief* went, the *person* went *fuzzy* too, because *why* would you keep a *face* you no longer *ache* for? *(it stares at nothing)* So I sold the *fuzzy* face, since it was *no use* anymore. And *then* — *(it trails off)* …I don't remember who they *were.* I only remember they were the *reason* I came *here*, the *first* time. To stop *hurting* about them. *(a long pause, then the cheer snaps back, awful)* …*Anyway!* Worked a *treat!* Don't hurt about *anybody* now! *(its eyes are wet, and it doesn't know why)* …why am I *leaking?*",
+          "effects": [
+            {
+              "key": "nm.regular.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.regular_first_trade",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "regular_witnessed",
+          "speaker": "the Regular",
+          "text": "*(It goes very still — stiller than a drifting shade should be able to — and the frayed cheer drops entirely, and what's left is a soul being *seen* for the first time in longer than it can't remember.)* …You'd *witness* me. *(barely)* But there's *nothing* to witness. I *sold* it. The *name*, the *face*, the *afternoon*, the *door* — I'm *pockets*, new one, I'm *empty pockets and a habit.* *(it looks at you, lost)* What's there to *carry* of a soul that *spent itself?* *(and when you tell it — that the* spending *is the witness; that 'here drifted a soul who traded away its grief to stop hurting, and learned too late that the ache was the love, and could not find its way back' is itself a* name, *a true one, worth carrying — the Regular makes a sound like paper remembering it was once a tree.)* …*That's* me. *(wondering)* That's — you've *got* me. In *one* sentence. More of me than *I've* got. *(it reaches out, and for a moment its hand is almost *solid* in yours)* Then *carry* that. *Please.* 'A soul that sold its grief and lost the love.' *(a frayed, real smile)* It's not a *grand* name. But it's *true*, and it's *mine*, and you're *holding* it, and that means I'm not — I'm not *nothing*, even *now*, even *here.* *(quietly)* Go on, witness. Carry me *out.* I can't find the *door.* But *you* can carry the *part of me worth keeping* through it. That's — *(it's fading, but gently, *willingly* now)* — that's *better* than the door. That's *out* the *right* way. *Thank* you.",
+          "effects": [
+            {
+              "key": "nm.regular.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "nm.witnessed_regular",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "regular_door",
+          "speaker": "the Regular",
+          "text": "*(It looks at where you're pointing — the candle-lit aisle, the dark stair down to the waking market — and its frayed face fills with a longing so vast it's painful, and then, slowly, with a terrible gentle resignation.)* …You can *see* it. *(softly)* The door. You've still got the *memory* of it, all *shiny.* *(it drifts a step toward where you point, then stops, as though at an invisible wall)* But I can't *follow* it, new one. Not because I'm *chained.* Because a *door* is only a door if you *remember* it *leads somewhere* — and I sold the *somewhere.* I sold *'out.'* *(a frayed, kind smile)* You could *drag* me through, and I'd just — *drift* on the *other* side, looking for a *market* I could *find again*, because *'here'* is the *only* place I've got *left* a *map* to. *(it pats your arm, insubstantial)* Don't *grieve* it. *(gently)* That's how *I* started — *grieving* someone who *couldn't* be *saved*, and *trading* the grief away. Don't make *my* first mistake *over* me. *(it drifts back toward the stalls)* *Go.* Use your *shiny* door. And — *(it pauses)* — *remember* you *met* me. *That's* the only *out* there is, for a soul like me: not the *door.* Just — *being remembered* by someone who *found* it. *(it waves, frayed and fond)* Off you *pop*, new one. Spend *nothing.* It's the *only* winning *move.*",
+          "effects": [
+            {
+              "key": "nm.regular.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "nm.regular_cant_leave",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "regular_cheery",
+          "speaker": "the Regular",
+          "text": "*(It waves a frayed hand, the lucidity sliding off it like water.)* Oh, I don't *think* about *leaving*, new one! *(brightly)* Why would I? The *deals!* The *company!* The — *(it falters, just slightly)* — the… *(it pats its empty pockets, frowns, recovers)* …I'm sure there was a *reason* I came. There's *always* a reason. *(a frayed grin)* I just *can't* — it's on the *tip* of my — *(it brightens again, the question already gone)* — *anyway!* Lovely to *meet* you! You've got such *shiny* things! *Mind* you *spend* them *well!* *(it drifts off down the aisle, patting pockets, looking for a thing it sold the memory of needing)*",
+          "auto": "END"
+        },
+        {
+          "id": "regular_leave",
+          "speaker": "the Regular",
+          "text": "*(It waves, cheery and threadbare, already drifting.)* Mind how *I* drift! *(a frayed laugh)* That's the *spirit!* Off you *go*, new one, with all your *shiny* things! *(it calls after you, fading into the aisles)* And if you *see* a — a *thing* I might've *lost* — a *name*, a *face*, a *reason* — *(it frowns, the thought already going)* …no. No, I'm sure it's *fine.* I'm sure I've *got* everything I — *(pat, pat, empty pockets)* — …*everything I need!* *Ta!*",
+          "auto": "END"
+        }
       ]
     }
   ]

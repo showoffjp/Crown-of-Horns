@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v5.4.0 — *"The Advocate's Booth"* — a twenty-first zone: a negotiation with a devil (read the fine print) (content)
+
+> A fourth new structure — the **devil's contract** — and one that turns the Jergal bargain inside out. Where the
+> dust at the crossroads wanted nothing and dealt fair, **Maître Crede, Advocate of the Nine Hells**, wants
+> *everything* and hides it in the places he doesn't point. He's come because the Wall is a *loophole*: the Faithless
+> go to neither heaven nor hell, so Hell is being cheated of its due — and a contract-devil means to probate the
+> largest unclaimed estate in the planes. The whole game is *reading.*
+- ⚖️ **A twenty-first zone — the Advocate's Booth** (off the Night Market; built from the existing prop vocabulary).
+  Three souls: the **devil-advocate**, a **bonded soul** mid-collection, and the advocate's **bound clerk.**
+- 📜 **A contract you read, not sign.** **Investigation** finds the trap (Clause the Ninth: the advocate-of-record
+  becomes the *final entry* on his own manifest); **Insight** finds the real motive (the Faithless aren't the estate
+  — they're the *test case*: establish that *unowned means open* and every unclaimed soul in creation falls to Hell,
+  with *you*, the un-fileable Returned, as the keystone precedent). The **[RETURNED]** reading *voids his whole
+  estate* with the loophole he came to close — *unowned means unownable, by Hell too; you can't sign over what was
+  never owned.* And refusing is its own beat: he's not the villain, he's *the reasonable offer you were too proud
+  to take*, and time is on the side of the Nine.
+- 🪤 **The bonded soul** — a father who bought his daughter sixty hale years with himself as collateral, re-sealing
+  the debt every dawn out of love — can be **witnessed to peace** (a debt agreed-to can't be picked, only re-framed)
+  and gives the booth's true lesson: *a fair deal with Hell is still a deal with Hell; the trap isn't his paper, it's
+  your own wanting.*
+- 😈 **Sevenpence, the bound clerk** — an imp four thousand years into a ninety-year sentence — can be **freed**: his
+  padded extension-clause never defined *whose* judgment rules a task complete, and a Returned has standing among the
+  dead to declare it done. He also leaks the devil's one fear: being made a *signer* himself.
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,030 checks**, all green). **21 zones, 76 souls** — four
+  fresh structures this stretch (bargain, trial, heist, devil-pact), all orbiting the one question: *what is a soul
+  worth that no god ever claimed?*
+
+---
+
 ## 👑 v5.3.0 — *"The Sparrow's Wing"* — the fourth companion's arc completes (Threshold + epilogue) (content)
 
 > The Sparrow gets the full companion treatment Sennet got — but with a twist that's hers alone. She is *dead*,
