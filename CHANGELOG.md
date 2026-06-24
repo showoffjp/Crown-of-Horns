@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.96.0 — *"Sennet at the Edge"* — the cartographer follows you to the door the living can't cross (content)
+
+> The saga's most pointed companion beat. Recruit Sennet and they follow you everywhere — including to the
+> **Threshold of the Crown's Road**, the lip of the deep country they've spent their whole life charting from a
+> half-mile off through a shaking spyglass. And here is the cruelty the surveyor never budgeted for: the map runs
+> *all the way to this line, and not one inch further*, because past it is the country of the dead, and they are
+> still — for the first time they have ever resented it — *alive.* The one survey that matters is the one step
+> their living feet cannot take.
+
+- 🚪 **Sennet appears at the Threshold** (gated on `party.sennet_recruited`, the conditional-NPC system already
+  used for Dace and Orin at the edge). They stand an arm's length from the death-door, pen forgotten, white-knuckled
+  — because to a cartographer of the dead the open door is not a horror but the *last unmapped mile*, and every
+  honed instinct says *step through.*
+- 🧭 **A conversation about being held back from the thing you most want.** Reactive openings keyed to how you bonded
+  (the fireside *baseline* talk, the *devoted* nat-20 recruit, or default). Four resolutions: **order them to stay**
+  (they needed it to be a command, not a request — so it isn't theirs to lose); **ask for the bearings** (the craft
+  is the one floor that never gives way — they steady instantly and chart your crossing, *count your steps, same
+  number coming back*); a **[RETURNED] "be your eyes"** beat that turns *staying* into the job (a one-station
+  baseline is just a man crying at a door); or **invoke Tibb** (*I'll mind the wagon till you're home* — the one
+  word that moves their feet off the edge).
+- 👁️ **A new Returned-sense for the Threshold:** the player feels the deep country *pulling* at the living surveyor —
+  the least-defended soul imaginable against that drag — and reads that they're in danger not of dying here but of
+  *walking in on purpose, gladly, clear-headed.*
+- 🧪 **+2 gates** (now **981 checks**, all green): Sennet is gated to the edge only when recruited, and the scene
+  carries the hold-back path, the [RETURNED] eyes-beat, and the new sense. **59 souls** now walk the causeway.
+
+---
+
 ## 👑 v4.95.0 — *"Sennet at the Fire"* — the recruited cartographer joins the Hearth denouement (content)
 
 > A companion you can recruit should *show up.* The Hearth already gathers exactly the souls you saved — Dace

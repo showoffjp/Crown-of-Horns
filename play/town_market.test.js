@@ -755,6 +755,16 @@ const camped2 = THRESH.npcs.filter(n => n.when);
 check("companions who joined you appear at the edge (Dace if recruited, Orin if she joined)", camped2.length >= 2 &&
   THRESH.npcs.some(n => n.when && n.when.flag === "party.dace_recruited") &&
   THRESH.npcs.some(n => n.when && n.when.flag === "party.orin_may_join"));
+// the recruited cartographer follows you to death's door — and cannot cross (the saga's most pointed companion beat)
+const thrSennet = CONVS.find(c => c.id === "thr.sennet");
+const thrSennetNpc = THRESH.npcs.find(n => n.conv === "thr.sennet");
+check("Sennet follows to the Threshold only if recruited, and cannot cross (gated on party.sennet_recruited)", thrSennet && thrSennetNpc &&
+  thrSennetNpc.when && thrSennetNpc.when.flag === "party.sennet_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sennet_recruited"] = true; return s; })(), thrSennetNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), thrSennetNpc.when) === false);
+check("at the edge you can hold Sennet back from the door, or make them your eyes past it (a [RETURNED] beat)", thrSennet &&
+  thrSennet.nodes.some(n => (n.effects || []).some(e => e.key === "thr.sennet_holds")) &&
+  thrSennet.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned" && /eyes/.test(ch.next || ""))) && thrSennet.returned);
 // the mirror's opening reads which road you're on — a witness-answerer, a reckless-answerer, a Crown-taker, an accompanied soul, and a lone stranger
 const l0 = last.nodes.find(n => n.id === "0");
 const stWit = E.newState(); stWit.bools["way.named_witness"] = true;
