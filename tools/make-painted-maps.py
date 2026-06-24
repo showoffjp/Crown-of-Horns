@@ -1,381 +1,364 @@
 #!/usr/bin/env python3
 """
-make-painted-maps.py — pre-rendered, hand-painted-style AREA MAPS in the lineage of the
-Infinity Engine (Baldur's Gate, Icewind Dale, Planescape: Torment): moody, atmospheric,
-2.5-D painted backdrops for the walkable zones of Crown of Horns.
+make-painted-maps.py  —  v2, the BG2/IE way (as far as code can take it).
 
-Everything here is ORIGINAL, procedural, CC0 — no AI art, no scraped tiles. The painterly
-look is built the IE way in spirit: layered light, soft shadow, mottled texture, fog, bloom,
-and a heavy vignette, then a final "painted" pass (blur + unsharp + colour grade).
+NOT a flat diamond grid. This builds areas the way an Infinity-Engine backdrop reads:
+ - continuous MATERIALS (wooden planks, cut stone, cobble, water) painted as real surfaces,
+   not solid-colour tiles;
+ - real ARCHITECTURE with thickness — extruded walls (lit face / shade face / top cap),
+   the IE "cut-away" interior so you see into rooms;
+ - ONE consistent light direction with soft CAST SHADOWS;
+ - warm sconce/fire lighting, then a painterly overpaint to unify.
 
-  python3 tools/make-painted-maps.py        # renders play/maps/*.png
+Honest limit: real IE areas are 3-D modelled and hand-overpainted; this is procedural code,
+so it approximates the *look*, not the fidelity. Original / CC0 — no AI art, no scraped tiles.
 
-Pillow only (no numpy). Gradients are rendered tiny and scaled up; texture is effect_noise;
-glows are concentric ellipses, blurred.
+  python3 tools/make-painted-maps.py     ->  play/maps/*.png   (Pillow only)
 """
 import os, math, random
-from PIL import Image, ImageDraw, ImageFilter, ImageChops, ImageEnhance, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageEnhance, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "play", "maps")
-os.makedirs(OUT, exist_ok=True)
+OUT = os.path.join(ROOT, "play", "maps"); os.makedirs(OUT, exist_ok=True)
 W, H = 1280, 800
+TW, TH = 108, 54          # iso tile (2:1) — large, so an area fills the frame
+WALLH = 168               # wall height in px (verticals are NOT foreshortened, IE-style)
+LIGHT = (-0.55, -0.83)    # light comes from upper-left
 FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 DEJA = "/usr/share/fonts/truetype/dejavu"
 
-def _font(sz, italic=False):
-    for p in ([f"{FONTS}/IBMPlexSerif-Italic.ttf"] if italic else [f"{FONTS}/IBMPlexSerif-Regular.ttf"]) + \
-             [f"{DEJA}/DejaVuSerif-Italic.ttf" if italic else f"{DEJA}/DejaVuSerif.ttf"]:
+def _font(sz, it=False):
+    for p in ([f"{FONTS}/IBMPlexSerif-Italic.ttf"] if it else [f"{FONTS}/IBMPlexSerif-Regular.ttf"]) + \
+             [f"{DEJA}/DejaVuSerif{'-Italic' if it else ''}.ttf"]:
         try: return ImageFont.truetype(p, sz)
         except Exception: pass
     return ImageFont.load_default()
 
-# ---------------------------------------------------------------- helpers
-def vgrad(w, h, top, bottom):
-    """Vertical gradient, rendered 1×h then scaled — smooth and cheap."""
-    strip = Image.new("RGB", (1, h))
-    for y in range(h):
-        t = y / max(1, h - 1)
-        strip.putpixel((0, y), tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3)))
-    return strip.resize((w, h))
+def clamp(v): return max(0, min(255, int(v)))
+def mul(c, f): return tuple(clamp(c[i] * f) for i in range(3))
+def mix(a, b, t): return tuple(clamp(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
-def radial(w, h, cx, cy, r, inner, outer):
-    """Soft radial fill (RGBA), drawn as concentric ellipses then blurred."""
-    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    steps = 26
-    for i in range(steps, 0, -1):
-        t = i / steps
-        rr = r * t
-        col = tuple(int(outer[j] + (inner[j] - outer[j]) * (1 - t)) for j in range(4))
-        d.ellipse([cx - rr, cy - rr * 0.62, cx + rr, cy + rr * 0.62], fill=col)
-    return img.filter(ImageFilter.GaussianBlur(r * 0.05 + 2))
+# ---- iso projection (origin set per-scene) -------------------------------
+OX, OY = W // 2, 150
+def iso(gx, gy):
+    return (OX + (gx - gy) * TW / 2, OY + (gx + gy) * TH / 2)
 
-def glow(w, h, cx, cy, r, color, strength=210):
-    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    steps = 22
-    for i in range(steps, 0, -1):
-        t = i / steps
-        a = int(strength * (1 - t) ** 1.8)
-        rr = r * t
-        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=(color[0], color[1], color[2], a))
-    return img.filter(ImageFilter.GaussianBlur(r * 0.08 + 3))
+def quad(d, pts, color):
+    d.polygon(pts, fill=color)
 
-def noise_tex(w, h, sigma=44, tint=(255, 255, 255), alpha=26, blur=1.4, scale=2):
-    """Painterly mottle: low-res gaussian noise, tinted, scaled up for soft blobs."""
-    n = Image.effect_noise((max(2, w // scale), max(2, h // scale)), sigma).resize((w, h))
-    n = n.filter(ImageFilter.GaussianBlur(blur))
-    out = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    out.putalpha(n.point(lambda v: int(abs(v - 128) / 128 * alpha)))
-    solid = Image.new("RGBA", (w, h), (tint[0], tint[1], tint[2], 255))
-    solid.putalpha(out.getchannel("A"))
-    return solid
-
-def vignette(w, h, strength=160):
-    # bright centre ellipse on black, blurred, inverted → dark soft edges
-    m = Image.new("L", (w, h), 0)
-    md = ImageDraw.Draw(m)
-    md.ellipse([int(w * 0.10), int(h * 0.06), int(w * 0.90), int(h * 0.98)], fill=255)
-    m = m.filter(ImageFilter.GaussianBlur(140))
-    inv = m.point(lambda v: int((255 - v) / 255 * strength))
-    out = Image.new("RGBA", (w, h), (6, 5, 10, 255))
-    out.putalpha(inv)
-    return out
-
-def iso(cx, cy, tx, ty, tw=78, th=39):
-    return (cx + (tx - ty) * tw / 2, cy + (tx + ty) * th / 2)
-
-def diamond(d, x, y, tw, th, fill):
-    d.polygon([(x, y - th / 2), (x + tw / 2, y), (x, y + th / 2), (x - tw / 2, y)], fill=fill)
-
-def iso_floor(base, cx, cy, cols, rows, pal, tw=78, th=39, jitter=10, seed=7, cracks=True):
-    """A painted isometric ground plane — mottled flagstones, depth-shaded, overflowing frame."""
-    lay = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    d = ImageDraw.Draw(lay)
-    rnd = random.Random(seed)
-    for r in range(rows):
-        for c in range(cols):
-            x, y = iso(cx, cy, c, r, tw, th)
-            if y < -th or y > base.size[1] + th or x < -tw or x > base.size[0] + tw:
-                continue
-            depth = (r + c) / (cols + rows)
-            shade = rnd.randint(-jitter, jitter)
-            col = tuple(max(0, min(255, int(pal[i] * (0.62 + 0.5 * (1 - depth))) + shade)) for i in range(3))
-            diamond(d, x, y, tw + 1, th + 1, col + (255,))
-            # grout: dark on the down-left edge, faint light on the down-right (painted bevel)
-            d.line([(x - tw / 2, y), (x, y + th / 2)], fill=(0, 0, 0, 40))
-            d.line([(x, y + th / 2), (x + tw / 2, y)], fill=(255, 250, 235, 16))
-            if cracks and rnd.random() < 0.16:  # a few painted cracks/flag-splits
-                d.line([(x, y), (x + rnd.randint(-tw // 3, tw // 3), y + rnd.randint(-th // 3, th // 3))],
-                       fill=(0, 0, 0, 34), width=1)
-    base.alpha_composite(lay)
-
-def back_arch(base, top, band, pal_light, pal_dark, count=9, jitter=40, seed=2, kind="house"):
-    """Fill the upper band edge-to-edge with painted architecture so there is no void."""
+# ---- materials: continuous textured surfaces ------------------------------
+def plank_floor(base, x0, y0, x1, y1, base_col=(96, 70, 44), seed=1):
+    """Wooden plank floor over the grid rect [x0,x1]×[y0,y1]; boards run along +x."""
     d = ImageDraw.Draw(base, "RGBA")
     rnd = random.Random(seed)
-    step = W // count
-    for i in range(-1, count + 1):
-        x = i * step + step // 2 + rnd.randint(-20, 20)
-        bw = step + rnd.randint(10, 40)
-        bh = band + rnd.randint(-jitter, jitter)
-        ybase = top + band
-        lit = tuple(max(0, min(255, pal_light[j] + rnd.randint(-12, 12))) for j in range(3))
-        drk = tuple(max(0, min(255, pal_dark[j] + rnd.randint(-12, 12))) for j in range(3))
-        # facade
-        d.rectangle([x - bw // 2, ybase - bh, x + bw // 2, ybase], fill=drk + (255,))
-        d.rectangle([x - bw // 2, ybase - bh, x - bw // 2 + bw, ybase - bh + 6], fill=lit + (255,))
-        if kind == "house":
-            # roofline
-            d.polygon([(x - bw // 2 - 6, ybase - bh), (x + bw // 2 + 6, ybase - bh),
-                       (x + 6, ybase - bh - 26), (x - 6, ybase - bh - 26)], fill=tuple(int(c * 0.8) for c in drk) + (255,))
-            # a warm window or two
-            for wy in range(ybase - bh + 18, ybase - 14, 30):
-                if rnd.random() < 0.55:
-                    wx = x + rnd.randint(-bw // 3, bw // 3)
-                    d.rectangle([wx - 5, wy - 7, wx + 5, wy + 7], fill=(255, 196, 96, 230))
-                    base.alpha_composite(glow(W, H, wx, wy, 22, (255, 180, 80), 70))
+    for gy in range(y0, y1):
+        # one board strip = a full-width parallelogram, slightly varied tone
+        tone = mul(base_col, rnd.uniform(0.82, 1.12))
+        p = [iso(x0, gy), iso(x1, gy), iso(x1, gy + 1), iso(x0, gy + 1)]
+        quad(d, p, tone + (255,))
+        # plank seam (dark) along the far edge, faint light on near edge
+        d.line([iso(x0, gy), iso(x1, gy)], fill=(20, 12, 6, 150), width=2)
+        d.line([iso(x0, gy + 1), iso(x1, gy + 1)], fill=(150, 120, 80, 36), width=1)
+        # board butt-joints + grain ticks
+        gx = x0 + rnd.uniform(0, 1.4)
+        while gx < x1:
+            a, b = iso(gx, gy), iso(gx, gy + 1)
+            d.line([a, b], fill=(24, 14, 8, 110), width=1)
+            gx += rnd.uniform(1.3, 2.6)
+        for _ in range(int((x1 - x0) * 3)):
+            ggx = rnd.uniform(x0, x1); ggy = gy + rnd.uniform(0.15, 0.85)
+            sx, sy = iso(ggx, ggy)
+            d.line([(sx, sy), (sx + rnd.uniform(6, 16), sy)], fill=(40, 26, 14, 50), width=1)
 
-def iso_block(d, x, ybase, w, hgt, top, light, dark, th=29):
-    hw = w / 2
-    d.polygon([(x - hw, ybase), (x - hw, ybase - hgt), (x, ybase - hgt + th / 4), (x, ybase + th / 4)], fill=dark)
-    d.polygon([(x + hw, ybase), (x + hw, ybase - hgt), (x, ybase - hgt + th / 4), (x, ybase + th / 4)], fill=light)
-    d.polygon([(x, ybase - hgt - th / 4), (x + hw, ybase - hgt), (x, ybase - hgt + th / 4), (x - hw, ybase - hgt)], fill=top)
+def stone_floor(base, x0, y0, x1, y1, base_col=(86, 84, 78), seed=2):
+    """Irregular cut-stone / cobble floor — many individual stones with mortar + light."""
+    d = ImageDraw.Draw(base, "RGBA")
+    rnd = random.Random(seed)
+    # base wash
+    quad(d, [iso(x0, y0), iso(x1, y0), iso(x1, y1), iso(x0, y1)], mul(base_col, 0.7) + (255,))
+    gy = y0
+    while gy < y1:
+        gx = x0
+        row_h = rnd.uniform(0.5, 0.7)
+        while gx < x1:
+            cw = rnd.uniform(0.55, 0.95)
+            cx, cy = gx + cw / 2, gy + row_h / 2
+            tone = mul(base_col, rnd.uniform(0.78, 1.18))
+            pts = [iso(gx + 0.04, gy + 0.04), iso(gx + cw - 0.04, gy + 0.05),
+                   iso(gx + cw - 0.05, gy + row_h - 0.04), iso(gx + 0.05, gy + row_h - 0.05)]
+            quad(d, pts, tone + (255,))
+            # lit top edge, shadow bottom edge (light from upper-left)
+            d.line([pts[0], pts[1]], fill=(220, 215, 200, 50), width=1)
+            d.line([pts[2], pts[3]], fill=(10, 10, 12, 90), width=1)
+            gx += cw
+        gy += row_h
 
-def painted_pass(img):
-    """The final 'hand-painted' grade: soften, then bite the edges back, warm the light."""
+def water(base, x0, y0, x1, y1, seed=3):
+    d = ImageDraw.Draw(base, "RGBA")
+    rnd = random.Random(seed)
+    for gy in range(int(y0 * 2), int(y1 * 2)):
+        gyy = gy / 2
+        sh = 14 + int(12 * math.sin(gyy * 1.3 + seed))
+        col = (18 + sh // 2, 40 + sh, 60 + sh)
+        p = [iso(x0, gyy), iso(x1, gyy), iso(x1, gyy + 0.5), iso(x0, gyy + 0.5)]
+        quad(d, p, col + (255,))
+    # specular flecks
+    for _ in range(220):
+        gx, gy = rnd.uniform(x0, x1), rnd.uniform(y0, y1)
+        sx, sy = iso(gx, gy)
+        d.line([(sx, sy), (sx + rnd.uniform(5, 14), sy)], fill=(150, 180, 200, rnd.randint(20, 60)), width=1)
+
+# ---- cast shadows (soft, on their own layer, light upper-left) ------------
+def shadow_layer():
+    return Image.new("RGBA", (W, H), (0, 0, 0, 0))
+
+def cast(shadowimg, pts, dx=26, dy=14, strength=120):
+    d = ImageDraw.Draw(shadowimg, "RGBA")
+    d.polygon([(p[0] + dx, p[1] + dy) for p in pts], fill=(0, 0, 0, strength))
+
+# ---- architecture: extruded stone walls with thickness & block texture ----
+def wall_run(base, shadowimg, a, b, h=WALLH, col=(96, 96, 104), thick=0.18, lit=True, blocks=True):
+    """A stone wall from grid point a to grid point b, extruded up by h px."""
+    d = ImageDraw.Draw(base, "RGBA")
+    ax, ay = iso(*a); bx, by = iso(*b)
+    # face normal lighting: how aligned the run is with the light
+    dirx, diry = (b[0] - a[0]), (b[1] - a[1])
+    L = math.hypot(dirx, diry) or 1
+    nx, ny = -diry / L, dirx / L
+    facing = nx * LIGHT[0] + ny * LIGHT[1]
+    base_f = 1.06 if facing > 0 else 0.74
+    if not lit: base_f *= 0.9
+    face = mul(col, base_f)
+    # cast shadow on ground first (under everything) — footprint pushed by light
+    cast(shadowimg, [(ax, ay), (bx, by), (bx, by + 6), (ax, ay + 6)], dx=20, dy=12, strength=70)
+    # the wall face (a→b, up by h)
+    quad(d, [(ax, ay), (bx, by), (bx, by - h), (ax, ay - h)], face + (255,))
+    # top cap (a little depth)
+    cap = mul(col, 1.18 if facing > 0 else 0.9)
+    quad(d, [(ax, ay - h), (bx, by - h), (bx + 4, by - h - 4), (ax + 4, ay - h - 4)], cap + (255,))
+    # stone block courses
+    if blocks:
+        rnd = random.Random(int(ax + by) % 9999)
+        courses = max(3, h // 18)
+        for c in range(courses + 1):
+            t = c / courses
+            yA = (ay - h * (1 - t)); yB = (by - h * (1 - t))
+            d.line([(ax, yA), (bx, yB)], fill=(0, 0, 0, 60), width=1)
+        # vertical joints, brick-staggered
+        n = int(L * 3)
+        for i in range(1, n):
+            for c in range(courses):
+                off = (0.5 if c % 2 else 0.0)
+                tt = (i + off) / n
+                if tt >= 1: continue
+                px = ax + (bx - ax) * tt; pyb = ay + (by - ay) * tt
+                y1 = pyb - h * (c / courses); y2 = pyb - h * ((c + 1) / courses)
+                d.line([(px, y1), (px, y2)], fill=(0, 0, 0, 45), width=1)
+        # subtle weathering blotches
+        for _ in range(int(L * 6)):
+            tt = rnd.random(); hh = rnd.random()
+            px = ax + (bx - ax) * tt; py = (ay + (by - ay) * tt) - h * hh
+            r = rnd.uniform(3, 9)
+            d.ellipse([px - r, py - r * 0.6, px + r, py + r * 0.6],
+                      fill=(mul(col, 0.85) if rnd.random() < .5 else mul(col, 1.1)) + (40,))
+
+def pitched_roof(base, shadowimg, cx, cy, gw, gd, h=70, col=(120, 70, 52)):
+    """A simple pitched roof block for an exterior building."""
+    d = ImageDraw.Draw(base, "RGBA")
+    bl = iso(cx - gw, cy + gd); br = iso(cx + gw, cy + gd)
+    tl = iso(cx - gw, cy - gd); tr = iso(cx + gw, cy - gd)
+    ridgeL = (tl[0], tl[1] - h - 24); ridgeR = (tr[0], tr[1] - h - 24)
+    # two roof faces
+    quad(d, [(bl[0], bl[1] - WALLH), (br[0], br[1] - WALLH), ridgeR, ridgeL], mul(col, 1.05) + (255,))
+    quad(d, [(tl[0], tl[1] - WALLH), (tr[0], tr[1] - WALLH), ridgeR, ridgeL], mul(col, 0.72) + (255,))
+    # eaves line
+    d.line([(bl[0], bl[1] - WALLH), (br[0], br[1] - WALLH)], fill=(20, 12, 8, 160), width=2)
+
+# ---- furniture / props ----------------------------------------------------
+def box(base, shadowimg, gx, gy, gw, gd, h, top, lit, dark, shadow=True):
+    d = ImageDraw.Draw(base, "RGBA")
+    bl = iso(gx - gw, gy + gd); br = iso(gx + gw, gy + gd)
+    fl = iso(gx - gw, gy - gd); fr = iso(gx + gw, gy - gd)
+    if shadow:
+        cast(shadowimg, [bl, br, fr, fl], dx=16, dy=9, strength=70)
+    # left & right faces
+    quad(d, [fl, (fl[0], fl[1] - h), (bl[0], bl[1] - h), bl], mul(dark, 1) + (255,))
+    quad(d, [br, (br[0], br[1] - h), (fr[0], fr[1] - h), fr], mul(lit, 1) + (255,))
+    # top
+    quad(d, [(fl[0], fl[1] - h), (fr[0], fr[1] - h), (br[0], br[1] - h), (bl[0], bl[1] - h)], top + (255,))
+    return (fl, fr, br, bl)
+
+def rug(base, gx, gy, gw, gd, col=(120, 40, 44)):
+    d = ImageDraw.Draw(base, "RGBA")
+    pts = [iso(gx - gw, gy), iso(gx, gy - gd), iso(gx + gw, gy), iso(gx, gy + gd)]
+    quad(d, pts, col + (235,))
+    inner = [iso(gx - gw + .5, gy), iso(gx, gy - gd + .25), iso(gx + gw - .5, gy), iso(gx, gy + gd - .25)]
+    d.polygon(inner, outline=(220, 190, 120, 180), width=2)
+    d.polygon(pts, outline=(30, 12, 14, 200), width=2)
+
+def bed(base, shadowimg, gx, gy):
+    box(base, shadowimg, gx, gy, 0.5, 0.85, 16, (70, 54, 36), (74, 58, 38), (50, 38, 24))
+    d = ImageDraw.Draw(base, "RGBA")
+    # mattress + blanket fold + pillow
+    top = [iso(gx - .42, gy - .78), iso(gx + .42, gy - .78), iso(gx + .42, gy + .78), iso(gx - .42, gy + .78)]
+    top = [(p[0], p[1] - 18) for p in top]
+    quad(d, top, (120, 120, 134, 255))
+    bl = [(iso(gx - .42, gy + .1)[0], iso(gx - .42, gy + .1)[1] - 18),
+          (iso(gx + .42, gy + .1)[0], iso(gx + .42, gy + .1)[1] - 18),
+          (iso(gx + .42, gy + .78)[0], iso(gx + .42, gy + .78)[1] - 18),
+          (iso(gx - .42, gy + .78)[0], iso(gx - .42, gy + .78)[1] - 18)]
+    quad(d, bl, (74, 92, 110, 255))
+    pil = [(iso(gx - .34, gy - .74)[0], iso(gx - .34, gy - .74)[1] - 20),
+           (iso(gx + .34, gy - .74)[0], iso(gx + .34, gy - .74)[1] - 20),
+           (iso(gx + .34, gy - .46)[0], iso(gx + .34, gy - .46)[1] - 20),
+           (iso(gx - .34, gy - .46)[0], iso(gx - .34, gy - .46)[1] - 20)]
+    quad(d, pil, (208, 204, 196, 255))
+
+def table(base, shadowimg, gx, gy, gw=0.55, gd=0.42):
+    box(base, shadowimg, gx, gy, gw, gd, 30, (110, 80, 48), (96, 68, 40), (66, 46, 26))
+
+def barrel(base, shadowimg, gx, gy):
+    d = ImageDraw.Draw(base, "RGBA")
+    x, y = iso(gx, gy)
+    cast(shadowimg, [(x - 12, y), (x + 12, y), (x + 12, y + 6), (x - 12, y + 6)], dx=12, dy=7, strength=60)
+    d.ellipse([x - 12, y - 6, x + 12, y + 6], fill=(70, 50, 30, 255))
+    d.rectangle([x - 12, y - 30, x + 12, y], fill=(96, 70, 42, 255))
+    d.ellipse([x - 12, y - 36, x + 12, y - 24], fill=(120, 90, 56, 255))
+    for yy in (y - 28, y - 12):
+        d.line([(x - 12, yy), (x + 12, yy)], fill=(50, 34, 18, 220), width=2)
+
+def fireplace(base, shadowimg, glowlayer, gx, gy):
+    d = ImageDraw.Draw(base, "RGBA")
+    box(base, shadowimg, gx, gy, 0.7, 0.3, 92, (78, 78, 86), (84, 84, 92), (54, 54, 62))
+    x, y = iso(gx, gy)
+    d.rectangle([x - 22, y - 78, x + 22, y - 30], fill=(14, 10, 10, 255))  # hearth opening
+    gl = ImageDraw.Draw(glowlayer, "RGBA")
+    for i in range(8, 0, -1):
+        a = int(150 * (1 - i / 8) ** 1.6); r = 30 * i / 8
+        gl.ellipse([x - r, y - 54 - r * .6, x + r, y - 54 + r * .6], fill=(255, 150, 60, a))
+    d.polygon([(x - 12, y - 32), (x, y - 64), (x + 12, y - 32)], fill=(255, 170, 70, 235))
+    d.polygon([(x - 6, y - 34), (x, y - 54), (x + 6, y - 34)], fill=(255, 226, 150, 240))
+
+def sconce(base, glowlayer, x, y, r=70, color=(255, 180, 80)):
+    gl = ImageDraw.Draw(glowlayer, "RGBA")
+    for i in range(10, 0, -1):
+        a = int(150 * (1 - i / 10) ** 1.7); rr = r * i / 10
+        gl.ellipse([x - rr, y - rr, x + rr, y + rr], fill=(color[0], color[1], color[2], a))
+    ImageDraw.Draw(base, "RGBA").ellipse([x - 3, y - 4, x + 3, y + 4], fill=(255, 232, 160, 255))
+
+# ---- atmosphere & finishing ----------------------------------------------
+def ambient_occlusion(base, x0, y0, x1, y1, depth=70):
+    """Darken floor near the back walls a touch — fake AO for grounding."""
+    ao = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ao)
+    for t in range(depth):
+        a = int(46 * (1 - t / depth))
+        gy = y0 + t / depth
+        d.line([iso(x0, gy), iso(x1, gy)], fill=(0, 0, 0, a), width=3)
+    base.alpha_composite(ao.filter(ImageFilter.GaussianBlur(6)))
+
+def grain(base, amt=10):
+    n = Image.effect_noise((W, H), 30)
+    g = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    g.putalpha(n.point(lambda v: int(abs(v - 128) / 128 * amt)))
+    sol = Image.new("RGBA", (W, H), (255, 255, 255, 255)); sol.putalpha(g.getchannel("A"))
+    base.alpha_composite(sol)
+
+def radial(w, h, cx, cy, r, inner, outer):
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    for i in range(24, 0, -1):
+        t = i / 24; rr = r * t
+        col = tuple(int(outer[j] + (inner[j] - outer[j]) * (1 - t)) for j in range(4))
+        d.ellipse([cx - rr, cy - rr * .62, cx + rr, cy + rr * .62], fill=col)
+    return img.filter(ImageFilter.GaussianBlur(r * .05 + 2))
+
+def vignette(strength=150):
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).ellipse([int(W * .07), int(H * .04), int(W * .93), int(H * 1.0)], fill=255)
+    m = m.filter(ImageFilter.GaussianBlur(150))
+    inv = m.point(lambda v: int((255 - v) / 255 * strength))
+    out = Image.new("RGBA", (W, H), (6, 5, 9, 255)); out.putalpha(inv); return out
+
+def painted(img):
     img = img.convert("RGB")
-    img = img.filter(ImageFilter.GaussianBlur(0.7))
-    img = img.filter(ImageFilter.UnsharpMask(radius=3, percent=90, threshold=2))
-    img = ImageEnhance.Color(img).enhance(1.12)
-    img = ImageEnhance.Contrast(img).enhance(1.06)
-    # subtle painterly clumping
-    img = img.filter(ImageFilter.MedianFilter(3))
-    img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=60, threshold=1))
+    img = img.filter(ImageFilter.GaussianBlur(0.6))
+    img = img.filter(ImageFilter.UnsharpMask(3, 110, 2))
+    img = img.filter(ImageFilter.SMOOTH_MORE)
+    img = img.filter(ImageFilter.UnsharpMask(2, 70, 1))
+    img = ImageEnhance.Color(img).enhance(1.10)
+    img = ImageEnhance.Contrast(img).enhance(1.05)
     return img
 
-def fog(base, y0, y1, color=(150, 160, 185), amax=60, bands=5):
-    lay = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    for b in range(bands):
-        t = b / max(1, bands - 1)
-        yy = int(y0 + (y1 - y0) * t)
-        n = noise_tex(base.size[0], 80, sigma=60, tint=color, alpha=int(amax * (1 - t * 0.5)), blur=8, scale=3)
-        lay.alpha_composite(n, (0, yy))
-    base.alpha_composite(lay)
-
-def frame_title(img, title, sub):
+def title(img, t, s):
     d = ImageDraw.Draw(img, "RGBA")
-    d.rectangle([0, 0, W, H], outline=(20, 16, 12, 255), width=10)
-    d.rectangle([6, 6, W - 6, H - 6], outline=(120, 96, 50, 90), width=2)
-    f1, f2 = _font(30), _font(16, italic=True)
-    tw = d.textlength(title, font=f1)
-    d.rectangle([28, H - 86, 28 + max(tw, d.textlength(sub, font=f2)) + 34, H - 26], fill=(8, 7, 11, 165))
-    d.text((44, H - 80), title, font=f1, fill=(231, 200, 115, 255))
-    d.text((45, H - 44), sub, font=f2, fill=(176, 168, 150, 255))
+    d.rectangle([0, 0, W, H], outline=(18, 14, 10, 255), width=10)
+    d.rectangle([6, 6, W - 6, H - 6], outline=(120, 96, 50, 80), width=2)
+    f1, f2 = _font(28), _font(15, True)
+    w = max(d.textlength(t, font=f1), d.textlength(s, font=f2))
+    d.rectangle([26, H - 80, 26 + w + 34, H - 24], fill=(8, 7, 11, 170))
+    d.text((42, H - 74), t, font=f1, fill=(231, 200, 115, 255))
+    d.text((43, H - 40), s, font=f2, fill=(176, 168, 150, 255))
 
 def save(img, name):
-    img = painted_pass(img)
-    p = os.path.join(OUT, name + ".png")
-    img.save(p)
-    print(f"  painted {p}  ({img.size[0]}×{img.size[1]})")
+    painted(img).save(os.path.join(OUT, name + ".png"))
+    print(f"  painted play/maps/{name}.png")
 
-# ---------------------------------------------------------------- MAPS
-
-def market():
-    img = vgrad(W, H, (40, 33, 48), (14, 11, 18)).convert("RGBA")
-    # night sky glow above the rooftops
-    img.alpha_composite(radial(W, H, W * 0.5, 40, W * 0.8, (66, 54, 78, 150), (0, 0, 0, 0)))
-    # architecture closes off the top — painted townhouses edge to edge
-    back_arch(img, 30, 150, (66, 54, 44), (40, 32, 26), count=8, jitter=46, seed=11, kind="house")
-    img.alpha_composite(noise_tex(W, H, sigma=46, tint=(90, 78, 60), alpha=16))
-    # the square itself fills the rest of the frame, overflowing the sides and bottom
-    iso_floor(img, W // 2, 300, 22, 18, (60, 52, 44), tw=78, th=39, jitter=14, seed=5)
-    img.alpha_composite(noise_tex(W, H, sigma=52, tint=(126, 104, 80), alpha=20))
-    d = ImageDraw.Draw(img, "RGBA")
-    cx, cy = W // 2, 300
-    # fountain pool (center)
-    fx, fy = iso(cx, cy, 5, 4)
-    d.ellipse([fx - 52, fy - 26, fx + 52, fy + 26], fill=(30, 40, 52, 255))
-    d.ellipse([fx - 38, fy - 19, fx + 38, fy + 19], fill=(46, 74, 96, 255))
-    d.ellipse([fx - 20, fy - 11, fx + 20, fy + 11], fill=(86, 132, 158, 220))
-    img.alpha_composite(glow(W, H, fx, fy - 6, 70, (120, 170, 200), 60))
-    # stalls (painted awning boxes)
-    for (tx, ty, hue) in [(2, 2, (150, 70, 150)), (8, 2, (170, 120, 60)), (2, 7, (70, 110, 170)), (8, 7, (150, 70, 90))]:
-        bx, by = iso(cx, cy, tx, ty)
-        iso_block(d, bx, by + 6, 46, 22, (58, 46, 36), (62, 50, 38), (40, 32, 24))
-        d.polygon([(bx - 30, by - 24), (bx + 30, by - 24), (bx + 22, by - 38), (bx - 22, by - 38)], fill=hue + (255,))
-        d.polygon([(bx - 30, by - 24), (bx + 30, by - 24), (bx + 30, by - 21), (bx - 30, by - 21)], fill=(26, 20, 16, 255))
-    # crates / barrels
-    for (tx, ty) in [(4, 7), (6, 7), (1, 5), (9, 5), (1, 2)]:
-        bx, by = iso(cx, cy, tx, ty)
-        iso_block(d, bx, by + 4, 26, 16, (106, 79, 46), (90, 64, 36), (62, 45, 24))
-    # banners + torches along the rim
-    for (tx, ty, hue) in [(0, 1, (150, 70, 150)), (10, 1, (170, 120, 60)), (0, 8, (70, 110, 170))]:
-        bx, by = iso(cx, cy, tx, ty)
-        d.line([(bx, by), (bx, by - 50)], fill=(40, 32, 26, 255), width=4)
-        d.polygon([(bx, by - 50), (bx + 22, by - 46), (bx + 18, by - 26), (bx, by - 30)], fill=hue + (255,))
-    for (tx, ty) in [(3, 3), (7, 6)]:
-        bx, by = iso(cx, cy, tx, ty)
-        img.alpha_composite(glow(W, H, bx, by - 44, 64, (255, 180, 90), 150))
-        d.ellipse([bx - 4, by - 52, bx + 4, by - 44], fill=(255, 224, 150, 255))
-    # a couple of distant rooftops for depth (top of frame)
-    for rx in range(-1, 12, 2):
-        bx, by = iso(cx, cy - 70, rx, 0)
-        iso_block(d, bx, by + 10, 70, 60, (40, 34, 44), (34, 28, 38), (24, 20, 28))
-    fog(img, 60, 220, (90, 80, 110), amax=42, bands=4)
-    img.alpha_composite(glow(W, H, W * 0.5, 70, W * 0.6, (90, 80, 130), 70))
-    img.alpha_composite(vignette(W, H, 150))
-    frame_title(img, "The Market of the Causeway", "torchlit square at dusk · where the road to the Wall begins")
-    save(img, "market")
-
-def wall():
-    img = vgrad(W, H, (40, 44, 56), (8, 10, 16)).convert("RGBA")
-    d = ImageDraw.Draw(img, "RGBA")
-    # the Wall of the Faithless — vast grey stone filling the whole upper frame, faces in it
-    wall_top = 0
-    wall_h = 250
-    d.rectangle([0, wall_top, W, wall_h], fill=(44, 44, 54, 255))
-    # block courses
-    for j in range(0, wall_h, 42):
-        d.line([(0, j), (W, j)], fill=(28, 28, 36, 140), width=2)
-        for i in range((j // 42 % 2) * 32, W, 64):
-            d.line([(i, j), (i, j + 42)], fill=(28, 28, 36, 120), width=2)
-    img.alpha_composite(noise_tex(W, H, sigma=40, tint=(110, 115, 135), alpha=20))
-    rnd = random.Random(3)
-    for _ in range(420):  # ten thousand faces, suggested
-        fx, fy = rnd.randint(8, W - 8), rnd.randint(18, wall_h - 18)
-        s = rnd.uniform(0.7, 1.5)
-        d.ellipse([fx - 5 * s, fy - 7 * s, fx + 5 * s, fy + 7 * s], fill=(150, 155, 172, 34))
-        d.ellipse([fx - 2 * s, fy - 2, fx - 1 * s, fy - 1], fill=(8, 8, 12, 110))
-        d.ellipse([fx + 1 * s, fy - 2, fx + 2 * s, fy - 1], fill=(8, 8, 12, 110))
-        d.arc([fx - 3 * s, fy + 1, fx + 3 * s, fy + 5], 200, 340, fill=(8, 8, 12, 70))
-    img.alpha_composite(glow(W, H, W * 0.5, wall_h - 30, W * 0.9, (110, 130, 170), 44))
-    # the salt-marsh floor in front, overflowing the frame
-    iso_floor(img, W // 2, 290, 22, 16, (42, 46, 50), jitter=10, seed=4)
-    img.alpha_composite(noise_tex(W, H, sigma=46, tint=(86, 96, 116), alpha=18))
-    cx, cy = W // 2, 290
-    # the last torch (lone warm light against all that grey)
-    tx, ty = iso(cx, cy, 5, 2)
-    img.alpha_composite(glow(W, H, tx, ty - 50, 120, (255, 170, 80), 200))
-    d.line([(tx, ty + 2), (tx, ty - 44)], fill=(40, 36, 30, 255), width=5)
-    d.polygon([(tx - 8, ty - 44), (tx, ty - 70), (tx + 8, ty - 44)], fill=(255, 180, 80, 255))
-    d.polygon([(tx - 4, ty - 46), (tx, ty - 60), (tx + 4, ty - 46)], fill=(255, 232, 160, 255))
-    # greywort glowing at the wall's foot
-    gx, gy = iso(cx, cy, 2, 1)
-    img.alpha_composite(glow(W, H, gx, gy, 36, (150, 200, 200), 90))
-    # dead marsh tree + pilings
-    for (px, py) in [(1, 5), (9, 5), (9, 7)]:
-        bx, by = iso(cx, cy, px, py)
-        iso_block(d, bx, by + 4, 14, 30, (60, 52, 36), (48, 40, 26), (30, 24, 16))
-    dx, dy = iso(cx, cy, 8, 3)
-    d.line([(dx, dy + 2), (dx - 2, dy - 34)], fill=(38, 32, 28, 255), width=5)
-    for ang in (-0.5, 0.3, -0.2, 0.6):
-        d.line([(dx, dy - 24), (dx + math.cos(ang) * 18, dy - 24 - abs(math.sin(ang)) * 22)], fill=(38, 32, 28, 255), width=2)
-    # marsh reeds
-    for (px, py) in [(1, 4), (10, 4), (3, 6)]:
-        bx, by = iso(cx, cy, px, py)
-        for k in range(-3, 4):
-            d.line([(bx + k * 3, by + 3), (bx + k * 3 + (k % 2) * 3, by - 22 - abs(k) * 2)], fill=(40, 60, 44, 220), width=2)
-    fog(img, wall_top + 110, 360, (140, 150, 175), amax=70, bands=6)
-    img.alpha_composite(vignette(W, H, 165))
-    frame_title(img, "Past the Last Torch", "the Wall of the Faithless · ten thousand faces in the cold grey stone")
-    save(img, "wall")
-
-def court():
-    img = vgrad(W, H, (24, 26, 44), (5, 5, 11)).convert("RGBA")
-    img.alpha_composite(radial(W, H, W * 0.5, 80, W * 0.85, (44, 54, 96, 150), (0, 0, 0, 0)))
-    # a far back wall of the cathedral-of-the-dead, faces in the gloom, filling the top
-    d = ImageDraw.Draw(img, "RGBA")
-    d.rectangle([0, 0, W, 150], fill=(20, 22, 36, 255))
-    rnd = random.Random(9)
-    for _ in range(120):
-        fx, fy = rnd.randint(8, W - 8), rnd.randint(14, 140)
-        d.ellipse([fx - 4, fy - 6, fx + 4, fy + 6], fill=(90, 100, 150, 26))
-    img.alpha_composite(noise_tex(W, H, sigma=40, tint=(70, 80, 130), alpha=14))
-    iso_floor(img, W // 2, 320, 22, 16, (30, 32, 48), jitter=8, seed=6)
-    img.alpha_composite(noise_tex(W, H, sigma=42, tint=(78, 88, 138), alpha=16))
-    cx, cy = W // 2, 320
-    # great pillars receding, filling the depth to the frame edges
-    for (px, py) in [(-1, 6), (10, 6), (0, 3), (9, 3), (1, 0), (8, 0), (3, -1), (6, -1)]:
-        bx, by = iso(cx, cy, px, py)
-        iso_block(d, bx, by + 6, 40, 230, (40, 42, 58), (32, 34, 48), (20, 22, 34))
-    # the throne (antlered, on a dais, cold blue god-light behind)
-    txx, tyy = iso(cx, cy, 5, 1)
-    img.alpha_composite(glow(W, H, txx, tyy - 40, 150, (110, 140, 210), 120))
-    iso_block(d, txx, tyy + 6, 44, 30, (44, 44, 62), (36, 36, 52), (24, 24, 38))
-    d.polygon([(txx - 13, tyy - 18), (txx - 13, tyy - 62), (txx + 13, tyy - 62), (txx + 13, tyy - 18)], fill=(58, 58, 84, 255))
-    for k in (-1, 0, 1):  # antler finials
-        d.line([(txx + k * 8, tyy - 62), (txx + k * 10, tyy - 80 - abs(k) * 6)], fill=(150, 130, 70, 255), width=3)
-    # the Crown of Horns, turning at the throne's foot
-    crx, cry = iso(cx, cy, 5, 3)
-    img.alpha_composite(glow(W, H, crx, cry - 6, 40, (210, 170, 90), 120))
-    d.arc([crx - 16, cry - 12, crx + 16, cry + 6], 180, 360, fill=(40, 36, 30, 255), width=4)
-    for k in (-2, -1, 0, 1, 2):
-        d.line([(crx + k * 6, cry - 8), (crx + k * 7, cry - 22 - abs(k) * 2)], fill=(24, 20, 18, 255), width=2)
-    # two grey balance-shrines flanking
-    for (px, py) in [(2, 2), (8, 2)]:
-        bx, by = iso(cx, cy, px, py)
-        iso_block(d, bx, by + 5, 18, 26, (44, 46, 60), (36, 38, 50), (24, 26, 36))
-        d.line([(bx, by - 22), (bx, by - 52)], fill=(130, 135, 160, 255), width=2)
-        d.line([(bx - 16, by - 50), (bx + 16, by - 48)], fill=(130, 135, 160, 255), width=2)
-    # cold candle pairs
-    for (px, py) in [(4, 3), (6, 3)]:
-        bx, by = iso(cx, cy, px, py)
-        img.alpha_composite(glow(W, H, bx, by - 14, 26, (255, 210, 130), 90))
-    # god-rays from above
-    rays = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    rd = ImageDraw.Draw(rays)
-    for k in range(-3, 4):
-        rd.polygon([(W / 2, -40), (W / 2 + k * 60 - 30, H), (W / 2 + k * 60 + 30, H)], fill=(120, 150, 210, 16))
-    img.alpha_composite(rays.filter(ImageFilter.GaussianBlur(18)))
-    fog(img, 120, 320, (90, 110, 160), amax=46, bands=5)
-    img.alpha_composite(vignette(W, H, 185))
-    frame_title(img, "The Court of the Dead", "Kelemvor's hall · the Crown turns at the foot of the throne")
-    save(img, "court")
-
-def reedwalk():
-    img = vgrad(W, H, (38, 44, 50), (10, 14, 20)).convert("RGBA")
-    img.alpha_composite(radial(W, H, W * 0.62, 60, W * 0.8, (62, 72, 74, 130), (0, 0, 0, 0)))
-    # far shore + the mist-veiled causeway running off to the Wall, filling the top band
-    d = ImageDraw.Draw(img, "RGBA")
-    d.rectangle([0, 70, W, 150], fill=(30, 36, 40, 220))
-    back_arch(img, 30, 96, (44, 48, 50), (28, 32, 34), count=7, jitter=30, seed=21, kind="cliff")
-    iso_floor(img, W // 2, 300, 22, 9, (52, 52, 46), jitter=11, seed=8)
-    cx, cy = W // 2, 300
-    # the river — painted water plane filling the lower frame, overflowing
-    water = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    wd = ImageDraw.Draw(water)
-    for r in range(9, 22):
-        for c in range(-2, 22):
-            x, y = iso(cx, cy, c, r)
-            if y < -40 or y > H + 40:
-                continue
-            shimmer = 18 + int(14 * math.sin(c * 0.7 + r))
-            diamond(wd, x, y, 80, 40, (26 + shimmer // 2, 50 + shimmer, 70 + shimmer, 255))
-    water = water.filter(ImageFilter.GaussianBlur(1.4))
-    img.alpha_composite(water)
-    img.alpha_composite(noise_tex(W, H, sigma=40, tint=(120, 140, 150), alpha=18))
-    # the ferry, moored
-    bx, by = iso(cx, cy, 8, 8)
-    d.polygon([(bx - 34, by - 2), (bx + 34, by - 2), (bx + 24, by - 12), (bx - 24, by - 12)], fill=(58, 44, 28, 255))
-    d.polygon([(bx - 24, by - 12), (bx + 24, by - 12), (bx, by - 6), (bx, by - 6)], fill=(74, 56, 34, 255))
-    d.line([(bx + 14, by - 9), (bx + 34, by - 40)], fill=(40, 32, 24, 255), width=3)
-    # a wayshrine + a great causeway pier
-    sx, sy = iso(cx, cy, 5, 3)
-    img.alpha_composite(glow(W, H, sx, sy - 30, 40, (150, 130, 200), 60))
-    iso_block(d, sx, sy + 5, 20, 30, (44, 40, 56), (36, 32, 48), (24, 22, 34))
-    # reeds along the bank
-    for (px, py) in [(1, 4), (10, 4), (3, 6), (10, 6), (2, 8)]:
-        rx, ry = iso(cx, cy, px, py)
-        for k in range(-3, 4):
-            d.line([(rx + k * 3, ry + 4), (rx + k * 3 + (k % 2) * 3, ry - 26 - abs(k) * 2)], fill=(46, 66, 48, 230), width=2)
-    fog(img, 200, 420, (150, 165, 175), amax=66, bands=6)
-    img.alpha_composite(vignette(W, H, 160))
-    frame_title(img, "The Reed-Walk", "the cold river below the market · where the causeway meets the water")
-    save(img, "reedwalk")
+# =========================================================================
+# SCENE 1 — a BG2-style interior: a house in the Lamplit Quarter (cut-away)
+# =========================================================================
+def house():
+    global OX, OY
+    x0, y0, x1, y1 = 0, 0, 11, 9
+    # centre the footprint: middle grid point maps to frame centre-ish
+    midx, midy = (x0 + x1) / 2, (y0 + y1) / 2
+    OX = W // 2 - (midx - midy) * TW / 2
+    OY = 300 - (midx + midy) * TH / 2 + WALLH * 0.45
+    img = Image.new("RGBA", (W, H), (10, 9, 13, 255))
+    sh = shadow_layer(); glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    # floors: parlour planks (left), stone entry (front), bedrooms planks (right)
+    plank_floor(img, x0, y0, 6, 5, (100, 74, 47), seed=4)
+    stone_floor(img, x0, 5, 6, y1, (94, 90, 82), seed=7)
+    plank_floor(img, 6, y0, x1, y1, (92, 68, 43), seed=9)
+    ambient_occlusion(img, x0, y0, x1, y1, depth=110)
+    # back walls (top-left & top-right) — IE cut-away: near walls omitted, we see in
+    wall_run(img, sh, (x0, y0), (x1, y0))      # back-right wall (long)
+    wall_run(img, sh, (x0, y0), (x0, y1))      # back-left wall (long)
+    # interior partitions making rooms (lower, so we read over them)
+    wall_run(img, sh, (6, y0), (6, 5.0), h=96, col=(108, 104, 100))   # vertical divider
+    wall_run(img, sh, (6, 3.0), (x1, 3.0), h=96, col=(108, 104, 100)) # bedrooms split
+    wall_run(img, sh, (6, 5.0), (x1, 5.0), h=96, col=(108, 104, 100)) # corridor wall
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))       # shadows under props
+    # --- parlour (left) ---
+    rug(img, 2.8, 2.6, 1.9, 1.25, (124, 44, 46))
+    fireplace(img, sh, glow, 0.55, 1.4)
+    table(img, sh, 2.8, 2.6, .62, .46)
+    for cx in (1.7, 3.9):
+        box(img, sh, cx, 2.6, .2, .2, 26, (62, 46, 30), (66, 50, 32), (44, 32, 20))   # chairs
+    box(img, sh, 0.7, 4.0, .42, .5, 132, (70, 52, 34), (74, 56, 36), (48, 36, 22))    # tall dresser
+    box(img, sh, 4.6, 0.7, .45, .35, 150, (66, 50, 32), (70, 54, 34), (44, 34, 22))   # bookshelf
+    # --- bedrooms (right, two of them) ---
+    bed(img, sh, 8.0, 1.4); box(img, sh, 9.6, 1.3, .35, .3, 30, (84, 64, 40), (88, 68, 42), (56, 42, 26))  # bed + nightstand
+    bed(img, sh, 8.0, 4.2); box(img, sh, 9.6, 4.2, .35, .3, 30, (84, 64, 40), (88, 68, 42), (56, 42, 26))
+    table(img, sh, 8.4, 7.0, .6, .45)
+    box(img, sh, 9.8, 7.2, .2, .2, 26, (62, 46, 30), (66, 50, 32), (44, 32, 20))
+    # --- entry / storage (front-left, stone) ---
+    barrel(img, sh, 1.0, 6.6); barrel(img, sh, 1.7, 6.9); barrel(img, sh, 1.2, 7.6)
+    box(img, sh, 3.4, 7.2, .5, .5, 40, (96, 70, 42), (100, 74, 44), (66, 48, 28))     # crate stack
+    box(img, sh, 4.2, 7.6, .4, .4, 30, (96, 70, 42), (100, 74, 44), (66, 48, 28))
+    # warm light: fire + wall sconces along the back walls
+    for (gx, gy) in [(2.4, 0.2), (5.4, 0.2), (8.6, 0.2), (0.2, 2.4), (0.2, 5.6)]:
+        x, y = iso(gx, gy); sconce(img, glow, x, y - 96)
+    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(2)))
+    # cool moonlight from the open near side, warm interior pool
+    amb = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(amb).rectangle([0, 0, W, H], fill=(38, 44, 76, 24))
+    img.alpha_composite(amb)
+    img.alpha_composite(radial(W, H, *iso(3, 2.6), 360, (255, 180, 90, 30), (0, 0, 0, 0)))
+    grain(img, 9)
+    img.alpha_composite(vignette(150))
+    title(img, "A House in the Lamplit Quarter", "interior · Infinity-Engine cut-away — plank floors, cut-stone walls, hearthlight")
+    save(img, "house")
 
 if __name__ == "__main__":
-    print("Painting Infinity-Engine-style area maps (original / CC0)…")
-    market(); wall(); court(); reedwalk()
+    print("Painting IE-style area maps (v2 — materials, architecture, light)…")
+    house()
     print("done — see play/maps/")
