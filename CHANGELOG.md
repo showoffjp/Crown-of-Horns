@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v5.11.0 — *"The Unburdening"* — a twenty-eighth zone: a confession structure (witness, don't absolve) (content)
+
+> An eleventh new structure — the **confession** — where *you* are the one who hears, and the mechanic is your
+> *response.* Three penitents, three guilts, and a single hard-won lesson: absolution was never the confessor's to
+> give; cheap grace traps, and witnessing-without-judgment is what frees.
+- ⛪ **A twenty-eighth zone — the Unburdening** (off the Hearth). Three souls: **the Penitent Baker** (a small wrong
+  that grew — a shut door, a child dead three streets over, carried as murder); **the Silent Watchman** (a *failure
+  to act* — one unsaid word that would have saved a man); and **Goodman Vance** (the hard case — a real cruelty, and
+  a soul that wants easy absolution).
+- 👂 **Hearing comes before answering** — the response beats are gated on having heard the whole confession first.
+  And the right-sizing is the cure: the baker isn't a murderer (carry the grief, set down the guilt); the watchman
+  carries forty murderers' crime as his one silence (name it real, but one soul's worth, not forty's). A **[RETURNED]**
+  can *carry* the weight into the cold, not to erase it but so it isn't borne alone.
+- 🚪 **The unrepentant soul tests the whole thesis.** Vance has said *sorry* a thousand times and rages that the door
+  stays shut — because he's sorry it's *kept* him here, not sorry he *did* it. Grant him the cheap grace he begs for
+  and the door *stays dark* (cheap forgiveness is the chain — it lets him not feel it, and the not-feeling is what
+  seals him). An **Insight** read names the performance; the **[RETURNED]** *refuses* the cheap grace — the harder,
+  kinder thing — and that refusal is the first true mercy anyone's done him, because it makes him finally carry the
+  weight until it lands.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,091 checks**, all green). **28 zones, 97 souls** — eleven
+  fresh structures this stretch; three souls short of a hundred.
+
+---
+
 ## 👑 v5.10.0 — *"The Unfinished Argument"* — a twenty-seventh zone: a disputation (free a soul by finishing its argument) (content)
 
 > A tenth new structure — the **disputation.** A dead philosopher, Makeb the Elder, has argued the justice of the

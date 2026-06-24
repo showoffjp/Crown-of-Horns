@@ -1354,6 +1354,30 @@ check("the rival's true anchor (not pride, but unsaid love) and the student's (l
 check("each Disputation soul carries a [RETURNED] line + a Returned-sense", [phil, dpRival, dpStudent].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-eighth zone: the Unburdening — a confession structure (witness, don't absolve) ----
+const CF = SCENES && SCENES.confession;
+check("a twenty-eighth zone (the Unburdening) ships — a confession/penance structure", CF && CF.npcs.length >= 3);
+check("the Unburdening is reached off the Hearth", (SCENES.hearth.exits || []).some(x => x.to === "confession"));
+const cfThief = CONVS.find(c => c.id === "cf.thief");
+const cfCoward = CONVS.find(c => c.id === "cf.coward");
+const cfCruel = CONVS.find(c => c.id === "cf.cruel");
+check("the three penitents are present (the small wrong, the failure to act, the unrepentant)", cfThief && cfCoward && cfCruel);
+check("hearing must come before the response — the witness/ease beats are gated on having heard the confession first", (() => {
+  const ease = cfThief.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "thief_witness");
+  const heard = E.newState(); heard.bools["cf.heard_thief"] = true;
+  return ease && ease.when && E.choiceAvailable(goodGuy, heard, ease, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), ease, MODEL) === false;
+})());
+check("the lesson is witness, not absolution — easing the penitents frees them by right-sizing the guilt", cfThief.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cf.witness_not_absolve")) && cfCoward.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "cf.witness_not_absolve")));
+check("the unrepentant soul is the hard case — cheap grace TRAPS him (the door stays shut), refusing it begins the real thing", cfCruel &&
+  cfCruel.nodes.find(n => n.id === "cruel_cheap").effects.some(e => e.key === "cf.cruel_still_stuck") &&
+  cfCruel.nodes.find(n => n.id === "cruel_refuse").effects.some(e => e.key === "cf.cruel_begins_real"));
+check("an Insight read names the performance (sorry it's kept him here, not sorry he did it)", cfCruel.nodes.find(n => n.id === "1").choices.some(ch =>
+  (ch.check || {}).skill === "Insight" && cfCruel.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "cf.cruel_unmasked")));
+check("each Unburdening soul carries a [RETURNED] line + a Returned-sense", [cfThief, cfCoward, cfCruel].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
