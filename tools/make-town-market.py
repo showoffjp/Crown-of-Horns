@@ -29,6 +29,7 @@ VAULT = json.load(open(os.path.join(ROOT, "play", "vault.json"), encoding="utf-8
 COURT = json.load(open(os.path.join(ROOT, "play", "court.json"), encoding="utf-8"))
 EPILOGUE = json.load(open(os.path.join(ROOT, "play", "epilogue.json"), encoding="utf-8"))
 WEEPING = json.load(open(os.path.join(ROOT, "play", "weepinghouse.json"), encoding="utf-8"))
+CISTERN = json.load(open(os.path.join(ROOT, "play", "cistern.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -98,6 +99,9 @@ INT_LABELS = {
     "wh.matron.regard": "the Lady of the House's regard",
     "wh.tam.regard": "Tam's trust in you",
     "wh.keeper.regard": "Goodwife Harl's regard",
+    "ci.sedge.regard": "Mother Sedge's regard",
+    "ci.berin.regard": "Old Berin's regard",
+    "ci.gnaw.regard": "the Gnaw — drawn toward you",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -156,13 +160,17 @@ NPC_SENSE = {
     "wh.matron": {"dc": 12, "text": "*(You turn your sense on the grey Lady and find a soul frozen at the exact instant of its worst choice — not cruel, not wicked, only *unbearably* certain, a woman who has built an entire afterlife out of *counting* so she never has to *feel* the one night she chose the silver over her husband's hand. The cold in her is self-inflicted, a wall of bookkeeping against a single unsurvivable memory. But your sense finds the crack she can't: she has the *direction* of her waiting wrong. She believes she awaits an arrival. She is in fact refusing a departure. The whole weeping house is one woman, stuck, mistaking the door behind her for a door ahead.)*"},
     "wh.tam": {"dc": 8, "text": "*(You reach for the little ghost and find — blessedly — no horror in him at all: a child's soul, bored rather than tormented, clear-eyed in the way only the un-guilty can be. He saw the truth on the very first night and has been trying to tell it ever since, and no grown-up will hear him, because a child's true thing counts for less than an adult's wrong one. Your sense reads the small, patient ache under the boredom: he is not afraid of the warm door at the top of the stairs. He simply will not go up it without his mother — and so he waits, good and still and stuck, holding the whole house's freedom hostage to a nine-year-old's entirely reasonable refusal to leave his mama behind.)*"},
     "wh.keeper": {"dc": 11, "text": "*(The housekeeper's shade reads, to your sense, as a soul caged by its own finest quality: loyalty. She has known the truth that would free this whole house since the night it burned — that the guard was latched, that the Lady is blameless — and forty years of service have made it *impossible* for her to say it, because a good housekeeper does not correct her mistress un-asked. Your sense finds the exhaustion under the duty, vast and aching: she stayed out of love, kept silent out of respect, and her love and respect became the very bars of the cage. She is praying, without quite letting herself form the words, for someone unbound by service to say the unkind kind thing she never could.)*"},
+    "ci.sedge": {"dc": 10, "text": "*(You reach for the washerwoman and find a soul being eaten alive from the inside — not by the cistern-thing directly, but by the particular horror it deals: she is losing the people she loves and cannot even grieve them, because the grief needs a face and a name to attach to, and those are exactly what the thing takes. Your sense reads the gap where a child used to be — a little dress she folds and weeps over and cannot place — and understands that this is the Hunger's truest cruelty, the one the Wall itself practises: it does not just take the dead, it takes the *missing*, so the living are left aching at a hole with nothing on the other end of it.)*"},
+    "ci.berin": {"dc": 12, "text": "*(Your sense settles on the old man and finds, against all the thinning around him, a memory like a struck flint — hard, bright, and held by sheer furious will. He is the one soul the cistern-thing cannot file down, and your sense reads exactly why: he holds the forgotten one's name not out of love but out of *shame*, and shame is the one kind of remembering that will not let go. He passed a pauper-sweep every dawn for thirty years and never learned her name until the day she froze unmourned — and now he carries it like a stone, the last witness on a whole row that chose to forget, exhausting himself nightly to keep one name out of the nothing.)*"},
+    "ci.gnaw": {"dc": 8, "text": "*(You do not so much reach for it as *recognize* it — because you have felt this exact cold at the Wall, and this is a single crumb of it, broken off and crawled up a well. Your dead-touched sense reads the thing past its hunger: it is not a monster and was never born one. It is a person — a pauper named Nettie, though she has forgotten it — forgotten so completely, by a whole row, for so long, that she curdled into a fragment of the Hunger and learned to do to others what was done to her. There is no malice in it. There is only a starvation so total it has eaten even the memory of having been full. And under the appetite, flinching from the names you carry, there is still — barely — a who, waiting to be looked at.)*"},
     "court.esuele": {"dc": 6, "text": "*(You reach for her and find — to your aching relief — a soul that has *steadied.* The thimbleful that was nearly gone in the Wall has stopped tipping; carried in out of the wind of forgetting, witnessed across a causeway and a god's own road, Esuele is *holding.* Faded still, frightened still, but *here*, and *whole-ish*, and *hers.* Your sense reads no cold creeping in her now — only a terrified, carefully-rationed hope, and the dawning understanding that she is not the appeal's victim but its *first witness*, standing straight before the Judge's own seat as living proof that memory beats his Wall. She is what salvation looks like one third of the way done.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
            + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
-           + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]):
+           + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
+           + CISTERN["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
@@ -170,7 +178,8 @@ ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
              + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
-             + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"])
+             + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
+             + CISTERN["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
@@ -178,7 +187,7 @@ ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene
               WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"],
               NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"],
               COURT["scene"]["id"]: COURT["scene"], EPILOGUE["scene"]["id"]: EPILOGUE["scene"],
-              WEEPING["scene"]["id"]: WEEPING["scene"]}
+              WEEPING["scene"]["id"]: WEEPING["scene"], CISTERN["scene"]["id"]: CISTERN["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -325,7 +334,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">fifteen walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">sixteen walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">

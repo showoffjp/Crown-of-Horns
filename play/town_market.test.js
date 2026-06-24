@@ -925,6 +925,29 @@ check("solving the haunting frees the family (and a nat-20 breakthrough exists)"
 check("each Weeping-House soul carries a [RETURNED] line", [matron, tamC, keeperC].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 
+// ---- sixteenth zone: the Old Cistern — a monster-with-a-reason side quest (redeem or destroy) ----
+const CIST = SCENES && SCENES.cistern;
+check("a sixteenth zone (the Old Cistern) ships as side content", CIST && CIST.npcs.length >= 3);
+check("the Cistern is reachable from the Underbridge (another optional branch)", (SCENES.underbridge.exits || []).some(x => x.to === "cistern"));
+const gnaw = CONVS.find(c => c.id === "ci.gnaw");
+const berinC = CONVS.find(c => c.id === "ci.berin");
+check("the haunting's three souls are present (the frightened local, the rememberer, the monster)", gnaw &&
+  berinC && CONVS.find(c => c.id === "ci.sedge"));
+check("the monster is revealed as the Hunger (a forgotten soul) — the saga's heart, in a side quest", gnaw.returned &&
+  /Hunger|Nettie|forgotten/i.test(JSON.stringify(gnaw.nodes.find(n => n.id === "0"))));
+const witnessOpt = gnaw.nodes.find(n => n.id === "1").choices.find(ch => ch.when && ch.when.flags && ch.when.flags.indexOf("ci.knows_nettie") >= 0);
+const knowsName = E.newState(); knowsName.bools["ci.knows_nettie"] = true;
+check("you can only witness the monster back into a person once you've learned its name (Nettie)", witnessOpt &&
+  E.choiceAvailable(goodGuy, knowsName, witnessOpt, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), witnessOpt, MODEL) === false);
+check("the rememberer surfaces the name; the quest can resolve by redemption or by a sorrowful end",
+  berinC.nodes.some(n => (n.effects || []).some(e => e.key === "ci.knows_nettie")) &&
+  gnaw.nodes.some(n => (n.effects || []).some(e => e.key === "ci.gnaw_witnessed")) &&
+  gnaw.nodes.some(n => (n.effects || []).some(e => e.key === "ci.gnaw_ended")));
+check("the monster offers a force fork (intimidate) with nat-20/nat-1, distinct from the witness path",
+  gnaw.nodes.find(n => n.id === "1").choices.some(ch => (ch.check || {}).skill === "Intimidation" && ch.crit && ch.fumble));
+check("each Cistern soul carries a [RETURNED] line", [gnaw, berinC, CONVS.find(c => c.id === "ci.sedge")].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v4.93.0 — *"The Old Cistern"* — a sixteenth zone: a monster-with-a-reason side quest (redeem or destroy) (content)
+
+> Another self-contained side quest, another fresh structure: the Planescape move — the *monster you can redeem
+> instead of kill.* A thing is eating a neighbourhood's *memories* from an old cistern, and it turns out to be a
+> fragment of the saga's own **Hunger**: a soul forgotten so completely she curdled into a monster. The way to
+> "defeat" her is the saga's whole thesis — *witness her back into a person.*
+
+- 🕳️ **A sixteenth zone — the Old Cistern (side content).** Reached from the Underbridge; the map now branches in
+  two directions (the Vault and the Cistern) off one hub. Built from the existing prop vocabulary (no new art).
+- 👁️ **A monster-with-a-reason, with a redeem/destroy fork.** The **Gnaw** rises at dusk and *thins* you — you
+  literally lose half-known names mid-conversation. But it is not malice; it is a starvation so total it has eaten
+  even the memory of having been full. Resolutions: **witness it back** (gated on learning its name — the soul
+  surfaces, becomes a person, and the eaten names return to the row); **intimidate it** (a force fork with
+  nat-20/nat-1 — you save the row, but only frighten the thing back into the dark, hoard returned, soul *not*
+  saved); or, if it's too far gone and you've no name, **end it** with regret (the true cost of looking away:
+  by the time someone finally looks, it can be too late to do anything but close the eyes you were too slow to
+  meet).
+- 🔎 **The name is the weapon, and you have to earn it.** **Mother Sedge**, a washerwoman, is losing the people
+  she loves and can't even grieve them (a little dress she folds and can't place). **Old Berin** holds the
+  forgotten one's name — *Nettie*, a pauper-sweep who fed the strays and froze unmourned by the cistern — not out
+  of love but out of *shame*, the one kind of remembering that won't let go. Learn it from him to call her home.
+- 🎭 Full deep stack: reactive openings, the **Returned-sense** on each soul, a Returned line apiece, dispositions
+  — and the Gnaw's whole conversation is written to *thin* you (names dissolving mid-scene) until you arrive
+  carrying one it can't take.
+- 🧪 **+8 gates** (now **966 checks**, all green): the side zone is keyed/reachable/collision-clean, the monster is
+  revealed as a fragment of the Hunger, witnessing it back is gated on learning Nettie's name, the rememberer
+  surfaces it, both redemption and sorrowful-end paths resolve, and the force fork carries nat-20/nat-1. **16
+  zones, 54 souls** — the world keeps growing.
+
+---
+
 ## 👑 v4.92.0 — *"The Weeping House"* — a fifteenth zone: a self-contained investigation/mystery side quest (content)
 
 > The main saga is narrative-complete, so this one grows the *world* — the bible's "100+ NPCs, many rewarding
