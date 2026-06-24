@@ -1513,6 +1513,28 @@ check("even the cold factor secretly hopes you find the third column it can neve
 check("each Custody soul carries a [RETURNED] line + a Returned-sense", [cuMother, cuHerald, cuChild].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-fourth zone: the Long Walk — a pilgrimage (a road of stations: start, doubt, arrival) ----
+const PL = SCENES && SCENES.pilgrimage;
+check("a thirty-fourth zone (the Long Walk) ships — a pilgrimage/road-of-stations structure", PL && PL.npcs.length >= 3);
+check("the pilgrim road is reached off the Grey Wayshrine", (SCENES.wayshrine.exits || []).some(x => x.to === "pilgrimage"));
+const plStart = CONVS.find(c => c.id === "pl.starter");
+const plDoubt = CONVS.find(c => c.id === "pl.doubter");
+const plArr = CONVS.find(c => c.id === "pl.arrived");
+check("the road's three stations are present (the newly-set-out, the wavering, the arrived-but-balked)", plStart && plDoubt && plArr);
+check("the Returned — who has BEEN to the destination — can tell each pilgrim the truth the creed can't", plStart &&
+  plStart.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+  plArr.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")));
+check("the starter can be re-aimed (arrive useful, not proud) OR disillusioned (the walking changes only the walker)", plStart &&
+  plStart.nodes.find(n => n.id === "start_truth_judge") && plStart.nodes.find(n => n.id === "start_truth_creed") &&
+  plStart.nodes.find(n => n.id === "start_truth_judge").effects.some(e => e.key === "pl.creed_reaimed"));
+check("the doubter's third axis: not up or down but sideways — keep the halfway for the next frozen pilgrim", plDoubt.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "pl.doubter_keeps_halfway")));
+check("the arrived soul is trapped by its own success (finishing un-makes the pilgrim) and freed by the work never ending", plArr.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "pl.arrived_identity_trap")) &&
+  plArr.nodes.find(n => n.id === "arr_returned").effects.some(e => e.key === "pl.arrived_goes_in"));
+check("each Long-Walk soul carries a [RETURNED] line + a Returned-sense", [plStart, plDoubt, plArr].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
 const epiChron = CONVS.find(c => c.id === "epi.chronicler");
 check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&

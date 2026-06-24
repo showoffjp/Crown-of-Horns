@@ -100,6 +100,16 @@
           "y": 8
         },
         "label": "▸ where the dead gather to weigh you — the Assize"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "pilgrimage",
+        "dest": {
+          "x": 5,
+          "y": 8
+        },
+        "label": "▸ the pilgrim road — souls who walk to the Court on foot"
       }
     ],
     "npcs": [

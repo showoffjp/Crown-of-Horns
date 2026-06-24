@@ -11,6 +11,29 @@
 
 ---
 
+## 👑 v6.7.0 — *"The Long Walk"* — a thirty-fourth zone: a pilgrimage (a road of stations) (content)
+
+> A seventeenth structure, and a *moving* one — a road, not a room. The souls who refuse to be ferried to the Court
+> and **walk** it on foot, every grey mile a devotion. You meet three pilgrims at three stations of the journey —
+> and because the Returned has *been* to the destination the whole creed walks toward, you can tell each of them the
+> truth the road hides.
+- 🥾 **A thirty-fourth zone — the Long Walk** (off the Grey Wayshrine). Three stations: **Brother Calwin**, three
+  days set out, radiant and certain; **Goodwife Tamsin**, frozen at the doubting halfway, facing neither up nor
+  down; and **Old Ferd**, who walked the whole three hundred miles and *will not take the last step.*
+- 🧭 **Each station interrogates faith differently.** The **starter** believes the walking *earns* the Judge — and a
+  **[RETURNED]** who's stood before Kelemvor can re-aim the creed (the god is drowning, not weighing; arrive *useful*,
+  not proud) or disillusion it (the walking changes only the walker, never the Judge — a vanity with blisters). The
+  **doubter** is stuck because she thinks the road has only two directions, both defeats — until you give her the
+  *third axis*: turn sideways, *keep the halfway* for the next frozen pilgrim. The **arrived** soul is trapped by its
+  own success — it became the walking so completely that finishing un-makes the only self it has — and only a soul
+  that's been *through* the door can free it: *the door isn't the end of the walking; it's where the walking finally
+  arrives somewhere it can do good. The work of the dead never finishes.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,146 checks**, all green). **34 zones, 117 souls** —
+  seventeen structures, and the saga has now examined faith from the inside (the disputation argued whether the Wall
+  is just; the pilgrimage asks whether the *destination* is worth the walking).
+
+---
+
 ## 👑 v6.6.0 — *"The Custody of the Small"* — a thirty-third zone: an arbitration (a trilemma over a dead child) (content)
 
 > A sixteenth structure, and a player-role the saga hadn't asked of you: **arbiter.** Not a stuck soul to free, but a
