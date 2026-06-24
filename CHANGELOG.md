@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v5.8.0 — *"The Inquest of the Un-Made"* — a twenty-fifth zone: a whodunit with clue-gated accusation (content)
+
+> An eighth new structure, and a genuinely new *mechanic* — **deduction.** A soul named Sella has been *un-made*:
+> not walled, not moved on, but *erased*, root and memory, which the dead are not supposed to be able to do to each
+> other. You gather clues from the souls around the absence and make a **clue-gated accusation** — and the solution
+> is a Crown-of-Horns trolley problem.
+- 🔍 **A twenty-fifth zone — the Inquest** (off the Underbridge). Three roles: **Old Gantry**, who keeps vigil over
+  the soul-shaped hole; **the Bereaved**, who loved Sella and is losing even the memory of her to the erasure; and
+  **the Quiet Neighbor**, the one soul in a terrified place who isn't afraid.
+- 🧩 **Real deduction.** You can't accuse until you've gathered evidence from *both* the bereaved (who saw the
+  Neighbor weeping with Sella the night before) and the absence itself (a **[RETURNED]** can read the clean,
+  *channeled* erasure — a soul drained, not destroyed, by a hand that walked away fuller). Only with both clues does
+  the accusation option unlock at Gantry.
+- 🚃 **The twist is the saga's whole question, catchable.** The Neighbor isn't a predator — it's a **warden.** It
+  found a Hunger-fragment in the old foundations and feeds it one carefully-chosen soul to keep it from eating
+  *everyone*: the exact arithmetic of the Concord, run small and honest and alone, *right every time*, which is the
+  horror. **Insight** reveals it's emptier, not fuller, each time. And a Returned who learned the bargain can hand
+  it the **third door** — the cistern's lesson, that the Hunger feeds on being *forgotten*, not on death, so it's had
+  the cure backwards, feeding the fragment the very forgotten souls it grows on.
+- 🕯️ **Witness beats erasure:** the dead-touched player can carry the erased Sella *into the cold* where the un-making
+  can't reach, so the gentlest soul on the Underbridge isn't gone — she lives, witnessed, in you.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,065 checks**, all green). **25 zones, 88 souls** — eight
+  fresh structures this stretch (bargain, trial, heist, devil-pact, self-trial, siege, wake, whodunit).
+
+---
+
 ## 👑 v5.7.0 — *"The Wake of Goodman Doget"* — a twenty-fourth zone: tonal relief, a celebration among the grief (content)
 
 > After six grand structures of cosmic weight, a deliberate change of key: the one gathering on the whole grey

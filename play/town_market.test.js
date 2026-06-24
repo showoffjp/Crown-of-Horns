@@ -1272,6 +1272,35 @@ check("you can carry the wkUninvited's song even if you can't carry the soul (a 
 check("each Wake soul carries a [RETURNED] line + a Returned-sense", [wkTib, wkDoget, wkUninvited].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-fifth zone: the Inquest of the Un-Made — a whodunit with clue-gated accusation ----
+const IQ = SCENES && SCENES.inquest;
+check("a twenty-fifth zone (the Inquest) ships — a deduction/accusation structure", IQ && IQ.npcs.length >= 3);
+check("the Inquest is reached off the Underbridge", (SCENES.underbridge.exits || []).some(x => x.to === "inquest"));
+const iqKeeper = CONVS.find(c => c.id === "iq.keeper");
+const iqGrieved = CONVS.find(c => c.id === "iq.grieved");
+const iqBroker = CONVS.find(c => c.id === "iq.broker");
+check("the inquest's three roles are present (the keeper, the bereaved, the suspect)", iqKeeper && iqGrieved && iqBroker);
+check("the accusation is CLUE-GATED — you can only name the culprit once you've gathered evidence from both others", (() => {
+  const accuse = iqKeeper.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "keeper_accuse");
+  const both = E.newState(); both.bools["iq.clue_grieved"] = true; both.bools["iq.clue_broker"] = true;
+  return accuse && accuse.when && (accuse.when.flags || []).indexOf("iq.clue_grieved") >= 0 &&
+    E.choiceAvailable(goodGuy, both, accuse, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), accuse, MODEL) === false;
+})());
+check("the [RETURNED] can read the absence itself for a clue (nothing is ever truly nothing)", iqKeeper.nodes.find(n => n.id === "1").choices.some(ch =>
+  ch.tag === "returned" && iqKeeper.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "iq.clue_broker")));
+check("the twist: the culprit is a trolley-problem warden feeding a Hunger-fragment — the Wall in miniature", iqBroker &&
+  iqBroker.nodes.some(n => (n.effects || []).some(e => e.key === "iq.wall_in_miniature")));
+check("the cistern's lesson applies — a [RETURNED] who learned the bargain can hand the warden the third door", (() => {
+  const cure = iqBroker.nodes.find(n => n.id === "1").choices.find(ch => ch.tag === "returned" && ch.next === "broker_cure");
+  const known = E.newState(); known.bools["iq.knows_the_bargain"] = true;
+  return cure && E.choiceAvailable(goodGuy, known, cure, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), cure, MODEL) === false &&
+    iqBroker.nodes.find(n => n.id === "broker_cure").effects.some(e => e.key === "iq.broker_redeemed");
+})());
+check("the dead-touched can carry the erased Sella out of reach of the un-making (witness beats erasure)", iqGrieved.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "iq.keeps_sella")));
+check("each Inquest soul carries a [RETURNED] line + a Returned-sense", [iqKeeper, iqGrieved, iqBroker].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -1,159 +1,1105 @@
 {
   "scene": {
-    "id": "underbridge", "name": "The Underbridge",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "underbridge",
+    "name": "The Underbridge",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "bridgepillar", "x": 2, "y": 2 },
-      { "type": "bridgepillar", "x": 8, "y": 2 },
-      { "type": "brazier", "x": 5, "y": 3 },
-      { "type": "loom", "x": 8, "y": 5 },
-      { "type": "pallet", "x": 3, "y": 7 },
-      { "type": "hangings", "x": 0, "y": 1, "hue": 280 },
-      { "type": "hangings", "x": 5, "y": 1, "hue": 200 },
-      { "type": "hangings", "x": 10, "y": 1, "hue": 340 },
-      { "type": "crate", "x": 6, "y": 6 },
-      { "type": "barrel", "x": 7, "y": 7 },
-      { "type": "crate", "x": 1, "y": 5 }
+      {
+        "type": "bridgepillar",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "type": "bridgepillar",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "type": "brazier",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "loom",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "pallet",
+        "x": 3,
+        "y": 7
+      },
+      {
+        "type": "hangings",
+        "x": 0,
+        "y": 1,
+        "hue": 280
+      },
+      {
+        "type": "hangings",
+        "x": 5,
+        "y": 1,
+        "hue": 200
+      },
+      {
+        "type": "hangings",
+        "x": 10,
+        "y": 1,
+        "hue": 340
+      },
+      {
+        "type": "crate",
+        "x": 6,
+        "y": 6
+      },
+      {
+        "type": "barrel",
+        "x": 7,
+        "y": 7
+      },
+      {
+        "type": "crate",
+        "x": 1,
+        "y": 5
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 6 }, "label": "◂ up the stair to the market" },
-      { "x": 5, "y": 0, "to": "vault", "dest": { "x": 5, "y": 7 }, "label": "▾ down, behind the foundations — the Vault of Tens" },
-      { "x": 9, "y": 8, "to": "cistern", "dest": { "x": 5, "y": 7 }, "label": "▸ toward the old cistern (someone's been forgetting things…)" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "market",
+        "dest": {
+          "x": 5,
+          "y": 6
+        },
+        "label": "◂ up the stair to the market"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "to": "vault",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▾ down, behind the foundations — the Vault of Tens"
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "to": "cistern",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ toward the old cistern (someone's been forgetting things…)"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "inquest",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a space in the dead where a soul should be — an inquest"
+      }
     ],
     "npcs": [
-      { "id": "wick", "name": "Wick", "title": "Pip's little brother", "x": 3, "y": 6, "hue": 150, "sigil": "Wk", "conv": "under.wick",
-        "hail": "*(a very small boy lies on a pallet of sacking near the cold brazier, too still, and turns his head to you with enormous, bright, fevered eyes)*" },
-      { "id": "pip2", "name": "Pip", "title": "keeping watch", "x": 2, "y": 6, "hue": 150, "sigil": "P", "conv": "under.pip",
-        "hail": "*(the street-child crouches between you and the small shape on the pallet, fists up, swaying with the particular exhaustion of someone days past sleep)*" },
-      { "id": "knotwife", "name": "the Knotwife", "title": "a blind weaver of bridge-banners", "x": 8, "y": 6, "hue": 280, "sigil": "K", "conv": "under.knotwife",
-        "hail": "*(an old woman sits at a loom in the dark with her milky eyes closed, weaving by touch alone, and speaks before you've made a sound)*" }
+      {
+        "id": "wick",
+        "name": "Wick",
+        "title": "Pip's little brother",
+        "x": 3,
+        "y": 6,
+        "hue": 150,
+        "sigil": "Wk",
+        "conv": "under.wick",
+        "hail": "*(a very small boy lies on a pallet of sacking near the cold brazier, too still, and turns his head to you with enormous, bright, fevered eyes)*"
+      },
+      {
+        "id": "pip2",
+        "name": "Pip",
+        "title": "keeping watch",
+        "x": 2,
+        "y": 6,
+        "hue": 150,
+        "sigil": "P",
+        "conv": "under.pip",
+        "hail": "*(the street-child crouches between you and the small shape on the pallet, fists up, swaying with the particular exhaustion of someone days past sleep)*"
+      },
+      {
+        "id": "knotwife",
+        "name": "the Knotwife",
+        "title": "a blind weaver of bridge-banners",
+        "x": 8,
+        "y": 6,
+        "hue": 280,
+        "sigil": "K",
+        "conv": "under.knotwife",
+        "hail": "*(an old woman sits at a loom in the dark with her milky eyes closed, weaving by touch alone, and speaks before you've made a sound)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "under.pip", "title": "Pip Keeps Watch", "npc": "Pip", "start": "0",
+      "id": "under.pip",
+      "title": "Pip Keeps Watch",
+      "npc": "Pip",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Pip", "onEnter": [{ "key": "under.met_pip", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Pip",
+          "onEnter": [
+            {
+              "key": "under.met_pip",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["market.helped_pip"] }, "text": "*(She's between you and the pallet before you've taken three steps — and then she sees your face, and the fists come down, and a week of held-up bravery cracks straight down the middle.)* …It's *you.* *(her voice wobbles)* The one from the crates. The one who — *(she scrubs her nose)* — who was *kind*, and didn't grab, and *knew.* *(she glances back at the small shape on the sacking)* He's worse. He's a *lot* worse, since the market. I got coppers — I got *loads* of coppers after you — but coppers don't *buy* what he needs, turns out, nobody'll *sell* it, and the Knotwife says — *(she stops, jaw working)* …you came. You actually came. Nobody comes *under* the bridge. *(small)* Can you — will you *look* at him? Just *look?* Everyone else looks *away.*" },
-            { "when": { "flags": ["market.scared_pip"] }, "text": "*(She plants herself in front of the pallet, fists up, and her scared eyes go to flint the instant she places your face.)* …*You.* *(low and shaking)* The one who threatened to call the Watch. The *grabbing* kind. *(she spreads her skinny arms wider, making herself a wall)* Well you've followed me to the *one* thing I've got left, and you can *turn right round.* There's nothing to *lift* down here but a *sick little boy*, and you'll go through *me* to get at him, and I *bite.* *(her voice cracks)* I *mean* it. Whatever you came for — it's not *here.* Go back to the *daylight* where your sort *belongs.*" },
-            { "when": { "deity": "Kelemvor" }, "text": "*(She sees the grey balance-sigil at your throat and something in her goes very still and very old.)* …You're one of *His.* *(quietly, not moving from the pallet)* A Judge's-priest. *(she swallows)* They told me your lot come *for* people. At the *end.* *(she doesn't cry; she's past it; she just looks at you with a terrible flat steadiness)* Is that — did somebody *send* you? For *Wick?* *(she sets her jaw)* 'Cause he's *little*, and he's not *ready*, and neither am *I*, and if you've come to *weigh* him you can *wait*, you can *bloody well wait*, he's got — he's got *time* yet. *(barely)* He's got to have *time* yet." },
-            { "text": "*(A small fierce figure uncoils from beside the pallet and puts herself between you and it, swaying on her feet but absolutely immovable.)* That's *far* enough. *(hoarse — a voice scraped raw from a week of not sleeping)* I don't *know* you, and *down here*, not knowing someone's the only thing keeping the little'un *breathing.* *(she squints, weighing you the way the hunted weigh everything)* So you'll tell me *quick* and *true* what a stranger wants in the *one* place nobody comes — or you'll *go.* And mister — missus — *whatever* — *(her voice shakes, holds)* — I have got *nothing left to lose down here*, which makes me the most *dangerous* thing you'll meet all *day.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Pip", "text": "*(She stays planted in front of the pallet, every muscle in her small frame strung tight, watching your hands.)* Well? *(the brazier's dead coals tick as they cool)* What's a *grown-up* want under the bridge. There's no coppers, no god, no *Watch* down here. Just us, and the cold, and *him.* So *say* it.",
+            {
+              "when": {
+                "flags": [
+                  "market.helped_pip"
+                ]
+              },
+              "text": "*(She's between you and the pallet before you've taken three steps — and then she sees your face, and the fists come down, and a week of held-up bravery cracks straight down the middle.)* …It's *you.* *(her voice wobbles)* The one from the crates. The one who — *(she scrubs her nose)* — who was *kind*, and didn't grab, and *knew.* *(she glances back at the small shape on the sacking)* He's worse. He's a *lot* worse, since the market. I got coppers — I got *loads* of coppers after you — but coppers don't *buy* what he needs, turns out, nobody'll *sell* it, and the Knotwife says — *(she stops, jaw working)* …you came. You actually came. Nobody comes *under* the bridge. *(small)* Can you — will you *look* at him? Just *look?* Everyone else looks *away.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "market.scared_pip"
+                ]
+              },
+              "text": "*(She plants herself in front of the pallet, fists up, and her scared eyes go to flint the instant she places your face.)* …*You.* *(low and shaking)* The one who threatened to call the Watch. The *grabbing* kind. *(she spreads her skinny arms wider, making herself a wall)* Well you've followed me to the *one* thing I've got left, and you can *turn right round.* There's nothing to *lift* down here but a *sick little boy*, and you'll go through *me* to get at him, and I *bite.* *(her voice cracks)* I *mean* it. Whatever you came for — it's not *here.* Go back to the *daylight* where your sort *belongs.*"
+            },
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(She sees the grey balance-sigil at your throat and something in her goes very still and very old.)* …You're one of *His.* *(quietly, not moving from the pallet)* A Judge's-priest. *(she swallows)* They told me your lot come *for* people. At the *end.* *(she doesn't cry; she's past it; she just looks at you with a terrible flat steadiness)* Is that — did somebody *send* you? For *Wick?* *(she sets her jaw)* 'Cause he's *little*, and he's not *ready*, and neither am *I*, and if you've come to *weigh* him you can *wait*, you can *bloody well wait*, he's got — he's got *time* yet. *(barely)* He's got to have *time* yet."
+            },
+            {
+              "text": "*(A small fierce figure uncoils from beside the pallet and puts herself between you and it, swaying on her feet but absolutely immovable.)* That's *far* enough. *(hoarse — a voice scraped raw from a week of not sleeping)* I don't *know* you, and *down here*, not knowing someone's the only thing keeping the little'un *breathing.* *(she squints, weighing you the way the hunted weigh everything)* So you'll tell me *quick* and *true* what a stranger wants in the *one* place nobody comes — or you'll *go.* And mister — missus — *whatever* — *(her voice shakes, holds)* — I have got *nothing left to lose down here*, which makes me the most *dangerous* thing you'll meet all *day.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Pip",
+          "text": "*(She stays planted in front of the pallet, every muscle in her small frame strung tight, watching your hands.)* Well? *(the brazier's dead coals tick as they cool)* What's a *grown-up* want under the bridge. There's no coppers, no god, no *Watch* down here. Just us, and the cold, and *him.* So *say* it.",
           "choices": [
-            { "text": "[INSIGHT] \"You haven't slept since the market, Pip. Days. You're keeping watch over him because you think if you close your eyes he'll — and you can't carry that *and* him. Let someone else hold the watch for an hour. Even me.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "pip_relents", "fail": "pip_holds" },
-            { "text": "[PERSUASION] \"I'm not here to take anything, Pip. I'm here because a sick child is one less thing the whole rotten causeway should get to win. Let me past. If I can't help him, I'll leave, and you'll have lost nothing but a minute.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 13 }, "next": "pip_relents", "fail": "pip_holds", "crit": "pip_persuade_crit", "fumble": "pip_persuade_fumble" },
-            { "text": "[GOOD] *(crouch, slow, hands open and empty, down to her level)* \"You're doing the bravest thing I've seen all week, and you're doing it *alone*, and you're nine. Will you let me stand the watch *with* you? Not instead. *With.*\"", "when": { "morality": "Good" }, "next": "pip_with", "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 3 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if she already knows you helped her once)* \"You said it yourself, Pip — I was the kind that didn't grab. I'm still that kind. I came *down the stair on purpose.* That has to count for something. Let me see your brother.\"", "when": { "flag": "market.helped_pip" }, "next": "pip_relents", "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 2 }] },
-            { "text": "*(let her feel that you already know — that you felt him before you came)* \"I felt him from the *market*, Pip. The little flame, low to the ground, going out. I didn't follow *you* down here. I followed *him.* I'm one of the cold ones, and the cold ones can *feel* when a soul's coming loose — and yours-and-his are tangled so tight I can't tell where you stop. Let me try, before there's nothing left to try for.\"", "tag": "returned", "next": "pip_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Easy. I'll keep my distance.\" *(step back, and go)*", "next": "pip_leave" }
-          ] },
-        { "id": "pip_relents", "speaker": "Pip", "text": "*(The fight goes out of her all at once, the way it only can in someone who's been holding it far too long, and she sags against the cold pillar.)* …All *right.* *(a ragged breath)* All right. Gods, I'm so — I can't even *see* straight anymore. *(she steps aside, half-collapsing, and waves a limp hand at the pallet)* Go on. *Gentle.* He startles. And don't — *(her voice catches)* — don't do the *face.* The *sorry* face. He *hates* the sorry face. He's not *daft*, he knows what's — *(she stops)* …just talk to him *normal.* Like he's a *person* and not a — a *thing that's leaving.* Can you do that? *(she watches you with raw, desperate hope)* Nobody can ever do that. They all do the *face.*",
-          "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 2 }, { "key": "under.pip_let_you_in", "op": "SetTrue" }], "auto": "END" },
-        { "id": "pip_holds", "speaker": "Pip", "text": "*(She doesn't budge. If anything she plants herself harder, and the exhaustion makes her *meaner*, not weaker.)* *No.* *(flat)* Nice words. Everybody's got *nice words* for the bridge-kids, right up until the words cost 'em something. *(she bares her teeth)* You want past me, you bring something *realer* than a *speech.* Medicine. A healer who'll come *down here.* Coin that *buys* what nobody'll *sell.* *(her voice frays)* Or you *leave*, and you let me get back to the *one* job I've got left, which is *watching him breathe.* I'm *good* at it. I haven't missed a *breath* in six days. *(quietly, terribly)* I'm not about to start *now*, for *you.*",
-          "auto": "END" },
-        { "id": "pip_persuade_crit", "speaker": "Pip", "text": "*(✦ You find exactly the right words — not soft ones, not pitying ones, but *true* ones, pitched precisely at the fierce small accountant who only takes from spare — and you watch the math of you flip, all at once, from *threat* to *the first adult in a week who might actually be load-bearing.*)* *(Her chin crumples. She fails, completely, not to cry.)* …*Okay.* *(it bursts out of her)* Okay, okay, *yes*, gods, *please*, I — *(she grabs two fistfuls of your sleeve and just *holds on*, shaking)* — I've been *so scared*, and I can't *say* it to *him* 'cause then *he'll* be scared, and I can't say it to the *Knotwife* 'cause she's already done *too much*, and there's *nobody*, there's been *nobody* for *six days*, and you — *(she hiccups)* — you said *one less thing the causeway gets to win* and I have *needed* somebody to be on *our side of the ledger* so *bad* — *(she drags you toward the pallet by the sleeve, fierce and wrecked and nine years old)* — come *on*, then. Come *on.* You're *ours* now. I'm *deciding* it. You don't get a *say.* Just — be *gentle*, and don't do the sorry face, and *help my brother*, and I'll — I'll *never* lift off you, *ever*, I *swear* it on the *crates.*",
-          "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 4 }, { "key": "under.pip_let_you_in", "op": "SetTrue" }, { "key": "under.pip_yours", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_persuade_fumble", "speaker": "Pip", "text": "*(💀 You reach for the reassuring line and somehow land on the single worst register available — bright, brisk, *hearty*, the voice of a man selling a horse — 'Don't you worry, little lady, I'm here to *help!*' It echoes off the cold stone. It is *ghastly.* Even the dying brazier seems embarrassed.)* *(Pip stares at you with the flat, ancient contempt only a street-child can muster.)* …*'Little lady.'* *(she says it like a swear)* You did the *voice.* The *charity* voice. The one the workhouse men do right before they grab your *wrist* and call it *rescue.* *(she spreads her arms wider, fully feral now)* Nope. *Nope.* Whatever you are, you're *that*, and *that* doesn't get within *ten feet* of him. *(she jerks her chin at the stair)* *Out.* Go practice your *helping* on someone who can't smell it. *(under her breath, vicious and shaking)* …'little lady.' *Gods.*",
-          "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": -2 }], "auto": "END" },
-        { "id": "pip_with", "speaker": "Pip", "text": "*(The word lands like a key in a lock. *With.* Not *instead.* Her arms come down slowly, and she looks at you as though you've said something in a language she'd given up hearing.)* …*With.* *(a whisper)* You said *with.* *(her eyes fill, furious at themselves)* Everybody else says *let me take over*, like I'm a *kid* who's been *playing* at it, like six days of not-sleeping was a *game* I can just *hand back.* *(she swipes her eyes hard)* But it's *mine.* He's *mine.* The watch is *mine.* *(she steps aside — not collapsing this time, but *making room*, deliberate)* …You can stand it *with* me. *(fierce, wet)* That's — yeah. That's allowed. *(she leads you to the pallet, and for the first time her small shoulders aren't carrying it entirely alone)* Wick. *Wick*, wake up gentle — there's someone come to keep watch. A *good* one. I *checked.* I'm *getting* good at checking.",
-          "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 4 }, { "key": "under.pip_let_you_in", "op": "SetTrue" }, { "key": "under.pip_yours", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_returned", "speaker": "Pip", "text": "*(She goes white, and for a second the fists waver — and then, instead of backing away from the cold thing in front of her, she does the most Pip thing imaginable: she steps *toward* you, eyes blazing, and grabs your dead-cold hand to check it's real.)* …You *felt* him. *(her voice is tiny and savage)* From the *market.* The little flame going out. *(she doesn't let go of your cold hand)* Then it's *true*, isn't it. The thing I won't — the thing I *can't* say out loud, 'cause saying it makes it *real.* *(her whole face is shaking)* You're a *monster*, the cold-that-walks, and you're the *only* one who's told me the *truth* without doing the *face*, and I — *(she crushes your hand in both of hers)* — I don't *care* what you are. I *don't.* If you can *feel* him, then you can feel he's *still here*, right? He's *still here?* *(desperate)* Then *come.* Come and feel him *closer.* And if you can do *anything* — *anything* — with whatever cold thing you *are* — *(she's pulling you to the pallet)* — then I will *worship* you like a *god*, the proper kind, the kind that *shows up.* Just *help him.* Please. You're the first one who *came.*",
-          "effects": [{ "key": "under.pip.regard", "op": "AddInt", "amount": 3 }, { "key": "under.pip_let_you_in", "op": "SetTrue" }, { "key": "under.pip_yours", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "pip_leave", "speaker": "Pip", "text": "*(She watches you back away, and doesn't lower her fists until you're at the foot of the stair — and even then her eyes don't thank you, they just *track* you, the way you'd track a dog that hasn't bitten *yet.*)* …Right. *(hoarse)* Good. *(she settles back into her crouch by the pallet, resuming a watch that never actually stops)* That's the *kindest* thing most grown-ups do for us, you know. *Leave.* *(she's already turned back to the small shape, counting its breaths)* …Mind the stair. It's steep, and it's dark, and the daylight's a long way up. *(barely audible)* Lucky you. Getting to *go* to it.",
-          "auto": "END" }
+            {
+              "text": "[INSIGHT] \"You haven't slept since the market, Pip. Days. You're keeping watch over him because you think if you close your eyes he'll — and you can't carry that *and* him. Let someone else hold the watch for an hour. Even me.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "pip_relents",
+              "fail": "pip_holds"
+            },
+            {
+              "text": "[PERSUASION] \"I'm not here to take anything, Pip. I'm here because a sick child is one less thing the whole rotten causeway should get to win. Let me past. If I can't help him, I'll leave, and you'll have lost nothing but a minute.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "pip_relents",
+              "fail": "pip_holds",
+              "crit": "pip_persuade_crit",
+              "fumble": "pip_persuade_fumble"
+            },
+            {
+              "text": "[GOOD] *(crouch, slow, hands open and empty, down to her level)* \"You're doing the bravest thing I've seen all week, and you're doing it *alone*, and you're nine. Will you let me stand the watch *with* you? Not instead. *With.*\"",
+              "when": {
+                "morality": "Good"
+              },
+              "next": "pip_with",
+              "effects": [
+                {
+                  "key": "under.pip.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if she already knows you helped her once)* \"You said it yourself, Pip — I was the kind that didn't grab. I'm still that kind. I came *down the stair on purpose.* That has to count for something. Let me see your brother.\"",
+              "when": {
+                "flag": "market.helped_pip"
+              },
+              "next": "pip_relents",
+              "effects": [
+                {
+                  "key": "under.pip.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "text": "*(let her feel that you already know — that you felt him before you came)* \"I felt him from the *market*, Pip. The little flame, low to the ground, going out. I didn't follow *you* down here. I followed *him.* I'm one of the cold ones, and the cold ones can *feel* when a soul's coming loose — and yours-and-his are tangled so tight I can't tell where you stop. Let me try, before there's nothing left to try for.\"",
+              "tag": "returned",
+              "next": "pip_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Easy. I'll keep my distance.\" *(step back, and go)*",
+              "next": "pip_leave"
+            }
+          ]
+        },
+        {
+          "id": "pip_relents",
+          "speaker": "Pip",
+          "text": "*(The fight goes out of her all at once, the way it only can in someone who's been holding it far too long, and she sags against the cold pillar.)* …All *right.* *(a ragged breath)* All right. Gods, I'm so — I can't even *see* straight anymore. *(she steps aside, half-collapsing, and waves a limp hand at the pallet)* Go on. *Gentle.* He startles. And don't — *(her voice catches)* — don't do the *face.* The *sorry* face. He *hates* the sorry face. He's not *daft*, he knows what's — *(she stops)* …just talk to him *normal.* Like he's a *person* and not a — a *thing that's leaving.* Can you do that? *(she watches you with raw, desperate hope)* Nobody can ever do that. They all do the *face.*",
+          "effects": [
+            {
+              "key": "under.pip.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "under.pip_let_you_in",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_holds",
+          "speaker": "Pip",
+          "text": "*(She doesn't budge. If anything she plants herself harder, and the exhaustion makes her *meaner*, not weaker.)* *No.* *(flat)* Nice words. Everybody's got *nice words* for the bridge-kids, right up until the words cost 'em something. *(she bares her teeth)* You want past me, you bring something *realer* than a *speech.* Medicine. A healer who'll come *down here.* Coin that *buys* what nobody'll *sell.* *(her voice frays)* Or you *leave*, and you let me get back to the *one* job I've got left, which is *watching him breathe.* I'm *good* at it. I haven't missed a *breath* in six days. *(quietly, terribly)* I'm not about to start *now*, for *you.*",
+          "auto": "END"
+        },
+        {
+          "id": "pip_persuade_crit",
+          "speaker": "Pip",
+          "text": "*(✦ You find exactly the right words — not soft ones, not pitying ones, but *true* ones, pitched precisely at the fierce small accountant who only takes from spare — and you watch the math of you flip, all at once, from *threat* to *the first adult in a week who might actually be load-bearing.*)* *(Her chin crumples. She fails, completely, not to cry.)* …*Okay.* *(it bursts out of her)* Okay, okay, *yes*, gods, *please*, I — *(she grabs two fistfuls of your sleeve and just *holds on*, shaking)* — I've been *so scared*, and I can't *say* it to *him* 'cause then *he'll* be scared, and I can't say it to the *Knotwife* 'cause she's already done *too much*, and there's *nobody*, there's been *nobody* for *six days*, and you — *(she hiccups)* — you said *one less thing the causeway gets to win* and I have *needed* somebody to be on *our side of the ledger* so *bad* — *(she drags you toward the pallet by the sleeve, fierce and wrecked and nine years old)* — come *on*, then. Come *on.* You're *ours* now. I'm *deciding* it. You don't get a *say.* Just — be *gentle*, and don't do the sorry face, and *help my brother*, and I'll — I'll *never* lift off you, *ever*, I *swear* it on the *crates.*",
+          "effects": [
+            {
+              "key": "under.pip.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "under.pip_let_you_in",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.pip_yours",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_persuade_fumble",
+          "speaker": "Pip",
+          "text": "*(💀 You reach for the reassuring line and somehow land on the single worst register available — bright, brisk, *hearty*, the voice of a man selling a horse — 'Don't you worry, little lady, I'm here to *help!*' It echoes off the cold stone. It is *ghastly.* Even the dying brazier seems embarrassed.)* *(Pip stares at you with the flat, ancient contempt only a street-child can muster.)* …*'Little lady.'* *(she says it like a swear)* You did the *voice.* The *charity* voice. The one the workhouse men do right before they grab your *wrist* and call it *rescue.* *(she spreads her arms wider, fully feral now)* Nope. *Nope.* Whatever you are, you're *that*, and *that* doesn't get within *ten feet* of him. *(she jerks her chin at the stair)* *Out.* Go practice your *helping* on someone who can't smell it. *(under her breath, vicious and shaking)* …'little lady.' *Gods.*",
+          "effects": [
+            {
+              "key": "under.pip.regard",
+              "op": "AddInt",
+              "amount": -2
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_with",
+          "speaker": "Pip",
+          "text": "*(The word lands like a key in a lock. *With.* Not *instead.* Her arms come down slowly, and she looks at you as though you've said something in a language she'd given up hearing.)* …*With.* *(a whisper)* You said *with.* *(her eyes fill, furious at themselves)* Everybody else says *let me take over*, like I'm a *kid* who's been *playing* at it, like six days of not-sleeping was a *game* I can just *hand back.* *(she swipes her eyes hard)* But it's *mine.* He's *mine.* The watch is *mine.* *(she steps aside — not collapsing this time, but *making room*, deliberate)* …You can stand it *with* me. *(fierce, wet)* That's — yeah. That's allowed. *(she leads you to the pallet, and for the first time her small shoulders aren't carrying it entirely alone)* Wick. *Wick*, wake up gentle — there's someone come to keep watch. A *good* one. I *checked.* I'm *getting* good at checking.",
+          "effects": [
+            {
+              "key": "under.pip.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "under.pip_let_you_in",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.pip_yours",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_returned",
+          "speaker": "Pip",
+          "text": "*(She goes white, and for a second the fists waver — and then, instead of backing away from the cold thing in front of her, she does the most Pip thing imaginable: she steps *toward* you, eyes blazing, and grabs your dead-cold hand to check it's real.)* …You *felt* him. *(her voice is tiny and savage)* From the *market.* The little flame going out. *(she doesn't let go of your cold hand)* Then it's *true*, isn't it. The thing I won't — the thing I *can't* say out loud, 'cause saying it makes it *real.* *(her whole face is shaking)* You're a *monster*, the cold-that-walks, and you're the *only* one who's told me the *truth* without doing the *face*, and I — *(she crushes your hand in both of hers)* — I don't *care* what you are. I *don't.* If you can *feel* him, then you can feel he's *still here*, right? He's *still here?* *(desperate)* Then *come.* Come and feel him *closer.* And if you can do *anything* — *anything* — with whatever cold thing you *are* — *(she's pulling you to the pallet)* — then I will *worship* you like a *god*, the proper kind, the kind that *shows up.* Just *help him.* Please. You're the first one who *came.*",
+          "effects": [
+            {
+              "key": "under.pip.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.pip_let_you_in",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.pip_yours",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pip_leave",
+          "speaker": "Pip",
+          "text": "*(She watches you back away, and doesn't lower her fists until you're at the foot of the stair — and even then her eyes don't thank you, they just *track* you, the way you'd track a dog that hasn't bitten *yet.*)* …Right. *(hoarse)* Good. *(she settles back into her crouch by the pallet, resuming a watch that never actually stops)* That's the *kindest* thing most grown-ups do for us, you know. *Leave.* *(she's already turned back to the small shape, counting its breaths)* …Mind the stair. It's steep, and it's dark, and the daylight's a long way up. *(barely audible)* Lucky you. Getting to *go* to it.",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "under.wick", "title": "Wick on the Pallet", "npc": "Wick", "start": "0",
+      "id": "under.wick",
+      "title": "Wick on the Pallet",
+      "npc": "Wick",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Wick", "onEnter": [{ "key": "under.met_wick", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Wick",
+          "onEnter": [
+            {
+              "key": "under.met_wick",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["market.helped_pip"] }, "text": "*(The small boy's fevered eyes find you, and — impossibly — he *smiles*, a real one, cracked lips and all.)* …Oh. *(a thread of a voice)* You're the *market* one. *(he tries to push up on one elbow and mostly doesn't manage it)* Pip *told* me. She tells it like a *story* — 'the one who didn't grab, Wick, the one who *knew* about you without me *saying.*' *(a wheezing little laugh that turns into a cough he rides out, patient, practiced)* …She does the *voice* when she tells it. Makes you sound *taller.* *(he settles back, bright-eyed)* You're not as *tall* as the story. *(a beat, generous)* That's all right. Most things aren't." },
-            { "when": { "deity": "Kelemvor" }, "text": "*(His huge eyes fix on the grey balance at your throat, and instead of fear, something in his small face goes *relieved.*)* …You're one of the *grey* ones. *(a cracked whisper)* The *Judge's.* *(he doesn't seem frightened at all; if anything he seems *glad* of the company)* Pip *cries* when she thinks I'm asleep, 'cause she heard your lot come *for* people. *(matter-of-fact)* But I figure — if somebody's coming *anyway* — *(a small shrug against the sacking)* — better it's somebody who does it *every day* and knows how to be *gentle* at it, than the cough, which is *rubbish* at it and takes *ages.* *(bright, awful, brave)* So. Did you come for me? It's all right if you did. I just want to know, so I can be *ready*, and so I can make Pip *not look* when it happens." },
-            { "text": "*(The voice from the pallet is small and bright and entirely too calm, the calm of a child who has had a great deal of time to think lying still.)* …Hullo. *(he turns his head; the effort costs him)* You came *down.* *(wonderingly)* People don't come down. The *light* doesn't even come down, not really — it gets to about *there* — *(his eyes flick to the middle of the dark)* — and then it gives up and goes back to the market. *(he considers you)* But *you* came all the way to the *cold* part. *(a fevered, curious smile)* …Are you *lost?* Or are you the *other* thing? The thing Pip won't *say?*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Wick", "text": "*(He folds his too-thin hands on his chest like a much older person and watches you with the frank, unembarrassed attention of a child who has run clean out of reasons to be polite about anything.)* So. *(a small wet breath)* You've come all the way down to the *cold* to talk to the *sick boy.* Everyone who does that *wants* something, or's *scared* of something. *(he tilts his head)* Which are *you?*",
+            {
+              "when": {
+                "flags": [
+                  "market.helped_pip"
+                ]
+              },
+              "text": "*(The small boy's fevered eyes find you, and — impossibly — he *smiles*, a real one, cracked lips and all.)* …Oh. *(a thread of a voice)* You're the *market* one. *(he tries to push up on one elbow and mostly doesn't manage it)* Pip *told* me. She tells it like a *story* — 'the one who didn't grab, Wick, the one who *knew* about you without me *saying.*' *(a wheezing little laugh that turns into a cough he rides out, patient, practiced)* …She does the *voice* when she tells it. Makes you sound *taller.* *(he settles back, bright-eyed)* You're not as *tall* as the story. *(a beat, generous)* That's all right. Most things aren't."
+            },
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(His huge eyes fix on the grey balance at your throat, and instead of fear, something in his small face goes *relieved.*)* …You're one of the *grey* ones. *(a cracked whisper)* The *Judge's.* *(he doesn't seem frightened at all; if anything he seems *glad* of the company)* Pip *cries* when she thinks I'm asleep, 'cause she heard your lot come *for* people. *(matter-of-fact)* But I figure — if somebody's coming *anyway* — *(a small shrug against the sacking)* — better it's somebody who does it *every day* and knows how to be *gentle* at it, than the cough, which is *rubbish* at it and takes *ages.* *(bright, awful, brave)* So. Did you come for me? It's all right if you did. I just want to know, so I can be *ready*, and so I can make Pip *not look* when it happens."
+            },
+            {
+              "text": "*(The voice from the pallet is small and bright and entirely too calm, the calm of a child who has had a great deal of time to think lying still.)* …Hullo. *(he turns his head; the effort costs him)* You came *down.* *(wonderingly)* People don't come down. The *light* doesn't even come down, not really — it gets to about *there* — *(his eyes flick to the middle of the dark)* — and then it gives up and goes back to the market. *(he considers you)* But *you* came all the way to the *cold* part. *(a fevered, curious smile)* …Are you *lost?* Or are you the *other* thing? The thing Pip won't *say?*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wick",
+          "text": "*(He folds his too-thin hands on his chest like a much older person and watches you with the frank, unembarrassed attention of a child who has run clean out of reasons to be polite about anything.)* So. *(a small wet breath)* You've come all the way down to the *cold* to talk to the *sick boy.* Everyone who does that *wants* something, or's *scared* of something. *(he tilts his head)* Which are *you?*",
           "choices": [
-            { "text": "[MEDICINE] *(kneel, and actually look — the colour of him, the sound of the breath, the heat coming off him)* \"Let me see, Wick. Properly. Not the sorry-look — the *real* one. I want to know exactly what we're fighting before I tell you a single comforting lie.\"", "check": { "skill": "Medicine", "ability": "Wisdom", "dc": 13 }, "next": "wick_diagnosis", "fail": "wick_diag_soft" },
-            { "text": "[INSIGHT] \"You're not scared *for you*, are you. You've made your peace — you're nine and you've made your *peace*, which is its own kind of heartbreak. You're scared for *Pip.* What happens to your sister, after.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 }, "next": "wick_pip_fear", "fail": "wick_deflect" },
-            { "text": "[RELIGION] *(if the Judge is yours)* \"You asked if I came for you. I'll tell you the truth my god tells, Wick — not the scary one. Death's not a *grab.* It's a *door*, and there's someone *fair* on the other side who *weighs* you, and a boy who watched his sister eat first for a year is going to weigh *light* as a *feather.* You're not in trouble. You never were.\"", "when": { "deity": "Kelemvor" }, "next": "wick_judge", "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.devout", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(he asked you straight; answer him straight)* \"I'm the other thing. The thing Pip won't say. I've been where you're worried about going — all the way, and *back* — and I'll make you the only promise that's worth anything from a creature like me: I'll tell you *true.* Ask me anything about it. I'm the one soul down here who *can't* lie to you about the cold.\"", "tag": "returned", "next": "wick_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I came because the blind weaver — the Knotwife — might know an old remedy. I'm not going to promise you a cure, Wick. I'm going to promise you I'll *go and ask*, and come *back* either way. Even if the answer's no. *Especially* if it's no.\"", "next": "wick_hope" },
-            { "text": "[PERSUASION] \"Here's my want, since you asked plain: I want you to let me *try.* The Knotwife, a healer, whatever I can drag down that stair. You've made your peace — good — but make it *late.* Give me a *day* to be wrong about. Will you fight a little longer if I do the fighting *with* you?\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 13 }, "next": "wick_fights", "fail": "wick_tired", "crit": "wick_persuade_crit", "fumble": "wick_persuade_fumble", "effects": [{ "key": "disp.merciful", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "wick_diagnosis", "speaker": "Wick", "text": "*(He holds still and lets you look, with the weary cooperation of a child long past modesty about his own body, and watches your face do the arithmetic.)* …You're not doing the *face.* *(approvingly, as you work)* You're doing the *thinking* face. That's a *better* one. *(quietly)* It's the *lung-fever*, isn't it. The slow kind. Old Knotwife knew it by the *sound.* She says there's a *root* for it — a real one, not Sable's chicken-bone rubbish — but it grows *out past the last torch on the causeway*, where the *marked* go, and nobody'll *fetch* it, 'cause nobody comes *back* from out there. *(he says it without drama; it's just the shape of his world)* So it's *real*, the cure. It's just on the *far side* of the thing that's *killing* everybody. *(a small, philosophical cough)* …That's *funny*, if you turn it sideways. The medicine's kept where the *dying* is. *(he looks at you, clear-eyed)* Now you *know* the true thing. What are you going to *do* with it? Most people, knowing's where they *stop.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 2 }, { "key": "under.wick_diagnosed", "op": "SetTrue" }, { "key": "under.knows_root", "op": "SetTrue" }], "auto": "END" },
-        { "id": "wick_diag_soft", "speaker": "Wick", "text": "*(You look, but the fever-heat and the dark and the rattle of his breath blur into something you can't quite name, and he watches you not-quite-get-there with a patience that's almost kind.)* …S'all right. *(gently, letting you off the hook)* It's hard to *hear*, the thing I've got. Knotwife's the only one who knew it straight off, and she's had *practice*, down here. *(a small shrug)* It's a *lung* thing. The slow kind. *(he pats the sacking beside him, inviting you to stop straining)* Don't *fret* the not-knowing. The *grown-ups* always fret it worst of all, like if they *named* it right it'd *behave.* *(a wheeze of a laugh)* It won't. It's *rude* like that. *(kindly)* Go ask the Knotwife. She'll *tell* you proper. She tells *everything* proper. It's why nobody visits her either.",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wick_pip_fear", "speaker": "Wick", "text": "*(For the first time the bright calm cracks, and underneath it is the only thing in the world this child is actually afraid of, and it isn't dying.)* …*Yeah.* *(his voice drops, fast and low, checking past you to be sure Pip's out of earshot)* It's *Pip.* *(the words come in a rush, like he's been waiting for someone who'd *ask*)* She only *steals* 'cause of *me*, see — 'only from spare,' she's *got rules*, she's *good* — but she does it for *two*, and the *risk's* for two, and she takes the *small* portions so I get the — *(he swallows)* When I'm *gone*, she'll still *lift*, 'cause it's all she *knows*, but she won't have a *reason* that makes her *careful* anymore. *(his fevered eyes are huge and wet and fierce)* She'll get *caught.* Or worse. 'Cause the *only* thing that's kept my sister *alive* on that causeway is having *me* to keep alive. *(he grabs your wrist with a hot, tiny hand)* So you want to *help?* Don't waste it on *me.* I'm *spent.* Make sure *Pip's* got a *reason* after. A *roof.* A *person.* *Anything.* That's the only medicine I *care* about. Promise me you'll *look after the one who's left.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 3 }, { "key": "under.wick_fears_for_pip", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wick_deflect", "speaker": "Wick", "text": "*(He smooths his face back into the bright calm like pulling a blanket up, and you've a feeling you've just missed the only door he was going to open today.)* Scared? *Me?* *(a wheezy, dismissive laugh)* Nah. I've had *ages* to get *un*-scared. Scared's a thing you do when you think you've got a *choice* about it, and I worked out a *while* back I haven't, so I *put it down.* It was *heavy.* *(he resettles on the sacking)* I'm the *least* scared person under this bridge, me. *(a small beat, and something flickers — gone too fast to catch)* …It's the *grown-ups* who do the scared. *And* Pip. But Pip's not a grown-up. Pip's just — *(he stops)* …never mind. You want a *cure*, ask the Knotwife. You want to *gawp*, the brazier's more interesting and it doesn't *talk back.*",
-          "auto": "END" },
-        { "id": "wick_judge", "speaker": "Wick", "text": "*(He listens — really listens, the way only someone with nothing left to do but listen can — and slowly, slowly, something he's been holding in his thin chest for weeks lets go.)* …*Light as a feather.* *(he tries the words out)* You *mean* that. You're not just — grown-ups *say* nice things at sick kids like throwing a *blanket* over a *cage*, but you *mean* it, I can *tell*, you said it like a *fact.* *(his eyes shine)* So it's not a *grab.* It's a *door*, and somebody *fair's* on the other side. *(a long, rattling, relieved breath)* Then I can stop *bracing.* I've been *bracing* for the grab for *weeks.* *(quietly, almost to himself)* A door. With somebody *fair.* *(he looks at you, and his small smile is the realest thing in the dark)* Will you tell *Pip* that? In the *fact* voice? She won't believe it from *me* — she thinks I'm being *brave at* her. But she might believe a *grey one* who said it like *weather.* *(he settles back, lighter by something with weight)* Thank you. I'll weigh *light.* I've been *practicing* light my whole *life.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 3 }, { "key": "under.wick_unafraid", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.devout", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wick_returned", "speaker": "Wick", "text": "*(His whole face *opens*, fever and all, with the pure uncomplicated thrill of a child meeting the one thing the grown-ups were too frightened to even name.)* …I *KNEW* it. *(he forgets to be weak for a second, pushing up on both elbows)* I *knew* you were the *other* thing! Pip wouldn't *say*, she does the *hush* about it, but I could *see* — you've got the *cold* on you, like the bottom of the river, like the bit of the dark the brazier can't fix. *(he's delighted; it's appalling and wonderful)* You went *all the way?* And came *BACK?* *(hushed, urgent, a hundred questions fighting to get out)* What's it *like.* Don't do soft. Pip does *soft.* Everyone does *soft.* You *promised* true. *(and when you tell him true — that it's cold, and quiet, and not the nothing he was warned of, and that there's a door, and someone on the far side of it — he drinks it down like water)* …*Not* nothing. *(a breath)* See, I *hoped* it wasn't nothing, but hoping's *cheap*, and you *know.* *(he lies back, satisfied, glowing)* That's the best thing anyone's brought down the stair in *months.* Better than *soup.* *(a beat, sly)* …Will it *hurt?* And don't you *dare* do soft, cold one. You *promised.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 4 }, { "key": "under.wick_told_true", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "wick_returned_2" },
-        { "id": "wick_returned_2", "speaker": "Wick", "text": "*(He waits for your answer to the only question left — will it hurt — with the steady, terrible bravery of a child who would genuinely rather have the truth than be spared it.)*",
+            {
+              "text": "[MEDICINE] *(kneel, and actually look — the colour of him, the sound of the breath, the heat coming off him)* \"Let me see, Wick. Properly. Not the sorry-look — the *real* one. I want to know exactly what we're fighting before I tell you a single comforting lie.\"",
+              "check": {
+                "skill": "Medicine",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "wick_diagnosis",
+              "fail": "wick_diag_soft"
+            },
+            {
+              "text": "[INSIGHT] \"You're not scared *for you*, are you. You've made your peace — you're nine and you've made your *peace*, which is its own kind of heartbreak. You're scared for *Pip.* What happens to your sister, after.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "wick_pip_fear",
+              "fail": "wick_deflect"
+            },
+            {
+              "text": "[RELIGION] *(if the Judge is yours)* \"You asked if I came for you. I'll tell you the truth my god tells, Wick — not the scary one. Death's not a *grab.* It's a *door*, and there's someone *fair* on the other side who *weighs* you, and a boy who watched his sister eat first for a year is going to weigh *light* as a *feather.* You're not in trouble. You never were.\"",
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "next": "wick_judge",
+              "effects": [
+                {
+                  "key": "under.wick.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.devout",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(he asked you straight; answer him straight)* \"I'm the other thing. The thing Pip won't say. I've been where you're worried about going — all the way, and *back* — and I'll make you the only promise that's worth anything from a creature like me: I'll tell you *true.* Ask me anything about it. I'm the one soul down here who *can't* lie to you about the cold.\"",
+              "tag": "returned",
+              "next": "wick_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I came because the blind weaver — the Knotwife — might know an old remedy. I'm not going to promise you a cure, Wick. I'm going to promise you I'll *go and ask*, and come *back* either way. Even if the answer's no. *Especially* if it's no.\"",
+              "next": "wick_hope"
+            },
+            {
+              "text": "[PERSUASION] \"Here's my want, since you asked plain: I want you to let me *try.* The Knotwife, a healer, whatever I can drag down that stair. You've made your peace — good — but make it *late.* Give me a *day* to be wrong about. Will you fight a little longer if I do the fighting *with* you?\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "wick_fights",
+              "fail": "wick_tired",
+              "crit": "wick_persuade_crit",
+              "fumble": "wick_persuade_fumble",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wick_diagnosis",
+          "speaker": "Wick",
+          "text": "*(He holds still and lets you look, with the weary cooperation of a child long past modesty about his own body, and watches your face do the arithmetic.)* …You're not doing the *face.* *(approvingly, as you work)* You're doing the *thinking* face. That's a *better* one. *(quietly)* It's the *lung-fever*, isn't it. The slow kind. Old Knotwife knew it by the *sound.* She says there's a *root* for it — a real one, not Sable's chicken-bone rubbish — but it grows *out past the last torch on the causeway*, where the *marked* go, and nobody'll *fetch* it, 'cause nobody comes *back* from out there. *(he says it without drama; it's just the shape of his world)* So it's *real*, the cure. It's just on the *far side* of the thing that's *killing* everybody. *(a small, philosophical cough)* …That's *funny*, if you turn it sideways. The medicine's kept where the *dying* is. *(he looks at you, clear-eyed)* Now you *know* the true thing. What are you going to *do* with it? Most people, knowing's where they *stop.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "under.wick_diagnosed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.knows_root",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_diag_soft",
+          "speaker": "Wick",
+          "text": "*(You look, but the fever-heat and the dark and the rattle of his breath blur into something you can't quite name, and he watches you not-quite-get-there with a patience that's almost kind.)* …S'all right. *(gently, letting you off the hook)* It's hard to *hear*, the thing I've got. Knotwife's the only one who knew it straight off, and she's had *practice*, down here. *(a small shrug)* It's a *lung* thing. The slow kind. *(he pats the sacking beside him, inviting you to stop straining)* Don't *fret* the not-knowing. The *grown-ups* always fret it worst of all, like if they *named* it right it'd *behave.* *(a wheeze of a laugh)* It won't. It's *rude* like that. *(kindly)* Go ask the Knotwife. She'll *tell* you proper. She tells *everything* proper. It's why nobody visits her either.",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_pip_fear",
+          "speaker": "Wick",
+          "text": "*(For the first time the bright calm cracks, and underneath it is the only thing in the world this child is actually afraid of, and it isn't dying.)* …*Yeah.* *(his voice drops, fast and low, checking past you to be sure Pip's out of earshot)* It's *Pip.* *(the words come in a rush, like he's been waiting for someone who'd *ask*)* She only *steals* 'cause of *me*, see — 'only from spare,' she's *got rules*, she's *good* — but she does it for *two*, and the *risk's* for two, and she takes the *small* portions so I get the — *(he swallows)* When I'm *gone*, she'll still *lift*, 'cause it's all she *knows*, but she won't have a *reason* that makes her *careful* anymore. *(his fevered eyes are huge and wet and fierce)* She'll get *caught.* Or worse. 'Cause the *only* thing that's kept my sister *alive* on that causeway is having *me* to keep alive. *(he grabs your wrist with a hot, tiny hand)* So you want to *help?* Don't waste it on *me.* I'm *spent.* Make sure *Pip's* got a *reason* after. A *roof.* A *person.* *Anything.* That's the only medicine I *care* about. Promise me you'll *look after the one who's left.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.wick_fears_for_pip",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_deflect",
+          "speaker": "Wick",
+          "text": "*(He smooths his face back into the bright calm like pulling a blanket up, and you've a feeling you've just missed the only door he was going to open today.)* Scared? *Me?* *(a wheezy, dismissive laugh)* Nah. I've had *ages* to get *un*-scared. Scared's a thing you do when you think you've got a *choice* about it, and I worked out a *while* back I haven't, so I *put it down.* It was *heavy.* *(he resettles on the sacking)* I'm the *least* scared person under this bridge, me. *(a small beat, and something flickers — gone too fast to catch)* …It's the *grown-ups* who do the scared. *And* Pip. But Pip's not a grown-up. Pip's just — *(he stops)* …never mind. You want a *cure*, ask the Knotwife. You want to *gawp*, the brazier's more interesting and it doesn't *talk back.*",
+          "auto": "END"
+        },
+        {
+          "id": "wick_judge",
+          "speaker": "Wick",
+          "text": "*(He listens — really listens, the way only someone with nothing left to do but listen can — and slowly, slowly, something he's been holding in his thin chest for weeks lets go.)* …*Light as a feather.* *(he tries the words out)* You *mean* that. You're not just — grown-ups *say* nice things at sick kids like throwing a *blanket* over a *cage*, but you *mean* it, I can *tell*, you said it like a *fact.* *(his eyes shine)* So it's not a *grab.* It's a *door*, and somebody *fair's* on the other side. *(a long, rattling, relieved breath)* Then I can stop *bracing.* I've been *bracing* for the grab for *weeks.* *(quietly, almost to himself)* A door. With somebody *fair.* *(he looks at you, and his small smile is the realest thing in the dark)* Will you tell *Pip* that? In the *fact* voice? She won't believe it from *me* — she thinks I'm being *brave at* her. But she might believe a *grey one* who said it like *weather.* *(he settles back, lighter by something with weight)* Thank you. I'll weigh *light.* I've been *practicing* light my whole *life.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.wick_unafraid",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.devout",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_returned",
+          "speaker": "Wick",
+          "text": "*(His whole face *opens*, fever and all, with the pure uncomplicated thrill of a child meeting the one thing the grown-ups were too frightened to even name.)* …I *KNEW* it. *(he forgets to be weak for a second, pushing up on both elbows)* I *knew* you were the *other* thing! Pip wouldn't *say*, she does the *hush* about it, but I could *see* — you've got the *cold* on you, like the bottom of the river, like the bit of the dark the brazier can't fix. *(he's delighted; it's appalling and wonderful)* You went *all the way?* And came *BACK?* *(hushed, urgent, a hundred questions fighting to get out)* What's it *like.* Don't do soft. Pip does *soft.* Everyone does *soft.* You *promised* true. *(and when you tell him true — that it's cold, and quiet, and not the nothing he was warned of, and that there's a door, and someone on the far side of it — he drinks it down like water)* …*Not* nothing. *(a breath)* See, I *hoped* it wasn't nothing, but hoping's *cheap*, and you *know.* *(he lies back, satisfied, glowing)* That's the best thing anyone's brought down the stair in *months.* Better than *soup.* *(a beat, sly)* …Will it *hurt?* And don't you *dare* do soft, cold one. You *promised.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "under.wick_told_true",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "wick_returned_2"
+        },
+        {
+          "id": "wick_returned_2",
+          "speaker": "Wick",
+          "text": "*(He waits for your answer to the only question left — will it hurt — with the steady, terrible bravery of a child who would genuinely rather have the truth than be spared it.)*",
           "choices": [
-            { "text": "\"No. The cough is the hard part, and you've already done the hard part. The crossing itself is like the moment after you stop running — that first cold breath where you didn't know you could stop, and then you can. That part doesn't hurt. I'd not lie to you about *that* one, Wick. Not that one.\"", "next": "wick_peace", "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 3 }, { "key": "under.wick_unafraid", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I won't lie: I don't know *your* door. I only know *mine*, and mine was cold but it was *quick*, and the worst of it was already behind me — same as yours is, mostly, already behind you. Whatever the last bit is, you've survived *worse*, and you didn't even have *help* then. This time you've got me on the bank.\"", "next": "wick_peace", "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "wick_peace", "speaker": "Wick", "text": "*(He lets out the longest breath you've heard him take, and it doesn't rattle, not that one, and his small body seems to *unclench* by a degree it's been holding for weeks.)* …*Okay.* *(simply)* Okay. *(he looks up at the underside of the great bridge, the stone he's stared at for a month)* The moment after you stop running. *(he tries it on)* I can do *that* one. I'm *good* at stopping. *(a sideways, fever-bright grin at you)* You're a *rubbish* monster, you know. Worst monster *ever.* You came down the *cold* part to tell a sick kid the *true* thing *gently* and now I'm not *scared* anymore and you've completely *ruined* being scared for me, it was the only *exciting* thing I had *left.* *(the grin softens into something that will stay with you a long time)* …Stay till Pip comes back, would you? I want her to see I'm *not* bracing anymore. She'll *sleep*, if she sees it. She hasn't *slept.* *(he closes his eyes, peaceful)* And then go ask the Knotwife about the root. Not for *me.* For *Pip*, after. You *promised* the true thing — so here's *mine*: I'd rather you saved my *sister* than *me*, and I'd rather have *said* so to someone who'll *do* it than be *cured* and never get to *choose.* That's the bravest I've got. *(a whisper)* Don't waste it.",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 3 }, { "key": "under.wick_at_peace", "op": "SetTrue" }, { "key": "under.wick_fears_for_pip", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }], "auto": "END" },
-        { "id": "wick_hope", "speaker": "Wick", "text": "*(He studies you for a long moment, and what finally crosses his face isn't hope exactly — he's too sensible for hope — but something steadier and rarer.)* …You said *come back either way.* *(slowly)* Even if it's *no.* *(he nods, a small grave motion)* That's the *good* kind of promise. The *cheap* kind is 'I'll *save* you' — everybody's got *that* one, and then they *don't*, and they don't come *back* either, 'cause they're *ashamed*, and then you're worse off than *before* 'cause now you're *alone* AND you got your *hopes* up. *(wisely, nine years old)* But 'I'll come back *even if it's no*' — that one *costs* you something. That one means I'm not *alone* in it whichever way it *goes.* *(he settles, satisfied)* …Go ask, then. Take your time. I'm not going *anywhere* fast — *(a wheezy grin)* — slowest thing on the causeway, me. *(quieter)* And — if it *is* no? Bring the *no* gently, and bring it *yourself*, and then talk to me about *Pip.* That's the conversation that actually *matters*, and I'd like to have it with someone who *keeps* the small promises. You kept *this* one before you even *left.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 3 }, { "key": "under.seeking_cure", "op": "SetTrue" }], "auto": "END" },
-        { "id": "wick_fights", "speaker": "Wick", "text": "*(He considers the offer with the seriousness of a general weighing a last campaign, and then a slow, fierce, fever-bright light comes up in him.)* …*With.* *(he tests it)* You'd do the fighting *with.* Not *at* me, not *for* me while I just *lie* here being a *parcel* everyone's *sad* about. *(he sets his small jaw)* …*Yeah.* All right. *Deal.* I'll fight a *bit* longer. *(he holds up one thin finger, negotiating)* But *terms.* You don't get to be *sad* at me while we do it — sad's for *after*, and only if it *goes* bad. And if it *does* go bad, you don't get to *vanish* like the others. You stay for *Pip.* *(he sticks out his hot little hand to shake on it, deadly earnest)* Those are the *terms.* A day to be wrong about. *(a grin breaks through, conspiratorial)* …Nobody's *fought* with me before. They all just *grieve* at me early, like I'm already *gone*, like I can't *hear* 'em planning the *sad parts.* *(he shakes your hand, hard for someone so weak)* This is *loads* better. Go get your *root*, partner. I'll hold the *line.* I'm *good* at holding. It's the one thing the cough can't make me *quit.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 4 }, { "key": "under.wick_fights_on", "op": "SetTrue" }, { "key": "under.seeking_cure", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wick_tired", "speaker": "Wick", "text": "*(He hears you out, and he doesn't argue, and the not-arguing is worse than any argument.)* …That's a *kind* want. *(softly, tiredly)* It really is. *(he pats your hand, comforting *you*, which is unbearable)* But I'm so *tired*, mister. Missus. *(his eyes drift to the dark underside of the bridge)* It's not that I want to *go.* It's that *holding on* has got so *heavy*, and everyone keeps handing me *more* to hold — *fight a bit longer, just a day, don't give up* — and it's all *more weight*, and they mean it *kind*, but none of them have to *carry* it, only *me.* *(gently)* So I'll make *you* a deal instead of the other way round: don't ask me to *fight.* Ask me what I *want.* And then *do* the wanting *for* me, 'cause I've not got the *arms* left. *(he closes his eyes)* …Go talk to Pip. *She's* still got fight in her. Spend it on *her.* I'm — I'm going to rest my eyes a minute. Just a minute. *(quieter)* Come back, though. Even tired, I'd — I'd like it if you came back.",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 1 }, { "key": "under.wick_weary", "op": "SetTrue" }], "auto": "END" },
-        { "id": "wick_persuade_crit", "speaker": "Wick", "text": "*(✦ You don't promise him a cure. You don't lie. You offer him the one thing nobody else thought a dying child might be *starved* for — not pity, not rescue, but a *fight to be in*, a *part to play*, a *say* — and you watch a boy who'd laid down every weight he had pick *one* back up, by *choice*, and grin like he's been handed the world.)* *(He sits up. Properly up, for the first time in days, fever-flushed and *blazing.*)* — a *DAY to be wrong about!* *(he laughs, and it doesn't even turn into a cough)* You — you didn't do *any* of the things! No *sorry* face, no *blanket-over-the-cage*, no *grieving* at me early — you asked me to *fight WITH* you like I'm a *person* who can still *do* a thing! *(he grabs your sleeve in both burning hands)* *Nobody* does that. They take the *fight* away 'cause they think they're being *kind*, and it's the *cruellest* thing, taking a soldier's *sword* 'cause you've decided he's *lost!* *(fierce, glowing, gloriously alive in this one minute)* Well I've still got my *sword*, partner, it's just *small*, like *me*, and you're the *first* one who *asked* me to *swing* it! *(he flops back, grinning enormous at the bridge-stone)* Go get the root. Drag a *healer* down the stair by the *ear* if you have to. I'll be *here*, *holding the line*, being the most *inconvenient* sick boy that *cough* has ever *met* — *(a sideways gleam)* — Wren'd be *proud.* Pip told me about *Wren.* We're all going to be *inconvenient* now. It's the family *trade.*",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 5 }, { "key": "under.wick_fights_on", "op": "SetTrue" }, { "key": "under.seeking_cure", "op": "SetTrue" }, { "key": "under.wick_blazing", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "wick_persuade_fumble", "speaker": "Wick", "text": "*(💀 You go for inspiring and you *overshoot*, badly, landing somewhere around the rousing battlefield speech — 'TOGETHER we shall DEFEAT this MALADY' — complete, gods help you, with a small clenched fist raised at the ceiling. There is a pause. A bit of grit drifts down from the bridge. Wick regards your raised fist with the merciless clarity of the very young.)* …*(he blinks)* …were you about to do a *war.* *(flatly, fascinated)* At my *cough.* *(a wheeze that is definitely a laugh)* Mister, the cough's not *scared* of your *fist.* The cough's not scared of *anything*, it's a *cough.* *(he pats the sacking, helplessly amused)* That was the *daftest* thing I've seen down here and I once watched a *rat* try to fight the *brazier.* *(grinning, exhausted)* …It *did* cheer me up, though. Not the way you *meant.* But cheering's cheering. *(kindly)* Put the *fist* away, partner. Go ask the Knotwife about the root with your *normal* face. And maybe — *(a sly, fond gleam)* — maybe don't do the *war* voice at *her.* She's *blind*, not *deaf*, and she'd *never* let you live it down.",
-          "effects": [{ "key": "under.wick.regard", "op": "AddInt", "amount": 1 }, { "key": "under.seeking_cure", "op": "SetTrue" }], "auto": "END" }
+            {
+              "text": "\"No. The cough is the hard part, and you've already done the hard part. The crossing itself is like the moment after you stop running — that first cold breath where you didn't know you could stop, and then you can. That part doesn't hurt. I'd not lie to you about *that* one, Wick. Not that one.\"",
+              "next": "wick_peace",
+              "effects": [
+                {
+                  "key": "under.wick.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "under.wick_unafraid",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I won't lie: I don't know *your* door. I only know *mine*, and mine was cold but it was *quick*, and the worst of it was already behind me — same as yours is, mostly, already behind you. Whatever the last bit is, you've survived *worse*, and you didn't even have *help* then. This time you've got me on the bank.\"",
+              "next": "wick_peace",
+              "effects": [
+                {
+                  "key": "under.wick.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wick_peace",
+          "speaker": "Wick",
+          "text": "*(He lets out the longest breath you've heard him take, and it doesn't rattle, not that one, and his small body seems to *unclench* by a degree it's been holding for weeks.)* …*Okay.* *(simply)* Okay. *(he looks up at the underside of the great bridge, the stone he's stared at for a month)* The moment after you stop running. *(he tries it on)* I can do *that* one. I'm *good* at stopping. *(a sideways, fever-bright grin at you)* You're a *rubbish* monster, you know. Worst monster *ever.* You came down the *cold* part to tell a sick kid the *true* thing *gently* and now I'm not *scared* anymore and you've completely *ruined* being scared for me, it was the only *exciting* thing I had *left.* *(the grin softens into something that will stay with you a long time)* …Stay till Pip comes back, would you? I want her to see I'm *not* bracing anymore. She'll *sleep*, if she sees it. She hasn't *slept.* *(he closes his eyes, peaceful)* And then go ask the Knotwife about the root. Not for *me.* For *Pip*, after. You *promised* the true thing — so here's *mine*: I'd rather you saved my *sister* than *me*, and I'd rather have *said* so to someone who'll *do* it than be *cured* and never get to *choose.* That's the bravest I've got. *(a whisper)* Don't waste it.",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.wick_at_peace",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_fears_for_pip",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_hope",
+          "speaker": "Wick",
+          "text": "*(He studies you for a long moment, and what finally crosses his face isn't hope exactly — he's too sensible for hope — but something steadier and rarer.)* …You said *come back either way.* *(slowly)* Even if it's *no.* *(he nods, a small grave motion)* That's the *good* kind of promise. The *cheap* kind is 'I'll *save* you' — everybody's got *that* one, and then they *don't*, and they don't come *back* either, 'cause they're *ashamed*, and then you're worse off than *before* 'cause now you're *alone* AND you got your *hopes* up. *(wisely, nine years old)* But 'I'll come back *even if it's no*' — that one *costs* you something. That one means I'm not *alone* in it whichever way it *goes.* *(he settles, satisfied)* …Go ask, then. Take your time. I'm not going *anywhere* fast — *(a wheezy grin)* — slowest thing on the causeway, me. *(quieter)* And — if it *is* no? Bring the *no* gently, and bring it *yourself*, and then talk to me about *Pip.* That's the conversation that actually *matters*, and I'd like to have it with someone who *keeps* the small promises. You kept *this* one before you even *left.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.seeking_cure",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_fights",
+          "speaker": "Wick",
+          "text": "*(He considers the offer with the seriousness of a general weighing a last campaign, and then a slow, fierce, fever-bright light comes up in him.)* …*With.* *(he tests it)* You'd do the fighting *with.* Not *at* me, not *for* me while I just *lie* here being a *parcel* everyone's *sad* about. *(he sets his small jaw)* …*Yeah.* All right. *Deal.* I'll fight a *bit* longer. *(he holds up one thin finger, negotiating)* But *terms.* You don't get to be *sad* at me while we do it — sad's for *after*, and only if it *goes* bad. And if it *does* go bad, you don't get to *vanish* like the others. You stay for *Pip.* *(he sticks out his hot little hand to shake on it, deadly earnest)* Those are the *terms.* A day to be wrong about. *(a grin breaks through, conspiratorial)* …Nobody's *fought* with me before. They all just *grieve* at me early, like I'm already *gone*, like I can't *hear* 'em planning the *sad parts.* *(he shakes your hand, hard for someone so weak)* This is *loads* better. Go get your *root*, partner. I'll hold the *line.* I'm *good* at holding. It's the one thing the cough can't make me *quit.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "under.wick_fights_on",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.seeking_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_tired",
+          "speaker": "Wick",
+          "text": "*(He hears you out, and he doesn't argue, and the not-arguing is worse than any argument.)* …That's a *kind* want. *(softly, tiredly)* It really is. *(he pats your hand, comforting *you*, which is unbearable)* But I'm so *tired*, mister. Missus. *(his eyes drift to the dark underside of the bridge)* It's not that I want to *go.* It's that *holding on* has got so *heavy*, and everyone keeps handing me *more* to hold — *fight a bit longer, just a day, don't give up* — and it's all *more weight*, and they mean it *kind*, but none of them have to *carry* it, only *me.* *(gently)* So I'll make *you* a deal instead of the other way round: don't ask me to *fight.* Ask me what I *want.* And then *do* the wanting *for* me, 'cause I've not got the *arms* left. *(he closes his eyes)* …Go talk to Pip. *She's* still got fight in her. Spend it on *her.* I'm — I'm going to rest my eyes a minute. Just a minute. *(quieter)* Come back, though. Even tired, I'd — I'd like it if you came back.",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "under.wick_weary",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_persuade_crit",
+          "speaker": "Wick",
+          "text": "*(✦ You don't promise him a cure. You don't lie. You offer him the one thing nobody else thought a dying child might be *starved* for — not pity, not rescue, but a *fight to be in*, a *part to play*, a *say* — and you watch a boy who'd laid down every weight he had pick *one* back up, by *choice*, and grin like he's been handed the world.)* *(He sits up. Properly up, for the first time in days, fever-flushed and *blazing.*)* — a *DAY to be wrong about!* *(he laughs, and it doesn't even turn into a cough)* You — you didn't do *any* of the things! No *sorry* face, no *blanket-over-the-cage*, no *grieving* at me early — you asked me to *fight WITH* you like I'm a *person* who can still *do* a thing! *(he grabs your sleeve in both burning hands)* *Nobody* does that. They take the *fight* away 'cause they think they're being *kind*, and it's the *cruellest* thing, taking a soldier's *sword* 'cause you've decided he's *lost!* *(fierce, glowing, gloriously alive in this one minute)* Well I've still got my *sword*, partner, it's just *small*, like *me*, and you're the *first* one who *asked* me to *swing* it! *(he flops back, grinning enormous at the bridge-stone)* Go get the root. Drag a *healer* down the stair by the *ear* if you have to. I'll be *here*, *holding the line*, being the most *inconvenient* sick boy that *cough* has ever *met* — *(a sideways gleam)* — Wren'd be *proud.* Pip told me about *Wren.* We're all going to be *inconvenient* now. It's the family *trade.*",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "under.wick_fights_on",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.seeking_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_blazing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wick_persuade_fumble",
+          "speaker": "Wick",
+          "text": "*(💀 You go for inspiring and you *overshoot*, badly, landing somewhere around the rousing battlefield speech — 'TOGETHER we shall DEFEAT this MALADY' — complete, gods help you, with a small clenched fist raised at the ceiling. There is a pause. A bit of grit drifts down from the bridge. Wick regards your raised fist with the merciless clarity of the very young.)* …*(he blinks)* …were you about to do a *war.* *(flatly, fascinated)* At my *cough.* *(a wheeze that is definitely a laugh)* Mister, the cough's not *scared* of your *fist.* The cough's not scared of *anything*, it's a *cough.* *(he pats the sacking, helplessly amused)* That was the *daftest* thing I've seen down here and I once watched a *rat* try to fight the *brazier.* *(grinning, exhausted)* …It *did* cheer me up, though. Not the way you *meant.* But cheering's cheering. *(kindly)* Put the *fist* away, partner. Go ask the Knotwife about the root with your *normal* face. And maybe — *(a sly, fond gleam)* — maybe don't do the *war* voice at *her.* She's *blind*, not *deaf*, and she'd *never* let you live it down.",
+          "effects": [
+            {
+              "key": "under.wick.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "under.seeking_cure",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "under.knotwife", "title": "The Knotwife at Her Loom", "npc": "the Knotwife", "start": "0",
+      "id": "under.knotwife",
+      "title": "The Knotwife at Her Loom",
+      "npc": "the Knotwife",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "the Knotwife", "onEnter": [{ "key": "under.met_knotwife", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "the Knotwife",
+          "onEnter": [
+            {
+              "key": "under.met_knotwife",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["reed.knot_has_a_name"] }, "text": "*(Her hands stop on the loom. The whole of her goes still, and her blind face turns to you with an attention so total it raises the hair on your arms.)* …*Stop there.* *(very quietly)* You carry something on you that smells of *river-water* and *old wrong.* *(her milky eyes don't track you, but something behind them does)* Somebody told you the *knot has a name.* *(a long breath)* There is exactly *one* soul left who knows to say it that way, and she has been *four hundred years drowned*, and she was my *guild-sister* before the water took her — Maren, that the reeds keep. *(her voice cracks, ancient grief and ancient fury both)* So. A stranger comes down my stair, fresh from *Maren's* reeds, with the one phrase that could *end* all of this in their *mouth.* *(she turns fully toward you)* Sit. *Sit*, and mind the loom. We have a very great deal to say to one another, you and I, and not nearly enough *thread* left to say it in." },
-            { "when": { "flags": ["reed.met_reedwife"] }, "text": "*(Her shuttle pauses mid-pass.)* …You've river-damp on your boots. *(mildly, weaving on)* And reed-pollen. You've been down at the *water*, talking to whatever still *talks* down there. *(a dry almost-smile)* Not many go to the quiet end of that bank. Fewer come *back* up to the *dark* end of *this* one. *(she resumes the weave)* You're a collector of *lonely* places, stranger, and the *people* the world files under them. *(her blind face tilts)* That, or you're *looking* for something the *bright* places haven't got. Down here, those are the same errand. Speak it." },
-            { "when": { "deity": "None" }, "text": "*(Before you've made a sound her head lifts, and the milky eyes turn unerringly to you.)* …No god on you. *(she says it almost *fondly*)* I can hear it in the *quiet* you make — the godded ones *rustle*, all that borrowed weight; you come in *silent* as *unspun wool.* *(she pats the bench beside her loom)* Sit, then, unbought one. The Knotwife's no use to the *vouched-for* — they've got their *churches.* It's the *unheld* who climb down to *me.* *(her hands never stop)* And it's the *unheld* I weave *for.* What do you need, you lovely *unwritten* thing?" },
-            { "text": "*(The old woman weaves on in the dark, eyes closed, her fingers reading the threads like a face — and she speaks before your foot has finished its step.)* Mind the third stair, it's *loose.* *(her voice is dry and unhurried)* …There. *(she ties off a thread without looking, because she has never once looked)* You'll be wanting one of three things, down here. The *root* for the boy — half of them come for that. A *banner* woven with a *true* name, to bury someone the *Choir* won't — that's the *quiet* half. *(her milky eyes open onto nothing)* Or you've *lost your way* between the market and the river and stumbled into the *dark* by mistake, in which case the stair's behind you and *do* mind the third one. *(she waits)* …Which is it, then? Speak up. The *blind* hear *honesty* a mile off, and I've no patience left for the other thing." }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "the Knotwife", "text": "*(Her hands move ceaselessly over the loom, weaving a banner whose pattern you can't quite resolve in the brazier-light — names, perhaps, or the spaces where names should be.)* Go on, then. *(the shuttle hisses through the warp)* A blind weaver under a bridge has *time*, stranger, but the boy on that pallet *hasn't*, so don't *dawdle* on my account. What do you *want?*",
+            {
+              "when": {
+                "flags": [
+                  "reed.knot_has_a_name"
+                ]
+              },
+              "text": "*(Her hands stop on the loom. The whole of her goes still, and her blind face turns to you with an attention so total it raises the hair on your arms.)* …*Stop there.* *(very quietly)* You carry something on you that smells of *river-water* and *old wrong.* *(her milky eyes don't track you, but something behind them does)* Somebody told you the *knot has a name.* *(a long breath)* There is exactly *one* soul left who knows to say it that way, and she has been *four hundred years drowned*, and she was my *guild-sister* before the water took her — Maren, that the reeds keep. *(her voice cracks, ancient grief and ancient fury both)* So. A stranger comes down my stair, fresh from *Maren's* reeds, with the one phrase that could *end* all of this in their *mouth.* *(she turns fully toward you)* Sit. *Sit*, and mind the loom. We have a very great deal to say to one another, you and I, and not nearly enough *thread* left to say it in."
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.met_reedwife"
+                ]
+              },
+              "text": "*(Her shuttle pauses mid-pass.)* …You've river-damp on your boots. *(mildly, weaving on)* And reed-pollen. You've been down at the *water*, talking to whatever still *talks* down there. *(a dry almost-smile)* Not many go to the quiet end of that bank. Fewer come *back* up to the *dark* end of *this* one. *(she resumes the weave)* You're a collector of *lonely* places, stranger, and the *people* the world files under them. *(her blind face tilts)* That, or you're *looking* for something the *bright* places haven't got. Down here, those are the same errand. Speak it."
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(Before you've made a sound her head lifts, and the milky eyes turn unerringly to you.)* …No god on you. *(she says it almost *fondly*)* I can hear it in the *quiet* you make — the godded ones *rustle*, all that borrowed weight; you come in *silent* as *unspun wool.* *(she pats the bench beside her loom)* Sit, then, unbought one. The Knotwife's no use to the *vouched-for* — they've got their *churches.* It's the *unheld* who climb down to *me.* *(her hands never stop)* And it's the *unheld* I weave *for.* What do you need, you lovely *unwritten* thing?"
+            },
+            {
+              "text": "*(The old woman weaves on in the dark, eyes closed, her fingers reading the threads like a face — and she speaks before your foot has finished its step.)* Mind the third stair, it's *loose.* *(her voice is dry and unhurried)* …There. *(she ties off a thread without looking, because she has never once looked)* You'll be wanting one of three things, down here. The *root* for the boy — half of them come for that. A *banner* woven with a *true* name, to bury someone the *Choir* won't — that's the *quiet* half. *(her milky eyes open onto nothing)* Or you've *lost your way* between the market and the river and stumbled into the *dark* by mistake, in which case the stair's behind you and *do* mind the third one. *(she waits)* …Which is it, then? Speak up. The *blind* hear *honesty* a mile off, and I've no patience left for the other thing."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Knotwife",
+          "text": "*(Her hands move ceaselessly over the loom, weaving a banner whose pattern you can't quite resolve in the brazier-light — names, perhaps, or the spaces where names should be.)* Go on, then. *(the shuttle hisses through the warp)* A blind weaver under a bridge has *time*, stranger, but the boy on that pallet *hasn't*, so don't *dawdle* on my account. What do you *want?*",
           "choices": [
-            { "text": "[MEDICINE] \"The boy. Wick. The slow lung-fever. He says there's a root for it — a real one — that grows out past the last torch, where the marked go. Tell me it's real, and tell me exactly where, and I'll go and fetch the damned thing myself.\"", "when": { "flag": "under.knows_root" }, "check": { "skill": "Medicine", "ability": "Wisdom", "dc": 13 }, "next": "knot_root", "fail": "knot_root_soft" },
-            { "text": "\"The boy. Wick. Whatever can be done for him — herb, rite, or only a gentler ending — you're the one who'd know. I came down the stair to *ask*, and I'll do whatever the answer is.\"", "next": "knot_root_soft" },
-            { "text": "[HISTORY] \"The knot has a name. A drowned weaver in the reeds told me — your guild-sister, you say. So tell me the rest, Knotwife. Who *tied* the crossing to the Wall? Whose name is woven through the whole rotten machine — and what happens if I *unpick* it?\"", "when": { "flags": ["reed.knot_has_a_name"] }, "check": { "skill": "History", "ability": "Intelligence", "dc": 15 }, "next": "knot_name", "fail": "knot_name_coy", "crit": "knot_name_crit", "fumble": "knot_name_fumble" },
-            { "text": "[INSIGHT] \"You shelter every orphan the causeway throws away, and you weave burial-banners for the souls the Choir won't bury. That's not charity, Knotwife. That's *penance.* Who did you lose, that you've spent the rest of your life weaving names for the lost?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "knot_penance", "fail": "knot_deflect" },
-            { "text": "*(let the blind woman 'see' the one thing her milky eyes can still read)* \"You said the godded ones rustle and the godless come quiet. What does a *Returned* sound like, Knotwife? Because that's what climbed down your stair. I've been across. I came back wearing the cold. If anyone can *use* that, it's a woman who weaves for the dead.\"", "tag": "returned", "next": "knot_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I'll not waste your thread, Knotwife. Good weaving to you.\" *(climb back toward the light)*", "next": "knot_leave" }
-          ] },
-        { "id": "knot_root", "speaker": "the Knotwife", "text": "*(Her hands finally still on the loom, and she turns the full weight of her blind attention on you.)* …It's real. *(flatly)* Greywort. Grows in the salt-mud *past the last torch*, where the causeway gives way to the marsh and the marked walk out and *don't* walk back. *(she reaches under the loom and presses a small clay vial into your hand)* A *tincture* of it, made right, breaks the slow lung-fever in three days. I've *made* it. I made it for *forty years.* *(her voice roughens)* But I can't *fetch* the root anymore — blind, and old, and the marsh takes the *sure-footed*, never mind *me* — and no one *else* will go, because going *out past the last torch* is the same as *volunteering* for the Wall. *(she closes your fingers around the empty vial)* So I weave *banners* for the children I can't *cure*, and I have woven *small* ones, stranger. *Too* many small ones. *(her milky eyes fix on nothing, fierce)* You walked *back* from the far side once, they tell me. Then you're the *one* soul on this causeway who might fetch greywort from the edge of the Wall and *return* to fill that vial. *Will* you? Say it plain. The boy's counting in *breaths.*",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 3 }, { "key": "under.greywort_quest", "op": "SetTrue" }, { "key": "under.knotwife_remedy", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "knot_root_soft", "speaker": "the Knotwife", "text": "*(She weaves a few passes in silence before she answers, and when she does, her voice has the worn-smooth gentleness of someone who has given this exact news a hundred times and never once gotten used to it.)* …There's a *root.* Greywort. Real as rain. *(quietly)* And it grows in the *one* place a soul can't fetch it from and come *home* — the salt-marsh *past the last torch*, where the causeway feeds the Wall. *(the shuttle pauses)* So for *most* who climb down asking, the honest answer is the *hard* one: the cure exists, and it may as well be on the *moon*, and what's *left* is to make the boy's road *gentle* — which I can help with, banners and broth and a warm corner, and have, for more children than I'll *name.* *(she turns her blind face toward the pallet)* But you don't *feel* like most who climb down here. There's a *cold* on you the air can't account for. *(softly)* If you're what I think you are — go *talk* to the boy proper, and *look* at him with a healer's eye, and then come *back* to me, and we'll see if your road and the *greywort's* are the same *impossible* road. They might be. For *you*, they just might be.",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 1 }, { "key": "under.knows_root", "op": "SetTrue" }], "auto": "END" },
-        { "id": "knot_name", "speaker": "the Knotwife", "text": "*(She ties off the thread in her hands with a small, final, savage tug, and for a moment the dry composure burns clean away.)* …Then *here* it is, and may it *cost* the right people at last. *(low and fierce)* The crossing wasn't *made* by a god. Gods don't do *paperwork.* It was made by a *living* clerk — *Aldous Venn*, Chancellor of the Grey Ledger, four hundred years gone — who looked at a city *drowning* in its unclaimed dead and decided grief was *inefficient.* *(her hands tremble on the warp)* So he *wove* a working into the causeway — coin for the bought, the Wall for the rest — and *signed* it, the arrogant *worm*, signed his *name* into the foundation-knot the way a weaver signs a banner, so it could never be *undone* by anyone who didn't know to *look* for a signature. *(she leans toward you)* Maren and I *wove* that causeway's banners. We *found* the signature. We were going to *unpick* it — and the Choir drowned *her* for it and *blinded me*, and called it an *accident of the loom.* *(her milky eyes blaze)* The name is *Aldous Venn.* It is knotted into the *third pier* of the bridge above your *head.* And a soul who could *reach* it — who the Wall can't simply *take* for trying — could *cut* the Chancellor's signature and let four hundred years of the *filed-away* finally come *unfiled.* *(a whisper)* I have waited my whole *blind* life to say that name to someone who could *use* it.",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 3 }, { "key": "under.bridge_name", "op": "SetTrue" }, { "key": "under.venn_revealed", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "knot_name_coy", "speaker": "the Knotwife", "text": "*(She weaves on, unhurried, but a muscle works in her jaw.)* …You know the *phrase*, but not the *weight* of it. *(carefully)* 'The knot has a name' is a thing my sister and I used to say to each *other*, stranger — a password between two weavers who'd seen too much. Hearing it in a *stranger's* mouth is like hearing your own heart beat in someone else's *chest.* *(the shuttle hisses)* So forgive me if I don't simply *hand* you four hundred years of buried murder on the strength of a *borrowed phrase.* *(her blind face turns to you)* Bring me proof you *understand* what you're asking — that you've *been* to the water, *seen* the working, know it's a *machine* and not a *mercy* — and then, perhaps, I'll speak the name that got my sister *drowned.* Half-knowing it is how people get *killed* down here. *I* should know. *I* half-knew it, once.",
-          "auto": "END" },
-        { "id": "knot_name_crit", "speaker": "the Knotwife", "text": "*(✦ You don't just ask — you lay out what you've already pieced together, the toll and the consent and the seam, the whole shape of the machine, so exactly that the blind weaver hears in your voice the one thing she had given up ever hearing again: *another mind that sees the whole loom.* Her hands fly to her mouth. A sound comes out of her that's been four hundred years pent.)* …*Maren.* *(she breathes her drowned sister's name like a prayer)* You sound like *Maren.* You've *worked it out* the way she did — all of it, the *whole pattern*, not the *threads* but the *weave* — *(she gropes across the loom and seizes your hand in both of hers, blind and shaking)* — *forty years* I have woven in this dark *certain* I would die with the name still knotted in my chest and the machine still *running*, and you have walked down my stair *already understanding*, needing only the last *syllable!* *(she presses her forehead to your knuckles)* *Aldous Venn.* Chancellor of the Grey Ledger. Signed into the *third pier* above us. *(fierce, weeping, exultant)* And I will give you more than the name — I will give you Maren's and my *own* weaving-notes, the *unpicking-pattern* we died for, knotted into a banner I have kept *ready* for *four decades* against the *one* soul who could carry it. *(she thrusts a tight-wound cloth into your arms)* Take it. *Take it.* Cut the Chancellor's signature from the bridge, and tell my *sister*, when next you pass her reeds, that the Knotwife *kept* the pattern, and it *worked*, and we were *right.* We were *always right.*",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 5 }, { "key": "under.bridge_name", "op": "SetTrue" }, { "key": "under.venn_revealed", "op": "SetTrue" }, { "key": "under.unpicking_pattern", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "knot_name_fumble", "speaker": "the Knotwife", "text": "*(💀 You reach for the deep history and confidently produce a complete fabrication — something about 'the *god* who built the bridge' and possibly a *dragon* — and the blind weaver's hands go still on the loom in a silence so total you can hear the brazier's last coal give up.)* …A *dragon.* *(very quietly)* My sister was *drowned* for the truth of this bridge, stranger, and *blinded* me, and you have repaid the one *password* that *cost* us everything by inventing a *bedtime story* at me. *(she resumes weaving, and the dismissal is colder than any shout)* No. *No.* You have the *phrase* and *none* of the *grief*, which means someone *clever* said it *near* you and you've come down here *fishing.* *(her milky eyes turn away)* Go and *earn* the weight of those words before you say them to a woman who *paid* it. Go to the *water.* Talk to what *drowned* there. Come back when you can tell me how my sister *died* — and *not*, gods help you, that it was a *dragon.* Mind the third stair on your way *up.* I'll not warn you of it *twice.*",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": -2 }], "auto": "END" },
-        { "id": "knot_penance", "speaker": "the Knotwife", "text": "*(The shuttle stops. For a long moment the only sound is the brazier ticking, and when she speaks her dry voice has gone to something raw and four decades deep.)* …*Penance.* *(barely)* You *see* clear, for a sighted one. *(she lays her hands flat on the half-woven banner)* I had a *daughter.* And a *sister-in-craft*, Maren, who was *closer* than a sister. We three wove the bridge-banners — the *good* work, the *proud* work — until we found the *rot* knotted into the foundation, and we tried to *cut* it. *(her jaw works)* The Choir drowned *Maren* in the reeds. And my *girl* — my girl was *unbought*, you understand, *godless*, like *you*, like *half* these children — and when I was too *busy* with *heresy* to get her a *coin* and a *god's word*, they *measured* her *light* and walked her out past the *last torch*, and I was *blinded* by then and could not even *see* her *go.* *(her milky eyes stream, unseeing)* So *yes.* Penance. Every orphan I shelter is the daughter I was too *clever* to save. Every banner I weave is a name the Choir tried to make *nothing*, made *something* again, in *thread*, by a blind old woman who *will not stop.* *(fiercely)* It mends *nothing.* I *know* it mends nothing. *(quietly)* But it is the only loom I have left, and I will die at it, and that is *more* than the Choir left my girl. Now. *(she wipes her face with a weaver's hard hand)* You asked an *honest* question. Ask me a *useful* one, and let's see if your road can do what my *penance* can't.",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 3 }, { "key": "under.knotwife_story", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "knot_deflect", "speaker": "the Knotwife", "text": "*(Her hands resume their ceaseless work, and her blind face gives you nothing.)* *Penance*, charity, *habit* — fine words to hang on an old woman at a loom, stranger, and none of them *thread.* *(dryly)* I weave because the loom is *here* and the children are *here* and the dead are *here* and my *hands* still work, and that's reason *enough* for anything, down in the dark. *(the shuttle hisses)* You came for *more* than my *life story*, I'd wager. The *bright* places send their *curious* down here often enough, and the curious are *no* use to a sick boy. *(she tilts her head)* Ask me something a *dying child* could *spend.* Or climb back to your *daylight.* The third stair's loose. I'll *not* tell you a fourth time.",
-          "auto": "END" },
-        { "id": "knot_returned", "speaker": "the Knotwife", "text": "*(Her hands go utterly still — and then, slowly, she lifts them from the loom and reaches toward you through the dark, and her blind fingers find the air a hand's-breadth from your face and *stop*, trembling, reading a cold she doesn't need eyes to feel.)* …*Oh.* *(a long, shaking breath)* That's what the *quiet* was. Not godless. *Past* god. *(her milky eyes well up)* A *Returned.* I have *woven* for the dead my whole life, stranger, and *never once* has one climbed down my stair *wearing the thread* — you're *both*, aren't you, the *mourner* and the *mourned*, the *banner* and the *name* — *(her fingers hover at your cheek, not quite touching)* — Maren in the reeds, she *abides*, but she never came *back.* You came *back.* *(fiercely, urgently)* Then listen to a blind old weaver who knows what a *loom* is *for*: you are not a *ghost*, and you are not a *curse*, you are a *shuttle.* A thing that goes *between.* You can carry thread from the *dead* side to the *living* one — names, and truths, and *greywort* from past the last torch, and a Chancellor's signature *cut* clean from a bridge — *across*, where no *living* hand can reach and no *dead* hand can *hold.* *(she presses both cold-reading hands to yours)* The Choir built a machine to keep the dead *filed* and the living *afraid.* It never planned for a *soul that goes both ways.* *(a fierce, weeping smile)* You're the *flaw in the weave*, Returned. You're the *dropped stitch* the whole loom can *unravel* from. Let me show you *exactly* where to *pull.*",
-          "effects": [{ "key": "under.knotwife.regard", "op": "AddInt", "amount": 4 }, { "key": "under.knotwife_ally", "op": "SetTrue" }, { "key": "under.knows_root", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "knot_leave", "speaker": "the Knotwife", "text": "*(She inclines her head, hands never ceasing.)* Good weaving's a kind thing to wish a weaver. *(the shuttle hisses through the warp)* Most just wish me *gone*, or *cured*, or *less.* *(a dry almost-smile)* Go to your light, stranger. *(a beat, and her blind face turns, unerring, toward the pallet in the dark)* …But the boy's still *here* when the light's done with you. They *always* are, the ones the bright places can't *use.* *(softly, as you reach the stair)* Mind the third step. And mind the *thing* the daylight does to a soul, that makes it forget the *dark* is *full.* It's *full*, stranger. It's the *fullest* place there is. Come back when the *bright* has *thinned* on you. It always thins.",
-          "auto": "END" }
+            {
+              "text": "[MEDICINE] \"The boy. Wick. The slow lung-fever. He says there's a root for it — a real one — that grows out past the last torch, where the marked go. Tell me it's real, and tell me exactly where, and I'll go and fetch the damned thing myself.\"",
+              "when": {
+                "flag": "under.knows_root"
+              },
+              "check": {
+                "skill": "Medicine",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "knot_root",
+              "fail": "knot_root_soft"
+            },
+            {
+              "text": "\"The boy. Wick. Whatever can be done for him — herb, rite, or only a gentler ending — you're the one who'd know. I came down the stair to *ask*, and I'll do whatever the answer is.\"",
+              "next": "knot_root_soft"
+            },
+            {
+              "text": "[HISTORY] \"The knot has a name. A drowned weaver in the reeds told me — your guild-sister, you say. So tell me the rest, Knotwife. Who *tied* the crossing to the Wall? Whose name is woven through the whole rotten machine — and what happens if I *unpick* it?\"",
+              "when": {
+                "flags": [
+                  "reed.knot_has_a_name"
+                ]
+              },
+              "check": {
+                "skill": "History",
+                "ability": "Intelligence",
+                "dc": 15
+              },
+              "next": "knot_name",
+              "fail": "knot_name_coy",
+              "crit": "knot_name_crit",
+              "fumble": "knot_name_fumble"
+            },
+            {
+              "text": "[INSIGHT] \"You shelter every orphan the causeway throws away, and you weave burial-banners for the souls the Choir won't bury. That's not charity, Knotwife. That's *penance.* Who did you lose, that you've spent the rest of your life weaving names for the lost?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "knot_penance",
+              "fail": "knot_deflect"
+            },
+            {
+              "text": "*(let the blind woman 'see' the one thing her milky eyes can still read)* \"You said the godded ones rustle and the godless come quiet. What does a *Returned* sound like, Knotwife? Because that's what climbed down your stair. I've been across. I came back wearing the cold. If anyone can *use* that, it's a woman who weaves for the dead.\"",
+              "tag": "returned",
+              "next": "knot_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I'll not waste your thread, Knotwife. Good weaving to you.\" *(climb back toward the light)*",
+              "next": "knot_leave"
+            }
+          ]
+        },
+        {
+          "id": "knot_root",
+          "speaker": "the Knotwife",
+          "text": "*(Her hands finally still on the loom, and she turns the full weight of her blind attention on you.)* …It's real. *(flatly)* Greywort. Grows in the salt-mud *past the last torch*, where the causeway gives way to the marsh and the marked walk out and *don't* walk back. *(she reaches under the loom and presses a small clay vial into your hand)* A *tincture* of it, made right, breaks the slow lung-fever in three days. I've *made* it. I made it for *forty years.* *(her voice roughens)* But I can't *fetch* the root anymore — blind, and old, and the marsh takes the *sure-footed*, never mind *me* — and no one *else* will go, because going *out past the last torch* is the same as *volunteering* for the Wall. *(she closes your fingers around the empty vial)* So I weave *banners* for the children I can't *cure*, and I have woven *small* ones, stranger. *Too* many small ones. *(her milky eyes fix on nothing, fierce)* You walked *back* from the far side once, they tell me. Then you're the *one* soul on this causeway who might fetch greywort from the edge of the Wall and *return* to fill that vial. *Will* you? Say it plain. The boy's counting in *breaths.*",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.greywort_quest",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.knotwife_remedy",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_root_soft",
+          "speaker": "the Knotwife",
+          "text": "*(She weaves a few passes in silence before she answers, and when she does, her voice has the worn-smooth gentleness of someone who has given this exact news a hundred times and never once gotten used to it.)* …There's a *root.* Greywort. Real as rain. *(quietly)* And it grows in the *one* place a soul can't fetch it from and come *home* — the salt-marsh *past the last torch*, where the causeway feeds the Wall. *(the shuttle pauses)* So for *most* who climb down asking, the honest answer is the *hard* one: the cure exists, and it may as well be on the *moon*, and what's *left* is to make the boy's road *gentle* — which I can help with, banners and broth and a warm corner, and have, for more children than I'll *name.* *(she turns her blind face toward the pallet)* But you don't *feel* like most who climb down here. There's a *cold* on you the air can't account for. *(softly)* If you're what I think you are — go *talk* to the boy proper, and *look* at him with a healer's eye, and then come *back* to me, and we'll see if your road and the *greywort's* are the same *impossible* road. They might be. For *you*, they just might be.",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "under.knows_root",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_name",
+          "speaker": "the Knotwife",
+          "text": "*(She ties off the thread in her hands with a small, final, savage tug, and for a moment the dry composure burns clean away.)* …Then *here* it is, and may it *cost* the right people at last. *(low and fierce)* The crossing wasn't *made* by a god. Gods don't do *paperwork.* It was made by a *living* clerk — *Aldous Venn*, Chancellor of the Grey Ledger, four hundred years gone — who looked at a city *drowning* in its unclaimed dead and decided grief was *inefficient.* *(her hands tremble on the warp)* So he *wove* a working into the causeway — coin for the bought, the Wall for the rest — and *signed* it, the arrogant *worm*, signed his *name* into the foundation-knot the way a weaver signs a banner, so it could never be *undone* by anyone who didn't know to *look* for a signature. *(she leans toward you)* Maren and I *wove* that causeway's banners. We *found* the signature. We were going to *unpick* it — and the Choir drowned *her* for it and *blinded me*, and called it an *accident of the loom.* *(her milky eyes blaze)* The name is *Aldous Venn.* It is knotted into the *third pier* of the bridge above your *head.* And a soul who could *reach* it — who the Wall can't simply *take* for trying — could *cut* the Chancellor's signature and let four hundred years of the *filed-away* finally come *unfiled.* *(a whisper)* I have waited my whole *blind* life to say that name to someone who could *use* it.",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.bridge_name",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.venn_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_name_coy",
+          "speaker": "the Knotwife",
+          "text": "*(She weaves on, unhurried, but a muscle works in her jaw.)* …You know the *phrase*, but not the *weight* of it. *(carefully)* 'The knot has a name' is a thing my sister and I used to say to each *other*, stranger — a password between two weavers who'd seen too much. Hearing it in a *stranger's* mouth is like hearing your own heart beat in someone else's *chest.* *(the shuttle hisses)* So forgive me if I don't simply *hand* you four hundred years of buried murder on the strength of a *borrowed phrase.* *(her blind face turns to you)* Bring me proof you *understand* what you're asking — that you've *been* to the water, *seen* the working, know it's a *machine* and not a *mercy* — and then, perhaps, I'll speak the name that got my sister *drowned.* Half-knowing it is how people get *killed* down here. *I* should know. *I* half-knew it, once.",
+          "auto": "END"
+        },
+        {
+          "id": "knot_name_crit",
+          "speaker": "the Knotwife",
+          "text": "*(✦ You don't just ask — you lay out what you've already pieced together, the toll and the consent and the seam, the whole shape of the machine, so exactly that the blind weaver hears in your voice the one thing she had given up ever hearing again: *another mind that sees the whole loom.* Her hands fly to her mouth. A sound comes out of her that's been four hundred years pent.)* …*Maren.* *(she breathes her drowned sister's name like a prayer)* You sound like *Maren.* You've *worked it out* the way she did — all of it, the *whole pattern*, not the *threads* but the *weave* — *(she gropes across the loom and seizes your hand in both of hers, blind and shaking)* — *forty years* I have woven in this dark *certain* I would die with the name still knotted in my chest and the machine still *running*, and you have walked down my stair *already understanding*, needing only the last *syllable!* *(she presses her forehead to your knuckles)* *Aldous Venn.* Chancellor of the Grey Ledger. Signed into the *third pier* above us. *(fierce, weeping, exultant)* And I will give you more than the name — I will give you Maren's and my *own* weaving-notes, the *unpicking-pattern* we died for, knotted into a banner I have kept *ready* for *four decades* against the *one* soul who could carry it. *(she thrusts a tight-wound cloth into your arms)* Take it. *Take it.* Cut the Chancellor's signature from the bridge, and tell my *sister*, when next you pass her reeds, that the Knotwife *kept* the pattern, and it *worked*, and we were *right.* We were *always right.*",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "under.bridge_name",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.venn_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.unpicking_pattern",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_name_fumble",
+          "speaker": "the Knotwife",
+          "text": "*(💀 You reach for the deep history and confidently produce a complete fabrication — something about 'the *god* who built the bridge' and possibly a *dragon* — and the blind weaver's hands go still on the loom in a silence so total you can hear the brazier's last coal give up.)* …A *dragon.* *(very quietly)* My sister was *drowned* for the truth of this bridge, stranger, and *blinded* me, and you have repaid the one *password* that *cost* us everything by inventing a *bedtime story* at me. *(she resumes weaving, and the dismissal is colder than any shout)* No. *No.* You have the *phrase* and *none* of the *grief*, which means someone *clever* said it *near* you and you've come down here *fishing.* *(her milky eyes turn away)* Go and *earn* the weight of those words before you say them to a woman who *paid* it. Go to the *water.* Talk to what *drowned* there. Come back when you can tell me how my sister *died* — and *not*, gods help you, that it was a *dragon.* Mind the third stair on your way *up.* I'll not warn you of it *twice.*",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": -2
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_penance",
+          "speaker": "the Knotwife",
+          "text": "*(The shuttle stops. For a long moment the only sound is the brazier ticking, and when she speaks her dry voice has gone to something raw and four decades deep.)* …*Penance.* *(barely)* You *see* clear, for a sighted one. *(she lays her hands flat on the half-woven banner)* I had a *daughter.* And a *sister-in-craft*, Maren, who was *closer* than a sister. We three wove the bridge-banners — the *good* work, the *proud* work — until we found the *rot* knotted into the foundation, and we tried to *cut* it. *(her jaw works)* The Choir drowned *Maren* in the reeds. And my *girl* — my girl was *unbought*, you understand, *godless*, like *you*, like *half* these children — and when I was too *busy* with *heresy* to get her a *coin* and a *god's word*, they *measured* her *light* and walked her out past the *last torch*, and I was *blinded* by then and could not even *see* her *go.* *(her milky eyes stream, unseeing)* So *yes.* Penance. Every orphan I shelter is the daughter I was too *clever* to save. Every banner I weave is a name the Choir tried to make *nothing*, made *something* again, in *thread*, by a blind old woman who *will not stop.* *(fiercely)* It mends *nothing.* I *know* it mends nothing. *(quietly)* But it is the only loom I have left, and I will die at it, and that is *more* than the Choir left my girl. Now. *(she wipes her face with a weaver's hard hand)* You asked an *honest* question. Ask me a *useful* one, and let's see if your road can do what my *penance* can't.",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "under.knotwife_story",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_deflect",
+          "speaker": "the Knotwife",
+          "text": "*(Her hands resume their ceaseless work, and her blind face gives you nothing.)* *Penance*, charity, *habit* — fine words to hang on an old woman at a loom, stranger, and none of them *thread.* *(dryly)* I weave because the loom is *here* and the children are *here* and the dead are *here* and my *hands* still work, and that's reason *enough* for anything, down in the dark. *(the shuttle hisses)* You came for *more* than my *life story*, I'd wager. The *bright* places send their *curious* down here often enough, and the curious are *no* use to a sick boy. *(she tilts her head)* Ask me something a *dying child* could *spend.* Or climb back to your *daylight.* The third stair's loose. I'll *not* tell you a fourth time.",
+          "auto": "END"
+        },
+        {
+          "id": "knot_returned",
+          "speaker": "the Knotwife",
+          "text": "*(Her hands go utterly still — and then, slowly, she lifts them from the loom and reaches toward you through the dark, and her blind fingers find the air a hand's-breadth from your face and *stop*, trembling, reading a cold she doesn't need eyes to feel.)* …*Oh.* *(a long, shaking breath)* That's what the *quiet* was. Not godless. *Past* god. *(her milky eyes well up)* A *Returned.* I have *woven* for the dead my whole life, stranger, and *never once* has one climbed down my stair *wearing the thread* — you're *both*, aren't you, the *mourner* and the *mourned*, the *banner* and the *name* — *(her fingers hover at your cheek, not quite touching)* — Maren in the reeds, she *abides*, but she never came *back.* You came *back.* *(fiercely, urgently)* Then listen to a blind old weaver who knows what a *loom* is *for*: you are not a *ghost*, and you are not a *curse*, you are a *shuttle.* A thing that goes *between.* You can carry thread from the *dead* side to the *living* one — names, and truths, and *greywort* from past the last torch, and a Chancellor's signature *cut* clean from a bridge — *across*, where no *living* hand can reach and no *dead* hand can *hold.* *(she presses both cold-reading hands to yours)* The Choir built a machine to keep the dead *filed* and the living *afraid.* It never planned for a *soul that goes both ways.* *(a fierce, weeping smile)* You're the *flaw in the weave*, Returned. You're the *dropped stitch* the whole loom can *unravel* from. Let me show you *exactly* where to *pull.*",
+          "effects": [
+            {
+              "key": "under.knotwife.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "under.knotwife_ally",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.knows_root",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "knot_leave",
+          "speaker": "the Knotwife",
+          "text": "*(She inclines her head, hands never ceasing.)* Good weaving's a kind thing to wish a weaver. *(the shuttle hisses through the warp)* Most just wish me *gone*, or *cured*, or *less.* *(a dry almost-smile)* Go to your light, stranger. *(a beat, and her blind face turns, unerring, toward the pallet in the dark)* …But the boy's still *here* when the light's done with you. They *always* are, the ones the bright places can't *use.* *(softly, as you reach the stair)* Mind the third step. And mind the *thing* the daylight does to a soul, that makes it forget the *dark* is *full.* It's *full*, stranger. It's the *fullest* place there is. Come back when the *bright* has *thinned* on you. It always thins.",
+          "auto": "END"
+        }
       ]
     }
   ]
