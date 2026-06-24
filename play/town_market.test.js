@@ -1126,6 +1126,23 @@ check("a [RETURNED] score lets you consult the ten thousand souls themselves bef
   ch.tag === "returned" && tally.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "hs.souls_consented")));
 check("each Deep-Archive soul carries a [RETURNED] line + a Returned-sense", [sparrow, codex, tally].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+// the Sparrow is a FOURTH recruitable companion — turn her conscience and she joins
+check("the Sparrow can be recruited as a fourth companion (party.sparrow_recruited) once she doubts the job", (() => {
+  const recruitChoice = sparrow.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "sparrow_recruit");
+  const doubts = E.newState(); doubts.bools["hs.sparrow_doubts"] = true;
+  const joins = sparrow.nodes.find(n => n.id === "sparrow_recruit");
+  return recruitChoice && joins && joins.effects.some(e => e.key === "party.sparrow_recruited") &&
+    E.choiceAvailable(goodGuy, doubts, recruitChoice, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), recruitChoice, MODEL) === false;
+})());
+check("the Returned can turn her straight off the slaver's job and recruit her in one stroke",
+  sparrow.nodes.find(n => n.id === "sparrow_returned").effects.some(e => e.key === "party.sparrow_recruited"));
+const hSparrow = CONVS.find(c => c.id === "hearth.sparrow");
+const hSparrowNpc = CAMP.npcs.find(n => n.conv === "hearth.sparrow");
+check("the recruited Sparrow joins the Hearth fire, gated on party.sparrow_recruited", hSparrow && hSparrowNpc &&
+  hSparrowNpc.when && hSparrowNpc.when.flag === "party.sparrow_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sparrow_recruited"] = true; return s; })(), hSparrowNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), hSparrowNpc.when) === false &&
+  hSparrow.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && hSparrow.returned);
 
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&

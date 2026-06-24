@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v5.2.0 — *"The Sparrow"* — a fourth recruitable companion, turned mid-heist (content)
+
+> The heist's inside thief becomes the saga's fourth companion. The Sparrow took the Tally job for the coin and
+> didn't look at the cargo — but she has *one* rule, *no stealing people*, built around the one early crime she
+> couldn't live having done twice. Show her the Great Tally *is* that crime ten thousand times over, and she turns
+> herself off the job — and you can take her on.
+
+- 🃏 **The Sparrow is now recruitable (`party.sparrow_recruited`).** Two routes: the **[RETURNED]** path (name what
+  she's really stealing and she turns and joins in one stroke), or — once she *doubts* the job (ask about her buyer,
+  or read her with Insight) — a plain recruit offer: *steal people back instead of fencing them.* She joins on her
+  own terms (picks the locks, keeps her cut of anything that isn't a person, and you never ask her to leave a soul
+  behind a door she could've opened).
+- 🔥 **She takes a seat at the Hearth fire** (joining Dace, Wren, Pip and Sennet among the conditional camp souls).
+  A full fireside conversation with four threads: how a soul ends up a *thief of the dead*; the story behind her
+  **one rule** (an early job, a child-shade she lifted for a buyer before she learned to ask *why* — the wall she
+  built around the one crime she couldn't repeat); a **[RETURNED]** "we both go where we're not allowed" exchange
+  (you introduced the proud hands to the ashamed jobs, and she's a *whole person* for the first time in forty years);
+  and whether she regrets walking away from the richest score of her life (she doesn't — *you can't fence a seat at
+  a fire; it's only worth anything given*). A reactive opening reads whether you delivered the Tally to Jergal.
+- 👁️ **A new Returned-sense** for her at the fire: a soul caught in the act of *integration*, the two halves it kept
+  in separate pockets for forty years finally settling into one.
+- 🧪 **+3 gates** (now **1,019 checks**, all green). **Four companions** now — Dace the sellsword, Sennet the
+  cartographer, Orin the justiciar, and the Sparrow the reformed thief. **71 souls.**
+
+---
+
 ## 👑 v5.1.0 — *"The Deep Archive"* — a twentieth zone: a heist (steal the master ledger of the Faithless) (content)
 
 > Another structure the saga hadn't done: a **heist** — crew, obstacle, score. Down a darker stair from the
