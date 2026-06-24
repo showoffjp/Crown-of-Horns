@@ -616,6 +616,16 @@ check("Dace's night-talk unlocks a deeper line once her approval is high enough"
   E.choiceAvailable(confessor, E.newState(), deepTalk, MODEL) === false);
 check("each Hearth soul still offers a [RETURNED] line", [fire, hdace, hwren, hpip].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+// the recruited cartographer joins the fire too — the third companion appears in the denouement when taken on
+const hsennet = CONVS.find(c => c.id === "hearth.sennet");
+const sennetNpc = CAMP.npcs.find(n => n.conv === "hearth.sennet");
+check("Sennet appears at the Hearth only once recruited (party.sennet_recruited)", hsennet && sennetNpc &&
+  sennetNpc.when && sennetNpc.when.flag === "party.sennet_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sennet_recruited"] = true; return s; })(), sennetNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), sennetNpc.when) === false);
+check("Sennet's fireside talk reads the recruit (a devoted variant) and carries a [RETURNED] line + a Returned-sense",
+  hsennet.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.flag === "cg.sennet_devoted") &&
+  hsennet.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && hsennet.returned);
 
 // ---- eighth zone: the Doomguide's Table — the bridge into the main saga, the keystone confrontation ----
 const TABLE = SCENES && SCENES.aldric;

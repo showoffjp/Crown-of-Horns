@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v4.95.0 — *"Sennet at the Fire"* — the recruited cartographer joins the Hearth denouement (content)
+
+> A companion you can recruit should *show up.* The Hearth already gathers exactly the souls you saved — Dace
+> off-watch, Wren with her apple, Pip sleeping with both eyes — so the new third companion now takes the third
+> chair at the fire, with a full reactive fireside conversation of their own.
+
+- 🔥 **Sennet now appears at the Hearth** — gated on `party.sennet_recruited`, using the existing conditional-NPC
+  engine (`npcVisible`/`activeNpcs`/`blockedNow`). Recruit them at the wagon and they're at your fire that night;
+  don't, and the chair stays empty.
+- 🗺️ **A fireside conversation that reads how you took them on.** Four reactive openings: a **devoted** variant if
+  you recruited them with the nat-20 persuasion (they put your name on the title cartouche; now they're drawing
+  *you*), a **merciful**-disposition variant, a wary **ruthless** one (the surveyor takes a bearing on *your* cold
+  and tells you, plainly, what country it leads to), and a default. Talk-threads: what they're really drawing
+  (the *camp*, each soul labelled — the first map they've ever wanted to be *in*); the state of the frostbitten
+  hand (the creeping cold has **stopped advancing** now they're off the edges — Tibb's count of "two, maybe three"
+  isn't two anymore); a Returned-tagged "two surveyors, one baseline" exchange; and whether they wrote to Tibb
+  (they did — and the lad wrote back one line).
+- 👁️ **A new Returned-sense for Sennet at the fire** — the dead-touched player *watches the Wall's cold recede
+  from a soul for the first time*: you didn't just recruit a surveyor, you pulled one more off the long grey road.
+- 🧪 **+2 gates** (now **979 checks**, all green): Sennet is correctly gated to appear only when recruited, and the
+  fireside talk carries the devoted variant, a [RETURNED] line, and the new sense. **58 souls** at the causeway.
+
+---
+
 ## 👑 v4.94.0 — *"The Mapmaker's Wagon"* — a seventeenth zone: a recruitable third companion + a grief-redemption fork (content)
 
 > Back to what matters most — story. A new zone off the Hearth road that does two things at once: it gives the
