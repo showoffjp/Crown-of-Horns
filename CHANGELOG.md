@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v6.5.0 — *"The Connoisseur's Parlor"* — a thirty-second zone: the saga's thesis, tested (content)
+
+> A fifteenth structure — and the first that deliberately *interrogates* the saga's thesis instead of affirming it.
+> Every monster on the causeway so far has been a wound you could witness back into a person — the forgotten Gnaw,
+> the desperate warden. **Goodman Vell** is not. He is a soul-eater with *no wound under it*: an ordinary wine-taster
+> who brushed another soul's memory, found it exquisite, and chose to keep eating, refining it into an art across
+> three centuries — because he *likes* it. He cannot be witnessed home, because he does not wish to leave.
+- 🍷 **A thirty-second zone — the Connoisseur's Parlor** (off the Night Market). Three souls: **Vell** the eater;
+  **the Half-Taken**, a soul being savoured slowly and aware (the awareness is the seasoning); and **the Emptied**,
+  a husk eaten past its name but not past one stubborn ember.
+- 🪞 **The thesis, tested honestly.** An **Insight** read confirms what the saga wasn't built for — *there is no part
+  of him to save; he is what any ordinary soul becomes when you remove every consequence and leave only the
+  appetite.* A **[RETURNED]** names it: you carry the dead so they're not borne alone; he eats them so they're not
+  borne at all — the same reach, pointed opposite — and this is *the first thing you can only stop.*
+- 💛 **Witness still saves the innocent — just not the guilty.** The Half-Taken can't be fought free (struggle
+  aerates the meal; the eater *wants* you to fight). But you can **witness the prey too whole to swallow** — hold the
+  one thing he couldn't eat, an ordinary contented Tuesday, until the soul stops suffering, because despair is his
+  whole palate and *a soul that knows it's held has no despair to season it.*
+- 🔥 **The villain you *stop*, not save.** The husks he scattered (the same trick the Wall plays — scatter the
+  forgotten so they never add up) each kept one bitter ember of grudge, the one flavour he can't swallow. The
+  Returned, who *gathers* the dead, can carry them together into one room and one fire he must stand in — *cooked at
+  last in the suffering he spent three centuries making, by the ones he thought too scattered to count.* Not
+  redeemed. Not witnessed home. Just stopped.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,130 checks**, all green). **32 zones, 111 souls** —
+  fifteen structures, and the saga's thesis is now *load-bearing under stress*, not just decorative.
+
+---
+
 ## 👑 v6.4.0 — *"Dace and Orin, Years On"* — companion parity: the older companions get their epilogue codas (content)
 
 > A parity pass. Sennet and the Sparrow each got the full four-beat arc (recruit → fire → threshold → epilogue);

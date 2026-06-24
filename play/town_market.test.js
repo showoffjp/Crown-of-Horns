@@ -1466,6 +1466,26 @@ check("the way out reads the saga's deepest pattern — every self-built cage is
 check("each Locked-Room piece carries a [RETURNED] line + a Returned-sense", [mrDreamer, mrEcho, mrDoor].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-second zone: the Connoisseur's Parlor — a thesis-test (a soul that CANNOT be witnessed home) ----
+const PD = SCENES && SCENES.predator;
+check("a thirty-second zone (the Connoisseur's Parlor) ships — the thesis-test villain", PD && PD.npcs.length >= 3);
+check("the Parlor is reached off the Night Market", (SCENES.nightmarket.exits || []).some(x => x.to === "predator"));
+const pdEater = CONVS.find(c => c.id === "pd.eater");
+const pdPrey = CONVS.find(c => c.id === "pd.prey");
+const pdHusk = CONVS.find(c => c.id === "pd.husk");
+check("the parlor's three souls are present (the eater, the half-taken, the emptied)", pdEater && pdPrey && pdHusk);
+check("the villain has NO wound to witness home — Insight confirms it's irredeemable (the saga's thesis, tested)", pdEater &&
+  pdEater.nodes.some(n => (n.effects || []).some(e => e.key === "pd.confirmed_irredeemable")) &&
+  /no wound|cannot be witnessed|does not wish to be redeemed|not broken/i.test(JSON.stringify(pdEater.nodes)));
+check("the answer for the prey is witness (not force) — held too whole to be eaten (despair is the seasoning)", pdPrey &&
+  pdPrey.nodes.find(n => n.id === "prey_witnessed") &&
+  pdPrey.nodes.find(n => n.id === "prey_witnessed").effects.some(e => e.key === "pd.witness_spoils_meal"));
+check("the answer for the villain is NOT redemption but stopping — gather the scattered husks into a fire he must face", pdHusk &&
+  pdHusk.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+  pdHusk.nodes.find(n => n.id === "husk_gather").effects.some(e => e.key === "pd.the_fire_plan"));
+check("each Parlor soul carries a [RETURNED] line + a Returned-sense", [pdEater, pdPrey, pdHusk].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
 const epiChron = CONVS.find(c => c.id === "epi.chronicler");
 check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&

@@ -95,6 +95,16 @@
           "y": 7
         },
         "label": "▸ firelight and bragging — the Boasting-Ring, where the dead refuse to fade"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "predator",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a parlor of exquisite, dreadful quiet — a connoisseur keeps a table"
       }
     ],
     "npcs": [
