@@ -1,172 +1,1166 @@
 {
   "scene": {
-    "id": "lasttorch", "name": "Past the Last Torch",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "lasttorch",
+    "name": "Past the Last Torch",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "wall", "x": 0, "y": 0 },
-      { "type": "wall", "x": 2, "y": 0 },
-      { "type": "wall", "x": 4, "y": 0 },
-      { "type": "wall", "x": 6, "y": 0 },
-      { "type": "wall", "x": 8, "y": 0 },
-      { "type": "wall", "x": 10, "y": 0 },
-      { "type": "torch", "x": 5, "y": 2 },
-      { "type": "greywort", "x": 2, "y": 1 },
-      { "type": "deadtree", "x": 8, "y": 3 },
-      { "type": "reeds", "x": 1, "y": 4, "hue": 150 },
-      { "type": "reeds", "x": 9, "y": 5, "hue": 150 },
-      { "type": "reeds", "x": 3, "y": 6, "hue": 150 },
-      { "type": "piling", "x": 9, "y": 7 }
+      {
+        "type": "wall",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 2,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 4,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 8,
+        "y": 0
+      },
+      {
+        "type": "wall",
+        "x": 10,
+        "y": 0
+      },
+      {
+        "type": "torch",
+        "x": 5,
+        "y": 2
+      },
+      {
+        "type": "greywort",
+        "x": 2,
+        "y": 1
+      },
+      {
+        "type": "deadtree",
+        "x": 8,
+        "y": 3
+      },
+      {
+        "type": "reeds",
+        "x": 1,
+        "y": 4,
+        "hue": 150
+      },
+      {
+        "type": "reeds",
+        "x": 9,
+        "y": 5,
+        "hue": 150
+      },
+      {
+        "type": "reeds",
+        "x": 3,
+        "y": 6,
+        "hue": 150
+      },
+      {
+        "type": "piling",
+        "x": 9,
+        "y": 7
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "reedwalk", "dest": { "x": 5, "y": 2 }, "label": "◂ back down the causeway to the Reed-Walk" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "reedwalk",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ back down the causeway to the Reed-Walk"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "thinplace",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ where the Wall runs thin — a woman kneels, listening"
+      }
     ],
     "npcs": [
-      { "id": "hale", "name": "Brother Hale", "title": "Warden of the Last Torch", "x": 5, "y": 3, "hue": 30, "sigil": "BH", "conv": "lt.hale",
-        "hail": "*(a Doomguide in frost-stiffened grey stands by the last burning torch on the whole causeway, facing the mist, and does not turn as you approach)*" },
-      { "id": "esuele", "name": "a voice in the Wall", "title": "one of the Mortared", "x": 7, "y": 1, "hue": 200, "sigil": "?", "conv": "lt.esuele",
-        "hail": "*(the great grey stone of the Wall is set with faces — thousands, pressed half-out of the rock like swimmers under ice — and one of them, level with your own, opens its eyes)*" },
-      { "id": "goodwin", "name": "Goodwin", "title": "waiting for the boat", "x": 3, "y": 5, "hue": 90, "sigil": "G", "conv": "lt.goodwin",
-        "hail": "*(a portly, cheerful man in his good funeral clothes sits on a rock at the marsh's edge, swinging his legs, watching the mist with the bright patience of a man expecting a ferry any minute now)*" }
+      {
+        "id": "hale",
+        "name": "Brother Hale",
+        "title": "Warden of the Last Torch",
+        "x": 5,
+        "y": 3,
+        "hue": 30,
+        "sigil": "BH",
+        "conv": "lt.hale",
+        "hail": "*(a Doomguide in frost-stiffened grey stands by the last burning torch on the whole causeway, facing the mist, and does not turn as you approach)*"
+      },
+      {
+        "id": "esuele",
+        "name": "a voice in the Wall",
+        "title": "one of the Mortared",
+        "x": 7,
+        "y": 1,
+        "hue": 200,
+        "sigil": "?",
+        "conv": "lt.esuele",
+        "hail": "*(the great grey stone of the Wall is set with faces — thousands, pressed half-out of the rock like swimmers under ice — and one of them, level with your own, opens its eyes)*"
+      },
+      {
+        "id": "goodwin",
+        "name": "Goodwin",
+        "title": "waiting for the boat",
+        "x": 3,
+        "y": 5,
+        "hue": 90,
+        "sigil": "G",
+        "conv": "lt.goodwin",
+        "hail": "*(a portly, cheerful man in his good funeral clothes sits on a rock at the marsh's edge, swinging his legs, watching the mist with the bright patience of a man expecting a ferry any minute now)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "lt.hale", "title": "The Warden of the Last Torch", "npc": "Brother Hale", "start": "0",
+      "id": "lt.hale",
+      "title": "The Warden of the Last Torch",
+      "npc": "Brother Hale",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Brother Hale", "onEnter": [{ "key": "lt.met_hale", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Brother Hale",
+          "onEnter": [
+            {
+              "key": "lt.met_hale",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "deity": "Kelemvor" }, "text": "*(He hears the soft chime of the grey balance at your throat and his shoulders sag, half relief and half shame.)* …A brother of the order. *(his voice is cracked with cold)* Or a sister. Come to *relieve* me at last? *(a hollow laugh)* No. No, they don't *relieve* the Warden of the Last Torch. They *forget* him, out past where the lists go, and that's the *posting*, that's the whole *cruelty* of it. *(he finally turns, and his lips are grey-blue, frost in his lashes)* You shouldn't have your sigil out here, brother. The Wall *reads* it. It knows the Judge's own have stopped *coming*, and it's started to wonder if *we're* next. *(quietly)* I wonder it too. Most nights. Standing here. Getting *colder.*" },
-            { "when": { "deity": "None" }, "text": "*(The instant you draw near he flings out an arm, barring your way, and his frost-rimed face is genuine terror — for you.)* —*Stop.* *(hoarse)* Stop *there*, godless one. Not a step *past* this torch. *(he doesn't lower the arm)* Do you *understand* where you've wandered? This is the *last light.* Past me there's the marsh, and past the marsh there's the *Wall*, and the Wall has been *waiting* for one of the unbought to stroll up *breathing* and save it the *walk.* *(his eyes are wild)* The *marked* I have to let pass — that's the *posting*, gods forgive me — but you've no *mark* yet, you're just *lost*, and I will *not* log an *unmarked* soul into that stone on my *watch.* *(shaking)* Turn *round.* Please. I've sent enough of you into the mist. Let *one* walk back toward the *light* while I'm still here to *see* it." },
-            { "text": "*(The Doomguide stands rigid by the guttering torch, and when he speaks his voice has the flat, scoured calm of a man who has been alone with terrible work for far too long.)* You've come a long way past where the living turn back. *(he doesn't look at you)* There's only three sorts walk out to the last torch. The *marked*, who have to. The *grieving*, who shouldn't. And the *curious* — *(a thin, cold breath)* — who are about to learn why the other two are the only ones the *stories* mention. *(he finally turns his frost-stiffened face to you)* Which are you? And be *quick.* The cold out here listens, and it's *bored*, and a bored Wall goes *looking.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Brother Hale", "text": "*(He stands between you and the mist, the torch throwing his long shadow back toward the marsh and the grey immensity beyond it, and waits, breathing slow to keep the cold from his chest.)* So. *(the torch hisses)* What does a soul *want*, out past the last light on the causeway? There's nothing out here but the cold, the marsh, and the thing the marsh *leads to.* Choose your business, and choose it *careful.*",
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(He hears the soft chime of the grey balance at your throat and his shoulders sag, half relief and half shame.)* …A brother of the order. *(his voice is cracked with cold)* Or a sister. Come to *relieve* me at last? *(a hollow laugh)* No. No, they don't *relieve* the Warden of the Last Torch. They *forget* him, out past where the lists go, and that's the *posting*, that's the whole *cruelty* of it. *(he finally turns, and his lips are grey-blue, frost in his lashes)* You shouldn't have your sigil out here, brother. The Wall *reads* it. It knows the Judge's own have stopped *coming*, and it's started to wonder if *we're* next. *(quietly)* I wonder it too. Most nights. Standing here. Getting *colder.*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The instant you draw near he flings out an arm, barring your way, and his frost-rimed face is genuine terror — for you.)* —*Stop.* *(hoarse)* Stop *there*, godless one. Not a step *past* this torch. *(he doesn't lower the arm)* Do you *understand* where you've wandered? This is the *last light.* Past me there's the marsh, and past the marsh there's the *Wall*, and the Wall has been *waiting* for one of the unbought to stroll up *breathing* and save it the *walk.* *(his eyes are wild)* The *marked* I have to let pass — that's the *posting*, gods forgive me — but you've no *mark* yet, you're just *lost*, and I will *not* log an *unmarked* soul into that stone on my *watch.* *(shaking)* Turn *round.* Please. I've sent enough of you into the mist. Let *one* walk back toward the *light* while I'm still here to *see* it."
+            },
+            {
+              "text": "*(The Doomguide stands rigid by the guttering torch, and when he speaks his voice has the flat, scoured calm of a man who has been alone with terrible work for far too long.)* You've come a long way past where the living turn back. *(he doesn't look at you)* There's only three sorts walk out to the last torch. The *marked*, who have to. The *grieving*, who shouldn't. And the *curious* — *(a thin, cold breath)* — who are about to learn why the other two are the only ones the *stories* mention. *(he finally turns his frost-stiffened face to you)* Which are you? And be *quick.* The cold out here listens, and it's *bored*, and a bored Wall goes *looking.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Brother Hale",
+          "text": "*(He stands between you and the mist, the torch throwing his long shadow back toward the marsh and the grey immensity beyond it, and waits, breathing slow to keep the cold from his chest.)* So. *(the torch hisses)* What does a soul *want*, out past the last light on the causeway? There's nothing out here but the cold, the marsh, and the thing the marsh *leads to.* Choose your business, and choose it *careful.*",
           "choices": [
-            { "text": "[MEDICINE] \"There's a sick boy under the bridge — Wick — dying of the slow lung-fever. The cure's a root, greywort, and the Knotwife says it grows out here in the salt-mud, past the last torch, where no one'll fetch it. Tell me where, Warden. I'll brave the cold for it.\"", "when": { "flag": "under.knows_root" }, "next": "hale_greywort", "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 2 }] },
-            { "text": "[RELIGION] \"You're a Doomguide of Kelemvor standing watch over the Wall of the Faithless — and the two don't *agree*, do they. The Judge weighs souls *fairly.* The Wall doesn't weigh them at all; it just *eats* the unclaimed. You've been guarding a heresy in your own god's name, and the cold's how he's telling you.\"", "when": { "ability": { "Intelligence": 12 } }, "check": { "skill": "Religion", "ability": "Intelligence", "dc": 15 }, "next": "hale_heresy", "fail": "hale_doctrine" },
-            { "text": "[INSIGHT] \"You're freezing to death on your feet and you know it. The cold isn't the weather, Warden — it's the *posting.* A man becomes what he guards, if he guards it without love. How long until you're a face in that stone yourself, and don't remember walking in?\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 15 }, "next": "hale_cold", "fail": "hale_deflect" },
-            { "text": "*(let the Wall's own chill in your marrow answer his)* \"You feel a cold you can't account for, Warden. I'm the reason it just got worse. I've been *in* that stone — all the way — and come *back* wearing it. The Wall isn't wondering if you're next. It's wondering why I'm standing here *arguing* with it. Let me past. It and I have unfinished business.\"", "tag": "returned", "next": "hale_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "[PERSUASION] \"You don't have to stand this watch alone, and you don't have to stand it *silent.* Let me past the torch — to the greywort, to the Wall, to whatever I came for — and I'll do the one thing no relief column ever did for you: I'll come back through this light, and tell you what's out there, so you're not guessing in the dark anymore.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 14 }, "next": "hale_passage", "fail": "hale_refuse", "crit": "hale_persuade_crit", "fumble": "hale_persuade_fumble" },
-            { "text": "\"I've seen enough of the last torch, Warden. The light's where I'll stay.\" *(turn back toward the causeway)*", "next": "hale_leave" }
-          ] },
-        { "id": "hale_greywort", "speaker": "Brother Hale", "text": "*(Something in his frozen face thaws by a degree — the first warmth the cold's let him feel in weeks.)* …Greywort. *(he nods slowly)* Aye. It grows where *nothing* should — in the salt-mud right up against the *foot* of the Wall, fed on the cold that kills everything *else.* *(he points into the mist, where a pale cluster glows faint against the grey stone)* *There.* You can see it from here. A *child's* errand, but for the *distance*, and the distance is the *whole* of it — the closer you get to that stone, the more it *pulls*, and the unbought who walk out to pick a *flower* tend to keep *walking.* *(he studies you)* But you came out here *for a sick boy*, which means you've a *reason to walk back* that's louder than the Wall's pull. *(grimly)* That's the only protection there is, out past the torch: somewhere *real* to return to. *(he steps aside, just enough)* Go. Quick. Pick it and *turn round* the instant it's in your fist — don't *listen* to the stone, it'll start *naming* people you've lost. Fetch the boy his cure, brother, and let *one* good thing come back from this marsh. Gods know *I* never have.",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 2 }, { "key": "lt.greywort_pointed", "op": "SetTrue" }], "auto": "hale_greywort_pick" },
-        { "id": "hale_greywort_pick", "speaker": "Brother Hale", "text": "*(He holds the torch a little higher, lighting your way toward the pale cluster at the Wall's foot, and keeps his eyes on you the whole way — a man standing a watch that, for once, is about something coming *back.*)*",
+            {
+              "text": "[MEDICINE] \"There's a sick boy under the bridge — Wick — dying of the slow lung-fever. The cure's a root, greywort, and the Knotwife says it grows out here in the salt-mud, past the last torch, where no one'll fetch it. Tell me where, Warden. I'll brave the cold for it.\"",
+              "when": {
+                "flag": "under.knows_root"
+              },
+              "next": "hale_greywort",
+              "effects": [
+                {
+                  "key": "lt.hale.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "text": "[RELIGION] \"You're a Doomguide of Kelemvor standing watch over the Wall of the Faithless — and the two don't *agree*, do they. The Judge weighs souls *fairly.* The Wall doesn't weigh them at all; it just *eats* the unclaimed. You've been guarding a heresy in your own god's name, and the cold's how he's telling you.\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 12
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 15
+              },
+              "next": "hale_heresy",
+              "fail": "hale_doctrine"
+            },
+            {
+              "text": "[INSIGHT] \"You're freezing to death on your feet and you know it. The cold isn't the weather, Warden — it's the *posting.* A man becomes what he guards, if he guards it without love. How long until you're a face in that stone yourself, and don't remember walking in?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "hale_cold",
+              "fail": "hale_deflect"
+            },
+            {
+              "text": "*(let the Wall's own chill in your marrow answer his)* \"You feel a cold you can't account for, Warden. I'm the reason it just got worse. I've been *in* that stone — all the way — and come *back* wearing it. The Wall isn't wondering if you're next. It's wondering why I'm standing here *arguing* with it. Let me past. It and I have unfinished business.\"",
+              "tag": "returned",
+              "next": "hale_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[PERSUASION] \"You don't have to stand this watch alone, and you don't have to stand it *silent.* Let me past the torch — to the greywort, to the Wall, to whatever I came for — and I'll do the one thing no relief column ever did for you: I'll come back through this light, and tell you what's out there, so you're not guessing in the dark anymore.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "hale_passage",
+              "fail": "hale_refuse",
+              "crit": "hale_persuade_crit",
+              "fumble": "hale_persuade_fumble"
+            },
+            {
+              "text": "\"I've seen enough of the last torch, Warden. The light's where I'll stay.\" *(turn back toward the causeway)*",
+              "next": "hale_leave"
+            }
+          ]
+        },
+        {
+          "id": "hale_greywort",
+          "speaker": "Brother Hale",
+          "text": "*(Something in his frozen face thaws by a degree — the first warmth the cold's let him feel in weeks.)* …Greywort. *(he nods slowly)* Aye. It grows where *nothing* should — in the salt-mud right up against the *foot* of the Wall, fed on the cold that kills everything *else.* *(he points into the mist, where a pale cluster glows faint against the grey stone)* *There.* You can see it from here. A *child's* errand, but for the *distance*, and the distance is the *whole* of it — the closer you get to that stone, the more it *pulls*, and the unbought who walk out to pick a *flower* tend to keep *walking.* *(he studies you)* But you came out here *for a sick boy*, which means you've a *reason to walk back* that's louder than the Wall's pull. *(grimly)* That's the only protection there is, out past the torch: somewhere *real* to return to. *(he steps aside, just enough)* Go. Quick. Pick it and *turn round* the instant it's in your fist — don't *listen* to the stone, it'll start *naming* people you've lost. Fetch the boy his cure, brother, and let *one* good thing come back from this marsh. Gods know *I* never have.",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "lt.greywort_pointed",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "hale_greywort_pick"
+        },
+        {
+          "id": "hale_greywort_pick",
+          "speaker": "Brother Hale",
+          "text": "*(He holds the torch a little higher, lighting your way toward the pale cluster at the Wall's foot, and keeps his eyes on you the whole way — a man standing a watch that, for once, is about something coming *back.*)*",
           "choices": [
-            { "text": "[SURVIVAL] *(go to the Wall's foot, pick the greywort fast and clean, and turn back before the cold can name anyone)*", "check": { "skill": "Survival", "ability": "Wisdom", "dc": 13 }, "next": "greywort_got", "fail": "greywort_hard", "crit": "greywort_crit", "fumble": "greywort_fumble" },
-            { "text": "*(you're already cold; the Wall holds no pull for a soul that's been inside it — walk up and pick it like picking mint from a windowsill)*", "when": { "flags": ["lt.met_hale"] }, "tag": "returned", "next": "greywort_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "greywort_got", "speaker": "Brother Hale", "text": "*(You reach the cold cluster, and the Wall *does* pull — a great patient weight, and a whisper starting up at the edge of hearing — but you've named the boy to yourself, *Wick, Wick, the deal, the line he's holding*, and you pick the greywort and turn on your heel before the whisper finds a name of its own. Hale lets out a breath you didn't know he was holding.)* …*There.* *(rough with relief)* There, you're back in the light, you've *got* it, you *turned round.* *(he almost smiles; the frost cracks at the corner of his mouth)* Do you know how *long* it's been since I watched someone walk *toward* that stone and come *back* with their *self* still in their *eyes?* *(he presses a strip of waxed cloth into your hand to wrap the root)* Wrap it close. Brew it strong. Three days, the Knotwife said? Then in three days there's a boy under a bridge who *lives* because you walked out past the last torch and *didn't* keep walking. *(quietly)* That's the only *miracle* this posting's ever let me *witness.* Thank you for letting me *see* one. Go. *Go*, and don't look back at the Wall — it *hates* to be *left.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.greywort_fetched", "op": "SetTrue" }, { "key": "under.wick_cure", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "greywort_hard", "speaker": "Brother Hale", "text": "*(You make it to the Wall's foot — but the cold is *worse* than you braced for, and as your numb fingers fumble at the greywort the stone starts *whispering*, and it knows just where to cut: a voice you *loved*, calling you *closer*, saying *stay.* You wrench yourself back a step, then another, breath sawing, and stagger back into the torchlight with the root only *half*-gathered, scattering half of what you picked.)* *(Hale grabs your arm and hauls you the last yard.)* —*Got you.* *(grim)* It found a name, didn't it. It always finds a name. *(he looks at the meagre, half-crushed root in your shaking fist)* …It's *something.* Not a full dose — you dropped half out there, and I'll not send you *back* for it, not with the stone *awake* to you now. *(he wraps what's left)* Brew it *weak* and *long*, and *pray.* It might *slow* the boy's fever. It might buy *days.* *(heavily)* Out here, *days* is what passes for *hope.* Take it, and take the *lesson*: the Wall pays for *everything* it gives, and it gave you *that root* for a piece of your *nerve.* Mind it doesn't want *more.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 1 }, { "key": "lt.greywort_partial", "op": "SetTrue" }, { "key": "under.wick_cure_partial", "op": "SetTrue" }], "auto": "END" },
-        { "id": "greywort_crit", "speaker": "Brother Hale", "text": "*(✦ You walk to the foot of the Wall, and when the whisper comes — the loved voice, the *stay* — you do something it has no answer for: you *laugh*, soft and certain, and tell it you've a *boy to get back to* and it can *keep its dead*, you've *met* better ghosts this *week.* You pick the greywort clean, roots and all, *and* a second cluster beside it, and walk back into the light whistling. The torch-flame *leans toward you* as you come, as if glad.)* *(Hale stares.)* …I have stood this watch *four years.* *(faintly)* I have watched the *bravest* souls on the causeway walk to that stone and come back *weeping*, or *grey*, or *not at all.* And you went and picked a *flower* and told the Wall of the Faithless to *keep its dead.* *(he barks a laugh that turns into something that might be tears, on a warmer face)* *Two* doses! You've got *two!* Enough for the boy *twice* over, or the boy *and* the next poor soul who coughs! *(he clasps your forearm hard)* Whatever you *are* — and don't *tell* me, I've a *guess* and I'd like to keep it *cozy* — you've done more good at this torch in *one* visit than its *Warden* has in *four years* of *standing here being cold.* *(fiercely)* Now *go*, before I follow you back to the *daylight* like a *stray.* …Gods. *Two doses.* The *cheek* of it.",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.greywort_fetched", "op": "SetTrue" }, { "key": "under.wick_cure", "op": "SetTrue" }, { "key": "lt.greywort_double", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "greywort_fumble", "speaker": "Brother Hale", "text": "*(💀 You stride boldly to the Wall's foot, reach confidently past the pale greywort — and seize a fat fistful of the cold-blue weed *right beside* it, which is not greywort at all but *mire-nettle*, which you discover at speed when it sears your palm like a fistful of frozen wasps. You shriek. You drop it. You also, in flinching, sit down in the salt-mud directly beneath ten thousand staring faces, who regard you with the collective patience of the eternally dead.)* *(Hale closes his eyes briefly.)* …That's *mire-nettle.* *(wearily)* The greywort's the *pale* one. The one that *glows.* The one I *pointed at.* *(he hauls you up out of the mud and the staring)* You've a *welt* coming the size of a *saucer* and you've *announced* yourself to the entire Wall with a *yelp*, which — *(he glances at the faces, several of which now seem to be paying *attention*)* — is *precisely* what I told you *not* to do. *(he steers you back toward the light)* Get behind the torch and *breathe.* We'll try again when your hand works and the stone's lost *interest.* *(under his breath)* Four years of *solemn dread* out here and the *Wall* just watched a soul fight a *weed* and *lose.* They'll be *talking* about it. The *dead.* *Talking.* About *you.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": -1 }], "auto": "hale_greywort_pick" },
-        { "id": "greywort_returned", "speaker": "Brother Hale", "text": "*(You walk to the Wall's foot, and the cold that would unmake a living soul simply… *greets* you, kin to kin. The whisper starts — and falls silent, baffled, when it reaches for a name to hurt you with and finds you already carry every name it knows. You pick the greywort unhurried, roots and all, and a second cluster too, while the faces in the stone turn to watch the cold thing that walks among them unafraid.)* *(Hale has gone very still by his torch.)* …It didn't *pull* you. *(barely)* I *watched.* It reached for you and it — it *flinched.* *(he looks at you with something past fear, something almost like worship)* You walked up to the Wall of the Faithless and it got *out of your way.* *(he swallows)* Then the stories are *true*, about the Returned. You're not the Wall's *prey.* You might be the Wall's *undoing.* *(he presses the waxed cloth into your hand for the root, reverent)* Take the boy his cure, cold one. *Two* doses — you'd the nerve for two. And when you come to *unmake* this place — *(his frozen eyes are wet)* — and I think you *will*, I think that's *why* you're here — there's a Warden at the last torch who'll *open the way* and call it the *finest* duty he ever stood. Just — *(a whisper)* — let me *off* this posting before the cold finishes me. Let me be *warm* once more before the end. That's all I ask of the soul that *frightened the Wall.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.greywort_fetched", "op": "SetTrue" }, { "key": "under.wick_cure", "op": "SetTrue" }, { "key": "lt.greywort_double", "op": "SetTrue" }, { "key": "lt.hale_ally", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "hale_heresy", "speaker": "Brother Hale", "text": "*(The torch gutters. For a long moment he says nothing, and the frost on his lashes catches the light, and then the words come out of him like they've been frozen in his chest for years and only just thawed.)* …Say it *quiet.* *(low and shaking)* But say it, because gods help me I've not *heard* it said aloud and I have *needed* to. *(he steps closer)* You're *right.* The Judge weighs *fairly* — that's the *first* thing they teach a Doomguide, the *mercy* of it, that *everyone* gets a *true* reckoning. And then they post you to the *Wall*, and the Wall *doesn't weigh at all*, it just *takes* the ones no god *spoke* for, *unweighed*, *unjudged* — and you stand there in your *grey* and you realise the *order you love* is *guarding the one place your god's mercy isn't allowed to reach.* *(his voice breaks)* I have stood this torch *four years* trying to square it and it *will not square*, and the *cold* is the part of me that's already *worked out* it *can't.* *(he grips your shoulder, urgent)* If you came out here to *end* this thing, brother — the Wall, the Choir, the whole unweighed *horror* of it — then for the love of the *fair* Judge we *both* serve, *tell* me, and I will give you everything I *have.* I have been *waiting* to be on the *right* side of my own *faith.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.hale_doubt", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "hale_doctrine", "speaker": "Brother Hale", "text": "*(He shakes his head, slow, retreating back behind the parade-ground calm.)* That's *seminary* talk. *(flatly)* 'The Judge and the Wall don't agree.' Every novice has that *crisis*, brother, usually around their *second* winter, and the order has an *answer* for it, smooth as a *worn coin*: the Wall isn't the Judge's *cruelty*, it's the *absence* of His mercy, and absence isn't a *thing you can blame Him* for. *(he says it like a catechism, without warmth)* The unbought *chose* to claim no god. The Wall is only the *shape* of that choosing. *(but his eyes won't meet yours)* …That's the *answer.* I've *said* it to myself a *thousand* freezing nights. *(quietly)* It works *fine*, as long as you don't have to *watch* them walk past your torch and see how *little* most of them ever *chose* anything. Bring me a *sharper* blade than half-remembered seminary, brother, if you mean to cut *that* knot. Mine's gone *blunt* on it.",
-          "auto": "END" },
-        { "id": "hale_cold", "speaker": "Brother Hale", "text": "*(He looks down at his own hands — grey-blue, frost in the knuckles — as though seeing them for the first time, and when he looks up his face has cracked clean open.)* …You can *see* it. *(a whisper)* I'd hoped it didn't *show* yet. *(he flexes the stiff fingers)* It started at the *feet.* Two winters back. I told myself it was the *damp.* Now it's to my *knees*, and some mornings I can't feel the torch's *heat* on my *face*, only *see* it, and I *know* — *(his voice shakes)* — I *know* what I'm becoming. A man becomes what he *guards.* I've guarded the *cold* without *love* for four years and it's *guarding me* back. *(he grips the torch like a drowning man)* One day I'll set this down to warm my hands and I'll just… *keep walking* into the marsh, and not *remember* why I *stopped*, and there'll be a *new* face in the stone with *frost in its lashes.* *(he looks at you, desperate)* I can't *leave* — there's no *relief*, no one *comes* — but gods, if you're walking *back* toward the *light*… *(he can't finish)* …never mind. Wardens don't get *rescued.* That's not in the *posting.* But it was — it was *good*, to say it to a *living* face. Before I forget how.",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 2 }, { "key": "lt.hale_freezing", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "hale_deflect", "speaker": "Brother Hale", "text": "*(He draws the frozen calm back over himself like a cloak.)* The cold's just the *weather*, traveler. *(evenly)* It's a *marsh*, in *winter*, at the edge of the *world.* It'd freeze a *furnace.* *(he turns back to the mist)* Don't go *reading* a man's *soul* in his *chilblains.* I'm *fine.* I'm at my *post.* That's *all* a Warden *is* — a man at his post. *(a long pause, and something flickers, and is buried)* …Was there *business*, or did you walk to the last torch to tell me I look *peaky?* Because I *assure* you, out here, *everyone* does.",
-          "auto": "END" },
-        { "id": "hale_returned", "speaker": "Brother Hale", "text": "*(He goes white — whiter — and the torch shakes in his grip, and he looks at you the way a man looks at the answer to a prayer he was too afraid to finish.)* …*Back.* *(a cracked whisper)* You walked *into* that stone and walked *back out.* *(he reaches toward you, stops)* Then it's — it's not a *one-way* door. *(his whole frozen face is working)* Four years I've stood here *certain* the Wall is the *end*, the *floor*, the place souls *stop* — and you're telling me a soul can go *in* and come *back* with *unfinished business?* *(he laughs, wild and wet)* Then what in the Judge's name have I been *guarding?!* Not an *ending.* A *door I didn't know swung both ways.* *(he steps aside from the mist, fast, like it's burning him)* Go. *Go*, and finish it, whatever it is. I'll not stand between the *one soul the Wall couldn't keep* and the *Wall.* *(fiercely, through chattering teeth)* And cold one — when you go *in* this time — *(his voice drops)* — there's faces in that stone that have been calling a *name* for *four years*, names I can't *help*, names I just have to *stand here and hear.* If you can carry a *message* to the dead… one of them's been calling for her *mother.* The blind one. The *weaver.* If you pass the *weaver's girl* in there — *(he can't say more; he just grips your arm, pleading)* — tell her someone *heard.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.hale_knows_you", "op": "SetTrue" }, { "key": "lt.heard_of_esuele", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "hale_passage", "speaker": "Brother Hale", "text": "*(He weighs your offer the way he weighs everything now — slowly, against the cold — and then, with great effort, he steps aside.)* …*Come back through the light.* *(quietly)* You'd *do* that. Most who pass the torch are too *busy* dying to think of the man who has to *watch.* *(he lets you by)* All right. I'll let you past — to the greywort, to the Wall, to whatever drew you out to the edge of *everything.* *(he fixes you with his frost-rimed eyes)* But you keep your *word*, traveler. You come *back* through this torch, even if it's only to tell me the marsh *won.* Because the *not knowing* — *(his voice catches)* — the *not knowing* what happens to the ones I let pass is the part that's *freezing* me *fastest.* Give an old Warden an *ending* to *one* of them, just one, and you'll have done me a kindness the order never *will.* *(he raises the torch to light your way)* Go careful. And mind the stone doesn't *learn your name.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 2 }, { "key": "lt.hale_lets_you_pass", "op": "SetTrue" }], "auto": "END" },
-        { "id": "hale_refuse", "speaker": "Brother Hale", "text": "*(He doesn't move from your path, and the apology in his frozen face doesn't reach his planted feet.)* No. *(heavily)* I'm *sorry*, but *no.* You're *living*, and *unmarked*, and 'I'll come back and *tell* you about it' is what the *curious* always say, right before the Wall gives them a *reason* to be *marked.* *(he shakes his head)* I've let enough souls past this torch on a *promise.* The promises don't come *back.* Only the *cold* does. *(quietly)* Bring me a *reason* that isn't *curiosity* — a sick boy, a soul to carry *out*, a god's own *writ* — and I'll weigh it. But I'll not unlatch the *last door* for a *traveler's* good intentions. They freeze out here same as *everything else.*",
-          "auto": "END" },
-        { "id": "hale_persuade_crit", "speaker": "Brother Hale", "text": "*(✦ You promise him the one thing four years of solitude has starved him for — not rescue, not relief, but *an ending he can hold*, a soul that will walk back through his light and *close a loop* — and you pitch it so true that the Warden of the Last Torch, who has not wept since his feet went numb, simply *folds.*)* *(He sits down hard on the cold stone, the torch sagging, and presses the heel of one frozen hand to his eyes.)* …You'd *come back.* *(wrecked)* You'd walk out into *that*, and *do your terrible business*, and then *walk back* just so a *frozen fool* at a *forgotten torch* doesn't have to *guess* anymore. *(he laughs, shaking)* Four *years.* Four years of watching them go into the mist and *never* learning *where*, and you've offered to *close* it, *one* loop, *one* ending, like it's *nothing*, like it's *common decency* — *(he hauls himself up, grips both your shoulders)* — *go.* Go *anywhere.* The greywort, the Wall, the *bottom* of the marsh. Past *every* torch I'm *meant* to guard. *(fierce, weeping, alive)* I'll hold this light *burning* for you if I have to *feed* it my own *cloak.* And when you come *back* — *when* — I'll have a *fire* and a *cup* and *both* my ears, and you'll tell me *everything*, and for the first time in four years the last torch will have *witnessed* something *return.* *(he steps aside, radiant in the cold)* That's not a *posting* anymore, traveler. That's a *vigil.* And I'll keep it *gladly.* Now *go.*",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.hale_lets_you_pass", "op": "SetTrue" }, { "key": "lt.hale_vigil", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "hale_persuade_fumble", "speaker": "Brother Hale", "text": "*(💀 You reach for stirring and inspirational and instead deliver, in the solemn hush of the last torch on the edge of the afterlife, a line you will replay in your skull forever: 'Let me past, and I *guarantee* you'll be glad you did — or your *money back.*' The torch hisses. A face in the distant Wall appears to wince.)* *(Brother Hale regards you for a long, frozen moment.)* …My *money.* *(flatly)* Back. *(he blinks, slowly)* Traveler, I have not been *paid* in four years, the order *forgot* this posting *exists*, and you have just offered me a *refund* on a *transaction the cosmos itself has lost the receipt for.* *(a single grey breath that might, on a warmer night, have been a laugh)* No. *No*, I don't think I'll be unlatching the last door of the *afterlife* for a man doing *sales patter* at the *Wall of the Faithless.* *(he resettles at his post)* Come back when you've something to say that you didn't learn from a *fishmonger.* And — *(a glance at the mist)* — perhaps don't offer the *Wall* its money back. It's *touchy* about debts. It's *made* of them.",
-          "effects": [{ "key": "lt.hale.regard", "op": "AddInt", "amount": -1 }], "auto": "END" },
-        { "id": "hale_leave", "speaker": "Brother Hale", "text": "*(He nods, and something in him seems to ease — one fewer soul to watch walk into the mist.)* Wise. *(he turns back to the grey)* The light's the *right* place to stay. *(quietly, as you go)* …Most who come out this far have already decided *not* to be wise. It's *good*, now and then, to watch one turn *round.* *(he lifts the torch a little, in something like farewell)* Go back to the *daylight*, traveler. Tell them up the causeway the last torch still *burns.* *(half to himself)* …Tell them *someone's* still *standing* it. Some nights I'm not *sure*, myself.",
-          "auto": "END" }
+            {
+              "text": "[SURVIVAL] *(go to the Wall's foot, pick the greywort fast and clean, and turn back before the cold can name anyone)*",
+              "check": {
+                "skill": "Survival",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "greywort_got",
+              "fail": "greywort_hard",
+              "crit": "greywort_crit",
+              "fumble": "greywort_fumble"
+            },
+            {
+              "text": "*(you're already cold; the Wall holds no pull for a soul that's been inside it — walk up and pick it like picking mint from a windowsill)*",
+              "when": {
+                "flags": [
+                  "lt.met_hale"
+                ]
+              },
+              "tag": "returned",
+              "next": "greywort_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "greywort_got",
+          "speaker": "Brother Hale",
+          "text": "*(You reach the cold cluster, and the Wall *does* pull — a great patient weight, and a whisper starting up at the edge of hearing — but you've named the boy to yourself, *Wick, Wick, the deal, the line he's holding*, and you pick the greywort and turn on your heel before the whisper finds a name of its own. Hale lets out a breath you didn't know he was holding.)* …*There.* *(rough with relief)* There, you're back in the light, you've *got* it, you *turned round.* *(he almost smiles; the frost cracks at the corner of his mouth)* Do you know how *long* it's been since I watched someone walk *toward* that stone and come *back* with their *self* still in their *eyes?* *(he presses a strip of waxed cloth into your hand to wrap the root)* Wrap it close. Brew it strong. Three days, the Knotwife said? Then in three days there's a boy under a bridge who *lives* because you walked out past the last torch and *didn't* keep walking. *(quietly)* That's the only *miracle* this posting's ever let me *witness.* Thank you for letting me *see* one. Go. *Go*, and don't look back at the Wall — it *hates* to be *left.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.greywort_fetched",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "greywort_hard",
+          "speaker": "Brother Hale",
+          "text": "*(You make it to the Wall's foot — but the cold is *worse* than you braced for, and as your numb fingers fumble at the greywort the stone starts *whispering*, and it knows just where to cut: a voice you *loved*, calling you *closer*, saying *stay.* You wrench yourself back a step, then another, breath sawing, and stagger back into the torchlight with the root only *half*-gathered, scattering half of what you picked.)* *(Hale grabs your arm and hauls you the last yard.)* —*Got you.* *(grim)* It found a name, didn't it. It always finds a name. *(he looks at the meagre, half-crushed root in your shaking fist)* …It's *something.* Not a full dose — you dropped half out there, and I'll not send you *back* for it, not with the stone *awake* to you now. *(he wraps what's left)* Brew it *weak* and *long*, and *pray.* It might *slow* the boy's fever. It might buy *days.* *(heavily)* Out here, *days* is what passes for *hope.* Take it, and take the *lesson*: the Wall pays for *everything* it gives, and it gave you *that root* for a piece of your *nerve.* Mind it doesn't want *more.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "lt.greywort_partial",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_cure_partial",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "greywort_crit",
+          "speaker": "Brother Hale",
+          "text": "*(✦ You walk to the foot of the Wall, and when the whisper comes — the loved voice, the *stay* — you do something it has no answer for: you *laugh*, soft and certain, and tell it you've a *boy to get back to* and it can *keep its dead*, you've *met* better ghosts this *week.* You pick the greywort clean, roots and all, *and* a second cluster beside it, and walk back into the light whistling. The torch-flame *leans toward you* as you come, as if glad.)* *(Hale stares.)* …I have stood this watch *four years.* *(faintly)* I have watched the *bravest* souls on the causeway walk to that stone and come back *weeping*, or *grey*, or *not at all.* And you went and picked a *flower* and told the Wall of the Faithless to *keep its dead.* *(he barks a laugh that turns into something that might be tears, on a warmer face)* *Two* doses! You've got *two!* Enough for the boy *twice* over, or the boy *and* the next poor soul who coughs! *(he clasps your forearm hard)* Whatever you *are* — and don't *tell* me, I've a *guess* and I'd like to keep it *cozy* — you've done more good at this torch in *one* visit than its *Warden* has in *four years* of *standing here being cold.* *(fiercely)* Now *go*, before I follow you back to the *daylight* like a *stray.* …Gods. *Two doses.* The *cheek* of it.",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.greywort_fetched",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.greywort_double",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "greywort_fumble",
+          "speaker": "Brother Hale",
+          "text": "*(💀 You stride boldly to the Wall's foot, reach confidently past the pale greywort — and seize a fat fistful of the cold-blue weed *right beside* it, which is not greywort at all but *mire-nettle*, which you discover at speed when it sears your palm like a fistful of frozen wasps. You shriek. You drop it. You also, in flinching, sit down in the salt-mud directly beneath ten thousand staring faces, who regard you with the collective patience of the eternally dead.)* *(Hale closes his eyes briefly.)* …That's *mire-nettle.* *(wearily)* The greywort's the *pale* one. The one that *glows.* The one I *pointed at.* *(he hauls you up out of the mud and the staring)* You've a *welt* coming the size of a *saucer* and you've *announced* yourself to the entire Wall with a *yelp*, which — *(he glances at the faces, several of which now seem to be paying *attention*)* — is *precisely* what I told you *not* to do. *(he steers you back toward the light)* Get behind the torch and *breathe.* We'll try again when your hand works and the stone's lost *interest.* *(under his breath)* Four years of *solemn dread* out here and the *Wall* just watched a soul fight a *weed* and *lose.* They'll be *talking* about it. The *dead.* *Talking.* About *you.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "hale_greywort_pick"
+        },
+        {
+          "id": "greywort_returned",
+          "speaker": "Brother Hale",
+          "text": "*(You walk to the Wall's foot, and the cold that would unmake a living soul simply… *greets* you, kin to kin. The whisper starts — and falls silent, baffled, when it reaches for a name to hurt you with and finds you already carry every name it knows. You pick the greywort unhurried, roots and all, and a second cluster too, while the faces in the stone turn to watch the cold thing that walks among them unafraid.)* *(Hale has gone very still by his torch.)* …It didn't *pull* you. *(barely)* I *watched.* It reached for you and it — it *flinched.* *(he looks at you with something past fear, something almost like worship)* You walked up to the Wall of the Faithless and it got *out of your way.* *(he swallows)* Then the stories are *true*, about the Returned. You're not the Wall's *prey.* You might be the Wall's *undoing.* *(he presses the waxed cloth into your hand for the root, reverent)* Take the boy his cure, cold one. *Two* doses — you'd the nerve for two. And when you come to *unmake* this place — *(his frozen eyes are wet)* — and I think you *will*, I think that's *why* you're here — there's a Warden at the last torch who'll *open the way* and call it the *finest* duty he ever stood. Just — *(a whisper)* — let me *off* this posting before the cold finishes me. Let me be *warm* once more before the end. That's all I ask of the soul that *frightened the Wall.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.greywort_fetched",
+              "op": "SetTrue"
+            },
+            {
+              "key": "under.wick_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.greywort_double",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.hale_ally",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_heresy",
+          "speaker": "Brother Hale",
+          "text": "*(The torch gutters. For a long moment he says nothing, and the frost on his lashes catches the light, and then the words come out of him like they've been frozen in his chest for years and only just thawed.)* …Say it *quiet.* *(low and shaking)* But say it, because gods help me I've not *heard* it said aloud and I have *needed* to. *(he steps closer)* You're *right.* The Judge weighs *fairly* — that's the *first* thing they teach a Doomguide, the *mercy* of it, that *everyone* gets a *true* reckoning. And then they post you to the *Wall*, and the Wall *doesn't weigh at all*, it just *takes* the ones no god *spoke* for, *unweighed*, *unjudged* — and you stand there in your *grey* and you realise the *order you love* is *guarding the one place your god's mercy isn't allowed to reach.* *(his voice breaks)* I have stood this torch *four years* trying to square it and it *will not square*, and the *cold* is the part of me that's already *worked out* it *can't.* *(he grips your shoulder, urgent)* If you came out here to *end* this thing, brother — the Wall, the Choir, the whole unweighed *horror* of it — then for the love of the *fair* Judge we *both* serve, *tell* me, and I will give you everything I *have.* I have been *waiting* to be on the *right* side of my own *faith.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.hale_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_doctrine",
+          "speaker": "Brother Hale",
+          "text": "*(He shakes his head, slow, retreating back behind the parade-ground calm.)* That's *seminary* talk. *(flatly)* 'The Judge and the Wall don't agree.' Every novice has that *crisis*, brother, usually around their *second* winter, and the order has an *answer* for it, smooth as a *worn coin*: the Wall isn't the Judge's *cruelty*, it's the *absence* of His mercy, and absence isn't a *thing you can blame Him* for. *(he says it like a catechism, without warmth)* The unbought *chose* to claim no god. The Wall is only the *shape* of that choosing. *(but his eyes won't meet yours)* …That's the *answer.* I've *said* it to myself a *thousand* freezing nights. *(quietly)* It works *fine*, as long as you don't have to *watch* them walk past your torch and see how *little* most of them ever *chose* anything. Bring me a *sharper* blade than half-remembered seminary, brother, if you mean to cut *that* knot. Mine's gone *blunt* on it.",
+          "auto": "END"
+        },
+        {
+          "id": "hale_cold",
+          "speaker": "Brother Hale",
+          "text": "*(He looks down at his own hands — grey-blue, frost in the knuckles — as though seeing them for the first time, and when he looks up his face has cracked clean open.)* …You can *see* it. *(a whisper)* I'd hoped it didn't *show* yet. *(he flexes the stiff fingers)* It started at the *feet.* Two winters back. I told myself it was the *damp.* Now it's to my *knees*, and some mornings I can't feel the torch's *heat* on my *face*, only *see* it, and I *know* — *(his voice shakes)* — I *know* what I'm becoming. A man becomes what he *guards.* I've guarded the *cold* without *love* for four years and it's *guarding me* back. *(he grips the torch like a drowning man)* One day I'll set this down to warm my hands and I'll just… *keep walking* into the marsh, and not *remember* why I *stopped*, and there'll be a *new* face in the stone with *frost in its lashes.* *(he looks at you, desperate)* I can't *leave* — there's no *relief*, no one *comes* — but gods, if you're walking *back* toward the *light*… *(he can't finish)* …never mind. Wardens don't get *rescued.* That's not in the *posting.* But it was — it was *good*, to say it to a *living* face. Before I forget how.",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "lt.hale_freezing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_deflect",
+          "speaker": "Brother Hale",
+          "text": "*(He draws the frozen calm back over himself like a cloak.)* The cold's just the *weather*, traveler. *(evenly)* It's a *marsh*, in *winter*, at the edge of the *world.* It'd freeze a *furnace.* *(he turns back to the mist)* Don't go *reading* a man's *soul* in his *chilblains.* I'm *fine.* I'm at my *post.* That's *all* a Warden *is* — a man at his post. *(a long pause, and something flickers, and is buried)* …Was there *business*, or did you walk to the last torch to tell me I look *peaky?* Because I *assure* you, out here, *everyone* does.",
+          "auto": "END"
+        },
+        {
+          "id": "hale_returned",
+          "speaker": "Brother Hale",
+          "text": "*(He goes white — whiter — and the torch shakes in his grip, and he looks at you the way a man looks at the answer to a prayer he was too afraid to finish.)* …*Back.* *(a cracked whisper)* You walked *into* that stone and walked *back out.* *(he reaches toward you, stops)* Then it's — it's not a *one-way* door. *(his whole frozen face is working)* Four years I've stood here *certain* the Wall is the *end*, the *floor*, the place souls *stop* — and you're telling me a soul can go *in* and come *back* with *unfinished business?* *(he laughs, wild and wet)* Then what in the Judge's name have I been *guarding?!* Not an *ending.* A *door I didn't know swung both ways.* *(he steps aside from the mist, fast, like it's burning him)* Go. *Go*, and finish it, whatever it is. I'll not stand between the *one soul the Wall couldn't keep* and the *Wall.* *(fiercely, through chattering teeth)* And cold one — when you go *in* this time — *(his voice drops)* — there's faces in that stone that have been calling a *name* for *four years*, names I can't *help*, names I just have to *stand here and hear.* If you can carry a *message* to the dead… one of them's been calling for her *mother.* The blind one. The *weaver.* If you pass the *weaver's girl* in there — *(he can't say more; he just grips your arm, pleading)* — tell her someone *heard.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.hale_knows_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.heard_of_esuele",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_passage",
+          "speaker": "Brother Hale",
+          "text": "*(He weighs your offer the way he weighs everything now — slowly, against the cold — and then, with great effort, he steps aside.)* …*Come back through the light.* *(quietly)* You'd *do* that. Most who pass the torch are too *busy* dying to think of the man who has to *watch.* *(he lets you by)* All right. I'll let you past — to the greywort, to the Wall, to whatever drew you out to the edge of *everything.* *(he fixes you with his frost-rimed eyes)* But you keep your *word*, traveler. You come *back* through this torch, even if it's only to tell me the marsh *won.* Because the *not knowing* — *(his voice catches)* — the *not knowing* what happens to the ones I let pass is the part that's *freezing* me *fastest.* Give an old Warden an *ending* to *one* of them, just one, and you'll have done me a kindness the order never *will.* *(he raises the torch to light your way)* Go careful. And mind the stone doesn't *learn your name.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "lt.hale_lets_you_pass",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_refuse",
+          "speaker": "Brother Hale",
+          "text": "*(He doesn't move from your path, and the apology in his frozen face doesn't reach his planted feet.)* No. *(heavily)* I'm *sorry*, but *no.* You're *living*, and *unmarked*, and 'I'll come back and *tell* you about it' is what the *curious* always say, right before the Wall gives them a *reason* to be *marked.* *(he shakes his head)* I've let enough souls past this torch on a *promise.* The promises don't come *back.* Only the *cold* does. *(quietly)* Bring me a *reason* that isn't *curiosity* — a sick boy, a soul to carry *out*, a god's own *writ* — and I'll weigh it. But I'll not unlatch the *last door* for a *traveler's* good intentions. They freeze out here same as *everything else.*",
+          "auto": "END"
+        },
+        {
+          "id": "hale_persuade_crit",
+          "speaker": "Brother Hale",
+          "text": "*(✦ You promise him the one thing four years of solitude has starved him for — not rescue, not relief, but *an ending he can hold*, a soul that will walk back through his light and *close a loop* — and you pitch it so true that the Warden of the Last Torch, who has not wept since his feet went numb, simply *folds.*)* *(He sits down hard on the cold stone, the torch sagging, and presses the heel of one frozen hand to his eyes.)* …You'd *come back.* *(wrecked)* You'd walk out into *that*, and *do your terrible business*, and then *walk back* just so a *frozen fool* at a *forgotten torch* doesn't have to *guess* anymore. *(he laughs, shaking)* Four *years.* Four years of watching them go into the mist and *never* learning *where*, and you've offered to *close* it, *one* loop, *one* ending, like it's *nothing*, like it's *common decency* — *(he hauls himself up, grips both your shoulders)* — *go.* Go *anywhere.* The greywort, the Wall, the *bottom* of the marsh. Past *every* torch I'm *meant* to guard. *(fierce, weeping, alive)* I'll hold this light *burning* for you if I have to *feed* it my own *cloak.* And when you come *back* — *when* — I'll have a *fire* and a *cup* and *both* my ears, and you'll tell me *everything*, and for the first time in four years the last torch will have *witnessed* something *return.* *(he steps aside, radiant in the cold)* That's not a *posting* anymore, traveler. That's a *vigil.* And I'll keep it *gladly.* Now *go.*",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.hale_lets_you_pass",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.hale_vigil",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_persuade_fumble",
+          "speaker": "Brother Hale",
+          "text": "*(💀 You reach for stirring and inspirational and instead deliver, in the solemn hush of the last torch on the edge of the afterlife, a line you will replay in your skull forever: 'Let me past, and I *guarantee* you'll be glad you did — or your *money back.*' The torch hisses. A face in the distant Wall appears to wince.)* *(Brother Hale regards you for a long, frozen moment.)* …My *money.* *(flatly)* Back. *(he blinks, slowly)* Traveler, I have not been *paid* in four years, the order *forgot* this posting *exists*, and you have just offered me a *refund* on a *transaction the cosmos itself has lost the receipt for.* *(a single grey breath that might, on a warmer night, have been a laugh)* No. *No*, I don't think I'll be unlatching the last door of the *afterlife* for a man doing *sales patter* at the *Wall of the Faithless.* *(he resettles at his post)* Come back when you've something to say that you didn't learn from a *fishmonger.* And — *(a glance at the mist)* — perhaps don't offer the *Wall* its money back. It's *touchy* about debts. It's *made* of them.",
+          "effects": [
+            {
+              "key": "lt.hale.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "hale_leave",
+          "speaker": "Brother Hale",
+          "text": "*(He nods, and something in him seems to ease — one fewer soul to watch walk into the mist.)* Wise. *(he turns back to the grey)* The light's the *right* place to stay. *(quietly, as you go)* …Most who come out this far have already decided *not* to be wise. It's *good*, now and then, to watch one turn *round.* *(he lifts the torch a little, in something like farewell)* Go back to the *daylight*, traveler. Tell them up the causeway the last torch still *burns.* *(half to himself)* …Tell them *someone's* still *standing* it. Some nights I'm not *sure*, myself.",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "lt.esuele", "title": "A Voice in the Wall", "npc": "a voice in the Wall", "start": "0",
+      "id": "lt.esuele",
+      "title": "A Voice in the Wall",
+      "npc": "a voice in the Wall",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "a voice in the Wall", "onEnter": [{ "key": "lt.met_esuele", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "a voice in the Wall",
+          "onEnter": [
+            {
+              "key": "lt.met_esuele",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["under.knotwife_story"] }, "text": "*(The face in the stone — a young woman's, worn smooth as a half-melted candle, only the eyes still sharp — opens its eyes and fixes on you, and goes very still.)* …You smell of *wool.* *(the voice comes from everywhere and nowhere, dry as dust sifting)* And *loom-oil.* And *grief* that isn't *yours.* *(the smooth face strains toward you out of the rock)* You've been with my *mother.* *(a sound like wind through a crack)* No — don't *answer* yet — let me *have* it a moment, the *smell* of her, I haven't — it's been so *long*, I can't *count* anymore, the counting's one of the first things the stone *takes.* *(the eyes brim, though no tears can fall from stone)* She's *alive.* You carry her *alive* on your *clothes.* *(a whisper)* Tell me, stranger. Tell me my mother is *alive*, and tell me — *(the voice cracks)* — tell me she *forgot* me. *Please* tell me she forgot. It would be so much *kinder* than what I *fear.*" },
-            { "when": { "deity": "None" }, "text": "*(The smooth-worn face in the stone turns toward you, and its ruined mouth makes something almost like a smile.)* …*Kin.* *(the dry voice almost *warms*)* No god on you. I can *feel* it — the *quiet* you make. *(the eyes study you)* That's how I *got* here, you know. The *quiet.* I made it my whole *life* and never *minded* — and then I *died*, and there was no one to *speak* for the quiet, and they put me in the *wall* where the quiet goes. *(a long, sifting sigh)* Don't be *afraid* of me, unbought one. I'm not a *warning.* I'm just an *earlier draft* of *you.* *(softly)* …Although. If you've still got *legs*, and *breath*, and a *name* someone living still *says* — then you're not *here* yet, and that means there's still *time* to be *spoken for.* Don't waste it *gawping* at the *finished* version. *Ask* me something, while I can still *answer* in *words.*" },
-            { "text": "*(You become aware, slowly, that the great grey Wall is not blank — it is *faces*, thousands, pressed half-out of the stone like sleepers under ice — and that one of them, at the level of your own eyes, is *watching* you, and has been for some time.)* *(When it speaks, the voice seems to come from inside your own skull as much as from the rock.)* …You're *warm.* *(a dry marvel)* I'd *forgotten* warm. *(the worn face tilts)* The living don't come out *this* far, little warm thing. The *marked* come, but they come to *join* us — they don't *stop* to *look.* *(the eyes narrow, curious rather than cruel)* But *you* stopped. *You* looked. *(a sound like a slow exhalation through stone)* …What *are* you, that you'd stand at the Wall of the Faithless and look one of the Mortared in the *eye?* Most can't. Most have the *decency* to look *away.* I'd *thank* you for not — except I've *forgotten* how thanking *goes.* It's been a *while.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "a voice in the Wall", "text": "*(The face strains against the stone that holds it, patient and terrible, and waits. Around it, faintly, you sense the others — thousands of them — turn a fraction of their attention toward the warm thing that stopped to talk.)* Speak, then, warm one. *(the dry voice sifts)* It's been an *age* since anyone *asked* me anything but to *move over.*",
+            {
+              "when": {
+                "flags": [
+                  "under.knotwife_story"
+                ]
+              },
+              "text": "*(The face in the stone — a young woman's, worn smooth as a half-melted candle, only the eyes still sharp — opens its eyes and fixes on you, and goes very still.)* …You smell of *wool.* *(the voice comes from everywhere and nowhere, dry as dust sifting)* And *loom-oil.* And *grief* that isn't *yours.* *(the smooth face strains toward you out of the rock)* You've been with my *mother.* *(a sound like wind through a crack)* No — don't *answer* yet — let me *have* it a moment, the *smell* of her, I haven't — it's been so *long*, I can't *count* anymore, the counting's one of the first things the stone *takes.* *(the eyes brim, though no tears can fall from stone)* She's *alive.* You carry her *alive* on your *clothes.* *(a whisper)* Tell me, stranger. Tell me my mother is *alive*, and tell me — *(the voice cracks)* — tell me she *forgot* me. *Please* tell me she forgot. It would be so much *kinder* than what I *fear.*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The smooth-worn face in the stone turns toward you, and its ruined mouth makes something almost like a smile.)* …*Kin.* *(the dry voice almost *warms*)* No god on you. I can *feel* it — the *quiet* you make. *(the eyes study you)* That's how I *got* here, you know. The *quiet.* I made it my whole *life* and never *minded* — and then I *died*, and there was no one to *speak* for the quiet, and they put me in the *wall* where the quiet goes. *(a long, sifting sigh)* Don't be *afraid* of me, unbought one. I'm not a *warning.* I'm just an *earlier draft* of *you.* *(softly)* …Although. If you've still got *legs*, and *breath*, and a *name* someone living still *says* — then you're not *here* yet, and that means there's still *time* to be *spoken for.* Don't waste it *gawping* at the *finished* version. *Ask* me something, while I can still *answer* in *words.*"
+            },
+            {
+              "text": "*(You become aware, slowly, that the great grey Wall is not blank — it is *faces*, thousands, pressed half-out of the stone like sleepers under ice — and that one of them, at the level of your own eyes, is *watching* you, and has been for some time.)* *(When it speaks, the voice seems to come from inside your own skull as much as from the rock.)* …You're *warm.* *(a dry marvel)* I'd *forgotten* warm. *(the worn face tilts)* The living don't come out *this* far, little warm thing. The *marked* come, but they come to *join* us — they don't *stop* to *look.* *(the eyes narrow, curious rather than cruel)* But *you* stopped. *You* looked. *(a sound like a slow exhalation through stone)* …What *are* you, that you'd stand at the Wall of the Faithless and look one of the Mortared in the *eye?* Most can't. Most have the *decency* to look *away.* I'd *thank* you for not — except I've *forgotten* how thanking *goes.* It's been a *while.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "a voice in the Wall",
+          "text": "*(The face strains against the stone that holds it, patient and terrible, and waits. Around it, faintly, you sense the others — thousands of them — turn a fraction of their attention toward the warm thing that stopped to talk.)* Speak, then, warm one. *(the dry voice sifts)* It's been an *age* since anyone *asked* me anything but to *move over.*",
           "choices": [
-            { "text": "*(if you've heard the Knotwife's grief, give it back to her child)* \"Your mother didn't forget you, Esuele. She *can't.* She's blind now — the Choir took her eyes — and she sits at a loom under the bridge and weaves your name into a banner every single day, so the nothing can't have you. She never stopped. She never *will.* You are the most *remembered* soul in this whole Wall.\"", "when": { "flags": ["under.knotwife_story"] }, "next": "esuele_remembered", "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 4 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "[RELIGION] \"You weren't judged. You understand that? Kelemvor never *weighed* you. The Choir filed you here *unjudged*, ahead of His court, to keep their ledger tidy. You're not in the Wall because you were found *wanting.* You're here because of a *clerical error* four hundred years old. And errors can be *unmade.*\"", "when": { "ability": { "Intelligence": 11 } }, "check": { "skill": "Religion", "ability": "Intelligence", "dc": 14 }, "next": "esuele_error", "fail": "esuele_doctrine" },
-            { "text": "[INSIGHT] \"You keep saying you've forgotten things — counting, thanking, warmth. You're not afraid of being *here*, are you. You're afraid of the *forgetting.* Of the moment there's not enough *you* left to know you were ever a *who.* How much do you have left, Esuele? Be honest. I can take it.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 15 }, "next": "esuele_forgetting", "fail": "esuele_deflect" },
-            { "text": "*(let one of the Mortared look upon a soul that came back)* \"I've been where you are. Inside the stone. All the way in — and *out* again. I'm one of the Returned. So believe me when I say it, because I'm the only soul who *can* say it from the *far side*: the Wall is not *forever.* It only needs *one* of us to prove the door swings both ways. Hold on. I'm working on the door.\"", "tag": "returned", "next": "esuele_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"How does a soul end up here? What did you *do*, Esuele?\" *(you brace for something terrible)*", "next": "esuele_crime" },
-            { "text": "\"…I'm sorry. I can't look at this any longer.\" *(step back from the Wall)*", "next": "esuele_leave" }
-          ] },
-        { "id": "esuele_remembered", "speaker": "a voice in the Wall", "text": "*(The worn face goes utterly still. And then a sound comes out of the stone that you will hear in your sleep for the rest of your days — not a wail, but the opposite: a vast, broken, *grateful* exhalation, as though a weight four centuries heavy has been set down at last.)* …*Every day.* *(barely a breath)* She *weaves* me. *Every day.* *(the sharp eyes are the only living thing left in the smooth ruin of the face, and they blaze)* I had *decided* she forgot. I *made* myself believe it — it was the only way to bear the *forgetting* on my *own* end, to think at least *she* got to be *free* of me. *(the voice shakes the stone)* And instead she — *blind*, they *blinded* her, and *still* she sits in the dark and *knots my name* so the nothing *can't* — *(the Wall around her seems to *lean*, the nearby faces stirring)* — oh, *Mother.* *Mother*, you *stubborn*, *clever*, *impossible* — *(the voice gathers, fierce)* Then I'll *hold.* Do you hear me, warm one? I was *dissolving* — I was *letting* go, it's *easier*, you just stop *being a who* — and you've just given me a *reason to stay a who.* She's holding *one* end of the thread. I'll hold the *other.* *(the eyes find you)* Tell her. When you go back to the *dark* under the *bridge.* Tell her *Esuele felt the thread*, and *Esuele is holding on*, and she is to *keep weaving* because it *works*, it *reaches*, it reaches all the way *out here.* *(a whisper)* You've done a thing today the *gods* wouldn't. You let a *mother's love* reach *into the Wall.* I didn't think *anything* could.",
-          "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 5 }, { "key": "lt.esuele_holds", "op": "SetTrue" }, { "key": "lt.message_for_knotwife", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "esuele_error", "speaker": "a voice in the Wall", "text": "*(The sharp eyes widen in the worn face, and the dry voice drops to something dangerous and hopeful.)* …*Unjudged.* *(slowly)* I always — I *assumed* I'd been *weighed* and found *nothing.* You spend a *century* in the stone *certain* you *deserved* it, that the Judge *looked* and saw a soul worth *throwing away.* *(the voice hardens)* But you're saying He never *looked* at all. That the *Choir* filed me here *before* His court could *open.* That I've spent four hundred years doing *penance* for a verdict that was *never handed down.* *(the stone around her *creaks*)* Then I am not *guilty*, warm one. I am *misfiled.* *(a terrible, rising clarity)* And you said — *errors can be unmade.* *(the eyes burn into you)* If you can prove it — if you can drag the *clerk's name* into the *light* and show the Judge His court was *robbed* — then every face in this Wall isn't a *sinner.* We're a *backlog.* A four-hundred-year *clerical backlog* the cosmos *owes* a *hearing.* *(fierce)* Find the *error*, warm one. *Name* it. And come back and tell ten thousand misfiled souls that their *appeal* is *finally moving.*",
-          "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.esuele_appeal", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "esuele_doctrine", "speaker": "a voice in the Wall", "text": "*(The worn face regards you with the weary patience of the very long dead.)* …*Pretty.* *(the dry voice is almost gentle)* But I have had *four hundred years*, warm one, to invent *every* version of 'it wasn't really your fault,' and they all *crumble* by the second century, because in the end the stone doesn't *care* whose *fault* it was. *(a sifting sigh)* 'Misfiled,' 'unjudged,' 'clerical error' — these are *living* words. Words for people with *time* to *appeal* in. *(the eyes half-close)* Down here there's only *in* or *out*, and I am *in*, and your *theology* doesn't move *stone.* *(softly)* Bring me something that moves *stone*, and I'll *listen.* Until then, you're just another *warm thing* explaining my own *grave* to me. I *know* my grave, warm one. I've had *nothing else* to *learn.*",
-          "auto": "END" },
-        { "id": "esuele_forgetting", "speaker": "a voice in the Wall", "text": "*(For a long moment the face says nothing, and the silence has a texture, like the held breath of ten thousand who are all, privately, afraid of the same thing.)* …*Yes.* *(the dry voice, when it comes, is the most human sound the stone has made)* The *forgetting.* That's the *real* sentence. Not the *cold* — you stop minding the cold. Not the *stillness* — stillness is *restful*, after a while. It's that the stone takes you *a piece at a time*, oldest first. *(a sifting whisper)* I've lost my *father's face.* I've lost the *colour* of the sea at home. I've lost my own *child-name*, the one before *Esuele*, the one only my *mother* used. *(the eyes fix on you, stark)* What's *left* is maybe a *thimbleful.* My *mother's* hands. The smell of *wool.* The word *no.* And the *terror* — the *one* sharp thing — of the morning I wake and the *thimble's* empty and there's just… *Wall.* A face that *was* a who, that doesn't *know* it anymore. *(barely)* That's what's *out* there for all of us. Not *pain.* *Erasure.* *(a whisper)* So if you've a way to *stop* it, warm one — even for *one* of us — you'd best be *quick.* I can *feel* the thimble *tipping.*",
-          "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.esuele_fading", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "esuele_deflect", "speaker": "a voice in the Wall", "text": "*(The worn face smooths into something unreadable.)* …Questions like *that* are for souls with *time*, warm one. *(the dry voice retreats)* I haven't the *spare self* to *spend* on *introspection.* What's left of me, I'm *keeping.* *(the eyes drift, already losing you)* Ask me something a *dissolving* soul can *afford* to answer — or let me go *still* again. The *stillness* costs *less.* And down here, little warm thing, *everything* is *counted* in what it *costs.* Even *talking* to *you.* Even *this.*",
-          "auto": "END" },
-        { "id": "esuele_returned", "speaker": "a voice in the Wall", "text": "*(Every face in the Wall within sight turns toward you at once — a slow grinding of ten thousand stone necks — and Esuele's worn features fill with something the dead are not supposed to be able to feel: *hope*, raw and dangerous.)* …*Out.* *(the word ripples down the whole Wall, whispered face to face: out, out, out)* You went *in* and came *OUT.* *(the stone around her trembles)* We *felt* it — when you walked the marsh, we felt the *cold* recognise one of its *own* that *got away* — but I didn't *believe*, I thought it was the *forgetting* playing *tricks* — *(the eyes blaze)* — it's *true.* The door swings *both ways.* *(the dry voice cracks with four centuries of buried hope)* Do you understand what you *are* to *us*, Returned? You're not a *miracle.* A miracle is a thing the gods *do.* You're *proof.* Living *proof* that the Wall is not the *floor*, that 'forever' was a *lie* the Choir told to keep us *quiet* and *dissolving.* *(fierce, rising, and behind her the whole Wall seems to *listen*)* Then here is what *ten thousand* misfiled souls ask of the *one* who walked back out: *don't* forget us, the way the *stone* makes us forget *ourselves.* Carry our *no* into the light. Find the *door's hinge.* And when you *open* it — *(a whisper that shakes the marsh)* — open it *wide enough for all of us.* We have been *holding the same scream* for *four hundred years.* Give us, at last, somewhere to *put it down.*",
-          "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.esuele_hope", "op": "SetTrue" }, { "key": "lt.wall_stirs", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "esuele_crime", "speaker": "a voice in the Wall", "text": "*(The worn face does something that might, long ago, have been a *laugh* — a dry, terrible scrape of stone on stone.)* …*Do.* *(the voice sifts)* You think I *did* something. That's the *living* in you talking. The living are *certain* the Wall must be for *sinners* — it's *comforting*, isn't it, to think the *throwing-away* is *earned.* *(the eyes hold yours)* I'll tell you my *crime*, warm one. *(quietly)* I was *born* to a *blind weaver* and a *dead* father. I was *poor.* I was *kind* — I gave my *coin* to *littler* ones than me, so I never *had* a coin for a *priest's* good word. And when the Choir's Measurer came through with her *scale*, I had no *god* to *speak* for me and no *coin* to *buy* one, and so she weighed me *light* and walked me out past *this very torch.* *(a sifting whisper)* That's the *crime*, warm one. *I was unbought, and I was poor, and no one with authority happened to love me on the right afternoon.* *(the eyes burn)* Ten thousand faces in this stone, and I have spoken to *hundreds*, and do you know how many *sinners* I've found? *(softly)* *None.* Just the *poor.* The *quiet.* The *unlucky.* The *un-spoken-for.* That's *all* the Wall has *ever* held. Now you *know.* Now *carry* it.",
-          "effects": [{ "key": "lt.esuele.regard", "op": "AddInt", "amount": 2 }, { "key": "lt.esuele_innocent", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "esuele_leave", "speaker": "a voice in the Wall", "text": "*(The worn face doesn't accuse you. If anything, the dry voice gentles.)* …I *know.* *(softly)* It's *hard* to look. It should be. The day the living can look at this *easily* is the day the Wall has *already won.* *(the eyes begin to close, the stillness reclaiming her)* Go back to the *warm*, little warm thing. *Use* it. That's all I'd ask — that you *don't* forget you *looked.* *(barely audible as the stone takes her voice)* …We don't get to *leave.* But it *helps*, that *someone warm* turned their *face* to us, even for a *moment*, even if they had to *go.* It's been a *long* time since we were *looked at* instead of *past.* *(a whisper)* Mind the marsh, on your way to the light. And mind your *no*, warm one. *Keep* it. It's the only thing down here worth a *damn.*",
-          "auto": "END" }
+            {
+              "text": "*(if you've heard the Knotwife's grief, give it back to her child)* \"Your mother didn't forget you, Esuele. She *can't.* She's blind now — the Choir took her eyes — and she sits at a loom under the bridge and weaves your name into a banner every single day, so the nothing can't have you. She never stopped. She never *will.* You are the most *remembered* soul in this whole Wall.\"",
+              "when": {
+                "flags": [
+                  "under.knotwife_story"
+                ]
+              },
+              "next": "esuele_remembered",
+              "effects": [
+                {
+                  "key": "lt.esuele.regard",
+                  "op": "AddInt",
+                  "amount": 4
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[RELIGION] \"You weren't judged. You understand that? Kelemvor never *weighed* you. The Choir filed you here *unjudged*, ahead of His court, to keep their ledger tidy. You're not in the Wall because you were found *wanting.* You're here because of a *clerical error* four hundred years old. And errors can be *unmade.*\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 11
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 14
+              },
+              "next": "esuele_error",
+              "fail": "esuele_doctrine"
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying you've forgotten things — counting, thanking, warmth. You're not afraid of being *here*, are you. You're afraid of the *forgetting.* Of the moment there's not enough *you* left to know you were ever a *who.* How much do you have left, Esuele? Be honest. I can take it.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "esuele_forgetting",
+              "fail": "esuele_deflect"
+            },
+            {
+              "text": "*(let one of the Mortared look upon a soul that came back)* \"I've been where you are. Inside the stone. All the way in — and *out* again. I'm one of the Returned. So believe me when I say it, because I'm the only soul who *can* say it from the *far side*: the Wall is not *forever.* It only needs *one* of us to prove the door swings both ways. Hold on. I'm working on the door.\"",
+              "tag": "returned",
+              "next": "esuele_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"How does a soul end up here? What did you *do*, Esuele?\" *(you brace for something terrible)*",
+              "next": "esuele_crime"
+            },
+            {
+              "text": "\"…I'm sorry. I can't look at this any longer.\" *(step back from the Wall)*",
+              "next": "esuele_leave"
+            }
+          ]
+        },
+        {
+          "id": "esuele_remembered",
+          "speaker": "a voice in the Wall",
+          "text": "*(The worn face goes utterly still. And then a sound comes out of the stone that you will hear in your sleep for the rest of your days — not a wail, but the opposite: a vast, broken, *grateful* exhalation, as though a weight four centuries heavy has been set down at last.)* …*Every day.* *(barely a breath)* She *weaves* me. *Every day.* *(the sharp eyes are the only living thing left in the smooth ruin of the face, and they blaze)* I had *decided* she forgot. I *made* myself believe it — it was the only way to bear the *forgetting* on my *own* end, to think at least *she* got to be *free* of me. *(the voice shakes the stone)* And instead she — *blind*, they *blinded* her, and *still* she sits in the dark and *knots my name* so the nothing *can't* — *(the Wall around her seems to *lean*, the nearby faces stirring)* — oh, *Mother.* *Mother*, you *stubborn*, *clever*, *impossible* — *(the voice gathers, fierce)* Then I'll *hold.* Do you hear me, warm one? I was *dissolving* — I was *letting* go, it's *easier*, you just stop *being a who* — and you've just given me a *reason to stay a who.* She's holding *one* end of the thread. I'll hold the *other.* *(the eyes find you)* Tell her. When you go back to the *dark* under the *bridge.* Tell her *Esuele felt the thread*, and *Esuele is holding on*, and she is to *keep weaving* because it *works*, it *reaches*, it reaches all the way *out here.* *(a whisper)* You've done a thing today the *gods* wouldn't. You let a *mother's love* reach *into the Wall.* I didn't think *anything* could.",
+          "effects": [
+            {
+              "key": "lt.esuele.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "lt.esuele_holds",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.message_for_knotwife",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "esuele_error",
+          "speaker": "a voice in the Wall",
+          "text": "*(The sharp eyes widen in the worn face, and the dry voice drops to something dangerous and hopeful.)* …*Unjudged.* *(slowly)* I always — I *assumed* I'd been *weighed* and found *nothing.* You spend a *century* in the stone *certain* you *deserved* it, that the Judge *looked* and saw a soul worth *throwing away.* *(the voice hardens)* But you're saying He never *looked* at all. That the *Choir* filed me here *before* His court could *open.* That I've spent four hundred years doing *penance* for a verdict that was *never handed down.* *(the stone around her *creaks*)* Then I am not *guilty*, warm one. I am *misfiled.* *(a terrible, rising clarity)* And you said — *errors can be unmade.* *(the eyes burn into you)* If you can prove it — if you can drag the *clerk's name* into the *light* and show the Judge His court was *robbed* — then every face in this Wall isn't a *sinner.* We're a *backlog.* A four-hundred-year *clerical backlog* the cosmos *owes* a *hearing.* *(fierce)* Find the *error*, warm one. *Name* it. And come back and tell ten thousand misfiled souls that their *appeal* is *finally moving.*",
+          "effects": [
+            {
+              "key": "lt.esuele.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.esuele_appeal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "esuele_doctrine",
+          "speaker": "a voice in the Wall",
+          "text": "*(The worn face regards you with the weary patience of the very long dead.)* …*Pretty.* *(the dry voice is almost gentle)* But I have had *four hundred years*, warm one, to invent *every* version of 'it wasn't really your fault,' and they all *crumble* by the second century, because in the end the stone doesn't *care* whose *fault* it was. *(a sifting sigh)* 'Misfiled,' 'unjudged,' 'clerical error' — these are *living* words. Words for people with *time* to *appeal* in. *(the eyes half-close)* Down here there's only *in* or *out*, and I am *in*, and your *theology* doesn't move *stone.* *(softly)* Bring me something that moves *stone*, and I'll *listen.* Until then, you're just another *warm thing* explaining my own *grave* to me. I *know* my grave, warm one. I've had *nothing else* to *learn.*",
+          "auto": "END"
+        },
+        {
+          "id": "esuele_forgetting",
+          "speaker": "a voice in the Wall",
+          "text": "*(For a long moment the face says nothing, and the silence has a texture, like the held breath of ten thousand who are all, privately, afraid of the same thing.)* …*Yes.* *(the dry voice, when it comes, is the most human sound the stone has made)* The *forgetting.* That's the *real* sentence. Not the *cold* — you stop minding the cold. Not the *stillness* — stillness is *restful*, after a while. It's that the stone takes you *a piece at a time*, oldest first. *(a sifting whisper)* I've lost my *father's face.* I've lost the *colour* of the sea at home. I've lost my own *child-name*, the one before *Esuele*, the one only my *mother* used. *(the eyes fix on you, stark)* What's *left* is maybe a *thimbleful.* My *mother's* hands. The smell of *wool.* The word *no.* And the *terror* — the *one* sharp thing — of the morning I wake and the *thimble's* empty and there's just… *Wall.* A face that *was* a who, that doesn't *know* it anymore. *(barely)* That's what's *out* there for all of us. Not *pain.* *Erasure.* *(a whisper)* So if you've a way to *stop* it, warm one — even for *one* of us — you'd best be *quick.* I can *feel* the thimble *tipping.*",
+          "effects": [
+            {
+              "key": "lt.esuele.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.esuele_fading",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "esuele_deflect",
+          "speaker": "a voice in the Wall",
+          "text": "*(The worn face smooths into something unreadable.)* …Questions like *that* are for souls with *time*, warm one. *(the dry voice retreats)* I haven't the *spare self* to *spend* on *introspection.* What's left of me, I'm *keeping.* *(the eyes drift, already losing you)* Ask me something a *dissolving* soul can *afford* to answer — or let me go *still* again. The *stillness* costs *less.* And down here, little warm thing, *everything* is *counted* in what it *costs.* Even *talking* to *you.* Even *this.*",
+          "auto": "END"
+        },
+        {
+          "id": "esuele_returned",
+          "speaker": "a voice in the Wall",
+          "text": "*(Every face in the Wall within sight turns toward you at once — a slow grinding of ten thousand stone necks — and Esuele's worn features fill with something the dead are not supposed to be able to feel: *hope*, raw and dangerous.)* …*Out.* *(the word ripples down the whole Wall, whispered face to face: out, out, out)* You went *in* and came *OUT.* *(the stone around her trembles)* We *felt* it — when you walked the marsh, we felt the *cold* recognise one of its *own* that *got away* — but I didn't *believe*, I thought it was the *forgetting* playing *tricks* — *(the eyes blaze)* — it's *true.* The door swings *both ways.* *(the dry voice cracks with four centuries of buried hope)* Do you understand what you *are* to *us*, Returned? You're not a *miracle.* A miracle is a thing the gods *do.* You're *proof.* Living *proof* that the Wall is not the *floor*, that 'forever' was a *lie* the Choir told to keep us *quiet* and *dissolving.* *(fierce, rising, and behind her the whole Wall seems to *listen*)* Then here is what *ten thousand* misfiled souls ask of the *one* who walked back out: *don't* forget us, the way the *stone* makes us forget *ourselves.* Carry our *no* into the light. Find the *door's hinge.* And when you *open* it — *(a whisper that shakes the marsh)* — open it *wide enough for all of us.* We have been *holding the same scream* for *four hundred years.* Give us, at last, somewhere to *put it down.*",
+          "effects": [
+            {
+              "key": "lt.esuele.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.esuele_hope",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.wall_stirs",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "esuele_crime",
+          "speaker": "a voice in the Wall",
+          "text": "*(The worn face does something that might, long ago, have been a *laugh* — a dry, terrible scrape of stone on stone.)* …*Do.* *(the voice sifts)* You think I *did* something. That's the *living* in you talking. The living are *certain* the Wall must be for *sinners* — it's *comforting*, isn't it, to think the *throwing-away* is *earned.* *(the eyes hold yours)* I'll tell you my *crime*, warm one. *(quietly)* I was *born* to a *blind weaver* and a *dead* father. I was *poor.* I was *kind* — I gave my *coin* to *littler* ones than me, so I never *had* a coin for a *priest's* good word. And when the Choir's Measurer came through with her *scale*, I had no *god* to *speak* for me and no *coin* to *buy* one, and so she weighed me *light* and walked me out past *this very torch.* *(a sifting whisper)* That's the *crime*, warm one. *I was unbought, and I was poor, and no one with authority happened to love me on the right afternoon.* *(the eyes burn)* Ten thousand faces in this stone, and I have spoken to *hundreds*, and do you know how many *sinners* I've found? *(softly)* *None.* Just the *poor.* The *quiet.* The *unlucky.* The *un-spoken-for.* That's *all* the Wall has *ever* held. Now you *know.* Now *carry* it.",
+          "effects": [
+            {
+              "key": "lt.esuele.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "lt.esuele_innocent",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "esuele_leave",
+          "speaker": "a voice in the Wall",
+          "text": "*(The worn face doesn't accuse you. If anything, the dry voice gentles.)* …I *know.* *(softly)* It's *hard* to look. It should be. The day the living can look at this *easily* is the day the Wall has *already won.* *(the eyes begin to close, the stillness reclaiming her)* Go back to the *warm*, little warm thing. *Use* it. That's all I'd ask — that you *don't* forget you *looked.* *(barely audible as the stone takes her voice)* …We don't get to *leave.* But it *helps*, that *someone warm* turned their *face* to us, even for a *moment*, even if they had to *go.* It's been a *long* time since we were *looked at* instead of *past.* *(a whisper)* Mind the marsh, on your way to the light. And mind your *no*, warm one. *Keep* it. It's the only thing down here worth a *damn.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "lt.goodwin", "title": "Goodwin Waits for the Boat", "npc": "Goodwin", "start": "0",
+      "id": "lt.goodwin",
+      "title": "Goodwin Waits for the Boat",
+      "npc": "Goodwin",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Goodwin", "onEnter": [{ "key": "lt.met_goodwin", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Goodwin",
+          "onEnter": [
+            {
+              "key": "lt.met_goodwin",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "deity": "Kelemvor" }, "text": "*(The portly man brightens enormously at the grey balance on your chest and waves you over like an old friend at a coaching-inn.)* Ah, *marvellous* — a *Judge's man!* *(he beams)* Then you'll *know* the schedule! I've been *ever* so patient, but I *will* say, for a *celestial* ferry service, the *punctuality* leaves something to be — *(he checks a pocket-watch that has stopped)* — I was *assured*, by the lady with the *scale*, that passage was *all arranged.* Paid my *tithe* my whole *life*, you know! *Front* of the *queue*, she said! *(he pats the rock beside him invitingly)* So. Is it *running late*, the boat? Bit of *fog* on the crossing? *Do* sit. A man oughtn't wait for *eternity* alone, ha!" },
-            { "when": { "race": ["Tiefling", "Drow"] }, "text": "*(He takes in your horns, your skin, and his cheerful face arranges itself into the careful politeness of a man determined not to be rude to the *help.*)* Ah — *hello.* *(brightly, a touch too brightly)* Are you — are you with the *ferry company?* I only ask because of the — *(he gestures vaguely at all of you)* — the *infernal* aspect, which I *assume* is a *uniform*, very *striking*, very *on-theme* for the *crossing.* *(he leans in, confiding)* Between us, I *did* expect the staff to be a touch more — *cherubic?* — but I'm sure you're *excellent* at the *rowing.* *(he settles back)* Do tell the *captain* I've been waiting *frightfully* long. First-class tithe-payer. He'll *understand.*" },
-            { "text": "*(The cheerful man in his good dark funeral suit spots you and lights up, delighted to have company on his rock at the edge of the mist.)* Oh, *hullo!* *(he shuffles over to make room)* Another one for the *crossing*, are you? *Splendid.* I was beginning to think I'd the *whole* jetty to myself. *(he peers happily into the grey)* Boat's due *any* minute, by my reckoning — though I'll confess I've *rather* lost track of the *exact* — *(he frowns at his stopped watch, shrugs, brightens again)* — *anyway!* Lovely spot for it, isn't it? *Bracing.* Bit of *mist*, bit of *marsh.* *Very* atmospheric, for a *departure.* *(he sticks out a genial hand)* Goodwin. *Late* of the cloth trade. *Very* late, I shouldn't wonder, given the *boat.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Goodwin", "text": "*(He folds his hands over his round belly and gazes out at the mist with the serene, slightly anxious patience of a man who has been promised a connection and is *certain* it's coming, *any* minute now.)* So! *(he rocks on his rock)* Going far, are you? Across to the *far* shore, same as me? They say it's *lovely*, the far shore. The lady with the *scale* was *most* reassuring about it. *Most.*",
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(The portly man brightens enormously at the grey balance on your chest and waves you over like an old friend at a coaching-inn.)* Ah, *marvellous* — a *Judge's man!* *(he beams)* Then you'll *know* the schedule! I've been *ever* so patient, but I *will* say, for a *celestial* ferry service, the *punctuality* leaves something to be — *(he checks a pocket-watch that has stopped)* — I was *assured*, by the lady with the *scale*, that passage was *all arranged.* Paid my *tithe* my whole *life*, you know! *Front* of the *queue*, she said! *(he pats the rock beside him invitingly)* So. Is it *running late*, the boat? Bit of *fog* on the crossing? *Do* sit. A man oughtn't wait for *eternity* alone, ha!"
+            },
+            {
+              "when": {
+                "race": [
+                  "Tiefling",
+                  "Drow"
+                ]
+              },
+              "text": "*(He takes in your horns, your skin, and his cheerful face arranges itself into the careful politeness of a man determined not to be rude to the *help.*)* Ah — *hello.* *(brightly, a touch too brightly)* Are you — are you with the *ferry company?* I only ask because of the — *(he gestures vaguely at all of you)* — the *infernal* aspect, which I *assume* is a *uniform*, very *striking*, very *on-theme* for the *crossing.* *(he leans in, confiding)* Between us, I *did* expect the staff to be a touch more — *cherubic?* — but I'm sure you're *excellent* at the *rowing.* *(he settles back)* Do tell the *captain* I've been waiting *frightfully* long. First-class tithe-payer. He'll *understand.*"
+            },
+            {
+              "text": "*(The cheerful man in his good dark funeral suit spots you and lights up, delighted to have company on his rock at the edge of the mist.)* Oh, *hullo!* *(he shuffles over to make room)* Another one for the *crossing*, are you? *Splendid.* I was beginning to think I'd the *whole* jetty to myself. *(he peers happily into the grey)* Boat's due *any* minute, by my reckoning — though I'll confess I've *rather* lost track of the *exact* — *(he frowns at his stopped watch, shrugs, brightens again)* — *anyway!* Lovely spot for it, isn't it? *Bracing.* Bit of *mist*, bit of *marsh.* *Very* atmospheric, for a *departure.* *(he sticks out a genial hand)* Goodwin. *Late* of the cloth trade. *Very* late, I shouldn't wonder, given the *boat.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodwin",
+          "text": "*(He folds his hands over his round belly and gazes out at the mist with the serene, slightly anxious patience of a man who has been promised a connection and is *certain* it's coming, *any* minute now.)* So! *(he rocks on his rock)* Going far, are you? Across to the *far* shore, same as me? They say it's *lovely*, the far shore. The lady with the *scale* was *most* reassuring about it. *Most.*",
           "choices": [
-            { "text": "[INSIGHT] \"Goodwin. The boat isn't late. There's no boat coming for you at all — the lady with the scale doesn't *run* the ferry, she *measures* the ones who don't get to *ride* it. I'm sorry. I think you've been waiting on a jetty for a boat that was never going to *stop.*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "goodwin_truth", "fail": "goodwin_denial" },
-            { "text": "[RELIGION] \"You paid your tithes, so you think you're *bought.* But the Choir's scale doesn't weigh *coin*, Goodwin — it weighs whether a *god* claimed you, and tithes aren't the same as *faith.* They took your money and your *good word for it* and walked you out to the *waiting-rock.* You've been *filed*, friend, not *ferried.*\"", "when": { "ability": { "Intelligence": 11 } }, "next": "goodwin_truth", "fail": "goodwin_denial" },
-            { "text": "*(gently, as one who knows the crossing)* \"Goodwin — feel your own hands a moment. Feel how you're not *cold*, though it's *freezing.* Feel how you've not been *hungry*, all this *waiting.* You're a kind, patient soul, and I'll not dress it up: you've already made the crossing, friend. You're *waiting* on a far shore you're already *standing* on.\"", "tag": "returned", "next": "goodwin_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "[PERSUASION] \"Tell you what, Goodwin — don't wait for the boat. The boat's rubbish. I've *seen* it. Come back up the causeway with me instead, to where it's *warm*, and there's *light*, and people still *say each other's names.* The far shore can keep. Walk *back* with me a while.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 14 }, "next": "goodwin_walks", "fail": "goodwin_stays", "crit": "goodwin_persuade_crit", "fumble": "goodwin_persuade_fumble", "effects": [{ "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"What did you do, while you were waiting, Goodwin? It looks like it's been… a while.\" *(let the poor man talk)*", "next": "goodwin_wait" },
-            { "text": "\"…Safe crossing, Goodwin.\" *(leave him to his vigil)*", "next": "goodwin_leave" }
-          ] },
-        { "id": "goodwin_truth", "speaker": "Goodwin", "text": "*(The genial smile holds for a moment longer — and then, slowly, like a coat slipping off a peg, it *falls*, and underneath is a man who has, on some level, known for a very long time.)* …No boat. *(quietly)* No. *(he looks down at his good funeral suit, at his stopped watch, at his own patient hands)* …I *did* wonder. *(a long pause)* You *do* wonder, you know, when it's been — when the *light* never quite *changes*, and you're never quite *hungry*, and the *boat's* always *just* about to — *(he stops)* …I'm *dead.* *(he tries the word; it doesn't frighten him as much as he'd feared)* I'm *dead*, and I'm not *bought* after all, and the lovely lady with the scale *lied* to me, *kindly*, the way you'd lie to a *child* at *bedtime*, and pointed me at a *rock* to *wait* on until I — *(his voice wavers)* — until I *forget* I'm waiting, I suppose. Until I'm just *part of the marsh.* *(he looks at you, and his eyes are wet but his voice is steadier than you'd expect)* …Thank you. *Truly.* I'd *rather* know. A man can make his *peace* with a *far shore.* He can't make peace with a *boat that isn't coming* — that's just *waiting*, forever, and *waiting's* no way to spend an *eternity.* *(a small, brave, broken smile)* So. *What does* a dead cloth-merchant do, then, if there's *no boat?*",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.goodwin_knows", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "goodwin_truth_2" },
-        { "id": "goodwin_truth_2", "speaker": "Goodwin", "text": "*(He stands up off his rock — the first time in a very long while, by the stiffness of it — and looks around at the marsh as though seeing it properly for the first time.)*",
+            {
+              "text": "[INSIGHT] \"Goodwin. The boat isn't late. There's no boat coming for you at all — the lady with the scale doesn't *run* the ferry, she *measures* the ones who don't get to *ride* it. I'm sorry. I think you've been waiting on a jetty for a boat that was never going to *stop.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "goodwin_truth",
+              "fail": "goodwin_denial"
+            },
+            {
+              "text": "[RELIGION] \"You paid your tithes, so you think you're *bought.* But the Choir's scale doesn't weigh *coin*, Goodwin — it weighs whether a *god* claimed you, and tithes aren't the same as *faith.* They took your money and your *good word for it* and walked you out to the *waiting-rock.* You've been *filed*, friend, not *ferried.*\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 11
+                }
+              },
+              "next": "goodwin_truth",
+              "fail": "goodwin_denial"
+            },
+            {
+              "text": "*(gently, as one who knows the crossing)* \"Goodwin — feel your own hands a moment. Feel how you're not *cold*, though it's *freezing.* Feel how you've not been *hungry*, all this *waiting.* You're a kind, patient soul, and I'll not dress it up: you've already made the crossing, friend. You're *waiting* on a far shore you're already *standing* on.\"",
+              "tag": "returned",
+              "next": "goodwin_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[PERSUASION] \"Tell you what, Goodwin — don't wait for the boat. The boat's rubbish. I've *seen* it. Come back up the causeway with me instead, to where it's *warm*, and there's *light*, and people still *say each other's names.* The far shore can keep. Walk *back* with me a while.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "goodwin_walks",
+              "fail": "goodwin_stays",
+              "crit": "goodwin_persuade_crit",
+              "fumble": "goodwin_persuade_fumble",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What did you do, while you were waiting, Goodwin? It looks like it's been… a while.\" *(let the poor man talk)*",
+              "next": "goodwin_wait"
+            },
+            {
+              "text": "\"…Safe crossing, Goodwin.\" *(leave him to his vigil)*",
+              "next": "goodwin_leave"
+            }
+          ]
+        },
+        {
+          "id": "goodwin_truth",
+          "speaker": "Goodwin",
+          "text": "*(The genial smile holds for a moment longer — and then, slowly, like a coat slipping off a peg, it *falls*, and underneath is a man who has, on some level, known for a very long time.)* …No boat. *(quietly)* No. *(he looks down at his good funeral suit, at his stopped watch, at his own patient hands)* …I *did* wonder. *(a long pause)* You *do* wonder, you know, when it's been — when the *light* never quite *changes*, and you're never quite *hungry*, and the *boat's* always *just* about to — *(he stops)* …I'm *dead.* *(he tries the word; it doesn't frighten him as much as he'd feared)* I'm *dead*, and I'm not *bought* after all, and the lovely lady with the scale *lied* to me, *kindly*, the way you'd lie to a *child* at *bedtime*, and pointed me at a *rock* to *wait* on until I — *(his voice wavers)* — until I *forget* I'm waiting, I suppose. Until I'm just *part of the marsh.* *(he looks at you, and his eyes are wet but his voice is steadier than you'd expect)* …Thank you. *Truly.* I'd *rather* know. A man can make his *peace* with a *far shore.* He can't make peace with a *boat that isn't coming* — that's just *waiting*, forever, and *waiting's* no way to spend an *eternity.* *(a small, brave, broken smile)* So. *What does* a dead cloth-merchant do, then, if there's *no boat?*",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.goodwin_knows",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "goodwin_truth_2"
+        },
+        {
+          "id": "goodwin_truth_2",
+          "speaker": "Goodwin",
+          "text": "*(He stands up off his rock — the first time in a very long while, by the stiffness of it — and looks around at the marsh as though seeing it properly for the first time.)*",
           "choices": [
-            { "text": "\"You stop waiting, and you start walking — but *toward the light*, not the mist. Come up the causeway with me. I can't promise what's at the top for a soul like you, but it's better than a rock, and you won't be *alone* on the road.\"", "next": "goodwin_walks", "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 2 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"You find the others who are waiting — and you *tell* them, gently, like I told you. There's a whole marsh of folk on rocks, Goodwin, all watching for the same boat. They could use a kind man who knows the truth and won't do the *sorry* face.\"", "next": "goodwin_shepherd", "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 3 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "goodwin_denial", "speaker": "Goodwin", "text": "*(He laughs, a big comfortable laugh, and pats your arm as though *you're* the one who needs reassuring.)* Oh, *come* now! *No boat?* *(he chuckles)* My dear soul, I *paid* for that boat — *decades* of tithes, *every* holy-day, never *missed* one! The lady had a *scale* and a *ledger* and *everything*, very *official.* *(he settles back comfortably)* I think *you've* perhaps had a *fright* out here in the *marsh* — it *gets* to people, all this *mist* — and you've gone a bit *doom-and-gloom.* *(kindly)* Sit down. Have a *rest.* The boat'll be along, and when it *comes*, why, there's *room* for *two*, I'm sure, *first-class!* *(he beams back out at the empty grey)* …Any minute now. You'll *see.* You'll feel *silly* for all the *gloom.*",
-          "auto": "END" },
-        { "id": "goodwin_returned", "speaker": "Goodwin", "text": "*(He lifts his own hands and looks at them — really looks — and turns them over, and the cheerful certainty drains slowly out of his round face into a quiet so deep it's almost peace.)* …I'm not *cold.* *(wonderingly)* It's *freezing*, and I'm sitting on a *wet rock* in my *good suit*, and I'm not *cold*, and I've not been *cold*, not *once*, all this — *(he looks up at you, and there's no fear in it, only a vast and gentle understanding)* …Oh. *(softly)* *Oh.* You're one of the *cold* ones, aren't you. The kind that *knows.* *(he doesn't flinch from you)* And you've come to tell a foolish old merchant he's been waiting on a jetty *he already left.* *(he breathes out, long and slow)* The *far shore.* *(he almost laughs)* I'm *on* it. I've *been* on it. The whole time, I was *waiting* to *arrive* at the place I was *already standing.* *(he looks around at the marsh with new eyes)* …Well. *(he straightens his funeral coat with great dignity)* That *does* rather change the *afternoon.* *(he meets your eyes, grateful)* Thank you, cold one. You've a *gentle* way of ending a man's *waiting.* Gentler than the *lady with the scale*, who started it with a *smile.* *(quietly)* What does one *do*, on a shore one's already *reached?*",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.goodwin_knows", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "goodwin_truth_2" },
-        { "id": "goodwin_walks", "speaker": "Goodwin", "text": "*(He looks up the long causeway toward the faint smudge of torchlight, and then back at the mist he's watched for so long, and a slow, decided smile spreads over his face.)* …You know what? *(he hauls himself up, dusting off his funeral suit)* *Bother* the boat. *(he says it with the giddy relief of a man playing truant)* I have *waited*, and *waited*, and been *patient*, and *good*, and *first-class*, and where has it *got* me? A *wet rock* and a *stopped watch!* *(he claps his hands together)* So I shall do something I've not done since I *died*, which is *change my mind!* *(he beams at you)* Lead on, cold one — *up* the causeway, toward the *light.* If there's a soul still *says my name* up there, I should *like* to hear it. And if there *isn't* — well — *(he falls into step beside you, jaunty)* — better to *walk* toward *something* than *sit* toward *nothing.* That's *good* cloth-trade sense, that is. *Never* wait on a *delivery* that's *four hundred years* late. *(he chuckles)* Do you know, I feel *lighter* already? Funny, that. You'd think *deciding to walk* would be the *heavy* part.",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 3 }, { "key": "lt.goodwin_walks", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "goodwin_shepherd", "speaker": "Goodwin", "text": "*(He looks out across the marsh — and you see him *notice*, perhaps for the first time, the other shapes out there: figures on rocks, in their good clothes, watching the mist for boats of their own.)* …There's *others.* *(softly)* Of *course* there are others. *(he stands a little taller)* All of us, *dotted* about, each *certain* his *own* boat's the one that's *coming.* *(he looks at you, and something kind and steady settles into him)* …I could *do* that. *(slowly)* I'm a *salesman*, cold one — was, *am*, whichever. I know how to walk up to a *stranger* and start a *conversation* he didn't *ask* for. *(a wry, watery smile)* I spent my *life* convincing people to *buy* what they didn't *need.* Perhaps I can spend my *death* convincing them to *stop waiting* for what isn't *coming.* *Gently.* No *sorry* face. *(he squares his shoulders, and for a foolish patient ghost he looks, suddenly, almost *noble*)* Go on, then, cold one — *you've* clearly *business* further out. I've found *mine*, right *here.* *(he turns toward the nearest distant figure)* …*Eustace?* Is that *you* on the *far* rock? It's *Goodwin!* From the *cloth* exchange! Have you got a *moment?* It's about the *boat —*",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 4 }, { "key": "lt.goodwin_shepherd", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "goodwin_stays", "speaker": "Goodwin", "text": "*(He considers your offer with genuine, wistful care — and then shakes his head, gently, and pats the rock.)* …That's *kind* of you. *Truly.* *(he smiles, sad and stubborn)* But I've *waited* this *long*, you see. And if I get *up* now, and walk *off* up your causeway, and the boat comes *the very next minute* — *(he winces)* — well, I'd never *forgive* myself, would I. After *all* this *patience.* *(he settles more firmly onto his rock)* No. No, I'll — I'll wait a *bit* longer. Just to be *sure.* *(he resumes his watch on the mist, though something in his eyes has gone less certain)* …You go on, though. *Warm* soul like you oughtn't *linger.* *(quietly, almost to himself, as you leave)* …Any minute now. It's just the *fog.* …It's just the *fog.*",
-          "auto": "END" },
-        { "id": "goodwin_persuade_crit", "speaker": "Goodwin", "text": "*(✦ You don't argue him out of the boat. You do something kinder and far cleverer: you make the *walk* sound like the better *destination* — warmth, and light, and the sound of his own name in a living mouth — and you pitch it with such warmth that the foolish patient ghost simply *wants* to come more than he wants to wait.)* *(He's on his feet before he's decided to be, eyes shining.)* …*People still say each other's NAMES.* *(he seizes your hand in both of his)* Oh, I'd *forgotten* that. I'd *forgotten* the *sound* of it — someone calling 'Goodwin!' across a *market*, cross or *fond* or wanting *paid*, it didn't *matter*, it *meant I was THERE*, it meant I was a *who* and not a — *(he looks at the rock he's been melting into)* — not a *part of the marsh.* *(fierce, joyful, blinking hard)* *Bugger* the boat! *Bugger* the *lady* and her *scale* and her *first-class* *lie!* I am *Goodwin*, late of the *cloth* trade, and I am going to walk *up* this causeway with my *new cold friend* until I find a soul who'll *say my name* — and then I'll know *exactly* where I am, which is *more* than this *rock* ever told me! *(he links his arm through yours, beaming, and it is somehow the bravest thing on the whole marsh)* *Lead on*, cold one! And if you should *meet* a lady with a *scale* on the way — *(a wicked, delighted grin)* — do tell her *Goodwin sends his REGRETS, and his boat can WAIT for HIM.*",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 5 }, { "key": "lt.goodwin_walks", "op": "SetTrue" }, { "key": "lt.goodwin_radiant", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "goodwin_persuade_fumble", "speaker": "Goodwin", "text": "*(💀 You mean to gently coax him off the rock, and instead — perhaps rattled by the staring Wall, perhaps just clumsy with the cold — you oversell catastrophically, describing the warm causeway in the desperate, breathless tones of a man advertising the *last lifeboat*, complete with 'you've got to come NOW, there's not much TIME.' For a soul whose entire torment is *anxious waiting*, this is precisely the wrong song.)* *(Goodwin's face creases with fresh worry.)* …Not much — *time?* *(he clutches his stopped watch)* Oh — oh *dear* — is the *boat* about to — have I been *dawdling*, talking to *you*, and *missed* the — *(he cranes frantically at the mist)* — no, no, I *can't* leave the *rock* now, what if the boat comes and I'm halfway up your *causeway* and it *leaves without me* — *(he hunkers down, more fixed to his rock than ever, wringing his hands)* — oh, you've got me all in a *state.* *(reproachfully)* That was *not* a *kind* thing to say to a *waiting* man, cold soul. *Not* kind at *all.* *(he returns to his anxious vigil, worse than before)* …Any *minute*, now. Mustn't *miss* it. Mustn't *dawdle.* Oh, *dear.*",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": -1 }], "auto": "END" },
-        { "id": "goodwin_wait", "speaker": "Goodwin", "text": "*(He brightens at the question, glad to have something to reminisce about, though the longer he talks the more the cracks show through the cheer.)* Oh, *all* sorts! *(happily)* At *first* I — well, I *rehearsed*, you know. What I'd *say* to my dear *wife*, when she crossed over and *joined* me — I've a *lovely* little speech, all ready. *(his smile flickers)* …She's not come *yet*, mind. Bit *odd*, that. She was *older* than me, I'd have *thought* — *(he hurries on)* — and then I *counted* things, for a while. The *reeds.* The *faces* in the *big grey cliff* over there — *(he nods at the Wall, with a tiny frown, as if it troubles him and he can't say why)* — though I *stopped* that, it's — they *look* at you, the faces, it's not very *restful* — *(he rallies)* — and *mostly* I just — *wait!* *Cheerfully!* It's the *one* thing I was *always* good at, *patience* — *(his voice wavers, just slightly)* — though I'll *own*, lately, it's got a bit — a man does start to *wonder*, after the *thousandth* time the boat's *almost* — *(he catches himself, beams)* — *anyway!* You're *marvellous* company. Far better than the *reeds.* The reeds *never* listen.",
-          "effects": [{ "key": "lt.goodwin.regard", "op": "AddInt", "amount": 1 }, { "key": "lt.goodwin_wistful", "op": "SetTrue" }], "auto": "END" },
-        { "id": "goodwin_leave", "speaker": "Goodwin", "text": "*(He waves you off with great good cheer, entirely untroubled, settling back to his vigil.)* *Safe* crossing to *you* too, friend! *(he calls after you)* Mind you *don't* miss your boat — I'm sure *yours* is *ever* so *prompt!* *(he turns back to the mist, content)* …I'll *save* you a place, if mine comes *first!* First-*class!* *(and as you go, his voice drifts after you, bright and patient and heartbreaking)* …Any minute now. *Any* minute. Lovely spot for it, really. *Bracing.*",
-          "auto": "END" }
+            {
+              "text": "\"You stop waiting, and you start walking — but *toward the light*, not the mist. Come up the causeway with me. I can't promise what's at the top for a soul like you, but it's better than a rock, and you won't be *alone* on the road.\"",
+              "next": "goodwin_walks",
+              "effects": [
+                {
+                  "key": "lt.goodwin.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You find the others who are waiting — and you *tell* them, gently, like I told you. There's a whole marsh of folk on rocks, Goodwin, all watching for the same boat. They could use a kind man who knows the truth and won't do the *sorry* face.\"",
+              "next": "goodwin_shepherd",
+              "effects": [
+                {
+                  "key": "lt.goodwin.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "goodwin_denial",
+          "speaker": "Goodwin",
+          "text": "*(He laughs, a big comfortable laugh, and pats your arm as though *you're* the one who needs reassuring.)* Oh, *come* now! *No boat?* *(he chuckles)* My dear soul, I *paid* for that boat — *decades* of tithes, *every* holy-day, never *missed* one! The lady had a *scale* and a *ledger* and *everything*, very *official.* *(he settles back comfortably)* I think *you've* perhaps had a *fright* out here in the *marsh* — it *gets* to people, all this *mist* — and you've gone a bit *doom-and-gloom.* *(kindly)* Sit down. Have a *rest.* The boat'll be along, and when it *comes*, why, there's *room* for *two*, I'm sure, *first-class!* *(he beams back out at the empty grey)* …Any minute now. You'll *see.* You'll feel *silly* for all the *gloom.*",
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_returned",
+          "speaker": "Goodwin",
+          "text": "*(He lifts his own hands and looks at them — really looks — and turns them over, and the cheerful certainty drains slowly out of his round face into a quiet so deep it's almost peace.)* …I'm not *cold.* *(wonderingly)* It's *freezing*, and I'm sitting on a *wet rock* in my *good suit*, and I'm not *cold*, and I've not been *cold*, not *once*, all this — *(he looks up at you, and there's no fear in it, only a vast and gentle understanding)* …Oh. *(softly)* *Oh.* You're one of the *cold* ones, aren't you. The kind that *knows.* *(he doesn't flinch from you)* And you've come to tell a foolish old merchant he's been waiting on a jetty *he already left.* *(he breathes out, long and slow)* The *far shore.* *(he almost laughs)* I'm *on* it. I've *been* on it. The whole time, I was *waiting* to *arrive* at the place I was *already standing.* *(he looks around at the marsh with new eyes)* …Well. *(he straightens his funeral coat with great dignity)* That *does* rather change the *afternoon.* *(he meets your eyes, grateful)* Thank you, cold one. You've a *gentle* way of ending a man's *waiting.* Gentler than the *lady with the scale*, who started it with a *smile.* *(quietly)* What does one *do*, on a shore one's already *reached?*",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.goodwin_knows",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "goodwin_truth_2"
+        },
+        {
+          "id": "goodwin_walks",
+          "speaker": "Goodwin",
+          "text": "*(He looks up the long causeway toward the faint smudge of torchlight, and then back at the mist he's watched for so long, and a slow, decided smile spreads over his face.)* …You know what? *(he hauls himself up, dusting off his funeral suit)* *Bother* the boat. *(he says it with the giddy relief of a man playing truant)* I have *waited*, and *waited*, and been *patient*, and *good*, and *first-class*, and where has it *got* me? A *wet rock* and a *stopped watch!* *(he claps his hands together)* So I shall do something I've not done since I *died*, which is *change my mind!* *(he beams at you)* Lead on, cold one — *up* the causeway, toward the *light.* If there's a soul still *says my name* up there, I should *like* to hear it. And if there *isn't* — well — *(he falls into step beside you, jaunty)* — better to *walk* toward *something* than *sit* toward *nothing.* That's *good* cloth-trade sense, that is. *Never* wait on a *delivery* that's *four hundred years* late. *(he chuckles)* Do you know, I feel *lighter* already? Funny, that. You'd think *deciding to walk* would be the *heavy* part.",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "lt.goodwin_walks",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_shepherd",
+          "speaker": "Goodwin",
+          "text": "*(He looks out across the marsh — and you see him *notice*, perhaps for the first time, the other shapes out there: figures on rocks, in their good clothes, watching the mist for boats of their own.)* …There's *others.* *(softly)* Of *course* there are others. *(he stands a little taller)* All of us, *dotted* about, each *certain* his *own* boat's the one that's *coming.* *(he looks at you, and something kind and steady settles into him)* …I could *do* that. *(slowly)* I'm a *salesman*, cold one — was, *am*, whichever. I know how to walk up to a *stranger* and start a *conversation* he didn't *ask* for. *(a wry, watery smile)* I spent my *life* convincing people to *buy* what they didn't *need.* Perhaps I can spend my *death* convincing them to *stop waiting* for what isn't *coming.* *Gently.* No *sorry* face. *(he squares his shoulders, and for a foolish patient ghost he looks, suddenly, almost *noble*)* Go on, then, cold one — *you've* clearly *business* further out. I've found *mine*, right *here.* *(he turns toward the nearest distant figure)* …*Eustace?* Is that *you* on the *far* rock? It's *Goodwin!* From the *cloth* exchange! Have you got a *moment?* It's about the *boat —*",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "lt.goodwin_shepherd",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_stays",
+          "speaker": "Goodwin",
+          "text": "*(He considers your offer with genuine, wistful care — and then shakes his head, gently, and pats the rock.)* …That's *kind* of you. *Truly.* *(he smiles, sad and stubborn)* But I've *waited* this *long*, you see. And if I get *up* now, and walk *off* up your causeway, and the boat comes *the very next minute* — *(he winces)* — well, I'd never *forgive* myself, would I. After *all* this *patience.* *(he settles more firmly onto his rock)* No. No, I'll — I'll wait a *bit* longer. Just to be *sure.* *(he resumes his watch on the mist, though something in his eyes has gone less certain)* …You go on, though. *Warm* soul like you oughtn't *linger.* *(quietly, almost to himself, as you leave)* …Any minute now. It's just the *fog.* …It's just the *fog.*",
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_persuade_crit",
+          "speaker": "Goodwin",
+          "text": "*(✦ You don't argue him out of the boat. You do something kinder and far cleverer: you make the *walk* sound like the better *destination* — warmth, and light, and the sound of his own name in a living mouth — and you pitch it with such warmth that the foolish patient ghost simply *wants* to come more than he wants to wait.)* *(He's on his feet before he's decided to be, eyes shining.)* …*People still say each other's NAMES.* *(he seizes your hand in both of his)* Oh, I'd *forgotten* that. I'd *forgotten* the *sound* of it — someone calling 'Goodwin!' across a *market*, cross or *fond* or wanting *paid*, it didn't *matter*, it *meant I was THERE*, it meant I was a *who* and not a — *(he looks at the rock he's been melting into)* — not a *part of the marsh.* *(fierce, joyful, blinking hard)* *Bugger* the boat! *Bugger* the *lady* and her *scale* and her *first-class* *lie!* I am *Goodwin*, late of the *cloth* trade, and I am going to walk *up* this causeway with my *new cold friend* until I find a soul who'll *say my name* — and then I'll know *exactly* where I am, which is *more* than this *rock* ever told me! *(he links his arm through yours, beaming, and it is somehow the bravest thing on the whole marsh)* *Lead on*, cold one! And if you should *meet* a lady with a *scale* on the way — *(a wicked, delighted grin)* — do tell her *Goodwin sends his REGRETS, and his boat can WAIT for HIM.*",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "lt.goodwin_walks",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lt.goodwin_radiant",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_persuade_fumble",
+          "speaker": "Goodwin",
+          "text": "*(💀 You mean to gently coax him off the rock, and instead — perhaps rattled by the staring Wall, perhaps just clumsy with the cold — you oversell catastrophically, describing the warm causeway in the desperate, breathless tones of a man advertising the *last lifeboat*, complete with 'you've got to come NOW, there's not much TIME.' For a soul whose entire torment is *anxious waiting*, this is precisely the wrong song.)* *(Goodwin's face creases with fresh worry.)* …Not much — *time?* *(he clutches his stopped watch)* Oh — oh *dear* — is the *boat* about to — have I been *dawdling*, talking to *you*, and *missed* the — *(he cranes frantically at the mist)* — no, no, I *can't* leave the *rock* now, what if the boat comes and I'm halfway up your *causeway* and it *leaves without me* — *(he hunkers down, more fixed to his rock than ever, wringing his hands)* — oh, you've got me all in a *state.* *(reproachfully)* That was *not* a *kind* thing to say to a *waiting* man, cold soul. *Not* kind at *all.* *(he returns to his anxious vigil, worse than before)* …Any *minute*, now. Mustn't *miss* it. Mustn't *dawdle.* Oh, *dear.*",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_wait",
+          "speaker": "Goodwin",
+          "text": "*(He brightens at the question, glad to have something to reminisce about, though the longer he talks the more the cracks show through the cheer.)* Oh, *all* sorts! *(happily)* At *first* I — well, I *rehearsed*, you know. What I'd *say* to my dear *wife*, when she crossed over and *joined* me — I've a *lovely* little speech, all ready. *(his smile flickers)* …She's not come *yet*, mind. Bit *odd*, that. She was *older* than me, I'd have *thought* — *(he hurries on)* — and then I *counted* things, for a while. The *reeds.* The *faces* in the *big grey cliff* over there — *(he nods at the Wall, with a tiny frown, as if it troubles him and he can't say why)* — though I *stopped* that, it's — they *look* at you, the faces, it's not very *restful* — *(he rallies)* — and *mostly* I just — *wait!* *Cheerfully!* It's the *one* thing I was *always* good at, *patience* — *(his voice wavers, just slightly)* — though I'll *own*, lately, it's got a bit — a man does start to *wonder*, after the *thousandth* time the boat's *almost* — *(he catches himself, beams)* — *anyway!* You're *marvellous* company. Far better than the *reeds.* The reeds *never* listen.",
+          "effects": [
+            {
+              "key": "lt.goodwin.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "lt.goodwin_wistful",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "goodwin_leave",
+          "speaker": "Goodwin",
+          "text": "*(He waves you off with great good cheer, entirely untroubled, settling back to his vigil.)* *Safe* crossing to *you* too, friend! *(he calls after you)* Mind you *don't* miss your boat — I'm sure *yours* is *ever* so *prompt!* *(he turns back to the mist, content)* …I'll *save* you a place, if mine comes *first!* First-*class!* *(and as you go, his voice drifts after you, bright and patient and heartbreaking)* …Any minute now. *Any* minute. Lovely spot for it, really. *Bracing.*",
+          "auto": "END"
+        }
       ]
     }
   ]

@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v5.9.0 — *"The Thin Place"* — a twenty-sixth zone: a reunion across the Wall (the logistics of love) (content)
+
+> A ninth new structure — the **reunion** — and the most intimate yet. At the Wall's foot, where the stone runs
+> thin, a widow kneels nightly to hear her walled husband *breathe.* She can only listen. You are the one soul who
+> can *cross.*
+- 💔 **A twenty-sixth zone — the Thin Place** (off the last torch). Three souls: **Goodwife Pell**, who has knelt at
+  the Wall for a year with a last word she never got to say; **a voice in the stone** — Aldous, her husband, walled
+  and fading, near enough the thin place to be almost heard; and **the Reed-Knower**, who maps where the Wall goes
+  thinnest.
+- 📨 **A courier structure with real logistics.** Learn who Aldous was and the message Pell owes him (*you're not
+  alone, I came back, I'm sorry I was late*), then — as the **[RETURNED]** who can walk back to the Wall's edge —
+  carry it *through.* The beats at Aldous are gated on what you learned from Pell first: give him back his **name**
+  (the Wall takes the *who* first, and a name handed back catches the scattering soul like a hand around a coal),
+  deliver Pell's **message**, and bring his answer back — *she was never late; the last thing he felt wasn't fear of
+  the dark, it was wishing he could tell her not to blame herself.*
+- 🎶 **The reunion lands** in the saga's quietest triumph: you ask Aldous to sing the bad old river-song into the
+  dark, and through the thin place Pell's voice — weeping — joins the filthy third verse, forty years and a Wall
+  between them, *singing together.* "This is better than getting out. Let the dark come now. I'm singing with my
+  wife."
+- 🗺️ **The Reed-Knower** turned its worst failure into a map of mercy: it knelt at the wrong seam while its own
+  daughter faded un-heard, and has spent forty years learning every thin place so no other love lands on deaf
+  granite — and it will *witness* your crossing, the thing it could never do itself.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,074 checks**, all green). **26 zones, 91 souls** — nine
+  fresh structures this stretch, the saga's thesis proven one more way: *the Wall's deepest cruelty is making the
+  dead believe they are unheard, and every voice that crosses, even once, un-does it.*
+
+---
+
 ## 👑 v5.8.0 — *"The Inquest of the Un-Made"* — a twenty-fifth zone: a whodunit with clue-gated accusation (content)
 
 > An eighth new structure, and a genuinely new *mechanic* — **deduction.** A soul named Sella has been *un-made*:

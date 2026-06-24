@@ -1301,6 +1301,32 @@ check("the dead-touched can carry the erased Sella out of reach of the un-making
 check("each Inquest soul carries a [RETURNED] line + a Returned-sense", [iqKeeper, iqGrieved, iqBroker].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-sixth zone: the Thin Place — a reunion across the Wall (the logistics of love) ----
+const TP = SCENES && SCENES.thinplace;
+check("a twenty-sixth zone (the Thin Place) ships — a reunion-across-the-Wall structure", TP && TP.npcs.length >= 3);
+check("the Thin Place is reached off the last torch, at the Wall's foot", (SCENES.lasttorch.exits || []).some(x => x.to === "thinplace"));
+const tpWaiter = CONVS.find(c => c.id === "tp.waiter");
+const tpSevered = CONVS.find(c => c.id === "tp.severed");
+const tpKeeper = CONVS.find(c => c.id === "tp.keeper");
+check("the reunion's three roles are present (the one who waits, the one in the stone, the one who maps the thin places)", tpWaiter && tpSevered && tpKeeper);
+check("only the Returned can be the courier across the Wall the widow can only kneel against", tpWaiter.nodes.find(n => n.id === "1").choices.some(ch =>
+  ch.tag === "returned" && tpWaiter.nodes.find(n => n.id === ch.next).effects.some(e => e.key === "tp.accepted_courier")));
+check("carrying the message both ways gives Aldous back his name and his answer to Pell", tpSevered &&
+  tpSevered.nodes.some(n => (n.effects || []).some(e => e.key === "tp.aldous_remembers")) &&
+  tpSevered.nodes.some(n => (n.effects || []).some(e => e.key === "tp.aldous_message_for_pell")));
+check("the message/name beats at Aldous are gated on having learned them from Pell first (real courier logic)", (() => {
+  const named = tpSevered.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "severed_named");
+  const knows = E.newState(); knows.bools["tp.knows_aldous"] = true;
+  return named && named.when && E.choiceAvailable(goodGuy, knows, named, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), named, MODEL) === false;
+})());
+check("the Reed-Knower lost a daughter to the wrong seam, and made a map of mercy from it (and will witness a crossing)", tpKeeper &&
+  tpKeeper.nodes.some(n => (n.effects || []).some(e => e.key === "tp.keeper_lost_daughter")) &&
+  tpKeeper.nodes.some(n => (n.effects || []).some(e => e.key === "tp.keeper_witnesses")));
+check("the reunion can land — the two sing the bad old river-song through the stone (witness beats the Wall)", tpSevered.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "tp.reunion_made")));
+check("each Thin-Place soul carries a [RETURNED] line + a Returned-sense", [tpWaiter, tpSevered, tpKeeper].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
