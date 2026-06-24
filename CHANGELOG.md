@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v4.99.0 — *"Annet, Years On"* — the Reckoning Court pays off in the epilogue (content)
+
+> A side quest deserves a coda. Spare Goodwife Annet at the trial and, in **"Some Years After,"** you find her old
+> and stubbornly above-ground — a borrowed newborn asleep on her shoulder, a midwife's bag still slung across her,
+> caught breech two dawns ago. She was *meant to be mortar.* Instead she got more years of the exact work they tried
+> to damn her for.
+
+- 👶 **Annet's epilogue coda** (gated on `tr.annet_spared`, joining Wren, Pip and Sennet among the conditional
+  years-after souls). **Three reactive openings keyed to *how* you won the trial:** the reeve's public recantation
+  (`tr.reeve_recants` — a thousand names nailed to the Counting-House door broke the quiet reckonings for good), the
+  voided Concord (`tr.concord_void` — the thorough prosecutor died at his desk un-writing the Wall's forged
+  paperwork), or a default.
+- 🌱 **The payoff is the saga's thesis, made concrete.** She spent her reprieve *seeding the causeway*: hundreds more
+  children caught, four godless girls trained to carry the work, and a whole generation walking around wearing names
+  she chose — each one a thank-you she couldn't say aloud to the stranger who vanished. A [RETURNED] exchange lets
+  two godless souls settle the question the Wall was built to punish: *no god ever caught her — a person did, and
+  that's not the consolation prize, that's the whole sermon.*
+- 👁️ **A new Returned-sense for her coda:** the dead-touched player reads not one saved midwife but a *lineage of
+  catching* — a single un-walled soul whose warmth propagates, the loudest answer in the tally to *what is a soul
+  worth that no god ever claimed.*
+- 🧪 **+2 gates** (now **995 checks**, all green): the coda is gated to sparing her and reads the specific way the
+  reckoning broke. **64 souls** now walk the causeway.
+
+---
+
 ## 👑 v4.98.0 — *"The Reckoning Court"* — an eighteenth zone: a courtroom side quest (defend a soul from the Wall) (content)
 
 > A structure the saga hadn't done yet: a **trial.** The Choir holds summary *reckonings* in a cellar under the

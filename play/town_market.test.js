@@ -920,6 +920,17 @@ check("the coda reads the threshold choice (eyes-past-the-door variant) and pays
   epiSennet.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.flag === "thr.sennet_eyes") &&
   epiSennet.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sennet_atlas_lives")) &&
   epiSennet.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sennet_map_home")));
+// the trial pays off years-later too: the spared midwife appears, and her coda reads how the reckoning broke
+const epiAnnet = CONVS.find(c => c.id === "epi.annet");
+const epiAnnetNpc = EPI.npcs.find(n => n.conv === "epi.annet");
+check("Annet's years-after coda appears only if she was spared at the trial", epiAnnet && epiAnnetNpc &&
+  epiAnnetNpc.when && epiAnnetNpc.when.flag === "tr.annet_spared" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["tr.annet_spared"] = true; return s; })(), epiAnnetNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), epiAnnetNpc.when) === false);
+check("the midwife's coda reads HOW the reckoning broke (the reeve's recantation, or the voided Concord)", epiAnnet &&
+  epiAnnet.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("tr.reeve_recants") >= 0) &&
+  epiAnnet.nodes.find(n => n.id === "0").variants.some(v => v.when && (v.when.flags || []).indexOf("tr.concord_void") >= 0) &&
+  epiAnnet.returned);
 check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
   const c = CONVS.find(cc => cc.id === n.conv);
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
