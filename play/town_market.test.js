@@ -1449,6 +1449,43 @@ check("the way out reads the saga's deepest pattern — every self-built cage is
 check("each Locked-Room piece carries a [RETURNED] line + a Returned-sense", [mrDreamer, mrEcho, mrDoor].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- payoff pass: the epilogue chronicler now reads the side-quest outcomes (the years-after of the new structures) ----
+const epiChron = CONVS.find(c => c.id === "epi.chronicler");
+check("the chronicler gained a 'side-roads' topic that pays off the new structures in the years-after", epiChron &&
+  epiChron.nodes.find(n => n.id === "1").choices.some(ch => ch.next === "epi_sidequests") &&
+  epiChron.nodes.find(n => n.id === "epi_sidequests"));
+check("the side-roads payoff reads the two courts reactively (the midwife spared, the assize survived)", (() => {
+  const courts = epiChron.nodes.find(n => n.id === "epi_sq_courts");
+  const spared = E.newState(); spared.bools["tr.annet_spared"] = true;
+  const assize = E.newState(); assize.bools["as.verdict_trustworthy"] = true;
+  return courts && courts.variants &&
+    E.pickVariantText(courts, goodGuy, spared) !== E.pickVariantText(courts, goodGuy, E.newState()) &&
+    E.pickVariantText(courts, goodGuy, assize) !== E.pickVariantText(courts, goodGuy, E.newState());
+})());
+check("the side-roads payoff reads the dark bargains reactively (Jergal's audit, the voided devil, the ledger's fate)", (() => {
+  const bargains = epiChron.nodes.find(n => n.id === "epi_sq_bargains");
+  const jergal = E.newState(); jergal.bools["sc.outwitted_ledger"] = true;
+  const crede = E.newState(); crede.bools["ad.estate_voided"] = true;
+  return bargains && bargains.variants &&
+    E.pickVariantText(bargains, goodGuy, jergal) !== E.pickVariantText(bargains, goodGuy, E.newState()) &&
+    E.pickVariantText(bargains, goodGuy, crede) !== E.pickVariantText(bargains, goodGuy, E.newState());
+})());
+check("the side-roads payoff reads the songs-and-rooms reactively (the deathsong lives, the loop broke, the reunion landed)", (() => {
+  const rooms = epiChron.nodes.find(n => n.id === "epi_sq_rooms");
+  const song = E.newState(); song.bools["ca.song_will_live"] = true;
+  const loop = E.newState(); loop.bools["mr.loop_broken"] = true;
+  return rooms && rooms.variants &&
+    E.pickVariantText(rooms, goodGuy, song) !== E.pickVariantText(rooms, goodGuy, E.newState()) &&
+    E.pickVariantText(rooms, goodGuy, loop) !== E.pickVariantText(rooms, goodGuy, E.newState());
+})());
+check("every side-roads cluster has a default (a soul that walked other roads still gets a years-after line)", (() => {
+  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms"].every(id => {
+    const node = epiChron.nodes.find(n => n.id === id);
+    return node && node.variants && node.variants.some(v => !v.when) &&
+      E.pickVariantText(node, goodGuy, E.newState()).length > 0;
+  });
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

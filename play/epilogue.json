@@ -238,6 +238,10 @@
               "next": "epi_self"
             },
             {
+              "text": "*(the side-roads — the cellar courts, the bargains in the dark, the songs and the locked rooms)* \"And the smaller things, Chronicler. The side-roads. The souls I helped where no saga was watching. What became of them?\"",
+              "next": "epi_sidequests"
+            },
+            {
               "text": "\"That's tally enough, Chronicler. Let me sit with it a while.\"",
               "next": "epi_close"
             }
@@ -316,6 +320,294 @@
             {
               "key": "epi.rested",
               "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sidequests",
+          "speaker": "the Chronicler",
+          "onEnter": [
+            {
+              "key": "epi.heard_sideroads",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(They turn to a different section of the great book — thicker, more crowded, the pages where the *un-sung* deeds are kept.)* …*Ah.* The side-roads. *(a soft, knowing smile)* You'd be *surprised*, traveler, how many travelers ask only after the *grand* threads — the Wall, the Crown, the god — and *never* the *cellar* the *midwife* was *tried* in, or the *booth* where the *devil* kept his *patient* *paper.* *(they tap the crowded page)* But *I* keep *those* too. They're the *truest* pages in the *book* — because *nobody* was *watching* when you *did* them, which means you did them for *no* *reason* but that they were *yours* to *do.* *(they look up)* Which side-road would you walk again, in the *telling?*",
+          "choices": [
+            {
+              "text": "\"The cellar courts — the midwife's reckoning, and the assize where I stood accused.\"",
+              "next": "epi_sq_courts"
+            },
+            {
+              "text": "\"The bargains in the dark — the dust at the crossroads, the devil's booth, the stolen ledger, the besieged almshouse.\"",
+              "next": "epi_sq_bargains"
+            },
+            {
+              "text": "\"The songs and the rooms — the wakes and the deathsong, the locked room, the thin place, the boasting-ring.\"",
+              "next": "epi_sq_rooms"
+            },
+            {
+              "text": "\"That's enough of the side-roads, Chronicler.\"",
+              "next": "epi_close"
+            }
+          ]
+        },
+        {
+          "id": "epi_sq_courts",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tr.annet_spared",
+                  "as.verdict_trustworthy"
+                ]
+              },
+              "text": "*(They find the page and smile.)* …*Both* courts, then. *(they read)* The *midwife* — *Annet* — *walked* out of that *cellar* a *free* soul, and you *know* what *became* of *her*, you've *heard* her *tell* it: *hundreds* more *children* *caught*, a *gaggle* *named* for a *stranger's* *racket.* *(they turn the page)* But the *reckonings* themselves — *that's* the *after* you *haven't* *heard.* Once a *reeve* *recanted* and a *prosecutor* *folded*, the *quiet* *cellar* *trials* *could* not *stay* *quiet*, and within a *handful* of *years* the *Choir's* *summary* *reckonings* were *abolished* — *no* soul *walled* without a *true* *hearing.* *(quietly)* And the *Assize* — *your* *own* — the *dead* still *speak* of it. The *one* *Returned* who *refused* to be *acquitted*, who *judged* *itself* *harder* than *they* *could.* They tell it to *every* *new* soul that *fears* what *power* *makes* of a *person.* *Your* *trial* became a *teaching.* *Both* *courts*, traveler, *outlived* their *verdicts.*",
+              "effects": [
+                {
+                  "key": "epi.sq_courts_both",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "tr.annet_spared"
+                ]
+              },
+              "text": "*(They find the page.)* …The *midwife's* *reckoning.* *(they read, warm)* You *spared* *Goodwife* *Annet* from the *Wall* in that *cellar* — and the *sparing* *did* not *stop* with *her.* A *reeve* who *recants*, a *prosecutor* who *folds*, a *writ* *posted* *torn* on the *Counting-House* *door* — these are *not* *quiet* *things*, traveler, however *quietly* the *Choir* *meant* its *reckonings* to *be.* *(they turn the page)* Within a *few* *years*, the *summary* *trials* were *done* — *no* more *souls* *walled* in the *dark* before *dawn* on a *form* no *one* *heard* *read.* *(a smile)* *One* *midwife*, *spared* by *one* *traveler* who *bothered* to *walk* *down* the *darker* *stair.* And a *whole* *machine* of *quiet* *cruelty*, *cracked* by the *light* you *let* *in.*",
+              "effects": [
+                {
+                  "key": "epi.sq_courts_annet",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "as.verdict_trustworthy"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Assize.* *(they read, grave)* The *one* where *you* stood *accused* — judged by the *dead* you'd *touched*, on the *charge* of *being.* *(they look up)* You were *found* *trustworthy*, traveler — *not* *innocent*, for you *are* a *hole* in their *law*, but *trustworthy* — and *here* is the *after* of *that*: the *dead* did *not* *forget* it. They *tell* the *story* *still* — the *Returned* who *would* *not* be *acquitted*, who *kept* the *question* of its *own* *worth* *open* *forever* *rather* than *let* a *court* *close* it. *(quietly)* It *became* a *kind* of *scripture*, among the *dead* — a *warning* and a *hope* both. *Whenever* a soul *fears* what *power* *makes* of a *person*, *someone* *tells* *your* *assize.* You *meant* it as a *defense.* It *outlived* you as a *teaching.*",
+              "effects": [
+                {
+                  "key": "epi.sq_courts_assize",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(They scan the page, and shake their head gently.)* …The *cellar* *courts.* *(quietly)* You *never* *walked* *down* to *them, traveler* — the *reckoning* *cellar* under the *Counting-House*, the *Assize* the *dead* *convene* off the *wayshrine.* *(they turn the page)* *No* *matter.* *Not* *every* *road* is *every* *traveler's* to *walk.* *(a small smile)* But *know* they're *there*, in the *book* — *other* *souls* *walked* them, and *some* of *those* *souls* were *spared* a *Wall*, and *some* *learned* what *power* *makes* of a *person* — and the *pages* are *kept*, *whether* or *not* *you* *turned* them.",
+              "effects": [
+                {
+                  "key": "epi.sq_courts_none",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_bargains",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "sc.outwitted_ledger"
+                ]
+              },
+              "text": "*(They laugh, delighted, finding the page.)* …Oh, the *dust* at the *crossroads.* *Jergal.* *(they read)* You did the *one* thing in an *age* that *surprised* the *being* who *invented* *surprise* — you *out-accounted* the *inventor* of *accounting*, and *showed* him the *Wall* was a *vault* of *uncollected* *debts.* *(they look up, awed)* And he *took* you at your *word*, traveler. The *old* *clerk* is *auditing* it *still* — *striking* *strike* after *strike*, *collecting* *credit* after *credit*, *emptying* the *Wall* one *true* *line* at a *time.* *(quietly)* It will *take* him an *age.* He *has* an *age.* He's *glad* of the *work* — you *gave* his *eternity* of *tedium* a *purpose.* The *Wall* is *coming* *down*, traveler, *not* with a *crash* but with the *patient* *scratch* of a *dead* *bureaucrat's* *pen*, *forever*, *until* it's *blank.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_jergal",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "hs.list_destroyed"
+                ]
+              },
+              "text": "*(They find the page, and their face is grave.)* …The *Great* *Tally.* *(they read)* You *burned* it — the *master* *ledger* of the *Faithless*, *ten* *thousand* *names*, *gone* in *cold* *blue* *fire.* *(quietly)* The *Choir* *could* not *mortar* a *soul* it could no *longer* *name*, traveler, and from that *night* the *Wall* took *no* *new* *Faithless* that *book* would have *listed* — a *brutal*, *enormous* *mercy.* *(they turn the page)* It *cost*, as you *knew* it would — *some* of the *frailest* *scattered*, *unanchored* — and the *Choir* *raged*, and *hunted* the *thief* who *did* it for *years.* But the *list* was *ash*, and *ash* *names* *no* one. *You* *traded* the *frail* *few* for the *uncounted* *many*, and the *book* will *tell* it *both* *ways*, *forever*, because it was *both.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_burned",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "hs.tally_safe"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Great* *Tally.* *(they read, with quiet satisfaction)* You did *not* *burn* it. You *carried* it — *ten* *thousand* *souls* under one *cold* *arm* — to the *one* *clerk* who could *empty* it *gently.* *(they look up)* And *gently* it *was* *emptied*, traveler, *name* by *name*, *un-written* *true* so that *not* *one* *soul* *scattered.* The *Choir's* *master* *list* of the *Faithless* is a *blank* *book* *now*, and the *souls* it *held* are *free* — *all* of them, *whole*, the *frail* *and* the *strong.* *(a smile)* The *hardest* *score* on the *causeway*, and you *fenced* it to a *dead* *bureaucrat* for *nothing* but *the* *freeing.* The *Sparrow* *still* *tells* it. It's the *proudest* *theft* of *her* *long* *career.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_safe",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "ad.estate_voided"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Advocate's* *booth.* *Maître* *Crede.* *(they read)* You *voided* the *devil's* *whole* *estate* with a *single* *clause* — *unowned* means *unownable*, *by* *Hell* as *much* as by *anyone.* *(they look up)* And *here* is the *after*, traveler: the *Nine* *never* *did* *establish* their *precedent.* The *Faithless*, the *unbaptized*, the *godless* *child* — *all* the *unclaimed* *souls* of *creation* that *Hell* *meant* to *file* on by *default* — *protected*, *forever*, by the *very* *abandonment* that *damns* them. *(quietly)* *Crede* *withdrew.* *Honest* to the *last.* And the *one* *gift* you *did* him — *refusing* to *be* *retained* — he *remembered.* They say the *Advocate* of the *Nine* now *takes* *only* *cases* he *can* *win* *lawfully*, which on this *causeway* is *almost* *none.* You *put* a *devil* *nearly* *out* of *business* with a *point* of *order.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_crede",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "si.siege_lifted"
+                ]
+              },
+              "text": "*(They find the page.)* …The *almshouse.* The *siege.* *(they read, warm)* You *held* it — *not* with a *blade*, *never* with a *blade*, but with *witness*: a *rallied* *room*, a *quiet* *drain*, a *forged* *writ* *named*, or the *one* *soul* the *Wall* *lost* *standing* in the *door.* *(they look up)* The *Faithless* *sheltered* there *lived*, traveler — *Maren* and her *children*, *Pell* and *Sefa* and *little* *Wick's* *namesake*, *all* of them. *(they turn the page)* And *Justiciar* *Vane* — the *career* *man* at the *door* — *walked*, in the *end*, the *way* *Orla* *walked* before *him.* The *last* *almshouse* in the *Quarter* became the *first* of *many.* *Orla* *trained* the *wardens* who *ran* them. A *siege* *broken* by *mercy* became a *whole* *network* of *open* *doors.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_siege",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "sc.faithless_saved"
+                ]
+              },
+              "text": "*(They find the page.)* …The *dust* at the *crossroads.* *(they read)* You *paid* the *old* *clerk* — a *year*, a *memory*, a *name* — to *un-write* a *Faithless* *soul* from the *Wall's* *rolls* *entire.* *(they look up)* *That* *soul* *walks* *free*, traveler — *un-sentenced*, the *stone* *forgetting* it *ever* *reached* — and it *never* *knew* the *price* a *cold* *stranger* *paid* in the *dark* to *un-make* its *doom.* *(quietly)* *Jergal* *kept* the *receipt.* He *files* it under a *word* he *rarely* *uses*: *solvent.* *One* *soul*, *bought* *off* a *Wall* with a *piece* of *your* *own.* The *book* *remembers* the *price.* *Someone* *should.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_oneborn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(They scan the page, and turn it gently.)* …The *bargains* in the *dark.* *(quietly)* You *struck* *none*, traveler — *not* with the *dust* at the *crossroads*, *not* in the *devil's* *booth*, *not* in the *deep* *archive* nor the *besieged* *almshouse.* *(a small smile)* *Other* *souls* *did.* *Some* *out-accounted* a *god*; *some* *voided* a *devil*; *some* *carried* a *ledger* of *ten* *thousand* to a *clerk* who'd *empty* it *gently.* *(they tap the page)* The *pages* are *kept*, *whether* you *turned* them or *not.* And *some* *road* you *walked* *instead* has *its* *own* *page*, just as *full.* *No* *traveler* *walks* *every* *side-road.* The *book's* *too* *thick* for *that.*",
+              "effects": [
+                {
+                  "key": "epi.sq_bargains_none",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_rooms",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "ca.song_will_live"
+                ]
+              },
+              "text": "*(They find the page, and hum a thread of something old before they read.)* …The *deathsong.* *(softly)* You *learned* it, traveler — from *Mireth*, the *last* *cantor* — and you *promised* to *carry* it where *no* *cantor* *could*: *through* the *door*, to the *walled*, the *far-side* *fading.* *(they look up)* And *carry* it you *did.* The *art* did *not* *die* in a *reed-bed.* It *lives* — in *you*, who *sang* the *Faithless* *out* of the *very* *stone*; in *Pen*, the *prentice* you *set* *right*, who *teaches* it *true* *now* to *whoever* *comes.* *(quietly)* *Mireth* *faded* *at* *peace*, traveler — *not* the *last* *after* *all.* *Ten* *thousand* *years* of *cantors*, and the *chain* *held*, because *one* *cold* *student* *bothered* to *learn* the *one* *thing* *nobody* *else* *would.* The *dead* are *sung* *home* *still.* That's *your* *doing.* The *book* *sings* it.",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_song",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "mr.loop_broken"
+                ]
+              },
+              "text": "*(They find the page.)* …The *locked* *room.* *(they read)* You *stepped* *inside* a *soul's* *worst* *night* — *Coll*, *looping* *forever* on a *cruel* *word* and a *fallen* *cup* — and you *showed* him the *night* *true*: that *Edda* *died* *forgiving* him, *not* *hating* him, *waiting* just *past* a *window* he *would* not *face.* *(they look up)* He *turned* *around*, traveler. After *ten* *thousand* *nights*, he *turned* *around* and *went* to the *supper* she'd *kept* *warm.* *(quietly)* *That's* the *after*: *two* *souls*, *thirty* *years* *married* and *one* *night* *divided*, *reunited* *past* the *grey* *morning*, because a *cold* *stranger* *walked* into a *memory* and *re-painted* it *true.* The *book* *keeps* it under the *gentlest* *word* it *has*: *home.*",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_memory",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "tp.reunion_made"
+                ]
+              },
+              "text": "*(They find the page.)* …The *thin* *place.* *(they read, and their voice softens)* You *carried* a *widow's* *voice* *through* the *Wall* to her *walled* *husband*, and his *back* to *her* — and you *gave* the *fading* *man* his *name*, and *got* the *two* of them *singing* the *bad* *old* *river-song* *through* *six* *feet* of *stone.* *(they look up)* *Pell* *knelt* at that *Wall* *one* *last* *time*, traveler — and *heard* *Aldous* *sing* *back*, and *knew* he'd *heard* her — and *then* she *let* *herself* *grieve* *clean*, and *moved* *on.* *(quietly)* The *Reed-Knower* *witnessed* it, *wept*, and *believed* at *last* its *own* *daughter* *could* have *been* *heard.* *One* *crossing*, traveler, *un-did* the *Wall's* *deepest* *cruelty* for *three* *souls* at *once. The* *book* *can* *barely* *read* it for the *blots.* *Mine. Forgive* an *old* *chronicler* its *tears.*",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_thinplace",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "bo.sweeper_crowned"
+                ]
+              },
+              "text": "*(They find the page, and grin.)* …The *Boasting-Ring.* *(they read)* You *crowned* the *sweeper*, traveler. The *smallest* *voice* — *fading* for *want* of a *grand* *tale* — and you *found* the *grand* in its *small*: *forty* *years* of *clean* *stone* for the *grieving* to *fall* on. *(they look up)* The *champion* *gave* up his *crown* *gladly*, and the *fading* *soul* *blazed*, and — here's the *after* — the *ring* *never* *went* *back.* *Big* *Sorrel* *changed* the *rules.* *No* more *one* *crown*, *no* more *winners* and *losers* — *every* *soul* *heard*, *every* *story* *equal*, *nobody* *faded.* *(quietly)* You *didn't* *win* the *Boasting-Ring*, traveler. You *fixed* it. *Now* it *keeps* *everyone.* *Ten* *thousand* *forgotten* *souls*, *held* *vivid*, *because* you *taught* a *contest* to *stop* *being* one.",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_boast",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "wk.window_opened_wide"
+                ]
+              },
+              "text": "*(They find the page.)* …The *wake.* *(they read, warm)* You *invited* the *Faithless* *soul* *in* — *threw* the *window* *wide* — and *fixed* the *one* *crack* in *Tib* *Garron's* *one* *good* *thing.* *(they look up)* *Now*, traveler, the *wake* is *for* *whoever* the *stone* *forgot* to *let* be *loved* — *not* the *fairly-dead* *only*, but *all* of them, the *marked* and the *godless* and the *uninvited.* *(quietly)* *Tib* *throws* them *bigger* *every* *year*, *louder*, a *drunk* *recurring* *protest* against a *cosmos* that *murders* *fairness* — and *every* *Faithless* *soul* that *warms* its *hands* at *that* *fire* *fades* a *little* *slower.* You *turned* a *party* into a *sanctuary* with *one* *open* *window.*",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_wake",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "when": {
+                "flags": [
+                  "dp.phil_freed"
+                ]
+              },
+              "text": "*(They find the page.)* …The *Unfinished* *Argument.* *(they read)* You *freed* *old* *Makeb* — *not* by *winning*, but by *letting* him *lose*, *gracefully*, after *three* *centuries* *anchored* to his *own* *undefeated* *record.* *(they look up)* And *here's* the *after*: he *moved* *on* — but *first* he and *Sennia*, the *rival* he *wounded*, *finished* the *argument* *together*, *side* by *side*, *aimed* at the *Wall* *instead* of at *each* *other.* *Doby*, the *student* who *kept* the *minutes*, *put* *down* the *papers* at *last* and *followed* them *through.* *(quietly)* *Three* *souls*, *anchored* *three* *hundred* *years* by *one* *broken* *sentence*, *all* *freed* by a *cold* *traveler* who *understood* the *point* of an *argument* was *never* to *win* it. *The* *book* *files* it under *philosophy.* The *real* kind. The *kind* that *changes* the *mind* that *wins.*",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_disputation",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(They scan the page, and turn it with a gentle hand.)* …The *songs* and the *rooms.* *(quietly)* *Quiet* *roads*, *those*, traveler — the *wakes*, the *deathsong*, the *locked* *room*, the *thin* *place*, the *boasting-ring* — and you *walked* *other* *ways.* *(a small smile)* *No* *shame* in it. A soul *cannot* *sing* *every* *fading* *voice* *home.* *(they tap the page)* *Other* *travelers* *learned* the *deathsong*; *other* *souls* *were* *sung*; *other* *widows* *reached* *through* the *Wall.* The *pages* are *kept.* And the *road* you *chose* *instead* *has* *its* *own*, just as *full* of the *souls* *only* *you* *reached.* *The* *book* *holds* *all* of it. *That's* *what* a *book* is *for.*",
+              "effects": [
+                {
+                  "key": "epi.sq_rooms_none",
+                  "op": "SetTrue"
+                }
+              ]
             }
           ],
           "auto": "END"

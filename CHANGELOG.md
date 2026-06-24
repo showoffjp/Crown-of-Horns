@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.3.0 — *"The Side-Roads"* — the payoff pass: the epilogue chronicler reads the new structures (content)
+
+> Not a new zone — a **cohesion pass.** The fourteen self-contained side-structures built across v4.94–v6.2.0 all
+> resolved beautifully in the moment, but they didn't *land* in the ending. Now they do: the epilogue's **Chronicler**
+> ("Some Years After") gained a **side-roads** topic that reads, reactively, how each of them turned out — so the
+> quiet deeds you did where no saga was watching get their years-after, the same as Wren and Pip and the rest.
+- 📖 **A new Chronicler topic** — *the side-roads* — branching into three reactive clusters:
+  - **The cellar courts** — reads `tr.annet_spared` and `as.verdict_trustworthy`: the midwife walked free *and* the
+    Choir's summary reckonings were abolished within years; your own Assize became scripture among the dead, *the
+    Returned who refused to be acquitted.*
+  - **The bargains in the dark** — reads the Scrivener, the Advocate, the Heist, the Siege: Jergal *still auditing
+    the Wall empty one true line at a time*; the Nine's precedent never set (the unclaimed protected forever); the
+    Great Tally burned (the frail scattered, the many spared) or carried to Jergal (all freed whole); the almshouse
+    that became the first of a whole network of open doors.
+  - **The songs and the rooms** — reads the Deathsong, the Locked Room, the Thin Place, the Boasting-Ring, the Wake,
+    the Disputation: the art that didn't die in a reed-bed; Coll who turned around and went to the supper kept warm;
+    the reunion that un-did the Wall's deepest cruelty for three souls at once; the contest taught to stop being one.
+- 🕯️ Every cluster has a **default** line too — a soul that walked other roads still gets an honest years-after, and
+  the page is kept *whether or not you turned it.* (The richest single outcome on each axis narrates; the threads
+  the player skipped quietly don't.)
+- 🧪 **+5 gates** (now **1,121 checks**, all green): the topic exists, each cluster reads its outcomes reactively,
+  and each has a graceful default. The side-content now *pays off in the ending* instead of sitting beside it.
+
+---
+
 ## 👑 v6.2.0 — *"The Locked Room"* — a thirty-first zone: a memory-dive (free a soul by showing it the truth) (content)
 
 > A fourteenth new structure — the **memory-dive** — and a new *mechanic*: you step *inside* a soul's worst night,
