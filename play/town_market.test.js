@@ -1254,6 +1254,24 @@ check("the sheltered mother reads how you fought, and the nat-20 rally un-names 
 check("each Siege soul carries a [RETURNED] line + a Returned-sense", [orla, vane, sheltered].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-fourth zone: the Wake — tonal relief, the one place the dead celebrate ----
+const WK = SCENES && SCENES.wake;
+check("a twenty-fourth zone (the Wake) ships — tonal contrast, a celebration among the grief", WK && WK.npcs.length >= 3);
+check("the Wake is found upriver off the Reed-Walk", (SCENES.reedwalk.exits || []).some(x => x.to === "wake"));
+const wkTib = CONVS.find(c => c.id === "wk.host");
+const wkDoget = CONVS.find(c => c.id === "wk.doget");
+const wkUninvited = CONVS.find(c => c.id === "wk.mourner");
+check("the wake's three souls are present (the host, the guest of honor, the wkUninvited)", wkTib && wkDoget && wkUninvited);
+check("the wake's warmth carries the saga's ache — a fair death is a miracle, not the rule it should be", wkDoget &&
+  wkDoget.nodes.some(n => (n.effects || []).some(e => e.key === "wk.aim_for_the_rule")));
+check("the Faithless soul at the window can be invited IN — the small mercy that fixes the wake's one crack", wkUninvited &&
+  wkUninvited.nodes.find(n => n.id === "mourner_invite") &&
+  wkUninvited.nodes.find(n => n.id === "mourner_invite").effects.some(e => e.key === "wk.window_opened_wide"));
+check("you can carry the wkUninvited's song even if you can't carry the soul (a wake that lives in another's mouth)", wkUninvited &&
+  wkUninvited.nodes.find(n => n.id === "mourner_song").effects.some(e => e.key === "wk.carries_the_song"));
+check("each Wake soul carries a [RETURNED] line + a Returned-sense", [wkTib, wkDoget, wkUninvited].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

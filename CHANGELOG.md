@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v5.7.0 — *"The Wake of Goodman Doget"* — a twenty-fourth zone: tonal relief, a celebration among the grief (content)
+
+> After six grand structures of cosmic weight, a deliberate change of key: the one gathering on the whole grey
+> causeway where the dead *celebrate.* A wake — a funeral-feast for a soul who died *fair* — warm and funny and full
+> of songs, with the saga's ache threaded quietly underneath it, so the warmth and the cruelty throw each other into
+> sharper relief.
+- 🍺 **A twenty-fourth zone — the Wake** (upriver off the Reed-Walk). Three souls: **Tib Garron**, a publican who
+  died pouring and throws wakes for the fairly-dead *in protest* against a cosmos that murders fairness; **Goodman
+  Doget**, the guest of honor, an old farmer who lived sixty square years and died easy — the rarest thing on the
+  causeway; and **the Uninvited**, a Faithless soul at the window, grieving the send-off it will never get.
+- 🎶 **Warmth with the ache under it.** Doget can tell you, from the far side, exactly what a *fair death* feels like
+  (the gold evening, the good ache, the earned sitting-down) — and then charge you not to *envy* it but to make it
+  the *rule* instead of a one-in-ten-thousand miracle. Tib's wakes turn out to be a *drunk recurring protest*; the
+  nat-warm toast radicalizes him. And the saga's softest wisdom: a turnip-farmer's secret that you save the cosmos
+  the same way you farm an acre — one small right thing in front of you, repeated, until it adds up to something you
+  couldn't see coming.
+- 🕯️ **The small mercy that fixes the one crack:** you can **invite the Faithless soul in.** The window was only ever
+  cracked open; throw it wide, and the wake stops being for the *deserving* dead and becomes one for *whoever the
+  stone forgot to let be loved.* Or carry its song (a filthy dockhand's work-tune) so it gets the one wake the Wall
+  can't reach — the kind that lives in someone else's mouth.
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,056 checks**, all green). **24 zones, 85 souls** — and the
+  causeway, for one firelit hour, remembers what it was all supposed to feel like.
+
+---
+
 ## 👑 v5.6.0 — *"The Siege of the Almshouse"* — a twenty-third zone: a siege held by witness, not the sword (content)
 
 > A sixth new structure — the **siege** — and, true to the saga, one whose win condition is *moral, not martial.*
