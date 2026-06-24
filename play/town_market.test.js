@@ -1327,6 +1327,33 @@ check("the reunion can land — the two sing the bad old river-song through the 
 check("each Thin-Place soul carries a [RETURNED] line + a Returned-sense", [tpWaiter, tpSevered, tpKeeper].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- twenty-seventh zone: the Unfinished Argument — a disputation (free a soul by finishing its argument) ----
+const DP = SCENES && SCENES.disputation;
+check("a twenty-seventh zone (the Unfinished Argument) ships — a disputation/debate structure", DP && DP.npcs.length >= 3);
+check("the disputation is reached off the Market", (SCENES.market.exits || []).some(x => x.to === "disputation"));
+const phil = CONVS.find(c => c.id === "dp.philosopher");
+const dpRival = CONVS.find(c => c.id === "dp.rival");
+const dpStudent = CONVS.find(c => c.id === "dp.student");
+check("the disputation's three roles are present (the philosopher, the rival, the keeper-student)", phil && dpRival && dpStudent);
+const philMenu = phil.nodes.find(n => n.id === "1");
+check("the debate is a real argument — Insight diagnoses (with a fail branch), Persuasion argues with crit/fumble", philMenu &&
+  philMenu.choices.some(ch => (ch.check || {}).skill === "Insight" && ch.fail) &&
+  philMenu.choices.some(ch => (ch.check || {}).skill === "Persuasion" && ch.crit && ch.fumble));
+check("you free the philosopher not by defeating but by letting him lose gracefully (the nat-20 frees him)", phil.nodes.find(n => n.id === "phil_argued_crit") &&
+  phil.nodes.find(n => n.id === "phil_argued_crit").effects.some(e => e.key === "dp.phil_freed"));
+check("the argument escalates to the saga's thesis — the third door, necessity as failure of imagination", (() => {
+  const node2 = phil.nodes.find(n => n.id === "2");
+  return node2 && node2.choices.some(ch => ch.next === "phil_thirddoor") &&
+    phil.nodes.find(n => n.id === "phil_thirddoor").effects.some(e => e.key === "dp.third_door_doctrine");
+})());
+check("the [RETURNED] can finish it with testimony — a witness beats a philosopher who argued death from a chair",
+  philMenu.choices.some(ch => ch.tag === "returned" && ch.next === "phil_witness"));
+check("the rival's true anchor (not pride, but unsaid love) and the student's (love of both) are readable", dpRival &&
+  dpRival.nodes.some(n => (n.effects || []).some(e => e.key === "dp.rival_grief_named")) &&
+  dpStudent.nodes.some(n => (n.effects || []).some(e => e.key === "dp.student_anchor_named")));
+check("each Disputation soul carries a [RETURNED] line + a Returned-sense", [phil, dpRival, dpStudent].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

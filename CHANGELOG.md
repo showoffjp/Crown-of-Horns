@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v5.10.0 — *"The Unfinished Argument"* — a twenty-seventh zone: a disputation (free a soul by finishing its argument) (content)
+
+> A tenth new structure — the **disputation.** A dead philosopher, Makeb the Elder, has argued the justice of the
+> Wall with an empty chair for three hundred years, anchored not by guilt or grief but by his own *undefeated record* —
+> a mind that won its great argument so thoroughly it forgot how to think. You free him not by losing to him, but by
+> letting *him* lose, gracefully, for the first time in three centuries.
+- 🗣️ **A twenty-seventh zone — the Unfinished Argument** (off the Market). Three souls, three anchors: **Makeb** the
+  philosopher; **Sennia** the rival who walked out mid-argument and has refused the empty chair ever since; and
+  **Doby** the student who keeps the minutes of a meeting that never adjourns.
+- ⚔️ **A real debate.** **Insight** diagnoses him (you don't *want* to win — winning is the chain); **Persuasion**
+  argues the negative (the nat-20 turns his own affirmative inside out: *necessity is the confession of a failed
+  cosmos*, a defense that was always an indictment); and the argument escalates to the saga's whole thesis — **the
+  third door**: *necessity is a failure of imagination wearing a fact's robe*, and he spent three centuries answering
+  the wrong question flawlessly. The **[RETURNED]** finishes it with testimony — a witness who's *been* inside death
+  beats a philosopher who argued it from a chair.
+- 💔 **Every anchor is the same chain, worn differently:** Sennia won't sit not from pride but because finishing might
+  prove her wrong — and beneath even that, the longest unsaid love in the after (she stayed *near him* three
+  centuries rather than move on without the teacher who wounded her). Doby files forever because the quarrel is its
+  excuse to stay near the two it loved. The keeper-student knows the real answer: *they're both right*, which is
+  exactly why it never ends — and the way out is to aim the two finest minds on the causeway at the Wall *together*
+  instead of at each other.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,083 checks**, all green). **27 zones, 94 souls** — ten
+  fresh structures this stretch (bargain, trial, heist, devil-pact, self-trial, siege, wake, whodunit, reunion,
+  disputation).
+
+---
+
 ## 👑 v5.9.0 — *"The Thin Place"* — a twenty-sixth zone: a reunion across the Wall (the logistics of love) (content)
 
 > A ninth new structure — the **reunion** — and the most intimate yet. At the Wall's foot, where the stone runs
