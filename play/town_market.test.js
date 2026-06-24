@@ -1403,6 +1403,28 @@ check("each Boasting-Ring soul carries a [RETURNED] line + a Returned-sense", [b
 check("the causeway now spans 29 connected zones and 100 souls — the milestone", Object.keys(SCENES).length >= 29 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 100);
 
+// ---- thirtieth zone: the Last Deathsong — a teaching structure (learn the craft of singing souls out) ----
+const CA = SCENES && SCENES.cantor;
+check("a thirtieth zone (the Last Deathsong) ships — a teaching/apprenticeship structure", CA && CA.npcs.length >= 3);
+check("the Cantor keeps a quieter song upriver of the wake", (SCENES.wake.exits || []).some(x => x.to === "cantor"));
+const caCantor = CONVS.find(c => c.id === "ca.cantor");
+const caUnsung = CONVS.find(c => c.id === "ca.unsung");
+const caAppr = CONVS.find(c => c.id === "ca.apprentice");
+check("the deathsong's three roles are present (the master, the soul who won't be sung, the doubting apprentice)", caCantor && caUnsung && caAppr);
+check("you can LEARN the deathsong — a craft taught, setting ca.knows_deathsong (a tool the player carries)", caCantor.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "ca.knows_deathsong")));
+check("the craft's secret is the saga's thesis: witness made melodic, not magic notes", caCantor &&
+  /witness made melodic|attention.*melodic|learn.*soul.*true|no magic/i.test(JSON.stringify(caCantor.nodes)));
+check("the unsung soul can only be sung once learned true first — the song beats are gated on hearing the confession", (() => {
+  const sing = caUnsung.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "unsung_sing");
+  const ready = E.newState(); ready.bools["ca.heard_unsung"] = true; ready.bools["ca.knows_deathsong"] = true;
+  return sing && sing.when && E.choiceAvailable(goodGuy, ready, sing, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), sing, MODEL) === false;
+})());
+check("teaching the apprentice the secret (or quitting averted) keeps the art alive past the last cantor", caAppr.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "ca.art_doubly_safe")));
+check("each Deathsong soul carries a [RETURNED] line + a Returned-sense", [caCantor, caUnsung, caAppr].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

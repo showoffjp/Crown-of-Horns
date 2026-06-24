@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.1.0 — *"The Last Deathsong"* — a thirtieth zone: a teaching structure (learn the craft) (content)
+
+> A thirteenth new structure — the **teaching**, where you don't free a soul, you *learn a craft* — and it's the
+> capstone of the saga's whole "witness through voice" thread (the wake's songs, the thin-place river-tune, the
+> boast). **Old Mireth** is the last soul alive who knows the **deathsong**: the dying art of singing a soul out
+> through the good door by singing it so *true* it believes, at last, that it was real.
+- 🎼 **A thirtieth zone — the Last Deathsong** (a quieter song upriver of the wake). Three souls: **Mireth** the last
+  cantor; **the Unsung**, a soul that won't be sung because it's certain it deserves to fade; and **Pen**, the
+  doubting apprentice who learned the notes and not the heart.
+- 📖 **You learn the craft.** The deathsong's secret is the saga's thesis made into a teachable art: *no magic notes
+  — witness made melodic.* You learn a soul true first (its name, its life, its wound), then sing *that* back until
+  it believes it existed, and a soul that believes it was real can open the door no god will force. Learning it sets
+  a flag the player carries — and a **[RETURNED]** can promise to carry the song *through* the door, to the walled
+  and the far-side fading, so the ten-thousand-year art doesn't die with its last master.
+- 🎵 **The hardest first song.** The Unsung — a good physician undone by one tired fatal error — can only be sung
+  once you've *learned it true* (the song beats are gated on hearing its confession). And you don't sing it clean,
+  you sing it *finished*: the good and the killing both, until it hears its worst thing witnessed whole and learns a
+  soul that's punished itself this faithfully has already served the sentence. The **[RETURNED]** can instead turn
+  its penance inside-out — fading robs its victim of its last true mourner.
+- 👨‍🏫 **The apprentice's correction** keeps the art alive past the last cantor: Pen sings flawless notes *at*
+  strangers and wonders why nothing happens; teach it (or talk it off quitting) that the sitting-and-learning *is*
+  the art, and the deathsong has two keepers instead of none.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,108 checks**, all green). **30 zones, 103 souls** —
+  thirteen self-contained structures, every one resolved on *witness, not force.*
+
+---
+
 ## 👑 v6.0.0 — *"The Boasting-Ring"* — a twenty-ninth zone, and the hundredth soul 🎉 (content)
 
 > A milestone release: a twelfth new structure — the **contest** — that crosses the walkable saga past **100 souls**
