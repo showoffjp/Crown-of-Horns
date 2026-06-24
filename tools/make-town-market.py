@@ -27,6 +27,7 @@ THRESHOLD = json.load(open(os.path.join(ROOT, "play", "threshold.json"), encodin
 NIGHTMARKET = json.load(open(os.path.join(ROOT, "play", "nightmarket.json"), encoding="utf-8"))
 VAULT = json.load(open(os.path.join(ROOT, "play", "vault.json"), encoding="utf-8"))
 COURT = json.load(open(os.path.join(ROOT, "play", "court.json"), encoding="utf-8"))
+EPILOGUE = json.load(open(os.path.join(ROOT, "play", "epilogue.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -91,6 +92,8 @@ INT_LABELS = {
     "court.kelemvor.regard": "Kelemvor's regard",
     "court.crown.regard": "the Crown's hold on you",
     "court.esuele.regard": "Esuele's regard",
+    "epi.wren.regard": "Wren — years on",
+    "epi.pip.regard": "Pip — years on",
 }
 
 # Lore glossary (shared with the dialogue sim) — common-knowledge hover + tiered 5e passive lore reveals.
@@ -143,13 +146,16 @@ NPC_SENSE = {
     "vault.tithe": {"dc": 9, "text": "*(You reach for the small soul in the alcove and your sense recoils from the slow horror of it: not a treasure, not a monster — a person, a lamp-lighter named Sela, taken as the living stake at the centre of a binding because a game needs something to be at risk. Centuries of clever strangers have come to win the door behind her and walked past the cage without once meeting her eyes, and she has begun, under all that looking-through, to believe she is what they called her — a thing, a tithe, a tenth — and to forget her own name. She is not dying. She is being slowly un-personed by inattention, which your sense knows for the truest face of the Hunger there is.)*"},
     "court.kelemvor": {"dc": 18, "text": "*(You turn your sense on the grey giant and it is like turning it on a *mountain that grieves* — vast past reading, an age deep, every soul ever weighed laid in him like strata. But your dead-touched sight, which the Wall sharpened precisely for this, finds the one thing the songs never tell: the Judge of the Dead is not cruel and is not free. He is a tired man grown enormous, bound to a Concord he loathes, *forbidden to witness* the very souls who most need it, and so lonely on his cold throne that the loneliness has calcified into something the living mistake for indifference. He has been waiting — bound, silent, unable even to ask — for one soul who could end his Wall without becoming it. He is the most powerful being you have ever stood before, and the most desperate to be *relieved.*)*"},
     "court.crown": {"dc": 20, "text": "*(You should not look at it with the sense. You know this the instant you do, because it looks *back*, and it is delighted to be seen. The Crown of Horns has no soul to read — it is the *absence* of one, shaped into a circlet, a hunger for a head — and your perception slides across it and finds only your own reflection, amplified, the exact pitch of every reason you ever had to believe you could be trusted with power. It is the Concord's cruelest joke: the means to free the dead, engineered so that whoever wields it becomes the next thing that needs freeing. It does not want to corrupt you. It wants to be *worn*, and it has never, in any age, failed to make that sound like your own best idea.)*"},
+    "epi.chronicler": {"dc": 12, "text": "*(You turn your sense on the keeper of records and find a soul entirely without fear of you — rare, and steadying — because they have spent years writing your story and know exactly what kind of thing you are: not a monster, not a ghost, but a witness, the same trade as their own. There is no cold creeping in them. There is only the deep, patient warmth of someone whose whole vocation is refusing to let names become nothing — and a quiet, fierce hope, when they look at you, that the tally they keep will end well, because they have grown fond of its subject over the long years of the writing.)*"},
+    "epi.wren": {"dc": 9, "text": "*(You reach for the woman by the apple-tree and your sense, which has read her twice before — terrified at the water, warming at the fire — reads her now and very nearly weeps: she is *old*, and she is *whole*, and the coin of winter under her breastbone, the mark the Choir laid on her a lifetime ago, is *thawing* — slowly, from the outside in, as though the very Wall it grew from is being un-made somewhere far off by someone who never stopped bothering. She is the single clearest proof, in all the tally, that the road was worth walking: a marked soul who was measured for the stone, and instead grew old, and good, and warm, eating apples she planted herself.)*"},
+    "epi.pip": {"dc": 10, "text": "*(The fierce small flame you first felt guttering over a stolen copper burns now like a hearth that warms a whole house — because it does. Your sense reads a soul that took the one shared watch you stood for it and built a life out of multiplying it: a roof, a rota, eleven children who never have to keep both eyes open alone. There is no hunger in her, no bracing, no un-personing — only the steady, capacious warmth of someone who learned that safety is a thing you build between people, in turns, and then spent her whole grown life building it. She is what a single witnessed night becomes, given years: a witness factory.)*"},
     "court.esuele": {"dc": 6, "text": "*(You reach for her and find — to your aching relief — a soul that has *steadied.* The thimbleful that was nearly gone in the Wall has stopped tipping; carried in out of the wind of forgetting, witnessed across a causeway and a god's own road, Esuele is *holding.* Faded still, frightened still, but *here*, and *whole-ish*, and *hers.* Your sense reads no cold creeping in her now — only a terrified, carefully-rationed hope, and the dawning understanding that she is not the appeal's victim but its *first witness*, standing straight before the Judge's own seat as living proof that memory beats his Wall. She is what salvation looks like one third of the way done.)*"},
 }
 for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
            + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
            + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
-           + COURT["conversations"]):
+           + COURT["conversations"] + EPILOGUE["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
@@ -157,14 +163,14 @@ ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations
              + LASTTORCH["conversations"] + LAMPLIT["conversations"] + COUNTHOUSE["conversations"]
              + HEARTH["conversations"] + ALDRIC["conversations"] + WAYSHRINE["conversations"]
              + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
-             + COURT["conversations"])
+             + COURT["conversations"] + EPILOGUE["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
               HEARTH["scene"]["id"]: HEARTH["scene"], ALDRIC["scene"]["id"]: ALDRIC["scene"],
               WAYSHRINE["scene"]["id"]: WAYSHRINE["scene"], THRESHOLD["scene"]["id"]: THRESHOLD["scene"],
               NIGHTMARKET["scene"]["id"]: NIGHTMARKET["scene"], VAULT["scene"]["id"]: VAULT["scene"],
-              COURT["scene"]["id"]: COURT["scene"]}
+              COURT["scene"]["id"]: COURT["scene"], EPILOGUE["scene"]["id"]: EPILOGUE["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -311,7 +317,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">thirteen walkable zones · the whole road, from a cold market to the Court of the Dead and the choice that ends the saga · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">fourteen walkable zones · a whole saga, market to throne to the years after · the souls at the end are the ones you saved · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">

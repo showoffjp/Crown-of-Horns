@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v4.91.0 — *"Some Years After"* — a fourteenth zone: the epilogue that pays off the whole saga (content)
+
+> Every great CRPG saves one thing for last: the *after.* Through a door out of the Court lies **"Some Years
+> After"** — where a chronicler tells how the world turned out (varying *completely* by which of the four endings
+> you chose) and the souls who survived appear to tell you, themselves, what your small mercies *became.*
+
+- ✒ **A fourteenth zone — the epilogue.** Reached from the Court of the Dead, completing a **fourteen-zone
+  connected map**. Built from the existing prop vocabulary (no new art).
+- 📖 **the Chronicler — the "where are they now," framed by your ending.** Their opening tells how the *whole
+  world* turned out: the **re-made Wall** of willing keepers, the **generational appeal** still clearing its
+  docket, the **kind god** you relieved walking through his own door smiling — or, if you took the Crown, the
+  **sorrowful tally** of the tyrant you became. Then they recount the fates of every thread — the river, the
+  bridge, the Choir, your company, and Aldric and Eithne — each coda reading the specific flags you set across
+  all thirteen prior zones.
+- 🍎 **The survivors appear to speak for themselves** (via the conditional-NPC system): **Wren**, old now and
+  warm and *living*, who became the one who *bothers* for the next marked soul and whose mark is **thawing** —
+  un-made, slowly, by the soul who never stopped; and **Pip**, grown, who took the one shared watch you stood for
+  her and built a **roof over eleven lost children**, teaching them that safety is a thing you build between
+  people, in turns. (If you cured Wick, he weaves true-named burial banners now, *allowed to cry.*)
+- 🎭 Full deep stack: reactive greetings, the **Returned-sense** on each, a Returned line apiece, dispositions —
+  turned, at the last, to the warmest uses they've had.
+- 🧪 **+6 gates** (now **950 checks**, all green): the epilogue is keyed/reachable/collision-clean, the Chronicler
+  frames the after by your ending (four distinct openings), the survivor-codas appear only for souls you actually
+  saved, and Wren's thread (the thawing mark) pays off. **The walkable saga is complete: 14 zones, 48 souls, from
+  a cold market stall to the throne of the dead to the quiet years after.**
+
+---
+
 ## 👑 v4.90.0 — *"The Court of the Dead"* — a thirteenth zone: the finale, and the choice that ends the saga (content)
 
 > Through the death-door at the Threshold lies the place the whole road was always walking toward — the **Court

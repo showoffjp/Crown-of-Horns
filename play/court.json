@@ -17,7 +17,8 @@
       { "type": "cairn", "x": 7, "y": 6 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "threshold", "dest": { "x": 5, "y": 2 }, "label": "◂ back through the door, to the Threshold" }
+      { "x": 5, "y": 8, "to": "threshold", "dest": { "x": 5, "y": 2 }, "label": "◂ back through the door, to the Threshold" },
+      { "x": 0, "y": 4, "to": "epilogue", "dest": { "x": 5, "y": 7 }, "label": "▸ and after — the years that followed…" }
     ],
     "npcs": [
       { "id": "kelemvor", "name": "Kelemvor", "title": "the Judge of the Dead, bound to his Wall", "x": 5, "y": 2, "hue": 220, "sigil": "†", "conv": "court.kelemvor",

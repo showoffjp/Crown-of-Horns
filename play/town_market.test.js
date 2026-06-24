@@ -870,6 +870,30 @@ check("each Court soul carries a [RETURNED] line", [kelC, crownC, CONVS.find(c =
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 check("the Court grows the prop vocabulary (the throne)", h.includes('p.type==="throne"'));
 
+// ---- fourteenth zone: Some Years After — the epilogue, paying off the whole saga ----
+const EPI = SCENES && SCENES.epilogue;
+check("a fourteenth zone (the epilogue) ships too", EPI && EPI.npcs.length >= 3);
+check("the Court opens onto the epilogue (the years after)", (COURT.exits || []).some(x => x.to === "epilogue"));
+const chron = CONVS.find(c => c.id === "epi.chronicler");
+check("the Chronicler frames the after by which ending you chose", (() => {
+  const c0 = chron.nodes.find(n => n.id === "0");
+  const stWW = E.newState(); stWW.bools["court.ending_witness_wall"] = true;
+  const stAp = E.newState(); stAp.bools["court.ending_appeal"] = true;
+  const stTy = E.newState(); stTy.bools["court.became_tyrant"] = true;
+  return c0.variants && new Set([E.pickVariantText(c0, goodGuy, stWW), E.pickVariantText(c0, goodGuy, stAp),
+    E.pickVariantText(c0, goodGuy, stTy), E.pickVariantText(c0, goodGuy, E.newState())]).size === 4;
+})());
+check("the surviving souls appear in the epilogue only if you saved them (conditional codas)", EPI.npcs.filter(n => n.when).length >= 2 &&
+  EPI.npcs.some(n => n.when && n.when.flag === "reed.wren_lives") &&
+  EPI.npcs.some(n => n.when && n.when.flag === "market.helped_pip"));
+const epiWren = CONVS.find(c => c.id === "epi.wren");
+check("years-later Wren's coda exists and pays off her thread (and the thawing mark)", epiWren &&
+  epiWren.nodes.some(n => (n.effects || []).some(e => e.key === "epi.wren_thawing")));
+check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
+  const c = CONVS.find(cc => cc.id === n.conv);
+  return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
+}));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
