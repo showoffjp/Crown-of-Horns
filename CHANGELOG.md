@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v4.92.0 — *"The Weeping House"* — a fifteenth zone: a self-contained investigation/mystery side quest (content)
+
+> The main saga is narrative-complete, so this one grows the *world* — the bible's "100+ NPCs, many rewarding
+> side quests." A classic CRPG **haunting**, with a structure the walkable demo hadn't shown yet: an
+> **investigation.** A townhouse in the Lamplit Quarter where a family of the dead can't move on, and only you —
+> who sees the dead — can solve *why.*
+
+- 🏚️ **A fifteenth zone — the Weeping House (side content).** Reached by a side door off the Lamplit Quarter; the
+  map is no longer a single line but a hub with optional branches. Built from the existing prop vocabulary (no
+  new art).
+- 🔎 **A real investigation/mystery loop.** The resolution is *gated on detective work*: you can't free the family
+  until you've gathered the clues. **Tam**, the bored little ghost, saw the truth on the first night — *Papa went
+  up the bright door ages ago; Mama was too busy counting the silver to follow* — but no grown-up will hear a
+  child. **Goodwife Harl**, the housekeeper, has guarded the freeing truth for forty years out of pure loyalty
+  (*the hearth-guard is latched; the Lady is blameless; it was the master's lamp*). And an **Investigation check**
+  reads the house itself — the latched guard, the cold hearth, the table laid for a dinner nobody started.
+- ⚰️ **The Lady of the House** — frozen at the instant of her worst choice, keeping a burned household running by
+  sheer will because *counting* is the wall she's built against the one night she chose the silver over her
+  husband's hand. Confront her with the gathered truth (a gated Persuasion, with a nat-20 breakthrough and a
+  nat-1 where the truth lands as a *stone* and reseals her) and the whole house finally goes up the warm stairs
+  together — she had the *direction* of her waiting wrong all along.
+- 🎭 Full deep stack: reactive openings, the **Returned-sense** on each soul, a Returned line apiece (Harl's is
+  the keystone — only a thing unbound by service can say the unkind kind thing she couldn't), dispositions.
+- 🧪 **+8 gates** (now **958 checks**, all green): the side zone is keyed/reachable/collision-clean, the
+  confrontation is **gated on having investigated for the clues**, the child and housekeeper each surface a clue,
+  the Investigation check reads the physical evidence, and solving the haunting frees the family (with a crit-tier
+  breakthrough). **15 zones, 51 souls** — a complete saga *and* its first proper side quest.
+
+---
+
 ## 👑 v4.91.0 — *"Some Years After"* — a fourteenth zone: the epilogue that pays off the whole saga (content)
 
 > Every great CRPG saves one thing for last: the *after.* Through a door out of the Court lies **"Some Years

@@ -19,7 +19,8 @@
     "exits": [
       { "x": 5, "y": 8, "to": "market", "dest": { "x": 5, "y": 1 }, "label": "◂ down to the Market of the Causeway" },
       { "x": 5, "y": 0, "to": "counthouse", "dest": { "x": 5, "y": 7 }, "label": "▴ deeper in — the Counting-House (the Choir's seat)" },
-      { "x": 9, "y": 8, "to": "aldric", "dest": { "x": 5, "y": 7 }, "label": "▸ the Doomguide's table (a summons)" }
+      { "x": 9, "y": 8, "to": "aldric", "dest": { "x": 5, "y": 7 }, "label": "▸ the Doomguide's table (a summons)" },
+      { "x": 1, "y": 8, "to": "weeping", "dest": { "x": 5, "y": 7 }, "label": "▸ a townhouse with weeping behind the shutters (the Weeping House)" }
     ],
     "npcs": [
       { "id": "dace", "name": "Dace Iron", "title": "a Faithless blade-for-hire", "x": 6, "y": 5, "hue": 20, "sigil": "DI", "conv": "city.dace",

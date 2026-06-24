@@ -894,6 +894,37 @@ check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));
 }));
 
+// ---- fifteenth zone: the Weeping House — a self-contained investigation/mystery side quest ----
+const WEEP = SCENES && SCENES.weeping;
+check("a fifteenth zone (the Weeping House) ships as side content", WEEP && WEEP.npcs.length >= 3);
+check("the Weeping House is reachable from the Lamplit Quarter (a side door)", (SCENES.lamplit.exits || []).some(x => x.to === "weeping"));
+const matron = CONVS.find(c => c.id === "wh.matron");
+const tamC = CONVS.find(c => c.id === "wh.tam");
+const keeperC = CONVS.find(c => c.id === "wh.keeper");
+check("the haunting's three souls are present (the Lady, the child, the housekeeper)", matron && tamC && keeperC);
+// the investigation gates the resolution: you can only confront the Lady with the truth once you've gathered the clues
+const whM1 = matron.nodes.find(n => n.id === "1");
+const papaConfront = whM1.choices.find(ch => ch.when && ch.when.flag === "wh.clue_papa_left");
+const guardConfront = whM1.choices.find(ch => ch.when && ch.when.flag === "wh.knows_truth");
+const cluePapa = E.newState(); cluePapa.bools["wh.clue_papa_left"] = true;
+const clueTruth = E.newState(); clueTruth.bools["wh.knows_truth"] = true;
+check("confronting the Lady with the truth is gated on having investigated for it", papaConfront && guardConfront &&
+  E.choiceAvailable(goodGuy, cluePapa, papaConfront, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), papaConfront, MODEL) === false &&
+  E.choiceAvailable(goodGuy, clueTruth, guardConfront, MODEL) === true && E.choiceAvailable(goodGuy, E.newState(), guardConfront, MODEL) === false);
+// the child supplies a clue the adults can't/won't, and the housekeeper supplies the withheld truth (clue sources)
+check("the child and the housekeeper each surface clues that unlock the confrontation",
+  tamC.nodes.some(n => (n.effects || []).some(e => e.key === "wh.clue_papa_left")) &&
+  keeperC.nodes.some(n => (n.effects || []).some(e => e.key === "wh.knows_truth")));
+// an Investigation check reads the house itself (the latched hearth-guard) — the physical evidence
+const investChoice = keeperC.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Investigation");
+check("an Investigation check reads the house's physical evidence (the latched guard)", investChoice &&
+  keeperC.nodes.some(n => (n.effects || []).some(e => e.key === "wh.clue_guard_latched")));
+// the quest resolves: the family is freed, and a crit-tier persuasion exists for the breakthrough
+check("solving the haunting frees the family (and a nat-20 breakthrough exists)", matron.nodes.some(n =>
+  (n.effects || []).some(e => e.key === "wh.freed_family")) && papaConfront.crit && papaConfront.fumble);
+check("each Weeping-House soul carries a [RETURNED] line", [matron, tamC, keeperC].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
