@@ -909,6 +909,17 @@ check("the surviving souls appear in the epilogue only if you saved them (condit
 const epiWren = CONVS.find(c => c.id === "epi.wren");
 check("years-later Wren's coda exists and pays off her thread (and the thawing mark)", epiWren &&
   epiWren.nodes.some(n => (n.effects || []).some(e => e.key === "epi.wren_thawing")));
+// the recruited cartographer's whole arc lands in the epilogue: old, alive, the atlas finished
+const epiSennet = CONVS.find(c => c.id === "epi.sennet");
+const epiSennetNpc = EPI.npcs.find(n => n.conv === "epi.sennet");
+check("Sennet's years-after coda appears only if recruited, paying off the third-companion arc", epiSennet && epiSennetNpc &&
+  epiSennetNpc.when && epiSennetNpc.when.flag === "party.sennet_recruited" &&
+  E.matchesWhen(goodGuy, (() => { const s = E.newState(); s.bools["party.sennet_recruited"] = true; return s; })(), epiSennetNpc.when) === true &&
+  E.matchesWhen(goodGuy, E.newState(), epiSennetNpc.when) === false);
+check("the coda reads the threshold choice (eyes-past-the-door variant) and pays off the atlas + the cold receding", epiSennet &&
+  epiSennet.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.flag === "thr.sennet_eyes") &&
+  epiSennet.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sennet_atlas_lives")) &&
+  epiSennet.nodes.some(n => (n.effects || []).some(e => e.key === "epi.sennet_map_home")));
 check("each epilogue soul carries a [RETURNED] line", EPI.npcs.every(n => {
   const c = CONVS.find(cc => cc.id === n.conv);
   return c && c.nodes.some(nd => (nd.choices || []).some(ch => ch.tag === "returned"));

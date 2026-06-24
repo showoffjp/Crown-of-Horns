@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v4.97.0 — *"Sennet, Years On"* — the cartographer's arc completes in the epilogue (content)
+
+> The third companion's thread now runs the full length of the saga: recruited at the **wagon**, warmed at the
+> **fire**, held back from death's door at the **Threshold** — and now paid off in **"Some Years After."** Save
+> Sennet and, years on, you find an *old* soul at a proper table under the trees, grey-haired and impossibly alive,
+> the first true atlas of the dead finished and clasped before them. It is the single clearest proof in the whole
+> tally that the Wall's slow harvest can be *reversed*.
+
+- 📖 **Sennet's epilogue coda** (gated on `party.sennet_recruited`, joining Wren and Pip among the conditional
+  years-after codas). Three reactive openings keyed to the arc: the **eyes-past-the-door** Threshold choice (you
+  went *in* so they could stay on the warm shore and draw), the **devoted** nat-20 recruit (your name printed in
+  the title cartouche, where it outlasts you both), and default.
+- 🗺️ **Four threads pay off:** the **atlas** itself (banned by the Choir, but a banned book in a *cracked* church is
+  one everyone reads — now chained in every temple of Kelemvor for the bereaved, so no soul who loses theirs has to
+  read *"here be terrors"* on a blank page); **Tibb** (a master cartographer now, with his *own* frightened
+  apprentice, who keeps the one-line letter pressed in the back of the atlas); the **cold** (a [RETURNED] beat — the
+  surveyor's frost *receded* where yours never can, so they drew you a true **map home** for the day your own road
+  runs back to the grey country, pressed into the last page); and whether they were **glad** of the years (they were
+  a soul racing its own death so it never had to sit still long enough to feel how alone it was — you gave them
+  *time enough to be happy, and the company to be happy with*).
+- 👁️ **A new Returned-sense for the epilogue:** the dead-touched player reads a soul that was *measured for an edge
+  and got a hearth instead* — the Wall's harvest, run all the way to its end and *lost*.
+- 🧪 **+2 gates** (now **983 checks**, all green): the coda is gated to recruitment, reads the Threshold choice, and
+  pays off the atlas and the map-home. **60 souls** now walk the causeway — and one of them grew old.
+
+---
+
 ## 👑 v4.96.0 — *"Sennet at the Edge"* — the cartographer follows you to the door the living can't cross (content)
 
 > The saga's most pointed companion beat. Recruit Sennet and they follow you everywhere — including to the
