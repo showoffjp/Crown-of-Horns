@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crown of Horns — Painted Area Maps</title>
+<style>
+ *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(1200px 700px at 50% -8%,#241f30,#080710);
+  color:#d8d2c2;font:15px/1.6 "Iowan Old Style","Palatino Linotype",Georgia,serif;padding:36px 20px}
+ .head{max-width:1100px;margin:0 auto 22px}
+ h1{color:#e7c873;font-size:30px;margin:0;letter-spacing:.5px}
+ .sub{color:#9a90a8;font-style:italic;margin-top:6px;max-width:760px}
+ a.home{color:#9a90a8;text-decoration:none;font-size:12.5px;border:1px solid #2a2636;border-radius:7px;padding:6px 11px}
+ .grid{max-width:1100px;margin:18px auto 0;display:grid;grid-template-columns:1fr;gap:26px}
+ figure{margin:0;background:linear-gradient(#16141d,#100e16);border:1px solid #2a2636;border-radius:12px;overflow:hidden;box-shadow:0 14px 40px #0009}
+ figure img{display:block;width:100%;height:auto}
+ figcaption{padding:12px 16px;color:#a89fb4;font-size:13.5px}
+ figcaption b{color:#e7c873;font-style:normal;font-size:15px}
+ .note{max-width:1100px;margin:26px auto 0;color:#6e6680;font-size:12px;line-height:1.6}
+ .note code{color:#c9a24b}
+</style></head><body>
+<div class="head">
+ <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+   <h1>🖼️ Painted Area Maps</h1><a class="home" href="index.html">← all previews</a></div>
+ <div class="sub">Pre-rendered, hand-painted-style area backdrops in the lineage of the Infinity Engine — Baldur's Gate, Icewind Dale, Planescape: Torment. Moody, atmospheric, 2.5-D. <b>Every pixel is original and procedural</b> (no AI art, no scraped tiles): layered light, soft shadow, mottled texture, fog, torch-bloom and a heavy vignette, painted in code.</div>
+</div>
+<div class="grid">
+ <figure><img src="maps/market.png" alt="The Market of the Causeway">
+  <figcaption><b>The Market of the Causeway</b> — a torchlit square at dusk, townhouses closing off the night sky, the fountain glowing at its heart. Where the road to the Wall begins.</figcaption></figure>
+ <figure><img src="maps/wall.png" alt="Past the Last Torch">
+  <figcaption><b>Past the Last Torch</b> — the Wall of the Faithless looms across the whole frame, ten thousand faces pressed into the cold grey stone; a single warm torch holds the salt-marsh against the mist.</figcaption></figure>
+ <figure><img src="maps/court.png" alt="The Court of the Dead">
+  <figcaption><b>The Court of the Dead</b> — Kelemvor's vast hall, pillars receding into the gloom, cold god-light falling on the antlered throne, and the Crown of Horns turning at its foot.</figcaption></figure>
+ <figure><img src="maps/reedwalk.png" alt="The Reed-Walk">
+  <figcaption><b>The Reed-Walk</b> — the cold river below the market, where the causeway stone gives way to water; the boatman's ferry moored in the mist, reeds along the bank.</figcaption></figure>
+</div>
+<div class="note">
+ Regenerate with <code>python3 tools/make-painted-maps.py</code> (Pillow only). These are the painted <i>backdrops</i> a Unity build would composite walkable characters and props over — the same areas you can already walk in the <a href="town_market.html" style="color:#c9a24b">16-zone playable saga</a>.
+</div>
+</body></html>
