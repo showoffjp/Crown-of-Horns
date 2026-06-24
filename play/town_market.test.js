@@ -1189,6 +1189,38 @@ check("the bound clerk Sevenpence can be FREED by a Returned declaring his padde
   imp.nodes.find(n => n.id === "imp_freed") && imp.nodes.find(n => n.id === "imp_freed").effects.some(e => e.key === "ad.freed_sevenpence") &&
   imp.nodes.some(n => (n.effects || []).some(e => e.key === "ad.knows_crede_fears_signing")) && imp.returned);
 
+// ---- twenty-second zone: the Assize of the Returned — a trial where YOU are the accused (read your run) ----
+const ASZ = SCENES && SCENES.assize;
+check("a twenty-second zone (the Assize) ships — the trial-where-you're-accused inversion", ASZ && ASZ.npcs.length >= 3);
+check("the Assize is convened off the Grey Wayshrine", (SCENES.wayshrine.exits || []).some(x => x.to === "assize"));
+const arbiter = CONVS.find(c => c.id === "as.arbiter");
+const accuser = CONVS.find(c => c.id === "as.accuser");
+const aswitness = CONVS.find(c => c.id === "as.witness");
+check("the assize's three roles are present (the arbiter, the accuser, the witness)", arbiter && accuser && aswitness);
+const arbMenu = arbiter.nodes.find(n => n.id === "1");
+check("you defend yourself, with disposition-gated pleas (merciful/honest) plus universal options", arbMenu &&
+  arbMenu.choices.some(ch => ch.when && ch.when.int && ch.when.int["disp.merciful"]) &&
+  arbMenu.choices.some(ch => ch.when && ch.when.int && ch.when.int["disp.honest"]) &&
+  arbMenu.choices.some(ch => ch.next === "arb_witness") && arbMenu.choices.some(ch => ch.next === "arb_accept"));
+check("refusing the court's authority IS the winning defense — a soul that judges itself can't be judged", (() => {
+  const refuse = arbMenu.choices.find(ch => ch.tag === "returned" && ch.next === "arb_refuse");
+  const node = arbiter.nodes.find(n => n.id === "arb_refuse");
+  return refuse && node && node.effects.some(e => e.key === "as.verdict_self_judged") && node.effects.some(e => e.key === "as.court_dissolved");
+})());
+check("the merciful/honest pleas escalate to the forward question (what stops you becoming the Crown)", (() => {
+  const mercy = arbiter.nodes.find(n => n.id === "arb_mercy");
+  const node2 = arbiter.nodes.find(n => n.id === "2");
+  return mercy && mercy.auto === "2" && node2 && node2.choices.some(ch => ch.next === "arb_answer_unknowing");
+})());
+check("the accuser is revealed (Insight) as your own fear given a hood — keep the doubt, don't banish it", accuser &&
+  accuser.nodes.find(n => n.id === "acc_mirror") &&
+  accuser.nodes.find(n => n.id === "acc_mirror").effects.some(e => e.key === "as.accuser_is_self"));
+check("the witness is the sum of the dead you touched, and its variant reads merciful vs ruthless runs", aswitness &&
+  aswitness.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.int && v.when.int["disp.merciful"]) &&
+  aswitness.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.int && v.when.int["disp.ruthless"]));
+check("each Assize soul carries a [RETURNED] line + a Returned-sense", [arbiter, accuser, aswitness].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

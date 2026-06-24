@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v5.5.0 — *"The Assize of the Returned"* — a twenty-second zone: the trial flipped (you are the accused) (content)
+
+> A fifth new structure, and an inversion of the Reckoning Court: there you *defended* a soul from the Wall; here
+> **you stand in the dock yourself.** The dead you touched convene an assize to judge not a *crime* but your very
+> *being* — the charge that a soul which can walk back out of death is a hole in the one law that makes all the dead
+> equal, and one unwatched century from becoming the tyrant. The whole trial reads your run.
+- ⚖️ **A twenty-second zone — the Assize** (off the Grey Wayshrine). Three roles: the **Arbiter** (presides over a
+  scale), the **Accuser** (speaks for the fear of you), and the **Witness** (the sum of every soul you touched).
+- 🗣️ **You defend your existence**, and the defenses are gated on *how you actually played*: a **merciful** plea
+  (your record of saved souls), an **honest** plea (you never lied about being a danger), calling the **Witness**,
+  **bowing to the scale** (humility itself acquits — the Crown never kneels), or — the deepest beat — **refusing the
+  court's authority entirely**: a soul that insists on judging *itself*, every day, forever, can't be acquitted,
+  and that permanent open question is the one lock the Crown has never picked. The merciful/honest pleas escalate to
+  the forward question — *what stops you becoming the Crown?* — answerable three ways (never be alone with the
+  choice; distrust your own certainty; or the unbeatable *"I don't know if I can be trusted"*).
+- 🪞 **The Accuser is revealed (Insight) as your own fear** wearing a hood — your inner prosecutor, given a stone to
+  stand on. The lesson: don't *win* against it, *keep* it; the Last Returned fell not by losing this argument but by
+  *evicting the arguer*. And it reads your party — a soul that built a crew of no-sayers is the *variable its
+  forecast can't price.*
+- 👤 **The Witness** is the gathered dead, its testimony reactive to a merciful vs ruthless run — and the truest
+  acquittal is letting your dead-touched sense *meet your own ledger without flinching* (the one test the Crown
+  cannot pass).
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,039 checks**, all green). **22 zones, 79 souls** — five
+  fresh structures this stretch (bargain, trial, heist, devil-pact, self-trial), all circling the Crown.
+
+---
+
 ## 👑 v5.4.0 — *"The Advocate's Booth"* — a twenty-first zone: a negotiation with a devil (read the fine print) (content)
 
 > A fourth new structure — the **devil's contract** — and one that turns the Jergal bargain inside out. Where the

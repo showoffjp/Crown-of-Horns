@@ -35,6 +35,7 @@ TRIAL = json.load(open(os.path.join(ROOT, "play", "trial.json"), encoding="utf-8
 SCRIVENER = json.load(open(os.path.join(ROOT, "play", "scrivener.json"), encoding="utf-8"))
 ARCHIVE = json.load(open(os.path.join(ROOT, "play", "archive.json"), encoding="utf-8"))
 ADVOCATE = json.load(open(os.path.join(ROOT, "play", "advocate.json"), encoding="utf-8"))
+ASSIZE = json.load(open(os.path.join(ROOT, "play", "assize.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -185,6 +186,9 @@ NPC_SENSE = {
     "ci.sedge": {"dc": 10, "text": "*(You reach for the washerwoman and find a soul being eaten alive from the inside — not by the cistern-thing directly, but by the particular horror it deals: she is losing the people she loves and cannot even grieve them, because the grief needs a face and a name to attach to, and those are exactly what the thing takes. Your sense reads the gap where a child used to be — a little dress she folds and weeps over and cannot place — and understands that this is the Hunger's truest cruelty, the one the Wall itself practises: it does not just take the dead, it takes the *missing*, so the living are left aching at a hole with nothing on the other end of it.)*"},
     "ci.berin": {"dc": 12, "text": "*(Your sense settles on the old man and finds, against all the thinning around him, a memory like a struck flint — hard, bright, and held by sheer furious will. He is the one soul the cistern-thing cannot file down, and your sense reads exactly why: he holds the forgotten one's name not out of love but out of *shame*, and shame is the one kind of remembering that will not let go. He passed a pauper-sweep every dawn for thirty years and never learned her name until the day she froze unmourned — and now he carries it like a stone, the last witness on a whole row that chose to forget, exhausting himself nightly to keep one name out of the nothing.)*"},
     "ci.gnaw": {"dc": 8, "text": "*(You do not so much reach for it as *recognize* it — because you have felt this exact cold at the Wall, and this is a single crumb of it, broken off and crawled up a well. Your dead-touched sense reads the thing past its hunger: it is not a monster and was never born one. It is a person — a pauper named Nettie, though she has forgotten it — forgotten so completely, by a whole row, for so long, that she curdled into a fragment of the Hunger and learned to do to others what was done to her. There is no malice in it. There is only a starvation so total it has eaten even the memory of having been full. And under the appetite, flinching from the names you carry, there is still — barely — a who, waiting to be looked at.)*"},
+    "as.arbiter": {"dc": 14, "text": "*(You turn your dead-touched sense on the grey presiding figure and find no soul at all in the ordinary way — only a *function* the Concord left running, a remnant of law given just enough mind to weigh. But your cold reads the thing the faceless stillness hides: it does not *want* to condemn you. It is not the Choir, hungry for the Wall; it is something older and wearier, a scale that has weighed too many souls and would, if it could feel anything so warm, prefer to find you *worthy.* Your sense reads that this whole assize is not a trap but a *test the cosmos is hoping you pass* — that the dead convened it not to close the hole you make in their law but to learn, desperately, whether the hole might be a door. The Arbiter is the one judge in creation with no stake in your guilt. It weighs you because someone must, and it has been waiting, across all its grey tenure, for an accused who would weigh itself harder.)*"},
+    "as.accuser": {"dc": 16, "text": "*(You reach for the hooded accuser and your dead-touched sense recoils — not from menace, but from *recognition*, because the soul under the hood is, in the strictest reading your cold can make, *you.* Not a copy, not the Last Returned, but the *part* of you that lies awake: your own fear of the Crown, given a stone to stand on and a voice the court could hear. Your sense reads that the dread it carries is real and reasonable and entirely yours — and, crucially, that it is *not your enemy.* The thing wearing every frightened face is your own immune system, the inner accuser whose whole terrible function is to keep asking, at every mercy, whether this is the one that curdles. Your cold reads the deepest danger the assize was convened to name: that the Last Returned did not lose this argument — it *evicted the arguer*, cured itself of doubt, and a soul with no inner accuser is one unwatched century from a throne.)*"},
+    "as.witness": {"dc": 10, "text": "*(You turn your dead-touched sense on the soul at the witness-stone and find it is not one soul but *many* — every shade you touched on the causeway, gathered into a single flickering voice, warm where you were kind and cold where you were not, the whole uneven ledger of your run made flesh. Your sense reads it without flinching: the marked you saved and the souls you passed by, the monster you witnessed back and the ones you ran out of strength for, all braided together and weighing, even now, which way to tip. And your cold finds the one thing the Witness itself is testing for — not whether you were good, but whether you can *bear to see yourself true*, because the thing that becomes the Crown is precisely the thing that looks away from its own ledger and calls the looking-away peace. The Witness is the dead holding up a mirror. What it reports to the scale is not your record. It is whether you flinched from it.)*"},
     "ad.crede": {"dc": 15, "text": "*(You turn your dead-touched sense on the courteous advocate and the warm professional surface peels back like a billing statement to reveal the cold instrument beneath: not a monster, not a tempter of the crude sort, but an *intelligence* honed across aeons to exactly one purpose — finding the seam between what a soul *wants* and what it will *sign* to get it, and widening that seam into a contract. Your sense reads no malice in it, which is the danger; malice you could refuse. What it has instead is *patience* and *fairness*, weaponized — it keeps every word, discloses every clause, and wins anyway, because the trap was never in the paper but in the wanting. And under the appetite your cold finds the one thing the coat is cut to hide: the advocate is here for *you specifically*, the un-fileable soul, the keystone — because a lawful claim on the one soul no Power can hold would crack open every unowned soul in creation to Hell. You are not a client to this thing. You are the precedent it has crossed the planes to set.)*"},
     "ad.bonded": {"dc": 10, "text": "*(You reach for the translucent man and find a soul in a cage of its own choosing, re-locked fresh every dawn. Your sense reads the seal at his breast clearly: it is not a chain bolted on from outside but a *debt agreed to* — and it holds, you understand with a cold lurch, precisely because he would sign it again. He bought his daughter sixty hale years with himself as the collateral, and every morning he chooses her life over his freedom anew, and the choosing re-seals the bond. There is no loose thread to pick because he keeps tying it, out of love, knowingly. Your sense finds no self-pity in him, only a terrible lucid arithmetic and the one freedom Crede left him for sport: to warn the next soul. He is the living proof of the booth's whole lesson — that a fair deal with Hell is still a deal with Hell, and the cost, disclosed and real and worth it, is paid in a currency you only feel after the ink.)*"},
     "ad.imp": {"dc": 9, "text": "*(You turn your sense on the sour little clerk and find — under four thousand years of accreted spite — another soul on the very paper it inks, bound by the same trick it now letters out for others. Your cold reads the imp's term plainly: a ninety-year clerkship fled-to from the killing floors, extended and re-extended by a clause that lets the master rule every task forever incomplete. It is not loyal. It is *trapped*, and it has survived the trap the only way a clever soul can — by inking jokes in the margins where the master doesn't read, by keeping its hatred filed under 'unbilled statistics.' But your sense finds the thing the imp itself has stopped daring to see: the master got *sloppy* with the clerk's contract, because imps don't get advocates — and a padded, careless extension-clause, examined by a soul with standing among the dead, has a flaw in it shaped exactly like a key.)*"},
@@ -208,7 +212,8 @@ for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
            + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
            + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"]
-           + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"]):
+           + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"]
+           + ASSIZE["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
@@ -218,7 +223,8 @@ ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations
              + THRESHOLD["conversations"] + NIGHTMARKET["conversations"] + VAULT["conversations"]
              + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
              + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"]
-             + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"])
+             + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"]
+             + ASSIZE["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
@@ -231,7 +237,8 @@ ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene
               TRIAL["scene"]["id"]: TRIAL["scene"],
               SCRIVENER["scene"]["id"]: SCRIVENER["scene"],
               ARCHIVE["scene"]["id"]: ARCHIVE["scene"],
-              ADVOCATE["scene"]["id"]: ADVOCATE["scene"]}
+              ADVOCATE["scene"]["id"]: ADVOCATE["scene"],
+              ASSIZE["scene"]["id"]: ASSIZE["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -378,7 +385,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">twenty-one walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">twenty-two walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
