@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v6.46.0 — *"The Far Doors Echo, Whole"* — the full omniverse lands in the ending (reactivity)
+
+> A cohesion pass so the *entire* 23-door journey pays off in the finale, not just the early doors. The Chronicler's
+> `epi_sq_beyond` branch — *"the far doors… what did I carry back from them?"* — now reacts to **all** of them, and leads
+> with the **capstone**: if you walked the last threshold and *became the witness*, the epilogue names that the true
+> ending — *not the Wall broken, but the mercy you were given flowing through you to the next frightened soul through
+> the door; the chain does not end with you, it begins again.*
+- 🪶 **+8 reactive Chronicler variants** (first-match-wins, capstone highest): **the Newly Dead** (you became the witness;
+  mercy outlives everything), **the Unseen** (you credited the uncredited; nothing shines by itself), **the Forbidden**
+  (the Wall a false judge of love forfeits the bench), **No Man's Land** (a Wall is only ever people kept apart), **the
+  Sounding Court** (worth was never permanence), **the Last Job** (case the Wall like the rigged ledger it is; burn the
+  book), **the Little Ones** (worth was never doing, but being, and being loved), and **the Reunion** (the deepest
+  cruelty was separation; its undoing is a witness who walks the distance). `epi_sq_beyond` now spans **17 variants**
+  covering all twenty-three doors.
+- 🧪 All gates green (**1,406 checks**, full ladder passing). No new zones — pure reactivity; the journey across the
+  planes is now, end to end, part of the saga's spine.
+
+---
+
 ## 👑 v6.45.0 — *"The Newly Dead"* — a sixty-sixth zone: the CAPSTONE, where the loop closes (content)
 
 > The **capstone** of the whole omniverse arc. After twenty-two doors in which soul after soul witnessed, steadied, and

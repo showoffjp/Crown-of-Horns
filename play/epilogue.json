@@ -827,6 +827,14 @@
             {
               "when": {
                 "flags": [
+                  "nd.chain_continues"
+                ]
+              },
+              "text": "*(The Chronicler sets down the pen entirely, and for a long moment simply looks at you, the way one looks at a thing one has waited a whole book to see.)* …And then, Returned — *(softly)* …then you found the *last* door. The *oldest* one. The one that turned out to be the *first.* *(it shakes its head, wondering)* …You had walked them *all* — the made monsters and the silent-heaven knights, the night-cursed and the wanderers, the firsts and the faithful, the lost-and-searching and the children and the unseen — and *every* one of them had *witnessed* you, *steadied* you, *poured* a little of itself *into* you. …And you came at the *end* to the *threshold* where the *newly* *dead* *arrive*, *frightened*, *raging*, *grieving*, *alone* in the *dark* …*exactly* as *you* once *were.* *(its voice hushes)* …And you did the thing the *whole* *journey* was *for*, Returned. The thing *no* one *told* you, because it could only be *learned*: …you *sat* *down* …and you *became* the *one* who *came.* *(it picks the pen back up, and writes slowly, reverently)* …That is how it *ends*, you see — not with the Wall *broken*, though you broke it; not with a *victory*, though you won one. It ends with the *mercy* you were *given* …*flowing* *through* you …to the *next* *frightened* soul through the *door.* …You were *witnessed* …so that you could *become* a *witness.* …And *that*, Returned — *(it meets your eyes)* …*that* is the *one* thing no *Wall* in any *world* can *ever* *outlast*: …not a *hero* who *wins* *once* …but a *kindness* that *learned* to *pass* *itself* *on* …*forever.* …The *chain* does not *end* with *you.* …It *begins* *again.* …*You* are the *proof* …that *mercy* …*outlives* …*everything.**"
+            },
+            {
+              "when": {
+                "flags": [
                   "tf.hob_seen"
                 ]
               },
@@ -887,6 +895,62 @@
                 ]
               },
               "text": "*(The Chronicler runs a reverent finger down the page.)* …The *Hall* of the *Re-Written.* *(softly)* …You found the *small* *goddess* *struck* from *canon*, Returned — *un-written*, not *killed*, her *name* *sanded* from *every* *history* — and you *re-canonized* her the *only* *way* a *thing* like *her* can *be*: you *remembered* her *true.* *(it meets your eyes)* …*Canon* and *true* are *not* the *same* *word.* …The *corrected* *texts* have *authority.* They do *not* have *truth.* …And you *carried* *that* to a *Wall* that *had* *written* a *whole* *parish* of *souls* *out* of *worth* — *declared* them *owed* *nothing*, *struck* them from the *ledger* of the *loved* — …and you *said* the *un-writer's* *undoing*: *a thing that happened cannot be un-happened by any power's correction.* …*They* *happened.* …*They* *were* *loved.* …And *no* *Wall's* *editing* …could *make* it *otherwise.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "uw.tilda_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler smiles at the page.)* …And you went *below-stairs*, Returned — to the *unseen.* The *housekeeper* who *held* a *great* *house* up *invisible*, the *gong-farmer* who *carried* a *city's* *filth* and was *taught* he *was* it, the one who *walked* *into* the *rooms* the *world* *fled* so *none* would *die* *alone.* *(it nods)* …You *credited* the *uncredited* — *looked* *down* at the *ones* *no* one *looks* at, and *found*, as you *always* did, that *they* were *holding* the *whole* *thing* *up.* …And you *carried* it *back* to your *Wall*, which *credits* the *shining* and *cannot* *see* the *foundation*: *nothing*, Returned, *shines* by *itself.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lv.mirae_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler's face goes tender.)* …And the *garden*, Returned — the *loves* the *world* *forbade.* The one who *chose* *duty* and *grieved* it in *secret*; the one who *chose* *love* and *lost* *all* the *world* could *take*, and would *do* it *again*; the one who *never* *dared* to *speak.* *(quietly)* …You *named* the *world* a *false* *judge* of *love* — and your *Wall* the *same* *judge*, *grown* *cosmic*, *condemning* by *lines* it had *no* *right* to *draw.* …A *judge* that calls the *truest* *love* a *sin*, Returned, *forfeits* the *bench.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "wd.wenna_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler sets the pen down softly.)* …And *No* *Man's* *Land*, Returned — the *two* *soldiers* who *killed* each *other* and *kept* their *line* in *death*, and the *surgeon* of the *middle* who'd had her *hands* in *both* their *hearts* and *knew* they *bled* the *same.* *(it nods slowly)* …You *carried* each *boy's* *home* across to the *other* until the *line* *dissolved* — and *learned* the *thing* that *named* your *whole* *enemy*: …a *Wall* is the *last* *battlefield*, Returned. It *divides* into *sides* so the *divided* *never* *turn*, *together*, to *face* the *hand* that *drew* the *line.* …And a *Wall* …is *only* *ever* *made* …of *people* *kept* *apart.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sg.wisp_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler hums a phrase of something, half-remembered.)* …And the *Sounding* *Court*, Returned, where the *music* *outlived* the *players* — the *lullaby* that *crossed* *ten* *generations*, the *masterwork* *lost* and *carried* *out* *again*, the *song* *played* to *no* one that was *never*, *for* a *breath*, a *waste.* *(it smiles)* …You *learned* there the *thing* the *Wall* can *never* *weigh*: that the most *precious* things a *soul* *makes* *cannot* be *held* — that *worth* was *never* about *permanence*, but about *being*, *fully*, *while* you *are.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lj.greaves_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler's mouth quirks.)* …And the *bolthole*, Returned — the *crew* that *robbed* a *slaver's* *vault* to *free* the *bound*, and *burned* the *ledger* that made *owning* *people* *lawful.* *(it leans in)* …They *taught* you to *case* the *Wall* like the *mark* it *is*: the *biggest* *rigged* *ledger* there ever *was*, a *vault* of *souls* *taken* and *called* *justice.* …*Leave* the *gold*, they said. *Find* the *book* that makes the *cruelty* *legal* — and *burn* it. …And you *did.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lo.brigid_named_the_wall"
+                ]
+              },
+              "text": "*(The Chronicler's hand stills on the page.)* …And the *lamplit* *green*, Returned — the *children* who came *too* *soon.* *(softly)* …The *furious* one you let *stay* *angry*; the *gentle* one whose *message* you *carried* to her *mother*; the *littlest*, *fading*, whose *name* you *carried* *back* to the *living* so the *oil* could *turn* *up* *again.* *(its voice catches)* …They *exposed* the *whole* *fraud*, Returned — souls with *no* *deeds*, *worth* the *entire* *sky* — and *proved* what your *Wall* could *never* *bear*: that *worth* was *never* about *doing.* …It was *always* about *being.* …And *being* *loved.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rn.halia_affirmed"
+                ]
+              },
+              "text": "*(The Chronicler turns a page with something like wonder.)* …And the *plaza* of the *lost-and-searching*, Returned — the *wife* and the *husband* who'd *hunted* each *other* across an *age* and *passed* within *arm's* *reach* a *hundred* *times*, *never* *knowing.* *(quietly)* …You *carried* the *proof* between them and *walked* them *home* — the *six* *hundred* *feet* the *grief* had made *un-walkable* — and the *Usher* who could *see* every *match* and was *bound* *never* to *point* *named* your *enemy* *plain*: …the *Wall's* *deepest* *cruelty* was *never* *judgment.* …It was *separation.* …And its *undoing* is *not* a *kinder* *judge* …but a *witness* …who *walks* the *distance* …the *parting* *made.*"
             },
             {
               "when": null,
