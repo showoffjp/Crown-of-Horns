@@ -1774,6 +1774,18 @@ check("a recruited companion worries at deep haunt — Dace gains a >=6 greeting
     (worry.choices || []).some(ch => ch.next === "dace_haunt_heed" && (ch.effects || []).some(e => e.key === "disp.merciful")) &&
     (worry.choices || []).some(ch => ch.next === "dace_haunt_cold" && (ch.effects || []).some(e => e.key === "disp.haunted"));
 })());
+check("the cold is two-way — at deep haunt the Hearth fire offers a thaw that decrements Haunted past the warning band and earns mercy back", (() => {
+  const fire = CONVS.find(c => c.id === "hearth.fire");
+  if (!fire) return false;
+  const thawChoice = fire.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "fire_thaw" && ch.when && ch.when.int && ch.when.int["disp.haunted"] === 6);
+  const thaw = fire.nodes.find(n => n.id === "fire_thaw");
+  if (!thawChoice || !thaw) return false;
+  const s = E.newState(); s.ints["disp.haunted"] = 6; s.ints["disp.merciful"] = 2;
+  E.applyEffects(s, thaw.effects);
+  // gated so it self-removes once warm; thaw pulls below the HAUNT_WARN=6 band and returns warmth
+  return s.ints["disp.haunted"] < 6 && s.ints["disp.merciful"] > 2 && s.bools["hearth.thawed"] === true &&
+    thaw.effects.some(e => e.key === "disp.haunted" && e.op === "AddInt" && e.amount < 0);
+})());
 
 // ---- fortieth zone: the One Who Runs — a chase structure (a soul you win by stilling, not catching) ----
 const FL = SCENES && SCENES.flight;

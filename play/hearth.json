@@ -261,6 +261,15 @@
               "next": "fire_self"
             },
             {
+              "text": "*(your hands have gone so cold the fire stops at the wrists — and the warning's been in your bones for weeks now, the dead crowding close, the living leaning back. Hold them to the flame anyway. Choose, for once, to come back to the warm side.)* \"No reckoning tonight. No reading the dead. Just let me sit in the warmth a while — and remember I was alive once, and had hands that could be warm. Let me come back from it.\"",
+              "when": {
+                "int": {
+                  "disp.haunted": 6
+                }
+              },
+              "next": "fire_thaw"
+            },
+            {
               "text": "*(bank the fire, and rest)* \"Enough reckoning. Sleep.\"",
               "next": "fire_sleep"
             }
@@ -326,6 +335,32 @@
           "effects": [
             {
               "key": "hearth.slept",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "fire_thaw",
+          "speaker": "the fire",
+          "text": "*(You hold your hands to the flames — and this time you don't let the warmth stop at your wrists. You make yourself stay in it. You make yourself remember.)* *(You remember being alive. Not the harvest, not the cold — before. A hand you held. A meal you were too hungry to taste. Sun on the back of your neck in a market that smelled of bread and dung and somebody's cheap perfume. The small, stupid, holy fact of having had a body that wanted things and ached and warmed itself by fires exactly like this one.)* *(You have been spending all of that, lately — soul by soul, reaching past the warm world into the cold, because the cold is where the work is, and the work is real, and the dead need you. But Dace was right, by this same fire. And Mab felt it across her bar. And the dead at the assize weighed it and were afraid for you: a soul that reaches only into the cold freezes into the thing on the throne, one merciful choice at a time.)* *(So you sit. You don't read. You don't reach. You let the fire reach you instead — and slowly, further than it has in weeks, the warmth gets past your wrists. The dead, for one night, lean back. The living, for one night, lean in. You are still the Returned; you will go back into the cold tomorrow, because that is the work. But tonight you remembered there is a* you *to bring back from it — and the remembering, it turns out, is the one thing that thaws what the reaching freezes.)*",
+          "effects": [
+            {
+              "key": "hearth.thawed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": -3
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "act1.mercy_remembered",
               "op": "SetTrue"
             }
           ],

@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.17.0 — *"The Thaw"* — the cold runs two ways: a deeply-haunted Returned can come back to the warm (mechanic)
+
+> The Haunted system (v6.14–6.15) made leaning on the cold *cost* you — warned, weighed, and worried over. But a cost
+> with no way back is just a doom, and the saga's whole thesis is that a soul is never only its worst tendency. This
+> closes the loop: the cold is now a *two-way* street. You can drift in; you can also choose, by the fire, to come
+> back.
+- 🔥 **A thaw at the Hearth fire.** When you've drifted deep into the cold (Haunted ≥ 6), the fire offers a new choice
+  the warm never needed: *no reckoning tonight, no reading the dead, no reaching — just sit in the warmth and remember
+  I was alive once.* It is the deliberate inverse of "sit with what you are" (which lets the warmth stop at your
+  wrists and *adds* haunt): here you make the warmth get *past* the wrists for the first time in weeks.
+- ⬇️ **It actually decrements the disposition.** On the engine's real `AddInt`, the thaw applies **Haunted −3** and
+  **Mercy +1** — pulling you back *below* the `HAUNT_WARN = 6` band, turning off the reckoning-panel warning, easing
+  the living and the dead. The remembering names the people who warned you — *Dace was right by this same fire, Mab
+  felt it across her bar, the dead at the assize were afraid for you* — so the thaw pays off the whole consequence arc.
+- ♻️ **Self-regulating, not a free button.** The choice is gated to appear *only* at Haunted ≥ 6, and taking it drops
+  you under that line — so it removes itself once you're warm again, and a very deeply frozen Returned (8, 10+) has to
+  come back to the fire more than once. You stay the Returned; you'll go back into the cold tomorrow, because that is
+  the work — but the cold is no longer a sentence, only a tide.
+- 🧪 **+1 gate** (now **1,201 checks**, all green), proving the thaw is gated at deep haunt, decrements past the
+  warning band, and returns warmth. No new zones — **40 zones, 135 souls** — the haunt arc is now complete: drift in,
+  be warned, be worried over, and find your own way back to the fire.
+
+---
+
 ## 👑 v6.16.0 — *"The One Who Runs"* — a fortieth zone: a chase (a soul you win by stilling, not catching) (content)
 
 > A twenty-third structure, and a *shape* no zone has had: a **chase.** But the genius of the afterlife is that you
