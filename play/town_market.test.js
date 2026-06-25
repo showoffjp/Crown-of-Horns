@@ -2527,6 +2527,44 @@ check("the littlest, fading: a [RETURNED] promises to carry her name back to the
 check("each soul on the green carries a [RETURNED] line + a Returned-sense", [loB, loN, loL, loP].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-first zone: the Last Job — a heist crew (tonal lift), with cross-soul forgiveness; the Wall is the biggest rigged ledger ----
+const LJ = SCENES && SCENES.lastjob;
+check("a sixty-first zone (the Bolthole) ships — a heist-crew door with wit and a buried grief", LJ && LJ.npcs.length >= 3);
+check("the Bolthole is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "lastjob"));
+const ljV = CONVS.find(c => c.id === "lj.vesper");
+const ljG = CONVS.find(c => c.id === "lj.greaves");
+const ljR = CONVS.find(c => c.id === "lj.rook");
+check("the crew (the Face, the one who stayed, the Hands) are present", ljV && ljG && ljR);
+check("the Face: a [RETURNED] names the Wall the biggest rigged ledger — a vault of souls called justice — and a rogue who beat it its nightmare", (() => {
+  const t = ljV.nodes.find(n => n.id === "lj_v_returned");
+  return ljV.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lj.vesper_named_the_wall");
+})());
+check("what they really stole: a slaver's ledger (the book that made owning people lawful), burned to free hundreds — a [RETURNED] names the Wall the same ledger, bigger", (() => {
+  const prize = ljG.nodes.find(n => n.id === "lj_g_prize");
+  const t = ljG.nodes.find(n => n.id === "lj_g_returned");
+  return prize && prize.effects.some(e => e.key === "lj.knows_the_ledger") &&
+    t && t.effects.some(e => e.key === "lj.greaves_named_the_wall");
+})());
+check("the Hands: a Persuasion can lift his guilt directly (crit: names the mechanism — guilt chosen over helplessness — and frees him; fumble: 'noble sacrifice' makes it a debt)", (() => {
+  const lift = ljR.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = ljR.nodes.find(n => n.id === "lj_r_lift_crit");
+  const fumble = ljR.nodes.find(n => n.id === "lj_r_lift_fumble");
+  return lift && lift.crit && lift.fumble && lift.fail &&
+    crit && crit.effects.some(e => e.key === "lj.rook_freed") &&
+    fumble && fumble.effects.some(e => e.key === "lj.rook_indebted");
+})());
+check("CROSS-SOUL forgiveness: Greaves gives his word to carry; Rook has a gated choice (when carrying it) that frees him, with a post-freed node-0 variant for both", (() => {
+  const word = ljG.nodes.find(n => n.id === "lj_g_word");
+  const deliver = ljR.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "lj_r_freed");
+  const rVar = ljR.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("lj.rook_freed")));
+  const gVar = ljG.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("lj.rook_freed")));
+  return word && word.effects.some(e => e.key === "lj.carries_greaves_word") &&
+    deliver && deliver.when && (deliver.when.flags || []).includes("lj.carries_greaves_word") &&
+    deliver.tag === "returned" && rVar && gVar;
+})());
+check("each crew soul carries a [RETURNED] line + a Returned-sense", [ljV, ljG, ljR].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

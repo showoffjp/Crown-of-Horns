@@ -30,7 +30,8 @@
       { "x": 0, "y": 6, "to": "sunwastes", "dest": { "x": 5, "y": 7 }, "label": "▸ a door breathing dry furnace-heat and grief — the Sunblasted waste, a world the wizards drank dry: the dark mirror of your dying Realm, where the Wall's logic is the defiler's, written across a whole planet" },
       { "x": 10, "y": 6, "to": "faithful", "dest": { "x": 5, "y": 7 }, "label": "▸ a low warm door, and the patient sound of something waiting — the Faithful, where the beasts who loved us wait: a dog at a gate, a warhorse, a raven, and a love the Wall cannot even see to weigh" },
       { "x": 0, "y": 5, "to": "reunion", "dest": { "x": 5, "y": 7 }, "label": "▸ a door onto a wide plaza of scanning faces — the Lost-and-Searching, where two souls have hunted each other across an age and never met: carry the proof between them, and walk them home" },
-      { "x": 10, "y": 5, "to": "littleones", "dest": { "x": 5, "y": 7 }, "label": "▸ a low door, lamplit and warm and loud with play — the green where the little ones are kept: the children who came too soon, against whom the Wall's ledger of deeds is most nakedly a fraud" }
+      { "x": 10, "y": 5, "to": "littleones", "dest": { "x": 5, "y": 7 }, "label": "▸ a low door, lamplit and warm and loud with play — the green where the little ones are kept: the children who came too soon, against whom the Wall's ledger of deeds is most nakedly a fraud" },
+      { "x": 0, "y": 4, "to": "lastjob", "dest": { "x": 5, "y": 7 }, "label": "▸ a hidden door behind a false wall — a thieves' bolthole, where a crew that robbed a slaver's vault to free the bound knows the Wall for what it is: the biggest rigged ledger there ever was" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",

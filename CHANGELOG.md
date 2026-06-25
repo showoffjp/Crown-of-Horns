@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.40.0 — *"The Last Job"* — a sixty-first zone: a heist crew, and the biggest rigged ledger there ever was (content)
+
+> A deliberate **tonal lift** after a run of tender doors — wit, banter, and caper energy on top of a buried grief. A
+> thieves' bolthole where a crew that ran *one good con* against a slaver-magistrate lies low forever. The job is
+> remembered from three angles, and the player assembles what they *really* stole (not gold) and what it cost. The
+> thesis recasts the whole endgame as a heist: **the Wall is the biggest rigged ledger there ever was — a vault of
+> souls, taken and called *justice*, guarded by a reputation that says it can't be cracked; and a rogue who robbed the
+> cruel to free what they hoarded always knew the law itself was the crime, dressed up safe.**
+- ✦ **Vesper, the Face** — the charmer who chose her marks (never the poor, only the cruel), whose patter is load-bearing
+  armor over a code as strict as any knight's. A **[RETURNED]** names the Wall the finest mark ever described — *every
+  vault that says it can't be cracked is lying; the "can't" is the lock.*
+- ✶ **Greaves, the planner who stayed** — who held a one-way gate so the crew could get out, did the math cleanly, and
+  has been at peace ever since. What they stole: a **slaver's ledger** — the book that made owning people *lawful* —
+  which they *burned*, and hundreds woke owned and slept free. A **[RETURNED]** names the Wall the same vault, bigger:
+  *leave the gold; find the ledger that makes its cruelty legal, and burn it.*
+- ❖ **Rook, the Hands** — the genius cracksman who couldn't pick the one lock that mattered (the past), and chose *guilt*
+  over the unbearable truth of *helplessness.* A **Persuasion** can lift it directly (**crit:** naming the mechanism
+  frees him; **fumble:** *"noble sacrifice"* turns it into a debt). And a **cross-soul** path: carry **Greaves' own
+  plain word** to him — held *steady* however he argues — and the one lock in the whole bolthole finally turns.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (**gate suite 657 / 1,365 total**, all green). **61 zones, 205
+  souls. Eighteen doors.** *Some doors aren't locks. Some losses aren't debts. Some things just cost, and no one owes.*
+
+---
+
 ## 👑 v6.39.0 — *"The Little Ones"* — a sixtieth zone: the children who came too soon, and the ledger's nakedest fraud (content)
 
 > The most direct answer the game has yet made to *"a soul's worth is not its deeds."* A lamplit green where the
