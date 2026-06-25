@@ -2326,6 +2326,38 @@ check("the three are written as one creature across the long night (start, end, 
 check("each Long-Midnight soul carries a [RETURNED] line + a Returned-sense", [lnM, lnF, lnX].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-fifth zone: the Far Roads — a Pathfinder-flavored door, warm register (the Wall asks how you ended; a soul is the road it walked) ----
+const FR = SCENES && SCENES.farroads;
+check("a fifty-fifth zone (the Far Roads) ships — a warm, heroic Pathfinder-flavored door of wanderers", FR && FR.npcs.length >= 3);
+check("the Far Roads is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "farroads"));
+const frI = CONVS.find(c => c.id === "fr.iona");
+const frS = CONVS.find(c => c.id === "fr.squik");
+const frD = CONVS.find(c => c.id === "fr.dalka");
+check("three souls (the hundred-year crusader, the happy goblin, the world-wandering walker) are present", frI && frS && frD);
+check("the crusader: held an unwinnable wall for forty years — a [RETURNED] names the holding (not the winning) the victory, and the Wall's 'did you win?' the wrong question", (() => {
+  const t = frI.nodes.find(n => n.id === "fr_i_truth");
+  return frI.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fr.iona_affirmed");
+})());
+check("the goblin: a Performance check sings its song WITH it (crit: glorious, it puts you in the song; fumble: you do 'the voice' and make it the punchline)", (() => {
+  const song = frS.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Performance");
+  const crit = frS.nodes.find(n => n.id === "fr_s_song_crit");
+  const fumble = frS.nodes.find(n => n.id === "fr_s_song_fumble");
+  return frS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    song && song.crit && song.fumble && song.fail &&
+    crit && crit.effects.some(e => e.key === "fr.song_glorious") &&
+    fumble && fumble.effects.some(e => e.key === "fr.squik_made_punchline");
+})());
+check("the goblin: a [RETURNED] names joy its own worth — you don't need a sad story to matter", (() => {
+  const t = frS.nodes.find(n => n.id === "fr_s_truth");
+  return t && t.effects.some(e => e.key === "fr.squik_validated");
+})());
+check("the wanderer: sixty years of road with no destination — a [RETURNED] names the journey the worth, and the Wall's 'where did you arrive?' the wrong question", (() => {
+  const t = frD.nodes.find(n => n.id === "fr_d_truth");
+  return frD.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fr.dalka_affirmed");
+})());
+check("each Far-Roads soul carries a [RETURNED] line + a Returned-sense", [frI, frS, frD].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

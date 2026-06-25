@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v6.33.0 — *"The Far Roads"* — a fifty-fifth zone: the wanderers' rest, where the Wall asks the wrong question (content)
+
+> A deliberate turn back into warmth and light after the grief doors — a filed-off love letter to **Pathfinder** and its
+> wide, pulpy, open-road heroism: crusaders and goblins and wanderers, a campfire at the resting-place of the
+> far-travelled. And the door that most directly indicts the Wall's whole arithmetic. The thesis: **the Wall asks how
+> you ended and what you're owed — the wrong question entirely; a soul is the road it walked and the ones who walked it
+> beside.** Three souls at peace, each carrying not a grief but a single question the player can finally answer.
+- ✦ **Iona, the hundred-year wall** — a crusader who held a wound in the world (a demon-tide at the edge of reality) for
+  *forty years*, knowing it would never close: *they fought not to win but to hold.* An **Insight** read finds she
+  escaped futility's rot by refusing the long view and measuring the work by the *day* — fourteen thousand small
+  complete victories. A **[RETURNED]** names the Wall's *"did you win?"* the wrong question: **the holding was the
+  victory, complete every single day, never owed to a triumph that never came.** (And the company, not the cause, was
+  the reason she stood up to do it again.)
+- ✶ **Squik, the happy goblin** — knee-high, fire-loving, dog-fearing, gleefully and *unrepentantly* a goblin, with no
+  tragic backstory and no secret wound — just a *great* little life and one good friend. The levity beat with a heart: a
+  **Performance** check sings its song *with* it — **crit:** glorious, full-throated, it writes you into the song
+  forever; **fumble:** you do *"the voice"* and make it the punchline (the thing it's spent forever being). A
+  **[RETURNED]** names **joy its own worth — you don't need a sad story to matter.** (Squik thinks it's here as
+  *evidence*: that a happy little nothing-soul *counts too.*)
+- ❖ **Dalka, who went and saw** — a wanderer who walked the whole wide world for sixty years with no destination, dogged
+  by the frown-question *"where are you going?"* An **Insight** read finds the next-ridge hunger was never restlessness
+  but a *form of love* for the variousness of creation — the seeing was the prayer. A **[RETURNED]** names the Wall's
+  *"where did you arrive?"* the wrong question: **there is no there; the journey was the worth, and you were arriving
+  constantly, every step.** (She sends you off with a wonder — the northern sky dancing over a black sea, for no one —
+  and the counsel that death's grey wall is just another ridge, with a horizon past it.)
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,317 checks**, all green). **55 zones, 186 souls.** Sigil
+  now opens **twelve doors** (the first onto the left lane, the bottom row being full).
+
+---
+
 ## 👑 v6.32.0 — *"The Long Midnight"* — a fifty-fourth zone: the night-cursed, and the wolf you feed (content)
 
 > A tonal turn into modern gothic — a door of guttering lamplight and old blood, a filed-off love letter to the
