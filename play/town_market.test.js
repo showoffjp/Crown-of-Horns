@@ -2696,6 +2696,42 @@ check("the tender of the dying: a [RETURNED] names the Wall a machine for abando
 check("each Unseen soul carries a [RETURNED] line + a Returned-sense", [uwT, uwG, uwW].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-sixth zone: the Newly Dead — the CAPSTONE: the player becomes the witness (mercy received becomes mercy given) ----
+const ND = SCENES && SCENES.newlydead;
+check("a sixty-sixth zone (the First Threshold) ships — the capstone, where the player becomes the witness", ND && ND.npcs.length >= 3);
+check("the First Threshold is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "newlydead"));
+const ndN = CONVS.find(c => c.id === "nd.nim");
+const ndD = CONVS.find(c => c.id === "nd.dorn");
+const ndE = CONVS.find(c => c.id === "nd.elga");
+check("three newly-crossed souls (the terrified, the refusing, the worried-for-the-living) are present", ndN && ndD && ndE);
+check("each newly-dead soul has a node-0 variant that reacts to the player's journey (act1.mercy_remembered)", (() => {
+  return [ndN, ndD, ndE].every(c => c.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("act1.mercy_remembered"))));
+})());
+check("the terrified one: a [RETURNED] passes on what the player was given — and names the chain (we pass it on; you'll be the calm one)", (() => {
+  const t = ndN.nodes.find(n => n.id === "nd_n_returned");
+  return ndN.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "nd.chain_continues") && t.effects.some(e => e.key === "nd.became_the_witness");
+})());
+check("the refusing one: a Persuasion meets the rage as the doors taught (crit: met not managed, eased; fumble: the 'accept it' peace-voice walls him up)", (() => {
+  const meet = ndD.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = ndD.nodes.find(n => n.id === "nd_d_meet_crit");
+  const fumble = ndD.nodes.find(n => n.id === "nd_d_meet_fumble");
+  return meet && meet.crit && meet.fumble && meet.fail &&
+    crit && crit.effects.some(e => e.key === "nd.dorn_eased") &&
+    fumble && fumble.effects.some(e => e.key === "nd.dorn_walled_up");
+})());
+check("the worried grandmother: a [RETURNED] names the love that doesn't die with us (she put herself inside the granddaughter), and the player the grandmother of the newly dead", (() => {
+  const t = ndE.nodes.find(n => n.id === "nd_e_returned");
+  return ndE.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "nd.chain_continues");
+})());
+check("the capstone closes the loop: every newly-dead [RETURNED] sets nd.became_the_witness (the player, witnessed by all, now witnesses)", (() => {
+  return [["nd.nim","nd_n_returned"],["nd.dorn","nd_d_returned"],["nd.elga","nd_e_returned"]].every(([cid,nid]) => {
+    const c = CONVS.find(x => x.id === cid); const n = c.nodes.find(x => x.id === nid);
+    return n && n.effects.some(e => e.key === "nd.became_the_witness");
+  });
+})());
+check("each newly-dead soul carries a [RETURNED] line + a Returned-sense", [ndN, ndD, ndE].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v6.45.0 — *"The Newly Dead"* — a sixty-sixth zone: the CAPSTONE, where the loop closes (content)
+
+> The **capstone** of the whole omniverse arc. After twenty-two doors in which soul after soul witnessed, steadied, and
+> changed the Returned, the *last* door the player finds turns out to be the *first* door every soul passes through —
+> the threshold of arrival — and here the structure **inverts**: the player, witnessed across a hundred griefs, *becomes
+> the witness.* Three souls have just crossed (terrified, raging, worried for the living), and the player gives each the
+> exact thing they were given. The thesis that completes the saga: **you were witnessed so that you could become a
+> witness; mercy received becomes mercy given; and that passing-on — not any single victory — is how worth outlives the
+> Wall. We pass it on.** Each soul's opening beat **reacts to the player's journey** (a Returned who has gathered mercy
+> across the doors radiates a calm the newly-dead reach for).
+- ✦ **Nim, just crossed and terrified** — huddled in the dark, certain it's hell-forever-alone. The player gives the
+  three things they were given (*you're not alone; it passes; here's my hand*) and Nim, minutes dead, kindles with the
+  whole secret: *one day I'll be the calm one, and pass it on.* A **[RETURNED]** names the chain.
+- ❖ **Dorn, just crossed and refusing it** — clawing at a one-way door, raging to go back and unsay a cruelty to a
+  daughter. The player uses everything the doors taught about meeting fury (Nettle, the soldiers, Rook): a **Persuasion**
+  **crit:** *met, not managed* — the love isn't trapped behind the door, it crossed over with him; **fumble:** the
+  *"accept it"* peace-voice (the one thing he warned against) walls him up twice as hard.
+- ✶ **Elga, just crossed and only afraid for the granddaughter she raised** — at peace with her own death, undone by
+  Senna's. A **[RETURNED]** (drawing on Pae's lullaby) names the love that doesn't die with us: *she put herself inside
+  the girl across fifteen years, where no door can take her* — and names the player **the grandmother of the newly dead.**
+- 👁️ **Three new Returned-senses** (each a mirror in which the player recognizes their own first moment). 🧪 **+9 gates**
+  (**gate suite 698 / 1,406 total**, all green). **66 zones, 220 souls. Twenty-three doors — Sigil's lanes are full.**
+  *The mercy was never meant to stop with you. It was always meant to flow through you, to the next frightened soul through the door, forever.*
+
+---
+
 ## 👑 v6.44.0 — *"The Unseen"* — a sixty-fifth zone: the invisible labor that held the world up (content)
 
 > A dignifying door on **the unseen work of care** — the souls whose invisible, unthanked labor actually held everything
