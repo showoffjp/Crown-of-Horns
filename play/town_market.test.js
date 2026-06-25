@@ -2105,6 +2105,38 @@ check("Voss's guilt-prison mirrors the Wall (opened only from within) — a Pers
 check("each Far Doors soul carries a [RETURNED] line + a Returned-sense", [fwWar, fwGiff, fwVoss].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-eighth zone: the Companions' Fire — Drizzt's reborn family (Catti-brie, Bruenor, Wulfgar, Regis) ----
+const CO = SCENES && SCENES.companions;
+check("a forty-eighth zone (the Companions' Fire) ships — a campfire of the reborn", CO && CO.npcs.length >= 4);
+check("the Companions' Fire is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "companions"));
+const coB = CONVS.find(c => c.id === "co.bruenor");
+const coC = CONVS.find(c => c.id === "co.cattie");
+const coW = CONVS.find(c => c.id === "co.wulfgar");
+const coR = CONVS.find(c => c.id === "co.regis");
+check("four Companions of the Hall gather (Bruenor, Catti-brie, Wulfgar, Regis)", coB && coC && coW && coR);
+check("each Companion answers the saga's question its own way, with a [RETURNED] reframe", (() => {
+  return [["co.bruenor", "co_b_truth", "co.bruenor_affirms"], ["co.cattie", "co_c_truth", "co.cattie_affirms"],
+          ["co.wulfgar", "co_w_truth", "co.wulfgar_freed"], ["co.regis", "co_r_truth", "co.regis_freed"]].every(([id, node, flag]) => {
+    const c = CONVS.find(x => x.id === id);
+    const t = c.nodes.find(n => n.id === node);
+    return c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === flag);
+  });
+})());
+check("Catti-brie is the truest kin — reborn, she names what carries the threshold (the way a soul loves), the cup-and-wine of the Wall", (() => {
+  const carries = coC.nodes.find(n => n.id === "co_c_carries");
+  return carries && carries.effects.some(e => e.key === "co.knows_what_carries");
+})());
+check("Wulfgar's reach is a Persuasion check (crit/fumble) — honor the choosing not the survival; never ask him to describe hell", (() => {
+  const reach = coW.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = coW.nodes.find(n => n.id === "co_w_reach_crit");
+  const fumble = coW.nodes.find(n => n.id === "co_w_reach_fumble");
+  return reach && reach.crit && reach.fumble && reach.fail &&
+    crit && crit.effects.some(e => e.key === "co.wulfgar_seen") &&
+    fumble && fumble.effects.some(e => e.key === "co.wulfgar_recoils");
+})());
+check("each Companion carries a [RETURNED] line + a Returned-sense", [coB, coC, coW, coR].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

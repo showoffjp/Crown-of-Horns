@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.26.0 — *"The Companions' Fire"* — a forty-eighth zone: Drizzt's reborn family, the truest kin the Returned has (content)
+
+> Sigil's warmest door. The Companions of the Hall — Drizzt's family — *all died and were reborn together*, which makes
+> them the truest kin the Returned has in any world: a whole circle that crossed back. Four beloved souls round a fire,
+> each answering *what is a soul worth that no power claimed?* from a different scar.
+- ▲ **Bruenor Battlehammer** — the dwarf-king and foundling who threw out the oldest law his people hold sacred to call
+  a drow, a human orphan, a halfling thief and a barbarian boy his *clan*, and weathered his own kind's scorn for it.
+  A **[RETURNED]** lands the thesis: *a soul is the family it shows up for, not the blood it was born to* — and the Wall,
+  which weighs blood and god, *does not know what a family is.*
+- ❋ **Catti-brie** — the truest kin of all: she **died, was unmade, and was born again** — new body, new childhood, new
+  age — and is *still herself.* She names the answer to the question under the whole saga: what carries the threshold is
+  not the memories, the body, or the skills, but *the way a soul loves* — and the Wall mortars the *cup* (blood, body,
+  one life, the god stamped on the side) and never once looks at the *wine.*
+- ⟁ **Wulfgar** — dragged living into the Abyss for what his soul felt as decades, who crawled out broken and chose,
+  daily and unwitnessed, to be **gentle** anyway. A **Persuasion** check reaches him (crit: honor the *choosing*, not the
+  survival, and the gentle giant is seen true for the first time; fumble: ask him *what hell was like* and you walk him
+  back into the cell). A **[RETURNED]** lands it: *a soul is not the worst thing done to it; the breaking is only the
+  loudest thing that happened.*
+- ◆ **Regis** — the small, soft, self-doubting con-man who was *certain* he'd run when it mattered, looked at the open
+  door, and stayed. A **[RETURNED]** gives him the measure no one ever gave him: *not how much a soul could lift, but
+  how much it gave against how much it had* — and the least who stayed outweighs the greatest who strolled. (He keeps a
+  charm-gem that fakes affection, and never once uses it on the ones whose love he actually wants.)
+- 👁️ **Four new Returned-senses.** 🧪 **+7 gates** (now **1,264 checks**, all green). **48 zones, 165 souls.** Sigil now
+  has **five doors.**
+
+---
+
 ## 👑 v6.25.0 — *"The Far Doors"* — a forty-seventh zone: Sigil opens onto D&D's wilder corners (Eberron / Spelljammer / Ravenloft) (content)
 
 > After the Long Table's gut-punch, a turn of the kaleidoscope: a junction in Sigil where three *far* doors open onto
