@@ -1626,8 +1626,18 @@ check("the side-roads payoff now reads THE WITNESSED reactively (the house, the 
       return E.pickVariantText(w, goodGuy, s) !== base;
     });
 })());
+check("the epilogue reads the OMNIVERSE arc reactively (the Naming, Volo's tale, Athas's alliance, the Realms legends) — the convergence comes home", (() => {
+  const d = epiChron.nodes.find(n => n.id === "epi_sq_doors");
+  if (!d || !d.variants) return false;
+  const base = E.pickVariantText(d, goodGuy, E.newState());
+  return epiChron.nodes.find(n => n.id === "epi_sidequests").choices.some(ch => ch.next === "epi_sq_doors") &&
+    ["tt.the_naming_done", "rl.volo_guides", "cd.athasian_allied", "rl.drizzt_kin"].every(f => {
+      const s = E.newState(); s.bools[f] = true;
+      return E.pickVariantText(d, goodGuy, s) !== base;
+    });
+})());
 check("every side-roads cluster has a default (a soul that walked other roads still gets a years-after line)", (() => {
-  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms", "epi_sq_harder", "epi_sq_witnessed"].every(id => {
+  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms", "epi_sq_harder", "epi_sq_witnessed", "epi_sq_doors"].every(id => {
     const node = epiChron.nodes.find(n => n.id === id);
     return node && node.variants && node.variants.some(v => !v.when) &&
       E.pickVariantText(node, goodGuy, E.newState()).length > 0;

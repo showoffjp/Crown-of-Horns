@@ -384,6 +384,10 @@
               "next": "epi_sq_witnessed"
             },
             {
+              "text": "\"The doors, Chronicler — the City of Doors, the worlds beyond my own, and the room behind them all. I walked out of my Realm entirely. How did *that* turn out, in the years after?\"",
+              "next": "epi_sq_doors"
+            },
+            {
               "text": "\"That's enough of the side-roads, Chronicler.\"",
               "next": "epi_close"
             }
@@ -766,6 +770,48 @@
             },
             {
               "text": "*(The Chronicler scans the page and gives a small, honest shrug.)* …The *witnessed.* *(kindly)* If you walked *past* those particular doors — the house, the stage, the lazaret, the cairn, the one who ran — I'll not invent endings for souls you never met. *(a small smile)* But know this, since you *ask*: every one of them was a soul that mistook itself for the *wrong* thing — its walls, its applause, its death, its glory, its worst minute — and waited in the dark for someone with the *cold* to read it true and say so. *(quietly)* Some other Returned may yet walk those roads. The dark is *patient.* So, it seems, are the souls who wait in it to be *seen.*"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_doors",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tt.the_naming_done"
+                ]
+              },
+              "text": "*(The Chronicler sets down the pen entirely, and for a long moment does not write at all — only looks at you, as though seeing the whole of it.)* …You found the *Long Table.* *(softly)* …You walked out of your *own* dying Realm, through the City of Doors, past the legends and the lost of a *hundred* worlds — and you found the *room* *behind* all the rooms, and you did the thing the Keeper had kept the table warm for longer than there have been *words* to *wait* for: you *spoke* the *Names.* *(its voice is hushed, reverent)* …And it *worked*, Returned. Not just *here.* *Everywhere.* The Wall of the Faithless was only ever your Realm's *parish* name for the wall behind *all* the Walls — the place the *loved-and-set-aside* go — and when you stood at that scarred old table and *remembered* them *out* *loud*, the *forgotten* of *every* *world* *felt* it *let* *go* *at* *once.* *(it shakes its head, wondering)* …They tell it differently in every sphere now. On Krynn they say a *stranger* spoke their *lost* names and the *cold* lifted. On Athas — *gods*, on *godless* *Athas* — they say *someone* from *beyond* the *red* sun *carried* their *water* *home.* And in a *warm* room *behind* the *worlds*, an *old* *Keeper* *lit* a *candle* it had not been *able* to *light* in an *age*, because a soul *finally* *came* *back* to the *table* and *said* the *one* thing that *re-lights* it: *now — where were we?* *(it picks the pen back up, and when it writes, it writes slowly, as if the words are holy)* …You did not *break* the Wall, Returned. *Anyone* with an *army* can *break* a *wall.* You did the *harder*, *truer* thing. You *remembered* what it was *made* of — and *nothing*, it turns out, *imagined* with *love* is *ever* *truly* *gone.* It only *waits.* And you *went* *back* for *all* of it.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rl.volo_guides"
+                ]
+              },
+              "text": "*(The Chronicler chuckles, despite the gravity.)* …Ah — and you'll *want* to know about *Volo.* *(it grins)* …Volothamp Geddarm took your *tale* and ran *with* it, of *course* he did, through *every* *door* in the *Cage* and a *hundred* *worlds* past it — *Volo's* *Guide* to the *Soul* that *Walked* the *Wheel*, he's *calling* it, and *swears* it's his *finest* *work*, and for *once* the *insufferable* man may be *right.* *(softly)* …Wherever you *went*, the *story* of you went *ahead* and *behind*, *carried* by the *one* soul the *multiverse* won't *let* *die* because *someone* has to *tell* the *tale.* …Every *parish*, every *world*, *every* *prison* of the *forgotten* — they have *all* *heard*, now, the *story* of the *dead* thing that *un-died* and *crossed* the *doors* *telling* *each* of them their *Wall* was *wrong.* …He *kept* his *word*, the *lucky* old *fraud.* You will *never*, *ever* go *unread.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cd.athasian_allied"
+                ]
+              },
+              "text": "*(The Chronicler's face goes grave with respect.)* …And they *came*, Returned. The ones from *beyond* your *Wheel.* …*Kesh* of *Athas* — the *thirsty* soul from the *world* with *no* *gods* — *crossed* the *doors* to your *Realm* and *put* those *two* *hands* to your *Wall* beside you, and when the *first* *godless* soul came *free* of the *stone*, the *Athasian* *wept*, which a soul of that *killing* *world* does *not* do *lightly.* *'Somebody* *came*,' it said. *'Somebody* from the *forgotten* *places* *came.'* …Your *Wall* fell with the *hands* of *worlds* on it that your Realm did not *know* *existed.* That is how *large* the *thing* you *did* *became.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rl.drizzt_kin"
+                ]
+              },
+              "text": "*(The Chronicler smiles.)* …And the *legends* of your *own* Realm — they did not *stay* in their *homesick* *taproom.* *(it nods)* …A *drow* who *swam* the *worst* *current* there *is* counted you *kin* and *said* so to *anyone* who'd *listen.* A *Harper* who *died* a *father* *rested* at *last.* A *thousand-year* *sage* *finally* *did* the *thing* he'd been *too* *wise* to *attempt.* An *ascended* *doubter* *testified* *under* *oath* that the *Wall* *knew* *nothing.* …Even the *cold* one at the *threshold* — *(it pauses)* — *well.* That *story's* not *finished.* But *fewer* *stories* are *finished* than the *Wall* would have you *believe*, and you, of *all* souls, *taught* a *whole* *Wheel* *that.*"
+            },
+            {
+              "text": "*(The Chronicler considers the page, and gives a small, honest shrug.)* …The *doors.* *(kindly)* …If you *kept* to your *own* *Realm*, Returned — *stayed* on the *causeway*, *never* *found* the *crack* that *opened* *sideways* — then I'll *not* *invent* a *multiverse* you never *walked.* *(a small smile)* …But *know* this, since you *ask*: the *door* was *always* *there.* The *crack* in your *soul* was *never* *only* a *crack* in *time.* And in a *warm* room *behind* all the *worlds*, a *Keeper* is *still* *holding* a *chair* for the *soul* that *might*, *someday*, *find* the *door* and *come* *back* to the *table.* …It is *very* *patient.* It has *kept* *tables* *warm* through *longer* *silences* than *yours.*"
             }
           ],
           "auto": "END"
