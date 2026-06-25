@@ -2074,6 +2074,37 @@ check("the Unfinished hero (a paused story, not an ended one) and the One Who Le
 check("each Long Table soul carries a [RETURNED] line + a Returned-sense", [ttKeep, ttUnf, ttChair].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-seventh zone: the Far Doors — D&D's wilder corners (Eberron / Spelljammer / Ravenloft cameos) ----
+const FW = SCENES && SCENES.fardoors;
+check("a forty-seventh zone (the Far Doors) ships — a Sigil junction onto D&D's wilder settings", FW && FW.npcs.length >= 3);
+check("the Far Doors are reached through a junction in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "fardoors"));
+const fwWar = CONVS.find(c => c.id === "fw.warforged");
+const fwGiff = CONVS.find(c => c.id === "fw.giff");
+const fwVoss = CONVS.find(c => c.id === "fw.voss");
+check("three souls from beyond the Realm (a warforged, a giff, a guilt-imprisoned lord) each answer the saga's question", fwWar && fwGiff && fwVoss);
+check("the warforged's thesis — a made soul is grown, not installed — and the [RETURNED] frees it; an Investigation read confirms the soul behind the blue light", (() => {
+  const t = fwWar.nodes.find(n => n.id === "fw_w_truth");
+  const r = fwWar.nodes.find(n => n.id === "fw_w_read");
+  return fwWar.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fw.warforged_freed") && r && r.auto === "END";
+})());
+check("the giff's thesis — belonging is who you threw in with, not the dirt you were born on — freed by a [RETURNED]", (() => {
+  const t = fwGiff.nodes.find(n => n.id === "fw_g_truth");
+  return fwGiff.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fw.giff_freed");
+})());
+check("Voss's guilt-prison mirrors the Wall (opened only from within) — a Persuasion check (crit/fumble) reaches him, and a [RETURNED] turns him on his jailers", (() => {
+  const reach = fwVoss.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = fwVoss.nodes.find(n => n.id === "fw_v_reach_crit");
+  const fumble = fwVoss.nodes.find(n => n.id === "fw_v_reach_fumble");
+  const truth = fwVoss.nodes.find(n => n.id === "fw_v_truth");
+  return reach && reach.crit && reach.fumble && reach.fail &&
+    crit && crit.effects.some(e => e.key === "fw.voss_walks_out") &&
+    fumble && fumble.effects.some(e => e.key === "fw.voss_recoils") &&
+    fwVoss.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "fw.voss_turns_on_jailers");
+})());
+check("each Far Doors soul carries a [RETURNED] line + a Returned-sense", [fwWar, fwGiff, fwVoss].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

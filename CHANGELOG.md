@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v6.25.0 — *"The Far Doors"* — a forty-seventh zone: Sigil opens onto D&D's wilder corners (Eberron / Spelljammer / Ravenloft) (content)
+
+> After the Long Table's gut-punch, a turn of the kaleidoscope: a junction in Sigil where three *far* doors open onto
+> the strangest, most beloved corners of the multiverse — a world of made souls, the star-dark between the spheres, and
+> a domain of guilt-mist — each a love letter to a setting, each answering *what is a soul worth that no power claimed?*
+- ⊞ **Cipher, a warforged** (Eberron) — built on a forge-table to be a soldier, who didn't power down when the war
+  ended but kept walking, reading, *caring* about the breakable people it was made to kill, and asks the one question
+  its kind was never built to survive: *am I a soul, or a very good imitation — and is there any way, from in here, to
+  tell?* An **Investigation** read finds the soul behind the blue light; a **[RETURNED]** lands it: *a soul is grown,
+  not installed* — and the very doubt is the soul examining itself, the one act no tool ever performed. (It indicts the
+  Wall from a new angle: a made thing isn't even *rated* the stone — discarded *beneath* damnation.)
+- ✹ **Sergeant Bombast, a giff** (Spelljammer) — gloriously martial, tusked, gunpowder-proud, who sailed wildspace
+  forty years sphere to sphere and *belongs to no world.* A tonal palette-cleanser of pure gonzo wonder — and then the
+  grief under it (a shroud for every shipmate the dark took). A **[RETURNED]** frees him: *belonging is who you threw
+  in with, not the dirt you were born on* — and a soul that threw in its lot with the whole Great Dark belongs more
+  than any wall could mortar.
+- ◌ **Voss** (Ravenloft) — a lord who coldly betrayed the one soul who trusted him, and was *kept* by the Dark Powers
+  in a domain of mist shaped from his own remorse: *a prison unbreakable from without, opened only from within* — the
+  Wall's exact sister. The lock isn't that he *can't* forgive himself but that he believes he *must not.* A **Persuasion**
+  check reaches him (crit: he walks out, for the kindness of the man he wronged; fumble: cheap comfort, and he ices
+  over — *you cannot forgive me for him*); and the deepest **[RETURNED]** turns him on his jailers: *a power that feeds
+  on remorse never wanted the debt paid — your fog honours nothing; it feeds the enemy he died fighting.*
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,257 checks**, all green). **47 zones, 161 souls.** Sigil
+  now has **four doors** — the cross-world cameos, the Realms' legends, the room behind the rooms, and the far doors —
+  and keeps growing.
+
+---
+
 ## 👑 v6.24.0 — *"The Long Table"* — a forty-sixth zone: the room behind all the doors — the saga's beating heart (content)
 
 > The most personal thing in the whole project, and the moment the entire saga was secretly building toward. A door in
