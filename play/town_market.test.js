@@ -2001,7 +2001,14 @@ const rlElm = CONVS.find(c => c.id === "rl.elminster");
 const rlGor = CONVS.find(c => c.id === "rl.gorion");
 const rlDri = CONVS.find(c => c.id === "rl.drizzt");
 const rlIre = CONVS.find(c => c.id === "rl.irenicus");
-check("five Realms legends gather (Volo, Elminster, Gorion, Drizzt, Irenicus)", rlVolo && rlElm && rlGor && rlDri && rlIre);
+check("six Realms legends gather (Volo, Elminster, Gorion, Drizzt, Irenicus, Cadderly)", rlVolo && rlElm && rlGor && rlDri && rlIre && CONVS.find(c => c.id === "rl.cadderly"));
+check("Cadderly the ascended doubter indicts the Wall — the [RETURNED] lands that a worthy soul earns the claim, the claim comes last", (() => {
+  const cad = CONVS.find(c => c.id === "rl.cadderly");
+  if (!cad) return false;
+  const truth = cad.nodes.find(n => n.id === "rl_c_truth");
+  return cad.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "rl.cadderly_affirms") && cad.returned;
+})());
 check("Volo can be recruited as a chaotic loremaster-guide across the doors", (() => {
   const guide = rlVolo.nodes.find(n => n.id === "rl_v_guide");
   return rlVolo.nodes.find(n => n.id === "1").choices.some(ch => ch.next === "rl_v_guide") &&

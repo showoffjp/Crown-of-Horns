@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v6.23.1 — *"The Doubter Who Ascended"* — Cadderly Bonaduce joins the Hearth of Faerûn (content)
+
+> A sixth legend takes a table at the Hearth — and arguably the saga's most *useful* witness against the Wall, because
+> he walked the whole road the Wall pretends to measure, and can testify it measures backward.
+- ✶ **Cadderly Bonaduce** — the young skeptic of Deneir's library who served the god for years *without believing*,
+  out of plain decency, and discovered that *the doing of good IS the prayer*; who raised the Spirit Soaring cathedral
+  stone by stone out of his own life-force, aging decades in months, and **ascended toward godhood** at the last. He is
+  the perfect counter to the Wall: a [RETURNED] lands the thesis through him — *a god's claim does not make a soul
+  worthy; a worthy soul earns the claim, and the claim comes last, always.* The Wall inverts the most important truth
+  in any cosmology, mortaring the godless for lacking a receipt that was never what mattered. (A **Religion** read maps
+  his ascension; he names the Wall not unjust but *incoherent* — a committee's cowardice dressed as a commandment, a
+  lie told in Heaven's name — and points you, priest to priest, at the cold threshold: *a soul cannot be taken, only
+  abandoned; Irenicus has his still.*) **Faith is a practice, not a possession — and the godless faithful were passing
+  the test without being told they were graded.**
+- 🧪 **+1 gate** (now **1,243 checks**, all green). The Hearth of Faerûn now seats **six** Realms legends; **45 zones,
+  155 souls.**
+
+---
+
 ## 👑 v6.23.0 — *"The Hearth of Faerûn"* — a forty-fifth zone: Sigil's first door — the Realms' own legends, as cameo souls (content)
 
 > Sigil grows. Off the City of Doors opens a homesick **Faerûnian taphouse** — because even the greatest heroes of one
