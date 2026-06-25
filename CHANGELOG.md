@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v6.29.0 — *"The Re-Written"* — a fifty-first zone: a love letter to D&D's half-century of upheaval (content)
+
+> The deepest swing at the nostalgia: a quiet, reverent door onto D&D's *own* history of being rewritten — the
+> editions, the retcons, the shelved settings — rendered mythically as cosmological upheaval, so it lands both as
+> in-world grief and as a love letter to a fifty-year-old game that kept changing the rules and never stopped being
+> loved. The thesis: *the structure changes; the love inside it does not.*
+- ✦ **Cosmas, the cartographer of a changing heaven** — who has mapped the planes through the **Re-Writings** (the great
+  Wheel un-spun and re-strung as a Tree, the Tree felled and raised as an Axis, the Axis dismantled and the old Wheel
+  turned again — the cosmology revised from the foundation by powers above the gods), every map made false overnight.
+  An **Arcana** read finds the one feature that survived every revision: not the planes, but *the warm roads souls wore
+  between each other.* A **[RETURNED]** names the Wall as not eternal law but *a feature of the current draft* — and the
+  souls it mortars as the permanent thing that will outlast it, the way they outlasted every heaven before.
+- ✶ **Aelith, the un-written goddess** — a small deity of *welcomes* (the lamp left lit, the bread set out) struck from
+  canon by a Re-Writing with no place for her: not killed but *un-written*, her temples reattributed, her name sanded
+  from every history, the divine exact mirror of every small soul the Wall erases for being un-grand. A **[RETURNED]**
+  re-canonizes her the only way a thing like her can be — *by remembering her true*, because **canon and true are not
+  the same word**, and a thing that happened cannot be un-happened by any power's correction.
+- ❖ **Maru, of the shelved world** — a soul from a beloved prime that was not destroyed but *set aside*, its door sealed
+  gently while the dreaming moved to newer worlds. The gentler, stickier grief: *you cannot rage against fondness* —
+  fond memory is a coffin with a comfortable lining. A **[RETURNED]** reframes it (*shelved isn't erased; it's a box
+  with the lamp still lit, and the dreaming wanders and comes back*), and a **Persuasion** check carries the world's
+  name back out — **crit:** you offer the *right-sized* promise, to *mention* it where a dreamer might hear, not to save
+  it; **fumble:** you over-promise to reopen the whole world, the exact vow a hundred visitors made, and *seal the door
+  tighter.*
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,286 checks**, all green). **51 zones, 174 souls.** Sigil
+  now has **eight doors.**
+
+---
+
 ## 👑 v6.28.0 — *"The Seven Sisters"* — a fiftieth zone: the legendary women of the Realms (content)
 
 > A deliberate rebalancing of a cast that had leaned male, and a payoff long owed: the legendary **women** of the

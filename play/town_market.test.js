@@ -2204,6 +2204,34 @@ check("Shandril is a soul the world saw only as a weapon — a Persuasion check 
 check("each Sister carries a [RETURNED] line + a Returned-sense", [ssSt, ssSi, ssSh].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-first zone: the Hall of the Re-Written — D&D's own history of upheaval (the structure changes; the love doesn't) ----
+const RW = SCENES && SCENES.rewritten;
+check("a fifty-first zone (the Hall of the Re-Written) ships — a love letter to D&D's half-century of revisions", RW && RW.npcs.length >= 3);
+check("the Hall of the Re-Written is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "rewritten"));
+const rwC = CONVS.find(c => c.id === "rw.cosmas");
+const rwA = CONVS.find(c => c.id === "rw.aelith");
+const rwM = CONVS.find(c => c.id === "rw.maru");
+check("three souls (the cartographer of a changing heaven, the un-written goddess, the shelved-world soul) are present", rwC && rwA && rwM);
+check("the cartographer: the structure of heaven is a draft, the love inside is permanent — a [RETURNED] names the Wall as just the current draft", (() => {
+  const t = rwC.nodes.find(n => n.id === "rw_c_truth");
+  return rwC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "rw.cosmas_affirms");
+})());
+check("the un-written goddess: being struck from canon isn't being struck from true — a [RETURNED] witnesses (re-canonizes) her", (() => {
+  const t = rwA.nodes.find(n => n.id === "rw_a_truth");
+  return rwA.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "rw.aelith_restored");
+})());
+check("the shelved-world soul: shelved isn't erased (a box with the lamp still lit) — a right-sized Persuasion promise carries the world's name (crit/fumble: over-promising seals the door tighter)", (() => {
+  const carry = rwM.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = rwM.nodes.find(n => n.id === "rw_m_carry_crit");
+  const fumble = rwM.nodes.find(n => n.id === "rw_m_carry_fumble");
+  return rwM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    carry && carry.crit && carry.fumble && carry.fail &&
+    crit && crit.effects.some(e => e.key === "rw.carries_maru_world") &&
+    fumble && fumble.effects.some(e => e.key === "rw.maru_over_promised");
+})());
+check("each Re-Written soul carries a [RETURNED] line + a Returned-sense", [rwC, rwA, rwM].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
