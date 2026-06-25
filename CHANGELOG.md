@@ -11,6 +11,42 @@
 
 ---
 
+## 👑 v6.23.0 — *"The Hearth of Faerûn"* — a forty-fifth zone: Sigil's first door — the Realms' own legends, as cameo souls (content)
+
+> Sigil grows. Off the City of Doors opens a homesick **Faerûnian taphouse** — because even the greatest heroes of one
+> prime are just expats in the multiverse, and wherever souls wash up far from home, they build a taproom that smells
+> of it. Here the Realms' own legends gather, and the saga's question lands on the icons who defined it. A reverent fan
+> tribute, each one woven into the thesis, not a name-drop. *(On the IP: D&D's setting lore is named throughout this
+> project already; these specific authored characters are written as loving homage — for a commercial build they'd
+> need filing-off or licensing, but as the love letter, they're the heart.)*
+- 🍺 **A forty-fifth zone — the Hearth of Faerûn** (through a door in Sigil). Five Realms legends, five answers to *what
+  is a soul worth that no power claimed?*:
+  - 🎶 **Volothamp "Volo" Geddarm** — the chaotic-neutral loremaster, raconteur, and tease who's been to every realm and
+    era and survives on pure dumb luck (which a [RETURNED] reveals isn't luck — *a cosmos that runs on witnessing won't
+    let its great witness die*). The comic mirror of Sigil's fading wayfarer. **Recruitable as your guide across the
+    doors** — a chaotic loremaster to gossip and tease his way through the realms at your side.
+  - ✶ **Elminster** — the thousand-year Sage of Shadowdale, who admits he does *not* know what a soul is worth, and is
+    shown by a [RETURNED] that *understanding was his own coward's flinch* — knowing a cruelty is not the same as ending
+    it, and a Chosen with power to unmake mountains never touched the Wall.
+  - ❂ **Gorion** — the Harper who died a *father, not a hero*, protecting a god-marked foster-child, and needs to know
+    the love he poured in *held.* A [RETURNED] tells him it always holds — and a father who died too soon can finally
+    rest. (You can carry his words to his child.)
+  - ❈ **Drizzt Do'Urden** — the drow who refused his birth and, with the Companions of the Hall, *died and came back* —
+    kin to the Returned. He affirms the thesis with his whole life: *a soul is the sum of its choices against the
+    current it was born into, and the stronger the current, the more it's worth for swimming it* — so the Wall has it
+    exactly backward.
+  - ⊗ **Jon Irenicus** — the **Shattered One** at the cold threshold, the saga's hardest case: an elf severed from his
+    gods who *chose* the monster (Drizzt's exact mirror — same wound, opposite answer). A **Persuasion** check reaches
+    the *Joneleth* under the Irenicus (crit surfaces the buried elf; fumble — a pity or a redeemer's hook — makes him
+    recoil); a [RETURNED] lands the unbearable truth (*they never took your soul; you abandoned it*), and the door back
+    opens on the one thing he refused to feel — guilt. Or you can **judge him and turn away** (a real fork) — and he
+    names what you've done: *the exact thing the Wall does to the Faithless.*
+- 🗺️ **Sigil is now a hub with two doors and counting** (the cross-world cameos of v6.22, and now the Realms' own
+  legends), built to keep growing.
+- 👁️ **Five new Returned-senses.** 🧪 **+7 gates** (now **1,242 checks**, all green). **45 zones, 154 souls.**
+
+---
+
 ## 👑 v6.22.0 — *"The City of Doors"* — a forty-fourth zone: SIGIL, the omniversal crossroads — a new axis for the whole saga (content)
 
 > The biggest swing in the project's history, and a new *spine.* The crack in the Returned's soul was always a crack in

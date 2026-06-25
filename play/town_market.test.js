@@ -1992,6 +1992,45 @@ check("the night-creature's reach-the-man Persuasion check carries crit AND fumb
 check("each Sigil soul carries a [RETURNED] line + a Returned-sense", [cdDust, cdKnight, cdAth, cdNight, cdWay].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-fifth zone: the Hearth of Faerûn — a Sigil door where the Realms' own legends gather (FR hero cameos) ----
+const RL = SCENES && SCENES.taproom;
+check("a forty-fifth zone (the Hearth of Faerûn) ships — a Faerûnian taproom in Sigil", RL && RL.npcs.length >= 5);
+check("the taproom is reached through a door in Sigil (the City of Doors grows)", (SCENES.sigil.exits || []).some(x => x.to === "taproom"));
+const rlVolo = CONVS.find(c => c.id === "rl.volo");
+const rlElm = CONVS.find(c => c.id === "rl.elminster");
+const rlGor = CONVS.find(c => c.id === "rl.gorion");
+const rlDri = CONVS.find(c => c.id === "rl.drizzt");
+const rlIre = CONVS.find(c => c.id === "rl.irenicus");
+check("five Realms legends gather (Volo, Elminster, Gorion, Drizzt, Irenicus)", rlVolo && rlElm && rlGor && rlDri && rlIre);
+check("Volo can be recruited as a chaotic loremaster-guide across the doors", (() => {
+  const guide = rlVolo.nodes.find(n => n.id === "rl_v_guide");
+  return rlVolo.nodes.find(n => n.id === "1").choices.some(ch => ch.next === "rl_v_guide") &&
+    guide && guide.effects.some(e => e.key === "rl.volo_guides");
+})());
+check("each legend answers the saga's question its own way, with a [RETURNED] reframe", (() => {
+  return [["rl.volo", "rl_v_truth", "rl.volo_moved"], ["rl.elminster", "rl_e_truth", "rl.elminster_struck"],
+          ["rl.gorion", "rl_g_truth", "rl.gorion_at_peace"], ["rl.drizzt", "rl_d_truth", "rl.drizzt_affirms"]].every(([id, node, flag]) => {
+    const c = CONVS.find(x => x.id === id);
+    const t = c.nodes.find(n => n.id === node);
+    return c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === flag);
+  });
+})());
+check("Irenicus is the saga's hardest case — reaching the elf under the monster is a Persuasion check with crit AND fumble, and you can also judge him (a real fork)", (() => {
+  const reach = rlIre.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = rlIre.nodes.find(n => n.id === "rl_i_reach_crit");
+  const fumble = rlIre.nodes.find(n => n.id === "rl_i_reach_fumble");
+  const judge = rlIre.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "rl_i_judge");
+  const truth = rlIre.nodes.find(n => n.id === "rl_i_truth");
+  return reach && reach.crit && reach.fumble && reach.fail &&
+    crit && crit.effects.some(e => e.key === "rl.joneleth_surfaces") &&
+    fumble && fumble.effects.some(e => e.key === "rl.irenicus_recoils") &&
+    judge && (judge.effects || []).some(e => e.key === "disp.ruthless") &&
+    rlIre.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "rl.irenicus_owns_it");
+})());
+check("each Hearth-of-Faerûn legend carries a [RETURNED] line + a Returned-sense", [rlVolo, rlElm, rlGor, rlDri, rlIre].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
