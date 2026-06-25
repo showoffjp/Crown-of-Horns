@@ -2294,6 +2294,38 @@ check("the twins are written as two halves of one wound (the mage's door never c
 check("each Lanceward soul carries a [RETURNED] line + a Returned-sense", [lwS, lwR, lwC].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-fourth zone: the Long Midnight — a World-of-Darkness-flavored door (you are not the hunger you were given, but the thing you choose to feed) ----
+const LN = SCENES && SCENES.longnight;
+check("a fifty-fourth zone (the Long Midnight) ships — a filed-off World of Darkness door on the night-cursed", LN && LN.npcs.length >= 3);
+check("the Long Midnight is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "longnight"));
+const lnM = CONVS.find(c => c.id === "ln.mireille");
+const lnF = CONVS.find(c => c.id === "ln.forgotten");
+const lnX = CONVS.find(c => c.id === "ln.mathias");
+check("three souls (the newly cursed fledgling, the worn-smooth elder, the one who stayed human) are present", lnM && lnF && lnX);
+check("the fledgling: starving rather than feed — a Persuasion can anchor her through a Hunger-spike (crit: the wave breaks; fumble: closing the distance nearly slips her)", (() => {
+  const hold = lnM.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = lnM.nodes.find(n => n.id === "ln_m_hold_crit");
+  const fumble = lnM.nodes.find(n => n.id === "ln_m_hold_fumble");
+  return lnM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    hold && hold.crit && hold.fumble && hold.fail &&
+    crit && crit.effects.some(e => e.key === "ln.mireille_held") &&
+    fumble && fumble.effects.some(e => e.key === "ln.mireille_nearly_slipped");
+})());
+check("the elder: worn smooth by centuries of feeding the Hunger — a [RETURNED] names the starved self not gone but a seed still waiting to be fed", (() => {
+  const t = lnF.nodes.find(n => n.id === "ln_f_truth");
+  return lnF.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ln.forgotten_turns");
+})());
+check("the one who stayed human: out-grew the curse by feeding the man, not fighting the monster — a [RETURNED] names a soul as its cultivation, not its curse", (() => {
+  const t = lnX.nodes.find(n => n.id === "ln_x_truth");
+  return lnX.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ln.mathias_outgrew");
+})());
+check("the three are written as one creature across the long night (start, end, and the middle road that proves the end is a choice)", (() => {
+  const mat = LN.npcs.find(n => n.id === "mathias");
+  return mat && mat.hail.includes("same creature");
+})());
+check("each Long-Midnight soul carries a [RETURNED] line + a Returned-sense", [lnM, lnF, lnX].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

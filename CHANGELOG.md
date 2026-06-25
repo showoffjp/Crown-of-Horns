@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v6.32.0 — *"The Long Midnight"* — a fifty-fourth zone: the night-cursed, and the wolf you feed (content)
+
+> A tonal turn into modern gothic — a door of guttering lamplight and old blood, a filed-off love letter to the
+> **World of Darkness** and its central question: *you are a monster by no choice of your own — so what, then, do you
+> choose to be?* The thesis: **you are not the hunger you were given; you are the thing you choose to feed instead —
+> and what you feed grows, while what you starve goes quiet.** Three souls who are the *same creature* at three points
+> of one long night: the start of the curse, the end of it, and the middle road that proves the end is a *choice.*
+- ✦ **Mireille, the newly cursed** — three weeks turned, starving rather than feed on a person, certain she's *losing*
+  because it hurts. An **Insight** read finds the opposite: the Hunger is *thinner* than it was, and the hurt is the
+  *sensation of it starving.* A **Persuasion** can *anchor* her through a Hunger-spike — **crit:** you stay until the
+  wave *breaks* and she learns to believe in the *after*; **fumble:** you close the distance to comfort her and the
+  Hunger *lunges* (the distance was the kindness). A **[RETURNED]** reframes the war: *not a fight you're losing to a
+  stronger thing — a garden, where what you water grows. You're feeding the girl. You're winning.*
+- ❖ **The Forgotten, the worn-smooth elder** — so old the Hunger has eaten its loves, its languages, its *name*, leaving
+  appetite wearing a person's shape; it walked the doors on a longing it can no longer name. An **Insight** read finds,
+  at the bottom of the worn-out well, a *seed* — the irreducible self, starved past speech but *alive*, the one thing
+  the Hunger could never reach. A **[RETURNED]** names the starved self *not gone, only waiting to be fed* — and *it is
+  never too late to start watering the other thing.* (It is the warning, not the fate; the road is ten thousand separate
+  nights, and the young one can refuse it.)
+- ✶ **Mathias, who stayed human** — as old as the elder, the *same* curse, the same Hunger that never quiets — and still
+  a man. Not by strength (everyone's fails), but by *out-growing* it: a single rule planted early as a *root* that holds
+  when willpower (the *trunk*) can't, and *one warm thing he'd never let the curse make cold.* A **[RETURNED]** names the
+  whole truth the door is built on: **a soul is not its curse; it is its cultivation** — and the far end of the long
+  night can look like a *person.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,309 checks**, all green). **54 zones, 183 souls.** Sigil's
+  bottom row is now **full — eleven doors.**
+
+---
+
 ## 👑 v6.31.0 — *"The Lanceward Hall"* — a fifty-third zone: Dragonlance, where heaven went silent (content)
 
 > A door under a faded blue banner, smelling of cold iron and woodsmoke — a love letter to **Dragonlance**, and the

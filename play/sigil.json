@@ -23,7 +23,8 @@
       { "x": 2, "y": 8, "to": "sisters", "dest": { "x": 5, "y": 7 }, "label": "▸ a door of moonlight and silver — a garden where three legendary women of the Realms remember what they outlived" },
       { "x": 1, "y": 8, "to": "rewritten", "dest": { "x": 5, "y": 7 }, "label": "▸ a quiet door of fading maps and dust — a hall of the re-written, where a cartographer, a struck-out goddess, and a shelved world still wait" },
       { "x": 0, "y": 8, "to": "menagerie", "dest": { "x": 5, "y": 7 }, "label": "▸ a low door with claw-marks and a faint warbling hoot — a menagerie of the made, where a monster, a mimic, and a kobold turn out to be people" },
-      { "x": 9, "y": 8, "to": "lanceward", "dest": { "x": 5, "y": 7 }, "label": "▸ a door under a faded blue banner, smelling of cold iron and woodsmoke — a hall where heaven went silent, and a knight, a mage, and his brother wait at opposite ends of one wound" }
+      { "x": 9, "y": 8, "to": "lanceward", "dest": { "x": 5, "y": 7 }, "label": "▸ a door under a faded blue banner, smelling of cold iron and woodsmoke — a hall where heaven went silent, and a knight, a mage, and his brother wait at opposite ends of one wound" },
+      { "x": 10, "y": 8, "to": "longnight", "dest": { "x": 5, "y": 7 }, "label": "▸ a door of guttering lamplight and old blood — the Long Midnight, where the night-cursed are not the hunger they were given but the thing they choose to feed instead" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",
