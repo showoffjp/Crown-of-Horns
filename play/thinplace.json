@@ -17,7 +17,8 @@
       { "type": "reeds", "x": 8, "y": 7 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "lasttorch", "dest": { "x": 5, "y": 7 }, "label": "◂ back down to the last torch" }
+      { "x": 5, "y": 8, "to": "lasttorch", "dest": { "x": 5, "y": 7 }, "label": "◂ back down to the last torch" },
+      { "x": 7, "y": 8, "to": "tongues", "dest": { "x": 5, "y": 7 }, "label": "▸ where the thin place gathers the untranslated — two souls who share blood and no words" }
     ],
     "npcs": [
       { "id": "waiter", "name": "Goodwife Pell", "title": "who comes to the thin place nightly", "x": 4, "y": 5, "hue": 340, "sigil": "P", "conv": "tp.waiter",

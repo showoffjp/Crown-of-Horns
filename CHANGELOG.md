@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v6.20.0 — *"The Untranslated"* — a forty-second zone: a relay (carry meaning across a gulf of language) (content)
+
+> A twenty-fifth structure, and a *mechanic* no zone has had: a **relay.** Not bridging two lonely souls into the same
+> conversation — *carrying specific meaning back and forth* across a gulf neither can cross, in a true two-directional
+> shuttle where what you learn from one soul unlocks what you can deliver to the other.
+- 🗣️ **A forty-second zone — the Untranslated** (where the thin place gathers the souls divided by tongue and time).
+  **Baba Yelena** died in the old country with the old tongue in her mouth; her grandchild **Lio** grew up in the new
+  land, never learned a word of it, was ashamed of it as a child, and pulled away before the grandmother died. They
+  have found each other here — the love instant, total, obvious — and cannot exchange a single syllable.
+- 🔁 **A true two-way relay.** A **[RETURNED]** reads Yelena's untranslatable meaning straight from the cold (not the
+  words — the certainty beneath them: *she knew the child was ashamed, forgave it before it happened, and grieves only
+  that the child carried the shame as a wound alone*), and you carry it across. **Delivering it is gated** on holding
+  it, and is a **Persuasion** check — *say it the way she would, slow, with the whole of the forgiving in it, so a
+  soul that's waited years will believe it*: **crit** lands it whole (the old endearment, *my small heart*, finally
+  understood) and the child breaks free; **fumble** leads with the tender word before the forgiveness and the
+  braced-for-blows child flinches from the kindness. And the relay runs **both ways** — the child's sorrow can be
+  carried *back* to the grandmother (also gated), who absolves it utterly.
+- 📜 **The thesis, in the wordless dragoman.** **Odo** carried meaning across twelve tongues for sultans and merchant-
+  princes — and died mid-sentence delivering a dying man's last blessing, and woke with every word drained out, even
+  his mother's first. He believes he is a ruin, the exact tool these two need, broken. A **[RETURNED]** names what an
+  **Insight** read confirms: *a soul is not the thing it could do.* The vocabularies were the brush; the **seeing** —
+  the bone-deep attention to what a soul truly means under its words — is the painter, and it is intact. He mistook the
+  loss of his brushes for the loss of his eyes. He becomes a dragoman of the *wordless* dead, bridging the gulfs the
+  Returned can't always tend — *the one tongue under all the others, that carries across every gulf there is.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,219 checks**, all green). **42 zones, 141 souls** —
+  twenty-five structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  house-comforter, stage-finisher, soul-physician, soul-stiller, blind guide's eyes, and the mouth between two souls
+  who share blood and no words.
+
+---
+
 ## 👑 v6.19.0 — *"The Wayfinder Who Lost the Way"* — a forty-first zone: an escort (lead a soul that can't see the road) (content)
 
 > A twenty-fourth structure, and a *player-role* no zone has held: an **escort.** Not walking *with* souls toward rest

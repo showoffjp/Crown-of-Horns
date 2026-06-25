@@ -1877,6 +1877,43 @@ check("the lure is a fingerling of the Hunger that can only lure, never drag —
 check("each Wayless soul carries a [RETURNED] line + a Returned-sense", [wlGuide, wlChild, wlLure].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-second zone: the Untranslated — a relay/interpreter structure (carry meaning across a gulf of language) ----
+const TG = SCENES && SCENES.tongues;
+check("a forty-second zone (the Untranslated) ships — a relay/interpreter structure", TG && TG.npcs.length >= 3);
+check("the untranslated are reached off the thin place", (SCENES.thinplace.exits || []).some(x => x.to === "tongues"));
+const tgGm = CONVS.find(c => c.id === "tg.grandmother");
+const tgCh = CONVS.find(c => c.id === "tg.grandchild");
+const tgDr = CONVS.find(c => c.id === "tg.dragoman");
+check("the three souls are present (the old-tongue grandmother, the grandchild who never learned, the wordless dragoman)", tgGm && tgCh && tgDr);
+check("the [RETURNED] reads the grandmother's untranslatable meaning from the cold — the relay begins (you carry her message)", (() => {
+  const msg = tgGm.nodes.find(n => n.id === "tg_gm_message");
+  return tgGm.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "tg_gm_message") &&
+    msg && msg.effects.some(e => e.key === "tg.carries_gm_message");
+})());
+check("delivering the grandmother's message to the child is GATED on carrying it, and is a Persuasion check with crit AND fumble (say it as she would)", (() => {
+  const deliver = tgCh.nodes.find(n => n.id === "1").choices.find(ch => ch.next && ch.next.indexOf("tg_ch_deliver") === 0);
+  const crit = tgCh.nodes.find(n => n.id === "tg_ch_deliver_crit");
+  const fumble = tgCh.nodes.find(n => n.id === "tg_ch_deliver_fumble");
+  return deliver && deliver.when && (deliver.when.flags || []).indexOf("tg.carries_gm_message") >= 0 &&
+    (deliver.check || {}).skill === "Persuasion" && deliver.crit && deliver.fumble && deliver.fail &&
+    crit && crit.effects.some(e => e.key === "tg.bridge_made") && fumble;
+})());
+check("the relay runs both ways — the child's sorrow can be carried back, gated, to the grandmother", (() => {
+  const took = tgCh.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "tg_ch_sorrow");
+  const hear = tgGm.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "tg_gm_hear_child");
+  return took && (took.effects || []).some(e => e.key === "tg.carries_child_sorrow") &&
+    hear && hear.when && (hear.when.flags || []).indexOf("tg.carries_child_sorrow") >= 0;
+})());
+check("the wordless dragoman is the thesis: a soul is not the thing it could do — the [RETURNED] frees him; the seeing under the words is intact", (() => {
+  const truth = tgDr.nodes.find(n => n.id === "tg_dr_truth");
+  const read = tgDr.nodes.find(n => n.id === "tg_dr_read");
+  return tgDr.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "tg.dragoman_freed") &&
+    read && read.auto === "END";
+})());
+check("each Untranslated soul carries a [RETURNED] line + a Returned-sense", [tgGm, tgCh, tgDr].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
