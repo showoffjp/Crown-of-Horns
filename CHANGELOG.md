@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.18.0 — *"The Witnessed"* — a payoff pass: the epilogue chronicler now reads the five newest structures (content)
+
+> A cohesion pass. The chronicler's "side-roads" payoff (v6.3, completed v6.9) read every structure up through the
+> Moot — but five have shipped since: the Cairn, the House, the Empty House, the Lazaret, and the One Who Runs. They
+> were tested and reactive *in* their zones, but the years-after didn't yet know them. Now it does.
+- 📜 **A fifth side-roads cluster — "the witnessed."** Ask the epilogue Chronicler about *the souls you witnessed free*
+  — the ones that mistook themselves for the wrong thing (their walls, their applause, their death, their glory, their
+  worst minute) and waited in the dark for someone with the cold to read them true — and he reads the years-after of
+  each, **reactively, off your real outcomes:**
+  - **The house** (`ho.house_understands`): it stopped fighting the new family and let them *deepen* it; little Posy
+    grew up on its doorframe; an inherited house never dies.
+  - **The lazaret** (`lz.physician_freed`): Sister Maud stopped nursing the incurable and started *witnessing* them out
+    — the pallets emptied one by one, and the last to rest was herself.
+  - **The Empty House** (`pf.tragedian_freed`): Orvel Vane finally looked down, finished his eighty-year play to the one
+    true witness who'd never left, and the understudy went on at last.
+  - **The cairn** (`bc.eddin_keystone`): it stands yet, on a forgotten fisher's true name — *a fisher named Eddin is
+    holding them up.*
+  - **The one who ran** (`fl.runner_stilled`): Symon stilled, turned, took the six words; he, his brother, and the hound
+    who remembered he was a man went on together, and the dark is quieter where a man used to run forever.
+- 🪢 **Closing the loop.** Every cluster keeps its **default** (a soul who walked other roads still gets an honest
+  line: *I'll not invent endings for souls you never met — but the dark is patient, and so are the souls who wait in it
+  to be seen*). The chronicler now reads **all twenty-three** structures across five clusters.
+- 🧪 **+1 gate** (now **1,202 checks**, all green), proving the new cluster fires on all five outcomes and keeps a
+  default. No new zones — **40 zones, 135 souls** — but the saga's ending now remembers its newest souls.
+
+---
+
 ## 👑 v6.17.0 — *"The Thaw"* — the cold runs two ways: a deeply-haunted Returned can come back to the warm (mechanic)
 
 > The Haunted system (v6.14–6.15) made leaning on the cold *cost* you — warned, weighed, and worried over. But a cost

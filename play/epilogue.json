@@ -380,6 +380,10 @@
               "next": "epi_sq_harder"
             },
             {
+              "text": "\"The souls I witnessed free — the house that thought it was its walls, the player to his empty seats, the lazaret of the death-locked, the cairn that wouldn't stand, the one who wouldn't stop running. How did the freed turn out, Chronicler?\"",
+              "next": "epi_sq_witnessed"
+            },
+            {
               "text": "\"That's enough of the side-roads, Chronicler.\"",
               "next": "epi_close"
             }
@@ -712,6 +716,56 @@
                   "op": "SetTrue"
                 }
               ]
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_witnessed",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "fl.runner_stilled"
+                ]
+              },
+              "text": "*(The Chronicler turns a page with something like wonder.)* …Ah. The *runner.* *(softly)* They still tell this one wrong in most houses, you know — *'the coward and the brother who hunted him.'* But I have it *true*, because *you* were there for the *ending.* You did not *catch* Symon. No one could; he was *faster* than grief. You *stilled* him — got him to *stop* long enough to learn the thing he'd run from for eighty years was a *weight he could set down*, not the whole *shape* of his soul. *(a smile)* And when he finally *stood* in the dark and *turned*, the first thing he saw was not a hunter gaining but his *little brother*, walking, in no hurry, with open hands and *six* words. *'It wasn't your fault. I forgive you.'* *(quietly)* They went on *together*, after — Symon and Edrid, and the old thief-taker Gethin, who remembered he was a *man* and not a *verb* and went, I'm told, to *find a dog.* Three souls a *single stillness* unknotted. The dead country is *quieter* now, in the place where a man used to run forever. *Quieter*, and *warmer.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lz.physician_freed"
+                ]
+              },
+              "text": "*(The Chronicler's face softens.)* …The *lazaret.* The house of the death-locked, where Sister Maud nursed the incurable eighty years and cured no one — because, as *you* told her, there was never a wound to *cure*, only a death they mistook for *now.* *(softly)* She does not *nurse* them anymore. She *witnesses* them — stands in each looping last moment and says, with the authority of the truth, *it ended.* And one by one her pallets *empty*, the drowned ferryman *surfaced*, the burning mother carrying her *rescue* instead of her fire. *(a pause)* And when the row was *done* — every soul she'd failed to heal, *healed* by being *seen* — she sat down on an empty pallet at last and let someone tell *her* the thing she'd never allowed: that sitting with a dying orphan who had no one else was *never* a failure. It was the *last kindness of his life.* She rests now. The *first* of her patients to do so was *herself.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "ho.house_understands"
+                ]
+              },
+              "text": "*(The Chronicler smiles at the page.)* …The *house.* Coll's house, that loved its home so fiercely it *became* the walls, and was being renovated *room by room* into terror — until *you* told it the thing it had backwards: that it was *never* the timber. A house is the *love lived in it*, and a life that *happened* cannot be *sanded off.* *(warmly)* It stopped fighting the new family. It let them *love* it — *deepen* it, the only thing a renovation can do to *love* — and the little one, Posy, grew up on its doorframe, new height-marks every year, *talking* to it every morning. The housekeeper finally *said* her forty-year piece. And the house that was so afraid of *change* learned the one thing that made change bearable: that it was being *inherited*, not *un-made.* An inherited house, you'll recall telling it, *never dies.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "pf.tragedian_freed"
+                ]
+              },
+              "text": "*(The Chronicler laughs, delighted.)* …The *Empty House!* The tragedian who played his five-act ruin to a hall he was *certain* was empty, eighty years, dying three lines short every night — until *you* made Orvel Vane do the one thing eighty years of terror never let him: *look down.* *(softly)* And there she was. Front row. Old Dorra the laundress, who'd bought a ticket with a month's coin and died in her seat *rapt*, and watched *every* performance since, the one true witness he never believed he had. He *finished* the play, at last — to a house that was *never* empty — and the understudy who'd waited in the wings her whole death finally *went on*, and the laundress *rose to her feet* and *wept*, exactly as she'd paid to. *Three* lonelinesses, you'll remember, each the cure for the other two. The stage is *dark* now. *Properly* dark — the dark of a show that *ended*, not one that never reached its close."
+            },
+            {
+              "when": {
+                "flags": [
+                  "bc.eddin_keystone"
+                ]
+              },
+              "text": "*(The Chronicler runs a reverent finger down the page.)* …The *cairn.* Master Cobb's beacon for the lost dead, that *would not stand* however he built it — because he quarried it from the *honored* dead, GLORY and the names of kings, and a stone that needs no holding cannot *bind.* *(softly)* You gave him the keystone he'd never have dared use: the *true name* of the smallest soul there, *Eddin, a fisher, drowned in a fouled net*, certain he was *nothing.* And on that one forgotten name the whole beacon *stood.* *(quietly)* It *stands* yet. The new-dead who'd have wandered into the Hunger find their way by its light now, and the first thing each of them learns, reading the foundation, is that *a fisher named Eddin is holding them up.* The forgotten man is the *brightest* stone in the dark. He'd have *laughed* to hear it. I'm told, some nights, he does."
+            },
+            {
+              "text": "*(The Chronicler scans the page and gives a small, honest shrug.)* …The *witnessed.* *(kindly)* If you walked *past* those particular doors — the house, the stage, the lazaret, the cairn, the one who ran — I'll not invent endings for souls you never met. *(a small smile)* But know this, since you *ask*: every one of them was a soul that mistook itself for the *wrong* thing — its walls, its applause, its death, its glory, its worst minute — and waited in the dark for someone with the *cold* to read it true and say so. *(quietly)* Some other Returned may yet walk those roads. The dark is *patient.* So, it seems, are the souls who wait in it to be *seen.*"
             }
           ],
           "auto": "END"

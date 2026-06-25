@@ -1616,8 +1616,18 @@ check("the side-roads payoff reads the HARDER roads reactively (the connoisseur 
     E.pickVariantText(harder, goodGuy, cust) !== E.pickVariantText(harder, goodGuy, E.newState()) &&
     E.pickVariantText(harder, goodGuy, moot) !== E.pickVariantText(harder, goodGuy, E.newState());
 })());
+check("the side-roads payoff now reads THE WITNESSED reactively (the house, the lazaret, the stage, the cairn, the one who ran)", (() => {
+  const w = epiChron.nodes.find(n => n.id === "epi_sq_witnessed");
+  if (!w || !w.variants) return false;
+  const base = E.pickVariantText(w, goodGuy, E.newState());
+  return epiChron.nodes.find(n => n.id === "epi_sidequests").choices.some(ch => ch.next === "epi_sq_witnessed") &&
+    ["fl.runner_stilled", "lz.physician_freed", "ho.house_understands", "pf.tragedian_freed", "bc.eddin_keystone"].every(f => {
+      const s = E.newState(); s.bools[f] = true;
+      return E.pickVariantText(w, goodGuy, s) !== base;
+    });
+})());
 check("every side-roads cluster has a default (a soul that walked other roads still gets a years-after line)", (() => {
-  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms", "epi_sq_harder"].every(id => {
+  return ["epi_sq_courts", "epi_sq_bargains", "epi_sq_rooms", "epi_sq_harder", "epi_sq_witnessed"].every(id => {
     const node = epiChron.nodes.find(n => n.id === id);
     return node && node.variants && node.variants.some(v => !v.when) &&
       E.pickVariantText(node, goodGuy, E.newState()).length > 0;
