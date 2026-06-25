@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v6.36.0 — *"The Faithful"* — a fifty-eighth zone: the beasts who loved us, and the love the Wall can't weigh (content)
+
+> The most tender door in the game, and a near-capstone that strips the whole thesis to its core. A door of the
+> *animals who loved us* — read through the player's dead-touched sense, which at last lets them understand what the
+> beasts always felt and never could say. These are the beings the Wall **cannot even conceive of pricing** — no deeds,
+> no words, no debts — and their wordless, unconditional love is the purest refutation of its entire ledger. The thesis:
+> **worth was never what you did; it was how you loved — and nothing in all the worlds ever loved more truly than a
+> faithful animal.**
+- ✦ **Hob, the dog who waited** — who went to the gate every gold evening for a master who died far away, and waited,
+  past the end of his legs, never understanding death, only absence. The player can give him the truth — a **Persuasion**
+  wrapped in love: **crit:** he understands it was *not his fault*, and sets the waiting down in peace; **fumble:** the
+  truth lands bare and he believes he was *unloved*, and breaks (he can only carry the heavy shape if it comes warm). A
+  **[RETURNED]** names the faithful love at an empty gate the purest there is — and a Wall that finds no *deeds* in it
+  is measuring *size*, not worth.
+- ❖ **Brand, the warhorse who did not run** — a *prey animal*, built across ten thousand generations to flee fire, who
+  stood in the screaming line of battle again and again, *afraid every time* (the brave feel all of it; they simply love
+  something more). An **Insight** read finds only love can override an instinct that deep. A **[RETURNED]** names it the
+  truest oath there is — *kept wordlessly, in the body, in the fire* — which no sworn knight's vow can match.
+- ✶ **Mote, the familiar who chose the unchosen** — a raven clever enough to bind anywhere, who *chose* the feared,
+  cast-out, lonely soul the whole world had barred its doors against — and was *right*, and proved it (the winter she
+  healed the child of the village that feared her, asking nothing). A **[RETURNED]** names the world's verdict on who's
+  worth loving **a fear dressed as a judgment**, and the Wall its lawful form: *choose the unchosen — it is the one
+  thing that has ever proven the Wall a liar.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,341 checks**, all green). **58 zones, 195 souls.** Sigil
+  now opens **fifteen doors.** *There was never any "just" a dog, "just" a horse, "just" a bird. There was only the love.*
+
+---
+
 ## 👑 v6.35.0 — *"The Sunblasted Door"* — a fifty-seventh zone: a world drunk dry, the dark mirror of the Wall (content)
 
 > The most thematically central door yet — a **Dark Sun**-flavored homage to a world *already* dead, the wizards having

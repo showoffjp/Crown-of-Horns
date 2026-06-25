@@ -2421,6 +2421,38 @@ check("the rememberer: keeps the memory that the world was green — a [RETURNED
 check("each Sunblasted soul carries a [RETURNED] line + a Returned-sense", [dsT, dsK, dsO].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-eighth zone: the Faithful — the animals who loved, rendered through the dead-sense (the love the Wall can't even see to weigh) ----
+const TF = SCENES && SCENES.faithful;
+check("a fifty-eighth zone (the Faithful) ships — a door of the beasts who loved us, read through the dead-sense", TF && TF.npcs.length >= 3);
+check("the Faithful is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "faithful"));
+const tfH = CONVS.find(c => c.id === "tf.hob");
+const tfB = CONVS.find(c => c.id === "tf.brand");
+const tfM = CONVS.find(c => c.id === "tf.mote");
+check("three faithful beasts (the dog who waited, the warhorse who didn't run, the familiar who chose the unchosen) are present", tfH && tfB && tfM);
+check("the dog: a Persuasion gives it the truth (crit: peace, not abandonment; fumble: it believes it was unloved and breaks)", (() => {
+  const t = tfH.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = tfH.nodes.find(n => n.id === "tf_h_truth_crit");
+  const fumble = tfH.nodes.find(n => n.id === "tf_h_truth_fumble");
+  return tfH.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.crit && t.fumble && t.fail &&
+    crit && crit.effects.some(e => e.key === "tf.hob_at_peace") &&
+    fumble && fumble.effects.some(e => e.key === "tf.hob_wounded");
+})());
+check("the dog: a [RETURNED] names the faithful love at an empty gate the purest there is — and the Wall, finding no deeds in it, measuring size, not worth", (() => {
+  const t = tfH.nodes.find(n => n.id === "tf_h_returned");
+  return t && t.effects.some(e => e.key === "tf.returned_hob");
+})());
+check("the warhorse: a [RETURNED] names love that overrode the prey-instinct to flee — an oath kept wordlessly in the fire, which no sworn vow can match", (() => {
+  const t = tfB.nodes.find(n => n.id === "tf_b_returned");
+  return tfB.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "tf.returned_brand");
+})());
+check("the familiar: chose the cast-out one everyone feared — a [RETURNED] names the world's verdict on who's worth loving a fear dressed as judgment, the Wall its lawful form", (() => {
+  const t = tfM.nodes.find(n => n.id === "tf_m_returned");
+  return tfM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "tf.returned_mote");
+})());
+check("each Faithful beast carries a [RETURNED] line + a Returned-sense", [tfH, tfB, tfM].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
