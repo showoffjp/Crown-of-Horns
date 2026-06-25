@@ -2260,6 +2260,40 @@ check("the kobold: the trash mob was always a person — a [RETURNED] flips the 
 check("each Made soul carries a [RETURNED] line + a Returned-sense", [mnH, mnC, mnS].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-third zone: the Lanceward Hall — Dragonlance, where heaven went silent (goodness unwitnessed is the only kind that was ever truly yours) ----
+const LW = SCENES && SCENES.lanceward;
+check("a fifty-third zone (the Lanceward Hall) ships — a Dragonlance heartbreak on faith, ambition, and love that keeps no score", LW && LW.npcs.length >= 3);
+check("the Lanceward Hall is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "lanceward"));
+const lwS = CONVS.find(c => c.id === "dl.sturm");
+const lwR = CONVS.find(c => c.id === "dl.raistlin");
+const lwC = CONVS.find(c => c.id === "dl.caramon");
+check("three souls (the faithful knight, the mage who chose the Art, the brother who stayed) are present", lwS && lwR && lwC);
+check("the knight: honor kept under a silent heaven — a [RETURNED] names unwitnessed virtue as the only kind that was ever truly his, and turns it on the Wall", (() => {
+  const t = lwS.nodes.find(n => n.id === "dl_s_truth");
+  return lwS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "dl.sturm_affirmed");
+})());
+check("the mage: ambition as the scar of being unloved — a gentle Persuasion can reach the boy under the gold (crit reaches him; fumble re-armors him thicker)", (() => {
+  const reach = lwR.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = lwR.nodes.find(n => n.id === "dl_r_reach_crit");
+  const fumble = lwR.nodes.find(n => n.id === "dl_r_reach_fumble");
+  return lwR.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    reach && reach.crit && reach.fumble && reach.fail &&
+    crit && crit.effects.some(e => e.key === "dl.reached_raistlin") &&
+    fumble && fumble.effects.some(e => e.key === "dl.raistlin_rearmored");
+})());
+check("the brother: love that keeps no score, the one kind the Wall can't price — a [RETURNED] names it not a failed transaction but the only love that was ever real", (() => {
+  const t = lwC.nodes.find(n => n.id === "dl_c_truth");
+  return lwC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "dl.caramon_unburdened");
+})());
+check("the twins are written as two halves of one wound (the mage's door never closed; the brother kept the seat warm)", (() => {
+  const rDoor = lwR.nodes.find(n => n.id === "dl_r_truth");
+  const cWarm = lwC.nodes.find(n => n.id === "dl_c_truth");
+  return rDoor && rDoor.effects.some(e => e.key === "dl.raistlin_door_open") &&
+    cWarm && cWarm.effects.some(e => e.key === "dl.caramon_seen");
+})());
+check("each Lanceward soul carries a [RETURNED] line + a Returned-sense", [lwS, lwR, lwC].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

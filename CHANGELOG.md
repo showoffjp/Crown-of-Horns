@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v6.31.0 — *"The Lanceward Hall"* — a fifty-third zone: Dragonlance, where heaven went silent (content)
+
+> A door under a faded blue banner, smelling of cold iron and woodsmoke — a love letter to **Dragonlance**, and the
+> cleanest fit yet for this game's own thesis. Dragonlance's founding grief is *the gods withdrew and went silent, and
+> mortals had to decide whether to keep being good with no heaven watching* — which is precisely the Wall's question
+> about the godless and the unclaimed. The thesis: **goodness done when no god is watching — when no one is keeping
+> score — is the only goodness that was ever truly yours.** Three souls sit at the points of one wound.
+- ✦ **Sturm Brightblade, the faithful knight** — who kept a Solamnic oath (*Est Sularus oth Mithas — My Honor Is My
+  Life*) through an age when his world's gods had gone silent for lifetimes and the knighthood became a thing children
+  mocked in the street. An **Insight** read finds that honor is not the *absence* of the temptation to quit but its
+  *presence*, fully felt and freely answered *no*. He died holding a tower-wall in the gap, alone, under an empty sky —
+  and found the watching was never the point. A **[RETURNED]** names the empty ledger not the *tragedy* of his virtue
+  but the *proof* of it: *a good deed no heaven banked could only have been minted by the man himself.*
+- ❖ **Raistlin Majere, the mage who chose the Art** — gold-skinned, hourglass-eyed, brilliant and ruined, who traded
+  health, warmth, and every human tie for the one power a cruel world could not take from a frail boy. A gentle
+  **Persuasion** can reach the *boy* under the gold — not by flattering the archmage (he'll see it) nor pitying the
+  cripple (he'll despise it), but speaking past both — **crit:** the wall cracks and he is, for one moment, *seen*;
+  **fumble:** you narrate his pain back at him and he re-armors *thicker than ever.* A **[RETURNED]** names ambition as
+  *the scar of being unloved*, and the brother he never quite cut loose as the proof he never stopped wanting love.
+- ✶ **Caramon Majere, the brother who stayed** — the giant twin who loved Raistlin with his whole self, was pushed away
+  a thousand times, and *never got the message they were through.* An **Insight** read finds him *still keeping the seat
+  warm* at the far end of the hall. A **[RETURNED]** names a love that keeps no score as the one kind the Wall *can't
+  price* — *not a failed transaction, because it was never a transaction at all.* The twins are written as two halves of
+  one wound, unable to cross the hall: the mage whose door *never actually closed*, and the brother who *waited anyway.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,301 checks**, all green). **53 zones, 180 souls.** Sigil
+  now has **ten doors.**
+
+---
+
 ## 👑 v6.30.0 — *"The Menagerie of the Made"* — a fifty-second zone: D&D's monsters, who turn out to be people (content)
 
 > A deliberate change of key after a run of heavy doors — warm, funny, and quietly devastating. The thesis: *a soul is
