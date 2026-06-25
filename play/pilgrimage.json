@@ -16,7 +16,8 @@
       { "type": "greywort", "x": 7, "y": 1 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "wayshrine", "dest": { "x": 5, "y": 4 }, "label": "◂ off the pilgrim road — back to the Grey Wayshrine" }
+      { "x": 5, "y": 8, "to": "wayshrine", "dest": { "x": 5, "y": 4 }, "label": "◂ off the pilgrim road — back to the Grey Wayshrine" },
+      { "x": 1, "y": 8, "to": "wayless", "dest": { "x": 5, "y": 7 }, "label": "▸ off the marked road into the trackless dark — a wayfinder stands frozen, blind to the way" }
     ],
     "npcs": [
       { "id": "starter", "name": "Brother Calwin", "title": "newly set out, full of certainty", "x": 3, "y": 6, "hue": 40, "sigil": "↑", "conv": "pl.starter",

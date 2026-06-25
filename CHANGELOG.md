@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v6.19.0 — *"The Wayfinder Who Lost the Way"* — a forty-first zone: an escort (lead a soul that can't see the road) (content)
+
+> A twenty-fourth structure, and a *player-role* no zone has held: an **escort.** Not walking *with* souls toward rest
+> (that was the Long Walk) — *leading* one that physically cannot perceive the road, by transferring your sight to her
+> trust, step by blind step, past a thing in the dark that wants her to stop walking forever.
+- 🧭 **A forty-first zone — the Wayfinder Who Lost the Way** (off the marked pilgrim road, into the trackless dark).
+  **Yorrel** guided caravans across the Anauroch and the high passes forty years and never lost a soul — until pride
+  and a winter shortcut walked her whole train of twelve off a snow-cornice into a ravine, herself last on the rope.
+  Now she is **blind to the road** — safe ground and the Hunger's edge all one featureless black — and she will not
+  take a single step, because the last time she trusted her own bones, twelve people died trusting them with her.
+- 🤝 **The thesis as guiding.** A **[RETURNED]** names what frees a guide who's lost the way: *you are not your one
+  wrong turn* (forty years of safe lines against one cornice), and *a guide can be guided* the one time the dark takes
+  her eyes — there's no shame in being the frightened soul roped behind, trusting eyes not her own. You become her
+  eyes. A **Persuasion** check earns her first blind step on your word alone (Charisma, full **crit and fumble**):
+  **crit**, she recognizes the steady tone she used on her own charges for forty years and *walks*; **fumble**, your
+  read is half a turn off and you aim her blind foot toward the downhill — and every instinct she has left screams,
+  and she recoils into worse terror.
+- 🌸 **The child is the rope, not the trap.** **Talla**, drowned at seven, holds the wayfinder's hand with a faith so
+  total it is the very knife Yorrel can't bear — *they trusted me too.* A **[RETURNED]** reframes it: trust freely
+  given, said aloud, is not a trap that proves a guide will fail; it is the rope that pulls a frozen guide forward when
+  nothing else will. (The guide's child-line is **knowledge-gated** — you must first learn from Talla that her trust
+  is the key.)
+- 🕳️ **The Kindly Dark.** A fingerling of the **Hunger**, wearing kindness like a coat, murmuring from the low ground
+  the one thing a lost guide most wants — *it's easy this way, you can rest, just follow.* Its "rest" is dissolving;
+  its gentle downhill is the one road that doesn't lead home. A **[RETURNED]** names it — and reads the single thing
+  that defeats it: **it can only lure, never drag.** Every soul it ever took walked in on their own tired feet; it does
+  not need to beat you, only to outlast you. The counter is to get the guide and child home before their strength runs
+  out, and make the true road louder than the kind voice.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,211 checks**, all green). **41 zones, 138 souls** —
+  twenty-four structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  house-comforter, stage-finisher, soul-physician, soul-stiller, and the eyes for a guide who lost her own.
+
+---
+
 ## 👑 v6.18.0 — *"The Witnessed"* — a payoff pass: the epilogue chronicler now reads the five newest structures (content)
 
 > A cohesion pass. The chronicler's "side-roads" payoff (v6.3, completed v6.9) read every structure up through the

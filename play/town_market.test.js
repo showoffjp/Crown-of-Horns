@@ -1837,6 +1837,46 @@ check("the hound is a soul frozen into its function — the [RETURNED] frees it 
 check("each Flight soul carries a [RETURNED] line + a Returned-sense", [flRunner, flBrother, flHound].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-first zone: the Wayfinder Who Lost the Way — an escort structure (lead a soul that can't see the road) ----
+const WL = SCENES && SCENES.wayless;
+check("a forty-first zone (the Wayfinder Who Lost the Way) ships — an escort structure", WL && WL.npcs.length >= 3);
+check("the escort is reached off the Pilgrimage", (SCENES.pilgrimage.exits || []).some(x => x.to === "wayless"));
+const wlGuide = CONVS.find(c => c.id === "wl.guide");
+const wlChild = CONVS.find(c => c.id === "wl.child");
+const wlLure = CONVS.find(c => c.id === "wl.lure");
+check("the three souls are present (the blind wayfinder, the child who trusts her, the kindly-dark lure)", wlGuide && wlChild && wlLure);
+check("you escort by transferring trust — the [RETURNED] reframe is the thesis: a guide is not her one wrong turn, and can be guided when the dark takes her eyes", (() => {
+  const truth = wlGuide.nodes.find(n => n.id === "wl_g_truth");
+  return wlGuide.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "wl_g_truth") &&
+    truth && truth.effects.some(e => e.key === "wl.guide_freed") && truth.effects.some(e => e.key === "wl.guide_trusts");
+})());
+check("the first-step Persuasion check carries crit AND fumble — and the fumble aims her blind foot toward the lure's downhill", (() => {
+  const step = wlGuide.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = wlGuide.nodes.find(n => n.id === "wl_g_step_crit");
+  const fumble = wlGuide.nodes.find(n => n.id === "wl_g_step_fumble");
+  return step && step.crit && step.fumble && step.fail &&
+    crit && crit.effects.some(e => e.key === "wl.guide_steps") &&
+    fumble && fumble.effects.some(e => e.key === "wl.guide_spooked");
+})());
+check("the child's trust is the saving rope — the [RETURNED] reframes faith as the thing that pulls a frozen guide forward, not a trap", (() => {
+  const truth = wlChild.nodes.find(n => n.id === "wl_c_truth");
+  return wlChild.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "wl.child_trust_is_key");
+})());
+check("the guide's child-line is knowledge-gated (you must first learn the child's trust is the key — no skeleton key)", (() => {
+  const ch = wlGuide.nodes.find(n => n.id === "1").choices.find(c => c.next === "wl_g_child");
+  return ch && ch.when && (ch.when.flags || []).indexOf("wl.child_trust_is_key") >= 0;
+})());
+check("the lure is a fingerling of the Hunger that can only lure, never drag — the [RETURNED] names it and out-guides the easy downhill", (() => {
+  const truth = wlLure.nodes.find(n => n.id === "wl_l_truth");
+  const read = wlLure.nodes.find(n => n.id === "wl_l_read");
+  return wlLure.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "wl.lure_named") &&
+    read && read.auto === "END";
+})());
+check("each Wayless soul carries a [RETURNED] line + a Returned-sense", [wlGuide, wlChild, wlLure].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
