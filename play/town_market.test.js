@@ -2168,6 +2168,42 @@ check("the spent cook is witnessed back (the Wall's lie answered: a soul is wort
 check("each Tomb soul carries a [RETURNED] line + a Returned-sense", [tbA, tbN, tbK].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fiftieth zone: the Seven Sisters — the legendary women of the Realms (a soul is not its power, role, or lifespan) ----
+const SS = SCENES && SCENES.sisters;
+check("a fiftieth zone (the Moonlit Garden of the Sisters) ships — the legendary women of the Realms", SS && SS.npcs.length >= 3);
+check("the Sisters' garden is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "sisters"));
+const ssSt = CONVS.find(c => c.id === "ss.storm");
+const ssSi = CONVS.find(c => c.id === "ss.simbul");
+const ssSh = CONVS.find(c => c.id === "ss.shandril");
+check("three legendary women gather (Storm Silverhand, the Simbul, Shandril)", ssSt && ssSi && ssSh);
+check("each answers the saga's question its own way, with a [RETURNED] reframe (a soul is not its power, role, or lifespan)", (() => {
+  return [["ss.storm", "ss_st_truth", "ss.storm_affirms"], ["ss.simbul", "ss_si_truth", "ss.simbul_reached"],
+          ["ss.shandril", "ss_sh_truth", "ss.shandril_seen"]].every(([id, node, flag]) => {
+    const c = CONVS.find(x => x.id === id);
+    const t = c.nodes.find(n => n.id === node);
+    return c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === flag);
+  });
+})());
+check("Storm names that grief is love continuing (the love is worth what it was, not less for ending — the Wall weighs the balance, never the spending)", (() => {
+  const g = ssSt.nodes.find(n => n.id === "ss_st_grief");
+  return g && g.effects.some(e => e.key === "ss.knows_grief_is_love");
+})());
+check("the Simbul is a woman buried under her power — an Arcana read finds Alassra hiding (not possessed), and the truth could get you blasted", (() => {
+  const r = ssSi.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Arcana");
+  const read = ssSi.nodes.find(n => n.id === "ss_si_read");
+  return r && read && read.auto === "END" && read.effects.some(e => e.key === "ss.knows_simbul_hides");
+})());
+check("Shandril is a soul the world saw only as a weapon — a Persuasion check (crit/fumble) to be believed: crit asks about her honey-cakes, fumble names the fire even to dismiss it", (() => {
+  const p = ssSh.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = ssSh.nodes.find(n => n.id === "ss_sh_prove_crit");
+  const fumble = ssSh.nodes.find(n => n.id === "ss_sh_prove_fumble");
+  return p && p.crit && p.fumble && p.fail &&
+    crit && crit.effects.some(e => e.key === "ss.shandril_freed") &&
+    fumble && fumble.effects.some(e => e.key === "ss.shandril_recoils");
+})());
+check("each Sister carries a [RETURNED] line + a Returned-sense", [ssSt, ssSi, ssSh].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

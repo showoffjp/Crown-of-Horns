@@ -11,6 +11,34 @@
 
 ---
 
+## 👑 v6.28.0 — *"The Seven Sisters"* — a fiftieth zone: the legendary women of the Realms (content)
+
+> A deliberate rebalancing of a cast that had leaned male, and a payoff long owed: the legendary **women** of the
+> Realms, three facets of one truth — *a soul is not the power, the role, or the lifespan it was handed.* The saga's
+> **fiftieth zone.**
+- ☽ **Storm Silverhand** — one of the Seven Sisters, the near-deathless Harper who has buried everyone she loves for
+  seven centuries and stayed *warm.* A **[RETURNED]** asks the question under the whole saga — what is love worth when
+  the beloved always dies and leaves you behind? — and she answers it from ten thousand gravesides: *grief is just love
+  continuing, with nowhere to land but you*, and a love is worth what it *was*, not a copper less for ending. The Wall
+  weighs the balance on the ledger and never the *spending* — and the godless who poured their lives into loves they
+  knew they'd lose are the richest souls it ever held.
+- ϟ **the Simbul** — the Witch-Queen of Aglarond, a woman *buried under her own power*, who across centuries poured
+  every unbearable feeling into the Art to avoid feeling it, until the storm nearly drowned Alassra entirely. An
+  **Arcana** read finds she is not possessed but *hiding* — and a **[RETURNED]** speaks the truth a being of vast power
+  could blast you to ash for (*you mistook the cup for the wine*), and something deep under the storm catches the bolt,
+  because *a true thing spoken to Alassra reaches Alassra, even seven centuries down.* The way back is the one she
+  dreads: to feel one unbearable grief directly — shaped exactly like an old man with a pipe.
+- ✺ **Shandril** — the kitchen-girl the world only ever saw as a *weapon.* She wanted a hearth and a quiet year and the
+  cosmos dropped the most coveted power in the Realms into her unwilling hands, and from that hour she was never again
+  allowed to be a person. A **Persuasion** check to be believed she's more than the fire — **crit:** instead of arguing
+  you ask what her favorite thing to bake was (*honey-cakes*), and the test dies because there's no want in it;
+  **fumble:** you call her *"more than the spellfire"* and name the fire in the very breath meant to look past it. A
+  **[RETURNED]** is the first soul in all the worlds to ask about the girl and not the fire.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,279 checks**, all green). **50 zones, 171 souls.** Sigil
+  now has **seven doors** — half the City of Doors is wired, and the cast is no longer all kings and giants.
+
+---
+
 ## 👑 v6.27.0 — *"The Tomb"* — a forty-ninth zone: the saga's thesis put to its hardest test, against true evil (content)
 
 > After all the warmth, the saga turns hard and tests its own thesis against a soul that *is* the Wall. A door that
