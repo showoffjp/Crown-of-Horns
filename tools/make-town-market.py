@@ -409,6 +409,7 @@ HTML = r"""<!DOCTYPE html>
  .reckon{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:12px}
  .reckon .nm{width:78px}.reckon .pips{flex:1;letter-spacing:1px}
  .reckon .rk{font-variant-numeric:tabular-nums;color:#8a8198}
+ .hauntwarn{margin-top:7px;padding:7px 9px;border:1px solid #5a2f2f;border-radius:6px;background:#1f1414;color:#dca09a;font-size:11.5px;line-height:1.45}
  .opts{display:flex;flex-direction:column;gap:9px;margin-top:4px}
  .opt{text-align:left;background:linear-gradient(#1b1726,#16121f);border:1px solid #34304a;color:#e8e2d2;border-radius:10px;padding:10px 13px;cursor:pointer;font:inherit;font-size:14.5px;transition:.12s}
  .opt:hover{border-color:#c9a24b;background:linear-gradient(#241d33,#1b1628)}
@@ -534,6 +535,7 @@ const DISP = {
   "disp.devout":{name:"Devout",hue:48}, "disp.heretical":{name:"Heretical",hue:320},
   "disp.stoic":{name:"Stoic",hue:210}, "disp.haunted":{name:"Haunted",hue:265}
 };
+const HAUNT_WARN = 6; // past this, the cold begins to cost you — the living flinch, the dead crowd close, the throne pulls
 function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][Math.min(10,Math.abs(n))]||(""+n); }
 // A faceted d20, drawn procedurally (no external art) — tumbles in 3D, bounces on landing.
 const D20_SVG = '<svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#2e2940" stroke-width="1.3" stroke-linejoin="round">'+
@@ -685,8 +687,13 @@ function renderState(){
   // reckoning (Pillars-style dispositions)
   const disp=Object.keys(st.ints).filter(k=>k.indexOf("disp.")===0&&st.ints[k]>0).map(k=>({k,name:(DISP[k]||{}).name||k,hue:(DISP[k]||{}).hue||0,v:st.ints[k]}));
   const rk=document.getElementById("reckon");
+  const haunt=st.ints["disp.haunted"]||0;
   rk.innerHTML = !disp.length ? `<div class="empty">Your choices haven't tilted you yet.</div>` :
-    disp.sort((a,b)=>b.v-a.v).map(d=>`<div class="reckon"><div class="nm" style="color:hsl(${d.hue} 50% 70%)">${esc(d.name)}</div><div class="pips" style="color:hsl(${d.hue} 50% 64%)">${"◆".repeat(Math.min(6,d.v))}</div><div class="rk">${roman(d.v)}</div></div>`).join("");
+    disp.sort((a,b)=>b.v-a.v).map(d=>{
+      const warn=d.k==="disp.haunted"&&d.v>=HAUNT_WARN;
+      const nmc=warn?"#e06a5a":`hsl(${d.hue} 50% 70%)`, ppc=warn?"#c85a4a":`hsl(${d.hue} 50% 64%)`;
+      return `<div class="reckon"><div class="nm" style="color:${nmc}">${warn?"⚠ ":""}${esc(d.name)}</div><div class="pips" style="color:${ppc}">${"◆".repeat(Math.min(6,d.v))}</div><div class="rk">${roman(d.v)}</div></div>`;
+    }).join("") + (haunt>=HAUNT_WARN?`<div class="hauntwarn">⚠ <b>The cold is winning.</b> You have leaned on the Returned's voice so often that the living flinch from you now and the dead crowd close. Reach past the warm world much further and you risk freezing into the very thing that waits on the throne.</div>`:"");
   const keys=Object.keys(st.bools), fl=document.getElementById("flags");
   fl.innerHTML = !keys.length ? `<div class="empty">Nothing yet — your choices leave a mark here.</div>` :
     keys.sort().map(k=>{const dot=k.indexOf("."),dom=dot<0?'':k.slice(0,dot)+'·';return `<span class="flagpill"><span class="d">${esc(dom)}</span>${esc(dot<0?k:k.slice(dot+1))}</span>`;}).join("");

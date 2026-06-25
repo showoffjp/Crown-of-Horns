@@ -1718,6 +1718,45 @@ check("the Insight 'read' on each death-locked soul auto-succeeds (a passive ski
 check("each Lazaret soul carries a [RETURNED] line + a Returned-sense", [lzPhys, lzDrown, lzMother].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- the Haunted consequence: leaning on the Returned's voice now costs you (warned + weighed) ----
+check("the reckoning panel ships a Haunted-warning state (a threshold + an ominous banner + its style)", (() => {
+  return /const HAUNT_WARN\s*=\s*\d+/.test(h) && /The cold is winning/.test(h) && /\.hauntwarn\{/.test(h) &&
+    /d\.k==="disp\.haunted"&&d\.v>=HAUNT_WARN/.test(h);
+})());
+const asArbiter = CONVS.find(c => c.id === "as.arbiter");
+const asWitness = CONVS.find(c => c.id === "as.witness");
+const cityMab = CONVS.find(c => c.id === "city.mab");
+const hxNode0 = c => c.nodes.find(n => n.id === "0");
+const hxHaunt = n => { const s = E.newState(); s.ints["disp.haunted"] = n; return s; };
+check("the self-trial Arbiter gains a Haunted charge at >=6 — the dead warn you've begun freezing toward the Crown", (() => {
+  const node = hxNode0(asArbiter);
+  const deep = E.pickVariantText(node, goodGuy, hxHaunt(6));
+  const base = E.pickVariantText(node, goodGuy, E.newState());
+  return node.variants.some(v => (v.when && v.when.int && v.when.int["disp.haunted"] === 6)) &&
+    deep !== base && /attrition|freezing|deep-cold|grave's/.test(deep);
+})());
+check("ruthlessness still outranks the haunt-charge (precedence: a cruel AND haunted soul is charged as cruel, not frozen)", (() => {
+  const node = hxNode0(asArbiter);
+  const s = E.newState(); s.ints["disp.ruthless"] = 4; s.ints["disp.haunted"] = 6;
+  const t = E.pickVariantText(node, goodGuy, s);
+  return /telling pace|how \*little\* of it/.test(t) && !/attrition|deep-cold/.test(t);
+})());
+check("the Witness gains a worried-but-grateful testimony at deep haunt (>=8) — and it overrides even the bright merciful witness", (() => {
+  const node = hxNode0(asWitness);
+  const s = E.newState(); s.ints["disp.merciful"] = 4; s.ints["disp.haunted"] = 8;
+  const deep = E.pickVariantText(node, goodGuy, s);
+  const mercOnly = E.pickVariantText(node, goodGuy, (() => { const x = E.newState(); x.ints["disp.merciful"] = 4; return x; })());
+  return node.variants.some(v => (v.when && v.when.int && v.when.int["disp.haunted"] === 8)) &&
+    deep !== mercOnly && /stopped being able to \*feel\* us|nothing left of \*you\*|terrified/.test(deep);
+})());
+check("a living NPC flinches at deep haunt — Mab the tavern-keep feels the cold coming off you (>=6)", (() => {
+  const node = hxNode0(cityMab);
+  const deep = E.pickVariantText(node, goodGuy, hxHaunt(6));
+  const base = E.pickVariantText(node, goodGuy, E.newState());
+  return node.variants.some(v => (v.when && v.when.int && v.when.int["disp.haunted"] === 6)) &&
+    deep !== base && /gone \*cold\*|the \*living\* can \*feel\* you|mostly \*grave\*/.test(deep);
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

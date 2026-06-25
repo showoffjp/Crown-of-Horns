@@ -184,6 +184,14 @@
           "variants": [
             {
               "when": {
+                "int": {
+                  "disp.haunted": 6
+                }
+              },
+              "text": "*(Mab's got a greeting half-loaded — she always does — but it dies on her lips when you cross her threshold, and her hand finds the bar-rail, and the warm gossip's eyes go careful and round.)* …*Oh.* *(she swallows)* It's — it's *you*, love. *Course* it is. *(she doesn't come round the bar like she used to)* You'll — you'll forgive an old woman, only — *(she rubs her arms)* — only it's gone *cold* in here, sudden, the way it does when you walk in *now.* Used to be you'd come in and I'd have *six* bits of news for you before you sat. *(quieter)* Now I get this — this *draught*, off you, like the door's open onto somewhere with *no* *summer* in it, and the *regulars* feel it too, they go *quiet*, they *find* somewhere *else* to *look.* *(she makes herself meet your eyes, kind even now, but it costs her)* I'll *still* pour for you, mind. I'll *always* pour for you. *(barely)* But you're — you're going *somewhere*, love, the *cold* way, and the *living* can *feel* you *leaving* before you've *gone.* …*Are* you still *in* there? The one who *helped* my marked girl at the river? *Or* is it mostly *grave* that walks in my *door* these days? *(she tries to smile, and doesn't quite)* …*Tell* me there's still a *bit* of *warm* left in you. I'd *sleep* better.*"
+            },
+            {
+              "when": {
                 "flags": [
                   "lt.wall_stirs"
                 ]

@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v6.14.0 — *"The Cold You Carry"* — the Haunted disposition gets teeth: leaning on the [RETURNED] voice now has a warned-about cost (mechanic)
+
+> A systems pass, not a zone. The dead-touched **[RETURNED]** dialogue choices are some of the best writing in the
+> game — and until now there was nothing to stop a player picking them every time. They were always available and the
+> `disp.haunted` they accrue was tracked but *never read*: no warning, no consequence. This release closes that gap.
+> The cold you reach for to read a soul's secret is the same cold that is slowly turning you into the thing on the
+> throne — and now the game **says so, to your face,** before it's too late to choose otherwise.
+- ⚠️ **The reckoning panel warns you.** `disp.haunted` now has a threshold (`HAUNT_WARN = 6`). Cross it and the
+  Haunted row in the live "who you're becoming" reckoning turns ominous (red, ⚠-marked) and a banner appears:
+  *"The cold is winning. You have leaned on the Returned's voice so often that the living flinch from you now and the
+  dead crowd close. Reach past the warm world much further and you risk freezing into the very thing that waits on the
+  throne."* The player can **see** the cost accruing, in real time, and course-correct.
+- 🍺 **The living flinch.** **Mab** the tavern-keep — who normally greets you with six bits of warm gossip — gains a
+  deep-haunt (≥6) greeting where the warmth fails her: the room goes cold when you enter, the regulars find somewhere
+  else to look, and she asks, kindly and frightened, whether there's *still a bit of warm left in you.* The first
+  living person to feel you leaving before you've gone.
+- ⚖️ **The self-trial weighs it.** The **Assize** (where the dead put your existence on the scale) already read
+  `disp.merciful` and `disp.ruthless`; now it reads **Haunted** too, on the engine's real `when.int` gating:
+  - At **haunted ≥ 6**, the **Arbiter** brings a charge no other path does — *you were not cruel; you spent your
+    causeway in mercy. But you did all of it with the grave's voice* — naming the **second road to the Crown**, the
+    one the Last Returned walked not through cruelty but through **attrition**, freezing one cold-but-kindly choice at
+    a time. (Ruthlessness still outranks it: a cruel-and-haunted soul is charged as cruel.)
+  - At **haunted ≥ 8**, the **Witness** — the warmth you left behind — steps up *grateful but frightened*, and begs
+    the scale to weigh the thing no one else will say: not whether your mercy was real, but **what it cost the soul
+    who carried it.** This testimony **overrides even the bright merciful witness**, so a player who saved everyone
+    *with a hand that stopped being able to feel them* finally hears it.
+- 🧪 **+5 gates** (now **1,190 checks**, all green), proving the warning machinery ships, the three new readings fire
+  on the real engine, and the **precedence** is correct (ruthless > haunt charge; deep-haunt witness > merciful
+  witness). No new zones — **39 zones, 132 souls** — but the most-written disposition in the game finally *matters.*
+
+---
+
 ## 👑 v6.13.0 — *"The Lazaret of the Last Breath"* — a thirty-ninth zone: a healing-triage (souls death-locked in their final moment) (content)
 
 > A twenty-second structure, and a new player-role: a **consulting physician** in a house of healing where no one can
