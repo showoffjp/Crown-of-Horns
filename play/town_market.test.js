@@ -1775,6 +1775,46 @@ check("a recruited companion worries at deep haunt — Dace gains a >=6 greeting
     (worry.choices || []).some(ch => ch.next === "dace_haunt_cold" && (ch.effects || []).some(e => e.key === "disp.haunted"));
 })());
 
+// ---- fortieth zone: the One Who Runs — a chase structure (a soul you win by stilling, not catching) ----
+const FL = SCENES && SCENES.flight;
+check("a fortieth zone (the One Who Runs) ships — a chase structure", FL && FL.npcs.length >= 3);
+check("the chase is reached off the Last Torch", (SCENES.lasttorch.exits || []).some(x => x.to === "flight"));
+const flRunner = CONVS.find(c => c.id === "fl.runner");
+const flBrother = CONVS.find(c => c.id === "fl.brother");
+const flHound = CONVS.find(c => c.id === "fl.hound");
+check("the three souls are present (the runner who won't stop, the brother who chases to forgive, the hound frozen into the hunt)", flRunner && flBrother && flHound);
+check("you win the chase by stilling, not catching — the [RETURNED] reframe is the thesis: a soul is not its worst minute, set the verdict down", (() => {
+  const truth = flRunner.nodes.find(n => n.id === "fl_truth");
+  return flRunner.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "fl_truth") &&
+    truth && truth.effects.some(e => e.key === "fl.runner_stilled");
+})());
+check("the Persuasion check to root the runner carries crit AND fumble (and the fumble is a reach that makes him bolt)", (() => {
+  const root = flRunner.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = flRunner.nodes.find(n => n.id === "fl_root_crit");
+  const fumble = flRunner.nodes.find(n => n.id === "fl_root_fumble");
+  return root && root.crit && root.fumble && root.fail &&
+    crit && crit.effects.some(e => e.key === "fl.runner_stilled") &&
+    fumble && fumble.effects.some(e => e.key === "fl.runner_bolted");
+})());
+check("the brother chases to forgive, not punish — the [RETURNED] carries the forgiveness into the cold the runner can't outrun", (() => {
+  const truth = flBrother.nodes.find(n => n.id === "ed_truth");
+  return flBrother.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "fl.carries_forgiveness");
+})());
+check("the runner's mercy-line about Edrid is knowledge-gated (you must learn the forgiveness first — no skeleton key)", (() => {
+  const ch = flRunner.nodes.find(n => n.id === "1").choices.find(c => c.next === "fl_forgive");
+  return ch && ch.when && Array.isArray(ch.when.flags) && ch.when.flags.indexOf("fl.carries_forgiveness") >= 0;
+})());
+check("the hound is a soul frozen into its function — the [RETURNED] frees it by naming the man under the verb; freeing the hunter frees the quarry", (() => {
+  const truth = flHound.nodes.find(n => n.id === "gh_truth");
+  const endGate = flHound.nodes.find(n => n.id === "1").choices.find(c => c.next === "gh_end");
+  return flHound.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "fl.hound_freed") &&
+    endGate && endGate.when && (endGate.when.flags || []).indexOf("fl.runner_stilled") >= 0;
+})());
+check("each Flight soul carries a [RETURNED] line + a Returned-sense", [flRunner, flBrother, flHound].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

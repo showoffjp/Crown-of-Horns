@@ -108,6 +108,16 @@
           "y": 7
         },
         "label": "▸ a half-built cairn that won't stand — a beacon for the lost dead"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "flight",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ out where a soul runs the dark and a hound bays after — the One Who Runs"
       }
     ],
     "npcs": [

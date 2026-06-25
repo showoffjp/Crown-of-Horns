@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v6.16.0 — *"The One Who Runs"* — a fortieth zone: a chase (a soul you win by stilling, not catching) (content)
+
+> A twenty-third structure, and a *shape* no zone has had: a **chase.** But the genius of the afterlife is that you
+> cannot catch a soul that runs from itself — so this is a chase you win by *stilling.* **Symon** has fled across the
+> whole dark country of the dead for years, and the faster he runs, the more exactly his grief keeps his pace.
+- 🏃 **A fortieth zone — the One Who Runs** (out past the Last Torch, where the causeway's light gives way to the long
+  dark). Three souls locked in one flight: **Symon**, who froze in a burning yard at nineteen while his twelve-year-old
+  brother called his name, and has run from that minute ever since; **Edrid**, the brother who burned, chasing not to
+  punish but to *forgive*; and **Gethin**, a thief-taker worn down past his own name into pure pursuit.
+- 🤚 **The thesis as flight.** Symon doesn't flee the hound at his heels — he flees a *name* he pinned on himself for
+  the worst minute of his life. A **[RETURNED]** names what stops a running soul: *a soul is not its worst minute; the
+  thing you flee fits in a hand and can be set down.* You don't catch him — he's faster than any soul — you **still**
+  him, with a voice that wants nothing from his stopping. A **Persuasion** check to root him (Charisma, full **crit
+  and fumble**): **crit**, he asks himself for the first time whether the running ever once got him *away* from it,
+  and *sits*; **fumble**, you reach — an instinctive helping hand — and a reaching hand is the one thing in any world
+  Symon cannot bear, because *a hand into the fire is the last thing he didn't do*, and he's gone.
+- 💛 **The brother chases to forgive — and that's why Symon runs hardest.** Edrid forgave him *while it was happening*,
+  with his last breath, understanding the fire was between his brother and the stair. A **[RETURNED]** carries the six
+  words — *it wasn't your fault, I forgive you* — into the cold the runner can't outrun, to wait until he stills, so
+  he feels he was forgiven the whole time he ran. (Symon flees mercy harder than vengeance: being hunted *confirms*
+  his verdict; being forgiven *unmakes* it — so the runner's forgiveness-line is **knowledge-gated**, earned only
+  after you learn what Edrid carries.)
+- 🐕 **The hound is a soul frozen into its function** — the same tragedy the Wall is made of, smaller: forty years a
+  thief-taker, worn away to pure pursuit, hunting a stranger because the hunt is the last word of himself he can read.
+  A **[RETURNED]** names the man under the verb (a name, a wife, a small house, a dog that was only a dog), and he
+  opens his hand. **Freeing the hunter frees the quarry both** — the end-the-hunt line is gated on having stilled the
+  runner first.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,200 checks**, all green). **40 zones, 135 souls** —
+  twenty-three structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  house-comforter, stage-finisher, soul-physician, and the pursuer who catches a soul by giving it a reason to stop.
+
+---
+
 ## 👑 v6.15.0 — *"The Cold You Carry, part 2"* — a companion worries: the haunt reaches the people closest to you (content)
 
 > The consequence system (v6.14.0) made the world and the dead notice you freezing. This brings it home — to the
