@@ -2232,6 +2232,34 @@ check("the shelved-world soul: shelved isn't erased (a box with the lamp still l
 check("each Re-Written soul carries a [RETURNED] line + a Returned-sense", [rwC, rwA, rwM].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-second zone: the Menagerie of the Made — D&D's monsters, who turn out to be people (a soul is not what it was made to be, nor what the tale cast it as) ----
+const MN = SCENES && SCENES.menagerie;
+check("a fifty-second zone (the Menagerie of the Made) ships — a warm door of iconic D&D monster-souls", MN && MN.npcs.length >= 3);
+check("the Menagerie is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "menagerie"));
+const mnH = CONVS.find(c => c.id === "mn.hooting");
+const mnC = CONVS.find(c => c.id === "mn.coffer");
+const mnS = CONVS.find(c => c.id === "mn.skritch");
+check("three souls (the made owlbear, the only-met-by-the-greedy mimic, the never-counted kobold) are present", mnH && mnC && mnS);
+check("the owlbear: a made monster who chose gentleness — a [RETURNED] names it the part of the joke that woke up a person, and aims the question at the Wall", (() => {
+  const t = mnH.nodes.find(n => n.id === "mn_h_truth");
+  return mnH.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "mn.hooting_seen");
+})());
+check("the mimic: cast as bait by an audience that only wanted to be bitten — a gentle Persuasion can coax it to drop the chest-shape (crit unmasks it; fumble snaps it shut)", (() => {
+  const shape = mnC.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = mnC.nodes.find(n => n.id === "mn_c_shape_crit");
+  const fumble = mnC.nodes.find(n => n.id === "mn_c_shape_fumble");
+  return mnC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    shape && shape.crit && shape.fumble && shape.fail &&
+    crit && crit.effects.some(e => e.key === "mn.coffer_unmasked") &&
+    fumble && fumble.effects.some(e => e.key === "mn.coffer_snapped_shut");
+})());
+check("the kobold: the trash mob was always a person — a [RETURNED] flips the size (the swarm is a village; the heroes are the monsters) and turns it on the Wall", (() => {
+  const t = mnS.nodes.find(n => n.id === "mn_s_truth");
+  return mnS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "mn.skritch_unburdened");
+})());
+check("each Made soul carries a [RETURNED] line + a Returned-sense", [mnH, mnC, mnS].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

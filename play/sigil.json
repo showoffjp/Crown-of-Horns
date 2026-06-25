@@ -21,7 +21,8 @@
       { "x": 4, "y": 8, "to": "companions", "dest": { "x": 5, "y": 7 }, "label": "▸ a door warm with woodsmoke — a campfire where a family that died and came back together is resting" },
       { "x": 8, "y": 8, "to": "tomb", "dest": { "x": 5, "y": 7 }, "label": "▸ a door that should never have opened — a black tomb where a soul-hoarder builds a god out of the spent, the Wall made a person" },
       { "x": 2, "y": 8, "to": "sisters", "dest": { "x": 5, "y": 7 }, "label": "▸ a door of moonlight and silver — a garden where three legendary women of the Realms remember what they outlived" },
-      { "x": 1, "y": 8, "to": "rewritten", "dest": { "x": 5, "y": 7 }, "label": "▸ a quiet door of fading maps and dust — a hall of the re-written, where a cartographer, a struck-out goddess, and a shelved world still wait" }
+      { "x": 1, "y": 8, "to": "rewritten", "dest": { "x": 5, "y": 7 }, "label": "▸ a quiet door of fading maps and dust — a hall of the re-written, where a cartographer, a struck-out goddess, and a shelved world still wait" },
+      { "x": 0, "y": 8, "to": "menagerie", "dest": { "x": 5, "y": 7 }, "label": "▸ a low door with claw-marks and a faint warbling hoot — a menagerie of the made, where a monster, a mimic, and a kobold turn out to be people" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",

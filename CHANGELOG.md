@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v6.30.0 — *"The Menagerie of the Made"* — a fifty-second zone: D&D's monsters, who turn out to be people (content)
+
+> A deliberate change of key after a run of heavy doors — warm, funny, and quietly devastating. The thesis: *a soul is
+> not what it was made to be, nor what the tale only ever cast it as.* Three of D&D's most iconic "monsters" — the ones
+> the stories put in the first room so the heroes know there's danger — turn out, when you finally stop and *stay*, to
+> be the most achingly ordinary people in the City.
+- ✦ **Hooting, the owlbear who was made** — *feathered death*, stitched from owl and bear by a bored cruel wizard as a
+  *joke*, built to frighten and exactly as terrible as intended. An **Insight** read finds the thing no one ever stayed
+  to see: a creature that, alone and unwitnessed and for no reward, *chose gentleness* against every line of its making.
+  The question it is starving to be asked is the smallest one — *are you all right in there* — the thing you ask a
+  *who*, never a *what*. A **[RETURNED]** names it *the part of the joke that woke up and turned out to be a person*, and
+  turns that one question on the Wall.
+- ❖ **Coffer, the mimic** — a thing that takes the shape of *treasure* because treasure is the one thing every soul that
+  ever found it wanted, so the only company it has ever kept is the *greedy*, reaching, every time, at their very worst.
+  It half-decided it must therefore *be* a trap — until it saw the flaw: it was a net that only ever caught the
+  grasping, and the kind walked right past the chest. A gentle **Persuasion** can coax it to *drop the chest-shape* and
+  show the soft, worthless-to-you, *real* thing underneath — **crit:** it unmasks fully (you wanted the part with no
+  gold in it); **fumble:** *"show me the real you"* lands like every clever looter who ever talked the lid open, and it
+  *snaps shut.* A **[RETURNED]** names it *a person cast as bait by an audience that only wanted to be bitten.*
+- ✶ **Skritch, the kobold** — the *trash mob*, the little one in the doorway, the *tutorial*, the grass the heroes wade
+  through to get to the dragon. It had *twelve* clutch-mates with names: Vekk who whistled birds from the sky, Ssira who
+  was scared of the dark and slept in the middle so she'd have one of them on every side. An **Insight** read finds its
+  last thought, dying in the doorway of its *home* — not for itself, but *counting*, making sure the littlest one got
+  away. A **[RETURNED]** *flips the size* — a swarm in a doorway is twelve people defending the only home they've got;
+  switch the scale and *the heroes are the monsters* — and stands the whole Wall up next to its smallest soul to ask
+  who's really the monster in *that* story.
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,293 checks**, all green). **52 zones, 177 souls.** Sigil
+  now has **nine doors.**
+
+---
+
 ## 👑 v6.29.0 — *"The Re-Written"* — a fifty-first zone: a love letter to D&D's half-century of upheaval (content)
 
 > The deepest swing at the nostalgia: a quiet, reverent door onto D&D's *own* history of being rewritten — the
