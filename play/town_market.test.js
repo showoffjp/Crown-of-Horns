@@ -2565,6 +2565,38 @@ check("CROSS-SOUL forgiveness: Greaves gives his word to carry; Rook has a gated
 check("each crew soul carries a [RETURNED] line + a Returned-sense", [ljV, ljG, ljR].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-second zone: the Sounding Court — music & permanence (the Wall weighs what can be held; the precious things can't be) ----
+const SND = SCENES && SCENES.thesong;
+check("a sixty-second zone (the Sounding Court) ships — three musicians on beauty and permanence", SND && SND.npcs.length >= 3);
+check("the Sounding Court is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "thesong"));
+const sgP = CONVS.find(c => c.id === "sg.pae");
+const sgC = CONVS.find(c => c.id === "sg.cale");
+const sgW = CONVS.find(c => c.id === "sg.wisp");
+check("three musicians (the lullaby that lasted, the masterwork that was lost, the song never meant to last) are present", sgP && sgC && sgW);
+check("the lullaby-mother: a [RETURNED] names a soul that outlives itself in what it gave — still doing her love, in the living, tonight", (() => {
+  const t = sgP.nodes.find(n => n.id === "sg_p_returned");
+  return sgP.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "sg.pae_named_the_wall");
+})());
+check("the lost composer: a Performance can learn his masterwork to carry it back to the living (crit: preserved exactly, he's freed; fumble: 'near enough' flattens it, worse than lost)", (() => {
+  const carry = sgC.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Performance");
+  const crit = sgC.nodes.find(n => n.id === "sg_c_carry_crit");
+  const fumble = sgC.nodes.find(n => n.id === "sg_c_carry_fumble");
+  return carry && carry.crit && carry.fumble && carry.fail &&
+    crit && crit.effects.some(e => e.key === "sg.carries_cales_song") &&
+    fumble && fumble.effects.some(e => e.key === "sg.cale_song_flattened");
+})());
+check("the lost composer: a post-carry node-0 variant fires once you carry his song, and a [RETURNED] names a beauty witnessed even once the Wall can't weigh", (() => {
+  const v = sgC.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("sg.carries_cales_song")));
+  const t = sgC.nodes.find(n => n.id === "sg_c_returned");
+  return v && t && t.effects.some(e => e.key === "sg.cale_named_the_wall");
+})());
+check("the ephemeral busker: a [RETURNED] names the un-lasting things the most alive — worth was never about lasting, but being fully while you are", (() => {
+  const t = sgW.nodes.find(n => n.id === "sg_w_returned");
+  return sgW.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "sg.wisp_named_the_wall");
+})());
+check("each musician carries a [RETURNED] line + a Returned-sense", [sgP, sgC, sgW].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

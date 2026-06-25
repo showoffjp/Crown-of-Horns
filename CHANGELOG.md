@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.41.0 — *"The Sounding Court"* — a sixty-second zone: music, and what doesn't have to last to matter (content)
+
+> A new register — **art and beauty** — through three musicians who frame the same question three ways: *does a
+> beautiful thing have to endure to have been worth the making?* (The answer is no.) The thesis: **the Wall weighs what
+> can be held and kept — and the most precious things a soul ever makes can't be held at all; worth was never about
+> permanence, but about being, fully, while you are.**
+- ✦ **Pae**, a poor mother whose made-up lullaby outlived her by ten generations and is *still being sung* tonight by
+  people who never knew her name. An **Insight** read finds a soul *distributed* — still doing her love, in the living
+  world, by the thousand. A **[RETURNED]** names a soul that survives in a tune the Wall *can't weigh*: the name was the
+  label, the love was the cargo, and the song carried the cargo and dropped the name as unnecessary weight.
+- ❖ **Cale**, a true composer who made one perfect piece — *the sound of a beautiful thing ending and being glad it
+  existed* — and never wrote it down, losing it to death. A **Performance** can *learn it and carry it back to the
+  living* — **crit:** preserved exactly (*it's called The Glad of It*), and he's freed; **fumble:** *"near enough"*
+  flattens it — worse than lost (a counterfeit crowds out the true one forever). A **[RETURNED]** names a beauty
+  witnessed even once — written not on a page but into every soul in the room — the realest thing the ledger can't see.
+- ✶ **Wisp**, a street musician who played a thousand songs to passing strangers, kept nothing, and *knew* it was all
+  smoke — and played anyway, with the whole heart, *because* it was passing. An **Insight** read finds a bedrock peace
+  with impermanence chosen young. A **[RETURNED]** names the un-lasting things the *most* alive — the sunset, the wave,
+  the single afternoon — and the Wall the greatest *saver* of all, blind to the whole kingdom of worth that can only be
+  spent, never kept.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (**gate suite 665 / 1,373 total**, all green). **62 zones, 208
+  souls. Nineteen doors.** *The playing was the having. There was never going to be more than that — for any of us.*
+
+---
+
 ## 👑 v6.40.0 — *"The Last Job"* — a sixty-first zone: a heist crew, and the biggest rigged ledger there ever was (content)
 
 > A deliberate **tonal lift** after a run of tender doors — wit, banter, and caper energy on top of a buried grief. A
