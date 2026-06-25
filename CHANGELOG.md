@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.38.0 — *"The Reunion"* — a fifty-ninth zone: two souls who lost each other, and the Wall's true opposite (content)
+
+> A **structurally new** door — the first built on **cross-soul reactivity**, and a deliberate answer to what the Wall
+> actually *is.* A wide plaza of the *lost-and-searching*: souls who came through death hunting for someone and never
+> stopped. Two of them — a wife and her husband — have searched *this same plaza* for an age, passing within arm's reach
+> a hundred times, and never once known it, because **grief makes you search for the face you buried while the real
+> face, changed by an age of looking, moves through the same crowd searching back.** You can see across that gap. You
+> can carry the proof between them. You can walk them home. The thesis: **the Wall's deepest cruelty was never judgment —
+> it was *separation*; and its undoing is not a kinder judge but a witness who walks the distance the parting made.**
+- ✦ **Mirren**, who has searched for her husband for an age — and **Edran**, who swore on her deathbed he would *find*
+  her, and has kept that one promise every hour since. Each gives you a **private proof-token** — a song hummed wrong,
+  a secret word no other soul in all the worlds could know — the lock love builds around itself.
+- 🔗 **Cross-soul mechanic (new):** carrying *Edran's* proof unlocks the choice to bring *Mirren* to him; carrying
+  *Mirren's* unlocks the reverse. Speak the proof, and an age of wariness falls in an instant — because the token is the
+  one thing the false hopes never had. The reunion fires from whichever you reach *second*, and both searchers' opening
+  beats change forever after. Each also carries an always-available **[RETURNED]** witness (a love that searches an age
+  unrewarded is the realest thing the ledger can't weigh).
+- ✶ **Halia, the Usher of the Lost** — who *sees* every match as a thread of light and is bound by her office never to
+  *point*, and has waited an age for a soul outside her law. A **[RETURNED]** names the Wall the *engine of separation*,
+  and its fall **not broken but un-parted — one reunion at a time.**
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **gate suite 641 / 1,349 total**, all green). **59 zones,
+  198 souls. Sixteen doors.** *No one searches this hard, this long, for someone who isn't searching just as hard, back.*
+
+---
+
 ## 👑 v6.37.0 — *"The Far Doors Echo"* — the omniverse lands in the ending (reactivity)
 
 > Not a new zone — a **payoff.** After fifteen Sigil doors onto worlds beyond the Wheel, the side-roads now *echo in the

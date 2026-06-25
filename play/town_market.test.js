@@ -2453,6 +2453,43 @@ check("the familiar: chose the cast-out one everyone feared — a [RETURNED] nam
 check("each Faithful beast carries a [RETURNED] line + a Returned-sense", [tfH, tfB, tfM].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-ninth zone: the Reunion — two souls who lost each other, with cross-soul reactivity (the Wall's opposite: un-parting) ----
+const RN = SCENES && SCENES.reunion;
+check("a fifty-ninth zone (the Plaza of the Lost-and-Searching) ships — a reunion door with cross-soul reactivity", RN && RN.npcs.length >= 3);
+check("the Reunion is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "reunion"));
+const rnM = CONVS.find(c => c.id === "rn.mirren");
+const rnE = CONVS.find(c => c.id === "rn.edran");
+const rnH = CONVS.find(c => c.id === "rn.halia");
+check("three souls (the searching wife, the searching husband, the Usher who tends them) are present", rnM && rnE && rnH);
+check("each searcher can give a private proof-token (the thing only the two of them would know)", (() => {
+  const mTok = rnM.nodes.find(n => n.id === "rn_m_token");
+  const eTok = rnE.nodes.find(n => n.id === "rn_e_token");
+  return mTok && mTok.effects.some(e => e.key === "rn.mirren_gave_token") &&
+    eTok && eTok.effects.some(e => e.key === "rn.edran_gave_token");
+})());
+check("the reunion is CROSS-SOUL gated: bringing Mirren to Edran requires you carry HER token; bringing Edran to Mirren requires HIS", (() => {
+  const mReunite = rnM.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "rn_m_reunion");
+  const eReunite = rnE.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "rn_e_reunion");
+  return mReunite && mReunite.when && (mReunite.when.flags || []).includes("rn.edran_gave_token") &&
+    eReunite && eReunite.when && (eReunite.when.flags || []).includes("rn.mirren_gave_token");
+})());
+check("either reunion node fires rn.reunited (the payoff), and node-0 has a post-reunion variant for both searchers", (() => {
+  const mR = rnM.nodes.find(n => n.id === "rn_m_reunion");
+  const eR = rnE.nodes.find(n => n.id === "rn_e_reunion");
+  const mV = rnM.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("rn.reunited")));
+  const eV = rnE.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("rn.reunited")));
+  return mR && mR.effects.some(e => e.key === "rn.reunited") && eR && eR.effects.some(e => e.key === "rn.reunited") && mV && eV;
+})());
+check("the Usher: a [RETURNED] names the Wall's deepest cruelty separation, and its undoing a witness who walks the distance the parting made", (() => {
+  const t = rnH.nodes.find(n => n.id === "rn_h_returned");
+  return rnH.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "rn.halia_affirmed");
+})());
+check("each searcher carries an always-available [RETURNED] witness (apart from the gated reunion), and all three have a Returned-sense", (() => {
+  const mW = rnM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"));
+  const eW = rnE.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"));
+  return mW && eW && [rnM, rnE, rnH].every(c => c.returned);
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
