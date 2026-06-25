@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v6.12.0 — *"The Empty House"* — a thirty-eighth zone: a performance (a tragedian playing to no one) (content)
+
+> A twenty-first structure, and a player-role no zone has held: you don't free a soul, judge a dispute, build a thing,
+> or comfort a house — you **finish a play.** **Master Orvel Vane**, the finest tragedian on the Sword Coast, dropped
+> dead of a stopped heart three lines from the end of his greatest role, on opening night, mid-soliloquy — and could
+> not bear to leave his life's work unfinished, so he has performed *The Fall of Lord Greve* every night for eighty
+> years to a house he believes is empty, certain that **a play no one sees never happened.**
+- 🎭 **A thirty-eighth zone — the Empty House** (a dark playhouse off the Night Market). Three lonelinesses braided so
+  that each is the cure for the other two: **Orvel** the tragedian, performing to the dark; **Linnet** the understudy,
+  who learned Lady Mourn to the bone and never once went on, eighty years word-perfect in the wings; and **Old Dorra**,
+  the laundress who spent a month's coin for a front-row seat, died in it rapt on opening night, and has watched every
+  performance since — the one true audience the player on stage has never looked down to see.
+- 🎬 **The thesis as theatre.** Orvel has *become* Lord Greve — the play is about a man destroyed by needing to be
+  remembered, and he is trapped by the very terror it warns against. A **[RETURNED]** names what a soul who died and
+  came back would know: a performance no one sees doesn't *un-happen* — you played it, gorgeously, eighty years; **you
+  are the work, not the applause.** And his house was never empty: *look down — front row — she has watched every
+  night.* One true witness who stayed eighty years is the fullest house a player ever had.
+- 🎟️ **A Performance check finishes the eighty-year play.** A non-passive social skill (Charisma) with full **crit and
+  fumble** — step into the footlights and speak Lord Greve's missing final line yourself. **Crit:** you play his death
+  truer than he ever did and he weeps as the play, suspended eighty years three lines from its end, is finished at
+  last. **Fumble:** you call him *Lord GROVE* and ask the empty house to "please applaud" — and the horror cracks into
+  the first laugh Orvel has laughed since he died.
+- 🪞 **Two more freed by the same light.** Linnet is the *part she never played* — the **[RETURNED]** frees her to take
+  the three paces onto the lit boards at last (the play needs a Lady Mourn; she's been ready eighty years). Dorra is
+  the *witness who was never seen* — the **[RETURNED]** makes Orvel finally look down, so the laundress who chose
+  beauty over bearing-up rises to her feet, applauding, the first thing he sees after eighty years of the dark.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,177 checks**, all green). **38 zones, 129 souls** —
+  twenty-one structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  comforter of a frightened house, and the soul who steps onto a dead stage to finish an eighty-year tragedy.
+
+---
+
 ## 👑 v6.11.0 — *"The House That Remembers"* — a thirty-seventh zone: a sentient building (a soul that became its house) (content)
 
 > A twentieth structure, and a player-role no zone has held: you don't free a soul, judge a dispute, or build a

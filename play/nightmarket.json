@@ -105,6 +105,16 @@
           "y": 7
         },
         "label": "▸ a parlor of exquisite, dreadful quiet — a connoisseur keeps a table"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "playhouse",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a dark playhouse where a tragedian still performs — The Empty House"
       }
     ],
     "npcs": [

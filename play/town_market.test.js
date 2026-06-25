@@ -1650,6 +1650,38 @@ check("the living child is the keystone — loving the house as a friend, she co
 check("each House soul carries a [RETURNED] line + a Returned-sense", [hoHouse, hoKeeper, hoWick].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-eighth zone: the Empty House — a performance structure (a tragedian playing to no one) ----
+const PF = SCENES && SCENES.playhouse;
+check("a thirty-eighth zone (the Empty House) ships — a performance structure", PF && PF.npcs.length >= 3);
+check("the playhouse is reached off the Night Market", (SCENES.nightmarket.exits || []).some(x => x.to === "playhouse"));
+const pfTrag = CONVS.find(c => c.id === "pf.tragedian");
+const pfUnder = CONVS.find(c => c.id === "pf.understudy");
+const pfSpec = CONVS.find(c => c.id === "pf.spectator");
+check("the three souls are present (the tragedian who plays to no one, the understudy who never went on, the one who stayed to watch)", pfTrag && pfUnder && pfSpec);
+check("the tragedian thinks an unwitnessed play un-happened — the [RETURNED] reframe is the thesis: you're the work, not the applause; and his house was never empty", (() => {
+  const truth = pfTrag.nodes.find(n => n.id === "trag_truth");
+  return pfTrag.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "trag_truth") &&
+    truth && truth.effects.some(e => e.key === "pf.tragedian_freed") && truth.effects.some(e => e.key === "pf.one_is_enough");
+})());
+check("the Performance check to speak the missing final line carries crit AND fumble (a non-passive social skill), and a success finishes the play", (() => {
+  const lineChoice = pfTrag.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Performance");
+  const ok = pfTrag.nodes.find(n => n.id === "trag_line_ok");
+  return lineChoice && lineChoice.crit && lineChoice.fumble && lineChoice.fail &&
+    ok && ok.effects.some(e => e.key === "pf.finished_play");
+})());
+check("the understudy is the role she never played — the [RETURNED] frees her to step onto the stage at last", (() => {
+  const truth = pfUnder.nodes.find(n => n.id === "und_truth");
+  return pfUnder.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "pf.understudy_steps_on");
+})());
+check("the spectator is the one true witness — the [RETURNED] makes the tragedian finally look down and see her", (() => {
+  const truth = pfSpec.nodes.find(n => n.id === "spec_truth");
+  return pfSpec.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "pf.spectator_will_be_seen");
+})());
+check("each Empty House soul carries a [RETURNED] line + a Returned-sense", [pfTrag, pfUnder, pfSpec].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
