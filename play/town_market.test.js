@@ -2597,6 +2597,43 @@ check("the ephemeral busker: a [RETURNED] names the un-lasting things the most a
 check("each musician carries a [RETURNED] line + a Returned-sense", [sgP, sgC, sgW].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-third zone: No Man's Land — two enemy soldiers + the medic; cross-soul reconciliation (the Wall divides into sides) ----
+const TR = SCENES && SCENES.truce;
+check("a sixty-third zone (No Man's Land) ships — two enemy soldiers and the surgeon of the middle", TR && TR.npcs.length >= 3);
+check("No Man's Land is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "truce"));
+const trA = CONVS.find(c => c.id === "wd.ander");
+const trM = CONVS.find(c => c.id === "wd.marek");
+const trW = CONVS.find(c => c.id === "wd.wenna");
+check("two mirrored soldiers (blue and red, who killed each other) and the field-surgeon are present", trA && trM && trW);
+check("each soldier opens (his home/lie) and carries a [RETURNED] witness", (() => {
+  const aOpen = trA.nodes.some(n => (n.choices || []).some(ch => (ch.effects || []).some(e => e.key === "wd.ander_opened")));
+  const mOpen = trM.nodes.some(n => (n.choices || []).some(ch => (ch.effects || []).some(e => e.key === "wd.marek_opened")));
+  const aW = trA.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"));
+  const mW = trM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"));
+  return aOpen && mOpen && aW && mW;
+})());
+check("CROSS-SOUL reconciliation at the medic: gated on BOTH soldiers opened, a Persuasion brings them across (crit reconciles; fumble 'forgive' splits them again)", (() => {
+  const cross = trW.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "wd_w_cross_ok");
+  const crit = trW.nodes.find(n => n.id === "wd_w_cross_crit");
+  const fumble = trW.nodes.find(n => n.id === "wd_w_cross_fumble");
+  return cross && cross.when && (cross.when.flags || []).includes("wd.ander_opened") && (cross.when.flags || []).includes("wd.marek_opened") &&
+    (cross.check || {}).skill === "Persuasion" && cross.crit && cross.fumble && cross.fail &&
+    crit && crit.effects.some(e => e.key === "wd.reconciled") &&
+    fumble && fumble.effects.some(e => e.key === "wd.cross_split_again");
+})());
+check("reconciliation drives node-0 post-reconciled variants for both soldiers and the surgeon", (() => {
+  const aV = trA.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("wd.reconciled")));
+  const mV = trM.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("wd.reconciled")));
+  const wV = trW.nodes.find(n => n.id === "0").variants.some(v => (v.when && (v.when.flags || []).includes("wd.reconciled")));
+  return aV && mV && wV;
+})());
+check("the surgeon: a [RETURNED] names the Wall the last battlefield — a Wall is only ever made of people kept apart", (() => {
+  const t = trW.nodes.find(n => n.id === "wd_w_returned");
+  return trW.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "wd.wenna_named_the_wall");
+})());
+check("each war-dead soul carries a [RETURNED] line + a Returned-sense", [trA, trM, trW].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.42.0 — *"No Man's Land"* — a sixty-third zone: two soldiers who killed each other, and the war the Wall is made of (content)
+
+> A morally-rich door on **war, sides, and the lie of the enemy** — and the clearest statement yet of *what the Wall
+> structurally is.* Two soldiers who killed each other in the mud, an age ago, still keep their line in death — each
+> frozen by a soldier's pride, neither able to cross first. The player walks between them, carries each one's *home*
+> across to the other, and discovers they are the same boy in different paint. The thesis: **the Wall is the last
+> battlefield — it divides souls into sides (worthy/unworthy, owed/owing) and survives only as long as the divided fight
+> each other across the line instead of turning, together, to face the power that drew it. A Wall is only ever made of
+> people kept apart.**
+- ✦ **Ander** (blue, a barley-farmer) and **Marek** (red, a fisherman) — mirror souls, same fear, same waiting girl
+  (Sera / Lize), same stolen autumn, same lie poured in the ear: *they don't send men to kill men — they paint the
+  monster onto the boy.* Each carries an always-available **[RETURNED]** witness.
+- ✶ **Wenna, the field-surgeon of the middle** — who had her hands in *both* their hearts and learned they bleed the
+  same: every dying boy, blue or red, calls for his mother, says a girl's name, and asks *am I going to die.* A
+  **[RETURNED]** names the Wall the last battlefield and its cure the same as a war's: *not victory (that just moves the
+  line) — the soldiers crossing it together.*
+- 🔗 **Cross-soul reconciliation (new):** once you've opened *both* boys (carried each one's home), a **Persuasion** at
+  Wenna's no-man's-land brings them across — **crit:** you speak each boy's home to the other's face (never *"forgive"*,
+  which makes one the criminal) and the line dissolves into brotherhood; **fumble:** you say *"forgive him"* and split
+  them onto sides again (peace, not a truce that breaks). Reconciling rewrites all three souls' opening beats.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (**gate suite 673 / 1,381 total**, all green). **63 zones, 211
+  souls. Twenty doors.** *There are no devils. There was only ever us, the paint, and the hand that held the brush.*
+
+---
+
 ## 👑 v6.41.0 — *"The Sounding Court"* — a sixty-second zone: music, and what doesn't have to last to matter (content)
 
 > A new register — **art and beauty** — through three musicians who frame the same question three ways: *does a
