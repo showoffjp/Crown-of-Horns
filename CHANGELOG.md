@@ -956,7 +956,7 @@
   world* turned out: the **re-made Wall** of willing keepers, the **generational appeal** still clearing its
   docket, the **kind god** you relieved walking through his own door smiling — or, if you took the Crown, the
   **sorrowful tally** of the tyrant you became. Then they recount the fates of every thread — the river, the
-  bridge, the Choir, your company, and Aldric and Eithne — each coda reading the specific flags you set across
+  bridge, the Choir, your company, and Aldric and Maerin — each coda reading the specific flags you set across
   all thirteen prior zones.
 - 🍎 **The survivors appear to speak for themselves** (via the conditional-NPC system): **Wren**, old now and
   warm and *living*, who became the one who *bothers* for the next marked soul and whose mark is **thawing** —
@@ -1148,7 +1148,7 @@
   his plan; out-theologize his apotheosis until *he* names the god-shaped trap he's walking into; or **show him
   the gentle road** you cracked open at the counting-house and watch twenty years of certainty break. He reveals
   the **Crown of Horns** and asks the one thing only a Returned can give: to walk into death, and come back.
-- 👧 **Eithne — the daughter in the empty chair, seen by you alone.** The new conditional-NPC + Returned-sense
+- 👧 **Maerin — the daughter in the empty chair, seen by you alone.** The new conditional-NPC + Returned-sense
   systems pay off here in the saga's cruelest, tenderest beat: Aldric's mortared daughter *followed him home from
   the Wall* on a thread of his grief, and has sat beside him for twenty years, unseen, while he pours her tea.
   Only your dead-touched eyes can find her. Her one wish is that her father *stop* — and if you come to suspect
@@ -1157,7 +1157,7 @@
 - 🛡️ **Wessa, the herald** — the young soldier who half-worships and half-fears the great man she serves, and is
   terrified of the day he asks her to do the unforgivable and she says yes.
 - 🎭 The crux offers real, divergent bridges into the campaign: ally him for the lawful **appeal**, take the
-  **Crown** yourself (with his warning about who must be willing to *uncrown* you), reunite him with **Eithne**,
+  **Crown** yourself (with his warning about who must be willing to *uncrown* you), reunite him with **Maerin**,
   or **refuse** him outright — and even refused, he leaves the door open for the gentle road.
 - 🧪 **+14 gates** (now **893 checks**, all green): the eighth zone is keyed/reachable/collision-clean, the
   eight-zone map is one connected graph, Aldric's four cross-zone openings are distinct, the gentle-road and

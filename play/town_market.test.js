@@ -674,7 +674,7 @@ check("at least one resolution allies Aldric and makes him put down the matches"
   (n.effects || []).some(e => e.key === "ald.matches_down")));
 // the daughter only the Returned can see — her whole conversation, and a [RETURNED] line, exist
 check("the unseen daughter has the lowest sense-DC of any soul (she wants to be seen)", eithne.returned && eithne.returned.dc <= 7);
-check("Eithne's plea (that her father stop) can be carried to Aldric — the threads connect",
+check("Maerin's plea (that her father stop) can be carried to Aldric — the threads connect",
   eithne.nodes.some(n => (n.effects || []).some(e => e.key === "ald.eithne_plea")) &&
   aldric.nodes.some(n => (n.effects || []).some(e => e.key === "ald.eithne_heard")));
 check("the table's souls keep crit/fumble where rolled, and a [RETURNED] line each",
