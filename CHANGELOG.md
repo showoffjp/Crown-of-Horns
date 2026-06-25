@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.15.0 — *"The Cold You Carry, part 2"* — a companion worries: the haunt reaches the people closest to you (content)
+
+> The consequence system (v6.14.0) made the world and the dead notice you freezing. This brings it home — to the
+> one person at your own fire. The warning lands hardest not from a stranger or a tribunal, but from a friend who
+> threw in with you and is watching you slip away one cold mile at a time.
+- 🗡️ **Dace Iron worries.** The Faithless blade-for-hire — your first companion, who let her professional guard down
+  off-watch — gains a deep-Haunted (≥6) campfire greeting where she sets the whetstone *down*: she's soldiered beside
+  cold ones, *been* the cold one, and she knows the look. When you came warm to the Quarter you stopped to help her
+  marked girl at the river for nothing; now the fire *gutters* when you sit, the dead lean *toward* you and the living
+  lean *back*, and you talk to ghosts easier than you talk to her.
+- 🔀 **A worry exchange with real agency** (gated at Haunted ≥ 6, on the engine's `when.int`): she names the *pull* of
+  the grave plainly — *I didn't sign on to follow you into the Wall one polite, merciful, frozen choice at a time* —
+  and asks you straight. Two answers, two characters:
+  - **Let her anchor you** (+merciful): she takes it as a job on top of the sword — *first night the fire guts too low
+    when you sit, first time you talk to a ghost like it's easier than talking to me, I'll say so, loud* — and vows to
+    read you for the cold drift the way she reads a room for a knife.
+  - **Double down on the cold as 'the job'** (+haunted): she keeps her word and watches your back *into* the dark —
+    but tells you about the comrade who let *her* freeze and never said stop, whom she's hated quietly for ten years,
+    and refuses to be that for you: she'll say it every cold mile, that there's a warm seat by the fire with your name.
+- 🧪 **+1 gate** (now **1,191 checks**, all green), proving the greeting fires at deep haunt and the worry fork is a
+  real merciful-vs-haunted choice. No new zones — **39 zones, 132 souls** — the haunt now costs you the warm world,
+  the dead's verdict, *and* the worry of the people who love you.
+
+---
+
 ## 👑 v6.14.0 — *"The Cold You Carry"* — the Haunted disposition gets teeth: leaning on the [RETURNED] voice now has a warned-about cost (mechanic)
 
 > A systems pass, not a zone. The dead-touched **[RETURNED]** dialogue choices are some of the best writing in the

@@ -352,6 +352,14 @@
             {
               "when": {
                 "int": {
+                  "disp.haunted": 6
+                }
+              },
+              "text": "*(She's got the whetstone in her hand when you sit, but she doesn't draw it across the blade — she just holds it, and looks at you a long moment, and the easy off-watch warmth has gone careful.)* …Sit down. *(quietly, not a question)* We need to talk, and I've been putting it off, which *isn't* like me. *(she sets the whetstone down)* I've soldiered beside a lot of hard people, friend. Killers. Cold ones. I've *been* the cold one. So believe me when I say I *know* the look — and you've got it, *worse* every week. *(she watches you)* When I threw in with you in the Quarter, you ran *warm.* You stopped to help my marked girl at the river when there was *nothing* in it for you. *(her jaw works)* And now — now when you walk up to the fire, the *fire* *gutters*, friend. The *dead* lean *toward* you and the *living* lean *back.* You talk to *ghosts* easier than you talk to *me.* *(barely)* I'm not saying *stop.* I don't even know what you're *carrying.* I'm saying — *I'm still here.* On the *warm* side of the fire. And I'd like you to *come back to it* now and again — before I'm sitting watch beside something that *used* to be you and *answers* to your *name.*"
+            },
+            {
+              "when": {
+                "int": {
                   "city.dace.approval": 5
                 }
               },
@@ -368,6 +376,15 @@
           "speaker": "Dace Iron",
           "text": "*(She leans back against the log, the fire painting the old scars gold, and for once she looks less like a blade and more like a person who happens to carry one.)* Go on, then. *(half a smile)* It's the *fire.* The fire's where the *real* talking happens — everyone knows that. *Daylight's* for *lying.* So. What d'you want to know about the sellsword you've staked your war on? Ask while I'm *soft* with the *quiet.* It won't last past *dawn.*",
           "choices": [
+            {
+              "text": "*(she's said her piece — let her say the rest)* \"You're not wrong, Dace. Say it all.\"",
+              "when": {
+                "int": {
+                  "disp.haunted": 6
+                }
+              },
+              "next": "dace_worry"
+            },
             {
               "text": "\"Why this fight, Dace? Truly. You turned down a year of Choir gold. A blade-for-hire doesn't starve on *principle* unless the principle costs them something specific. What did the Wall take from you?\"",
               "next": "dace_why"
@@ -484,6 +501,76 @@
           "effects": [
             {
               "key": "hearth.dace.bond",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_worry",
+          "speaker": "Dace Iron",
+          "text": "*(She nods, slow, and for the first time since the Lamplit Quarter she looks almost afraid — not of you, exactly, but of the road she can see you walking.)* …Here's the rest of it, then. *(she meets your eyes)* I've watched souls go cold before. Not *your* way — but men who did *hard* things for *good* reasons, told themselves it was *the job*, and woke up one day *being* the job, with *nothing* soft left to come home to. *(quietly)* The grave's got a *pull*, friend. I can *feel* it on you. Every time you reach for that *cold voice* — the one that talks to the dead and reads them *open* — you reach a little *further* from the rest of us, and a little *harder* to reach *back.* *(barely)* I threw my whole sword behind you and I *don't* regret it. But I didn't sign on to follow you *into* the Wall one *polite*, *merciful*, *frozen* choice at a time. *(she swallows)* So I'll ask you straight, the only way I know how. Which is it going to be?",
+          "choices": [
+            {
+              "text": "\"You're right — I can feel the cold winning, Dace. Keep me on the warm side. Drag me back if I drift. I don't want to become it.\"",
+              "next": "dace_haunt_heed",
+              "effects": [
+                {
+                  "key": "hearth.dace_anchors_you",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"The cold *is* the job now, Dace. It's the only thing that can read these souls and free them. Don't grieve what I spend — just watch my back while I spend it.\"",
+              "next": "dace_haunt_cold",
+              "effects": [
+                {
+                  "key": "hearth.dace_fears_for_you",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dace_haunt_heed",
+          "speaker": "Dace Iron",
+          "text": "*(Something in her shoulders comes down, and she lets out a breath she's clearly been holding for weeks.)* …*Good.* *(rough)* Gods, *good.* *(she picks the whetstone back up, but only to have something to do with her hands)* Then that's *my* job now, on top of the sword. *Watching* you. *(a fierce, wet-eyed grin)* I'm *good* at watching — forty years of reading a room for the first hand that goes for a *knife.* I'll read *you* the same. First night the fire guts too low when you sit, first time you talk to a ghost like it's easier than talking to *me* — I'll *say* so. *Loud.* *(she knocks her shoulder into yours)* You don't get to *freeze*, friend. Not on *my* watch. I've buried enough good people. I'm *not* burying one slow, one *cold* choice at a time, while they're still *standing* there answering to their *name.* *(quietly)* …Come sit. The *warm* side. I'll keep it lit.",
+          "effects": [
+            {
+              "key": "hearth.dace_anchors_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_haunt_cold",
+          "speaker": "Dace Iron",
+          "text": "*(She's quiet a long moment, then nods, slow, and the fear in her face doesn't leave — it just settles into something older and more tired.)* …*Aye.* *(rough)* Figured you'd say that. *(she draws the whetstone down the blade, once, the old familiar sound)* The job. *Right.* *(she won't look at you)* I've *sung* that song myself, friend. *'It's the job, don't grieve it, just watch my back.'* *(a hard breath)* And someone *did* watch my back while I spent myself cold, and they never *once* told me to *stop* — and I've *hated* them for it, quiet, for *ten years.* For *letting* me. *(she finally looks at you)* So I'll *not* be that for *you.* I'll watch your back *into* the dark, because I gave my *word* and Dace Iron *keeps* her word. But I'll *not* pretend it's *nothing*, and I'll *not* stop *saying* — every cold mile — that there's a *warm* side to this fire, and a seat on it with your *name*, and the *day* you want it *back*, it's *here.* *(barely)* Don't make me bury you while you're still *walking*, friend. That's all I ask. *Even* if you spend the rest.",
+          "effects": [
+            {
+              "key": "hearth.dace_fears_for_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
               "op": "AddInt",
               "amount": 1
             }

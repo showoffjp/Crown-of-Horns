@@ -1756,6 +1756,24 @@ check("a living NPC flinches at deep haunt — Mab the tavern-keep feels the col
   return node.variants.some(v => (v.when && v.when.int && v.when.int["disp.haunted"] === 6)) &&
     deep !== base && /gone \*cold\*|the \*living\* can \*feel\* you|mostly \*grave\*/.test(deep);
 })());
+check("a recruited companion worries at deep haunt — Dace gains a >=6 greeting + a gated worry exchange with player agency", (() => {
+  const dace = CONVS.find(c => c.id === "hearth.dace");
+  if (!dace) return false;
+  const node = hxNode0(dace);
+  const deep = E.pickVariantText(node, goodGuy, hxHaunt(6));
+  const base = E.pickVariantText(node, goodGuy, E.newState());
+  const m = dace.nodes.find(n => n.id === "1");
+  const worryChoice = (m.choices || []).find(ch => ch.next === "dace_worry" && ch.when && ch.when.int && ch.when.int["disp.haunted"] === 6);
+  const worry = dace.nodes.find(n => n.id === "dace_worry");
+  const heed = dace.nodes.find(n => n.id === "dace_haunt_heed");
+  const cold = dace.nodes.find(n => n.id === "dace_haunt_cold");
+  return node.variants.some(v => (v.when && v.when.int && v.when.int["disp.haunted"] === 6)) &&
+    deep !== base && /come back to it|soldiered beside a lot of hard people|I'm still here/.test(deep) &&
+    worryChoice && worry && heed && cold &&
+    // the two responses are a real fork: anchor-back (mercy) vs double-down (more haunt)
+    (worry.choices || []).some(ch => ch.next === "dace_haunt_heed" && (ch.effects || []).some(e => e.key === "disp.merciful")) &&
+    (worry.choices || []).some(ch => ch.next === "dace_haunt_cold" && (ch.effects || []).some(e => e.key === "disp.haunted"));
+})());
 
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
