@@ -2490,6 +2490,43 @@ check("each searcher carries an always-available [RETURNED] witness (apart from 
   return mW && eW && [rnM, rnE, rnH].every(c => c.returned);
 })());
 
+// ---- sixtieth zone: the Little Ones — the children who came too soon (the Wall's deeds-ledger at its most naked fraud) ----
+const LO = SCENES && SCENES.littleones;
+check("a sixtieth zone (the Lamplit Green) ships — a caretaker and three children who came too soon", LO && LO.npcs.length >= 4);
+check("the Little Ones' green is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "littleones"));
+const loB = CONVS.find(c => c.id === "lo.brigid");
+const loN = CONVS.find(c => c.id === "lo.nettle");
+const loL = CONVS.find(c => c.id === "lo.lyssa");
+const loP = CONVS.find(c => c.id === "lo.pim");
+check("the keeper and three children (the furious one, the one grieving her mother, the littlest fading) are present", loB && loN && loL && loP);
+check("the keeper: a [RETURNED] names a child with no deeds the Wall's nakedest fraud — worth was always being, never doing", (() => {
+  const t = loB.nodes.find(n => n.id === "lo_b_returned");
+  return loB.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lo.brigid_named_the_wall");
+})());
+check("the furious child: a Persuasion meets her anger WITH agreement, not soothing (crit: she's no longer alone in the fury; fumble: 'a better place / a reason' shuts the door)", (() => {
+  const w = loN.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = loN.nodes.find(n => n.id === "lo_n_witness_crit");
+  const fumble = loN.nodes.find(n => n.id === "lo_n_witness_fumble");
+  return loN.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    w && w.crit && w.fumble && w.fail &&
+    crit && crit.effects.some(e => e.key === "lo.nettle_not_alone") &&
+    fumble && fumble.effects.some(e => e.key === "lo.nettle_shut_the_door");
+})());
+check("the grieving child: a [RETURNED] takes her message to the living (carries it) and names a child who GIVES instead of grabs the ledger inverted", (() => {
+  const t = loL.nodes.find(n => n.id === "lo_l_returned");
+  const v = loL.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("lo.carries_lyssa_message")));
+  return loL.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.effects.some(e => e.key === "lo.carries_lyssa_message") && v;
+})());
+check("the littlest, fading: a [RETURNED] promises to carry her name back to the living (remembering reverses fading), with a post-remembered node-0 variant", (() => {
+  const t = loP.nodes.find(n => n.id === "lo_p_returned");
+  const v = loP.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("lo.pim_remembered")));
+  return loP.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.effects.some(e => e.key === "lo.pim_remembered") && v;
+})());
+check("each soul on the green carries a [RETURNED] line + a Returned-sense", [loB, loN, loL, loP].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

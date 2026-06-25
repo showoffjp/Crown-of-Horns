@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v6.39.0 — *"The Little Ones"* — a sixtieth zone: the children who came too soon, and the ledger's nakedest fraud (content)
+
+> The most direct answer the game has yet made to *"a soul's worth is not its deeds."* A lamplit green where the
+> children who came too soon are kept warm — handled **bright and fierce, not maudlin**: these are vivid, furious,
+> tender, alive-in-death small people, and they are the souls against whom the Wall's whole ledger is most nakedly a
+> fraud, **because they never got to *do* a single thing — and every heart in all the worlds already knows they were
+> worth the entire sky.** The thesis: **if the most "worthless" soul on the ledger is the one every heart knows is most
+> precious, the ledger was never measuring worth — only deeds; and worth was always about *being*, and being *loved.***
+- ✦ **Brigid**, a midwife who caught the young for forty years and now keeps the green — who does not lie to the little
+  ones (*don't do the gentle-voice; believe them; take their feelings seriously*). A **[RETURNED]** names the children
+  not the Wall's failures but its *exposure.*
+- ❖ **Nettle**, nine, *furious* — and **right** to be. The fresh beat: you do **not** soothe her. A **Persuasion** meets
+  her fury *with agreement* — **crit:** for the first time she is not the only one angry, and it stops being lonely;
+  **fumble:** *"a better place / it happened for a reason"* shuts the door cold. A **[RETURNED]** names her anger her
+  *integrity* — the last part of her that still knows she was worth a whole life.
+- ✶ **Lyssa**, who did her own grieving and now frets only for her mother, still crying, *not knowing her girl is all
+  right.* A **[RETURNED]** takes her message to carry to the living — and names a child who *gives* (comfort, across
+  death, asking nothing) the Wall's whole ledger inverted. (*Give me back my mother's singing.*)
+- ✧ **Pim**, the littlest, here longest, *fading* — because no one in the living world remembers a Pim anymore. A
+  **[RETURNED]** promises to carry her name back and *say* it (remembering reverses fading); she learns *counting was
+  never about doing — it was about being held in someone's remembering.*
+- 👁️ **Four new Returned-senses** (a four-soul zone). 🧪 **+8 gates** (**gate suite 649 / 1,357 total**, all green).
+  **60 zones, 202 souls. Seventeen doors.** *They don't fail the test. They expose it.*
+
+---
+
 ## 👑 v6.38.0 — *"The Reunion"* — a fifty-ninth zone: two souls who lost each other, and the Wall's true opposite (content)
 
 > A **structurally new** door — the first built on **cross-soul reactivity**, and a deliberate answer to what the Wall
