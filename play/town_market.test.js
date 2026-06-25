@@ -1682,6 +1682,42 @@ check("the spectator is the one true witness — the [RETURNED] makes the traged
 check("each Empty House soul carries a [RETURNED] line + a Returned-sense", [pfTrag, pfUnder, pfSpec].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- thirty-ninth zone: the Lazaret of the Last Breath — a healing-triage structure (souls death-locked in their final moment) ----
+const LZ = SCENES && SCENES.lazaret;
+check("a thirty-ninth zone (the Lazaret of the Last Breath) ships — a healing-triage structure", LZ && LZ.npcs.length >= 3);
+check("the lazaret is reached off the Reed-Walk", (SCENES.reedwalk.exits || []).some(x => x.to === "lazaret"));
+const lzPhys = CONVS.find(c => c.id === "lz.physician");
+const lzDrown = CONVS.find(c => c.id === "lz.drowned");
+const lzMother = CONVS.find(c => c.id === "lz.mother");
+check("the three souls are present (the infirmarian who can't cure a death, the drowning ferryman, the mother who won't leave the fire)", lzPhys && lzDrown && lzMother);
+check("the physician treats the wrong ailment — the [RETURNED] reframe is the thesis: there's no death to cure, only a moment mistaken for now; witness it as past", (() => {
+  const truth = lzPhys.nodes.find(n => n.id === "phys_truth");
+  return lzPhys.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "phys_truth") &&
+    truth && truth.effects.some(e => e.key === "lz.physician_freed") && truth.effects.some(e => e.key === "lz.physician_forgives_self");
+})());
+check("the drowning man is locked not by water but by 'alone' — a Persuasion check to breathe him up carries crit AND fumble, and the [RETURNED] surfaces him", (() => {
+  const breath = lzDrown.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const truth = lzDrown.nodes.find(n => n.id === "drowned_truth");
+  return breath && breath.crit && breath.fumble && breath.fail &&
+    lzDrown.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "lz.tam_surfaced");
+})());
+check("the mother is trapped in a victory, not a grief — the [RETURNED] shows the looped moment is the rescue (the child lived), so she carries the saving not the burning", (() => {
+  const truth = lzMother.nodes.find(n => n.id === "mother_truth");
+  return lzMother.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "lz.wren_carries_rescue");
+})());
+check("the Insight 'read' on each death-locked soul auto-succeeds (a passive skill: no crit/fumble) and terminates cleanly", (() => {
+  const tamRead = lzDrown.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Insight");
+  const wrenRead = lzMother.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Insight");
+  const tamNode = lzDrown.nodes.find(n => n.id === "drowned_read");
+  const wrenNode = lzMother.nodes.find(n => n.id === "mother_read");
+  return tamRead && wrenRead && !tamRead.crit && !tamRead.fumble && !wrenRead.crit && !wrenRead.fumble &&
+    tamNode && tamNode.auto === "END" && wrenNode && wrenNode.auto === "END";
+})());
+check("each Lazaret soul carries a [RETURNED] line + a Returned-sense", [lzPhys, lzDrown, lzMother].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

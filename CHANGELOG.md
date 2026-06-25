@@ -11,6 +11,40 @@
 
 ---
 
+## 👑 v6.13.0 — *"The Lazaret of the Last Breath"* — a thirty-ninth zone: a healing-triage (souls death-locked in their final moment) (content)
+
+> A twenty-second structure, and a new player-role: a **consulting physician** in a house of healing where no one can
+> be healed. The **hard-dead** — souls who died too sudden, too violent, too frightened to understand it happened —
+> are each locked reliving the instant of their death, certain the dying is still happening, *now*, forever. **Sister
+> Maud**, an infirmarian who tended the plague-sick thirty years, runs the lazaret and has not cured one soul in eighty
+> years, because she is treating the wrong ailment entirely.
+- 🩺 **A thirty-ninth zone — the Lazaret of the Last Breath** (past the herb-garden gate off the Reed-Walk). Three
+  souls, three deaths, three different relationships to the loop: **Sister Maud**, who relives her own *failing*
+  (a dying orphan she couldn't save) by compulsively nursing the incurable; **Old Tam**, a ferryman who *thrashes to
+  escape* his drowning; and **Wren**, a mother who *holds her death close* and will not be coaxed out of the fire.
+- ⚕️ **The thesis as medicine.** A **[RETURNED]** — the one soul who crossed the threshold and came *back* — names what
+  the infirmarian cannot: there is no wound to cure, because the death already happened and is *over*; what locks these
+  souls is a moment they mistake for *now*. You don't nurse them out. You **witness** them out — stand in the looping
+  instant with the authority of the truth and say *it ended.* And the cure for the patients is the cure for Maud: the
+  orphan she "failed" died a century ago, and sitting three nights with a child who had no one was never a failure but
+  the last kindness of his life.
+- 🌊 **The drowning man is locked by a word, not the water.** Reading Tam's loop (an **Insight** passive) reveals he
+  made his peace with dying — what snagged his soul is *alone*, going under with no hand to hold. A **Persuasion** check
+  (Charisma, full **crit and fumble**) lets you breathe him up one slow surfacing breath: **crit**, he broaches into
+  air in six words and calls you a born ferryman; **fumble**, you chirp *"up you pop!"* at a drowning man and he'd have
+  put you overboard for it. The **[RETURNED]** goes *down* to where he is and tells him from the bottom that no one —
+  not the dog he died fetching, not the ferryman — ever goes into the cold water alone.
+- 🔥 **The mother is trapped in a victory, not a grief.** Reading Wren's loop (an **Insight** passive) finds she is not
+  reliving loss — she is reliving the four seconds she got her daughter out the high window, the one place left where
+  she still gets to save her child. The **[RETURNED]** shows her the looped moment is a **rescue, not a goodbye**: Bell
+  *lived* — grew old, died warm with grandchildren in the room, sixty years bought by *"one, two, out you go."* She
+  doesn't need the fire to keep the child; she can carry the saving instead of the burning.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,185 checks**, all green). **39 zones, 132 souls** —
+  twenty-two structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  house-comforter, stage-finisher, and the physician who heals by witnessing rather than curing.
+
+---
+
 ## 👑 v6.12.0 — *"The Empty House"* — a thirty-eighth zone: a performance (a tragedian playing to no one) (content)
 
 > A twenty-first structure, and a player-role no zone has held: you don't free a soul, judge a dispute, build a thing,

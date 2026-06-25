@@ -110,6 +110,16 @@
           "y": 7
         },
         "label": "▸ a soul reliving one night — step into the locked room"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "lazaret",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ past the herb-garden gate — a lazaret for the souls who can't stop dying"
       }
     ],
     "npcs": [
