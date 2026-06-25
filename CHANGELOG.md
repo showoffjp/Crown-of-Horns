@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.43.0 — *"The Forbidden"* — a sixty-fourth zone: the loves the world condemned (content)
+
+> A bittersweet door on **love, and the world's right to judge it** — three souls who are three relationships to a
+> thwarted love, and a clean indictment of the Wall as the world's false verdict grown cosmic. The thesis: **the world
+> appoints itself the judge of which loves are *allowed* and which *forbidden* — and it was wrong every time it said no;
+> a love's worth was never whether the world sanctioned it, whether it lasted, or whether it was returned, only whether
+> it was *real* — and the Wall is that same false judge, condemning souls by lines it had no right to draw.**
+- ✦ **Rell, who chose duty** — gave up a love to keep a great heavy correct office, was *praised* for it, and has
+  grieved it in *secret* ever since, ashamed, because the world that honored the choice gave him no leave to mourn its
+  cost. A **[RETURNED]** gives him the permission no one would: *an honorable choice is allowed to break your heart —
+  the breaking is the proof the love was real* — and names the Wall the same machine that shames the cost of correctness.
+- ❖ **Mirae, who chose love** — loved across a line the world held sacred, was offered *the love or everything*, chose
+  the person, and lost all the world could take — and would do *every bit of it again.* A **[RETURNED]** names the world
+  a **false judge of love** (everything it took was rent on a life that was never hers; the love was the only thing that
+  was), and the Wall the judge that *forfeits the bench* by calling the truest love a sin.
+- ✶ **Wynn, who never said it** — loved someone for years, quietly, completely, and never dared to speak, saving the
+  words for a perfect moment that never came. A **Persuasion** eases the unsaid — **crit:** the love was *real, only
+  unwitnessed* (a love unheard is still a love), freeing it; **fumble:** *"you should have said it"* hands the grief
+  back heavier. A **[RETURNED]** carries their silence to the living *as a warning — say it, today, whatever it costs* —
+  and names the unspoken love the only kind you lose *completely.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (**gate suite 681 / 1,389 total**, all green). **64 zones, 214
+  souls. Twenty-one doors.** *Don't let the perfect moment save your words all the way to never.*
+
+---
+
 ## 👑 v6.42.0 — *"No Man's Land"* — a sixty-third zone: two soldiers who killed each other, and the war the Wall is made of (content)
 
 > A morally-rich door on **war, sides, and the lie of the enemy** — and the clearest statement yet of *what the Wall

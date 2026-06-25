@@ -2634,6 +2634,37 @@ check("the surgeon: a [RETURNED] names the Wall the last battlefield — a Wall 
 check("each war-dead soul carries a [RETURNED] line + a Returned-sense", [trA, trM, trW].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-fourth zone: the Forbidden — loves the world condemned (the Wall is the world's false judgment of love, grown cosmic) ----
+const FB = SCENES && SCENES.forbidden;
+check("a sixty-fourth zone (the Garden of Loves the World Forbade) ships", FB && FB.npcs.length >= 3);
+check("the Forbidden garden is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "forbidden"));
+const fbR = CONVS.find(c => c.id === "lv.rell");
+const fbM = CONVS.find(c => c.id === "lv.mirae");
+const fbW = CONVS.find(c => c.id === "lv.wynn");
+check("three relationships to a thwarted love (chose duty, chose love, never spoke) are present", fbR && fbM && fbW);
+check("the one who chose duty: a [RETURNED] gives permission to grieve an honorable choice — the Wall, like the world, shames the cost of correctness", (() => {
+  const t = fbR.nodes.find(n => n.id === "lv_r_returned");
+  return fbR.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lv.rell_named_the_wall");
+})());
+check("the one who chose love: a [RETURNED] names the world a false judge of love and the Wall the same — forfeit the bench", (() => {
+  const t = fbM.nodes.find(n => n.id === "lv_m_returned");
+  return fbM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lv.mirae_named_the_wall");
+})());
+check("the one who never spoke: a Persuasion eases the unsaid (crit: real-but-unwitnessed frees the love; fumble: 'you should have said it' hands the grief back heavier)", (() => {
+  const w = fbW.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = fbW.nodes.find(n => n.id === "lv_w_peace_crit");
+  const fumble = fbW.nodes.find(n => n.id === "lv_w_peace_fumble");
+  return w && w.crit && w.fumble && w.fail &&
+    crit && crit.effects.some(e => e.key === "lv.wynn_eased") &&
+    fumble && fumble.effects.some(e => e.key === "lv.wynn_handed_it_back");
+})());
+check("the one who never spoke: a [RETURNED] carries the silence to the living as a warning (say it) and names the unspoken love the only one lost completely", (() => {
+  const t = fbW.nodes.find(n => n.id === "lv_w_returned");
+  return fbW.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lv.carries_wynn_warning");
+})());
+check("each Forbidden-garden soul carries a [RETURNED] line + a Returned-sense", [fbR, fbM, fbW].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
