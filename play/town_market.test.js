@@ -1956,6 +1956,42 @@ check("the officer carries the order he can't bear to give — the [RETURNED] fr
 check("each Last Watch soul carries a [RETURNED] line + a Returned-sense", [lwSen, lwGuard, lwOff].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-fourth zone: Sigil, the City of Doors — the omniversal crossroads (cameos from across the D&D multiverse and beyond) ----
+const SG = SCENES && SCENES.sigil;
+check("a forty-fourth zone (Sigil, the City of Doors) ships — an omniversal crossroads hub", SG && SG.npcs.length >= 5);
+check("Sigil is reached through the crack at the Threshold (a crack in time is a crack in the Wheel)", (SCENES.threshold.exits || []).some(x => x.to === "sigil"));
+const cdDust = CONVS.find(c => c.id === "cd.dustman");
+const cdKnight = CONVS.find(c => c.id === "cd.knight");
+const cdAth = CONVS.find(c => c.id === "cd.athasian");
+const cdNight = CONVS.find(c => c.id === "cd.nightchild");
+const cdWay = CONVS.find(c => c.id === "cd.wayfarer");
+check("five cameo souls converge (Dustman, Solamnic knight, Athasian, the night-creature, the wayfarer-chronicler)", cdDust && cdKnight && cdAth && cdNight && cdWay);
+check("the Dustman frames the convergence: the Wall is one prime's parish law, and the catalyst is the shared dreaming (D&D itself)", (() => {
+  const walls = cdDust.nodes.find(n => n.id === "cd_d_walls");
+  const why = cdDust.nodes.find(n => n.id === "cd_d_why");
+  return walls && walls.effects.some(e => e.key === "cd.knows_wall_is_parochial") &&
+    why && why.effects.some(e => e.key === "cd.knows_the_dreaming") &&
+    cdDust.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"));
+})());
+check("the saga's thesis answered five cosmological ways — each cameo has a [RETURNED] reframe that frees it", (() => {
+  return [["cd.knight", "cd_k_truth", "cd.knight_freed"], ["cd.athasian", "cd_a_truth", "cd.athasian_allied"],
+          ["cd.nightchild", "cd_n_truth", "cd.nightchild_freed"], ["cd.wayfarer", "cd_w_truth", "cd.wayfarer_freed"]].every(([id, node, flag]) => {
+    const c = CONVS.find(x => x.id === id);
+    const t = c.nodes.find(n => n.id === node);
+    return c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === flag);
+  });
+})());
+check("the night-creature's reach-the-man Persuasion check carries crit AND fumble (a kindness aimed wrong feeds the Beast)", (() => {
+  const reach = cdNight.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = cdNight.nodes.find(n => n.id === "cd_n_reach_crit");
+  const fumble = cdNight.nodes.find(n => n.id === "cd_n_reach_fumble");
+  return reach && reach.crit && reach.fumble && reach.fail &&
+    crit && crit.effects.some(e => e.key === "cd.nightchild_seen") &&
+    fumble && fumble.effects.some(e => e.key === "cd.nightchild_nearly_slipped");
+})());
+check("each Sigil soul carries a [RETURNED] line + a Returned-sense", [cdDust, cdKnight, cdAth, cdNight, cdWay].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

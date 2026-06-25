@@ -75,6 +75,16 @@
           "y": 7
         },
         "label": "▴ through the door — the Court of the Dead"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "sigil",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a door that should not be here — the crack in your soul is a crack in the Wheel — step through to Sigil, the City of Doors"
       }
     ],
     "npcs": [

@@ -11,6 +11,48 @@
 
 ---
 
+## 👑 v6.22.0 — *"The City of Doors"* — a forty-fourth zone: SIGIL, the omniversal crossroads — a new axis for the whole saga (content)
+
+> The biggest swing in the project's history, and a new *spine.* The crack in the Returned's soul was always a crack in
+> **time** — Netheril, the Crown Wars, the Spellplague. This reveals it was always also a crack in the **Wheel.** The
+> same wound that let you fall through your own world's history lets you fall *sideways*, out of your Realm entirely,
+> into **Sigil, the City of Doors** — the crossroads at the hub of the Great Wheel where every plane and every prime
+> world has a portal — and the saga's local question becomes an *omniversal* one. A love letter to D&D as the thing
+> that connects every world it ever dreamed.
+- 🚪 **A forty-fourth zone — Sigil, the City of Doors** (through a door that shouldn't exist, at the Threshold). Five
+  cameo souls converge from across the multiverse, each facing the saga's own question — *what is a soul worth that no
+  power claimed?* — in their own cosmology's clothes:
+  - 💀 **Grist, a Dustman of the Mortuary** (Planescape) — the framing soul, in full cant (berk, cutter, the dead-book,
+    the Cage, the Lady unspoken). His faction holds all are already dead; *you* are the disproof he's waited forty
+    years to meet, a soul that went into the True Death and came back. He frames the convergence: **the Wall of the
+    Faithless is one prime's parish law, not the order of the cosmos** — and the catalyst that connects all these
+    worlds isn't the Spire but the **shared dreaming**: they were all told round the same fire, by the same hands. *The
+    room where the house finds out it's a house.* (The meta-thesis, made diegetic — D&D itself is the catalyst.)
+  - 🌹 **Sir Garon of Solamnia** (Dragonlance / Krynn) — kept the Oath and the Measure through the gods' three-hundred-
+    year silence after the Cataclysm. *Est Sularus oth Mithas.* By the Wall's arithmetic he's Faithless; a **[RETURNED]**
+    shows him faith was never whether the sky answers — it's whether *you* do — and a Knight of Solamnia pledges to your
+    cause.
+  - ☼ **Kesh of Athas** (Dark Sun) — from a world with **no gods at all, ever**, so by the Wall's logic every Athasian
+    soul is mortar. The killer thematic bridge: the Wall damns for a bargain whole worlds were never offered. A
+    **[RETURNED]** tells the raging soul its fury is *correct*, and aims it — and a soul forged on a dying godless world
+    pledges to help tear the Wall down.
+  - ☾ **Lucan, a soul that would not die** (a World-of-Darkness homage, filed off — no trademarked names) — refused
+    death, holds a Beast behind a private code, the mirror of the Returned. A **Persuasion** check reaches the man under
+    the hunger (crit and fumble: a kindness aimed *wrong* feeds the Beast faster than malice); a **[RETURNED]** frees
+    him — *a monster doesn't hold the door; you held it.*
+  - ✒ **Ferrin, a fading wayfarer-chronicler** (a Pathfinder homage, filed off) — sworn to *go everywhere, record
+    everything, send it home*, dying with the last chronicle undelivered, terrified of going unread. Ties straight to
+    the saga's witnessing thesis: a **[RETURNED]** shows that it was never the paper — being *known* by one true soul,
+    now, is the immortality, and *the loving already happened, a thousand awestruck pages over.*
+- 🗺️ **A note on the crossover.** D&D's own multiverse is named outright (Sigil/Planescape, Krynn/Dragonlance,
+  Athas/Dark Sun — same lineage as the Realms lore already throughout the saga). Non-D&D worlds (the night-creature, the
+  wayfarer-Society) are written as **loving homages without trademarked proper nouns** — *primes from beyond the Wheel*,
+  in the truest Planescape spirit.
+- 👁️ **Five new Returned-senses.** 🧪 **+7 gates** (now **1,235 checks**, all green). **44 zones, 149 souls** — and
+  Sigil is built to *grow*: a recurring hub for as many doors and cameo souls as the omniverse can hold.
+
+---
+
 ## 👑 v6.21.0 — *"The Last Watch"* — a forty-third zone: a vigil (a watch kept four hundred years past all need) (content)
 
 > A twenty-sixth structure, and a player-role no zone has held: a **vigil** — a watch that cannot end, and the question
