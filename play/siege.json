@@ -17,7 +17,8 @@
       { "type": "bedroll", "x": 7, "y": 6 }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 3, "y": 7 }, "label": "◂ slip back out to the Lamplit Quarter" }
+      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 3, "y": 7 }, "label": "◂ slip back out to the Lamplit Quarter" },
+      { "x": 7, "y": 8, "to": "lastwatch", "dest": { "x": 5, "y": 7 }, "label": "▸ up to a gate that never fell — a soldier holds the last watch, four hundred years past relief" }
     ],
     "npcs": [
       { "id": "warden", "name": "Goodwife Orla", "title": "who holds the almshouse door", "x": 3, "y": 4, "hue": 30, "sigil": "O", "conv": "si.warden",

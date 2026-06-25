@@ -11,6 +11,41 @@
 
 ---
 
+## 👑 v6.21.0 — *"The Last Watch"* — a forty-third zone: a vigil (a watch kept four hundred years past all need) (content)
+
+> A twenty-sixth structure, and a player-role no zone has held: a **vigil** — a watch that cannot end, and the question
+> of whether to keep it, release it, or pass it on. Three souls frozen round one gate, each holding for the others,
+> none willing to be the first to go.
+- 🛡️ **A forty-third zone — the Last Watch** (up to a gate that never fell, off the almshouse line). **Bregan** was set
+  to hold the inner gate of a keep in a forgotten siege and given the oldest order a soldier knows — *hold until
+  relieved.* He held it the whole long day, died at the post with the order still binding, and no relief ever came —
+  and four hundred years on he holds it yet, because a soldier doesn't abandon a post, and because if the war is over
+  and the gate guards nothing, then his death was for nothing, and *that* is the one assault he cannot survive.
+- ⚔️ **The thesis as duty.** A **[RETURNED]** names what stands a soldier down at last: the watch was never pointless.
+  For four hundred years one soul sheltered behind that gate and was *not alone, because he stood faithful* — the
+  realest duty there is, that *someone was kept.* The watch isn't being abandoned; it's **complete.** He didn't fail to
+  be relieved — he outlasted the need for it. A **Persuasion** check can relieve him properly, by the soldier's form
+  (Charisma, full **crit and fumble**): **crit**, he snaps a salute four centuries overdue and steps off the wall;
+  **fumble**, you order him down *because it was all for nothing* — and you have just named his deepest terror as fact,
+  and a man does not abandon a post to the soul that tells him it was waste.
+- 🐝 **The cage of two keepers.** **Cael**, a beekeeper who sheltered behind the gate and is the last of the sheltering
+  souls left, stays only so Bregan won't keep his lonely watch with no one to keep it for — while Bregan holds only so
+  Cael stays guarded. Each other's cage, each calling it love and duty (it is both) and each frightened, too, of
+  walking out of the dark alone. A **[RETURNED]** frees them to leave **together**, at the same breath, so neither feels
+  they broke the watch.
+- 🎖️ **The order he can't bear to give.** **Captain Wystan** gave Bregan the order, meant to send relief within the
+  hour, and was swept off in the rout and killed with it un-sent — and has stood apart from the gate the whole of his
+  death, unable to cross the hundred feet, because giving the stand-down means the faithful man will do the arithmetic
+  and *know no one forgot him by accident.* A **[RETURNED]** frees the captain to cross (the order frees the giver too),
+  and — gated back from the gate — carries Bregan's forgiveness: the sentinel feared his *captain fell on the road*,
+  and is glad he didn't, and waits to see him before standing down.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (now **1,228 checks**, all green). **43 zones, 144 souls** —
+  twenty-six structures, and the player has now been advocate, accused, thief, broker, mediator, judge, builder,
+  house-comforter, stage-finisher, soul-physician, soul-stiller, blind guide's eyes, wordless mouth, and the relief
+  that finally came for a soldier four hundred years late.
+
+---
+
 ## 👑 v6.20.0 — *"The Untranslated"* — a forty-second zone: a relay (carry meaning across a gulf of language) (content)
 
 > A twenty-fifth structure, and a *mechanic* no zone has had: a **relay.** Not bridging two lonely souls into the same

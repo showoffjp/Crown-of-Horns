@@ -1914,6 +1914,48 @@ check("the wordless dragoman is the thesis: a soul is not the thing it could do 
 check("each Untranslated soul carries a [RETURNED] line + a Returned-sense", [tgGm, tgCh, tgDr].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-third zone: the Last Watch — a vigil structure (a watch kept four hundred years past all need) ----
+const LWz = SCENES && SCENES.lastwatch;
+check("a forty-third zone (the Last Watch) ships — a vigil structure", LWz && LWz.npcs.length >= 3);
+check("the last watch is reached off the Siege", (SCENES.siege.exits || []).some(x => x.to === "lastwatch"));
+const lwSen = CONVS.find(c => c.id === "lw.sentinel");
+const lwGuard = CONVS.find(c => c.id === "lw.guarded");
+const lwOff = CONVS.find(c => c.id === "lw.officer");
+check("the three souls are present (the sentinel still holding, the last soul he guards, the officer who never sent relief)", lwSen && lwGuard && lwOff);
+check("the vigil is relieved by the thesis — the [RETURNED] reframes it as complete, not pointless (someone was kept)", (() => {
+  const truth = lwSen.nodes.find(n => n.id === "lw_s_truth");
+  return lwSen.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "lw_s_truth") &&
+    truth && truth.effects.some(e => e.key === "lw.sentinel_relieved");
+})());
+check("a Persuasion check can relieve the sentinel properly — with crit AND fumble, and the fumble names his death as 'for nothing' and wounds him", (() => {
+  const relieve = lwSen.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = lwSen.nodes.find(n => n.id === "lw_s_relieve_crit");
+  const fumble = lwSen.nodes.find(n => n.id === "lw_s_relieve_fumble");
+  return relieve && relieve.crit && relieve.fumble && relieve.fail &&
+    crit && crit.effects.some(e => e.key === "lw.sentinel_stands_down") &&
+    fumble && fumble.effects.some(e => e.key === "lw.sentinel_wounded");
+})());
+check("the braid: the guarded soul and the officer feed gated lines back to the sentinel (leave together / the order at last)", (() => {
+  const togetherGate = lwSen.nodes.find(n => n.id === "1").choices.find(c => c.next === "lw_s_together");
+  const orderGate = lwSen.nodes.find(n => n.id === "1").choices.find(c => c.next === "lw_s_order");
+  return togetherGate && (togetherGate.when.flags || []).indexOf("lw.knows_cael_stays") >= 0 &&
+    orderGate && (orderGate.when.flags || []).indexOf("lw.officer_ready") >= 0;
+})());
+check("the guarded soul is a fellow keeper, each other's cage — the [RETURNED] frees them to leave together", (() => {
+  const truth = lwGuard.nodes.find(n => n.id === "lw_g_truth");
+  return lwGuard.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "lw.guarded_will_leave_with");
+})());
+check("the officer carries the order he can't bear to give — the [RETURNED] frees him to cross, and the sentinel's forgiveness is gated back to him", (() => {
+  const truth = lwOff.nodes.find(n => n.id === "lw_o_truth");
+  const forgiven = lwOff.nodes.find(n => n.id === "1").choices.find(c => c.next === "lw_o_forgiven");
+  return lwOff.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    truth && truth.effects.some(e => e.key === "lw.officer_ready") &&
+    forgiven && (forgiven.when.flags || []).indexOf("lw.sentinel_forgives_officer") >= 0;
+})());
+check("each Last Watch soul carries a [RETURNED] line + a Returned-sense", [lwSen, lwGuard, lwOff].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
