@@ -18,7 +18,8 @@
       { "x": 7, "y": 8, "to": "taproom", "dest": { "x": 5, "y": 7 }, "label": "▸ a door that smells of home — a Faerûnian taphouse where the Realms' own legends gather" },
       { "x": 3, "y": 8, "to": "longtable", "dest": { "x": 5, "y": 7 }, "label": "▸ a door almost no one finds — it does not lead to a world, but behind them all, to a long table and the one who has been telling" },
       { "x": 6, "y": 8, "to": "fardoors", "dest": { "x": 5, "y": 7 }, "label": "▸ a junction of far doors — onto a spired world of made souls, the star-dark between the spheres, and a domain of guilt-mist" },
-      { "x": 4, "y": 8, "to": "companions", "dest": { "x": 5, "y": 7 }, "label": "▸ a door warm with woodsmoke — a campfire where a family that died and came back together is resting" }
+      { "x": 4, "y": 8, "to": "companions", "dest": { "x": 5, "y": 7 }, "label": "▸ a door warm with woodsmoke — a campfire where a family that died and came back together is resting" },
+      { "x": 8, "y": 8, "to": "tomb", "dest": { "x": 5, "y": 7 }, "label": "▸ a door that should never have opened — a black tomb where a soul-hoarder builds a god out of the spent, the Wall made a person" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",

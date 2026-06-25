@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v6.27.0 — *"The Tomb"* — a forty-ninth zone: the saga's thesis put to its hardest test, against true evil (content)
+
+> After all the warmth, the saga turns hard and tests its own thesis against a soul that *is* the Wall. A door that
+> should never have opened onto a black tomb where the soul-hoarding archlich builds a god out of the devoured — and
+> the question the whole game circles gets its darkest trial: *is even his soul worth something? Does the thesis have
+> limits?*
+- ☠ **Acererak** — the Wall *made a person.* Everything the Wall does coldly, institutionally, at a remove, he does
+  personally, by hand, and calls it ambition: he gathers and devours souls as fuel for his slow ascension toward
+  godhood. An **Arcana** read shows the truth his thousand years of cleverness hid — *the throne is empty*; a soul
+  cannot be added to another, only destroyed by it, so every self he ate left a god-sized hole, and he is not
+  ascending but vanishing, the slowest suicide in the multiverse mistaken for a coronation. A **[RETURNED]** names him
+  the Wall's *disciple* (and the first thing he ever sold) — *and he is unmoved.* The saga is honest enough to let one
+  soul, offered the truth, spit on it and choose the dark with its eyes open: *"some souls will take the dark, and
+  neither of us is going to talk the other out of it."*
+- 🗡️ **The win is the victims, not the villain.** An **Intimidation** check defies him (crit: a soul that does not fear
+  death breaks his only lever and he yields the whole hoard; fumble: you pour your *horror* at him and he *eats it* —
+  he is built of exactly that). The deepest lesson he gives, his only gift: *I am not the thing you must defeat. I am
+  the thing you must outlast. The Wall, the same. Do not tire — it is the only defeat we fear.*
+- · **Nessa**, a Wayhouse cook spent drop by drop to fuel his godhood and taught the oldest lie in every world — that
+  being spent for a great purpose is the most a nobody can amount to. A **[RETURNED]** witnesses her back: *a soul is
+  worth the warmth it is*, and a cook who fed cold strangers in the dark for thirty years gave more good than the
+  hollow thing ever ate — and her kindness-for-its-own-sake is the **one fuel he could never quite swallow.**
+- ✝ **Kael**, a bright hero the Tomb killed in the first hour, to a trap, *for nothing* — who learns from an **Insight**
+  read and a **[RETURNED]** that he didn't step on the wrong flagstone: *he stepped first, on purpose, for his friends*,
+  and two of them walked out on the warning his death bought. A story isn't measured by its ending but by whether it
+  was real while it ran — *it didn't fail; it stopped; and a story that stopped is still a story that was told.* (He
+  asks you to tell the Keeper of the Long Table to light a candle for the thousand heroes who died on the wrong
+  flagstone.)
+- 👁️ **Three new Returned-senses.** 🧪 **+7 gates** (now **1,271 checks**, all green). **49 zones, 168 souls.** Sigil
+  now has **six doors.**
+
+---
+
 ## 👑 v6.26.0 — *"The Companions' Fire"* — a forty-eighth zone: Drizzt's reborn family, the truest kin the Returned has (content)
 
 > Sigil's warmest door. The Companions of the Hall — Drizzt's family — *all died and were reborn together*, which makes

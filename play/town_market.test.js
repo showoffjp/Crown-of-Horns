@@ -2137,6 +2137,37 @@ check("Wulfgar's reach is a Persuasion check (crit/fumble) — honor the choosin
 check("each Companion carries a [RETURNED] line + a Returned-sense", [coB, coC, coW, coR].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-ninth zone: the Tomb — the saga's thesis tested against true evil (Acererak, the Wall made a person) ----
+const TB = SCENES && SCENES.tomb;
+check("a forty-ninth zone (the Tomb of the Soul-Hoarder) ships — the thesis tested against a soul-devouring villain", TB && TB.npcs.length >= 3);
+check("the Tomb is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "tomb"));
+const tbA = CONVS.find(c => c.id === "tb.acererak");
+const tbN = CONVS.find(c => c.id === "tb.nessa");
+const tbK = CONVS.find(c => c.id === "tb.kael");
+check("three souls (the soul-hoarder, the spent cook, the hero who died in the dark) are present", tbA && tbN && tbK);
+check("Acererak is the Wall made a person — the [RETURNED] names him its disciple (and the first thing he ever sold), but he is UNMOVED (some souls choose the dark)", (() => {
+  const t = tbA.nodes.find(n => n.id === "tb_a_truth");
+  const read = tbA.nodes.find(n => n.id === "tb_a_read");
+  return tbA.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.effects.some(e => e.key === "tb.acererak_unmoved") && read && read.auto === "END";
+})());
+check("an Intimidation check defies him (crit/fumble: a fearless soul takes the hoard; horror FEEDS him) — the emotional win is freeing the victims, not the villain", (() => {
+  const defy = tbA.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Intimidation");
+  const crit = tbA.nodes.find(n => n.id === "tb_a_defy_crit");
+  const fumble = tbA.nodes.find(n => n.id === "tb_a_defy_fumble");
+  return defy && defy.crit && defy.fumble && defy.fail &&
+    crit && crit.effects.some(e => e.key === "tb.hoard_freed") &&
+    fumble && fumble.effects.some(e => e.key === "tb.fed_acererak");
+})());
+check("the spent cook is witnessed back (the Wall's lie answered: a soul is worth the warmth it is) and the fallen hero keeps his stopped story", (() => {
+  const nt = tbN.nodes.find(n => n.id === "tb_n_truth");
+  const kt = tbK.nodes.find(n => n.id === "tb_k_truth");
+  return tbN.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && nt && nt.effects.some(e => e.key === "tb.nessa_freed") &&
+    tbK.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && kt && kt.effects.some(e => e.key === "tb.kael_at_peace");
+})());
+check("each Tomb soul carries a [RETURNED] line + a Returned-sense", [tbA, tbN, tbK].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
