@@ -2038,6 +2038,32 @@ check("Irenicus is the saga's hardest case — reaching the elf under the monste
 check("each Hearth-of-Faerûn legend carries a [RETURNED] line + a Returned-sense", [rlVolo, rlElm, rlGor, rlDri, rlIre].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- forty-sixth zone: the Long Table — the room behind all the doors (the saga's emotional apex / meta-thesis) ----
+const TT = SCENES && SCENES.longtable;
+check("a forty-sixth zone (the Long Table) ships — the room behind all the doors", TT && TT.npcs.length >= 3);
+check("the Long Table is reached through the door almost no one finds in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "longtable"));
+const ttKeep = CONVS.find(c => c.id === "tt.keeper");
+const ttUnf = CONVS.find(c => c.id === "tt.unfinished");
+const ttChair = CONVS.find(c => c.id === "tt.chair");
+check("the three souls are present (the Keeper who has been telling, the Unfinished hero, the One Who Left the table)", ttKeep && ttUnf && ttChair);
+check("the Keeper reveals the Wall behind all the Walls is where the loved-and-set-aside go — and the [RETURNED] triggers the naming (witnessing IS the resurrection)", (() => {
+  const wall = ttKeep.nodes.find(n => n.id === "tt_k_wall");
+  const lit = ttKeep.nodes.find(n => n.id === "tt_k_litany");
+  const names = ttKeep.nodes.find(n => n.id === "tt_k_names");
+  return wall && wall.effects.some(e => e.key === "tt.knows_wall_behind_walls") &&
+    ttKeep.nodes.find(n => n.id === "1").choices.some(ch => ch.tag === "returned" && ch.next === "tt_k_litany") &&
+    lit && lit.effects.some(e => e.key === "tt.the_naming") && lit.auto === "tt_k_names" &&
+    names && names.effects.some(e => e.key === "tt.the_naming_done");
+})());
+check("the Unfinished hero (a paused story, not an ended one) and the One Who Left (the teller who had to go) each get a [RETURNED] resolution", (() => {
+  const ut = ttUnf.nodes.find(n => n.id === "tt_u_truth");
+  const ct = ttChair.nodes.find(n => n.id === "tt_c_truth");
+  return ttUnf.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && ut && ut.effects.some(e => e.key === "tt.unfinished_at_peace") &&
+    ttChair.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && ct && ct.effects.some(e => e.key === "tt.chair_forgiven");
+})());
+check("each Long Table soul carries a [RETURNED] line + a Returned-sense", [ttKeep, ttUnf, ttChair].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

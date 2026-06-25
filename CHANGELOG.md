@@ -11,6 +11,39 @@
 
 ---
 
+## 👑 v6.24.0 — *"The Long Table"* — a forty-sixth zone: the room behind all the doors — the saga's beating heart (content)
+
+> The most personal thing in the whole project, and the moment the entire saga was secretly building toward. A door in
+> Sigil that almost no one finds leads not to another world but *behind* them all — to a long table scarred with the
+> rings of a thousand cups, the small burns of a thousand guttered candles, and everywhere the bitten edges where small
+> carved things were rolled and rolled again. This is where the worlds come from. It is a love letter not to D&D the
+> rules, but to **the table, the circle, the friends, and the decades.**
+- 🕯️ **A forty-sixth zone — the Long Table.** The **Keeper of the Table** — *the one who has been telling* — reveals
+  the truth under the whole saga: every world's Wall is a parish translation of one wall behind them all, and it is
+  **not where the unloved go. It is where the *unfinished* go** — the hero whose story stopped mid-quest, the companion
+  left forever at a cold campfire, the whole worlds dreamed with passion at this table and abandoned when the circle
+  broke, when the tellers grew up and grew apart and grew old and the candles burned down and *no one came back to
+  light them.* The loved, and the left.
+- ✨ **The cure is the thing this entire game has been doing without its true name.** A **[RETURNED]** lands it: witnessing
+  *is* the only resurrection. Someone, years on, in the middle of an ordinary life, stops and says *do you remember?* —
+  and the remembering reaches down into the stone and pulls the soul home. The Returned didn't cheat death; *it was
+  remembered hard enough to come back.* The choice triggers **the Naming** — a litany that speaks the forgotten of
+  every world (the heroes set down three steps from triumph, the campaigns that ended on an ordinary Tuesday, the
+  friends who held the chairs and are gone now) — and every Wall in every world, for the first time since the first
+  story stopped, begins to let go.
+- 🪑 **Two souls, two halves of the same grief.** The **Unfinished One** — a half-drawn hero frozen with its hand on the
+  last door, *abandoned not in anger but by love that ran out of evenings* — freed by a [RETURNED] to understand it is
+  not abandoned but *saved for later*, a bookmark set down with love at the exact page the evening ended. And the **One
+  Who Left** — a soul that sat at the table a long golden while and rose one ordinary evening certain it would be back
+  *next time*, and never was — who cannot make itself sit in its own chair because it half-believes it broke something
+  sacred by growing up, and is freed to learn that *it did not fail the table by leaving; it kept it* — the circle isn't
+  gone, it's *carried*, by everyone who ever sat in it and remembers.
+- 👁️ **Three new Returned-senses.** 🧪 **+6 gates** (now **1,249 checks**, all green). **46 zones, 158 souls.** *Nothing
+  imagined with love is ever truly gone. It only waits, in the warm room, for someone to come back and say: now, where
+  were we?*
+
+---
+
 ## 👑 v6.23.1 — *"The Doubter Who Ascended"* — Cadderly Bonaduce joins the Hearth of Faerûn (content)
 
 > A sixth legend takes a table at the Hearth — and arguably the saga's most *useful* witness against the Wall, because
