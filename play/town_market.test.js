@@ -2358,6 +2358,37 @@ check("the wanderer: sixty years of road with no destination — a [RETURNED] na
 check("each Far-Roads soul carries a [RETURNED] line + a Returned-sense", [frI, frS, frD].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-sixth zone: the First Delve — a Greyhawk-flavored origin door (someone has to be first; you, the Returned, are doing it now) ----
+const FD = SCENES && SCENES.firstdelve;
+check("a fifty-sixth zone (the First Delve) ships — a Greyhawk-flavored love letter to the origin of adventuring", FD && FD.npcs.length >= 3);
+check("the First Delve is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "firstdelve"));
+const fdV = CONVS.find(c => c.id === "fd.vaeris");
+const fdT = CONVS.find(c => c.id === "fd.tobb");
+const fdH = CONVS.find(c => c.id === "fd.hadda");
+check("three firsts (the first between worlds, the first into the dark, the first to fall) are present", fdV && fdT && fdH);
+check("the first mage: stepped off the edge of the known with no proof — a [RETURNED] names being-first the loneliest courage and the player (back through death's door) the same act", (() => {
+  const t = fdV.nodes.find(n => n.id === "fd_v_truth");
+  return fdV.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fd.vaeris_affirmed");
+})());
+check("the first delver: an ordinary well-digger who went down after a lost child — a [RETURNED] names heroism never special, only love going down into the dark", (() => {
+  const t = fdT.nodes.find(n => n.id === "fd_t_truth");
+  return fdT.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fd.tobb_believes");
+})());
+check("the first to fall: a Persuasion can lift the age-old weight that her death was a mere warning (crit: 'not worth it — true' frees her; fumble: calling it 'sacrifice' reopens the wound)", (() => {
+  const lift = fdH.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = fdH.nodes.find(n => n.id === "fd_h_lift_crit");
+  const fumble = fdH.nodes.find(n => n.id === "fd_h_lift_fumble");
+  return lift && lift.crit && lift.fumble && lift.fail &&
+    crit && crit.effects.some(e => e.key === "fd.hadda_lifted") &&
+    fumble && fumble.effects.some(e => e.key === "fd.hadda_called_sacrifice");
+})());
+check("the first to fall: a [RETURNED] (from a soul who also crossed death's dark) names her the foundation, not the failure — the price that made courage real", (() => {
+  const t = fdH.nodes.find(n => n.id === "fd_h_truth");
+  return fdH.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "fd.hadda_freed");
+})());
+check("each First-Delve soul carries a [RETURNED] line + a Returned-sense", [fdV, fdT, fdH].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

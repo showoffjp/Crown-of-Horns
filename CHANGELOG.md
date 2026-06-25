@@ -11,6 +11,35 @@
 
 ---
 
+## 👑 v6.34.0 — *"The First Delve"* — a fifty-sixth zone: the origin of adventuring, and the loneliest courage (content)
+
+> A love letter to where it all began — a **Greyhawk**-flavored door onto the *origin*, the first souls who went into
+> the unknown when there was no map, no precedent, no proof it could be survived. And the door that ties most directly
+> to the player themselves: **you are the Returned — the first soul to cross *back* through death's one-way door** — and
+> so the one soul in all the planes who truly understands these three. The thesis: **someone has to be first — to step
+> into the dark with no proof it can be done; being first is the loneliest courage, because it alone has no
+> reassurance, and everything that comes after stands on it.**
+- ✦ **Vaeris, the first between worlds** — one of the first to cross to another plane and *return*, turning a wall into
+  a door for every mage who would ever follow. An **Arcana** read finds her terror was not of dying but of *dying
+  unwitnessed* — that a failed first crossing becomes the *proof it can't be done.* A **[RETURNED]** names her the
+  *wall becoming a door*, and the player's crossing-back the very same act: *go back through your Wall, prove by
+  surviving that what it calls final is only a door no one had dared — then write it down, hold it open.*
+- ✶ **Tobb, the first down** — not a hero: a *well-digger* who took the first lamp into the dark under the world, after a
+  lost child, because he *couldn't not.* An **Insight** read finds that the root of all delving *had* to be ordinary —
+  proof that the unprecedented courage lives in the most ordinary heart and wakes when love leaves no choice. A
+  **[RETURNED]** names it: *heroism was never about being special; the Wall throws away exactly the kind of soul that
+  took the first step down.*
+- ❖ **Hadda, the first to fall** — the first adventurer ever to go down and *not come up*, who has carried for an age
+  the terror that her death only ever taught others *fear.* A **Persuasion** can lift that weight — **crit:** you refuse
+  the word *worth it* and name what her death actually *did* (made the courage of everyone after *real*), and she can
+  finally set it down; **fumble:** you call it a *sacrifice* (a gift she never chose to give) and reopen the wound. A
+  **[RETURNED]**, spoken by a soul who *also* crossed death's dark, names her **the foundation, not the failure — the
+  price that made every crossing after her courage instead of luck.**
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,325 checks**, all green). **56 zones, 189 souls.** Sigil
+  now opens **thirteen doors** (two now on the side lanes).
+
+---
+
 ## 👑 v6.33.0 — *"The Far Roads"* — a fifty-fifth zone: the wanderers' rest, where the Wall asks the wrong question (content)
 
 > A deliberate turn back into warmth and light after the grief doors — a filed-off love letter to **Pathfinder** and its
