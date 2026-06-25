@@ -11,6 +11,32 @@
 
 ---
 
+## 👑 v6.35.0 — *"The Sunblasted Door"* — a fifty-seventh zone: a world drunk dry, the dark mirror of the Wall (content)
+
+> The most thematically central door yet — a **Dark Sun**-flavored homage to a world *already* dead, the wizards having
+> drunk it dry for power, leaving a grey waste where survival itself excuses every cruelty. It is the **dark mirror of
+> the player's own dying Realm**: a planet-scale proof of where the Wall's arithmetic leads. The thesis: **the Wall's
+> "hoard, take, spend the future, owe nothing" is the *defiler's* logic written across a whole world — and the soul that
+> still gives, still refuses to burn what can't regrow, still remembers it was green, is the only kind worth saving.**
+- ✦ **Tamar, who gave her water** — on a world where water *is* life, she gave hers to a dying stranger and died of it,
+  carrying one worry: that the stranger wasn't *worth* it. A **Persuasion** frees her — **crit:** giving is conditional
+  on *nothing* (the thirst, not the merit), and she sets the worry down; **fumble:** you make it about *her own
+  nobility* and she recoils (the stranger was never a prop for her virtue). A **[RETURNED]** names the Wall the burning
+  world's iron rule — *hoard, give nothing back* — and the hoarders who balanced their books and died on a dead world.
+- ❖ **Kessa, who would not burn the world** — a sorcerer who refused *defiling* magic (which rips the life from the land
+  for power, leaving ash that never grows) for fifty years, weak and poor while lesser souls became kings. An **Arcana**
+  read finds the cost was the *invisibility of restraint* — a world not killed leaves no monument. A **[RETURNED]** names
+  the Wall **the greatest defiler of all: burning the worth of the unclaimed dead to fuel the order of the powerful, and
+  calling the ash justice.** (The defilers won every fight and inherited a corpse.)
+- ✶ **Oru, who remembers the green** — the last of a chain of rememberers who held, across the grey ages, the heretical
+  memory that the world was once *green* — *because a world that forgets it was ever green can never want to be green
+  again.* A **[RETURNED]** names a memory of green a **seed** — the one thing a ruin that calls itself *eternal* cannot
+  abide — and the Wall's deepest wish (to seem natural, fixed, *how things are*) the very thing the rememberer defeats.
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (now **1,333 checks**, all green). **57 zones, 192 souls.** Sigil
+  now opens **fourteen doors.** *Give when the world says keep; spare when it says burn; remember when it says forget.*
+
+---
+
 ## 👑 v6.34.0 — *"The First Delve"* — a fifty-sixth zone: the origin of adventuring, and the loneliest courage (content)
 
 > A love letter to where it all began — a **Greyhawk**-flavored door onto the *origin*, the first souls who went into

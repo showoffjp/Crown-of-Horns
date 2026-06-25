@@ -2389,6 +2389,38 @@ check("the first to fall: a [RETURNED] (from a soul who also crossed death's dar
 check("each First-Delve soul carries a [RETURNED] line + a Returned-sense", [fdV, fdT, fdH].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- fifty-seventh zone: the Sunblasted Door — a Dark Sun-flavored door, the dark mirror of the dying Realm (the Wall's logic is the defiler's) ----
+const DS = SCENES && SCENES.sunwastes;
+check("a fifty-seventh zone (the Sunblasted Door) ships — a Dark Sun-flavored mirror of the dying Realm", DS && DS.npcs.length >= 3);
+check("the Sunblasted Door is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "sunwastes"));
+const dsT = CONVS.find(c => c.id === "ds.tamar");
+const dsK = CONVS.find(c => c.id === "ds.kessa");
+const dsO = CONVS.find(c => c.id === "ds.oru");
+check("three souls (the water-sharer, the preserver-mage, the rememberer of the green) are present", dsT && dsK && dsO);
+check("the water-sharer: a Persuasion frees her of the worry the stranger wasn't 'worth it' (crit: giving is unconditional; fumble: making it about her own nobility recoils)", (() => {
+  const w = dsT.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = dsT.nodes.find(n => n.id === "ds_t_worth_crit");
+  const fumble = dsT.nodes.find(n => n.id === "ds_t_worth_fumble");
+  return dsT.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    w && w.crit && w.fumble && w.fail &&
+    crit && crit.effects.some(e => e.key === "ds.tamar_freed") &&
+    fumble && fumble.effects.some(e => e.key === "ds.tamar_made_it_about_her");
+})());
+check("the water-sharer: a [RETURNED] names the Wall the burning world's iron rule — hoard, take, give nothing back — and giving the only wealth a dying world has", (() => {
+  const t = dsT.nodes.find(n => n.id === "ds_t_truth");
+  return t && t.effects.some(e => e.key === "ds.tamar_named_the_wall");
+})());
+check("the preserver: refused world-killing power for fifty years — a [RETURNED] names the Wall the greatest defiler (burning the helpless to fuel the mighty, calling ash justice)", (() => {
+  const t = dsK.nodes.find(n => n.id === "ds_k_truth");
+  return dsK.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ds.kessa_named_the_wall");
+})());
+check("the rememberer: keeps the memory that the world was green — a [RETURNED] names a memory of green a seed, the one thing a ruin that calls itself eternal cannot abide", (() => {
+  const t = dsO.nodes.find(n => n.id === "ds_o_truth");
+  return dsO.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ds.oru_seed_planted");
+})());
+check("each Sunblasted soul carries a [RETURNED] line + a Returned-sense", [dsT, dsK, dsO].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

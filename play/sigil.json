@@ -26,7 +26,8 @@
       { "x": 9, "y": 8, "to": "lanceward", "dest": { "x": 5, "y": 7 }, "label": "▸ a door under a faded blue banner, smelling of cold iron and woodsmoke — a hall where heaven went silent, and a knight, a mage, and his brother wait at opposite ends of one wound" },
       { "x": 10, "y": 8, "to": "longnight", "dest": { "x": 5, "y": 7 }, "label": "▸ a door of guttering lamplight and old blood — the Long Midnight, where the night-cursed are not the hunger they were given but the thing they choose to feed instead" },
       { "x": 0, "y": 7, "to": "farroads", "dest": { "x": 5, "y": 7 }, "label": "▸ a door warm with woodsmoke and a goblin's off-key song — the Far Roads, where the wanderers rest, and the Wall's question (how did you end?) meets three who answer with the road they walked" },
-      { "x": 10, "y": 7, "to": "firstdelve", "dest": { "x": 5, "y": 7 }, "label": "▸ an old, old door smelling of cold stone and the first lamps — the First Delve, where the origin sleeps: the first to walk between worlds, the first down into the dark, the first to fall — and you, the first to come back" }
+      { "x": 10, "y": 7, "to": "firstdelve", "dest": { "x": 5, "y": 7 }, "label": "▸ an old, old door smelling of cold stone and the first lamps — the First Delve, where the origin sleeps: the first to walk between worlds, the first down into the dark, the first to fall — and you, the first to come back" },
+      { "x": 0, "y": 6, "to": "sunwastes", "dest": { "x": 5, "y": 7 }, "label": "▸ a door breathing dry furnace-heat and grief — the Sunblasted waste, a world the wizards drank dry: the dark mirror of your dying Realm, where the Wall's logic is the defiler's, written across a whole planet" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",
