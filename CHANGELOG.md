@@ -11,6 +11,25 @@
 
 ---
 
+## 👑 v6.37.0 — *"The Far Doors Echo"* — the omniverse lands in the ending (reactivity)
+
+> Not a new zone — a **payoff.** After fifteen Sigil doors onto worlds beyond the Wheel, the side-roads now *echo in the
+> finale.* The Chronicler's epilogue gains a new branch — *"The far doors… what did I carry back from them?"* — that
+> reacts to the omniverse doors you actually walked and ties each lesson directly to the Wall's fall, so the journey
+> across the planes is no longer parallel optional content but part of the saga's spine.
+- 🪶 New reactive Chronicler node **`epi_sq_beyond`** (9 variants, first-match-wins by what you accomplished): the
+  **Faithful** (a love with no deeds the ledger was too grand to see), the **Sunblasted** world (you planted a seed in
+  the Wall's own ground), the **First Delve** (you understood what *you* were — the first to cross back), the
+  **Lanceward** hall (a love that kept no score the ledger couldn't price), the **Long Midnight** (a soul is its
+  cultivation, not its curse), the **Far Roads** (the Wall was grading the wrong exam), the **Menagerie** (*"are you all
+  right in there"* — the question that un-makes a Wall), and the **Re-Written** (canon and true are not the same word) —
+  each in the Chronicler's voice, each tying the door's thesis to what you carried home. Plus an honest default for souls
+  who kept to their own Realm.
+- 🧪 All gates green (**gate suite 633**, full ladder passing). **58 zones, 195 souls, fifteen doors** — unchanged; this
+  is reactivity, not content. *The doors were never a side-show. They were the long way of learning the one thing.*
+
+---
+
 ## 👑 v6.36.0 — *"The Faithful"* — a fifty-eighth zone: the beasts who loved us, and the love the Wall can't weigh (content)
 
 > The most tender door in the game, and a near-capstone that strips the whole thesis to its core. A door of the

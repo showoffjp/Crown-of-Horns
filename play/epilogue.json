@@ -388,6 +388,10 @@
               "next": "epi_sq_doors"
             },
             {
+              "text": "\"The far doors, Chronicler — the worlds beyond the Wheel that I walked: the made monsters, the knight under a silent heaven, the night-cursed, the wanderers, the first ones, the world drunk dry, the beasts who loved us. What did I carry back from *them*?\"",
+              "next": "epi_sq_beyond"
+            },
+            {
               "text": "\"That's enough of the side-roads, Chronicler.\"",
               "next": "epi_close"
             }
@@ -812,6 +816,81 @@
             },
             {
               "text": "*(The Chronicler considers the page, and gives a small, honest shrug.)* …The *doors.* *(kindly)* …If you *kept* to your *own* *Realm*, Returned — *stayed* on the *causeway*, *never* *found* the *crack* that *opened* *sideways* — then I'll *not* *invent* a *multiverse* you never *walked.* *(a small smile)* …But *know* this, since you *ask*: the *door* was *always* *there.* The *crack* in your *soul* was *never* *only* a *crack* in *time.* And in a *warm* room *behind* all the *worlds*, a *Keeper* is *still* *holding* a *chair* for the *soul* that *might*, *someday*, *find* the *door* and *come* *back* to the *table.* …It is *very* *patient.* It has *kept* *tables* *warm* through *longer* *silences* than *yours.*"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "epi_sq_beyond",
+          "speaker": "the Chronicler",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tf.hob_seen"
+                ]
+              },
+              "text": "*(The Chronicler stops writing, and sets a hand flat on the page, and when it speaks its voice has gone very quiet.)* …The *Faithful.* *(softly)* …You went through the *low* warm door, Returned — the one *almost* no one opens, because *who* crosses a *whole* *omniverse* to sit with a *dog?* …And you *did.* You sat with the *old* one at the *gate*, and you *told* him the *true* thing, *gently*, that he was *not* *late* and it was *not* *his* *fault* — and a faithful soul that had *watched* an *empty* *lane* past the *end* of his *legs* …finally got to *rest.* *(it shakes its head, eyes bright)* …And here is what you *carried* *back*, Returned, and *used* on your *Wall*, whether you *knew* it or not: that a *love* with *no* *deeds* in it, *no* *words*, *no* *debt* — *just* a *creature* *keeping* *faith* with an *empty* *gate* — is *not* a *thing* too *small* for the *ledger* to *weigh.* It is the *thing* the *ledger* was *too* *grand* to *see.* …When you stood at the *Wall* and *refused* to *measure* *souls* by their *size* …you were *quoting* a *dog*, Returned. …And it was the *wisest* thing *said* in all the *long* *trial* of the *dead.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "ds.oru_seed_planted"
+                ]
+              },
+              "text": "*(The Chronicler turns a page slowly, and its face is grave.)* …The *Sunblasted* *world.* *(quietly)* …You walked into the *dark* *mirror*, Returned — a world *already* *dead*, *drunk* *dry* by wizards who *spent* the *future* to be *mighty* *now* — and you *saw*, didn't you, the thing that *chilled* you to the *root*: that the *defiler's* *bargain* and your *Wall's* *justice* are the *same* *ledger.* *Spend* the *helpless.* *Hoard* the *now.* *Call* the *ash* *order.* *(it meets your eyes)* …And you carried *back* what the *rememberer* *gave* you — that a *memory* of *green* is a *seed*, and the *one* thing a *ruin* that calls itself *eternal* *cannot* *abide.* …You stood at your *grey* *Wall*, that *swore* it was *how* *things* *had* *always* *been* and *must* *always* *be* — *(softly, fierce)* …and you *remembered*, *out* *loud*, that it was *once*, and *could* *be* *again*, *green.* …The *defilers* *won* every *fight* and *inherited* a *corpse.* …*You* *planted* a *seed* in the *Wall's* *own* *ground.* …It is *growing* *still.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "fd.hadda_freed"
+                ]
+              },
+              "text": "*(The Chronicler sets down the pen, and looks at you with a particular recognition.)* …The *First* *Delve.* *(softly)* …Of *all* the *doors*, Returned, *that* one was *yours* — the *origin*, where the *firsts* *sleep*, who went into the *dark* with *no* *map* and *no* *proof* it could be *done.* …And you found *her* — the *first* one to *fall*, who carried for an *age* the *terror* that her *death* only *taught* the *others* *fear.* *(its voice fills)* …And you, who had *also* gone *down* into death's *dark* and *come* *back* *up*, told her the *thing* *no* one *else* *could*: that the *first* to *fall* on *any* *frontier* is *not* the *failure.* She is the *foundation* — the *price* that made *every* *crossing* *after* her *courage* instead of *luck.* *(it nods, slow)* …You did not *only* *free* *her*, Returned. …You *understood*, *standing* there, what *you* *were.* …The *first* to cross *back.* …And *that* is the *understanding* you *carried* to the *Wall* — that *being* *first* through the *door* *everyone* *swears* is *final* …is the *loneliest* *courage*, and the *one* that *opens* the *way* for *all* who *follow.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "dl.caramon_unburdened"
+                ]
+              },
+              "text": "*(The Chronicler's face softens with old grief.)* …The *Lanceward* *hall.* The *world* where *heaven* went *silent.* *(quietly)* …You sat with the *two* *halves* of *one* *wound*, Returned — the *mage* who *chose* *power* *over* *love*, and the *brother* who *chose* *love* *over* *everything* and was *left* *holding* it *alone.* …And to the *brother* — the *big* *simple* *faithful* one who *never* *got* the *message* they were *through* — you said the *thing* that *un-broke* him: that a *love* that *keeps* *no* *score* is *not* a *failed* *transaction.* It was *never* a *transaction* at *all.* *(it meets your eyes)* …And *that*, Returned, is the *blade* you *carried* to the *Wall.* For your *Wall* is a *ledger*, and a *ledger* *cannot* *price* a *love* that *kept* *no* *count* — *cannot* even *see* it — and *every* soul it *mortared* for *being* *owed* *nothing* *back* …was *guilty* *only* of *loving* the *way* the *brother* *loved.* …*Freely.* …*The* *Wall* *had* *no* *number* *high* *enough.* …You *taught* it *that.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "ln.mathias_outgrew"
+                ]
+              },
+              "text": "*(The Chronicler turns a page, and a small awe enters its voice.)* …The *Long* *Midnight.* The *night-cursed.* *(quietly)* …You walked among the *monsters* the *living* *world* *fears*, Returned — and you found, at the *steady* *center* of them, the *one* who had *carried* the *Hunger* for *centuries* and *stayed* a *man.* …Not by *strength*, he told you. By *out-growing* it: *feeding* the *man* so *faithfully*, so *long*, that the *man* grew *bigger* than the *monster* ever *got* to *be.* *(it nods)* …*A soul is not its curse. It is its cultivation.* …And *you* *carried* *that*, Returned, to a *Wall* that *prices* *souls* by the *worst* *thing* *ever* *done* to *them* — the *curse* they were *handed*, the *fate* they did *not* *choose.* …And you *answered* it with the *vampire's* *secret*: that *what* was *done* to a *soul* is the *least* *true* thing about it. …*What* it *fed*, *night* after *night*, in the *teeth* of it — *that* is *who* it *is.* …The *Wall* *judged* the *curse.* …*You* *weighed* the *cultivation.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "fr.iona_affirmed"
+                ]
+              },
+              "text": "*(The Chronicler smiles, warm despite the gravity.)* …The *Far* *Roads.* The *wanderers'* *rest.* *(fondly)* …You sat at the *campfire* of the *content* ones, Returned — the *crusader* who *held* an *unwinnable* *wall*, the *goblin* who was *gleefully* *nobody*, the *walker* who *saw* the *whole* *wide* *world* — and *they* gave *you* the thing you *needed* *most* before the *end*: they *indicted* your *Wall's* *whole* *question.* *(it leans in)* …*'Did you* *win.'* *'Where did you* *arrive.'* *'What are you* *owed.'* …The *crusader* *taught* you the *holding* *was* the *victory.* The *goblin* *taught* you *joy* is its *own* *worth.* The *walker* *taught* you the *journey* *was* the *point.* …And you *carried* it *back*, Returned, and *stood* at the *Wall* and *understood*: it has been *grading* the *wrong* *exam.* …It *asks* *'how* did you *end.'* …And you *answered* for *all* the *mortared* *dead*: *'we* *held* our *lines, on the days we were given'* — …and the *failures*, it turned out, …had *passed* *all* *along.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "mn.hooting_seen"
+                ]
+              },
+              "text": "*(The Chronicler chuckles, though its eyes are wet.)* …The *Menagerie* of the *Made.* *(warmly)* …You went to the *door* of the *monsters*, Returned — the *owlbear* *stitched* as a *cruel* *joke*, the *mimic* *cast* as *bait*, the *kobold* the *heroes* *never* *counted* — and you *asked* the *one* of them the *small* *question* *no* one *ever* *had*: *'are you all right in there.'* …The thing you ask a *who.* *Never* a *what.* *(it shakes its head)* …And *that*, Returned, is the *whole* *of* it — the *question* you *carried* to the *Wall.* For the *Wall* *looks* at a *soul*, *sees* the *shape* of it — *small*, *unguarded*, *made* of the *wrong* *stuff* — and *decides* that's *all* it *is*, and *mortars* it in, *asking* *nobody* if there's a *someone* *inside.* …*You* *asked.* …*Every* soul in the *Wall*, you *asked.* …*'Are* you *all* right *in* there.'* …It is the *question* that *un-makes* a *monster.* …And it *un-made* a *Wall.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rw.aelith_restored"
+                ]
+              },
+              "text": "*(The Chronicler runs a reverent finger down the page.)* …The *Hall* of the *Re-Written.* *(softly)* …You found the *small* *goddess* *struck* from *canon*, Returned — *un-written*, not *killed*, her *name* *sanded* from *every* *history* — and you *re-canonized* her the *only* *way* a *thing* like *her* can *be*: you *remembered* her *true.* *(it meets your eyes)* …*Canon* and *true* are *not* the *same* *word.* …The *corrected* *texts* have *authority.* They do *not* have *truth.* …And you *carried* *that* to a *Wall* that *had* *written* a *whole* *parish* of *souls* *out* of *worth* — *declared* them *owed* *nothing*, *struck* them from the *ledger* of the *loved* — …and you *said* the *un-writer's* *undoing*: *a thing that happened cannot be un-happened by any power's correction.* …*They* *happened.* …*They* *were* *loved.* …And *no* *Wall's* *editing* …could *make* it *otherwise.*"
+            },
+            {
+              "when": null,
+              "text": "*(The Chronicler considers the page, and gives a small, honest shrug.)* …The *far* *doors.* *(kindly)* …If you *kept* *mostly* to your *own* *Realm*, Returned — *crossed* into *Sigil*, *perhaps*, but *did* not *walk* the *long* *lanes* to the *worlds* *beyond* the *Wheel* — then I'll *not* *invent* *journeys* you never *took.* *(a small smile)* …But *know* this: the *doors* are *still* *there.* A *made* *monster* who *chose* *gentleness.* A *knight* who *kept* *faith* with an *empty* *sky.* A *cursed* *thing* that *out-grew* its *curse.* A *dog* at a *gate.* …*Each* one of them *learned*, in their *own* *world*, the *same* *thing* you *learned* at *yours*: that *worth* was *never* what you *did*, or *what* you're *owed*, or *how* you *ended.* …It was *how* you *loved.* …The *doors* will *keep.* …And a *Keeper*, *behind* all the *worlds*, is *still* *holding* a *chair.*"
             }
           ],
           "auto": "END"
