@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.44.0 — *"The Unseen"* — a sixty-fifth zone: the invisible labor that held the world up (content)
+
+> A dignifying door on **the unseen work of care** — the souls whose invisible, unthanked labor actually held everything
+> up while the world looked only at the thrones. The thesis: **the Wall (like the world) credits the *visible* — the
+> grand, the named, the shining — and is blind to the foundation beneath; nothing shines by itself, and the world was
+> never held up by the ones on top. It was held up by the ones no one looked at.**
+- ✦ **Tilda, the housekeeper** — who ran a great house (a staff of forty, the whole hidden machine) for fifty years so
+  well that the grand lives upstairs believed bread simply *appeared.* The art of her trade was to make the labor
+  *vanish* — so the better she did it, the *less she existed.* A **[RETURNED]** names her not the absence of a great
+  life but the *foundation* a dozen great lives stood on: *the foundation is worth more than the whole house it carries.*
+- ❖ **Garrick, the gong-farmer** — who carried away a city's nightsoil so it wouldn't drown in its own filth, and was
+  taught, cruelly, that *he* was the filth. A **Persuasion** lifts the world's contempt — **crit:** the filth was never
+  *his* (he scrubbed at the wrong thing all along; he was *clean*), and he sits up straight at last; **fumble:** an
+  involuntary *flinch* he reads instantly (*you see a trade, not a man*). A **[RETURNED]** names the Wall as despising
+  *what it cannot bear to need.*
+- ✶ **Wennick, who tended the dying** — who walked *into* the rooms everyone fled (the plague-struck, the foul, the
+  abandoned) so no one would die alone, and learned every soul at the end wants the same three things: *not to be alone,
+  to be forgiven, to know they mattered.* Caught the fever at a bedside and never regretted it. A **[RETURNED]** names
+  the Wall a **machine for abandonment** — undone not by force but by *walking in and staying.*
+- 👁️ **Three new Returned-senses.** 🧪 **+8 gates** (**gate suite 689 / 1,397 total**, all green). **65 zones, 217
+  souls. Twenty-two doors.** *Look down — at the ones no one looks at — and you'll find, every time, they were holding the whole thing up.*
+
+---
+
 ## 👑 v6.43.0 — *"The Forbidden"* — a sixty-fourth zone: the loves the world condemned (content)
 
 > A bittersweet door on **love, and the world's right to judge it** — three souls who are three relationships to a

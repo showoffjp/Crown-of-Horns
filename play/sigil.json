@@ -34,7 +34,8 @@
       { "x": 0, "y": 4, "to": "lastjob", "dest": { "x": 5, "y": 7 }, "label": "▸ a hidden door behind a false wall — a thieves' bolthole, where a crew that robbed a slaver's vault to free the bound knows the Wall for what it is: the biggest rigged ledger there ever was" },
       { "x": 10, "y": 4, "to": "thesong", "dest": { "x": 5, "y": 7 }, "label": "▸ a door that hums with an old half-remembered tune — the Sounding Court, where the music outlived the players, and the Wall meets three things it cannot hold: a song that lasted, a song that was lost, a song that was never meant to last" },
       { "x": 0, "y": 3, "to": "truce", "dest": { "x": 5, "y": 7 }, "label": "▸ a door onto a cold field between two banners — No Man's Land, where two soldiers who killed each other still keep their line: carry each one's home across, and dissolve the war the Wall is made of" },
-      { "x": 10, "y": 3, "to": "forbidden", "dest": { "x": 5, "y": 7 }, "label": "▸ a door onto a quiet candlelit garden — the Loves the World Forbade, where one chose duty, one chose love, and one never dared to speak: the Wall is the world's false judgment of love, grown cosmic" }
+      { "x": 10, "y": 3, "to": "forbidden", "dest": { "x": 5, "y": 7 }, "label": "▸ a door onto a quiet candlelit garden — the Loves the World Forbade, where one chose duty, one chose love, and one never dared to speak: the Wall is the world's false judgment of love, grown cosmic" },
+      { "x": 0, "y": 2, "to": "unseen", "dest": { "x": 5, "y": 7 }, "label": "▸ a low door down a back stair, warm with hearth-smoke — the Below-Stairs, where the unseen wait: the hands that held the world up while it looked only at the thrones" }
     ],
     "npcs": [
       { "id": "dustman", "name": "Grist", "title": "a Dustman of the Mortuary", "x": 5, "y": 4, "hue": 270, "sigil": "✜", "conv": "cd.dustman",

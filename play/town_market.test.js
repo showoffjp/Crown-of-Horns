@@ -2665,6 +2665,37 @@ check("the one who never spoke: a [RETURNED] carries the silence to the living a
 check("each Forbidden-garden soul carries a [RETURNED] line + a Returned-sense", [fbR, fbM, fbW].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-fifth zone: the Unseen — the invisible labor that held the world up (the Wall credits the visible, misses the foundation) ----
+const UW = SCENES && SCENES.unseen;
+check("a sixty-fifth zone (the Below-Stairs) ships — the unseen who held the world up", UW && UW.npcs.length >= 3);
+check("the Below-Stairs is reached through a door in Sigil", (SCENES.sigil.exits || []).some(x => x.to === "unseen"));
+const uwT = CONVS.find(c => c.id === "uw.tilda");
+const uwG = CONVS.find(c => c.id === "uw.garrick");
+const uwW = CONVS.find(c => c.id === "uw.wennick");
+check("three unseen (the housekeeper, the gong-farmer, the tender of the dying) are present", uwT && uwG && uwW);
+check("the housekeeper: a [RETURNED] names the grand lives a foundation she held up unseen — the Wall credits the shining, misses the hands", (() => {
+  const t = uwT.nodes.find(n => n.id === "uw_t_returned");
+  return uwT.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "uw.tilda_named_the_wall");
+})());
+check("the gong-farmer: a Persuasion lifts the world's contempt from him (crit: the filth was never his, clean at last; fumble: a flinch he reads as 'you see a trade, not a man')", (() => {
+  const lift = uwG.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = uwG.nodes.find(n => n.id === "uw_g_lift_crit");
+  const fumble = uwG.nodes.find(n => n.id === "uw_g_lift_fumble");
+  return lift && lift.crit && lift.fumble && lift.fail &&
+    crit && crit.effects.some(e => e.key === "uw.garrick_clean_at_last") &&
+    fumble && fumble.effects.some(e => e.key === "uw.garrick_saw_the_flinch");
+})());
+check("the gong-farmer: a [RETURNED] names the Wall as despising what it cannot bear to need", (() => {
+  const t = uwG.nodes.find(n => n.id === "uw_g_returned");
+  return t && t.effects.some(e => e.key === "uw.garrick_named_the_wall");
+})());
+check("the tender of the dying: a [RETURNED] names the Wall a machine for abandonment, undone not by force but by walking in and staying", (() => {
+  const t = uwW.nodes.find(n => n.id === "uw_w_returned");
+  return uwW.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "uw.wennick_named_the_wall");
+})());
+check("each Unseen soul carries a [RETURNED] line + a Returned-sense", [uwT, uwG, uwW].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
