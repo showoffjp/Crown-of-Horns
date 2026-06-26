@@ -2908,6 +2908,38 @@ check("Tamsin (denial): a Persuasion-gated [RETURNED] takes her down off the cei
 check("each After soul carries a [RETURNED] line + a Returned-sense", [afS, afC, afT].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+const OL = SCENES && SCENES.oneleft;
+check("a seventy-second zone (the One Left) ships — the overlooked the bright ones step over, incl. the soul that becomes the weapon", OL && OL.npcs.length >= 3);
+check("the One Left is reached from the Last Word's lot (the western corner)", (SCENES.lastword.exits || []).some(x => x.to === "oneleft"));
+check("the One Left exits back to the Last Word's lot (reachable round-trip)", (OL.exits || []).some(x => x.to === "lastword"));
+const olS = CONVS.find(c => c.id === "ol.sift");
+const olB = CONVS.find(c => c.id === "ol.bryn");
+const olT = CONVS.find(c => c.id === "ol.tace");
+check("three souls (the soul dissolving into the weapon, the one a legend saved and never saw, the one who made itself nothing to survive) are present", olS && olB && olT);
+check("Sift (the vector): a Persuasion eases the dissolving soul (crit: gentle, witnessed, sat-close; fumble: you flinch up close); and a [RETURNED] names it the Wall's weapon-made-of-a-victim, not a monster, with a post-mercy node-0 variant", (() => {
+  const ease = olS.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = olS.nodes.find(n => n.id === "ol_s_ease_crit");
+  const fumble = olS.nodes.find(n => n.id === "ol_s_ease_fumble");
+  const t = olS.nodes.find(n => n.id === "ol_s_returned");
+  const v = olS.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("ol.sift_eased")));
+  return ease && ease.crit && ease.fail && ease.fumble && v &&
+    crit && crit.effects.some(e => e.key === "ol.eased_gentle") &&
+    fumble && fumble.effects.some(e => e.key === "ol.flinched_from_sift") &&
+    olS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ol.sift_witnessed");
+})());
+check("Bryn (the scenery): a [RETURNED] reclaims the saved life as the soul's own, not the rescuer's; and you can ask the saved-and-forgotten soul its whole name", (() => {
+  const t = olB.nodes.find(n => n.id === "ol_b_returned");
+  const nameNode = olB.nodes.find(n => n.id === "ol_b_name");
+  return olB.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ol.bryn_reclaimed") &&
+    nameNode && nameNode.effects.some(e => e.key === "ol.knows_bryns_name");
+})());
+check("Tace (chose to be nothing): a [RETURNED] names self-erasure the Wall winning without a fight — a third way between blaze-and-be-hunted and dim-and-be-nothing — and the banked coal stirs", (() => {
+  const t = olT.nodes.find(n => n.id === "ol_t_returned");
+  return olT.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "ol.tace_stirs");
+})());
+check("each One Left soul carries a [RETURNED] line + a Returned-sense", [olS, olB, olT].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

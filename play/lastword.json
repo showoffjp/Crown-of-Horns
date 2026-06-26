@@ -1,131 +1,895 @@
 {
   "scene": {
-    "id": "lastword", "name": "The Last Word",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 1 },
+    "id": "lastword",
+    "name": "The Last Word",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
     "props": [
-      { "type": "log", "x": 5, "y": 3 },
-      { "type": "cairn", "x": 2, "y": 4 },
-      { "type": "cairn", "x": 8, "y": 5 },
-      { "type": "deadtree", "x": 9, "y": 2 },
-      { "type": "banner", "x": 1, "y": 2, "hue": 10 },
-      { "type": "lamppost", "x": 7, "y": 6 },
-      { "type": "candle", "x": 3, "y": 6 }
+      {
+        "type": "log",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "cairn",
+        "x": 2,
+        "y": 4
+      },
+      {
+        "type": "cairn",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "deadtree",
+        "x": 9,
+        "y": 2
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2,
+        "hue": 10
+      },
+      {
+        "type": "lamppost",
+        "x": 7,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "nightmarket", "dest": { "x": 6, "y": 7 }, "label": "◂ back up to the Night Market" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "nightmarket",
+        "dest": {
+          "x": 6,
+          "y": 7
+        },
+        "label": "◂ back up to the Night Market"
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "to": "oneleft",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ the western corner, where the overlooked wash up — the things a legend steps over"
+      }
     ],
     "npcs": [
-      { "id": "sevrin", "name": "Sevrin Vael", "title": "the Last Word — a Returned who has never once lost", "x": 5, "y": 4, "hue": 10, "sigil": "⚔", "conv": "sv.sevrin",
-        "hail": "*(You come out into a back lot of the market and walk straight into the aftermath of a slaughter — except 'slaughter' is the wrong word, because a slaughter is ugly, and this was *art.* A dozen Unbound, the dead-come-back-wrong, lie dissolving into grey cairns across the cleared ground, and not one of them got within a swordlength of the man now lounging on a fallen log in the middle of it all, one boot up, cleaning a long thin blade with a rag, whistling. He is older than you — old in the way of a soul that has worn many lifetimes lightly — lean and easy and elegant, with a duelist's wrists and a card-sharp's grin and the absolute, bone-deep, unbothered calm of a creature that has done a frightening thing ten thousand times and been bored by harder. The dissolving horrors do not concern him. *Nothing*, you sense at once, concerns him. He spots you, and his whole face lights with the delight of a performer who's found a fresh audience.)* …*well*, *now.* *(he doesn't get up; he gestures with the blade, a flourish)* …a *new* face — and a *cold* one. *Returned*, like *me.* *(he says it like a wonderful joke between the two of you)* …took you long *enough*, the *Wall's* been *whispering* about a *fresh* one for *days.* Come, *come*, mind the *cairns*, they *stain* — *(he kicks a dissolving Unbound off his boot without looking)* …*these?* don't *trouble* yourself, i was *tidying.* the *market* had a *vermin* problem and i had an *afternoon.* *(he buffs the blade, admiring it)* …Sevrin Vael, friend. They call me the *Last* *Word* — on account of i *always* *get* it. *(the grin sharpens)* …i have died, friend, and come *back*, *nine* *times.* i have walked souls out of *every* horror this grey country *keeps* — out of the *Unbound* *swarms*, out of the *Convergence*, out of the *teeth* of things that *eat* *Returned* like *us* for *sport* — and i have *never*, not *once*, in *nine* *lifetimes* and *ten* *thousand* *foes*, *lost.* *(he winks)* …so whatever's *chasing* you, cold one — and *something* always is, for our *kind* — …you can *stop* *running* *now.* …you've *wandered* into the *one* *patch* of *this* *whole* *afterlife* …where *nothing* *bad* …*gets* to *happen.* …because *i'm* in it. …*sit* *down.* …have you ever *watched* a *master* *work?**" },
-      { "id": "sela", "name": "Sela", "title": "a soul he saved, who has given him all her courage to keep", "x": 2, "y": 6, "hue": 190, "sigil": "❉", "conv": "sv.sela",
-        "hail": "*(A young soul sits near the cleared ground with her knees drawn up, watching Sevrin with the open, undiluted adoration of someone who has been pulled out of a nightmare by a stranger and has decided, completely, that the stranger is the safest thing in all the worlds. She is not dissolving; she has the steady look of a soul that has stopped being afraid — and you understand, watching her watch him, that she has stopped being afraid because she has handed the *job* of being afraid to *him*, and he has accepted it, and she has not had to carry it since.)* …isn't he *something.* *(she says it before you've spoken, not taking her eyes off him)* …you should have *seen* it, cold one. the *Unbound* had me — *had* me, the *whole* *swarm*, i was *done*, i'd *given* *up* — and he just — *(she shakes her head, glowing)* …he came *walking* in, *whistling*, like he was *late* for *dinner*, and he *winked* at me, cold one. in the *middle* of it. *winked.* like it was — like it was *nothing.* and i *knew*, right *then*, the *way* you *know* a *true* thing: …*i'm* *going* to *live.* *(she hugs her knees)* …and i *did.* …i've stuck to him *since.* *every* soul here *has* — there's a *little* *court* of us, the *saved*, the ones he *walked* out. …we *follow* him, cold one. because when *Sevrin's* *near* … …*(softly, and there is something underneath it she doesn't examine)* …*nothing* *can* *touch* you. …i'd *forgotten* what that *felt* like. …*not* being *afraid.* …he *gave* me *that.* …i don't — *(a small, untroubled laugh)* …i don't even *carry* it *anymore*, the *fear.* …*he* *does.* …*for* *all* of *us.**" },
-      { "id": "coll", "name": "Coll", "title": "an old soul who has watched the unbeatable die before", "x": 9, "y": 6, "hue": 45, "sigil": "❀", "conv": "sv.coll",
-        "hail": "*(Apart from the little worshipful court, an old, old soul sits on a stone with the patience of someone who has been dead a very long time and seen a very great deal, and he is not watching Sevrin with adoration. He is watching him with *grief* — the specific, premature, helpless grief of a man at a funeral that hasn't happened yet. He sees you notice, and his weathered face creases into something that is not quite a smile.)* …you feel it too, don't you. *(a low, dry voice)* …no. …no, you *don't*, not *yet.* you've the *shine* in your *eye* the *rest* of them have — the *'thank* the *gods*, a *strong* one, *now* i'm *safe'* shine. *(he sighs, and it is an ancient sound)* …i had it *once.* the *shine.* a *long* *time* *ago, cold one* — *lifetimes* — when i was *new* and *frightened* and a *Returned* *legend* came *striding* into *my* worst *hour*, *whistling*, and *winked* at *me*, and i *knew*, the way *Sela* *knows*, the way *you're* starting to *know*: …*nothing* *bad* *gets* to *happen* …*while* *he's* *near.* *(he looks at Sevrin, and the grief deepens)* …his name was *Haldane.* the *Unbroken* *Blade.* *eleven* *lifetimes*, *never* *bested.* …and i *watched* him *die*, cold one. …in the *time* it takes to *blink.* …*not* to a *worthy* *foe* — Haldane *ate* *worthy* *foes* — …*(very quietly)* …to a *small* *thing.* a *nothing* *thing.* a thing he didn't *bother* to *watch* …because *why* *would* he. *(he meets your eyes)* …*sit* with an *old* *soul* a *moment*, cold one. …*before* you *join* the *court* of the *unafraid.* …because i have *seen* …how *this* …*ends.* …and i have *never*, in all my *deaths* …found a *way* …to make the *bright* ones …*listen.**" }
+      {
+        "id": "sevrin",
+        "name": "Sevrin Vael",
+        "title": "the Last Word — a Returned who has never once lost",
+        "x": 5,
+        "y": 4,
+        "hue": 10,
+        "sigil": "⚔",
+        "conv": "sv.sevrin",
+        "hail": "*(You come out into a back lot of the market and walk straight into the aftermath of a slaughter — except 'slaughter' is the wrong word, because a slaughter is ugly, and this was *art.* A dozen Unbound, the dead-come-back-wrong, lie dissolving into grey cairns across the cleared ground, and not one of them got within a swordlength of the man now lounging on a fallen log in the middle of it all, one boot up, cleaning a long thin blade with a rag, whistling. He is older than you — old in the way of a soul that has worn many lifetimes lightly — lean and easy and elegant, with a duelist's wrists and a card-sharp's grin and the absolute, bone-deep, unbothered calm of a creature that has done a frightening thing ten thousand times and been bored by harder. The dissolving horrors do not concern him. *Nothing*, you sense at once, concerns him. He spots you, and his whole face lights with the delight of a performer who's found a fresh audience.)* …*well*, *now.* *(he doesn't get up; he gestures with the blade, a flourish)* …a *new* face — and a *cold* one. *Returned*, like *me.* *(he says it like a wonderful joke between the two of you)* …took you long *enough*, the *Wall's* been *whispering* about a *fresh* one for *days.* Come, *come*, mind the *cairns*, they *stain* — *(he kicks a dissolving Unbound off his boot without looking)* …*these?* don't *trouble* yourself, i was *tidying.* the *market* had a *vermin* problem and i had an *afternoon.* *(he buffs the blade, admiring it)* …Sevrin Vael, friend. They call me the *Last* *Word* — on account of i *always* *get* it. *(the grin sharpens)* …i have died, friend, and come *back*, *nine* *times.* i have walked souls out of *every* horror this grey country *keeps* — out of the *Unbound* *swarms*, out of the *Convergence*, out of the *teeth* of things that *eat* *Returned* like *us* for *sport* — and i have *never*, not *once*, in *nine* *lifetimes* and *ten* *thousand* *foes*, *lost.* *(he winks)* …so whatever's *chasing* you, cold one — and *something* always is, for our *kind* — …you can *stop* *running* *now.* …you've *wandered* into the *one* *patch* of *this* *whole* *afterlife* …where *nothing* *bad* …*gets* to *happen.* …because *i'm* in it. …*sit* *down.* …have you ever *watched* a *master* *work?**"
+      },
+      {
+        "id": "sela",
+        "name": "Sela",
+        "title": "a soul he saved, who has given him all her courage to keep",
+        "x": 2,
+        "y": 6,
+        "hue": 190,
+        "sigil": "❉",
+        "conv": "sv.sela",
+        "hail": "*(A young soul sits near the cleared ground with her knees drawn up, watching Sevrin with the open, undiluted adoration of someone who has been pulled out of a nightmare by a stranger and has decided, completely, that the stranger is the safest thing in all the worlds. She is not dissolving; she has the steady look of a soul that has stopped being afraid — and you understand, watching her watch him, that she has stopped being afraid because she has handed the *job* of being afraid to *him*, and he has accepted it, and she has not had to carry it since.)* …isn't he *something.* *(she says it before you've spoken, not taking her eyes off him)* …you should have *seen* it, cold one. the *Unbound* had me — *had* me, the *whole* *swarm*, i was *done*, i'd *given* *up* — and he just — *(she shakes her head, glowing)* …he came *walking* in, *whistling*, like he was *late* for *dinner*, and he *winked* at me, cold one. in the *middle* of it. *winked.* like it was — like it was *nothing.* and i *knew*, right *then*, the *way* you *know* a *true* thing: …*i'm* *going* to *live.* *(she hugs her knees)* …and i *did.* …i've stuck to him *since.* *every* soul here *has* — there's a *little* *court* of us, the *saved*, the ones he *walked* out. …we *follow* him, cold one. because when *Sevrin's* *near* … …*(softly, and there is something underneath it she doesn't examine)* …*nothing* *can* *touch* you. …i'd *forgotten* what that *felt* like. …*not* being *afraid.* …he *gave* me *that.* …i don't — *(a small, untroubled laugh)* …i don't even *carry* it *anymore*, the *fear.* …*he* *does.* …*for* *all* of *us.**"
+      },
+      {
+        "id": "coll",
+        "name": "Coll",
+        "title": "an old soul who has watched the unbeatable die before",
+        "x": 9,
+        "y": 6,
+        "hue": 45,
+        "sigil": "❀",
+        "conv": "sv.coll",
+        "hail": "*(Apart from the little worshipful court, an old, old soul sits on a stone with the patience of someone who has been dead a very long time and seen a very great deal, and he is not watching Sevrin with adoration. He is watching him with *grief* — the specific, premature, helpless grief of a man at a funeral that hasn't happened yet. He sees you notice, and his weathered face creases into something that is not quite a smile.)* …you feel it too, don't you. *(a low, dry voice)* …no. …no, you *don't*, not *yet.* you've the *shine* in your *eye* the *rest* of them have — the *'thank* the *gods*, a *strong* one, *now* i'm *safe'* shine. *(he sighs, and it is an ancient sound)* …i had it *once.* the *shine.* a *long* *time* *ago, cold one* — *lifetimes* — when i was *new* and *frightened* and a *Returned* *legend* came *striding* into *my* worst *hour*, *whistling*, and *winked* at *me*, and i *knew*, the way *Sela* *knows*, the way *you're* starting to *know*: …*nothing* *bad* *gets* to *happen* …*while* *he's* *near.* *(he looks at Sevrin, and the grief deepens)* …his name was *Haldane.* the *Unbroken* *Blade.* *eleven* *lifetimes*, *never* *bested.* …and i *watched* him *die*, cold one. …in the *time* it takes to *blink.* …*not* to a *worthy* *foe* — Haldane *ate* *worthy* *foes* — …*(very quietly)* …to a *small* *thing.* a *nothing* *thing.* a thing he didn't *bother* to *watch* …because *why* *would* he. *(he meets your eyes)* …*sit* with an *old* *soul* a *moment*, cold one. …*before* you *join* the *court* of the *unafraid.* …because i have *seen* …how *this* …*ends.* …and i have *never*, in all my *deaths* …found a *way* …to make the *bright* ones …*listen.**"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "sv.sevrin", "title": "Sevrin Vael, the Last Word", "npc": "Sevrin Vael", "start": "0",
+      "id": "sv.sevrin",
+      "title": "Sevrin Vael, the Last Word",
+      "npc": "Sevrin Vael",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Sevrin Vael", "onEnter": [{ "key": "sv.met_sevrin", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Sevrin Vael",
+          "onEnter": [
+            {
+              "key": "sv.met_sevrin",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["sv.heard_you"] }, "text": "*(He's still lounging on the log, still easy, still elegant — but something you said has lodged, and every so often, mid-flourish, his eyes flick to the edges of the lot, to the dissolving cairns, to the small twitching wretch nobody else watches, and then back to you, and the grin comes a half-second slower than it did.)* …*you*, again. *(he points the blade at you, friendly, but the point is steadier than it was)* …i'll have you *know*, cold one, you've *ruined* a perfectly *good* *afternoon.* *(a crooked smile)* …i've caught myself *twice* now *looking* at the — at the *little* one. the *half-gone* one in the *corner* there, that i *didn't* bother to — *(he stops, and for just a moment the performer is gone and there's only a very old, very tired soul under it)* …*nine* *lifetimes*, cold one, *nobody's* made me *look* at the *small* ones. …i don't *thank* you for it. *(the grin comes back, but thinner)* …*ask* your *questions.* …and then *let* an old *blade* …get *back* …to *not* *thinking* about it.*" },
-            { "text": "*(He sweeps the rag down the blade one last time, sheaths it in a single liquid motion, and spreads his hands as if presenting himself for inspection, entirely at ease in the middle of a field of things he killed.)* …go *on*, then, *look* your *fill* — everyone *does.* *(he grins)* …it's not *vanity*, cold one, before you *judge* me; it's *arithmetic.* when you've won as *many* *times* as *i* have, *confidence* isn't a *flaw*, it's a *correctly* *drawn* *conclusion.* *(he taps his temple)* …the *frightened* die. i've *watched* it, a *thousand* *times* — the soul that *hesitates*, that *second-guesses*, that *flinches* — the *Wall* *takes* *those.* …and the soul that *walks* in *whistling*, that *knows* it'll *win* …*wins.* *(a wink)* …*fear's* the only thing that *kills* our *kind*, cold one. and i *cured* myself of *that* …*eight* *lifetimes* *ago.* …*ask*.",
+            {
+              "when": {
+                "flags": [
+                  "sv.heard_you"
+                ]
+              },
+              "text": "*(He's still lounging on the log, still easy, still elegant — but something you said has lodged, and every so often, mid-flourish, his eyes flick to the edges of the lot, to the dissolving cairns, to the small twitching wretch nobody else watches, and then back to you, and the grin comes a half-second slower than it did.)* …*you*, again. *(he points the blade at you, friendly, but the point is steadier than it was)* …i'll have you *know*, cold one, you've *ruined* a perfectly *good* *afternoon.* *(a crooked smile)* …i've caught myself *twice* now *looking* at the — at the *little* one. the *half-gone* one in the *corner* there, that i *didn't* bother to — *(he stops, and for just a moment the performer is gone and there's only a very old, very tired soul under it)* …*nine* *lifetimes*, cold one, *nobody's* made me *look* at the *small* ones. …i don't *thank* you for it. *(the grin comes back, but thinner)* …*ask* your *questions.* …and then *let* an old *blade* …get *back* …to *not* *thinking* about it.*"
+            },
+            {
+              "text": "*(He sweeps the rag down the blade one last time, sheaths it in a single liquid motion, and spreads his hands as if presenting himself for inspection, entirely at ease in the middle of a field of things he killed.)* …go *on*, then, *look* your *fill* — everyone *does.* *(he grins)* …it's not *vanity*, cold one, before you *judge* me; it's *arithmetic.* when you've won as *many* *times* as *i* have, *confidence* isn't a *flaw*, it's a *correctly* *drawn* *conclusion.* *(he taps his temple)* …the *frightened* die. i've *watched* it, a *thousand* *times* — the soul that *hesitates*, that *second-guesses*, that *flinches* — the *Wall* *takes* *those.* …and the soul that *walks* in *whistling*, that *knows* it'll *win* …*wins.* *(a wink)* …*fear's* the only thing that *kills* our *kind*, cold one. and i *cured* myself of *that* …*eight* *lifetimes* *ago.* …*ask*.",
               "choices": [
-                { "text": "*(read the Last Word — past the dazzling ease, to whatever a soul buries under nine lifetimes of never letting itself flinch)* \"Hold that pose a moment, Sevrin. Let me really look at you — under the whistling.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "sv_s_read", "effects": [{ "key": "sv.read_sevrin", "op": "SetTrue" }] },
-                { "text": "\"Nine lifetimes, ten thousand foes, never once lost. I believe you — I can see the field. So tell me, Sevrin: how? What's the secret of a soul that doesn't lose?\"", "next": "sv_s_how", "effects": [{ "key": "sv.asked_how", "op": "SetTrue" }] },
-                { "text": "*(the one who has learned what actually kills the strong — and is terrified for him, because the loop does not send a worthy foe for the magnificent; it sends the small thing they stopped watching)* \"Sevrin — I'm going to say something you won't want to hear, and I need you to not wink at me while I say it. You're right that fear kills our kind. But you've drawn the wrong conclusion from it, and I think it's going to cost you everything. You think confidence is the cure for fear. It isn't. It's just fear you've stopped *listening* to. And the thing that hunts souls like us — I've seen closer than you have what it is — it doesn't lose to skill, because it never *fights* skill. It's patient. It's watched you win nine lifetimes, and it has learned the one thing about you that matters: that you only guard the worthy threats. The swarm. The Convergence. The big, bright, *worthy* dangers a master deigns to take seriously. So it will not send you a worthy foe, Sevrin — it knows better, it knows you'd carve a worthy foe to ribbons and *laugh.* It will send you something beneath your notice. Something small. Something already half-dead, twitching in a corner, that you didn't bother to finish because *why would you.* And it will have, smeared on it, the one poison that actually works on a Returned — not a sharper blade, there's no blade sharp enough for you, but *unmaking*, the Wall's own touch, the single thing your skill cannot parry because it isn't a *strike.* The greatest swordsman who ever lived still dies if the cut is poisoned and he never sees it coming. You have made yourself unkillable against everything that would be *worthy* of killing you. Which means when you die — and in this country, our kind always, eventually, dies — it will be to the most insignificant thing on the field. Not because you weren't good enough. Because you were too good to watch the small ones. So I am begging you, Last Word, with everything I am: *stay afraid.* Watch the nothing-things. Don't relax. Don't wink. The brighter you burn, the more certain it is that the dark is already standing right next to you, wearing a face too small for you to bother looking at.\"", "tag": "returned", "next": "sv_s_returned", "effects": [{ "key": "sv.warned", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-                { "text": "*(don't argue — make him *promise*; make the unbeatable man swear, out loud, to do the one thing that could save him: watch the small ones)* \"I'm not going to debate you, Sevrin — you'd win, you always win, that's the whole problem. I'm going to ask you for a promise instead. Look me in the eye, drop the grin for one second, and swear to me you'll watch the small ones. The half-dead things. The nothing in the corner. Swear it like you mean it.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 14 }, "next": "sv_s_promise_ok", "fail": "sv_s_promise_fail", "crit": "sv_s_promise_crit", "fumble": "sv_s_promise_fumble", "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }] },
-                { "text": "\"Keep cleaning your blade, Last Word. I'll move through your little court and come back — and I've a feeling I'll have more to say than you'll want to hear.\"", "next": "sv_s_leave" }
-              ] }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Sevrin Vael", "text": "*(He pats the log beside him, an invitation and a small dare, and watches you with bright, amused, utterly unguarded eyes.)* …*sit.* i don't *bite*, cold one — well. not *allies.* *(a grin)* …it's a *rare* *pleasure*, you understand, *another* of *our* *kind* who's lasted long enough to *talk.* most *fresh* *Returned* are *gone* inside a *month* — the *Wall* *takes* the *frightened* *quick.* …but *you've* a *steadiness* to you. …a *survivor's* *look.* *(he tilts his head)* …*ask* what you *like.* …and *don't* be *shy* of *flattering* an old *blade*; i've *earned* it, and i *like* it, and i'll *answer* *better* for it.",
+                {
+                  "text": "*(read the Last Word — past the dazzling ease, to whatever a soul buries under nine lifetimes of never letting itself flinch)* \"Hold that pose a moment, Sevrin. Let me really look at you — under the whistling.\"",
+                  "check": {
+                    "skill": "Insight",
+                    "ability": "Wisdom",
+                    "dc": 13
+                  },
+                  "next": "sv_s_read",
+                  "effects": [
+                    {
+                      "key": "sv.read_sevrin",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Nine lifetimes, ten thousand foes, never once lost. I believe you — I can see the field. So tell me, Sevrin: how? What's the secret of a soul that doesn't lose?\"",
+                  "next": "sv_s_how",
+                  "effects": [
+                    {
+                      "key": "sv.asked_how",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "*(the one who has learned what actually kills the strong — and is terrified for him, because the loop does not send a worthy foe for the magnificent; it sends the small thing they stopped watching)* \"Sevrin — I'm going to say something you won't want to hear, and I need you to not wink at me while I say it. You're right that fear kills our kind. But you've drawn the wrong conclusion from it, and I think it's going to cost you everything. You think confidence is the cure for fear. It isn't. It's just fear you've stopped *listening* to. And the thing that hunts souls like us — I've seen closer than you have what it is — it doesn't lose to skill, because it never *fights* skill. It's patient. It's watched you win nine lifetimes, and it has learned the one thing about you that matters: that you only guard the worthy threats. The swarm. The Convergence. The big, bright, *worthy* dangers a master deigns to take seriously. So it will not send you a worthy foe, Sevrin — it knows better, it knows you'd carve a worthy foe to ribbons and *laugh.* It will send you something beneath your notice. Something small. Something already half-dead, twitching in a corner, that you didn't bother to finish because *why would you.* And it will have, smeared on it, the one poison that actually works on a Returned — not a sharper blade, there's no blade sharp enough for you, but *unmaking*, the Wall's own touch, the single thing your skill cannot parry because it isn't a *strike.* The greatest swordsman who ever lived still dies if the cut is poisoned and he never sees it coming. You have made yourself unkillable against everything that would be *worthy* of killing you. Which means when you die — and in this country, our kind always, eventually, dies — it will be to the most insignificant thing on the field. Not because you weren't good enough. Because you were too good to watch the small ones. So I am begging you, Last Word, with everything I am: *stay afraid.* Watch the nothing-things. Don't relax. Don't wink. The brighter you burn, the more certain it is that the dark is already standing right next to you, wearing a face too small for you to bother looking at.\"",
+                  "tag": "returned",
+                  "next": "sv_s_returned",
+                  "effects": [
+                    {
+                      "key": "sv.warned",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "act1.mercy_remembered",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "disp.haunted",
+                      "op": "AddInt",
+                      "amount": 1
+                    },
+                    {
+                      "key": "disp.merciful",
+                      "op": "AddInt",
+                      "amount": 1
+                    }
+                  ]
+                },
+                {
+                  "text": "*(don't argue — make him *promise*; make the unbeatable man swear, out loud, to do the one thing that could save him: watch the small ones)* \"I'm not going to debate you, Sevrin — you'd win, you always win, that's the whole problem. I'm going to ask you for a promise instead. Look me in the eye, drop the grin for one second, and swear to me you'll watch the small ones. The half-dead things. The nothing in the corner. Swear it like you mean it.\"",
+                  "check": {
+                    "skill": "Persuasion",
+                    "ability": "Charisma",
+                    "dc": 14
+                  },
+                  "next": "sv_s_promise_ok",
+                  "fail": "sv_s_promise_fail",
+                  "crit": "sv_s_promise_crit",
+                  "fumble": "sv_s_promise_fumble",
+                  "effects": [
+                    {
+                      "key": "sv.asked_promise",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Keep cleaning your blade, Last Word. I'll move through your little court and come back — and I've a feeling I'll have more to say than you'll want to hear.\"",
+                  "next": "sv_s_leave"
+                }
+              ]
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sevrin Vael",
+          "text": "*(He pats the log beside him, an invitation and a small dare, and watches you with bright, amused, utterly unguarded eyes.)* …*sit.* i don't *bite*, cold one — well. not *allies.* *(a grin)* …it's a *rare* *pleasure*, you understand, *another* of *our* *kind* who's lasted long enough to *talk.* most *fresh* *Returned* are *gone* inside a *month* — the *Wall* *takes* the *frightened* *quick.* …but *you've* a *steadiness* to you. …a *survivor's* *look.* *(he tilts his head)* …*ask* what you *like.* …and *don't* be *shy* of *flattering* an old *blade*; i've *earned* it, and i *like* it, and i'll *answer* *better* for it.",
           "choices": [
-            { "text": "*(read the Last Word — past the dazzling ease, to whatever a soul buries under nine lifetimes of never letting itself flinch)* \"Hold that pose a moment, Sevrin. Let me really look at you — under the whistling.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 }, "next": "sv_s_read", "effects": [{ "key": "sv.read_sevrin", "op": "SetTrue" }] },
-            { "text": "\"Nine lifetimes, ten thousand foes, never once lost. I believe you — I can see the field. So tell me, Sevrin: how? What's the secret of a soul that doesn't lose?\"", "next": "sv_s_how", "effects": [{ "key": "sv.asked_how", "op": "SetTrue" }] },
-            { "text": "*(the one who has learned what actually kills the strong — and is terrified for him, because the loop sends not a worthy foe for the magnificent, but the small thing they stopped watching)* \"Sevrin — I'm going to say something you won't want to hear, and I need you to not wink at me while I say it. You're right that fear kills our kind — but you've drawn the wrong conclusion, and I think it's going to cost you everything. Confidence isn't the cure for fear. It's just fear you've stopped *listening* to. And the thing that hunts souls like us doesn't lose to skill, because it never *fights* skill — it's watched you win nine lifetimes and learned the one thing that matters: that you only guard the *worthy* threats. So it won't send you a worthy foe; it knows you'd carve one to ribbons and laugh. It will send you something beneath your notice — something small, already half-dead, twitching in a corner, that you didn't finish because *why would you* — with the one poison that works on a Returned smeared on it: not a sharper blade, there's none sharp enough for you, but *unmaking*, the Wall's own touch, the single thing your skill cannot parry because it isn't a strike. The greatest swordsman who ever lived still dies if the cut is poisoned and he never sees it coming. You've made yourself unkillable against everything *worthy* of killing you — which means when you die, it'll be to the most insignificant thing on the field, not because you weren't good enough, but because you were too good to watch the small ones. So I'm begging you, Last Word: *stay afraid.* Watch the nothing-things. Don't relax. Don't wink. The brighter you burn, the more certain it is the dark is already standing next to you, wearing a face too small for you to bother looking at.\"", "tag": "returned", "next": "sv_s_returned", "effects": [{ "key": "sv.warned", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(don't argue — make him *promise*; make the unbeatable man swear, out loud, to do the one thing that could save him: watch the small ones)* \"I'm not going to debate you, Sevrin — you'd win, you always win, that's the whole problem. I'm going to ask you for a promise instead. Look me in the eye, drop the grin for one second, and swear to me you'll watch the small ones. The half-dead things. The nothing in the corner. Swear it like you mean it.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 14 }, "next": "sv_s_promise_ok", "fail": "sv_s_promise_fail", "crit": "sv_s_promise_crit", "fumble": "sv_s_promise_fumble", "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }] },
-            { "text": "\"Keep cleaning your blade, Last Word. I'll move through your little court and come back — and I've a feeling I'll have more to say than you'll want to hear.\"", "next": "sv_s_leave" }
-          ] },
-        { "id": "sv_s_read", "speaker": "Sevrin Vael", "text": "*(He holds the pose, grinning, performing even his stillness — and you let your cold move past the dazzling ease, past the duelist's calm, down to the place a soul keeps the thing it has spent nine lifetimes outrunning.)* *(And your sense finds, under the confidence, the engine of it: not arrogance, not really — *momentum.* Sevrin Vael is a soul in perpetual, deliberate, terrified motion, and the whistling and the winking and the carving-up of worthy foes are not the expression of a fearless man but the *machinery* of a man who has discovered that if he never, ever stops moving, never stops winning, never stops performing the role of the one who cannot lose, then he never has to feel the thing at the bottom. And your sense finds the thing at the bottom: a grief. An old one — nine lifetimes old, the oldest thing in him, the thing the whole magnificent edifice is built to outrun. Your sense cannot find the whole shape of it, because Sevrin himself has not looked at it directly in an age, but it reads the outline: that in his very first life, before the winning, before the Last Word, there was someone he could not save — someone small, someone he loved, someone he was not yet good enough to protect — and that they died, and the dying broke something in him that he chose, with a duelist's cold brilliance, never to repair but to *armor over.* Your sense reads the bargain he made with himself across nine lifetimes: that he would become so good, so fast, so unbeatable, that he would never again stand helpless over someone he loved — that he would master death itself by simply never losing to it — and that the bargain *worked*, mechanically, brilliantly, for nine whole lifetimes, at the cost of the one thing it was supposed to protect. Because a soul that armors over a grief does not heal it; it carries it, sealed, forever, and builds its whole self around the seal, and becomes — your sense reads it with a chill — *exactly the kind of soul the loop knows how to kill.* For the seal has a flaw, the way all seals do: the grief is still in there, live, nine lifetimes deep, and the one thing in all the worlds that could make Sevrin Vael *hesitate* — make the Last Word freeze for the half-second it would take something small to reach him — is to hear, suddenly, the name of the one he could not save. Your sense reads that he does not know this is his flaw. Your sense reads that he has confused *not feeling the grief* with *not having it.* And your sense reads, with a grief of your own, that the confidence the whole court worships is not strength at all, but the most elaborate, most beautiful, most doomed avoidance you have ever seen — a man running so fast and so well from one old sorrow that he has run nine lifetimes and ten thousand foes and never once noticed that the sorrow is not behind him. It is the ground he runs on.)*",
-          "effects": [{ "key": "sv.read_sevrin", "op": "SetTrue" }, { "key": "sv.knows_the_grief", "op": "SetTrue" }, { "key": "sv.knows_the_flaw", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_s_how", "speaker": "Sevrin Vael", "text": "*(He brightens, delighted to be asked, and leans in like a man about to share a trade secret with a promising apprentice.)* …*how.* *(he savors it)* …i'll *tell* you, cold one, because you've the *look* of a soul who might *last*, and it'd be a *waste* to watch you *not.* *(he holds up one finger)* …*one.* *never* *hesitate.* the *blade* knows what to *do*; it's the *mind* that *fumbles* it. the *instant* you *think* *'can* i *win* *this' —* you've *already* *lost*, because the *thinking* is the *hesitation* and the *hesitation* is the *opening.* *(a second finger)* …*two.* *win* *the* *fight* *before* *it* *starts.* walk in *certain.* let them *see* the *certainty.* half of them *break* on it *alone* — a *foe* who believes you *can't* *lose* …*fights* like it's *true.* *(a third finger, and the grin goes wolfish)* …and *three*, cold one, the *big* one, the one that's kept me *nine* *lifetimes*: …*kill* the *thing* that can *kill* *you*, *first*, and *fast*, and *never* *mind* the *rest.* every *fight* has *one* *real* *threat* and a *lot* of *noise.* find the *real* one — the *strong* one, the *worthy* one — and *end* it *before* it *blooms*, and the *noise* …*(he waves a dismissive hand at the dissolving cairns)* …the *noise* *cleans* *up* *after.* *(he spreads his hands, triumphant)* …*that's* the *whole* of it, cold one. *certainty*, *speed*, and a *good* *eye* for the *one* *thing* that *matters.* …*nine* *lifetimes* …and it has *never* …*once* …*failed* me. *(he winks)* …*learn* it …and you'll *bury* …*ten* *thousand* …of your *own.**",
-          "effects": [{ "key": "sv.asked_how", "op": "SetTrue" }, { "key": "sv.knows_his_method", "op": "SetTrue" }, { "key": "sv.method_ignores_the_small", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_s_returned", "speaker": "Sevrin Vael", "text": "*(For the length of your speech he does not interrupt, which is itself remarkable — the performer's grin stays fixed, but his eyes change, and by the time you say *a face too small for you to bother looking at*, the Last Word has gone very still, and the blade has stopped its idle spinning, and for one breath you see the thing your sense found: a flicker, fast and buried, of something that knows you are right.)* *(Then he laughs. But it comes a half-second late.)* …*gods*, you're a *cheerful* one. *(he tries for lightness and almost lands it)* …*'stay* *afraid,* Last *Word.'* …do you *know* how *long* it's been, cold one, since *anyone* told *Sevrin* *Vael* to be *afraid?* *(the grin wavers)* …*lifetimes.* and the ones who *did* …were the ones who *died*, cold one, the *frightened* ones, and i — *(he stops, and something in him fights itself, and the avoidance wins, the way it has won for nine lifetimes)* …*no.* *no*, i'll not — *(he stands, sheathes the blade, paces once, and the ease is a performance now, you can see the seams)* …you *almost* *had* me, cold one, i'll *give* you *that.* the — the *small* *thing* with the *poison.* it's a *clever* *fear.* a *clever*, *clever* *fear.* *(he rounds on you, and the grin is back, armored, bright, and underneath it the old grief churns where neither of you can quite reach it)* …but here's the *flaw* in it, friend: …if i *start* watching the *small* ones, the *nothing*-things, the *half*-*dead* in the *corners* — …i *take* my *eye* off the *real* *threat.* and *that's* how the *real* threat *gets* you. …*(he believes it; that is the tragedy)* …*nine* *lifetimes*, cold one, the method has *never* *failed.* …i'll not *unlearn* it on the *say-so* of a *fresh* *Returned* with a *grim* *imagination*, however *fond* i'm *getting* of you. *(softer, and for a moment the real soul shows)* …but i'll — *(he hesitates, and it costs him visibly)* …i'll *remember* you *said* it. …*that* much. …when it *gets* *quiet* …and the *court's* *asleep* …i'll *remember* a *cold* *one* *begged* me …to *watch* the *small* *things.* *(the grin returns, final)* …*that's* the *most* …you'll *get* …out of the *Last* *Word*, friend. …now *come.* …*stop* trying to *bury* me …and let me *show* you …how to *make* *sure* …*nobody* *buries* *you.**",
-          "effects": [{ "key": "sv.warned", "op": "SetTrue" }, { "key": "sv.heard_you", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_s_promise_crit", "speaker": "Sevrin Vael", "text": "*(You don't argue. You don't predict. You just ask — and something in the plainness of it, the refusal to make it a contest he could win, slips under nine lifetimes of guard. The grin falters. He looks at you, really looks, and the performance stops, and for a long moment the Last Word is just an old, tired soul being asked to do a frightening thing.)* …*swear* it. *(quietly, no flourish)* …you're not — *(he searches your face for the trick, the debate, the thing he could *beat*, and doesn't find it)* …you're not even trying to *win*, are you. you're just — *(a breath)* …you're *frightened.* for *me.* *(and that, of all things, is what reaches him — not the argument, but the fear in it, fear on his behalf, which no one has offered Sevrin Vael in nine lifetimes because no one believed he needed it)* …*all* *right.* *(he sets the blade down — actually sets it down, in the grass, a thing you sense he almost never does — and meets your eyes, and the grin is gone, and what's left is older and truer)* …*all* *right*, cold one. …i *swear* it. …i'll *watch* the *small* ones. *(he says it slowly, like a man learning a new language)* …the *half*-*dead* *things.* the *nothing* in the *corner.* …i'll — *(he glances, despite himself, at the twitching wretch at the edge of the lot, and something crosses his face, a dawning, a chill)* …*huh.* …i hadn't — *(softly)* …i genuinely *hadn't* *looked* at that *one*, cold one. it's been *twitching* there the *whole* time and i *filed* it under *noise* and i *never* — *(he picks the blade back up, but differently now, watchfully)* …*that's* …that's a *cold* *feeling.* *(he meets your eyes, and means it)* …i *swear* it, friend. *on* the *nine* *lives* i've *spent.* …i'll *not* *relax.* …i'll *watch* the *thing* …too *small* …to *bother* with. *(barely, and it is the first wholly un-performed thing he's said)* …*thank* you. …i think — *(he huffs a real laugh)* …i think you may have just *done* something …*ten* *thousand* *foes* *couldn't.* …*rattled* …the *Last* *Word.**",
-          "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }, { "key": "sv.promised", "op": "SetTrue" }, { "key": "sv.heard_you", "op": "SetTrue" }, { "key": "sv.watches_the_small", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_s_promise_ok", "speaker": "Sevrin Vael", "text": "*(He holds your gaze, and the grin flickers — you've gotten further than most, the plainness of the ask landing where an argument would have bounced — and after a moment he gives you a nod that is, for him, an enormous concession.)* …*fine.* *(he says it lightly, but he says it)* …*fine*, cold one. i'll *watch* the *small* ones. *(a crooked smile)* …i'll not *pretend* i think it's *necessary* — nine lifetimes say *otherwise* — but you *asked* it *straight*, without trying to *out-clever* me, and a *straight* *ask* …*earns* a *straight* *answer.* …so: *yes.* …i'll *keep* half an *eye* …on the *nothing*-*things.* *(he spins the blade, easy again, but there's a new flick of his gaze to the edges of the lot that wasn't there before)* …*there.* *happy?* …you've got the *Last* *Word* *checking* *corners* like a *green* *recruit.* *(he chuckles, but it's fond)* …it's not — i'll be *honest*, friend, it's not a *promise* i'll *remember* in the *heat* of it; *old* *habits* and *all.* …but it's *more* than i've *given* *anyone.* …*come* on, then. …you've *earned* a *seat* …at the *Last* *Word's* *fire.*",
-          "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }, { "key": "sv.promised", "op": "SetTrue" }, { "key": "sv.heard_you", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_s_promise_fail", "speaker": "Sevrin Vael", "text": "*(He listens — and then he does the thing he does best, the thing nine lifetimes have perfected: he turns it into charm, and slips the hook.)* …*'swear* it like i *mean* it.' *(he grins, delighted)* …*oh*, you're *good*, cold one. you skipped the *argument* and went *straight* for the *oath* — that's a *duelist's* *move*, *feint* past the *guard.* *(he wags a finger, admiring)* …but i've been *feinted* by *better*, friend, and *here's* the *thing*: …a *promise* to be *afraid* …is *still* *fear.* and *fear* …*(he taps his temple)* …*kills* our *kind.* i'll not *swear* to *carry* the *one* *poison* that's *actually* *killed* every *Returned* i ever *watched* *fall.* *(he softens, claps your shoulder)* …you *mean* it *kindly*, i can *tell.* you're *frightened* for me, and that's — *(a flicker, gone)* …that's *more* than most *offer.* …but *save* your *fear*, cold one. …*spend* it on *yourself*, where it'll do *good.* …*Sevrin* *Vael* …doesn't *need* it. *(he winks)* …*never* *has.* …now *quit* *trying* to *make* me *flinch* …and let me *teach* you …how *not* to.*",
-          "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_s_promise_fumble", "speaker": "Sevrin Vael", "text": "*(It goes wrong because you push too hard — you make the ask a *challenge*, you let an edge of *you're-not-as-untouchable-as-you-think* into it, and that, of all the things you could have done, is the one a duelist cannot let stand: you have questioned the Last Word's record to his face, in front of his court, and his pride closes over the moment like a portcullis.)* …*careful*, now. *(the grin stays but the warmth drains out of it)* …i *liked* you, cold one. up until you *implied* — *(he stands, unhurried, and somehow the easy elegance is suddenly a threat)* …*'swear* you'll *watch* the *small* ones, *Sevrin*, or *else.'* …or *else* *what?* …or *else* the *great* *Sevrin* *Vael*, who has *never* *lost*, will be *undone* by a *twitching* *nothing* in a *corner*? *(he laughs, and it's cold now)* …you've a *grim* *little* *imagination*, friend, and you've just *spent* it *insulting* *nine* *lifetimes* of a *record* you *couldn't* *touch.* *(he sheathes the blade hard)* …*here's* what i'll do *now*, cold one, since you've *challenged* the *Last* *Word*: …i'll *prove* you *wrong.* i'll be *more* *certain*, not *less.* i'll watch the *real* threats and *let* the *noise* *rot*, the way i *always* have, the way that's *kept* me *nine* *lifetimes* …and when i *walk* out of the *next* *horror* *whistling*, *unscratched*, *you'll* *remember* …*who* told the *Last* *Word* …to be *afraid.* *(he turns away)* …*go* *watch* your *small* *things*, cold one. …*i'll* be *over* *here.* …*winning.**",
-          "effects": [{ "key": "sv.asked_promise", "op": "SetTrue" }, { "key": "sv.pride_wounded", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_s_leave", "speaker": "Sevrin Vael", "text": "*(He waves you off with the blade, a lazy salute, entirely unbothered.)* …go, go — *meet* the *court*, cold one. *(he grins)* …there's *Sela* — the *young* one, *moonstruck* thing, i *walked* her out of a *swarm* and she's *followed* me *since.* *good* *soul.* gives me *far* too much *credit.* *(a fond shrug)* …and *Coll.* *(his grin dims, just slightly)* …the *old* one, by the *deadtree.* …*mind* *Coll*, cold one. he's — *(Sevrin's flourish falters)* …he's *buried* a *lot* of our *kind*, *Coll* has. *watched* *Returned* *legends* go *down*, *lifetimes* of 'em. and it's *made* him — *(he searches for the word, and lands on one that costs him)* …*frightened.* he'll *tell* you i'm *next.* he tells *all* the *bright* ones they're *next.* *(he means it as a dismissal, but it doesn't quite come out as one)* …*humor* him, would you? …he's *earned* a *listener.* …*even* if he's — *(a beat, and the grin doesn't fully return)* …*even* if he's *wrong.* …*go* on. …i'll *keep.* …i *always* *keep.*",
-          "auto": "END" }
+            {
+              "text": "*(read the Last Word — past the dazzling ease, to whatever a soul buries under nine lifetimes of never letting itself flinch)* \"Hold that pose a moment, Sevrin. Let me really look at you — under the whistling.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "sv_s_read",
+              "effects": [
+                {
+                  "key": "sv.read_sevrin",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Nine lifetimes, ten thousand foes, never once lost. I believe you — I can see the field. So tell me, Sevrin: how? What's the secret of a soul that doesn't lose?\"",
+              "next": "sv_s_how",
+              "effects": [
+                {
+                  "key": "sv.asked_how",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who has learned what actually kills the strong — and is terrified for him, because the loop sends not a worthy foe for the magnificent, but the small thing they stopped watching)* \"Sevrin — I'm going to say something you won't want to hear, and I need you to not wink at me while I say it. You're right that fear kills our kind — but you've drawn the wrong conclusion, and I think it's going to cost you everything. Confidence isn't the cure for fear. It's just fear you've stopped *listening* to. And the thing that hunts souls like us doesn't lose to skill, because it never *fights* skill — it's watched you win nine lifetimes and learned the one thing that matters: that you only guard the *worthy* threats. So it won't send you a worthy foe; it knows you'd carve one to ribbons and laugh. It will send you something beneath your notice — something small, already half-dead, twitching in a corner, that you didn't finish because *why would you* — with the one poison that works on a Returned smeared on it: not a sharper blade, there's none sharp enough for you, but *unmaking*, the Wall's own touch, the single thing your skill cannot parry because it isn't a strike. The greatest swordsman who ever lived still dies if the cut is poisoned and he never sees it coming. You've made yourself unkillable against everything *worthy* of killing you — which means when you die, it'll be to the most insignificant thing on the field, not because you weren't good enough, but because you were too good to watch the small ones. So I'm begging you, Last Word: *stay afraid.* Watch the nothing-things. Don't relax. Don't wink. The brighter you burn, the more certain it is the dark is already standing next to you, wearing a face too small for you to bother looking at.\"",
+              "tag": "returned",
+              "next": "sv_s_returned",
+              "effects": [
+                {
+                  "key": "sv.warned",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(don't argue — make him *promise*; make the unbeatable man swear, out loud, to do the one thing that could save him: watch the small ones)* \"I'm not going to debate you, Sevrin — you'd win, you always win, that's the whole problem. I'm going to ask you for a promise instead. Look me in the eye, drop the grin for one second, and swear to me you'll watch the small ones. The half-dead things. The nothing in the corner. Swear it like you mean it.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "sv_s_promise_ok",
+              "fail": "sv_s_promise_fail",
+              "crit": "sv_s_promise_crit",
+              "fumble": "sv_s_promise_fumble",
+              "effects": [
+                {
+                  "key": "sv.asked_promise",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Keep cleaning your blade, Last Word. I'll move through your little court and come back — and I've a feeling I'll have more to say than you'll want to hear.\"",
+              "next": "sv_s_leave"
+            }
+          ]
+        },
+        {
+          "id": "sv_s_read",
+          "speaker": "Sevrin Vael",
+          "text": "*(He holds the pose, grinning, performing even his stillness — and you let your cold move past the dazzling ease, past the duelist's calm, down to the place a soul keeps the thing it has spent nine lifetimes outrunning.)* *(And your sense finds, under the confidence, the engine of it: not arrogance, not really — *momentum.* Sevrin Vael is a soul in perpetual, deliberate, terrified motion, and the whistling and the winking and the carving-up of worthy foes are not the expression of a fearless man but the *machinery* of a man who has discovered that if he never, ever stops moving, never stops winning, never stops performing the role of the one who cannot lose, then he never has to feel the thing at the bottom. And your sense finds the thing at the bottom: a grief. An old one — nine lifetimes old, the oldest thing in him, the thing the whole magnificent edifice is built to outrun. Your sense cannot find the whole shape of it, because Sevrin himself has not looked at it directly in an age, but it reads the outline: that in his very first life, before the winning, before the Last Word, there was someone he could not save — someone small, someone he loved, someone he was not yet good enough to protect — and that they died, and the dying broke something in him that he chose, with a duelist's cold brilliance, never to repair but to *armor over.* Your sense reads the bargain he made with himself across nine lifetimes: that he would become so good, so fast, so unbeatable, that he would never again stand helpless over someone he loved — that he would master death itself by simply never losing to it — and that the bargain *worked*, mechanically, brilliantly, for nine whole lifetimes, at the cost of the one thing it was supposed to protect. Because a soul that armors over a grief does not heal it; it carries it, sealed, forever, and builds its whole self around the seal, and becomes — your sense reads it with a chill — *exactly the kind of soul the loop knows how to kill.* For the seal has a flaw, the way all seals do: the grief is still in there, live, nine lifetimes deep, and the one thing in all the worlds that could make Sevrin Vael *hesitate* — make the Last Word freeze for the half-second it would take something small to reach him — is to hear, suddenly, the name of the one he could not save. Your sense reads that he does not know this is his flaw. Your sense reads that he has confused *not feeling the grief* with *not having it.* And your sense reads, with a grief of your own, that the confidence the whole court worships is not strength at all, but the most elaborate, most beautiful, most doomed avoidance you have ever seen — a man running so fast and so well from one old sorrow that he has run nine lifetimes and ten thousand foes and never once noticed that the sorrow is not behind him. It is the ground he runs on.)*",
+          "effects": [
+            {
+              "key": "sv.read_sevrin",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_the_grief",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_the_flaw",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_how",
+          "speaker": "Sevrin Vael",
+          "text": "*(He brightens, delighted to be asked, and leans in like a man about to share a trade secret with a promising apprentice.)* …*how.* *(he savors it)* …i'll *tell* you, cold one, because you've the *look* of a soul who might *last*, and it'd be a *waste* to watch you *not.* *(he holds up one finger)* …*one.* *never* *hesitate.* the *blade* knows what to *do*; it's the *mind* that *fumbles* it. the *instant* you *think* *'can* i *win* *this' —* you've *already* *lost*, because the *thinking* is the *hesitation* and the *hesitation* is the *opening.* *(a second finger)* …*two.* *win* *the* *fight* *before* *it* *starts.* walk in *certain.* let them *see* the *certainty.* half of them *break* on it *alone* — a *foe* who believes you *can't* *lose* …*fights* like it's *true.* *(a third finger, and the grin goes wolfish)* …and *three*, cold one, the *big* one, the one that's kept me *nine* *lifetimes*: …*kill* the *thing* that can *kill* *you*, *first*, and *fast*, and *never* *mind* the *rest.* every *fight* has *one* *real* *threat* and a *lot* of *noise.* find the *real* one — the *strong* one, the *worthy* one — and *end* it *before* it *blooms*, and the *noise* …*(he waves a dismissive hand at the dissolving cairns)* …the *noise* *cleans* *up* *after.* *(he spreads his hands, triumphant)* …*that's* the *whole* of it, cold one. *certainty*, *speed*, and a *good* *eye* for the *one* *thing* that *matters.* …*nine* *lifetimes* …and it has *never* …*once* …*failed* me. *(he winks)* …*learn* it …and you'll *bury* …*ten* *thousand* …of your *own.**",
+          "effects": [
+            {
+              "key": "sv.asked_how",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_his_method",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.method_ignores_the_small",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_returned",
+          "speaker": "Sevrin Vael",
+          "text": "*(For the length of your speech he does not interrupt, which is itself remarkable — the performer's grin stays fixed, but his eyes change, and by the time you say *a face too small for you to bother looking at*, the Last Word has gone very still, and the blade has stopped its idle spinning, and for one breath you see the thing your sense found: a flicker, fast and buried, of something that knows you are right.)* *(Then he laughs. But it comes a half-second late.)* …*gods*, you're a *cheerful* one. *(he tries for lightness and almost lands it)* …*'stay* *afraid,* Last *Word.'* …do you *know* how *long* it's been, cold one, since *anyone* told *Sevrin* *Vael* to be *afraid?* *(the grin wavers)* …*lifetimes.* and the ones who *did* …were the ones who *died*, cold one, the *frightened* ones, and i — *(he stops, and something in him fights itself, and the avoidance wins, the way it has won for nine lifetimes)* …*no.* *no*, i'll not — *(he stands, sheathes the blade, paces once, and the ease is a performance now, you can see the seams)* …you *almost* *had* me, cold one, i'll *give* you *that.* the — the *small* *thing* with the *poison.* it's a *clever* *fear.* a *clever*, *clever* *fear.* *(he rounds on you, and the grin is back, armored, bright, and underneath it the old grief churns where neither of you can quite reach it)* …but here's the *flaw* in it, friend: …if i *start* watching the *small* ones, the *nothing*-things, the *half*-*dead* in the *corners* — …i *take* my *eye* off the *real* *threat.* and *that's* how the *real* threat *gets* you. …*(he believes it; that is the tragedy)* …*nine* *lifetimes*, cold one, the method has *never* *failed.* …i'll not *unlearn* it on the *say-so* of a *fresh* *Returned* with a *grim* *imagination*, however *fond* i'm *getting* of you. *(softer, and for a moment the real soul shows)* …but i'll — *(he hesitates, and it costs him visibly)* …i'll *remember* you *said* it. …*that* much. …when it *gets* *quiet* …and the *court's* *asleep* …i'll *remember* a *cold* *one* *begged* me …to *watch* the *small* *things.* *(the grin returns, final)* …*that's* the *most* …you'll *get* …out of the *Last* *Word*, friend. …now *come.* …*stop* trying to *bury* me …and let me *show* you …how to *make* *sure* …*nobody* *buries* *you.**",
+          "effects": [
+            {
+              "key": "sv.warned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.heard_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_promise_crit",
+          "speaker": "Sevrin Vael",
+          "text": "*(You don't argue. You don't predict. You just ask — and something in the plainness of it, the refusal to make it a contest he could win, slips under nine lifetimes of guard. The grin falters. He looks at you, really looks, and the performance stops, and for a long moment the Last Word is just an old, tired soul being asked to do a frightening thing.)* …*swear* it. *(quietly, no flourish)* …you're not — *(he searches your face for the trick, the debate, the thing he could *beat*, and doesn't find it)* …you're not even trying to *win*, are you. you're just — *(a breath)* …you're *frightened.* for *me.* *(and that, of all things, is what reaches him — not the argument, but the fear in it, fear on his behalf, which no one has offered Sevrin Vael in nine lifetimes because no one believed he needed it)* …*all* *right.* *(he sets the blade down — actually sets it down, in the grass, a thing you sense he almost never does — and meets your eyes, and the grin is gone, and what's left is older and truer)* …*all* *right*, cold one. …i *swear* it. …i'll *watch* the *small* ones. *(he says it slowly, like a man learning a new language)* …the *half*-*dead* *things.* the *nothing* in the *corner.* …i'll — *(he glances, despite himself, at the twitching wretch at the edge of the lot, and something crosses his face, a dawning, a chill)* …*huh.* …i hadn't — *(softly)* …i genuinely *hadn't* *looked* at that *one*, cold one. it's been *twitching* there the *whole* time and i *filed* it under *noise* and i *never* — *(he picks the blade back up, but differently now, watchfully)* …*that's* …that's a *cold* *feeling.* *(he meets your eyes, and means it)* …i *swear* it, friend. *on* the *nine* *lives* i've *spent.* …i'll *not* *relax.* …i'll *watch* the *thing* …too *small* …to *bother* with. *(barely, and it is the first wholly un-performed thing he's said)* …*thank* you. …i think — *(he huffs a real laugh)* …i think you may have just *done* something …*ten* *thousand* *foes* *couldn't.* …*rattled* …the *Last* *Word.**",
+          "effects": [
+            {
+              "key": "sv.asked_promise",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.promised",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.heard_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.watches_the_small",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_promise_ok",
+          "speaker": "Sevrin Vael",
+          "text": "*(He holds your gaze, and the grin flickers — you've gotten further than most, the plainness of the ask landing where an argument would have bounced — and after a moment he gives you a nod that is, for him, an enormous concession.)* …*fine.* *(he says it lightly, but he says it)* …*fine*, cold one. i'll *watch* the *small* ones. *(a crooked smile)* …i'll not *pretend* i think it's *necessary* — nine lifetimes say *otherwise* — but you *asked* it *straight*, without trying to *out-clever* me, and a *straight* *ask* …*earns* a *straight* *answer.* …so: *yes.* …i'll *keep* half an *eye* …on the *nothing*-*things.* *(he spins the blade, easy again, but there's a new flick of his gaze to the edges of the lot that wasn't there before)* …*there.* *happy?* …you've got the *Last* *Word* *checking* *corners* like a *green* *recruit.* *(he chuckles, but it's fond)* …it's not — i'll be *honest*, friend, it's not a *promise* i'll *remember* in the *heat* of it; *old* *habits* and *all.* …but it's *more* than i've *given* *anyone.* …*come* on, then. …you've *earned* a *seat* …at the *Last* *Word's* *fire.*",
+          "effects": [
+            {
+              "key": "sv.asked_promise",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.promised",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.heard_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_promise_fail",
+          "speaker": "Sevrin Vael",
+          "text": "*(He listens — and then he does the thing he does best, the thing nine lifetimes have perfected: he turns it into charm, and slips the hook.)* …*'swear* it like i *mean* it.' *(he grins, delighted)* …*oh*, you're *good*, cold one. you skipped the *argument* and went *straight* for the *oath* — that's a *duelist's* *move*, *feint* past the *guard.* *(he wags a finger, admiring)* …but i've been *feinted* by *better*, friend, and *here's* the *thing*: …a *promise* to be *afraid* …is *still* *fear.* and *fear* …*(he taps his temple)* …*kills* our *kind.* i'll not *swear* to *carry* the *one* *poison* that's *actually* *killed* every *Returned* i ever *watched* *fall.* *(he softens, claps your shoulder)* …you *mean* it *kindly*, i can *tell.* you're *frightened* for me, and that's — *(a flicker, gone)* …that's *more* than most *offer.* …but *save* your *fear*, cold one. …*spend* it on *yourself*, where it'll do *good.* …*Sevrin* *Vael* …doesn't *need* it. *(he winks)* …*never* *has.* …now *quit* *trying* to *make* me *flinch* …and let me *teach* you …how *not* to.*",
+          "effects": [
+            {
+              "key": "sv.asked_promise",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_promise_fumble",
+          "speaker": "Sevrin Vael",
+          "text": "*(It goes wrong because you push too hard — you make the ask a *challenge*, you let an edge of *you're-not-as-untouchable-as-you-think* into it, and that, of all the things you could have done, is the one a duelist cannot let stand: you have questioned the Last Word's record to his face, in front of his court, and his pride closes over the moment like a portcullis.)* …*careful*, now. *(the grin stays but the warmth drains out of it)* …i *liked* you, cold one. up until you *implied* — *(he stands, unhurried, and somehow the easy elegance is suddenly a threat)* …*'swear* you'll *watch* the *small* ones, *Sevrin*, or *else.'* …or *else* *what?* …or *else* the *great* *Sevrin* *Vael*, who has *never* *lost*, will be *undone* by a *twitching* *nothing* in a *corner*? *(he laughs, and it's cold now)* …you've a *grim* *little* *imagination*, friend, and you've just *spent* it *insulting* *nine* *lifetimes* of a *record* you *couldn't* *touch.* *(he sheathes the blade hard)* …*here's* what i'll do *now*, cold one, since you've *challenged* the *Last* *Word*: …i'll *prove* you *wrong.* i'll be *more* *certain*, not *less.* i'll watch the *real* threats and *let* the *noise* *rot*, the way i *always* have, the way that's *kept* me *nine* *lifetimes* …and when i *walk* out of the *next* *horror* *whistling*, *unscratched*, *you'll* *remember* …*who* told the *Last* *Word* …to be *afraid.* *(he turns away)* …*go* *watch* your *small* *things*, cold one. …*i'll* be *over* *here.* …*winning.**",
+          "effects": [
+            {
+              "key": "sv.asked_promise",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.pride_wounded",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_s_leave",
+          "speaker": "Sevrin Vael",
+          "text": "*(He waves you off with the blade, a lazy salute, entirely unbothered.)* …go, go — *meet* the *court*, cold one. *(he grins)* …there's *Sela* — the *young* one, *moonstruck* thing, i *walked* her out of a *swarm* and she's *followed* me *since.* *good* *soul.* gives me *far* too much *credit.* *(a fond shrug)* …and *Coll.* *(his grin dims, just slightly)* …the *old* one, by the *deadtree.* …*mind* *Coll*, cold one. he's — *(Sevrin's flourish falters)* …he's *buried* a *lot* of our *kind*, *Coll* has. *watched* *Returned* *legends* go *down*, *lifetimes* of 'em. and it's *made* him — *(he searches for the word, and lands on one that costs him)* …*frightened.* he'll *tell* you i'm *next.* he tells *all* the *bright* ones they're *next.* *(he means it as a dismissal, but it doesn't quite come out as one)* …*humor* him, would you? …he's *earned* a *listener.* …*even* if he's — *(a beat, and the grin doesn't fully return)* …*even* if he's *wrong.* …*go* on. …i'll *keep.* …i *always* *keep.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "sv.sela", "title": "Sela, the Unafraid", "npc": "Sela", "start": "0",
+      "id": "sv.sela",
+      "title": "Sela, the Unafraid",
+      "npc": "Sela",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Sela", "onEnter": [{ "key": "sv.met_sela", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Sela",
+          "onEnter": [
+            {
+              "key": "sv.met_sela",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(She makes room for you on the ground beside her, still half-watching Sevrin, the way a sunflower half-watches the sun.)* …you've *talked* to him, then. *(she smiles)* …everyone's *different* after they *talk* to him the *first* time. *lighter.* you can *see* it — the *shoulders* come *down.* *(she nods, knowing)* …it's the *certainty*, cold one. he's so — he's so *sure*, all the *time*, that it just … *spreads.* you stand *near* him and his *sureness* gets *on* you, like *warmth* off a *fire*, and the *fear* you've been *carrying* since you *died* …just *sets* itself *down.* *(she hugs her knees, content)* …*ask* me whatever you *like*, cold one. …though i'll *warn* you — *(a small laugh)* …i'm *poor* *company* for *anything* but *singing* his *praises.* …he *gave* me *back* …the *thing* the *dying* *took.* …how *do* you *not* …*sing*?*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Sela", "text": "*(She turns to you properly, open and easy, a soul with nothing left to guard because she's handed the guarding to someone else.)* …go *on.* …it's *nice*, actually — *talking.* before *Sevrin*, i didn't *talk* *much.* too *busy* being *afraid.* *(she says it without weight, a finished thing)* …*fear* takes up *room*, cold one. *all* the *room.* and when someone *takes* it *off* you …*(she spreads her hands)* …there's *space* again. for *talking.* for *looking* at things. for *being* a *person* and not just a — a *frightened* *animal* in a *grey* *place.* …*ask.*",
+            {
+              "text": "*(She makes room for you on the ground beside her, still half-watching Sevrin, the way a sunflower half-watches the sun.)* …you've *talked* to him, then. *(she smiles)* …everyone's *different* after they *talk* to him the *first* time. *lighter.* you can *see* it — the *shoulders* come *down.* *(she nods, knowing)* …it's the *certainty*, cold one. he's so — he's so *sure*, all the *time*, that it just … *spreads.* you stand *near* him and his *sureness* gets *on* you, like *warmth* off a *fire*, and the *fear* you've been *carrying* since you *died* …just *sets* itself *down.* *(she hugs her knees, content)* …*ask* me whatever you *like*, cold one. …though i'll *warn* you — *(a small laugh)* …i'm *poor* *company* for *anything* but *singing* his *praises.* …he *gave* me *back* …the *thing* the *dying* *took.* …how *do* you *not* …*sing*?*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sela",
+          "text": "*(She turns to you properly, open and easy, a soul with nothing left to guard because she's handed the guarding to someone else.)* …go *on.* …it's *nice*, actually — *talking.* before *Sevrin*, i didn't *talk* *much.* too *busy* being *afraid.* *(she says it without weight, a finished thing)* …*fear* takes up *room*, cold one. *all* the *room.* and when someone *takes* it *off* you …*(she spreads her hands)* …there's *space* again. for *talking.* for *looking* at things. for *being* a *person* and not just a — a *frightened* *animal* in a *grey* *place.* …*ask.*",
           "choices": [
-            { "text": "*(read the unafraid one — past the contentment, to what it costs a soul to hand its fear to someone else)* \"Hold still a moment, Sela. Let me look at you — at what you've set down, and what it's resting on.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "sv_e_read", "effects": [{ "key": "sv.read_sela", "op": "SetTrue" }] },
-            { "text": "\"He winked at you, in the middle of the swarm, and you knew you'd live. Tell me about that, Sela. What's it like — handing your fear to someone, and trusting they'll carry it?\"", "next": "sv_e_fear", "effects": [{ "key": "sv.asked_sela_fear", "op": "SetTrue" }] },
-            { "text": "*(the one who knows a borrowed courage is a debt that comes due — and that a soul has to be able to stand the dark on its own, because the person carrying your fear can be taken)* \"Sela — I need to say something to you, gently, because I think you've traded something precious for the peace you've got, and I think the bill is coming. It's a true relief, what he gave you. I won't pretend it isn't — to set down the fear, to not be a frightened animal in a grey place, that's *real*, and Sevrin's kindness in carrying it is real too. But you said it yourself: you don't carry the fear anymore. *He* does. And here's the thing about a courage you've borrowed instead of built — it isn't yours. It lives in him. Which means it can be *taken*, the way anything outside you can be taken, and if anything ever happens to him — and Sela, we are Returned, in the land of the dead; something always, eventually, happens — you won't just lose a protector. You'll get the whole weight of it back at once, all the fear you handed over, *plus* the terror of having forgotten how to hold it. A soul has to be able to stand its own dark, Sela. Not because relief is wrong, but because the person carrying your fear is mortal, even when he swears he isn't — *especially* when he swears he isn't. Love him. Follow him. Let him lighten it. But take some of it *back.* Learn to stand in the grey on your own two feet, a little, while he's still here to teach you how — so that if the day ever comes that the unafraid man is gone, you are not left more afraid than you've ever been, having unlearned the one skill that was actually yours: surviving your own fear. The bravest thing isn't being unafraid, Sela. It's carrying it yourself.\"", "tag": "returned", "next": "sv_e_returned", "effects": [{ "key": "sv.sela_warned", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Has he ever lost, Sela? In all the time you've followed him — has the Last Word ever once been afraid?\"", "next": "sv_e_lost", "effects": [{ "key": "sv.asked_sela_lost", "op": "SetTrue" }] },
-            { "text": "\"Keep your seat by the fire, Sela. I'll come back — and I hope I'm wrong about the thing I'm afraid of.\"", "next": "sv_e_leave" }
-          ] },
-        { "id": "sv_e_read", "speaker": "Sela", "text": "*(She lets you look, untroubled, a soul with nothing hidden because it's handed its heaviest thing to someone else — and you let your cold move past the easy contentment to the shape of what she's done.)* *(And your sense finds a soul genuinely, deeply at peace — and finds, immediately, that the peace is *load-bearing on someone else.* Your sense reads the dying that brought her here, a frightened death and a frightened arrival, weeks or months of the particular animal terror of a soul alone in the grey with the Unbound circling, fear with no floor to it, the kind that hollows a person out. And it reads the moment everything changed: the swarm, the certain death, and then Sevrin walking in whistling, and the wink — and your sense reads what the wink actually *did*, mechanically, to a soul that drowning: it didn't just save her body. It gave her permission to *stop holding the fear*, because here, at last, was someone who would hold it for her, someone so certain, so unbeatable, that she could finally, blessedly, *set it down.* And your sense reads the trade she made in that instant, without knowing she made it: that she handed Sevrin not just her safety but her *capacity* — the muscle a soul builds for standing its own dark — and has not used that muscle since, and so it has gone soft, the way an unused thing does. Your sense reads that Sela is not weak; she *survived* the worst of the grey alone, before him, which took a strength she no longer remembers having. But she has filed that strength away, handed the whole job to Sevrin, and reorganized her entire self around his certainty — and your sense reads the catastrophe sleeping in that arrangement, plain as a fault line: that her peace has no foundation of its own. It rests, entirely, on a man's continued existence. And your sense reads the thing that makes it ache: that she would say, if you asked, that loving him *is* her strength now, that following the unafraid one *is* her courage — and she would not be able to see, from the inside, the difference between courage and its outsourcing, between a fear faced and a fear merely *handed away*, until the day the hands she gave it to are no longer there to hold it. Your sense reads a soul standing, contented, on ice it believes is stone.)*",
-          "effects": [{ "key": "sv.read_sela", "op": "SetTrue" }, { "key": "sv.knows_sela_traded_her_spine", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_e_fear", "speaker": "Sela", "text": "*(Her face goes soft and far-away, remembering.)* …what's it *like.* *(a slow breath)* …it's like — cold one, have you ever been *carrying* something *heavy* so *long* you *forgot* you were *carrying* it? so long it just felt like — like the *shape* of your *arms*, like *that's* just *how* *arms* *are*, *full*, *aching*, *always?* *(she looks at you)* …and then someone *takes* it. *just* — *lifts* it *off.* and your *arms* float *up*, all on their *own*, *light*, like they might *drift* *off* your *body* — and you *realize*, for the *first* *time*, *how* *much* it *weighed*, *because* of how it *feels* to *not* …*(her eyes shine)* …*that's* what the *wink* was, cold one. he *lifted* it *off.* the *whole* *weight* of being *afraid* — which i'd been *carrying* so *long* i thought it was just *me*, just *how* a *dead* soul *is* — and he *took* it, like it was *nothing*, with a *wink*, and my whole — *(she laughs, wet)* …my whole *self* just *floated* *up.* *(she hugs her knees)* …and i *trust* him with it, cold one. *completely.* the way you *trust* the *ground.* …because he's *never* — in *all* the *time* i've *watched* him — he's *never* *once* …*set* it *down.* …never *once* *looked* *like* he *might* *drop* it. …*(softly)* …it's the *safest* …i have *ever* …*felt.* …*living* or *dead.**",
-          "effects": [{ "key": "sv.asked_sela_fear", "op": "SetTrue" }, { "key": "sv.knows_the_weight", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_e_lost", "speaker": "Sela", "text": "*(She shakes her head, certain, a little puzzled you'd even ask.)* …*lost?* *(a small laugh)* …*Sevrin?* …no, cold one. *never.* that's the — that's the *whole* *thing* about him, that's *why* it *works.* *(she gestures at the field of dissolving cairns)* …you *saw* the *lot.* a *dozen* *Unbound*, and not *one* *touched* him. and that's a — that's a *quiet* *day*, cold one. i've watched him walk into *worse.* the *Convergence*, *once* — *things* that *eat* *Returned* — and he came *out* …*whistling.* *(she says it with total faith)* …*afraid?* …i don't think he *knows* the *word*, cold one. i've *watched* his *face* in the *middle* of *horrors* that *froze* my *blood* …and it's the *same* *face* he has *now.* *easy.* *amused.* *(she smiles)* …*Coll* — the *old* one — he'll *tell* you *different.* he'll tell you *everyone* *loses, eventually*, even the *bright* ones, *especially* the *bright* ones. *(her smile tightens, just a little, the first crack you've seen)* …but *Coll's* …*Coll's* *seen* *bad* *things*, cold one, and they've *frightened* him, and *frightened* *people* …*see* *frightening* *things* *everywhere.* …*Sevrin's* *not* like the ones *Coll* *buried.* …*(a beat, and she says it like a charm against something)* …*Sevrin* *doesn't* *lose.* …he *just* …*doesn't.* …*ask* *anyone* …in the *court.**",
-          "effects": [{ "key": "sv.asked_sela_lost", "op": "SetTrue" }, { "key": "sv.sela_cannot_imagine_it", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_e_returned", "speaker": "Sela", "text": "*(She listens — and the easy contentment falters, and falters, and by the end she has her arms wrapped tight around her knees and is looking at you with the wide, stricken eyes of someone who has just had a name put to a thing she felt and refused to feel.)* …*'the bravest thing isn't being unafraid. it's carrying it yourself.'* *(barely)* …cold one. …i — *(she glances at Sevrin, and away, as though afraid he'll hear)* …i *know* what you're — i *felt* it, when you said *'he can be taken.'* i felt my *whole* *body* go — *(she presses a hand to her chest)* …because i *can't.* i can't even *think* it. *'if* anything *happened* to *him' —* the *thought* just — it *slides* *off*, cold one, my mind won't *hold* it, and i *told* myself that's *faith*, that's *trust* … *(her voice shakes)* …but it's not, is it. it's that i've built my *whole* *peace* on a *thing* i *can't* *afford* to *look* at. …because if i *looked* — if i *let* myself *know* he's *mortal*, that the *unafraid* *man* could *fall* — …i'd have to *take* the *fear* *back.* *all* of it. *(a wet, frightened laugh)* …and i don't — cold one, i don't *think* i *remember* *how* to *hold* it. …that's the — *(she shudders)* …that's the *thing* you've *shown* me, isn't it. not that i should be *more* *afraid* …but that i've *forgotten* how to *survive* *being* *afraid* …and that's the *one* *skill* …that was *actually* *mine.* *(she looks at Sevrin, and then, slowly, deliberately, at her own two hands)* …*all* *right.* …*all* *right*, cold one. …i'll — *(she swallows)* …i'll *take* some *back.* …a *little.* *while* he's *still* — *(she can't finish it, and starts again)* …*while* there's *still* *someone* to *teach* me. …*before* — *(barely)* …*before* i have to *find* out …the *hard* *way* …that i *never* *stopped* *being* …the *one* …who has to *carry* it. …*thank* you. …i *think.* …it's a *colder* *gift* …than the *wink.* …but i think it might be …a *truer* *one.**",
-          "effects": [{ "key": "sv.sela_warned", "op": "SetTrue" }, { "key": "sv.sela_takes_it_back", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_e_leave", "speaker": "Sela", "text": "*(She nods, settling back into her watch, though her eyes flick to you a moment longer than before.)* …go on, cold one. *(a small smile)* …go *see* *Coll*, if you've not — the *old* one, by the *deadtree.* *(her smile wavers)* …he'll *frighten* you. *fair* *warning.* he frightens *everyone* — it's the *one* thing he's *good* for, *these* *days*, *frightening* the *court* with his *buried* *legends* and his *'i've* *seen* *this* *before.'* *(she hugs her knees)* …*most* of us *stopped* *listening* to him, cold one. it's — it's *easier.* *(a beat, and something honest slips out)* …but you *should* *listen, i think.* …*you* came *over* *here* and said a thing that *cracked* me *open* a *little* …and i don't *think* …*(quietly)* …i don't think you'd have *said* it …if you *hadn't* *listened* to *Coll* *first.* …*go* on. …and *cold* one? …*(she hesitates)* …if he tells you *Sevrin's* *next* … …*don't* tell *me.* …i'm not — …i'm not *ready* …to *carry* *that* …*yet.**",
-          "auto": "END" }
+            {
+              "text": "*(read the unafraid one — past the contentment, to what it costs a soul to hand its fear to someone else)* \"Hold still a moment, Sela. Let me look at you — at what you've set down, and what it's resting on.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "sv_e_read",
+              "effects": [
+                {
+                  "key": "sv.read_sela",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"He winked at you, in the middle of the swarm, and you knew you'd live. Tell me about that, Sela. What's it like — handing your fear to someone, and trusting they'll carry it?\"",
+              "next": "sv_e_fear",
+              "effects": [
+                {
+                  "key": "sv.asked_sela_fear",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows a borrowed courage is a debt that comes due — and that a soul has to be able to stand the dark on its own, because the person carrying your fear can be taken)* \"Sela — I need to say something to you, gently, because I think you've traded something precious for the peace you've got, and I think the bill is coming. It's a true relief, what he gave you. I won't pretend it isn't — to set down the fear, to not be a frightened animal in a grey place, that's *real*, and Sevrin's kindness in carrying it is real too. But you said it yourself: you don't carry the fear anymore. *He* does. And here's the thing about a courage you've borrowed instead of built — it isn't yours. It lives in him. Which means it can be *taken*, the way anything outside you can be taken, and if anything ever happens to him — and Sela, we are Returned, in the land of the dead; something always, eventually, happens — you won't just lose a protector. You'll get the whole weight of it back at once, all the fear you handed over, *plus* the terror of having forgotten how to hold it. A soul has to be able to stand its own dark, Sela. Not because relief is wrong, but because the person carrying your fear is mortal, even when he swears he isn't — *especially* when he swears he isn't. Love him. Follow him. Let him lighten it. But take some of it *back.* Learn to stand in the grey on your own two feet, a little, while he's still here to teach you how — so that if the day ever comes that the unafraid man is gone, you are not left more afraid than you've ever been, having unlearned the one skill that was actually yours: surviving your own fear. The bravest thing isn't being unafraid, Sela. It's carrying it yourself.\"",
+              "tag": "returned",
+              "next": "sv_e_returned",
+              "effects": [
+                {
+                  "key": "sv.sela_warned",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Has he ever lost, Sela? In all the time you've followed him — has the Last Word ever once been afraid?\"",
+              "next": "sv_e_lost",
+              "effects": [
+                {
+                  "key": "sv.asked_sela_lost",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Keep your seat by the fire, Sela. I'll come back — and I hope I'm wrong about the thing I'm afraid of.\"",
+              "next": "sv_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "sv_e_read",
+          "speaker": "Sela",
+          "text": "*(She lets you look, untroubled, a soul with nothing hidden because it's handed its heaviest thing to someone else — and you let your cold move past the easy contentment to the shape of what she's done.)* *(And your sense finds a soul genuinely, deeply at peace — and finds, immediately, that the peace is *load-bearing on someone else.* Your sense reads the dying that brought her here, a frightened death and a frightened arrival, weeks or months of the particular animal terror of a soul alone in the grey with the Unbound circling, fear with no floor to it, the kind that hollows a person out. And it reads the moment everything changed: the swarm, the certain death, and then Sevrin walking in whistling, and the wink — and your sense reads what the wink actually *did*, mechanically, to a soul that drowning: it didn't just save her body. It gave her permission to *stop holding the fear*, because here, at last, was someone who would hold it for her, someone so certain, so unbeatable, that she could finally, blessedly, *set it down.* And your sense reads the trade she made in that instant, without knowing she made it: that she handed Sevrin not just her safety but her *capacity* — the muscle a soul builds for standing its own dark — and has not used that muscle since, and so it has gone soft, the way an unused thing does. Your sense reads that Sela is not weak; she *survived* the worst of the grey alone, before him, which took a strength she no longer remembers having. But she has filed that strength away, handed the whole job to Sevrin, and reorganized her entire self around his certainty — and your sense reads the catastrophe sleeping in that arrangement, plain as a fault line: that her peace has no foundation of its own. It rests, entirely, on a man's continued existence. And your sense reads the thing that makes it ache: that she would say, if you asked, that loving him *is* her strength now, that following the unafraid one *is* her courage — and she would not be able to see, from the inside, the difference between courage and its outsourcing, between a fear faced and a fear merely *handed away*, until the day the hands she gave it to are no longer there to hold it. Your sense reads a soul standing, contented, on ice it believes is stone.)*",
+          "effects": [
+            {
+              "key": "sv.read_sela",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_sela_traded_her_spine",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_e_fear",
+          "speaker": "Sela",
+          "text": "*(Her face goes soft and far-away, remembering.)* …what's it *like.* *(a slow breath)* …it's like — cold one, have you ever been *carrying* something *heavy* so *long* you *forgot* you were *carrying* it? so long it just felt like — like the *shape* of your *arms*, like *that's* just *how* *arms* *are*, *full*, *aching*, *always?* *(she looks at you)* …and then someone *takes* it. *just* — *lifts* it *off.* and your *arms* float *up*, all on their *own*, *light*, like they might *drift* *off* your *body* — and you *realize*, for the *first* *time*, *how* *much* it *weighed*, *because* of how it *feels* to *not* …*(her eyes shine)* …*that's* what the *wink* was, cold one. he *lifted* it *off.* the *whole* *weight* of being *afraid* — which i'd been *carrying* so *long* i thought it was just *me*, just *how* a *dead* soul *is* — and he *took* it, like it was *nothing*, with a *wink*, and my whole — *(she laughs, wet)* …my whole *self* just *floated* *up.* *(she hugs her knees)* …and i *trust* him with it, cold one. *completely.* the way you *trust* the *ground.* …because he's *never* — in *all* the *time* i've *watched* him — he's *never* *once* …*set* it *down.* …never *once* *looked* *like* he *might* *drop* it. …*(softly)* …it's the *safest* …i have *ever* …*felt.* …*living* or *dead.**",
+          "effects": [
+            {
+              "key": "sv.asked_sela_fear",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_the_weight",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_e_lost",
+          "speaker": "Sela",
+          "text": "*(She shakes her head, certain, a little puzzled you'd even ask.)* …*lost?* *(a small laugh)* …*Sevrin?* …no, cold one. *never.* that's the — that's the *whole* *thing* about him, that's *why* it *works.* *(she gestures at the field of dissolving cairns)* …you *saw* the *lot.* a *dozen* *Unbound*, and not *one* *touched* him. and that's a — that's a *quiet* *day*, cold one. i've watched him walk into *worse.* the *Convergence*, *once* — *things* that *eat* *Returned* — and he came *out* …*whistling.* *(she says it with total faith)* …*afraid?* …i don't think he *knows* the *word*, cold one. i've *watched* his *face* in the *middle* of *horrors* that *froze* my *blood* …and it's the *same* *face* he has *now.* *easy.* *amused.* *(she smiles)* …*Coll* — the *old* one — he'll *tell* you *different.* he'll tell you *everyone* *loses, eventually*, even the *bright* ones, *especially* the *bright* ones. *(her smile tightens, just a little, the first crack you've seen)* …but *Coll's* …*Coll's* *seen* *bad* *things*, cold one, and they've *frightened* him, and *frightened* *people* …*see* *frightening* *things* *everywhere.* …*Sevrin's* *not* like the ones *Coll* *buried.* …*(a beat, and she says it like a charm against something)* …*Sevrin* *doesn't* *lose.* …he *just* …*doesn't.* …*ask* *anyone* …in the *court.**",
+          "effects": [
+            {
+              "key": "sv.asked_sela_lost",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.sela_cannot_imagine_it",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_e_returned",
+          "speaker": "Sela",
+          "text": "*(She listens — and the easy contentment falters, and falters, and by the end she has her arms wrapped tight around her knees and is looking at you with the wide, stricken eyes of someone who has just had a name put to a thing she felt and refused to feel.)* …*'the bravest thing isn't being unafraid. it's carrying it yourself.'* *(barely)* …cold one. …i — *(she glances at Sevrin, and away, as though afraid he'll hear)* …i *know* what you're — i *felt* it, when you said *'he can be taken.'* i felt my *whole* *body* go — *(she presses a hand to her chest)* …because i *can't.* i can't even *think* it. *'if* anything *happened* to *him' —* the *thought* just — it *slides* *off*, cold one, my mind won't *hold* it, and i *told* myself that's *faith*, that's *trust* … *(her voice shakes)* …but it's not, is it. it's that i've built my *whole* *peace* on a *thing* i *can't* *afford* to *look* at. …because if i *looked* — if i *let* myself *know* he's *mortal*, that the *unafraid* *man* could *fall* — …i'd have to *take* the *fear* *back.* *all* of it. *(a wet, frightened laugh)* …and i don't — cold one, i don't *think* i *remember* *how* to *hold* it. …that's the — *(she shudders)* …that's the *thing* you've *shown* me, isn't it. not that i should be *more* *afraid* …but that i've *forgotten* how to *survive* *being* *afraid* …and that's the *one* *skill* …that was *actually* *mine.* *(she looks at Sevrin, and then, slowly, deliberately, at her own two hands)* …*all* *right.* …*all* *right*, cold one. …i'll — *(she swallows)* …i'll *take* some *back.* …a *little.* *while* he's *still* — *(she can't finish it, and starts again)* …*while* there's *still* *someone* to *teach* me. …*before* — *(barely)* …*before* i have to *find* out …the *hard* *way* …that i *never* *stopped* *being* …the *one* …who has to *carry* it. …*thank* you. …i *think.* …it's a *colder* *gift* …than the *wink.* …but i think it might be …a *truer* *one.**",
+          "effects": [
+            {
+              "key": "sv.sela_warned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.sela_takes_it_back",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_e_leave",
+          "speaker": "Sela",
+          "text": "*(She nods, settling back into her watch, though her eyes flick to you a moment longer than before.)* …go on, cold one. *(a small smile)* …go *see* *Coll*, if you've not — the *old* one, by the *deadtree.* *(her smile wavers)* …he'll *frighten* you. *fair* *warning.* he frightens *everyone* — it's the *one* thing he's *good* for, *these* *days*, *frightening* the *court* with his *buried* *legends* and his *'i've* *seen* *this* *before.'* *(she hugs her knees)* …*most* of us *stopped* *listening* to him, cold one. it's — it's *easier.* *(a beat, and something honest slips out)* …but you *should* *listen, i think.* …*you* came *over* *here* and said a thing that *cracked* me *open* a *little* …and i don't *think* …*(quietly)* …i don't think you'd have *said* it …if you *hadn't* *listened* to *Coll* *first.* …*go* on. …and *cold* one? …*(she hesitates)* …if he tells you *Sevrin's* *next* … …*don't* tell *me.* …i'm not — …i'm not *ready* …to *carry* *that* …*yet.**",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "sv.coll", "title": "Coll, Who Has Buried the Unbeatable", "npc": "Coll", "start": "0",
+      "id": "sv.coll",
+      "title": "Coll, Who Has Buried the Unbeatable",
+      "npc": "Coll",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Coll", "onEnter": [{ "key": "sv.met_coll", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Coll",
+          "onEnter": [
+            {
+              "key": "sv.met_coll",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["sv.heard_you"] }, "text": "*(The old soul studies you with new attention, having watched you spend a long while at Sevrin's log, and something that is almost hope moves under the ancient grief.)* …you *talked* to him a *long* *while.* *(quietly)* …longer than the *court* *does. they* get their *wink* and their *warmth* and they *drift* *off*, *light.* …*you* *stayed.* and you came *away* …*heavier*, not *lighter.* *(he leans forward)* …did you *say* it? …did you *tell* him …about the *small* *things?* *(he searches your face, and what he finds there makes him sit back, slowly)* …*ah.* …you *did.* and he *heard* you — i can *see* it, there's a *mark* on a soul that's been *truly* *warned* and *truly* *frightened* *for* — …but he *didn't* *take* it. *not* all the *way.* *(a long breath)* …*no.* …*no*, they *never* do. …but you got *further*, cold one, than *i* ever have. …*sit.* …*tell* an old *soul* …*what* it *cost* you …to *make* the *Last* *Word* …*look* at a *corner.**" },
-            { "text": "*(The old soul watches you approach with that same premature grief, and pats the stone beside him with a gnarled hand.)* …*sit*, cold one, *sit.* the *young* ones *don't*, *much* — i'm a *cold* *wind* on a *warm* *day*, and who *wants* *that.* *(a dry, kind almost-smile)* …but *you* came *over.* and you've *not* got the *full* *shine* on you, not *quite* — there's a *crack* in it, a *doubt*, and a soul with a *doubt* is a soul that might *listen.* *(he studies Sevrin across the lot)* …*magnificent*, isn't he. …*truly.* i don't say it *sour*, cold one — he *is* *everything* the *court* *thinks.* nine *lifetimes*, *never* *bested*, *art* *in* *every* *motion.* *(the grief deepens)* …*Haldane* was *magnificent*, *too.* …*ask* me, cold one. …*ask* an old *soul* …what he's *seen.*",
+            {
+              "when": {
+                "flags": [
+                  "sv.heard_you"
+                ]
+              },
+              "text": "*(The old soul studies you with new attention, having watched you spend a long while at Sevrin's log, and something that is almost hope moves under the ancient grief.)* …you *talked* to him a *long* *while.* *(quietly)* …longer than the *court* *does. they* get their *wink* and their *warmth* and they *drift* *off*, *light.* …*you* *stayed.* and you came *away* …*heavier*, not *lighter.* *(he leans forward)* …did you *say* it? …did you *tell* him …about the *small* *things?* *(he searches your face, and what he finds there makes him sit back, slowly)* …*ah.* …you *did.* and he *heard* you — i can *see* it, there's a *mark* on a soul that's been *truly* *warned* and *truly* *frightened* *for* — …but he *didn't* *take* it. *not* all the *way.* *(a long breath)* …*no.* …*no*, they *never* do. …but you got *further*, cold one, than *i* ever have. …*sit.* …*tell* an old *soul* …*what* it *cost* you …to *make* the *Last* *Word* …*look* at a *corner.**"
+            },
+            {
+              "text": "*(The old soul watches you approach with that same premature grief, and pats the stone beside him with a gnarled hand.)* …*sit*, cold one, *sit.* the *young* ones *don't*, *much* — i'm a *cold* *wind* on a *warm* *day*, and who *wants* *that.* *(a dry, kind almost-smile)* …but *you* came *over.* and you've *not* got the *full* *shine* on you, not *quite* — there's a *crack* in it, a *doubt*, and a soul with a *doubt* is a soul that might *listen.* *(he studies Sevrin across the lot)* …*magnificent*, isn't he. …*truly.* i don't say it *sour*, cold one — he *is* *everything* the *court* *thinks.* nine *lifetimes*, *never* *bested*, *art* *in* *every* *motion.* *(the grief deepens)* …*Haldane* was *magnificent*, *too.* …*ask* me, cold one. …*ask* an old *soul* …what he's *seen.*",
               "choices": [
-                { "text": "*(read the old soul — past the grief, to the precise thing nine lifetimes of buried legends taught him)* \"Hold a moment, Coll. Let me look at you — at everything those old eyes have had to watch.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "sv_c_read", "effects": [{ "key": "sv.read_coll", "op": "SetTrue" }] },
-                { "text": "\"You said a name. Haldane — the Unbroken Blade. Eleven lifetimes, never bested, and you watched him die to a small thing. Tell me, Coll. Tell me exactly how the unbeatable die.\"", "next": "sv_c_haldane", "effects": [{ "key": "sv.asked_haldane", "op": "SetTrue" }] },
-                { "text": "*(the one who finally understands what Coll has been trying to make the bright ones see — that the loop hunts greatness specifically, that the brighter the soul the more the dark wants it, and that being unbeatable is not safety but a target)* \"Coll — I think I finally understand what you've spent lifetimes failing to make anyone hear, and I want to say it back to you, so at least one soul has understood before the end. You're not frightened *of* the bright ones. You're frightened *for* them — and you've learned the thing the courts never will: that in this grey country, greatness isn't armor. It's bait. The Wall, the loop, the dark — whatever we call the thing that hunts us — it does not want the frightened, fading nobodies; they slide into the nothing on their own, no effort required. It wants the *bright* ones. The legends. The souls so full of life and will and defiance that they refuse to dissolve — *those* are the ones it has to come for, deliberately, patiently, because those are the only souls whose vanishing it can't simply wait out. So it studies them. It learns exactly how each magnificent soul has made itself unbeatable — and then it doesn't *fight* that. It finds the one gap the magnificence left uncovered, the small thing the master was too great to watch, and it goes there. Every legend you've buried, Coll, died the same way, didn't they — not overwhelmed, but *slipped*, taken through the one door their greatness left open. Because the brighter a soul burns, the more certain it is that something in the dark is already measuring it for the fall. You've been trying to tell the bright ones to be *less* bright, to watch the corners, to stay afraid — and they can't hear it, because to a soul that's never lost, the warning sounds like envy. But it isn't envy. It's the truest love there is: the love that has buried enough magnificence to know that magnificence is precisely what the dark comes for. I hear you, Coll. I believe you. And I already said it to him — for whatever it's worth that one soul, finally, listened to the man at the funeral that hasn't happened yet.\"", "tag": "returned", "next": "sv_c_returned", "effects": [{ "key": "sv.coll_heard", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-                { "text": "\"Why do you stay, Coll? If you know how this ends — if you've watched it end this way a dozen times — why follow another bright one to another funeral? Why not look away?\"", "next": "sv_c_why", "effects": [{ "key": "sv.asked_coll_why", "op": "SetTrue" }] },
-                { "text": "\"Sit with your grief a moment longer, Coll. I'll go back to him — and this time I'll carry your warning with me.\"", "next": "sv_c_leave" }
-              ] }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Coll", "text": "*(He settles back against the deadtree, hands folded, an old soul with all the time in the world and the particular weariness of one who has used too much of it watching the same bright story end the same dark way.)* …*ask*, cold one. *(a dry breath)* …i'll *warn* you, though — i'm *not* a *comfortable* *talk.* the *court* comes to *Sevrin* to feel *safe.* …souls come to *me* …to feel the *truth*, and the *truth*, in this *grey* *place*, is *rarely* *safe.* *(he almost smiles)* …but you've a *steady* *eye.* …*ask*. …and i'll *tell* you …what the *bright* ones *won't.*",
+                {
+                  "text": "*(read the old soul — past the grief, to the precise thing nine lifetimes of buried legends taught him)* \"Hold a moment, Coll. Let me look at you — at everything those old eyes have had to watch.\"",
+                  "check": {
+                    "skill": "Insight",
+                    "ability": "Wisdom",
+                    "dc": 11
+                  },
+                  "next": "sv_c_read",
+                  "effects": [
+                    {
+                      "key": "sv.read_coll",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"You said a name. Haldane — the Unbroken Blade. Eleven lifetimes, never bested, and you watched him die to a small thing. Tell me, Coll. Tell me exactly how the unbeatable die.\"",
+                  "next": "sv_c_haldane",
+                  "effects": [
+                    {
+                      "key": "sv.asked_haldane",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "*(the one who finally understands what Coll has been trying to make the bright ones see — that the loop hunts greatness specifically, that the brighter the soul the more the dark wants it, and that being unbeatable is not safety but a target)* \"Coll — I think I finally understand what you've spent lifetimes failing to make anyone hear, and I want to say it back to you, so at least one soul has understood before the end. You're not frightened *of* the bright ones. You're frightened *for* them — and you've learned the thing the courts never will: that in this grey country, greatness isn't armor. It's bait. The Wall, the loop, the dark — whatever we call the thing that hunts us — it does not want the frightened, fading nobodies; they slide into the nothing on their own, no effort required. It wants the *bright* ones. The legends. The souls so full of life and will and defiance that they refuse to dissolve — *those* are the ones it has to come for, deliberately, patiently, because those are the only souls whose vanishing it can't simply wait out. So it studies them. It learns exactly how each magnificent soul has made itself unbeatable — and then it doesn't *fight* that. It finds the one gap the magnificence left uncovered, the small thing the master was too great to watch, and it goes there. Every legend you've buried, Coll, died the same way, didn't they — not overwhelmed, but *slipped*, taken through the one door their greatness left open. Because the brighter a soul burns, the more certain it is that something in the dark is already measuring it for the fall. You've been trying to tell the bright ones to be *less* bright, to watch the corners, to stay afraid — and they can't hear it, because to a soul that's never lost, the warning sounds like envy. But it isn't envy. It's the truest love there is: the love that has buried enough magnificence to know that magnificence is precisely what the dark comes for. I hear you, Coll. I believe you. And I already said it to him — for whatever it's worth that one soul, finally, listened to the man at the funeral that hasn't happened yet.\"",
+                  "tag": "returned",
+                  "next": "sv_c_returned",
+                  "effects": [
+                    {
+                      "key": "sv.coll_heard",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "act1.mercy_remembered",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "disp.merciful",
+                      "op": "AddInt",
+                      "amount": 1
+                    },
+                    {
+                      "key": "disp.haunted",
+                      "op": "AddInt",
+                      "amount": 1
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Why do you stay, Coll? If you know how this ends — if you've watched it end this way a dozen times — why follow another bright one to another funeral? Why not look away?\"",
+                  "next": "sv_c_why",
+                  "effects": [
+                    {
+                      "key": "sv.asked_coll_why",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Sit with your grief a moment longer, Coll. I'll go back to him — and this time I'll carry your warning with me.\"",
+                  "next": "sv_c_leave"
+                }
+              ]
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Coll",
+          "text": "*(He settles back against the deadtree, hands folded, an old soul with all the time in the world and the particular weariness of one who has used too much of it watching the same bright story end the same dark way.)* …*ask*, cold one. *(a dry breath)* …i'll *warn* you, though — i'm *not* a *comfortable* *talk.* the *court* comes to *Sevrin* to feel *safe.* …souls come to *me* …to feel the *truth*, and the *truth*, in this *grey* *place*, is *rarely* *safe.* *(he almost smiles)* …but you've a *steady* *eye.* …*ask*. …and i'll *tell* you …what the *bright* ones *won't.*",
           "choices": [
-            { "text": "*(read the old soul — past the grief, to the precise thing nine lifetimes of buried legends taught him)* \"Hold a moment, Coll. Let me look at you — at everything those old eyes have had to watch.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "sv_c_read", "effects": [{ "key": "sv.read_coll", "op": "SetTrue" }] },
-            { "text": "\"You said a name. Haldane — the Unbroken Blade. Eleven lifetimes, never bested, and you watched him die to a small thing. Tell me, Coll. Tell me exactly how the unbeatable die.\"", "next": "sv_c_haldane", "effects": [{ "key": "sv.asked_haldane", "op": "SetTrue" }] },
-            { "text": "*(the one who finally understands what Coll has spent lifetimes failing to make anyone hear — that the loop hunts greatness specifically; the brighter the soul, the more the dark wants it; being unbeatable is not safety but a target)* \"Coll — I think I finally understand what you've spent lifetimes failing to make anyone hear. You're not frightened *of* the bright ones. You're frightened *for* them — and you've learned the thing the courts never will: in this grey country, greatness isn't armor, it's *bait.* The thing that hunts us doesn't want the fading nobodies; they slide into the nothing on their own. It wants the *bright* ones — the legends so full of will they refuse to dissolve — because those are the only souls whose vanishing it can't simply wait out. So it studies them, learns exactly how each made itself unbeatable, and then doesn't *fight* that — it finds the one gap the magnificence left uncovered, the small thing the master was too great to watch, and goes there. Every legend you've buried died the same way: not overwhelmed, but *slipped*, taken through the one door their greatness left open. The brighter a soul burns, the more certain something in the dark is already measuring it for the fall. You've been telling the bright ones to watch the corners, to stay afraid — and they can't hear it, because to a soul that's never lost, the warning sounds like envy. But it isn't envy. It's the truest love there is: the love that has buried enough magnificence to know that magnificence is exactly what the dark comes for. I hear you, Coll. I believe you. And I already said it to him.\"", "tag": "returned", "next": "sv_c_returned", "effects": [{ "key": "sv.coll_heard", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Why do you stay, Coll? If you know how this ends — if you've watched it end this way a dozen times — why follow another bright one to another funeral? Why not look away?\"", "next": "sv_c_why", "effects": [{ "key": "sv.asked_coll_why", "op": "SetTrue" }] },
-            { "text": "\"Sit with your grief a moment longer, Coll. I'll go back to him — and this time I'll carry your warning with me.\"", "next": "sv_c_leave" }
-          ] },
-        { "id": "sv_c_read", "speaker": "Coll", "text": "*(He lets you look, patient, an old soul long past flinching from being seen — and you let your cold move through the grief to the thing the grief is made of.)* *(And your sense finds a soul that is, against every appearance, not broken — only *educated*, terribly, by the one curriculum no one chooses: the repeated burial of the magnificent. Your sense reads the long arithmetic of his deaths, lifetimes of them, an ordinary soul — Coll was never a legend, never a Last Word, just a steady unremarkable man who kept dying and kept coming back and kept, each time, attaching himself to whatever bright unkillable Returned was holding court that age, because the bright ones felt like safety and an ordinary soul wants safety. And your sense reads what he watched, again and again, the same shape each time: the legend, magnificent, certain, beloved; the court of the saved gathered round; the long run of impossible victories; and then the end — never grand, never a worthy duel, always a *slip*, a small thing, a poisoned nothing, a moment's relaxation, the great soul taken through the one gap its greatness left open. Your sense reads that Coll counted them. That he is the only soul who *bothered* to count, because the courts always scatter after the legend falls, grief-blind, and find a new bright one and never connect the deaths — but Coll remembered, and laid them side by side, and saw the pattern no single court could see: that it is *always* the bright ones, *always* the small thing, *always* the instant of certainty. And your sense reads the loneliest part: that he understood, lifetimes ago, *why* — that the loop hunts greatness because greatness is the only thing it has to hunt, the rest dissolving free — and that he has spent every lifetime since trying to hand that understanding to the next bright soul, and failing, every time, because the warning sounds like envy to the unbeaten and like cowardice to the brave, and an ordinary old man telling a legend *you will die like all the others* is the one thing no legend's court will ever let through. Your sense reads that Coll does not stay out of morbidity. He stays because he is the keeper of a true and terrible thing that no one will receive, and he has decided that bearing witness to the fall — being, at least, the one soul who *saw it coming and stayed* — is the only honor he can offer the magnificent, since they will never accept the only help that would matter. He is a soul who has turned helpless foreknowledge into a kind of vigil. And your sense reads, sharp and cold, that he is doing it again, right now, with Sevrin — and that the only thing different this time is *you.*)*",
-          "effects": [{ "key": "sv.read_coll", "op": "SetTrue" }, { "key": "sv.knows_coll_counted", "op": "SetTrue" }, { "key": "sv.knows_the_pattern", "op": "SetTrue" }], "auto": "END" },
-        { "id": "sv_c_haldane", "speaker": "Coll", "text": "*(His old hands tighten, and he looks across the lot at Sevrin, and tells it the way a man tells a thing he has told himself a thousand sleepless nights.)* …*Haldane.* *(a breath)* …the *Unbroken* *Blade.* *eleven* *lifetimes*, cold one, where *Sevrin's* had *nine.* *bigger* *legend.* *brighter.* the *court* round *him* was *three* *times* the *size* of *that* *one.* *(a nod at Sela and the others)* …and i *loved* him, cold one, the *way* *Sela* *loves* *Sevrin* — *handed* him my *fear* and *followed* him *glad.* *(his jaw works)* …i *watched* him do *impossible* *things.* *watched* him walk into a *nest* of *wraiths* that had *eaten* a *hundred* *souls* and come *out* *dragging* *six* *survivors* and *laughing.* …and then *one* *day*, cold one — an *easy* *day*, a *nothing* *day* — he *cleared* a *field* *much* like *this* *one.* *Unbound*, a *swarm*, *beneath* him, *truly* *beneath* him. and he *finished*, and he *sheathed* the *blade*, and he *turned* to the *court* to say something — i'll *never* *know* *what*, cold one, he *never* — *(his voice catches)* …there was *one* *left.* *one* *Unbound.* *half*-*gone*, *crawling*, a *thing* so *ruined* it could *barely* *move* — *beneath* *notice*, cold one, the *kind* of *nothing* a *legend* *steps* *over.* and *Haldane* *stepped* *over* it. …and it *put* its *claw* …in the *back* of his *ankle.* *(barely)* …*that's* *all.* the *ankle.* a *scratch.* …but there was *Wall* on it, cold one — that grey *unmaking*, the *one* *thing* that *kills* our *kind* — *smeared* on a *dying* *nothing's* *claw* …and it went *into* *Haldane* …and *eleven* *lifetimes* …*unravelled* …in the *time* it took him to *turn* *around* and *see* *what* had *touched* him. *(he closes his eyes)* …and the *look* on his *face*, cold one. …*not* *pain.* …*confusion.* …the *Unbroken* *Blade*, *checking* a *sum* he was *certain* he'd got *right.* …*'this* *can't* — *i* *don't* — *how' —* …and then …*gone.* …to a *thing* …he *didn't* *bother* …to *watch.* *(he opens his eyes, and they're wet, and old, and certain)* …*that's* how the *unbeatable* *die*, cold one. …*never* to the *worthy* *foe.* …*always* …to the *nothing* …in the *corner.* …and there is *always* …*always* …*one* *left.**",
-          "effects": [{ "key": "sv.asked_haldane", "op": "SetTrue" }, { "key": "sv.knows_how_haldane_died", "op": "SetTrue" }, { "key": "sv.knows_the_poison", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_c_why", "speaker": "Coll", "text": "*(The question stills him, and he is quiet a long moment, looking at the bright certain man across the lot.)* …why do i *stay.* *(slowly)* …*follow* the *bright* ones to their *funerals*, *knowing.* …*(a breath)* …i've *asked* it *myself*, cold one. *many* a *lifetime.* it would be *easier* to *look* *away.* find a *quiet* *corner* of the *grey* and *dissolve* in *peace* and *not* *watch* …*one* *more* …*magnificent* *thing* …*fall.* *(he shakes his head)* …but here's what i've *come* to, cold one, *old* as i am: …*someone* has to *see* it *coming.* *(he meets your eyes)* …the *court* *won't.* they *can't* — that's the *whole* *gift* the *bright* one *gives* them, the *not*-*having*-*to*-*see.* and so when the *legend* *falls*, the *court* is *shattered*, *blind*-*sided*, *destroyed*, because they *handed* him their *fear* and he *took* it *into* the *nothing* *with* him and *left* them *holding* *air.* *(his voice roughens)* …but if *one* soul *stays* *clear*-*eyed* — *one* soul who *didn't* *hand* over the *fear*, who *watched* the *whole* *time*, who *knew* — …then when it *comes*, there's *someone* *left* *standing* who can *gather* the *shattered* *court*, and *say* *'i* *know*, i *saw*, *come*, *let* me *help* you *carry* it' …*(barely)* …*someone* has to be the *one* who *isn't* *surprised*, cold one. …*someone* has to *survive* the *bright* one's *falling* …with their *eyes* *open* …so the *others* …*survive* it *at* *all.* *(he looks at Sevrin, and the grief is also, you see now, a kind of love)* …*that's* why i *stay.* …not to *save* the *legend* — i *can't*, *no* one *can*, they *won't* *let* you. …but to *save* …the *ones* …who *loved* him. …*after.* …*someone* …has to *be* …the *after.**",
-          "effects": [{ "key": "sv.asked_coll_why", "op": "SetTrue" }, { "key": "sv.knows_coll_is_the_after", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_c_returned", "speaker": "Coll", "text": "*(He listens — and as you speak, the old soul who has spent lifetimes shouting a true thing into the wind goes very still, and his eyes fill, because for the first time in longer than he can count, the warning is not bouncing off a wall of certainty; it is landing, in full, in another soul who *understands*, and the relief of being finally heard is so large it looks, for a moment, almost like more grief.)* …*'magnificence is precisely what the dark comes for.'* *(barely)* …cold one. …*(his weathered hands are shaking)* …do you — do you *know* how *long* — *(he stops, starts again)* …*lifetimes*, cold one. *lifetimes* i have *carried* this, *alone*, the *one* soul who *counted*, who *laid* the *deaths* *side* by *side* and *saw* — and *every* time i *tried* to *hand* it *on*, it *curdled* in the *telling*, came out as *envy*, as *cowardice*, as a *bitter* old *man* who *can't* *bear* the *bright* ones — …and i *let* them *think* it, in the *end, because* *what* *else* — *(he presses a hand to his mouth)* …and *now* *you've* — *(a wet, disbelieving breath)* …you've *said* it *back* to me. *whole.* *true.* *better* than i *ever* — *'the* *loop* *hunts* *greatness* *because* *greatness* is the *only* *thing* it *has* to *hunt.'* …*yes.* …*yes*, cold one, *that's* — that's the *whole* of it, the thing i could *never* *quite* — the *nobodies* *dissolve* *free*, and so the *dark* *only* *bothers* …with the *ones* *bright* *enough* …to *refuse.* …*(he grips your arm, fierce, ancient)* …then *hear* the *rest* of it, cold one, the *part* i *also* *know*, the part that *might* — *(he glances at Sevrin)* …*you* *got* *through* to him. a *little. i* *saw* it — he's *looking* at the *corners* now, he *wasn't* *before.* …it may *not* be *enough* — it's *never* *been* *enough* — but it is *more* than *any* of the *rest* of us *ever* *managed*, and it means *this* *time*, cold one, *this* *once* … …there are *two* of us *clear*-*eyed.* *(his voice breaks open)* …*you*, and *me.* …so when it *comes* — *if* it *comes* — …we *will* *not* *both* be *surprised.* …and the *court* …*Sela* …the *others* … …they will *have* …*someone* …*two* *someones* …*left* *standing* …to *be* …the *after.* *(barely)* …*thank* you, cold one. …for *believing* …the *man* …at the *funeral* …that *hasn't* …*happened* …*yet.* …*go* *back* to him. …*watch* the *small* *things* …*with* him. …and if the *day* *comes* …that the *Last* *Word* …*can't* — …*find* me. …*we'll* *carry* …*Sela* …*together.**",
-          "effects": [{ "key": "sv.coll_heard", "op": "SetTrue" }, { "key": "sv.two_clear_eyed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "sv_c_leave", "speaker": "Coll", "text": "*(He nods, slow and grave, and his old eyes follow you toward the bright man on the log.)* …go, then. …*carry* it *back* to him. *(a dry, sad breath)* …you'll not *land* it *whole* — i never have — but *carry* it *anyway.* *every* *word* that *lodges* …is a *corner* he *might* *watch.* *(he settles against the deadtree)* …and cold one — *(he says it quietly, to your back)* …*mark* the *one* in the *lot.* …the *half*-*gone* *Unbound*, by the *western* *cairn*, the *one* still *twitching* that *nobody* *finished.* *(a beat)* …i've been *watching* it an *hour.* …*Sevrin* *cleared* this *field* *brilliant*, cold one — *brilliant* — *killed* the *worthy* ones *first* and *fast*, *exactly* as a *master* *should. …and* he *left* …*that* *one.* …*beneath* *notice.* …*crawling.* …*(barely)* …it's *always* …the *one* …*left.* …*go* on. …and *keep* your *eye* …*where* *his* *won't.**",
-          "auto": "END" }
+            {
+              "text": "*(read the old soul — past the grief, to the precise thing nine lifetimes of buried legends taught him)* \"Hold a moment, Coll. Let me look at you — at everything those old eyes have had to watch.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "sv_c_read",
+              "effects": [
+                {
+                  "key": "sv.read_coll",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"You said a name. Haldane — the Unbroken Blade. Eleven lifetimes, never bested, and you watched him die to a small thing. Tell me, Coll. Tell me exactly how the unbeatable die.\"",
+              "next": "sv_c_haldane",
+              "effects": [
+                {
+                  "key": "sv.asked_haldane",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who finally understands what Coll has spent lifetimes failing to make anyone hear — that the loop hunts greatness specifically; the brighter the soul, the more the dark wants it; being unbeatable is not safety but a target)* \"Coll — I think I finally understand what you've spent lifetimes failing to make anyone hear. You're not frightened *of* the bright ones. You're frightened *for* them — and you've learned the thing the courts never will: in this grey country, greatness isn't armor, it's *bait.* The thing that hunts us doesn't want the fading nobodies; they slide into the nothing on their own. It wants the *bright* ones — the legends so full of will they refuse to dissolve — because those are the only souls whose vanishing it can't simply wait out. So it studies them, learns exactly how each made itself unbeatable, and then doesn't *fight* that — it finds the one gap the magnificence left uncovered, the small thing the master was too great to watch, and goes there. Every legend you've buried died the same way: not overwhelmed, but *slipped*, taken through the one door their greatness left open. The brighter a soul burns, the more certain something in the dark is already measuring it for the fall. You've been telling the bright ones to watch the corners, to stay afraid — and they can't hear it, because to a soul that's never lost, the warning sounds like envy. But it isn't envy. It's the truest love there is: the love that has buried enough magnificence to know that magnificence is exactly what the dark comes for. I hear you, Coll. I believe you. And I already said it to him.\"",
+              "tag": "returned",
+              "next": "sv_c_returned",
+              "effects": [
+                {
+                  "key": "sv.coll_heard",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Why do you stay, Coll? If you know how this ends — if you've watched it end this way a dozen times — why follow another bright one to another funeral? Why not look away?\"",
+              "next": "sv_c_why",
+              "effects": [
+                {
+                  "key": "sv.asked_coll_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Sit with your grief a moment longer, Coll. I'll go back to him — and this time I'll carry your warning with me.\"",
+              "next": "sv_c_leave"
+            }
+          ]
+        },
+        {
+          "id": "sv_c_read",
+          "speaker": "Coll",
+          "text": "*(He lets you look, patient, an old soul long past flinching from being seen — and you let your cold move through the grief to the thing the grief is made of.)* *(And your sense finds a soul that is, against every appearance, not broken — only *educated*, terribly, by the one curriculum no one chooses: the repeated burial of the magnificent. Your sense reads the long arithmetic of his deaths, lifetimes of them, an ordinary soul — Coll was never a legend, never a Last Word, just a steady unremarkable man who kept dying and kept coming back and kept, each time, attaching himself to whatever bright unkillable Returned was holding court that age, because the bright ones felt like safety and an ordinary soul wants safety. And your sense reads what he watched, again and again, the same shape each time: the legend, magnificent, certain, beloved; the court of the saved gathered round; the long run of impossible victories; and then the end — never grand, never a worthy duel, always a *slip*, a small thing, a poisoned nothing, a moment's relaxation, the great soul taken through the one gap its greatness left open. Your sense reads that Coll counted them. That he is the only soul who *bothered* to count, because the courts always scatter after the legend falls, grief-blind, and find a new bright one and never connect the deaths — but Coll remembered, and laid them side by side, and saw the pattern no single court could see: that it is *always* the bright ones, *always* the small thing, *always* the instant of certainty. And your sense reads the loneliest part: that he understood, lifetimes ago, *why* — that the loop hunts greatness because greatness is the only thing it has to hunt, the rest dissolving free — and that he has spent every lifetime since trying to hand that understanding to the next bright soul, and failing, every time, because the warning sounds like envy to the unbeaten and like cowardice to the brave, and an ordinary old man telling a legend *you will die like all the others* is the one thing no legend's court will ever let through. Your sense reads that Coll does not stay out of morbidity. He stays because he is the keeper of a true and terrible thing that no one will receive, and he has decided that bearing witness to the fall — being, at least, the one soul who *saw it coming and stayed* — is the only honor he can offer the magnificent, since they will never accept the only help that would matter. He is a soul who has turned helpless foreknowledge into a kind of vigil. And your sense reads, sharp and cold, that he is doing it again, right now, with Sevrin — and that the only thing different this time is *you.*)*",
+          "effects": [
+            {
+              "key": "sv.read_coll",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_coll_counted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_the_pattern",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_c_haldane",
+          "speaker": "Coll",
+          "text": "*(His old hands tighten, and he looks across the lot at Sevrin, and tells it the way a man tells a thing he has told himself a thousand sleepless nights.)* …*Haldane.* *(a breath)* …the *Unbroken* *Blade.* *eleven* *lifetimes*, cold one, where *Sevrin's* had *nine.* *bigger* *legend.* *brighter.* the *court* round *him* was *three* *times* the *size* of *that* *one.* *(a nod at Sela and the others)* …and i *loved* him, cold one, the *way* *Sela* *loves* *Sevrin* — *handed* him my *fear* and *followed* him *glad.* *(his jaw works)* …i *watched* him do *impossible* *things.* *watched* him walk into a *nest* of *wraiths* that had *eaten* a *hundred* *souls* and come *out* *dragging* *six* *survivors* and *laughing.* …and then *one* *day*, cold one — an *easy* *day*, a *nothing* *day* — he *cleared* a *field* *much* like *this* *one.* *Unbound*, a *swarm*, *beneath* him, *truly* *beneath* him. and he *finished*, and he *sheathed* the *blade*, and he *turned* to the *court* to say something — i'll *never* *know* *what*, cold one, he *never* — *(his voice catches)* …there was *one* *left.* *one* *Unbound.* *half*-*gone*, *crawling*, a *thing* so *ruined* it could *barely* *move* — *beneath* *notice*, cold one, the *kind* of *nothing* a *legend* *steps* *over.* and *Haldane* *stepped* *over* it. …and it *put* its *claw* …in the *back* of his *ankle.* *(barely)* …*that's* *all.* the *ankle.* a *scratch.* …but there was *Wall* on it, cold one — that grey *unmaking*, the *one* *thing* that *kills* our *kind* — *smeared* on a *dying* *nothing's* *claw* …and it went *into* *Haldane* …and *eleven* *lifetimes* …*unravelled* …in the *time* it took him to *turn* *around* and *see* *what* had *touched* him. *(he closes his eyes)* …and the *look* on his *face*, cold one. …*not* *pain.* …*confusion.* …the *Unbroken* *Blade*, *checking* a *sum* he was *certain* he'd got *right.* …*'this* *can't* — *i* *don't* — *how' —* …and then …*gone.* …to a *thing* …he *didn't* *bother* …to *watch.* *(he opens his eyes, and they're wet, and old, and certain)* …*that's* how the *unbeatable* *die*, cold one. …*never* to the *worthy* *foe.* …*always* …to the *nothing* …in the *corner.* …and there is *always* …*always* …*one* *left.**",
+          "effects": [
+            {
+              "key": "sv.asked_haldane",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_how_haldane_died",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_the_poison",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_c_why",
+          "speaker": "Coll",
+          "text": "*(The question stills him, and he is quiet a long moment, looking at the bright certain man across the lot.)* …why do i *stay.* *(slowly)* …*follow* the *bright* ones to their *funerals*, *knowing.* …*(a breath)* …i've *asked* it *myself*, cold one. *many* a *lifetime.* it would be *easier* to *look* *away.* find a *quiet* *corner* of the *grey* and *dissolve* in *peace* and *not* *watch* …*one* *more* …*magnificent* *thing* …*fall.* *(he shakes his head)* …but here's what i've *come* to, cold one, *old* as i am: …*someone* has to *see* it *coming.* *(he meets your eyes)* …the *court* *won't.* they *can't* — that's the *whole* *gift* the *bright* one *gives* them, the *not*-*having*-*to*-*see.* and so when the *legend* *falls*, the *court* is *shattered*, *blind*-*sided*, *destroyed*, because they *handed* him their *fear* and he *took* it *into* the *nothing* *with* him and *left* them *holding* *air.* *(his voice roughens)* …but if *one* soul *stays* *clear*-*eyed* — *one* soul who *didn't* *hand* over the *fear*, who *watched* the *whole* *time*, who *knew* — …then when it *comes*, there's *someone* *left* *standing* who can *gather* the *shattered* *court*, and *say* *'i* *know*, i *saw*, *come*, *let* me *help* you *carry* it' …*(barely)* …*someone* has to be the *one* who *isn't* *surprised*, cold one. …*someone* has to *survive* the *bright* one's *falling* …with their *eyes* *open* …so the *others* …*survive* it *at* *all.* *(he looks at Sevrin, and the grief is also, you see now, a kind of love)* …*that's* why i *stay.* …not to *save* the *legend* — i *can't*, *no* one *can*, they *won't* *let* you. …but to *save* …the *ones* …who *loved* him. …*after.* …*someone* …has to *be* …the *after.**",
+          "effects": [
+            {
+              "key": "sv.asked_coll_why",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.knows_coll_is_the_after",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_c_returned",
+          "speaker": "Coll",
+          "text": "*(He listens — and as you speak, the old soul who has spent lifetimes shouting a true thing into the wind goes very still, and his eyes fill, because for the first time in longer than he can count, the warning is not bouncing off a wall of certainty; it is landing, in full, in another soul who *understands*, and the relief of being finally heard is so large it looks, for a moment, almost like more grief.)* …*'magnificence is precisely what the dark comes for.'* *(barely)* …cold one. …*(his weathered hands are shaking)* …do you — do you *know* how *long* — *(he stops, starts again)* …*lifetimes*, cold one. *lifetimes* i have *carried* this, *alone*, the *one* soul who *counted*, who *laid* the *deaths* *side* by *side* and *saw* — and *every* time i *tried* to *hand* it *on*, it *curdled* in the *telling*, came out as *envy*, as *cowardice*, as a *bitter* old *man* who *can't* *bear* the *bright* ones — …and i *let* them *think* it, in the *end, because* *what* *else* — *(he presses a hand to his mouth)* …and *now* *you've* — *(a wet, disbelieving breath)* …you've *said* it *back* to me. *whole.* *true.* *better* than i *ever* — *'the* *loop* *hunts* *greatness* *because* *greatness* is the *only* *thing* it *has* to *hunt.'* …*yes.* …*yes*, cold one, *that's* — that's the *whole* of it, the thing i could *never* *quite* — the *nobodies* *dissolve* *free*, and so the *dark* *only* *bothers* …with the *ones* *bright* *enough* …to *refuse.* …*(he grips your arm, fierce, ancient)* …then *hear* the *rest* of it, cold one, the *part* i *also* *know*, the part that *might* — *(he glances at Sevrin)* …*you* *got* *through* to him. a *little. i* *saw* it — he's *looking* at the *corners* now, he *wasn't* *before.* …it may *not* be *enough* — it's *never* *been* *enough* — but it is *more* than *any* of the *rest* of us *ever* *managed*, and it means *this* *time*, cold one, *this* *once* … …there are *two* of us *clear*-*eyed.* *(his voice breaks open)* …*you*, and *me.* …so when it *comes* — *if* it *comes* — …we *will* *not* *both* be *surprised.* …and the *court* …*Sela* …the *others* … …they will *have* …*someone* …*two* *someones* …*left* *standing* …to *be* …the *after.* *(barely)* …*thank* you, cold one. …for *believing* …the *man* …at the *funeral* …that *hasn't* …*happened* …*yet.* …*go* *back* to him. …*watch* the *small* *things* …*with* him. …and if the *day* *comes* …that the *Last* *Word* …*can't* — …*find* me. …*we'll* *carry* …*Sela* …*together.**",
+          "effects": [
+            {
+              "key": "sv.coll_heard",
+              "op": "SetTrue"
+            },
+            {
+              "key": "sv.two_clear_eyed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "sv_c_leave",
+          "speaker": "Coll",
+          "text": "*(He nods, slow and grave, and his old eyes follow you toward the bright man on the log.)* …go, then. …*carry* it *back* to him. *(a dry, sad breath)* …you'll not *land* it *whole* — i never have — but *carry* it *anyway.* *every* *word* that *lodges* …is a *corner* he *might* *watch.* *(he settles against the deadtree)* …and cold one — *(he says it quietly, to your back)* …*mark* the *one* in the *lot.* …the *half*-*gone* *Unbound*, by the *western* *cairn*, the *one* still *twitching* that *nobody* *finished.* *(a beat)* …i've been *watching* it an *hour.* …*Sevrin* *cleared* this *field* *brilliant*, cold one — *brilliant* — *killed* the *worthy* ones *first* and *fast*, *exactly* as a *master* *should. …and* he *left* …*that* *one.* …*beneath* *notice.* …*crawling.* …*(barely)* …it's *always* …the *one* …*left.* …*go* on. …and *keep* your *eye* …*where* *his* *won't.**",
+          "auto": "END"
+        }
       ]
     }
   ]

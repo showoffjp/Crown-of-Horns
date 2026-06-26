@@ -11,6 +11,42 @@
 
 ---
 
+## 👑 v6.52.0 — *"The One Left"* — a seventy-second zone: the overlooked, and the weapon that is a victim (content)
+
+> Off the Last Word's lot — the **western corner**, where the overlooked wash up: the souls the bright
+> ones step over. Coll named it twice in *The Last Word* — *"there is always one left, by the western
+> cairn."* **Here is that one.** The zone's thesis is the inverse of Sevrin's flaw: where a legend's
+> greatness is too large to *look* at the small things, a soul who **looks** finds people where the
+> magnificent found noise — *the very faculty that lets you save souls is the one Sevrin lacked, and
+> it's why he dies and you might not.* Three fates of the overlooked: **made a weapon, made scenery,
+> made nothing.**
+- ◌ **Sift, the one left** — a soul the *same harvest that made you* tore loose, dissolving (awake, in
+  agony) into the weapon that kills legends: its **name already taken by the Wall**, its unmaking routed
+  through it and aimed at the bright by a hand it cannot stay. **The murder weapon as the most innocent
+  soul on the field.** A **Persuasion** eases it — **crit:** gentle, witnessed, *sat-close*, the
+  dissolving made bearable; **fail:** you reach for the soft lie and it rings false; **fumble:** you
+  *flinch up close* and teach it the cruelest lesson — that even the kind can only bear it from a
+  distance. A **[RETURNED]** refuses to let the Wall's truest victim believe it's a monster: *you're not
+  the killer, you're the knife it's making out of a person — the Wall is the murderer; a monster doesn't
+  mourn what it's becoming, only a person does.* (Easing Sift **counts toward your mercy** — but the loop
+  is inexhaustible; *there is always another one left.* You can't save Sevrin. You can refuse to let his
+  killer die un-witnessed.)
+- ❒ **Bryn** *(Brynalla Coorne)* — saved by a bright legend, one-handed, barely-looked-at, and **never
+  once seen** after; worn down across two lifetimes from a whole soul to *scenery*, a grateful face that
+  made the winning feel better. A **[RETURNED]** reclaims the rescued life as **the soul's own, not the
+  rescuer's** — *he gave you the years; he did not thereby own them* — and the player can ask the
+  saved-and-forgotten its **whole name** and say it back, the first voice in two lifetimes that *wanted*
+  to know it.
+- · **Tace, who chose to be nothing** — watched a dozen legends die, concluded (correctly) that the loop
+  **hunts the bright**, and so made itself *un-bait*: sanded off every spark, every catch, dimmed down to
+  a grey nothing — and **survived** where eleven-lifetime legends are dust. The anti-Sevrin. A
+  **[RETURNED]** grants that the hunt is real, then names the lie under the strategy: *self-erasure is the
+  Wall winning without a fight; there's a third way between blaze-and-be-hunted and dim-and-be-nothing —
+  a whole soul, unperformed, with its private inner fire (the part no hunter could ever see) still lit.*
+  Tace dimmed that too — *did the Wall's work for it* — and the **banked coal under ten years of ash**
+  begins, terrified, to stir.
+- 📄 **72 walkable zones, 238 souls.** Gate **751** ✓ · full suite **1459** ✓ · all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.51.0 — *"The After"* — a seventy-first zone: the scar (consequence content)
 
 > **Realm-side** (off the Night Market) — the **aftermath** of *The Last Word*, and the proof that the
