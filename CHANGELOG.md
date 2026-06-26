@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v6.49.0 — *"The Last Lantern-Feast"* — a sixty-ninth zone: the road's one un-morose quest, and a hidden 8th companion (content)
+
+> **Realm-side** (off the Lamplit Quarter) — the saga's **one un-morose side-quest**, and the cast's late-found
+> **answer to the Deathless Garden.** A dead grey square lit up like a name-day, where a Baldur's Gate baker throws a
+> **forbidden party for the doomed.** The thesis is the whole game's hinge: the Unmade's cruelest temptation is a
+> *real* heaven with the dying quietly edited out — and the party needed one soul who has buried enough loved ones to
+> feel, in her gut, **why a feast that never ends is a tomb.** *Take away the ending and you don't get eternal joy —
+> you get a candle that won't burn down, which gives no light, because the light **is** the burning.*
+- ✺ **Dot Marigold, the hearth-keeper** *(hidden 8th companion)* — three generations of the Marigold ovens; she buried
+  everyone she loved on a rolling schedule and came out throwing **feasts** — *not despite the dying, because of it:
+  the loaf matters because it goes stale.* Recruited by **defending her feast** from the church (a **Persuasion** check
+  — **crit:** *feed the snuffer*, invite the grey sisters in, you can't put out a fire you've been asked to sit beside;
+  **fumble:** *mock* the grey sister and prove joy cruel to her face). A **[RETURNED]** names her the **living
+  refutation of the Deathless Garden** — *a feast that can't end isn't a feast, it's a room you can't leave* — and she
+  joins, astonished anyone ever came for **her** party. Her answer to the saga's question: **joy.**
+- ❀ **Marisa, who dances anyway** — a soul half-dissolved, days from nothing, who spent her whole careful life *saving
+  up* for a right time that never came and means **not** to waste her death the way she wasted her life. A
+  **Performance** dances with her — **crit:** the dance holds the dark at bay, a dying girl the *brightest light in the
+  square*; **fail:** you flinch at her fading hands; **fumble:** you grieve her too early and she ends up comforting
+  *you.* A **[RETURNED]**: *a joy that's running out is the truest joy there is — don't go out small; the burning IS
+  the light* — the one thing the Wall can't compute, a soul that got brighter as it ended.
+- ✝ **Sister Onora, who came to snuff the light** — not a brute; a true believer with a small brass snuffer and
+  bottomless grief, who buried a **bright laughing sister who threw parties** and froze her own grief into doctrine
+  (*the proper posture of the dead is patient sorrow*). The deepest read finds she is the feast's **most starved,
+  forbidden guest** — every lit lantern a thing she never let herself have. A **[RETURNED]** names **grief-held-still-
+  forever as the Wall's own logic** — a soul stuck in one shape, calling the freezing faithfulness — and she **thaws**,
+  setting down the snuffer to *let her grief move, just a little,* and learn to dance again.
+- 📄 **Docs:** new deep dossier [`docs/characters/dot-marigold.md`](docs/characters/dot-marigold.md) and the cast index
+  updated to **eight** companions (the hidden one). **69 walkable zones, 229 souls.** Gate **726** ✓ · full suite
+  **1434** ✓ · all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.48.0 — *"The Wake the World Withheld"* — a sixty-eighth zone: the unmourned mark each other (content)
 
 > **Realm-side** (off the Night Market) — and the most *on-theme* zone of the run: it's **Act V's Ledger at human

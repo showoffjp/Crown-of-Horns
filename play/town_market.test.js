@@ -2797,6 +2797,48 @@ check("the one who refuses: a [RETURNED] separates 'deserving forgiveness' from 
 check("each Wake soul carries a [RETURNED] line + a Returned-sense", [twC, twT, twB].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+const LF = SCENES && SCENES.lanternfeast;
+check("a sixty-ninth zone (the Last Lantern-Feast) ships — a forbidden party for the doomed, hidden-companion recruitment", LF && LF.npcs.length >= 3);
+check("the Lantern-Feast is reached from the Lamplit Quarter (Realm-side, NOT a Sigil door)", (SCENES.lamplit.exits || []).some(x => x.to === "lanternfeast"));
+check("the Lantern-Feast exits back to the Lamplit Quarter (reachable round-trip)", (LF.exits || []).some(x => x.to === "lamplit"));
+const lfD = CONVS.find(c => c.id === "lf.dot");
+const lfM = CONVS.find(c => c.id === "lf.marisa");
+const lfO = CONVS.find(c => c.id === "lf.onora");
+check("three souls (the hearth-keeper baker, the dancing dissolving girl, the grey sister come to snuff the light) are present", lfD && lfM && lfO);
+check("the baker (hidden companion Dot): a Persuasion defends the feast (crit: feed the snuffer / invite the church in; fumble: mock Onora and prove joy cruel)", (() => {
+  const def = lfD.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = lfD.nodes.find(n => n.id === "lf_d_defend_crit");
+  const fumble = lfD.nodes.find(n => n.id === "lf_d_defend_fumble");
+  return def && def.crit && def.fail && def.fumble &&
+    crit && crit.effects.some(e => e.key === "lf.fed_the_snuffer") &&
+    fumble && fumble.effects.some(e => e.key === "lf.mocked_onora");
+})());
+check("the baker: a [RETURNED] names her the refutation of the Deathless Garden — a feast that can't end is a tomb; she recruits and a post-join node-0 variant fires", (() => {
+  const t = lfD.nodes.find(n => n.id === "lf_d_returned");
+  const v = lfD.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("lf.dot_joined")));
+  return lfD.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && v &&
+    t && t.effects.some(e => e.key === "lf.dot_named_the_garden") && t.effects.some(e => e.key === "lf.dot_joined");
+})());
+check("the dancing girl: a Performance dances with a half-dissolved soul (crit: the dance holds the dark at bay; fail: you flinch at her fading hands; fumble: you grieve her too early)", (() => {
+  const dance = lfM.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Performance");
+  const crit = lfM.nodes.find(n => n.id === "lf_m_dance_crit");
+  const fumble = lfM.nodes.find(n => n.id === "lf_m_dance_fumble");
+  const v = lfM.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("lf.danced_with_marisa")));
+  return dance && dance.crit && dance.fail && dance.fumble && v &&
+    crit && crit.effects.some(e => e.key === "lf.danced_with_marisa") &&
+    fumble && fumble.effects.some(e => e.key === "lf.grieved_marisa_early");
+})());
+check("the dancing girl: a [RETURNED] reframes a running-out joy as the truest joy — don't go out small; the burning IS the light", (() => {
+  const t = lfM.nodes.find(n => n.id === "lf_m_returned");
+  return lfM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lf.marisa_reframed");
+})());
+check("the grey sister: a [RETURNED] names grief-frozen-forever as the Wall's own logic (static sorrow = a soul stuck in one shape), and she thaws", (() => {
+  const t = lfO.nodes.find(n => n.id === "lf_o_returned");
+  return lfO.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "lf.onora_thawed");
+})());
+check("each Lantern-Feast soul carries a [RETURNED] line + a Returned-sense", [lfD, lfM, lfO].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

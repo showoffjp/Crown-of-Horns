@@ -127,6 +127,16 @@
           "y": 7
         },
         "label": "▸ two souls fighting over a third — a custody of the small"
+      },
+      {
+        "x": 4,
+        "y": 8,
+        "to": "lanternfeast",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ forbidden lantern-light and the smell of fresh bread — the Last Lantern-Feast"
       }
     ],
     "npcs": [

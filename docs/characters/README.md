@@ -17,8 +17,8 @@
 ## The design throughline
 > Every character is a different **answer** to the game's central question — *what is a soul worth that
 > no god ever claimed?* Garrow answers with duty, Roen with belonging, Varra with defiance, Naeve with
-> knowledge, Ilfaeril with penance, Maerin with refusal, the Mournlight with mercy — and the four
-> villains answer with grief curdled four different ways. Their arcs are those answers tested to
+> knowledge, Ilfaeril with penance, Maerin with refusal, the Mournlight with mercy, Dot with joy — and
+> the four villains answer with grief curdled four different ways. Their arcs are those answers tested to
 > destruction and reforged.
 
 ---
@@ -42,7 +42,7 @@
 | **[Sister Vayle](sister-vayle.md)** | the institutional foil — defender of the Wall; a true believer, not a villain |
 | **[Jergal](jergal.md)** | the bored eldest scribe; not a faction; the **keyhole** to the golden ending |
 
-## 🛡️ The companions — *seven, across three eras, plus the secret*
+## 🛡️ The companions — *seven, across three eras, plus the secret and the hidden*
 | # | Character | Class · era | Romance | Their answer |
 |---|---|---|---|---|
 | 1 | **[Sister Garrow](sister-garrow.md)** | Cleric (Grave) · present | ✅ | duty |
@@ -52,7 +52,14 @@
 | 5 | **[Ilfaeril](ilfaeril.md)** | Paladin/Ranger · Crown Wars ~−10,000 | ✗ (platonic) | penance |
 | 6 | **[Maerin](maerin.md)** | Ranger (undead-touched) · the stakes embodied | ✗ (by design) | refusal |
 | 7 | **[The Mournlight](the-mournlight.md)** | shadow-of-you · late Act IV/V, lore-gated | ✗ (it's *you*) | mercy |
+| 8 | **[Dot Marigold](dot-marigold.md)** | Bard (Hearthkeeper) · present · **hidden** | ✅ (warm) | **joy** |
 | ⊕ | **The Pale Companion** | = [Myrkul](myrkul.md) riding your pack from Act II | — | a worse enemy waiting |
+
+> **Why eight, and why hidden.** Dot Marigold is the cast's late-found **answer to the Deathless
+> Garden** — the Unmade's cruelest temptation is a *real* heaven with the dying edited out, and the
+> party needed one soul who has buried enough loved ones to feel, in her gut, why a feast that never
+> ends is a tomb. She's recruited Realm-side at **the Last Lantern-Feast** (only if you defend it from
+> Sister Vayle's church), and she carries the one speech that can break the Garden's spell.
 
 ---
 
