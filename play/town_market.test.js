@@ -2839,6 +2839,41 @@ check("the grey sister: a [RETURNED] names grief-frozen-forever as the Wall's ow
 check("each Lantern-Feast soul carries a [RETURNED] line + a Returned-sense", [lfD, lfM, lfO].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+const LWD = SCENES && SCENES.lastword;
+check("a seventieth zone (the Last Word) ships — meet, love, and warn the unbeatable Returned before the loop takes him", LWD && LWD.npcs.length >= 3);
+check("the Last Word is reached from the Night Market (Realm-side, NOT a Sigil door)", (SCENES.nightmarket.exits || []).some(x => x.to === "lastword"));
+check("the Last Word exits back to the Night Market (reachable round-trip)", (LWD.exits || []).some(x => x.to === "nightmarket"));
+const svS = CONVS.find(c => c.id === "sv.sevrin");
+const svE = CONVS.find(c => c.id === "sv.sela");
+const svC = CONVS.find(c => c.id === "sv.coll");
+check("three souls (the unbeatable duelist, the soul who handed him her fear, the old one who has buried the unbeatable before) are present", svS && svE && svC);
+check("Sevrin: a Persuasion asks the unbeatable man to PROMISE to watch the small ones (crit: he sets the blade down and truly hears you; fail: he charms past it; fumble: you wound his pride and he doubles down recklessly)", (() => {
+  const pr = svS.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = svS.nodes.find(n => n.id === "sv_s_promise_crit");
+  const fumble = svS.nodes.find(n => n.id === "sv_s_promise_fumble");
+  return pr && pr.crit && pr.fail && pr.fumble &&
+    crit && crit.effects.some(e => e.key === "sv.watches_the_small") &&
+    fumble && fumble.effects.some(e => e.key === "sv.pride_wounded");
+})());
+check("Sevrin: a [RETURNED] warns that the loop sends not a worthy foe but the small thing he stopped watching; the warning lands but he deflects, and a post-warning node-0 variant fires (sv.heard_you)", (() => {
+  const t = svS.nodes.find(n => n.id === "sv_s_returned");
+  const v = svS.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("sv.heard_you")));
+  return svS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && v &&
+    t && t.effects.some(e => e.key === "sv.warned") && t.effects.some(e => e.key === "sv.heard_you");
+})());
+check("Sela: a [RETURNED] names a borrowed courage a debt that comes due — a soul must be able to stand its own dark, because the one carrying your fear can be taken", (() => {
+  const t = svE.nodes.find(n => n.id === "sv_e_returned");
+  return svE.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "sv.sela_takes_it_back");
+})());
+check("Coll: the foreshadowing trail is fair — he names Haldane (the prior unbeatable) dying to a poisoned nothing he stepped over, and a [RETURNED] names the loop as a hunter of greatness specifically", (() => {
+  const hald = svC.nodes.find(n => n.id === "sv_c_haldane");
+  const t = svC.nodes.find(n => n.id === "sv_c_returned");
+  return hald && hald.effects.some(e => e.key === "sv.knows_the_poison") &&
+    svC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "sv.coll_heard");
+})());
+check("each Last Word soul carries a [RETURNED] line + a Returned-sense", [svS, svE, svC].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

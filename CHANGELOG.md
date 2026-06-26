@@ -11,6 +11,43 @@
 
 ---
 
+## 👑 v6.50.0 — *"The Last Word"* — a seventieth zone: the false deus ex machina (content)
+
+> **Realm-side** (off the Night Market) — a deliberate piece of **narrative architecture**, not just a zone:
+> the saga's **false deus ex machina**, built to teach the player to **distrust relief** before Act V's
+> Deathless Garden offers the ultimate relief. It's the *"Mentor Occupational Hazard"* inverted — the savior
+> doesn't die *overwhelmed* and noble; he dies **mid-victory, mid-wink, uncomprehending**, the confidence
+> still on his face as the light goes out. *Competence is the rope the scene hangs the audience with:* the
+> more invincible he seems, the more the player hands him their dread — so the fall returns it with interest.
+> Also fires three braided devices at once: **false deus ex machina**, **Chekhov's gun as red herring** (his
+> reputation *"I have never lost"* is the loud gun that fires into his own chest), and the **"the loud answer
+> is a lie"** thesis (the quiet gun — your accumulated mercy — was the real one).
+- ⚔️ **Sevrin Vael, the Last Word** *(guest-star, not a companion — met here, killed in a later set-piece)* —
+  a **Returned of nine lifetimes** who has *never once lost.* His confidence is **momentum**, not arrogance:
+  in his first life he couldn't save someone small he loved, armored over the grief instead of healing it,
+  and made himself **exactly the soul the loop knows how to kill.** A **[RETURNED]** warns that the loop
+  sends not a worthy foe but *the small thing he stopped watching* (the warning lands; he deflects — the
+  rare [RETURNED] that *doesn't* fully take, by design). A **Persuasion** asks the unbeatable man to
+  **promise** to watch the small ones — **crit:** he sets the blade down and truly hears you (`watches_the_small`);
+  **fail:** he charms past it; **fumble:** you wound his pride and he doubles down recklessly (`pride_wounded`).
+  Every choice **reactively rewrites his death**: warn him → a half-second of grief-recognition that **feeds
+  the Mournlight**; make him promise → he dies *shoving Sela clear*, redeeming his first death.
+- ❉ **Sela, the Unafraid** — a soul he walked out of a swarm with a *wink*, who handed him not just her safety
+  but her **capacity to be afraid**, and stands contented on ice she believes is stone. A **[RETURNED]**: a
+  borrowed courage is a debt that comes due — *take some of the fear back while there's still someone to teach
+  you*, so you survive the unafraid man's falling.
+- ❀ **Coll, who has buried the unbeatable before** — the **fair-foreshadowing** the twist needs: an ordinary
+  old soul who has watched legend after legend die *the same way* — not overwhelmed, **slipped**, through the
+  one gap their greatness left open. His prior legend, **Haldane the Unbroken Blade** (eleven lifetimes),
+  cleared a field, sheathed his sword, turned to speak — and died to the **one half-dead Unbound he stepped
+  over**, the Wall's unmaking on its claw. The planted gun is in plain sight: *there is always one left, still
+  twitching, by the western cairn.* A **[RETURNED]** names the loop a hunter of **greatness specifically** —
+  the brighter the soul, the more the dark wants it.
+- 📄 **Docs:** new deep dossier [`docs/characters/sevrin-vael.md`](docs/characters/sevrin-vael.md) with the
+  full **"The Wink"** death set-piece (incl. the UI-betrayal staging) and the reactive death table; cast index
+  gains a **guest-star** section. **70 walkable zones, 232 souls.** Gate **735** ✓ · full suite **1443** ✓ ·
+  all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.49.0 — *"The Last Lantern-Feast"* — a sixty-ninth zone: the road's one un-morose quest, and a hidden 8th companion (content)
 
 > **Realm-side** (off the Lamplit Quarter) — the saga's **one un-morose side-quest**, and the cast's late-found

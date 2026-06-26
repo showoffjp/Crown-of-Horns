@@ -125,6 +125,16 @@
           "y": 7
         },
         "label": "▾ a quiet lane off the market, candlelit — the Wake the World Withheld, where the unmourned mark each other"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "lastword",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ a back lot strewn with the slain, and a man whistling — the Last Word holds court"
       }
     ],
     "npcs": [

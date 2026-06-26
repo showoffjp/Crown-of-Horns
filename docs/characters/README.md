@@ -61,6 +61,11 @@
 > ends is a tomb. She's recruited Realm-side at **the Last Lantern-Feast** (only if you defend it from
 > Sister Vayle's church), and she carries the one speech that can break the Garden's spell.
 
+## ⚔️ The guest-star — *the false deus ex machina*
+| Character | Role |
+|---|---|
+| **[Sevrin Vael, the Last Word](sevrin-vael.md)** | A Returned of nine lifetimes who has **never once lost** — the savior the player is desperate to trust, planted so the loop can take him **mid-wink, uncomprehending**, through the one small thing his greatness left unwatched. Met, loved, and warned in the playable zone **The Last Word** (off the Night Market); his death is **reactive** to whether you reached him — and on the mercy path his cracked grief feeds the Mournlight. The saga's lesson made flesh: *the loop doesn't beat the strong; it waits by the small thing they stopped watching.* |
+
 ---
 
 ## 🌆 The supporting cast — *the 100+*
