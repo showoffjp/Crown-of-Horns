@@ -163,6 +163,8 @@ tactical 5e battle → earn XP and level up.**
 |---|---|
 | 📖 [`docs/STORY_BIBLE.md`](docs/STORY_BIBLE.md) | Quick-reference overview of the saga: 4 nested villains, 7 companions, 5 acts, 6 endings |
 | 📚 [`docs/story/`](docs/story/README.md) | **The full novel-grade bible (~54k words, 24 docs)** — synopsis, deep backstories, act breakdowns, dialogue scripts, romances, all six endings, the twist architecture, the bestiary, the pitch & vertical-slice plan, the art & music bible, the riddler & her Vault of Tens, and a craft study of the genre's greatest twists |
+| 📖 [`docs/chapters/`](docs/chapters/README.md) | **Chapter-by-chapter walkthrough** — one detailed file per Prologue + Act (setting, story beat-by-beat, key quests, set-pieces, twists, companion beats, and a *Top 10 things that happen* each) |
+| 🎭 [`docs/characters/`](docs/characters/README.md) | **A deep dossier per major character** — protagonist, the four villain masks, Vayle, Jergal, and all seven companions (wound, secret, want vs. need, arc, romance, fates) + a pointer to the 104-strong NPC roster |
 | 🚀 [`GETTING_STARTED.md`](GETTING_STARTED.md) | Install Unity → run the demo → author your first content |
 | 🧱 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How the systems fit and where to extend |
 | ✍️ [`docs/CONTENT_PIPELINE.md`](docs/CONTENT_PIPELINE.md) | Build dialogue/quests/items as assets — no code |

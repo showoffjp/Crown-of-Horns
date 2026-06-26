@@ -12,6 +12,11 @@
 This folder is the full, spoiler-complete writers' bible — the document the whole game is
 built to deliver. Read in order, or dive where you like.
 
+> **Reader's split-outs.** For a per-chapter and per-character read, two companion folders break this
+> bible into focused files: **[`../chapters/`](../chapters/README.md)** (one detailed file per
+> Prologue + Act, each with a *Top 10 things that happen*) and **[`../characters/`](../characters/README.md)**
+> (a deep dossier per major character). They are synthesized from the documents below.
+
 | # | Document | What's inside |
 |---|---|---|
 | 🪞 | [`00_OVERVIEW.md`](00_OVERVIEW.md) | Logline, tone, the central question, themes, the tropes we play & subvert, content notes |
