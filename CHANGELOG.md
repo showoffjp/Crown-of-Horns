@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v6.47.0 — *"The Intake Queue"* — a sixty-seventh zone: dark-comic bureaucracy with a knife in it (content)
+
+> A hard **tonal swing** after a long run of earnest grief — **curse words for spice, crit/fumble comedy**, a
+> Pratchett-by-way-of-Kafka farce — that turns, as the best comedy does, into a gut-punch. **Realm-side** (off the
+> Count-House, *not* a Sigil door, so the omniverse capstone stands untouched): the afterlife's **intake queue**, where
+> the dead wait an eternity to be *processed* — and the joke becomes the horror: the three souls at the front are each,
+> in their own way, **holding the door shut.** The thesis: **the Wall is the biggest clerk there is — it turns souls
+> into cases, numbers, the saved and the discarded, *processed*, so that no one (not even the Wall) ever has to look at
+> a person and decide, with their own heart, that they're worth something. The form is the cruelty. You cannot process
+> a soul. You can only see one.**
+- ✦ **Mabblethwaite, the clerk** — who has *never once exceeded his authority* and is proud of it, and has called
+  *eleven* numbers in an age, because eleven is how many he could be *certain* of. A **Persuasion** can get him to act
+  with no rule — **crit:** he puts the pen down, *sees a person* for the first time, and judges (*God, that felt strange
+  to say*); **fumble:** you try to *deceive* a clerk (the one thing his whole life is a fortress against) and he files
+  you a fresh form, delighted. A **[RETURNED]** names the Wall the biggest clerk — *cruelty with no author, so no one is
+  ever to blame.*
+- ❖ **Grindle, the furious** — foul-mouthed, raging that the line never moves, *desperate* to reach the front and face
+  his reckoning like a man… who flinches and waves the next soul ahead *every single time* his number is called. A
+  **[RETURNED]** names the rage a *guard he posted on the door*: he's not kept from the front, he's *hiding at it*,
+  terrified of a verdict on a life he knows won't weigh well — *the Wall runs on souls so sure they'll be damned they
+  damn themselves and never come to be weighed.*
+- ✶ **Posset, who will not advance** — a nan knitting an endless scarf, the most content soul in the room, who declines
+  the front *seventeen times.* Not fear — **she made a family of the waiting-room** after losing everyone, and can't
+  bear to leave her second household for the loneliness on the far side. A **[RETURNED]** names the limbo-made-home the
+  *gentlest trap there is* (a waiting-room a soul loves is one it never leaves) — and she finishes her scarf and lets
+  her number be called, toward a house full of people who've waited even longer than she has.
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (**gate suite 707 / 1,415 total**, all green). **67 zones, 223
+  souls.** First **Realm-side** zone of this run — the omniverse's 23 Sigil doors are complete and the capstone stands;
+  the town's own lanes still have room. *You cannot process a soul. You can only see one.*
+
+---
+
 ## 👑 v6.46.0 — *"The Far Doors Echo, Whole"* — the full omniverse lands in the ending (reactivity)
 
 > A cohesion pass so the *entire* 23-door journey pays off in the finale, not just the early doors. The Chronicler's

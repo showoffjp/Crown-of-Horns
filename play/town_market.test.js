@@ -2732,6 +2732,38 @@ check("the capstone closes the loop: every newly-dead [RETURNED] sets nd.became_
 check("each newly-dead soul carries a [RETURNED] line + a Returned-sense", [ndN, ndD, ndE].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-seventh zone (Realm-side, off the Count-House): the Intake Queue — dark-comic bureaucracy with heart (the Wall turns souls into paperwork) ----
+const QU = SCENES && SCENES.thequeue;
+check("a sixty-seventh zone (the Intake Queue) ships — a dark-comic afterlife-bureaucracy zone in the Realm", QU && QU.npcs.length >= 3);
+check("the Intake Queue is reached from the Count-House (Realm-side, NOT a Sigil door)", (SCENES.counthouse.exits || []).some(x => x.to === "thequeue"));
+check("the Intake Queue exits back to the Count-House (reachable round-trip)", (QU.exits || []).some(x => x.to === "counthouse"));
+const quM = CONVS.find(c => c.id === "qu.mabblethwaite");
+const quG = CONVS.find(c => c.id === "qu.grindle");
+const quP = CONVS.find(c => c.id === "qu.posset");
+check("three souls (the rule-bound clerk, the furious one, the contented queue-dweller) are present", quM && quG && quP);
+check("the clerk: a Persuasion can get him to act without a rule (crit: he sees a person and judges, freed; fumble: trying to DECEIVE him buries him deeper in procedure)", (() => {
+  const bend = quM.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Persuasion");
+  const crit = quM.nodes.find(n => n.id === "qu_m_bend_crit");
+  const fumble = quM.nodes.find(n => n.id === "qu_m_bend_fumble");
+  return bend && bend.crit && bend.fumble && bend.fail &&
+    crit && crit.effects.some(e => e.key === "qu.clerk_judged") &&
+    fumble && fumble.effects.some(e => e.key === "qu.clerk_caught_deception");
+})());
+check("the clerk: a [RETURNED] names the Wall the biggest clerk — hiding cruelty in procedure so it has no author", (() => {
+  const t = quM.nodes.find(n => n.id === "qu_m_returned");
+  return quM.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "qu.clerk_named_the_wall");
+})());
+check("the furious one: a [RETURNED] names the rage a guard on the door (he's hiding AT the front, not kept from it) — the Wall runs on self-damnation", (() => {
+  const t = quG.nodes.find(n => n.id === "qu_g_returned");
+  return quG.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "qu.grindle_faces_it");
+})());
+check("the contented one: a [RETURNED] names the limbo-made-home the gentlest trap (a waiting-room a soul loves is one it never leaves) — and frees her toward home", (() => {
+  const t = quP.nodes.find(n => n.id === "qu_p_returned");
+  return quP.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "qu.posset_goes_home");
+})());
+check("each Intake-Queue soul carries a [RETURNED] line + a Returned-sense", [quM, quG, quP].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

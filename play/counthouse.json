@@ -1,172 +1,1288 @@
 {
   "scene": {
-    "id": "counthouse", "name": "The Counting-House",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "counthouse",
+    "name": "The Counting-House",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "bigscale", "x": 5, "y": 3 },
-      { "type": "desk", "x": 7, "y": 2 },
-      { "type": "desk", "x": 3, "y": 2 },
-      { "type": "ledgershelf", "x": 1, "y": 1, "hue": 40 },
-      { "type": "ledgershelf", "x": 9, "y": 1, "hue": 40 },
-      { "type": "cell", "x": 2, "y": 5 },
-      { "type": "brazier", "x": 8, "y": 5 },
-      { "type": "candle", "x": 6, "y": 4 },
-      { "type": "candle", "x": 4, "y": 4 },
-      { "type": "crate", "x": 9, "y": 6 },
-      { "type": "barrel", "x": 0, "y": 6 }
+      {
+        "type": "bigscale",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "desk",
+        "x": 7,
+        "y": 2
+      },
+      {
+        "type": "desk",
+        "x": 3,
+        "y": 2
+      },
+      {
+        "type": "ledgershelf",
+        "x": 1,
+        "y": 1,
+        "hue": 40
+      },
+      {
+        "type": "ledgershelf",
+        "x": 9,
+        "y": 1,
+        "hue": 40
+      },
+      {
+        "type": "cell",
+        "x": 2,
+        "y": 5
+      },
+      {
+        "type": "brazier",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 4
+      },
+      {
+        "type": "crate",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "barrel",
+        "x": 0,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 5, "y": 1 }, "label": "◂ back out to the Lamplit Quarter" },
-      { "x": 9, "y": 8, "to": "trial", "dest": { "x": 5, "y": 7 }, "label": "▾ down the stair — a reckoning is being held tonight" },
-      { "x": 1, "y": 8, "to": "archive", "dest": { "x": 5, "y": 7 }, "label": "▾ a darker stair — down to the deep archive, where the master ledger sleeps" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "lamplit",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ back out to the Lamplit Quarter"
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "to": "trial",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▾ down the stair — a reckoning is being held tonight"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "archive",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▾ a darker stair — down to the deep archive, where the master ledger sleeps"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "thequeue",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▾ a side door, and a queue that never seems to move — the Intake, where the dead wait to be processed"
+      }
     ],
     "npcs": [
-      { "id": "mereth", "name": "Canon Mereth Vael", "title": "High Measurer of the Causeway", "x": 5, "y": 2, "hue": 48, "sigil": "MV", "conv": "ch.mereth",
-        "hail": "*(a straight-backed woman in the high pale vestments of the Choir sits behind the great brass scale that dominates the hall, reading a ledger by candlelight, and does not look up — she has been expecting you longer than you have known this room existed)*" },
-      { "id": "tallow2", "name": "Goodman Tallow", "title": "the smiling man, at his desk", "x": 7, "y": 4, "hue": 50, "sigil": "GT", "conv": "ch.tallow",
-        "hail": "*(the pleasant, unremarkable man from the market square sits at a clerk's desk here, out of the crowd and in his true setting, and his smile when he sees you is exactly as warm and exactly as empty as it was over the apple-barrels)*" },
-      { "id": "crake", "name": "Old Crake", "title": "marked, awaiting the causeway", "x": 3, "y": 6, "hue": 150, "sigil": "Cr", "conv": "ch.crake",
-        "hail": "*(an old man sits on the floor against the bars of a holding-cell, perfectly at ease, whittling nothing out of nothing with his fingernails, and grins at you with three teeth and no fear at all)*" }
+      {
+        "id": "mereth",
+        "name": "Canon Mereth Vael",
+        "title": "High Measurer of the Causeway",
+        "x": 5,
+        "y": 2,
+        "hue": 48,
+        "sigil": "MV",
+        "conv": "ch.mereth",
+        "hail": "*(a straight-backed woman in the high pale vestments of the Choir sits behind the great brass scale that dominates the hall, reading a ledger by candlelight, and does not look up — she has been expecting you longer than you have known this room existed)*"
+      },
+      {
+        "id": "tallow2",
+        "name": "Goodman Tallow",
+        "title": "the smiling man, at his desk",
+        "x": 7,
+        "y": 4,
+        "hue": 50,
+        "sigil": "GT",
+        "conv": "ch.tallow",
+        "hail": "*(the pleasant, unremarkable man from the market square sits at a clerk's desk here, out of the crowd and in his true setting, and his smile when he sees you is exactly as warm and exactly as empty as it was over the apple-barrels)*"
+      },
+      {
+        "id": "crake",
+        "name": "Old Crake",
+        "title": "marked, awaiting the causeway",
+        "x": 3,
+        "y": 6,
+        "hue": 150,
+        "sigil": "Cr",
+        "conv": "ch.crake",
+        "hail": "*(an old man sits on the floor against the bars of a holding-cell, perfectly at ease, whittling nothing out of nothing with his fingernails, and grins at you with three teeth and no fear at all)*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "ch.crake", "title": "Old Crake in the Cell", "npc": "Old Crake", "start": "0",
+      "id": "ch.crake",
+      "title": "Old Crake in the Cell",
+      "npc": "Old Crake",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Old Crake", "onEnter": [{ "key": "ch.met_crake", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Old Crake",
+          "onEnter": [
+            {
+              "key": "ch.met_crake",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "deity": "None" }, "text": "*(The old man's eyes go to the godless quiet on you and he cackles, delighted, slapping the floor.)* *Ha!* Another *unbought!* *(he scoots to the bars, conspiratorial)* They'll have a *cell* for *you* soon enough, friend, you mark me — *(he grins, three teeth)* — oh, don't pull that *face*, it's not so *bad* in here, the *company's* honest and the *view's* improving. *(he gestures at the great scale across the hall)* I spent *sixty years* digging graves alongside that Wall, you know. *Sixty.* Filled it spoonful by spoonful with everyone *else.* *(he winks)* Now they're sending *me* to it, and I find I'm *curious.* Professional *interest.* Always wondered what the *other* side of the *spade* feels like." },
-            { "text": "*(The old man in the holding-cell looks up from whittling nothing and beams at you like you're a neighbour come for tea.)* *Visitor!* *(he sounds genuinely pleased)* Oh, *grand.* Nobody *visits* the cell — they all hurry past, can't *look*, feel *guilty.* *(he pats the floor on his side of the bars)* Sit, sit. I'm *Crake.* Gravedigger, retired — *involuntarily.* *(he chuckles)* I'm for the *causeway* in the morning. The *Wall.* *(he says it the way you'd say 'the market')* And before you do the *sorry* face — *don't.* I've dug more graves than you've had *dinners*, friend. I am the *last* man on this causeway who's *scared* of where I'm *going.* Now. What's a *free* soul want with a *marked* one? Most steer *clear*, case it's *catching.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Old Crake", "text": "*(He settles back against the bars, comfortable as an old cat, and regards you with bright, unbothered eyes.)* Go on, then. *(he resumes whittling the air)* You've the look of someone *collecting* things — *truths*, mostly, by the *weight* of you. Well, a man for the Wall in the morning's got *no* reason left to *lie.* Ask. It's the *one* freedom they *can't* take — *(he taps his temple)* — the freedom of a man with *nothing left to lose.*",
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The old man's eyes go to the godless quiet on you and he cackles, delighted, slapping the floor.)* *Ha!* Another *unbought!* *(he scoots to the bars, conspiratorial)* They'll have a *cell* for *you* soon enough, friend, you mark me — *(he grins, three teeth)* — oh, don't pull that *face*, it's not so *bad* in here, the *company's* honest and the *view's* improving. *(he gestures at the great scale across the hall)* I spent *sixty years* digging graves alongside that Wall, you know. *Sixty.* Filled it spoonful by spoonful with everyone *else.* *(he winks)* Now they're sending *me* to it, and I find I'm *curious.* Professional *interest.* Always wondered what the *other* side of the *spade* feels like."
+            },
+            {
+              "text": "*(The old man in the holding-cell looks up from whittling nothing and beams at you like you're a neighbour come for tea.)* *Visitor!* *(he sounds genuinely pleased)* Oh, *grand.* Nobody *visits* the cell — they all hurry past, can't *look*, feel *guilty.* *(he pats the floor on his side of the bars)* Sit, sit. I'm *Crake.* Gravedigger, retired — *involuntarily.* *(he chuckles)* I'm for the *causeway* in the morning. The *Wall.* *(he says it the way you'd say 'the market')* And before you do the *sorry* face — *don't.* I've dug more graves than you've had *dinners*, friend. I am the *last* man on this causeway who's *scared* of where I'm *going.* Now. What's a *free* soul want with a *marked* one? Most steer *clear*, case it's *catching.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Old Crake",
+          "text": "*(He settles back against the bars, comfortable as an old cat, and regards you with bright, unbothered eyes.)* Go on, then. *(he resumes whittling the air)* You've the look of someone *collecting* things — *truths*, mostly, by the *weight* of you. Well, a man for the Wall in the morning's got *no* reason left to *lie.* Ask. It's the *one* freedom they *can't* take — *(he taps his temple)* — the freedom of a man with *nothing left to lose.*",
           "choices": [
-            { "text": "[INSIGHT] \"You're not brave, Crake. Or — you are, but it's not *fearlessness.* You spent sixty years burying the marked, and you decided long ago that if the Wall ever came for you, you'd meet it like an old colleague instead of a victim. It's the only way to win, isn't it — to *choose* the thing that was going to happen anyway.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "crake_seen", "fail": "crake_shrug" },
-            { "text": "\"Sixty years digging beside that Wall — then you've seen the Choir work up close. Tell me how the machine *runs*, Crake. Who measures, who marks, who profits. Give me everything a gravedigger sees that a Canon thinks he doesn't.\"", "next": "crake_machine" },
-            { "text": "[ATHLETICS] *(test the cell bars — old iron, older mortar)* \"This lock's rust and these bars are loose in their seats. I can have you out before the Canon finishes her sentence, Crake. Say the word and you're a free man.\"", "when": { "ability": { "Strength": 13 } }, "check": { "skill": "Athletics", "ability": "Strength", "dc": 14 }, "next": "crake_freed", "fail": "crake_stuck", "crit": "crake_free_crit", "fumble": "crake_free_fumble" },
-            { "text": "*(speak low, kin to kin with a man bound for the place you escaped)* \"I've been where they're sending you, Crake. The Wall. All the way in, and back out. So I can tell you the one thing your sixty years of digging never could: what it's actually *like* on the other side of the spade. Do you want it true, or do you want to keep the curiosity?\"", "tag": "returned", "next": "crake_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Rest easy, Crake.\" *(leave the old man to his peace)*", "next": "crake_leave" }
-          ] },
-        { "id": "crake_seen", "speaker": "Old Crake", "text": "*(The whittling stops. He looks at you with new respect, and the grin softens into something realer.)* …*Choose* the thing that was coming anyway. *(he nods slowly)* That's it. That's the whole *trick* of it, and you *found* it in one *look.* *(he taps the bars)* Sixty years I watched them come up that causeway *fighting* — *screaming*, *bargaining*, *clawing* at the stone — and the Wall took 'em all the *same*, screaming or not. *(quietly)* And I thought: when it's *my* turn, I'll not give it the *screaming* too. It gets my *bones.* It doesn't get my *dignity.* *(he resumes whittling)* That's not *bravery*, you're right. Bravery's for them as think they might *win.* This is just — *bookkeeping.* I balanced my own *account* before they could. *(he winks)* Old habit. You spend sixty years filling graves, you learn to *fill your own* first, so nobody else has to do it *wrong.*",
-          "effects": [{ "key": "ch.crake.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.crake_peace", "op": "SetTrue" }, { "key": "disp.stoic", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "crake_shrug", "speaker": "Old Crake", "text": "*(He chuckles and waves a gnarled hand.)* *Brave*, *clever*, *resigned* — fancy words for *old*, friend. *(he whittles)* When you've buried as many as I have, you stop being *scared* of the *hole.* It's just a *hole.* I've made *thousands* of 'em. *(he shrugs)* The Wall's just a *hole* that's *upright* and *crowded*, is all. *(a gap-toothed grin)* Don't go reading *philosophy* into an old man who's just *tired* and *out of fight.* Save the deep questions for the *Canon.* She's got *answers.* I've just got a *spade* and a *good night's sleep coming.*",
-          "auto": "END" },
-        { "id": "crake_machine", "speaker": "Old Crake", "text": "*(His eyes sharpen, and for a moment the gravedigger's bottomless practical knowledge shows through the gallows-cheer.)* *How it runs.* *(he leans to the bars)* Right. From the *bottom*, where I *stood*, sixty years, spade in hand. *(he counts on dirt-black fingers)* The *watchers* spot the unbought — your *smiling men*, your *Tallows*, in every market, friendly as you like. They pass *names* to the *clerks* — your *Pells*, with their little books. Clerks pass the *lists* up to the *Measurers* — your *Vharns*, on the causeway with the brass scales. And the Measurers answer to *her.* *(he jerks his chin at the great scale across the hall)* The *Canon.* *High* Measurer. She doesn't *measure* a soul in *years*, friend — she measures the *quota*, the *flow*, keeps the Wall *fed* and the books *tidy* and the whole thing *quiet.* *(quietly)* And nobody — *nobody* — up that whole chain ever has to *watch* what I watched: the *moment the spade goes in.* That's the *genius* of it. They *file* a soul. *I* had to *bury* one. *(he sits back)* You want to *break* the machine? Make 'em *watch.* Make the *Canon* hold the *spade.* That's the *one* thing the whole tidy chain is *built* to never do.",
-          "effects": [{ "key": "ch.crake.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.knows_choir_chain", "op": "SetTrue" }, { "key": "ch.crake_machine", "op": "SetTrue" }], "auto": "END" },
-        { "id": "crake_freed", "speaker": "Old Crake", "text": "*(The old iron groans, the mortar crumbles, and a bar comes free in your hands — but Crake puts one gnarled hand on yours, gentle, and shakes his head.)* …*Whoa*, there. *(quietly, kindly)* Easy, friend. *(he looks at the gap you've made, then at you)* You *could*. I can see you *could.* And it's a *good* heart that'd *do* it. *(he pats your hand)* But where's an *eighty-year-old* marked gravedigger *run* to, eh? No god, no coin, no *years* left to spend *hiding.* They'd have me back in a *day*, and they'd take it out on *you*, and on whatever *soul* they put in this cell *next.* *(he settles the bar back, almost tender)* No. *Save* the *breaking* of these bars for someone with *road* left in 'em. *(he grins)* But I'll *remember* you *tried.* A *free* soul, *marked* themselves most like, taking the *trouble* to *bend iron* for an old grave-rat nobody'll *miss.* *(his eyes are wet, though the grin holds)* That's *worth* more than the *getting out* would've been. *Truly.* Now — go do that *bending* on the *Canon.* She's got *bars* of a different sort, and a *lot* more souls behind 'em than *me.*",
-          "effects": [{ "key": "ch.crake.regard", "op": "AddInt", "amount": 3 }, { "key": "ch.crake_offered_freedom", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "crake_stuck", "speaker": "Old Crake", "text": "*(You haul at the bars; they hold, old iron set deep in older stone, and Crake watches your effort with fond amusement.)* *(he chuckles)* Built to *last*, this place. They don't *skimp* on the *holding*, the Choir — it's the *one* thing they do *properly.* *(he pats the bars)* Don't *strain* yourself, friend. Even if you *bent* 'em, where's an old grave-rat to *run?* *(kindly)* Save your *back* for the *Canon.* That's where the *real* lock is — *(he taps his temple)* — up *there*, in her *certainty.* Pop *that* one and *all* the cells open at once, mine *included.* *Iron's* easy. *Certainty's* the hard *lock.*",
-          "auto": "END" },
-        { "id": "crake_free_crit", "speaker": "Old Crake", "text": "*(✦ You find the one weak seat in the old ironwork and the whole barred section lifts *clean out* of its crumbled mortar, silent as a drawn breath, leaving a gap a fat ox could stroll through. Crake stares at it. Then at you. Then he *wheezes* with laughter.)* — *sixty years* I dug beside this place and *never* knew the *cell* was held in with *spit and good intentions!* *(he's delighted, scrambling up spryer than he's looked)* Oh, that's *marvellous*, that's *criminal*, that's the best *joke* the Choir never *meant* to make! *(but at the gap, he pauses, and the laughter gentles)* …I *still* shouldn't run, friend. *Old*, *marked*, *slow.* *(then a gleam)* But I needn't run *out*, need I. *(he grins, terrible and wonderful)* I could just — *wait* here, *free*, in an *open* cell, till you've had your *words* with the Canon. And if those words go *badly* — *(he cracks his gnarled knuckles)* — well. An old gravedigger who's *got nothing to lose* and is *no longer behind bars* is a *useful* thing to have at a *boss's* back, eh? *(he settles by the gap, armed with a loose iron bar and sixty years of grudge)* *Go* on. I'll *mind* the door. First time in my *life* I'm on the *useful* side of one.",
-          "effects": [{ "key": "ch.crake.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.crake_freed_ready", "op": "SetTrue" }, { "key": "ch.crake_offered_freedom", "op": "SetTrue" }, { "key": "disp.cunning", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "crake_free_fumble", "speaker": "Old Crake", "text": "*(💀 You set your shoulder to the bars, heave with everything you have — and your feet slide out from under you on the smooth flagstones, and you go down in a heap, and the only thing your heroic effort *dislodges* is a single flake of rust that drifts down and lands, with great delicacy, on Old Crake's nose.)* *(He crosses his eyes at it. Then he sneezes, enormously.)* *(politely)* …Bless me. *(he brushes off the rust)* That's the *most* anyone's done for these bars in *years*, friend, and it come to *one* sneeze's worth of *rust.* *(he helps you up through the bars, chuckling)* You're *strong* enough, I reckon — you just *fought* the *floor* instead of the *iron*, and the *floor* round here is *Choir-made*, which means it's *slipperier* than *they* are. *(he pats your shoulder)* Leave the *bending* be. Go *out-talk* the Canon — you've clearly got *more* in your *mouth* than your *shoulders*, and round *here* that's the *better* weapon anyway. *(a wheeze)* …*rust.* All that, for *rust.* I'll *treasure* it.",
-          "auto": "END" },
-        { "id": "crake_returned", "speaker": "Old Crake", "text": "*(The whittling stops dead. The bottomless cheer doesn't *leave* him, exactly — but it goes *still*, and underneath it you see the one question sixty years of grave-digging never answered, sitting in his old eyes like a stone at the bottom of a well.)* …*You've been.* *(barely)* In. And *out.* *(he grips the bars)* Sixty *years*, friend. Sixty years I put 'em *in* the ground and *wondered*, every single *spadeful* — *is there anything there? Did I just bury a person, or a* coat *a person used to* wear? *(his voice cracks, just once)* And every priest gave me *doctrine*, and every drunk gave me *guesses*, and *none* of 'em had *been.* *(he searches your face)* But *you*… you've stood where my *spade* sends them. *(a long breath)* …All right. *(quietly, decided)* Give it me *true.* Not *kind.* *True.* I've earned the *true* — I *paid* for it, one grave at a *time.* *(and when you tell him — that it is cold, and it is quiet, and it is* not *the nothing, that there's a door and something past it, and that sixty years of his careful burying* mattered, *that the dead he laid straight were laid straight* for *something* — the old man bows his head, and his shoulders shake, and when he looks up his face is wet and *light*, *unbearably* light.)* …Then I did *right* by 'em. *(a whisper)* All of 'em. *(he wipes his face, grins through it, three teeth and a soul at peace)* I can go to that Wall in the *morning* knowing the *holes* I dug *meant* something. *(fiercely grateful)* You've given a *gravedigger* the one thing *nobody* could, friend. You've told him the *graves* were *real.* Now *go.* Go give the *Canon* the *opposite* of that. Go tell *her* what it's *like* — *(a dark, delighted gleam)* — and watch her *certainty* find out it dug its *own* hole *wrong.*",
-          "effects": [{ "key": "ch.crake.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.crake_told_true", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "crake_leave", "speaker": "Old Crake", "text": "*(He waves you off with the spade-callused good cheer of a man at peace with his morning.)* Off you *go*, friend. *(he resumes whittling the air)* *Rest* easy *yourself* — you're the one with the *road* still to walk; I've just got the *one* short stroll left, and I've *walked* it a thousand times *carrying* someone *else.* *(a gap-toothed grin)* Be a *novelty*, going *light.* *(as you turn)* …Do me the *one* kindness, eh? When you talk to the *Canon* — and you *will*, I can see it on you — *(his eyes glint)* — don't let her tell you the Wall's a *mercy.* I *filled* it. *Spoonful* by *spoonful.* There's no *mercy* in it. Just *tidiness.* And *tidiness*, friend, is what *evil* calls itself when it wants to *sleep* at night. *(he winks)* A *gravedigger* knows. We're the only ones who *count* what the *tidy* throw *away.*",
-          "auto": "END" }
+            {
+              "text": "[INSIGHT] \"You're not brave, Crake. Or — you are, but it's not *fearlessness.* You spent sixty years burying the marked, and you decided long ago that if the Wall ever came for you, you'd meet it like an old colleague instead of a victim. It's the only way to win, isn't it — to *choose* the thing that was going to happen anyway.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "crake_seen",
+              "fail": "crake_shrug"
+            },
+            {
+              "text": "\"Sixty years digging beside that Wall — then you've seen the Choir work up close. Tell me how the machine *runs*, Crake. Who measures, who marks, who profits. Give me everything a gravedigger sees that a Canon thinks he doesn't.\"",
+              "next": "crake_machine"
+            },
+            {
+              "text": "[ATHLETICS] *(test the cell bars — old iron, older mortar)* \"This lock's rust and these bars are loose in their seats. I can have you out before the Canon finishes her sentence, Crake. Say the word and you're a free man.\"",
+              "when": {
+                "ability": {
+                  "Strength": 13
+                }
+              },
+              "check": {
+                "skill": "Athletics",
+                "ability": "Strength",
+                "dc": 14
+              },
+              "next": "crake_freed",
+              "fail": "crake_stuck",
+              "crit": "crake_free_crit",
+              "fumble": "crake_free_fumble"
+            },
+            {
+              "text": "*(speak low, kin to kin with a man bound for the place you escaped)* \"I've been where they're sending you, Crake. The Wall. All the way in, and back out. So I can tell you the one thing your sixty years of digging never could: what it's actually *like* on the other side of the spade. Do you want it true, or do you want to keep the curiosity?\"",
+              "tag": "returned",
+              "next": "crake_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Rest easy, Crake.\" *(leave the old man to his peace)*",
+              "next": "crake_leave"
+            }
+          ]
+        },
+        {
+          "id": "crake_seen",
+          "speaker": "Old Crake",
+          "text": "*(The whittling stops. He looks at you with new respect, and the grin softens into something realer.)* …*Choose* the thing that was coming anyway. *(he nods slowly)* That's it. That's the whole *trick* of it, and you *found* it in one *look.* *(he taps the bars)* Sixty years I watched them come up that causeway *fighting* — *screaming*, *bargaining*, *clawing* at the stone — and the Wall took 'em all the *same*, screaming or not. *(quietly)* And I thought: when it's *my* turn, I'll not give it the *screaming* too. It gets my *bones.* It doesn't get my *dignity.* *(he resumes whittling)* That's not *bravery*, you're right. Bravery's for them as think they might *win.* This is just — *bookkeeping.* I balanced my own *account* before they could. *(he winks)* Old habit. You spend sixty years filling graves, you learn to *fill your own* first, so nobody else has to do it *wrong.*",
+          "effects": [
+            {
+              "key": "ch.crake.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.crake_peace",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.stoic",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "crake_shrug",
+          "speaker": "Old Crake",
+          "text": "*(He chuckles and waves a gnarled hand.)* *Brave*, *clever*, *resigned* — fancy words for *old*, friend. *(he whittles)* When you've buried as many as I have, you stop being *scared* of the *hole.* It's just a *hole.* I've made *thousands* of 'em. *(he shrugs)* The Wall's just a *hole* that's *upright* and *crowded*, is all. *(a gap-toothed grin)* Don't go reading *philosophy* into an old man who's just *tired* and *out of fight.* Save the deep questions for the *Canon.* She's got *answers.* I've just got a *spade* and a *good night's sleep coming.*",
+          "auto": "END"
+        },
+        {
+          "id": "crake_machine",
+          "speaker": "Old Crake",
+          "text": "*(His eyes sharpen, and for a moment the gravedigger's bottomless practical knowledge shows through the gallows-cheer.)* *How it runs.* *(he leans to the bars)* Right. From the *bottom*, where I *stood*, sixty years, spade in hand. *(he counts on dirt-black fingers)* The *watchers* spot the unbought — your *smiling men*, your *Tallows*, in every market, friendly as you like. They pass *names* to the *clerks* — your *Pells*, with their little books. Clerks pass the *lists* up to the *Measurers* — your *Vharns*, on the causeway with the brass scales. And the Measurers answer to *her.* *(he jerks his chin at the great scale across the hall)* The *Canon.* *High* Measurer. She doesn't *measure* a soul in *years*, friend — she measures the *quota*, the *flow*, keeps the Wall *fed* and the books *tidy* and the whole thing *quiet.* *(quietly)* And nobody — *nobody* — up that whole chain ever has to *watch* what I watched: the *moment the spade goes in.* That's the *genius* of it. They *file* a soul. *I* had to *bury* one. *(he sits back)* You want to *break* the machine? Make 'em *watch.* Make the *Canon* hold the *spade.* That's the *one* thing the whole tidy chain is *built* to never do.",
+          "effects": [
+            {
+              "key": "ch.crake.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.knows_choir_chain",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.crake_machine",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "crake_freed",
+          "speaker": "Old Crake",
+          "text": "*(The old iron groans, the mortar crumbles, and a bar comes free in your hands — but Crake puts one gnarled hand on yours, gentle, and shakes his head.)* …*Whoa*, there. *(quietly, kindly)* Easy, friend. *(he looks at the gap you've made, then at you)* You *could*. I can see you *could.* And it's a *good* heart that'd *do* it. *(he pats your hand)* But where's an *eighty-year-old* marked gravedigger *run* to, eh? No god, no coin, no *years* left to spend *hiding.* They'd have me back in a *day*, and they'd take it out on *you*, and on whatever *soul* they put in this cell *next.* *(he settles the bar back, almost tender)* No. *Save* the *breaking* of these bars for someone with *road* left in 'em. *(he grins)* But I'll *remember* you *tried.* A *free* soul, *marked* themselves most like, taking the *trouble* to *bend iron* for an old grave-rat nobody'll *miss.* *(his eyes are wet, though the grin holds)* That's *worth* more than the *getting out* would've been. *Truly.* Now — go do that *bending* on the *Canon.* She's got *bars* of a different sort, and a *lot* more souls behind 'em than *me.*",
+          "effects": [
+            {
+              "key": "ch.crake.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "ch.crake_offered_freedom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "crake_stuck",
+          "speaker": "Old Crake",
+          "text": "*(You haul at the bars; they hold, old iron set deep in older stone, and Crake watches your effort with fond amusement.)* *(he chuckles)* Built to *last*, this place. They don't *skimp* on the *holding*, the Choir — it's the *one* thing they do *properly.* *(he pats the bars)* Don't *strain* yourself, friend. Even if you *bent* 'em, where's an old grave-rat to *run?* *(kindly)* Save your *back* for the *Canon.* That's where the *real* lock is — *(he taps his temple)* — up *there*, in her *certainty.* Pop *that* one and *all* the cells open at once, mine *included.* *Iron's* easy. *Certainty's* the hard *lock.*",
+          "auto": "END"
+        },
+        {
+          "id": "crake_free_crit",
+          "speaker": "Old Crake",
+          "text": "*(✦ You find the one weak seat in the old ironwork and the whole barred section lifts *clean out* of its crumbled mortar, silent as a drawn breath, leaving a gap a fat ox could stroll through. Crake stares at it. Then at you. Then he *wheezes* with laughter.)* — *sixty years* I dug beside this place and *never* knew the *cell* was held in with *spit and good intentions!* *(he's delighted, scrambling up spryer than he's looked)* Oh, that's *marvellous*, that's *criminal*, that's the best *joke* the Choir never *meant* to make! *(but at the gap, he pauses, and the laughter gentles)* …I *still* shouldn't run, friend. *Old*, *marked*, *slow.* *(then a gleam)* But I needn't run *out*, need I. *(he grins, terrible and wonderful)* I could just — *wait* here, *free*, in an *open* cell, till you've had your *words* with the Canon. And if those words go *badly* — *(he cracks his gnarled knuckles)* — well. An old gravedigger who's *got nothing to lose* and is *no longer behind bars* is a *useful* thing to have at a *boss's* back, eh? *(he settles by the gap, armed with a loose iron bar and sixty years of grudge)* *Go* on. I'll *mind* the door. First time in my *life* I'm on the *useful* side of one.",
+          "effects": [
+            {
+              "key": "ch.crake.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.crake_freed_ready",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.crake_offered_freedom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "crake_free_fumble",
+          "speaker": "Old Crake",
+          "text": "*(💀 You set your shoulder to the bars, heave with everything you have — and your feet slide out from under you on the smooth flagstones, and you go down in a heap, and the only thing your heroic effort *dislodges* is a single flake of rust that drifts down and lands, with great delicacy, on Old Crake's nose.)* *(He crosses his eyes at it. Then he sneezes, enormously.)* *(politely)* …Bless me. *(he brushes off the rust)* That's the *most* anyone's done for these bars in *years*, friend, and it come to *one* sneeze's worth of *rust.* *(he helps you up through the bars, chuckling)* You're *strong* enough, I reckon — you just *fought* the *floor* instead of the *iron*, and the *floor* round here is *Choir-made*, which means it's *slipperier* than *they* are. *(he pats your shoulder)* Leave the *bending* be. Go *out-talk* the Canon — you've clearly got *more* in your *mouth* than your *shoulders*, and round *here* that's the *better* weapon anyway. *(a wheeze)* …*rust.* All that, for *rust.* I'll *treasure* it.",
+          "auto": "END"
+        },
+        {
+          "id": "crake_returned",
+          "speaker": "Old Crake",
+          "text": "*(The whittling stops dead. The bottomless cheer doesn't *leave* him, exactly — but it goes *still*, and underneath it you see the one question sixty years of grave-digging never answered, sitting in his old eyes like a stone at the bottom of a well.)* …*You've been.* *(barely)* In. And *out.* *(he grips the bars)* Sixty *years*, friend. Sixty years I put 'em *in* the ground and *wondered*, every single *spadeful* — *is there anything there? Did I just bury a person, or a* coat *a person used to* wear? *(his voice cracks, just once)* And every priest gave me *doctrine*, and every drunk gave me *guesses*, and *none* of 'em had *been.* *(he searches your face)* But *you*… you've stood where my *spade* sends them. *(a long breath)* …All right. *(quietly, decided)* Give it me *true.* Not *kind.* *True.* I've earned the *true* — I *paid* for it, one grave at a *time.* *(and when you tell him — that it is cold, and it is quiet, and it is* not *the nothing, that there's a door and something past it, and that sixty years of his careful burying* mattered, *that the dead he laid straight were laid straight* for *something* — the old man bows his head, and his shoulders shake, and when he looks up his face is wet and *light*, *unbearably* light.)* …Then I did *right* by 'em. *(a whisper)* All of 'em. *(he wipes his face, grins through it, three teeth and a soul at peace)* I can go to that Wall in the *morning* knowing the *holes* I dug *meant* something. *(fiercely grateful)* You've given a *gravedigger* the one thing *nobody* could, friend. You've told him the *graves* were *real.* Now *go.* Go give the *Canon* the *opposite* of that. Go tell *her* what it's *like* — *(a dark, delighted gleam)* — and watch her *certainty* find out it dug its *own* hole *wrong.*",
+          "effects": [
+            {
+              "key": "ch.crake.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.crake_told_true",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "crake_leave",
+          "speaker": "Old Crake",
+          "text": "*(He waves you off with the spade-callused good cheer of a man at peace with his morning.)* Off you *go*, friend. *(he resumes whittling the air)* *Rest* easy *yourself* — you're the one with the *road* still to walk; I've just got the *one* short stroll left, and I've *walked* it a thousand times *carrying* someone *else.* *(a gap-toothed grin)* Be a *novelty*, going *light.* *(as you turn)* …Do me the *one* kindness, eh? When you talk to the *Canon* — and you *will*, I can see it on you — *(his eyes glint)* — don't let her tell you the Wall's a *mercy.* I *filled* it. *Spoonful* by *spoonful.* There's no *mercy* in it. Just *tidiness.* And *tidiness*, friend, is what *evil* calls itself when it wants to *sleep* at night. *(he winks)* A *gravedigger* knows. We're the only ones who *count* what the *tidy* throw *away.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "ch.tallow", "title": "Goodman Tallow, at His Desk", "npc": "Goodman Tallow", "start": "0",
+      "id": "ch.tallow",
+      "title": "Goodman Tallow, at His Desk",
+      "npc": "Goodman Tallow",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Goodman Tallow", "onEnter": [{ "key": "ch.met_tallow2", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Goodman Tallow",
+          "onEnter": [
+            {
+              "key": "ch.met_tallow2",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["reed.betrayed_wren"] }, "text": "*(The smiling man rises from his desk and actually extends a hand, his pleasant face warm with something that, on anyone else, you'd call fondness.)* Ahh — there you are. *(he clasps your hand in both of his)* My *favourite* sort of visitor. *(he beams)* The apple-girl worked out *beautifully*, you know — measured, marked, walked, *filed*, all because a *helpful* soul pointed her out to me over the barrels. *(he doesn't let go of your hand)* Do you know how *rare* you are? Most people *flinch* from the smiling man. *You* came *over* and did him a *favour.* *(softly, still smiling)* The Canon's been *asking* about you. *Glowingly.* There's a *place* in this work for someone with your — *clarity.* Shall I introduce you *properly?*" },
-            { "when": { "flags": ["reed.wren_lives"] }, "text": "*(The smiling man looks up from his desk, and his smile doesn't change at all — that's the frightening part — but something behind his eyes goes flat and attentive, the way a card-player's does at a turned card.)* …Ah. *You.* *(he sets down his pen, smiling)* The *meddler.* I did wonder if you'd find your way *here.* *(he laces his fingers)* You cost me an *account*, friend — the apple-girl. *Wren.* Stood right between my kindness and her *measure*, in the market, and made her *brave.* *(the smile holds, terrible)* I don't *hold* it against you. Truly. In my work one learns not to take the *misses* personally. *(softly)* But I *did* write it down. And I *did* mention it to the Canon. And she is *very* much looking forward to *meeting* the soul who's been *unpicking* my *tidy* causeway. *(he gestures at the great scale)* She's *right* there. Shall we?" },
-            { "text": "*(The pleasant, unremarkable man from the market looks up, and his smile is exactly the same here as it was over the apple-barrels — which, in this setting, surrounded by ledgers and the great scale, is somehow far worse.)* *(warmly)* Well, *hello* again. *(he sets down his pen)* You've found my *real* desk. The market's just where I *watch* — *this* is where the watching *goes.* *(he gestures around the counting-house, proud as a man showing off his garden)* People always picture the Choir's work as something *grim*, you know. *Robes*, *fire*, *judgement.* *(he chuckles)* But it's mostly *this.* A *desk.* A *pen.* A *pleasant* man who *remembers* faces. *(he tilts his head, smiling)* What can I *do* for you, friend? You've the look of someone with *questions.* I do *so* enjoy questions. They tell me *exactly* where someone's *soft.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Goodman Tallow", "text": "*(He folds his hands on the desk, the picture of helpful patience, his smile a door you cannot see past.)* Go on, then. *(pleasantly)* Ask the smiling man your question. I'll even answer it *honestly* — that always *unsettles* people more than a *lie* would. *(the smile widens a fraction)* Honesty's my little *cruelty.* I find the *truth*, said *kindly*, does far more *damage* than any *threat.*",
+            {
+              "when": {
+                "flags": [
+                  "reed.betrayed_wren"
+                ]
+              },
+              "text": "*(The smiling man rises from his desk and actually extends a hand, his pleasant face warm with something that, on anyone else, you'd call fondness.)* Ahh — there you are. *(he clasps your hand in both of his)* My *favourite* sort of visitor. *(he beams)* The apple-girl worked out *beautifully*, you know — measured, marked, walked, *filed*, all because a *helpful* soul pointed her out to me over the barrels. *(he doesn't let go of your hand)* Do you know how *rare* you are? Most people *flinch* from the smiling man. *You* came *over* and did him a *favour.* *(softly, still smiling)* The Canon's been *asking* about you. *Glowingly.* There's a *place* in this work for someone with your — *clarity.* Shall I introduce you *properly?*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.wren_lives"
+                ]
+              },
+              "text": "*(The smiling man looks up from his desk, and his smile doesn't change at all — that's the frightening part — but something behind his eyes goes flat and attentive, the way a card-player's does at a turned card.)* …Ah. *You.* *(he sets down his pen, smiling)* The *meddler.* I did wonder if you'd find your way *here.* *(he laces his fingers)* You cost me an *account*, friend — the apple-girl. *Wren.* Stood right between my kindness and her *measure*, in the market, and made her *brave.* *(the smile holds, terrible)* I don't *hold* it against you. Truly. In my work one learns not to take the *misses* personally. *(softly)* But I *did* write it down. And I *did* mention it to the Canon. And she is *very* much looking forward to *meeting* the soul who's been *unpicking* my *tidy* causeway. *(he gestures at the great scale)* She's *right* there. Shall we?"
+            },
+            {
+              "text": "*(The pleasant, unremarkable man from the market looks up, and his smile is exactly the same here as it was over the apple-barrels — which, in this setting, surrounded by ledgers and the great scale, is somehow far worse.)* *(warmly)* Well, *hello* again. *(he sets down his pen)* You've found my *real* desk. The market's just where I *watch* — *this* is where the watching *goes.* *(he gestures around the counting-house, proud as a man showing off his garden)* People always picture the Choir's work as something *grim*, you know. *Robes*, *fire*, *judgement.* *(he chuckles)* But it's mostly *this.* A *desk.* A *pen.* A *pleasant* man who *remembers* faces. *(he tilts his head, smiling)* What can I *do* for you, friend? You've the look of someone with *questions.* I do *so* enjoy questions. They tell me *exactly* where someone's *soft.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodman Tallow",
+          "text": "*(He folds his hands on the desk, the picture of helpful patience, his smile a door you cannot see past.)* Go on, then. *(pleasantly)* Ask the smiling man your question. I'll even answer it *honestly* — that always *unsettles* people more than a *lie* would. *(the smile widens a fraction)* Honesty's my little *cruelty.* I find the *truth*, said *kindly*, does far more *damage* than any *threat.*",
           "choices": [
-            { "text": "[INSIGHT] \"You enjoy it. That's the thing under the smile, isn't it — not duty, not faith, not even cruelty exactly. You *like* knowing where people are soft. The Choir just gave a small, hollow man a *licence* to do the one thing that makes him feel *full.*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 15 }, "next": "tallow_seen", "fail": "tallow_smiles" },
-            { "text": "[INTIMIDATION] \"I know what you are now, Tallow. I've seen the whole chain — the watching, the writing, the walking. And I want you to understand, smiling man, that I have made *worse* things than you *very* afraid this week. Smile at *that.*\"", "check": { "skill": "Intimidation", "ability": "Charisma", "dc": 16 }, "next": "tallow_cracked", "fail": "tallow_unmoved", "crit": "tallow_intim_crit", "fumble": "tallow_intim_fumble", "effects": [{ "key": "disp.ruthless", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if you carry the dead-touched sight)* \"Shall I tell you what I *see* when I look at you, Tallow? Because I'm Returned, and I see *souls*, and yours is a *thimble* — you've spent yourself a name at a time until there's almost nothing left. The Wall isn't reaching for you *later.* It's reaching for you *now.* You can *feel* the cold in your fingers. You've been *blaming the draught.*\"", "tag": "returned", "next": "tallow_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"The old man in the cell. Crake. What did he do, Tallow — beyond being old, and poor, and godless?\"", "next": "tallow_crake" },
-            { "text": "*(if the smiling man thinks you're his kind)* \"You said there's a place in this work for me. I'm listening, Tallow. Tell me what 'clarity' earns a soul in the Choir — and what it costs.\"", "when": { "flag": "reed.betrayed_wren" }, "next": "tallow_offer", "effects": [{ "key": "disp.cunning", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Nothing from you, smiling man. I'll take my questions to the woman you answer to.\" *(turn toward the great scale)*", "next": "tallow_leave" }
-          ] },
-        { "id": "tallow_seen", "speaker": "Goodman Tallow", "text": "*(For the first time, the smile *falters* — just a flicker, just a half-second, but you *see* it, the way you'd see a crack run through ice.)* …*Full.* *(quietly, the warmth gone)* That's — *(he recovers the smile, but it's working now, you can see it working)* — that's a very *unkind* thing to say to a man, friend. *Accurate*, which is *worse.* *(he sets his hands flat on the desk)* Yes. All right. *Yes.* I was a *small* man. A *forgettable* man — you've *no* idea how *forgettable*, the kind of man who could stand in a *room* and have people *forget he was speaking while he spoke.* *(softly)* And then the Choir handed me a *book*, and a *purpose*, and for the first time in my *life* people's faces did something when they saw me coming. *Fear.* *Attention.* *(the smile is ghastly now)* You're *right* that I *like* it. You're right that it makes me feel *full.* *(he meets your eyes)* But here is what your *clever* little *insight* doesn't change: I am *full* now, friend. *Every day.* And a *starving* man does not give *back* the only meal that ever *filled* him because a *stranger* names it *ugly.* *(the smile returns, sealed)* See me *clearly*, then. It costs you *nothing* and changes *less.* I have been *seen clearly* before. I simply *wrote down* the ones who did it.",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 1 }, { "key": "ch.tallow_unmasked", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tallow_smiles", "speaker": "Goodman Tallow", "text": "*(The smile doesn't budge. If anything it *deepens*, gently, the way you'd smile at a child who's guessed wrong.)* *Enjoy* it? *(mildly)* Goodness. What a *lurid* imagination you have, friend. *(he picks his pen back up)* I don't *enjoy* my work. I *perform* it. *Carefully.* *Kindly.* The way a *physician* sets a *bone* — it *hurts*, but the *hurting* isn't the *point*, only the *tidiness* after. *(he makes a small note)* You've reached for the *monster* under the *smile* and found — *(he shows you the warm, empty face)* — just a *man*, doing a *job*, *well.* *(softly)* That should *frighten* you *more*, not *less.* Monsters can be *slain*, friend. *Functionaries* just get *replaced.* Now — was there a *real* question? Or shall I write down that you *tried* to find my *soft* spot, and *missed?*",
-          "auto": "END" },
-        { "id": "tallow_cracked", "speaker": "Goodman Tallow", "text": "*(The smile holds — but his hand, reaching to lace his fingers, doesn't *quite* manage it on the first try, and he sees you see it.)* …You've been *busy*, this week. *(carefully, the warmth thinned)* I've *heard.* The river. The clerk in the Quarter. The — *(he wets his lips)* — the *thing* at the *Wall.* *(the smile is a held thing now, a thing requiring effort)* You understand I am not a *brave* man, friend. Brave men don't *watch.* Brave men *act*, and get *caught*, and get *filed.* I have survived by being the *least* memorable man in every *room.* *(quietly)* And you have just made me *memorable*, by *frightening* me where *others* can *see.* *(he sets his pen down precisely)* So. I will tell you what I'll *do*, since you've *cracked* me and we both *know* it: I will be *suddenly*, *conveniently* called *away* from my desk, before the Canon asks me to *confirm* things about you I would now *very* much rather *not* be on *record* having *known.* *(the smile flickers back, frail)* That's not *help.* It's *cowardice.* But cowardice *pointed your way* is the *best* a small man can *offer*, and I find — *gods help me — I'd rather not be in the room when she measures you.*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 1 }, { "key": "ch.tallow_withdrawn", "op": "SetTrue" }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tallow_unmoved", "speaker": "Goodman Tallow", "text": "*(He lets your threat wash over him and his smile never wavers, and that is its own kind of answer.)* *Worse* things, *very* afraid. *(he nods, pleasantly)* I'm *sure* you have, friend. *(he makes a small note)* But here is the *flaw* in *frightening* the smiling man: I am *already* afraid. *(he says it lightly)* I have been afraid every *day* of my *life* — of being *forgotten*, of being *measured*, of the *cold* in my *own* fingers I do *not* like to think about. *(the smile widens)* Fear is the *water* I *swim* in. You cannot *drown* a man in his *own element.* *(he resumes writing)* Threaten the *Canon*, by all means — *she* has things she's afraid to *lose.* *Power. Certainty.* A *quota.* *(softly)* Me? I lost *everything* worth threatening *decades* ago, and got a *pen* in exchange. *Filed* under *'volatile.'* Do mind how you go.",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": -1 }, { "key": "ch.tallow_flagged_you", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tallow_intim_crit", "speaker": "Goodman Tallow", "text": "*(✦ You don't threaten his life — you threaten the *one* thing the small man cannot bear, and you find it with surgical, terrible precision: you promise him, softly, that you will make him *forgotten* again. That you will unmake every face that ever turned at his approach, and leave him exactly the invisible nothing the Choir found. And Goodman Tallow's smile does not crack — it *collapses*, all at once, like a house with its main beam pulled.)* *(He is on his feet, the chair clattering back, and his pleasant voice has gone to a thin scrape.)* —*no.* *(barely)* No, you — you *don't* — *(he's pawing papers into a satchel with shaking hands)* — you *can't* make me — I *was* nothing, you don't *understand* what it *was*, the *not-being-seen*, the *years* of it, like being *dead* while still — *(he's babbling now, the mask in ruins)* — I'll *go.* I'll *go*, I'll *withdraw* every *word*, I'll *burn* your *page* myself, I'll tell the Canon you were *never here*, just — *(he backs toward the door, clutching the satchel)* — *don't.* Don't *do* the — the *forgetting.* *Anything* but *that.* *(at the threshold, wrecked)* I'll *help* you. Gods *help* me, I'll *help* you, just let me *stay* someone people can *see.* *(and he flees, and the smile does not come back, and somewhere in the ruin of him is the small frightened man the Choir buried under it)*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 1 }, { "key": "ch.tallow_broken", "op": "SetTrue" }, { "key": "ch.tallow_withdrawn", "op": "SetTrue" }, { "key": "ch.tallow_turns_informer", "op": "SetTrue" }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tallow_intim_fumble", "speaker": "Goodman Tallow", "text": "*(💀 You lean in to deliver the soul-chilling threat and, reaching for ominous, knock the smiling man's inkwell across his own ledger — a great black tide of it — and in lunging to save your *own* sleeve you headbutt the desk-lamp, so that your terrifying promise is delivered while cross-eyed and dripping ink, to a man watching his paperwork drown.)* *(Tallow blinks. Then, slowly, the smile returns — wider, and for the first time, *genuine.*)* …Oh, that's *wonderful.* *(he watches the ink spread, delighted)* Do you know, I haven't *laughed* — really *laughed* — in *years*, friend, and you've gone and *ruined* a *month's* filing and *christened* yourself *blue* doing it. *(he dabs at the ink, beaming)* I was *briefly* frightened of you. The *cold* on you. The *rumours.* And then you *fought* my *inkwell* and *lost.* *(he chuckles)* I'll tell the Canon you're *dangerous*, friend — I will — but I shall be *smiling* when I say it, and not, for *once*, on *purpose.* *(he hands you a blotting-cloth)* Your *face* is *blue.* It's *very* — it rather *undercuts* the *menace.* Do see to it before you meet *her.* She has *no* sense of *humour.* It's the *worst* thing about her. *Worse* than the *Wall.*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": -1 }, { "key": "ch.tallow_flagged_you", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tallow_returned", "speaker": "Goodman Tallow", "text": "*(The smile freezes. And then — slowly, helplessly — his free hand drifts to his own other hand, and presses it, and you watch him *feel* for the first time the thing he has been refusing to feel: the cold, already in his fingers, exactly where you said.)* …The *draught.* *(a whisper)* It's — the *window* doesn't even — *(he looks at his own hands as if they belong to a stranger)* I've been telling myself it's the *draught off the river.* For — *(his voice fails)* — for *how* long have I been — *(he looks up at you, and the smile is gone, utterly gone, and what's left is a small terrified man who has just been told the date of his own arithmetic)* …a *thimble.* *(barely)* You can *see* it. How *little's* left. *(he laughs, and it's awful)* I spent it. Didn't I. A *name* at a *time.* Every soul I *filed*, I thought I was buying *safety* — *tithes*, *service*, *being useful* to the people who *measure* — and instead I was just — *(he presses his cold hands together)* — *spending myself* *faster*, to *feed* the thing that's *coming* for *me.* *(he stares at the great scale across the hall, at the Canon behind it, with dawning horror)* …She *knows.* Doesn't she. The Canon. She *knows* what this work *does* to the ones who *do* it, and she *spends* us *anyway*, because we're *cheaper* than *believers.* *(he looks at you, hollow)* …What do I *do.* You're the only soul who's ever told me *true.* The Wall's *cold* is in my *hands.* *What do I do?*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.tallow_sees_himself", "op": "SetTrue" }, { "key": "ch.tallow_turns_informer", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tallow_crake", "speaker": "Goodman Tallow", "text": "*(He glances toward the cell, and the smile turns — almost wistful, which is the most unsettling thing it's done yet.)* *Crake.* *(softly)* Sixty years a gravedigger. *Unbought* — never had the coin for a god, spent it all on *ale* and *other people's funerals.* *(he laces his fingers)* That's *all* he *did*, friend. That's all *any* of them did. You keep *looking* for the *crime*, don't you — they *all* do, the meddlers — as if the Wall must be for *sinners*, as if there's a *reason* under it that would let you *sleep.* *(the smile is gentle and terrible)* There *isn't.* Crake is for the Wall because he is *old*, and *poor*, and *no god happened to want him*, and the *quota* needs *filling*, and he is the *path of least resistance* — no family to *raise* a fuss, no coin to *buy* a delay. *(quietly)* He's not a *sinner*, friend. He's a *line item.* *(he picks up his pen)* And do you know the *worst* of it? *He* knows. He went into that cell *laughing.* It's *us*, the ones with the *pens*, who can't *look* at it. *Crake* looks at it *fine.* *(the smile flickers)* …I rather *envy* him that. Isn't *that* a strange thing for the smiling man to *say.*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 1 }, { "key": "ch.tallow_crake_truth", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tallow_offer", "speaker": "Goodman Tallow", "text": "*(He brightens, leaning in with the warmth of a man recruiting an apprentice he's decided he likes.)* *Now* you're asking the *right* questions. *(confidentially)* What 'clarity' *earns*, friend — the ability to look at a *soul* and see a *line item*, to do the *necessary* thing without the *flinching* — is *advancement.* *Safety.* A *page* in the *good* ledger instead of the *projects* one. *(he spreads his hands)* You point out the *untidy*, you help *close* accounts, and the Choir *files you under 'friend'* — and friends of the Choir, friend, *die in beds*, with *coins on their eyes* and a *god's word* bought and *paid.* *(the smile widens)* What it *costs*… *(he pauses, and for a flicker the warmth shows its floor)* …is the part of you that *flinched.* You spend it, a *name* at a time, until you're — *(he catches himself)* — until you're *very* *good* at the *work.* *(he recovers)* But you *strike* me as someone who's *already* spent that part. The apple-girl, after all. *(he offers his hand)* So. Shall I tell the Canon she has a *new* friend? It's *warmer*, friend, on *this* side of the *scale.* *Much* warmer. While it *lasts.*",
-          "effects": [{ "key": "ch.tallow.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.tallow_recruits_you", "op": "SetTrue" }, { "key": "disp.cunning", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tallow_leave", "speaker": "Goodman Tallow", "text": "*(He inclines his head, smiling, and picks his pen back up.)* Of course. *(pleasantly)* Go and see the *Canon.* Everyone does, *eventually* — it's rather the *point* of the room. *(he makes a small note as you turn)* I'll just — *write down* that you *went.* And *how* you *stood* when you went. And *what* your *hands* did. *(the smile follows you)* It's *nothing personal, friend. It's only that I* remember *faces, and yours is becoming* such *an interesting one.* *(softly, as you reach the scale)* …Do give the Canon my *regards.* And — *friend?* *(a beat)* Whatever she *offers* you, and she *will* offer — remember you met the *smiling man* first, and the smiling man *told* you what it *costs.* That's the *kindest* thing I've done in *years.* I do hope you'll note it in *your* ledger. I should *like*, just once, to be *remembered* for a *kindness.*",
-          "auto": "END" }
+            {
+              "text": "[INSIGHT] \"You enjoy it. That's the thing under the smile, isn't it — not duty, not faith, not even cruelty exactly. You *like* knowing where people are soft. The Choir just gave a small, hollow man a *licence* to do the one thing that makes him feel *full.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "tallow_seen",
+              "fail": "tallow_smiles"
+            },
+            {
+              "text": "[INTIMIDATION] \"I know what you are now, Tallow. I've seen the whole chain — the watching, the writing, the walking. And I want you to understand, smiling man, that I have made *worse* things than you *very* afraid this week. Smile at *that.*\"",
+              "check": {
+                "skill": "Intimidation",
+                "ability": "Charisma",
+                "dc": 16
+              },
+              "next": "tallow_cracked",
+              "fail": "tallow_unmoved",
+              "crit": "tallow_intim_crit",
+              "fumble": "tallow_intim_fumble",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if you carry the dead-touched sight)* \"Shall I tell you what I *see* when I look at you, Tallow? Because I'm Returned, and I see *souls*, and yours is a *thimble* — you've spent yourself a name at a time until there's almost nothing left. The Wall isn't reaching for you *later.* It's reaching for you *now.* You can *feel* the cold in your fingers. You've been *blaming the draught.*\"",
+              "tag": "returned",
+              "next": "tallow_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"The old man in the cell. Crake. What did he do, Tallow — beyond being old, and poor, and godless?\"",
+              "next": "tallow_crake"
+            },
+            {
+              "text": "*(if the smiling man thinks you're his kind)* \"You said there's a place in this work for me. I'm listening, Tallow. Tell me what 'clarity' earns a soul in the Choir — and what it costs.\"",
+              "when": {
+                "flag": "reed.betrayed_wren"
+              },
+              "next": "tallow_offer",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Nothing from you, smiling man. I'll take my questions to the woman you answer to.\" *(turn toward the great scale)*",
+              "next": "tallow_leave"
+            }
+          ]
+        },
+        {
+          "id": "tallow_seen",
+          "speaker": "Goodman Tallow",
+          "text": "*(For the first time, the smile *falters* — just a flicker, just a half-second, but you *see* it, the way you'd see a crack run through ice.)* …*Full.* *(quietly, the warmth gone)* That's — *(he recovers the smile, but it's working now, you can see it working)* — that's a very *unkind* thing to say to a man, friend. *Accurate*, which is *worse.* *(he sets his hands flat on the desk)* Yes. All right. *Yes.* I was a *small* man. A *forgettable* man — you've *no* idea how *forgettable*, the kind of man who could stand in a *room* and have people *forget he was speaking while he spoke.* *(softly)* And then the Choir handed me a *book*, and a *purpose*, and for the first time in my *life* people's faces did something when they saw me coming. *Fear.* *Attention.* *(the smile is ghastly now)* You're *right* that I *like* it. You're right that it makes me feel *full.* *(he meets your eyes)* But here is what your *clever* little *insight* doesn't change: I am *full* now, friend. *Every day.* And a *starving* man does not give *back* the only meal that ever *filled* him because a *stranger* names it *ugly.* *(the smile returns, sealed)* See me *clearly*, then. It costs you *nothing* and changes *less.* I have been *seen clearly* before. I simply *wrote down* the ones who did it.",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "ch.tallow_unmasked",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_smiles",
+          "speaker": "Goodman Tallow",
+          "text": "*(The smile doesn't budge. If anything it *deepens*, gently, the way you'd smile at a child who's guessed wrong.)* *Enjoy* it? *(mildly)* Goodness. What a *lurid* imagination you have, friend. *(he picks his pen back up)* I don't *enjoy* my work. I *perform* it. *Carefully.* *Kindly.* The way a *physician* sets a *bone* — it *hurts*, but the *hurting* isn't the *point*, only the *tidiness* after. *(he makes a small note)* You've reached for the *monster* under the *smile* and found — *(he shows you the warm, empty face)* — just a *man*, doing a *job*, *well.* *(softly)* That should *frighten* you *more*, not *less.* Monsters can be *slain*, friend. *Functionaries* just get *replaced.* Now — was there a *real* question? Or shall I write down that you *tried* to find my *soft* spot, and *missed?*",
+          "auto": "END"
+        },
+        {
+          "id": "tallow_cracked",
+          "speaker": "Goodman Tallow",
+          "text": "*(The smile holds — but his hand, reaching to lace his fingers, doesn't *quite* manage it on the first try, and he sees you see it.)* …You've been *busy*, this week. *(carefully, the warmth thinned)* I've *heard.* The river. The clerk in the Quarter. The — *(he wets his lips)* — the *thing* at the *Wall.* *(the smile is a held thing now, a thing requiring effort)* You understand I am not a *brave* man, friend. Brave men don't *watch.* Brave men *act*, and get *caught*, and get *filed.* I have survived by being the *least* memorable man in every *room.* *(quietly)* And you have just made me *memorable*, by *frightening* me where *others* can *see.* *(he sets his pen down precisely)* So. I will tell you what I'll *do*, since you've *cracked* me and we both *know* it: I will be *suddenly*, *conveniently* called *away* from my desk, before the Canon asks me to *confirm* things about you I would now *very* much rather *not* be on *record* having *known.* *(the smile flickers back, frail)* That's not *help.* It's *cowardice.* But cowardice *pointed your way* is the *best* a small man can *offer*, and I find — *gods help me — I'd rather not be in the room when she measures you.*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "ch.tallow_withdrawn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_unmoved",
+          "speaker": "Goodman Tallow",
+          "text": "*(He lets your threat wash over him and his smile never wavers, and that is its own kind of answer.)* *Worse* things, *very* afraid. *(he nods, pleasantly)* I'm *sure* you have, friend. *(he makes a small note)* But here is the *flaw* in *frightening* the smiling man: I am *already* afraid. *(he says it lightly)* I have been afraid every *day* of my *life* — of being *forgotten*, of being *measured*, of the *cold* in my *own* fingers I do *not* like to think about. *(the smile widens)* Fear is the *water* I *swim* in. You cannot *drown* a man in his *own element.* *(he resumes writing)* Threaten the *Canon*, by all means — *she* has things she's afraid to *lose.* *Power. Certainty.* A *quota.* *(softly)* Me? I lost *everything* worth threatening *decades* ago, and got a *pen* in exchange. *Filed* under *'volatile.'* Do mind how you go.",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "ch.tallow_flagged_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_intim_crit",
+          "speaker": "Goodman Tallow",
+          "text": "*(✦ You don't threaten his life — you threaten the *one* thing the small man cannot bear, and you find it with surgical, terrible precision: you promise him, softly, that you will make him *forgotten* again. That you will unmake every face that ever turned at his approach, and leave him exactly the invisible nothing the Choir found. And Goodman Tallow's smile does not crack — it *collapses*, all at once, like a house with its main beam pulled.)* *(He is on his feet, the chair clattering back, and his pleasant voice has gone to a thin scrape.)* —*no.* *(barely)* No, you — you *don't* — *(he's pawing papers into a satchel with shaking hands)* — you *can't* make me — I *was* nothing, you don't *understand* what it *was*, the *not-being-seen*, the *years* of it, like being *dead* while still — *(he's babbling now, the mask in ruins)* — I'll *go.* I'll *go*, I'll *withdraw* every *word*, I'll *burn* your *page* myself, I'll tell the Canon you were *never here*, just — *(he backs toward the door, clutching the satchel)* — *don't.* Don't *do* the — the *forgetting.* *Anything* but *that.* *(at the threshold, wrecked)* I'll *help* you. Gods *help* me, I'll *help* you, just let me *stay* someone people can *see.* *(and he flees, and the smile does not come back, and somewhere in the ruin of him is the small frightened man the Choir buried under it)*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "ch.tallow_broken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.tallow_withdrawn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.tallow_turns_informer",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_intim_fumble",
+          "speaker": "Goodman Tallow",
+          "text": "*(💀 You lean in to deliver the soul-chilling threat and, reaching for ominous, knock the smiling man's inkwell across his own ledger — a great black tide of it — and in lunging to save your *own* sleeve you headbutt the desk-lamp, so that your terrifying promise is delivered while cross-eyed and dripping ink, to a man watching his paperwork drown.)* *(Tallow blinks. Then, slowly, the smile returns — wider, and for the first time, *genuine.*)* …Oh, that's *wonderful.* *(he watches the ink spread, delighted)* Do you know, I haven't *laughed* — really *laughed* — in *years*, friend, and you've gone and *ruined* a *month's* filing and *christened* yourself *blue* doing it. *(he dabs at the ink, beaming)* I was *briefly* frightened of you. The *cold* on you. The *rumours.* And then you *fought* my *inkwell* and *lost.* *(he chuckles)* I'll tell the Canon you're *dangerous*, friend — I will — but I shall be *smiling* when I say it, and not, for *once*, on *purpose.* *(he hands you a blotting-cloth)* Your *face* is *blue.* It's *very* — it rather *undercuts* the *menace.* Do see to it before you meet *her.* She has *no* sense of *humour.* It's the *worst* thing about her. *Worse* than the *Wall.*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "ch.tallow_flagged_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_returned",
+          "speaker": "Goodman Tallow",
+          "text": "*(The smile freezes. And then — slowly, helplessly — his free hand drifts to his own other hand, and presses it, and you watch him *feel* for the first time the thing he has been refusing to feel: the cold, already in his fingers, exactly where you said.)* …The *draught.* *(a whisper)* It's — the *window* doesn't even — *(he looks at his own hands as if they belong to a stranger)* I've been telling myself it's the *draught off the river.* For — *(his voice fails)* — for *how* long have I been — *(he looks up at you, and the smile is gone, utterly gone, and what's left is a small terrified man who has just been told the date of his own arithmetic)* …a *thimble.* *(barely)* You can *see* it. How *little's* left. *(he laughs, and it's awful)* I spent it. Didn't I. A *name* at a *time.* Every soul I *filed*, I thought I was buying *safety* — *tithes*, *service*, *being useful* to the people who *measure* — and instead I was just — *(he presses his cold hands together)* — *spending myself* *faster*, to *feed* the thing that's *coming* for *me.* *(he stares at the great scale across the hall, at the Canon behind it, with dawning horror)* …She *knows.* Doesn't she. The Canon. She *knows* what this work *does* to the ones who *do* it, and she *spends* us *anyway*, because we're *cheaper* than *believers.* *(he looks at you, hollow)* …What do I *do.* You're the only soul who's ever told me *true.* The Wall's *cold* is in my *hands.* *What do I do?*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.tallow_sees_himself",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.tallow_turns_informer",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_crake",
+          "speaker": "Goodman Tallow",
+          "text": "*(He glances toward the cell, and the smile turns — almost wistful, which is the most unsettling thing it's done yet.)* *Crake.* *(softly)* Sixty years a gravedigger. *Unbought* — never had the coin for a god, spent it all on *ale* and *other people's funerals.* *(he laces his fingers)* That's *all* he *did*, friend. That's all *any* of them did. You keep *looking* for the *crime*, don't you — they *all* do, the meddlers — as if the Wall must be for *sinners*, as if there's a *reason* under it that would let you *sleep.* *(the smile is gentle and terrible)* There *isn't.* Crake is for the Wall because he is *old*, and *poor*, and *no god happened to want him*, and the *quota* needs *filling*, and he is the *path of least resistance* — no family to *raise* a fuss, no coin to *buy* a delay. *(quietly)* He's not a *sinner*, friend. He's a *line item.* *(he picks up his pen)* And do you know the *worst* of it? *He* knows. He went into that cell *laughing.* It's *us*, the ones with the *pens*, who can't *look* at it. *Crake* looks at it *fine.* *(the smile flickers)* …I rather *envy* him that. Isn't *that* a strange thing for the smiling man to *say.*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "ch.tallow_crake_truth",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_offer",
+          "speaker": "Goodman Tallow",
+          "text": "*(He brightens, leaning in with the warmth of a man recruiting an apprentice he's decided he likes.)* *Now* you're asking the *right* questions. *(confidentially)* What 'clarity' *earns*, friend — the ability to look at a *soul* and see a *line item*, to do the *necessary* thing without the *flinching* — is *advancement.* *Safety.* A *page* in the *good* ledger instead of the *projects* one. *(he spreads his hands)* You point out the *untidy*, you help *close* accounts, and the Choir *files you under 'friend'* — and friends of the Choir, friend, *die in beds*, with *coins on their eyes* and a *god's word* bought and *paid.* *(the smile widens)* What it *costs*… *(he pauses, and for a flicker the warmth shows its floor)* …is the part of you that *flinched.* You spend it, a *name* at a time, until you're — *(he catches himself)* — until you're *very* *good* at the *work.* *(he recovers)* But you *strike* me as someone who's *already* spent that part. The apple-girl, after all. *(he offers his hand)* So. Shall I tell the Canon she has a *new* friend? It's *warmer*, friend, on *this* side of the *scale.* *Much* warmer. While it *lasts.*",
+          "effects": [
+            {
+              "key": "ch.tallow.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.tallow_recruits_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tallow_leave",
+          "speaker": "Goodman Tallow",
+          "text": "*(He inclines his head, smiling, and picks his pen back up.)* Of course. *(pleasantly)* Go and see the *Canon.* Everyone does, *eventually* — it's rather the *point* of the room. *(he makes a small note as you turn)* I'll just — *write down* that you *went.* And *how* you *stood* when you went. And *what* your *hands* did. *(the smile follows you)* It's *nothing personal, friend. It's only that I* remember *faces, and yours is becoming* such *an interesting one.* *(softly, as you reach the scale)* …Do give the Canon my *regards.* And — *friend?* *(a beat)* Whatever she *offers* you, and she *will* offer — remember you met the *smiling man* first, and the smiling man *told* you what it *costs.* That's the *kindest* thing I've done in *years.* I do hope you'll note it in *your* ledger. I should *like*, just once, to be *remembered* for a *kindness.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "ch.mereth", "title": "The High Measurer", "npc": "Canon Mereth Vael", "start": "0",
+      "id": "ch.mereth",
+      "title": "The High Measurer",
+      "npc": "Canon Mereth Vael",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Canon Mereth Vael", "onEnter": [{ "key": "ch.met_mereth", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Canon Mereth Vael",
+          "onEnter": [
+            {
+              "key": "ch.met_mereth",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["lt.wall_stirs"] }, "text": "*(She closes the ledger and sets it aside, and for the first time looks up at you directly, and her composure is the composure of a fortress that has just heard the first sapper's pick against its foundation.)* …So. *(her voice is low, precise, controlled)* The soul who walked up to the Wall of the Faithless and made it *flinch.* *(she folds her hands on the brass scale)* I did not believe it. I *staked* a career on not believing it. The Wall does not *flinch* — that is the *first* premise of my entire *order*, the *fixed* point, the thing that makes the *measuring* mean anything. *(she studies you, and there is fear under the iron)* And then you walked up the *causeway*, past my *Measurer*, into my *counting-house*, carrying the *cold* of a thing that has been *inside the stone and come back out* — and every premise I have built my *life* on is sitting in this room *waiting* to find out if it's *true.* *(quietly)* So. We will talk, you and I. *Carefully.* Because one of us is about to learn that the *floor* of the world is not where they *thought* it was." },
-            { "when": { "flags": ["under.venn_revealed"] }, "text": "*(She marks her place in the ledger with one finger, and her cool grey eyes find you, and something in them sharpens to a blade.)* …You've a *name* in your mouth. *(softly)* I can see it sitting there. *(she closes the book)* There is only *one* name that walks a stranger past three of my watchers and into *this* room with their *chin* up like that, and it is *four hundred years old*, and it is supposed to be *buried* in the *third pier* of a bridge where *no one* who *finds* it ever lives to *say* it. *(she sets both hands flat on the scale)* *Aldous Venn.* *(she does not flinch from it; she is better than Tallow, better than Vharn, the genuine article)* You found the *founder's signature.* You know the crossing is a *machine* a *living hand* built. *(coolly)* Then you and I are past the *pleasantries*, and into the only conversation that has *ever* mattered in this room: not whether the Wall is *cruel* — of *course* it is cruel — but whether it is *necessary.* *Sit.* Convince me it is *not*, if you can. *Better* souls than you have *tried.*" },
-            { "when": { "flags": ["reed.choir_friend"] }, "text": "*(She regards you over the great scale with the cool, assessing approval of a senior official inspecting a promising recruit.)* Ah. *(she inclines her head a precise fraction)* The *helpful* one. Goodman Tallow speaks well of you; so does the ledger. *(she gestures to the chair across the scale)* You gave us the apple-girl without being *asked*, and asked only that the *books balance.* *(a thin, cold approval)* Do you know how *rare* that is? Most who *help* us *want* something — *coin*, *protection*, *revenge* on a *neighbour.* You wanted *tidiness.* *(she studies you)* That is either the mark of a *true* believer, or of someone *clever* enough to *wear* one. I should *like* to know which. *(she folds her hands)* Because the Choir has a *use*, and a *reward*, for *both* — but *very* different ones. Sit. Let us find out what you *are.*" },
-            { "text": "*(She does not rise, and does not stop reading, and lets the silence stretch exactly long enough to remind you whose room this is before she speaks.)* *(at last, without looking up)* You'll be the one my people keep *writing* about. *(she turns a page)* A watcher's note, a clerk's flag, a Measurer's *unease.* Small things. I read *all* the small things — that is the *whole* of my office. *(she finally raises her cool grey eyes to you)* I am Canon Mereth Vael, High Measurer of the Causeway. I keep the *flow.* I keep the Wall *fed* and the city *quiet* and the grief of ten thousand unclaimed souls *moving* in an *orderly* fashion through the *one* door the cosmos left for it. *(she sets down her pen)* And *you* have been *disordering* my causeway, soul. *Considerably.* *(coolly)* So. Before I decide what to *do* about you — tell me *why.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Canon Mereth Vael", "text": "*(She sits behind the great brass scale — the symbol of her whole order — with the stillness of someone who has won every argument that has ever been had in this room. The pans hang empty and level between you.)* I am *listening*, soul. That is more than most in my position would grant the thing that *spooked the Wall.* *(she folds her hands)* Make your *case*, or your *demand*, or your *peace.* But make it *well.* I have measured ten thousand souls, and I can tell, in a *sentence*, the difference between one who has *thought* about all this and one who merely *feels* about it. *(coolly)* The *feelers* I dismiss. The *thinkers* I *fear.* Show me which you are.",
+            {
+              "when": {
+                "flags": [
+                  "lt.wall_stirs"
+                ]
+              },
+              "text": "*(She closes the ledger and sets it aside, and for the first time looks up at you directly, and her composure is the composure of a fortress that has just heard the first sapper's pick against its foundation.)* …So. *(her voice is low, precise, controlled)* The soul who walked up to the Wall of the Faithless and made it *flinch.* *(she folds her hands on the brass scale)* I did not believe it. I *staked* a career on not believing it. The Wall does not *flinch* — that is the *first* premise of my entire *order*, the *fixed* point, the thing that makes the *measuring* mean anything. *(she studies you, and there is fear under the iron)* And then you walked up the *causeway*, past my *Measurer*, into my *counting-house*, carrying the *cold* of a thing that has been *inside the stone and come back out* — and every premise I have built my *life* on is sitting in this room *waiting* to find out if it's *true.* *(quietly)* So. We will talk, you and I. *Carefully.* Because one of us is about to learn that the *floor* of the world is not where they *thought* it was."
+            },
+            {
+              "when": {
+                "flags": [
+                  "under.venn_revealed"
+                ]
+              },
+              "text": "*(She marks her place in the ledger with one finger, and her cool grey eyes find you, and something in them sharpens to a blade.)* …You've a *name* in your mouth. *(softly)* I can see it sitting there. *(she closes the book)* There is only *one* name that walks a stranger past three of my watchers and into *this* room with their *chin* up like that, and it is *four hundred years old*, and it is supposed to be *buried* in the *third pier* of a bridge where *no one* who *finds* it ever lives to *say* it. *(she sets both hands flat on the scale)* *Aldous Venn.* *(she does not flinch from it; she is better than Tallow, better than Vharn, the genuine article)* You found the *founder's signature.* You know the crossing is a *machine* a *living hand* built. *(coolly)* Then you and I are past the *pleasantries*, and into the only conversation that has *ever* mattered in this room: not whether the Wall is *cruel* — of *course* it is cruel — but whether it is *necessary.* *Sit.* Convince me it is *not*, if you can. *Better* souls than you have *tried.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.choir_friend"
+                ]
+              },
+              "text": "*(She regards you over the great scale with the cool, assessing approval of a senior official inspecting a promising recruit.)* Ah. *(she inclines her head a precise fraction)* The *helpful* one. Goodman Tallow speaks well of you; so does the ledger. *(she gestures to the chair across the scale)* You gave us the apple-girl without being *asked*, and asked only that the *books balance.* *(a thin, cold approval)* Do you know how *rare* that is? Most who *help* us *want* something — *coin*, *protection*, *revenge* on a *neighbour.* You wanted *tidiness.* *(she studies you)* That is either the mark of a *true* believer, or of someone *clever* enough to *wear* one. I should *like* to know which. *(she folds her hands)* Because the Choir has a *use*, and a *reward*, for *both* — but *very* different ones. Sit. Let us find out what you *are.*"
+            },
+            {
+              "text": "*(She does not rise, and does not stop reading, and lets the silence stretch exactly long enough to remind you whose room this is before she speaks.)* *(at last, without looking up)* You'll be the one my people keep *writing* about. *(she turns a page)* A watcher's note, a clerk's flag, a Measurer's *unease.* Small things. I read *all* the small things — that is the *whole* of my office. *(she finally raises her cool grey eyes to you)* I am Canon Mereth Vael, High Measurer of the Causeway. I keep the *flow.* I keep the Wall *fed* and the city *quiet* and the grief of ten thousand unclaimed souls *moving* in an *orderly* fashion through the *one* door the cosmos left for it. *(she sets down her pen)* And *you* have been *disordering* my causeway, soul. *Considerably.* *(coolly)* So. Before I decide what to *do* about you — tell me *why.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She sits behind the great brass scale — the symbol of her whole order — with the stillness of someone who has won every argument that has ever been had in this room. The pans hang empty and level between you.)* I am *listening*, soul. That is more than most in my position would grant the thing that *spooked the Wall.* *(she folds her hands)* Make your *case*, or your *demand*, or your *peace.* But make it *well.* I have measured ten thousand souls, and I can tell, in a *sentence*, the difference between one who has *thought* about all this and one who merely *feels* about it. *(coolly)* The *feelers* I dismiss. The *thinkers* I *fear.* Show me which you are.",
           "choices": [
-            { "text": "[RELIGION] \"Aldous Venn was a *clerk*, Canon — not a god, not a prophet. He wove this crossing four hundred years ago to make grief *efficient* and *signed* it like a tax form. Your whole order isn't *holy.* It's *administration* with the serial numbers filed off. And Kelemvor never *signed* it. I can prove the Judge's court was *robbed.*\"", "when": { "flags": ["under.venn_revealed"] }, "next": "mereth_venn", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(lay it before her plain)* \"I walked up to your Wall and it got out of my way, Canon. Your first premise is *false.* The Wall is not the floor of the world, and it is not forever, and I am the *proof*, standing in your counting-house with the cold still on me. Everything you've built sits on a foundation I just watched *blink.*\"", "when": { "flags": ["lt.wall_stirs"] }, "next": "mereth_wall", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "[PERSUASION] \"You called it *necessary.* The unclaimed would suffer worse adrift, you tell yourself — better the Wall than the chaos. But I've *met* your line-items, Canon. Wren. Crake. A boy named Wick. A soul named Esuele, four centuries in your stone still calling for her mother. They are not *chaos.* They are *people*, and you have built a very *tidy* machine for *not having to know it.*\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 16 }, "next": "mereth_persuaded", "fail": "mereth_unmoved", "crit": "mereth_persuade_crit", "fumble": "mereth_persuade_fumble", "effects": [{ "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "[INSIGHT] \"You keep saying 'orderly.' 'Tidy.' 'The flow.' You've measured ten thousand souls and you've made *every one* of them an abstraction, because the day you let a single one be a *person* — really let it — the whole thing comes down, and *you* come down with it. You're not a believer, Canon. You're a woman who can't afford to *stop.*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 17 }, "next": "mereth_doubt", "fail": "mereth_cold" },
-            { "text": "*(let the High Measurer measure the one soul her scale can't weigh)* \"You want to know what I am? Weigh me. Go on — put me on your scale. I'm Returned, Canon. The Wall opened an account for me and I *closed it myself, from the inside.* What does a soul that *cancelled its own death* weigh? Your whole order is the answer to a question my *existence* just made *meaningless.*\"", "tag": "returned", "next": "mereth_returned", "effects": [{ "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if you came as the Choir's friend)* \"I didn't come to fight you, Canon. I came because Tallow's right — there's a place in this work for someone with clarity, and I'd rather hold a pen than be measured by one. Tell me what you need. Let's balance the books.\"", "when": { "flags": ["reed.choir_friend"] }, "next": "mereth_ally", "effects": [{ "key": "disp.ruthless", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(if a sworn blade stands at your back)* *(Dace sets her shoulders beside you, hand on her hilt, and the room's temperature drops)* \"This isn't a debate, Canon. This is the part where I tell you the causeway's measuring *stops*, today, and you decide whether that's a *negotiation* or a *fight* — with a Faithless sword in the room who's been *waiting ten years* for exactly this.\"", "when": { "flags": ["party.dace_recruited"] }, "next": "mereth_force", "effects": [{ "key": "disp.ruthless", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I've heard enough of this room. We'll speak again, Canon — when I'm holding more than questions.\" *(withdraw)*", "next": "mereth_leave" }
-          ] },
-        { "id": "mereth_venn", "speaker": "Canon Mereth Vael", "text": "*(She does not deny it. That is the first shock — she does not even *try.* She sits with the name between you, and when she speaks her voice has lost its lecturing cool and found something far more dangerous: candour.)* …*Aldous Venn.* *(quietly)* Yes. *(she meets your eyes)* You think you've found a *weapon*, soul. A *secret* that *unmakes* us. *(she shakes her head, slowly)* You've found our *founding minute.* I have *known* the crossing was Venn's work since the day I took this office — they *show* you, at the top; it is the Canon's *burden* to *know* the Wall is *administration* and serve it *anyway.* *(she leans forward)* Because here is the part your *clever* heresy skips: *it does not matter that a man built it.* The grief was *real.* The city *was* drowning in its unclaimed dead — *un-mourned*, *un-buried*, *un-judged*, piling at the gates of a court that could not *open* fast enough. Venn did not *invent* the horror. He *organized* it. *(her voice hardens)* You can prove the Judge's court was *robbed.* *Good.* Prove it. And then *stand* in the *flood* of *four hundred years* of *backlogged* dead with *no* machine to *move* them, and tell me your *justice* was worth the *chaos* it *loosed.* *(coolly)* I do not serve the Wall because I think it is *holy*, soul. I serve it because I have *seen* the *alternative*, and the alternative is *worse*, and *no one* — not *you*, not *Venn*, not the *Judge himself* — has ever shown me a *third* thing. *(a beat, and the fear shows through)* …Have *you?* Is *that* what you are? The *third thing?*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.mereth_candid", "op": "SetTrue" }, { "key": "ch.venn_confirmed", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_wall", "speaker": "Canon Mereth Vael", "text": "*(For a long moment she is utterly still. Then she rises — the first time she has moved — and walks to the great scale, and lays one hand flat on the cold brass, steadying herself on the symbol of her own office.)* …It *flinched.* *(barely)* You are *certain.* Not *hope*, not *madness*, not the *cold* playing *tricks* — it *moved* for you. *(she closes her eyes)* I have spent *thirty years*, soul, telling the *dying* that the Wall is *fixed*, *final*, the *one* certainty in an *uncertain* cosmos. It is the *kindest* thing I say. *'There is no appeal, so do not* torment *yourself with hope.'* *(she opens her eyes, and they are wet, and furious at being wet)* And you are telling me I have been administering *despair* to *ten thousand souls* on the strength of a premise that is *not even true.* *(her hand trembles on the brass)* Do you understand what you are *asking* me to have *been?* *(quietly, terribly)* If the Wall is *not* forever — if it *flinches* — then I am not a *Canon* keeping a *grim* but *necessary* order. I am a *jailer* who told the *innocent* their *cell* had *no door*, to keep them from *trying* it. *(she looks at you)* You have not brought me a *heresy*, soul. You have brought me the *worst* thing a true believer can *receive*: a *reason to check.* *(a long breath)* …And gods *help* me, I find I *have* to. Show me. *Show* me it flinched. I cannot *un-know* that you said it.",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.mereth_shaken", "op": "SetTrue" }, { "key": "ch.mereth_will_check", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_persuaded", "speaker": "Canon Mereth Vael", "text": "*(She listens to the names — Wren, Crake, Wick, Esuele — and something crosses her face that she has clearly spent thirty years *forbidding* it to do.)* …You *named* them. *(quietly)* That is *cheating*, soul, and you *know* it is cheating. *(she presses her fingers to the bridge of her nose)* The *first* thing they teach a Measurer is to *never* learn the *names.* A *name* is a *handle*; a handle lets a thing *pull* on you; and a Measurer who can be *pulled* on cannot *measure.* *(she lowers her hand)* So we make them *numbers.* *Quotas.* *Flow.* Not from *cruelty* — from *survival.* You cannot do this work and *hold* the names. It would *break* you. *(her voice drops)* It broke *Vharn*, I'm told — she came back from the river *changed.* It is *breaking* Hale at his torch. It even, in its small way, *hollowed* poor *Tallow.* *(she looks at you)* And you walk into my house and *hand* me *four* of them, *by name*, with their *fears* and their *mothers* and their *apples* — *(her composure cracks, just at the edge)* — because you *understand*, don't you, that the names are the *one* weapon my whole order has *no* defense against. *(quietly)* …Esuele. The weaver's girl. *(a long silence)* I *signed* that walk. *Twenty* years ago. I do not *remember* most of them. I remember *that* one, because the *mother* would not *stop* coming to this door. *(she meets your eyes, and the iron has a crack straight through it now)* What do you *want* of me, soul. *Truly.* Now that you've made me *hold* a name I *spent.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 3 }, { "key": "ch.mereth_named_them", "op": "SetTrue" }, { "key": "ch.mereth_cracked", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_unmoved", "speaker": "Canon Mereth Vael", "text": "*(She lets you finish, and her face has returned to its fixed, administrative calm, and that calm is the most frightening thing in the room.)* A *moving* speech. *(coolly)* Wren. Crake. The boy. *Names.* *(she folds her hands)* You think you are the *first* to bring me *names*, soul? They come to this door *every* week — the *mother*, the *brother*, the *lover* — and they *weep*, and they *name* their dead at me as though a *name* were an *argument.* *(she shakes her head)* It is not an argument. It is *grief*, and grief is *precisely* the *flood* my order exists to *channel.* *(she picks her pen back up)* If I *moved* every time someone *named* their dead, the Wall would *overflow* and the city would *drown* and there would be *more* grief, not *less.* *(she makes a small note)* I am *sorry* for Wren, and the boy, and the old man in my cell. I am *sorry* for *all* ten thousand. My *sorrow* changes *nothing*, because my sorrow is not *load-bearing.* The *system* is. *(coolly)* Bring me a *better system*, soul, or bring me *nothing.* *Names* I have. *Names* I have in their *thousands.* They are the one thing this office is *drowning* in already.",
-          "auto": "mereth_crux" },
-        { "id": "mereth_persuade_crit", "speaker": "Canon Mereth Vael", "text": "*(✦ You do not argue the system. You do something far more precise: you give her the names, yes — but you give them to her as *she* would, in her *own* grammar, as *entries* — and then you show her, line by line, that her *own* ledger, read *honestly*, does not balance. That the 'necessary' deaths exceed the 'chaos' prevented by a margin she has spent thirty years not *totalling.* You make the *bookkeeper* check the *book.* And Canon Mereth Vael, who has never lost an argument in this room, watches her own arithmetic *betray* her.)* *(She goes very still. Then, slowly, she pulls the great ledger toward her, and her eyes move down a column you cannot see, and her face — for the first time — goes *white.*)* …It doesn't *balance.* *(a whisper)* I — *(her pen hovers, shaking)* — I have *never* totalled it. *That* way. *(she looks up at you, and thirty years of certainty is simply *gone* from her eyes, leaving something raw and reeling)* You *clever* — you *terrible* — you made me *audit* my *own* order, in its *own* language, and it — *(she closes the book with a hand that trembles)* — the *flood* I prevented was *never* as large as the flood I *made.* I *rounded.* For *thirty years*, I *rounded* in the Wall's *favour*, because the *alternative* was *unbearable*, and I called the rounding *necessity.* *(she stands, unsteady, gripping the scale)* I cannot *un-see* a *sum*, soul. It is the *one* thing I was *built* not to be able to do. *(she looks at you, and it is almost *gratitude*, and almost *terror*)* …What have you *done* to me. I was *content* to be a *monster* who *balanced.* You have made me a monster who *doesn't*, and now I have to *do* something about it, and I do not *know how to be* anything *else.* *(quietly)* …Stay. Help me. I have *measured* ten thousand souls and I do not know how to *free* a *single* one, and you have apparently been doing *nothing else* all *week.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 5 }, { "key": "ch.mereth_audited", "op": "SetTrue" }, { "key": "ch.mereth_turns", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_persuade_fumble", "speaker": "Canon Mereth Vael", "text": "*(💀 You build to your great humanizing appeal — the names, the apples, the mother in the stone — and in your passion you reach for a flourish and *misname* the apple-girl, calling her, with ringing conviction, *'Apple.'* 'Her name was Apple, Canon.' There is a pause. The Canon's eyebrow rises a precise, devastating millimetre.)* *(coolly)* …Her name was *Apple.* *(she makes a small note)* The marked *fruit-girl*, *Apple.* *(she sets down her pen)* Soul, I have just watched you stake the *entire* moral weight of your *argument* on the *humanity* of a *specific person* whose *name* you *could not trouble to retain.* *(she folds her hands)* Do you see the *difficulty?* You are *here* to tell me I make people into *abstractions*, and you cannot *recall* the *abstraction's name.* *(a thin, cold smile — the first she's shown)* We are, it seems, *more* alike than you'd *like.* *(she returns to her ledger)* Come back when you can remember the *names* of the people you intend to *save me with.* It rather *undercuts* the *sermon* otherwise. *Wren*, incidentally. The girl's name was *Wren.* *(softly, returning to her work)* …You'll note I remembered. It's the *job.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": -1 }], "auto": "mereth_crux" },
-        { "id": "mereth_doubt", "speaker": "Canon Mereth Vael", "text": "*(The pen stops. For a long, long moment she does not move at all, and when she finally speaks, the lecturing voice is gone, and what's underneath is bedrock-tired.)* …'A woman who can't afford to stop.' *(very quietly)* Thirty years, soul. And no one has ever said it that *plainly.* *(she sets the pen down with great care)* They send me the *angry* ones, mostly. The *grieving*, the *heretics*, the *idealists* — and they all make the same *mistake*: they try to prove I am *cruel*, and *cruelty* I can *withstand*, because I *know* I am not cruel. I am *thorough.* *(she looks at her own hands)* But you have not called me *cruel.* You have called me *trapped.* And *that* — *(her voice catches)* — that I have *no* argument against, because it is simply *true.* *(she meets your eyes)* I worked it out *years* ago, soul. That if I let *one* of them be a *person*, the *whole* edifice falls, and the flood comes, and I with it. So I *stopped.* Stopped *letting* them be people. It was the *only* way to *keep going*, and *keeping going* was the only *good* I could *see.* *(quietly)* And now a *dead thing* walks into my house and names me *exactly*, and I find the *worst* part is not being *seen* — it is that being *seen* makes me *want to stop*, and I do not *know how*, and *stopping* might *kill* the very *order* that *prevents* the *flood.* *(she looks at you, and the High Measurer is, for the first time, just a tired woman at a desk)* …So. You *see* me, soul. *Now what.* You have *named* my *cage.* Have you the *first idea* how to *open* it? Because I have *measured* ten thousand souls, and I never once learned *that.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 3 }, { "key": "ch.mereth_named_cage", "op": "SetTrue" }, { "key": "ch.mereth_cracked", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_cold", "speaker": "Canon Mereth Vael", "text": "*(She regards you with the patient, faintly disappointed air of a teacher whose pupil has reached for a high shelf and missed.)* You reach for my *interior*, soul, and grasp at *shadows.* *(coolly)* 'Can't afford to stop.' *(she shakes her head)* I *can* stop. I *choose* not to. There is a difference, and the difference is the *whole* of my *vocation.* *(she folds her hands)* You *want* me to be *secretly* suffering — it is *comforting*, is it not, to believe the *administrator* of a *horror* must be *privately* in *torment.* It lets you imagine the horror is *unwilling.* *(a thin smile)* But I am *not* in torment, soul. I sleep *well.* I do *necessary* work and I do it *thoroughly* and I have made my *peace* with the *cost* — which is *more* than you can say, I think, for a soul who *flits* up and down my causeway *un-making* things and calling it *mercy* without once *counting* what your *mercy* will *cost* when the *flood* comes. *(she picks her pen back up)* Bring me a *better* reading of *me*, or a *better* reading of the *problem.* This one *missed.*",
-          "auto": "mereth_crux" },
-        { "id": "mereth_returned", "speaker": "Canon Mereth Vael", "text": "*(She looks at the empty pans of the great scale, and then at you, and slowly — deliberately, as a challenge, or a test, or a prayer she does not believe in — she lifts the brass scale and holds it out toward you across the desk.)* …*Weigh* you. *(quietly)* Very well. Let us *do* the *thing* my whole order is *for*, and let us do it to the *one* soul it was *never* meant to *measure.* *(she holds the scale steady)* Stand *still.* *(and the pans begin to move — and then *shudder* — and then the one that should weigh your soul drops *past* its stop, and *keeps* dropping, measuring a depth with no bottom, exactly as it did in Vharn's hand at the river, and Canon Mereth Vael watches the symbol of her entire life *fail* in her own hands, and does not look away.)* …There it is. *(barely a whisper)* The reading my order *cannot* take. *(she sets the scale down, slowly, and it hangs *wrong*, ruined, the pan still sinking)* A soul that *cancelled its own death.* An account that is *open* in a ledger that says it must be *closed forever.* *(she looks at you, and thirty years of certainty drains out of her face like water from a cracked basin)* You are not an *argument* against my order, soul. You are a *counterexample.* And a single *counterexample*, in any honest accounting, *unmakes* the *rule.* *(she grips the edge of the desk)* I have spent my *life* on a *premise*, and you are *standing* in my *counting-house* being the *proof* it was *false*, and I — *(her voice is very steady, which is worse than shaking)* — I am a *bookkeeper*, soul. Above *all* things. And a bookkeeper who is *shown* the books are *wrong* has *exactly* two choices: *burn* the proof — *(her eyes flick, just once, to where a guard would stand)* — or *re-keep the books.* *(a long, terrible silence)* …Sit down. I find I would rather *re-keep* them than *burn* the *only* honest entry I have *ever* been handed. *Tell* me how you got *out.* From the *beginning.* I am going to *need* to *write it down.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.mereth_counterexample", "op": "SetTrue" }, { "key": "ch.mereth_will_check", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_ally", "speaker": "Canon Mereth Vael", "text": "*(She studies you for a long moment, and then nods, slowly, with cool approval — though something behind her eyes weighs you even as she welcomes you.)* …*Practical.* *(she sets down her pen)* Good. The Choir has *enough* martyrs and *heretics*; what it *lacks* is *clear* souls who can do the *necessary* thing and *sleep.* *(she gestures to the chair)* Tallow was *right* about you, then. *(coolly)* I will be *plain*, since you value *plainness*: what I need is *exactly* what you've shown you can *do.* Souls *un-marked* by meddlers, *recovered.* Accounts *re-closed.* And the *occasional* — *(a precise pause)* — *meddler* of the *other* sort, the *idealist* kind, *quietly* removed from my causeway before they *spook* the *flow* the way *you* could have. *(she folds her hands)* The *reward* is *real*, soul — a *page* in the *good* ledger, a *bed* to die in, a *god's* word *bought* and *paid.* *(she watches you)* But understand what you'd be *choosing.* The work *spends* you. I have *watched* it spend *Tallow*, *Vharn*, *Hale* — a *name* at a *time*, until the *cold* finds your *fingers.* *(coolly)* I will not *lie* to a *useful* soul: you would be trading the *warmth* of the *living* side of this scale for the *certainty* of the *cold* one. *Most* take it. *(she offers the pen)* …The question, soul, is whether you are *clear* — or merely *cold* already. *Which?*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.mereth_offer_made", "op": "SetTrue" }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }], "auto": "mereth_crux" },
-        { "id": "mereth_force", "speaker": "Canon Mereth Vael", "text": "*(Her eyes move to the swordswoman at your shoulder — to the hand on the hilt, the readiness, the ten years of waiting in it — and she does not call for a guard, and she does not flinch. She simply sets down her pen and folds her hands, and meets the threat with the one weapon she has never had to use and has always had ready: perfect, unhurried calm.)* …A *blade.* In my *counting-house.* *(coolly)* How *direct.* *(she does not raise her voice)* Understand me, soul, and instruct your *sword* to understand me also: you may *certainly* kill me. I am one *woman*, and that is one *blade*, and I keep no guard I could not *outrun* — the *Choir's* power was never in its *muscle.* *(she leans back)* But the *measuring* does not *stop* because the *Measurer* stops. *I* am not the *machine.* I am its *current* face. Kill me, and a *new* Canon sits at this *scale* within the *month* — *less* tired than I, *less* cracked, *less* likely to ever *hear* the argument you walked in here *carrying.* *(she folds her hands)* You came to *stop* the measuring. *Steel* stops *me.* It does *not* stop the *measuring.* For *that* you need the thing your sword *cannot* cut: you need to make the *machine* itself *wrong* — and you need a *Canon* who'll *let* you. *(a long, level look)* …I am, as it happens, the *most* let-able Canon this office has had in *thirty years*, because you and your friends have spent a *week* making me *doubt.* *(coolly)* So. *Sheathe* the *argument-of-last-resort*, and make me the *better* one — or *spend* your *blade* and your *whole week's work* on a *corpse* that *changes nothing.* The *choice*, soul, is *yours.* But I'd have your *sword* know: I am *worth* more to you *talking* than *bleeding*, and I am the *first* thing in this house to *say* so *honestly.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.mereth_called_bluff", "op": "SetTrue" }, { "key": "ch.dace_stood_with_you", "op": "SetTrue" }], "auto": "mereth_crux" },
-        { "id": "mereth_crux", "speaker": "Canon Mereth Vael", "text": "*(She sits back, and for a moment the High Measurer and the cracked woman behind her look out at you with the same eyes, and the great scale hangs between you — level, or ruined, depending on how you came.)* So here we *are*, soul. The *crux* of it. *(quietly)* You did not come to my counting-house to *win* an *argument* — we are *past* arguments. You came because somewhere on my causeway you decided this *machine* should *end*, and I am the *nearest* lever to it. *(she folds her hands)* I will tell you the *truth* no Canon is *supposed* to say: I *cannot* end it. Not *alone*, not *today*, not from *this* chair — the Choir is *bigger* than its *current* face, and the *flood* it holds back is *real.* *(she meets your eyes)* But I can *crack* it. I can *lose* a ledger. *Mis-file* a quota. *Fail* to *notice* a marked soul *walking free.* I can be the *Canon* who *doubted*, at the *exact* moment a *Returned* gave the doubt *somewhere to go.* *(a long breath)* What I *need* from *you* — before I *spend* what's *left* of my *certainty* on a *dead thing's* word — is to know what you *mean* to *do* with the *crack* once I've *made* it. *(she waits)* *Tell* me, soul. Not the *sermon.* The *plan.* What happens to the *flood*, when the *Wall* comes *down?*",
+            {
+              "text": "[RELIGION] \"Aldous Venn was a *clerk*, Canon — not a god, not a prophet. He wove this crossing four hundred years ago to make grief *efficient* and *signed* it like a tax form. Your whole order isn't *holy.* It's *administration* with the serial numbers filed off. And Kelemvor never *signed* it. I can prove the Judge's court was *robbed.*\"",
+              "when": {
+                "flags": [
+                  "under.venn_revealed"
+                ]
+              },
+              "next": "mereth_venn",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(lay it before her plain)* \"I walked up to your Wall and it got out of my way, Canon. Your first premise is *false.* The Wall is not the floor of the world, and it is not forever, and I am the *proof*, standing in your counting-house with the cold still on me. Everything you've built sits on a foundation I just watched *blink.*\"",
+              "when": {
+                "flags": [
+                  "lt.wall_stirs"
+                ]
+              },
+              "next": "mereth_wall",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[PERSUASION] \"You called it *necessary.* The unclaimed would suffer worse adrift, you tell yourself — better the Wall than the chaos. But I've *met* your line-items, Canon. Wren. Crake. A boy named Wick. A soul named Esuele, four centuries in your stone still calling for her mother. They are not *chaos.* They are *people*, and you have built a very *tidy* machine for *not having to know it.*\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 16
+              },
+              "next": "mereth_persuaded",
+              "fail": "mereth_unmoved",
+              "crit": "mereth_persuade_crit",
+              "fumble": "mereth_persuade_fumble",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying 'orderly.' 'Tidy.' 'The flow.' You've measured ten thousand souls and you've made *every one* of them an abstraction, because the day you let a single one be a *person* — really let it — the whole thing comes down, and *you* come down with it. You're not a believer, Canon. You're a woman who can't afford to *stop.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 17
+              },
+              "next": "mereth_doubt",
+              "fail": "mereth_cold"
+            },
+            {
+              "text": "*(let the High Measurer measure the one soul her scale can't weigh)* \"You want to know what I am? Weigh me. Go on — put me on your scale. I'm Returned, Canon. The Wall opened an account for me and I *closed it myself, from the inside.* What does a soul that *cancelled its own death* weigh? Your whole order is the answer to a question my *existence* just made *meaningless.*\"",
+              "tag": "returned",
+              "next": "mereth_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if you came as the Choir's friend)* \"I didn't come to fight you, Canon. I came because Tallow's right — there's a place in this work for someone with clarity, and I'd rather hold a pen than be measured by one. Tell me what you need. Let's balance the books.\"",
+              "when": {
+                "flags": [
+                  "reed.choir_friend"
+                ]
+              },
+              "next": "mereth_ally",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if a sworn blade stands at your back)* *(Dace sets her shoulders beside you, hand on her hilt, and the room's temperature drops)* \"This isn't a debate, Canon. This is the part where I tell you the causeway's measuring *stops*, today, and you decide whether that's a *negotiation* or a *fight* — with a Faithless sword in the room who's been *waiting ten years* for exactly this.\"",
+              "when": {
+                "flags": [
+                  "party.dace_recruited"
+                ]
+              },
+              "next": "mereth_force",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I've heard enough of this room. We'll speak again, Canon — when I'm holding more than questions.\" *(withdraw)*",
+              "next": "mereth_leave"
+            }
+          ]
+        },
+        {
+          "id": "mereth_venn",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She does not deny it. That is the first shock — she does not even *try.* She sits with the name between you, and when she speaks her voice has lost its lecturing cool and found something far more dangerous: candour.)* …*Aldous Venn.* *(quietly)* Yes. *(she meets your eyes)* You think you've found a *weapon*, soul. A *secret* that *unmakes* us. *(she shakes her head, slowly)* You've found our *founding minute.* I have *known* the crossing was Venn's work since the day I took this office — they *show* you, at the top; it is the Canon's *burden* to *know* the Wall is *administration* and serve it *anyway.* *(she leans forward)* Because here is the part your *clever* heresy skips: *it does not matter that a man built it.* The grief was *real.* The city *was* drowning in its unclaimed dead — *un-mourned*, *un-buried*, *un-judged*, piling at the gates of a court that could not *open* fast enough. Venn did not *invent* the horror. He *organized* it. *(her voice hardens)* You can prove the Judge's court was *robbed.* *Good.* Prove it. And then *stand* in the *flood* of *four hundred years* of *backlogged* dead with *no* machine to *move* them, and tell me your *justice* was worth the *chaos* it *loosed.* *(coolly)* I do not serve the Wall because I think it is *holy*, soul. I serve it because I have *seen* the *alternative*, and the alternative is *worse*, and *no one* — not *you*, not *Venn*, not the *Judge himself* — has ever shown me a *third* thing. *(a beat, and the fear shows through)* …Have *you?* Is *that* what you are? The *third thing?*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.mereth_candid",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.venn_confirmed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_wall",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(For a long moment she is utterly still. Then she rises — the first time she has moved — and walks to the great scale, and lays one hand flat on the cold brass, steadying herself on the symbol of her own office.)* …It *flinched.* *(barely)* You are *certain.* Not *hope*, not *madness*, not the *cold* playing *tricks* — it *moved* for you. *(she closes her eyes)* I have spent *thirty years*, soul, telling the *dying* that the Wall is *fixed*, *final*, the *one* certainty in an *uncertain* cosmos. It is the *kindest* thing I say. *'There is no appeal, so do not* torment *yourself with hope.'* *(she opens her eyes, and they are wet, and furious at being wet)* And you are telling me I have been administering *despair* to *ten thousand souls* on the strength of a premise that is *not even true.* *(her hand trembles on the brass)* Do you understand what you are *asking* me to have *been?* *(quietly, terribly)* If the Wall is *not* forever — if it *flinches* — then I am not a *Canon* keeping a *grim* but *necessary* order. I am a *jailer* who told the *innocent* their *cell* had *no door*, to keep them from *trying* it. *(she looks at you)* You have not brought me a *heresy*, soul. You have brought me the *worst* thing a true believer can *receive*: a *reason to check.* *(a long breath)* …And gods *help* me, I find I *have* to. Show me. *Show* me it flinched. I cannot *un-know* that you said it.",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.mereth_shaken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.mereth_will_check",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_persuaded",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She listens to the names — Wren, Crake, Wick, Esuele — and something crosses her face that she has clearly spent thirty years *forbidding* it to do.)* …You *named* them. *(quietly)* That is *cheating*, soul, and you *know* it is cheating. *(she presses her fingers to the bridge of her nose)* The *first* thing they teach a Measurer is to *never* learn the *names.* A *name* is a *handle*; a handle lets a thing *pull* on you; and a Measurer who can be *pulled* on cannot *measure.* *(she lowers her hand)* So we make them *numbers.* *Quotas.* *Flow.* Not from *cruelty* — from *survival.* You cannot do this work and *hold* the names. It would *break* you. *(her voice drops)* It broke *Vharn*, I'm told — she came back from the river *changed.* It is *breaking* Hale at his torch. It even, in its small way, *hollowed* poor *Tallow.* *(she looks at you)* And you walk into my house and *hand* me *four* of them, *by name*, with their *fears* and their *mothers* and their *apples* — *(her composure cracks, just at the edge)* — because you *understand*, don't you, that the names are the *one* weapon my whole order has *no* defense against. *(quietly)* …Esuele. The weaver's girl. *(a long silence)* I *signed* that walk. *Twenty* years ago. I do not *remember* most of them. I remember *that* one, because the *mother* would not *stop* coming to this door. *(she meets your eyes, and the iron has a crack straight through it now)* What do you *want* of me, soul. *Truly.* Now that you've made me *hold* a name I *spent.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "ch.mereth_named_them",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.mereth_cracked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_unmoved",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She lets you finish, and her face has returned to its fixed, administrative calm, and that calm is the most frightening thing in the room.)* A *moving* speech. *(coolly)* Wren. Crake. The boy. *Names.* *(she folds her hands)* You think you are the *first* to bring me *names*, soul? They come to this door *every* week — the *mother*, the *brother*, the *lover* — and they *weep*, and they *name* their dead at me as though a *name* were an *argument.* *(she shakes her head)* It is not an argument. It is *grief*, and grief is *precisely* the *flood* my order exists to *channel.* *(she picks her pen back up)* If I *moved* every time someone *named* their dead, the Wall would *overflow* and the city would *drown* and there would be *more* grief, not *less.* *(she makes a small note)* I am *sorry* for Wren, and the boy, and the old man in my cell. I am *sorry* for *all* ten thousand. My *sorrow* changes *nothing*, because my sorrow is not *load-bearing.* The *system* is. *(coolly)* Bring me a *better system*, soul, or bring me *nothing.* *Names* I have. *Names* I have in their *thousands.* They are the one thing this office is *drowning* in already.",
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_persuade_crit",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(✦ You do not argue the system. You do something far more precise: you give her the names, yes — but you give them to her as *she* would, in her *own* grammar, as *entries* — and then you show her, line by line, that her *own* ledger, read *honestly*, does not balance. That the 'necessary' deaths exceed the 'chaos' prevented by a margin she has spent thirty years not *totalling.* You make the *bookkeeper* check the *book.* And Canon Mereth Vael, who has never lost an argument in this room, watches her own arithmetic *betray* her.)* *(She goes very still. Then, slowly, she pulls the great ledger toward her, and her eyes move down a column you cannot see, and her face — for the first time — goes *white.*)* …It doesn't *balance.* *(a whisper)* I — *(her pen hovers, shaking)* — I have *never* totalled it. *That* way. *(she looks up at you, and thirty years of certainty is simply *gone* from her eyes, leaving something raw and reeling)* You *clever* — you *terrible* — you made me *audit* my *own* order, in its *own* language, and it — *(she closes the book with a hand that trembles)* — the *flood* I prevented was *never* as large as the flood I *made.* I *rounded.* For *thirty years*, I *rounded* in the Wall's *favour*, because the *alternative* was *unbearable*, and I called the rounding *necessity.* *(she stands, unsteady, gripping the scale)* I cannot *un-see* a *sum*, soul. It is the *one* thing I was *built* not to be able to do. *(she looks at you, and it is almost *gratitude*, and almost *terror*)* …What have you *done* to me. I was *content* to be a *monster* who *balanced.* You have made me a monster who *doesn't*, and now I have to *do* something about it, and I do not *know how to be* anything *else.* *(quietly)* …Stay. Help me. I have *measured* ten thousand souls and I do not know how to *free* a *single* one, and you have apparently been doing *nothing else* all *week.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "ch.mereth_audited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.mereth_turns",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_persuade_fumble",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(💀 You build to your great humanizing appeal — the names, the apples, the mother in the stone — and in your passion you reach for a flourish and *misname* the apple-girl, calling her, with ringing conviction, *'Apple.'* 'Her name was Apple, Canon.' There is a pause. The Canon's eyebrow rises a precise, devastating millimetre.)* *(coolly)* …Her name was *Apple.* *(she makes a small note)* The marked *fruit-girl*, *Apple.* *(she sets down her pen)* Soul, I have just watched you stake the *entire* moral weight of your *argument* on the *humanity* of a *specific person* whose *name* you *could not trouble to retain.* *(she folds her hands)* Do you see the *difficulty?* You are *here* to tell me I make people into *abstractions*, and you cannot *recall* the *abstraction's name.* *(a thin, cold smile — the first she's shown)* We are, it seems, *more* alike than you'd *like.* *(she returns to her ledger)* Come back when you can remember the *names* of the people you intend to *save me with.* It rather *undercuts* the *sermon* otherwise. *Wren*, incidentally. The girl's name was *Wren.* *(softly, returning to her work)* …You'll note I remembered. It's the *job.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_doubt",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(The pen stops. For a long, long moment she does not move at all, and when she finally speaks, the lecturing voice is gone, and what's underneath is bedrock-tired.)* …'A woman who can't afford to stop.' *(very quietly)* Thirty years, soul. And no one has ever said it that *plainly.* *(she sets the pen down with great care)* They send me the *angry* ones, mostly. The *grieving*, the *heretics*, the *idealists* — and they all make the same *mistake*: they try to prove I am *cruel*, and *cruelty* I can *withstand*, because I *know* I am not cruel. I am *thorough.* *(she looks at her own hands)* But you have not called me *cruel.* You have called me *trapped.* And *that* — *(her voice catches)* — that I have *no* argument against, because it is simply *true.* *(she meets your eyes)* I worked it out *years* ago, soul. That if I let *one* of them be a *person*, the *whole* edifice falls, and the flood comes, and I with it. So I *stopped.* Stopped *letting* them be people. It was the *only* way to *keep going*, and *keeping going* was the only *good* I could *see.* *(quietly)* And now a *dead thing* walks into my house and names me *exactly*, and I find the *worst* part is not being *seen* — it is that being *seen* makes me *want to stop*, and I do not *know how*, and *stopping* might *kill* the very *order* that *prevents* the *flood.* *(she looks at you, and the High Measurer is, for the first time, just a tired woman at a desk)* …So. You *see* me, soul. *Now what.* You have *named* my *cage.* Have you the *first idea* how to *open* it? Because I have *measured* ten thousand souls, and I never once learned *that.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "ch.mereth_named_cage",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.mereth_cracked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_cold",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She regards you with the patient, faintly disappointed air of a teacher whose pupil has reached for a high shelf and missed.)* You reach for my *interior*, soul, and grasp at *shadows.* *(coolly)* 'Can't afford to stop.' *(she shakes her head)* I *can* stop. I *choose* not to. There is a difference, and the difference is the *whole* of my *vocation.* *(she folds her hands)* You *want* me to be *secretly* suffering — it is *comforting*, is it not, to believe the *administrator* of a *horror* must be *privately* in *torment.* It lets you imagine the horror is *unwilling.* *(a thin smile)* But I am *not* in torment, soul. I sleep *well.* I do *necessary* work and I do it *thoroughly* and I have made my *peace* with the *cost* — which is *more* than you can say, I think, for a soul who *flits* up and down my causeway *un-making* things and calling it *mercy* without once *counting* what your *mercy* will *cost* when the *flood* comes. *(she picks her pen back up)* Bring me a *better* reading of *me*, or a *better* reading of the *problem.* This one *missed.*",
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_returned",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She looks at the empty pans of the great scale, and then at you, and slowly — deliberately, as a challenge, or a test, or a prayer she does not believe in — she lifts the brass scale and holds it out toward you across the desk.)* …*Weigh* you. *(quietly)* Very well. Let us *do* the *thing* my whole order is *for*, and let us do it to the *one* soul it was *never* meant to *measure.* *(she holds the scale steady)* Stand *still.* *(and the pans begin to move — and then *shudder* — and then the one that should weigh your soul drops *past* its stop, and *keeps* dropping, measuring a depth with no bottom, exactly as it did in Vharn's hand at the river, and Canon Mereth Vael watches the symbol of her entire life *fail* in her own hands, and does not look away.)* …There it is. *(barely a whisper)* The reading my order *cannot* take. *(she sets the scale down, slowly, and it hangs *wrong*, ruined, the pan still sinking)* A soul that *cancelled its own death.* An account that is *open* in a ledger that says it must be *closed forever.* *(she looks at you, and thirty years of certainty drains out of her face like water from a cracked basin)* You are not an *argument* against my order, soul. You are a *counterexample.* And a single *counterexample*, in any honest accounting, *unmakes* the *rule.* *(she grips the edge of the desk)* I have spent my *life* on a *premise*, and you are *standing* in my *counting-house* being the *proof* it was *false*, and I — *(her voice is very steady, which is worse than shaking)* — I am a *bookkeeper*, soul. Above *all* things. And a bookkeeper who is *shown* the books are *wrong* has *exactly* two choices: *burn* the proof — *(her eyes flick, just once, to where a guard would stand)* — or *re-keep the books.* *(a long, terrible silence)* …Sit down. I find I would rather *re-keep* them than *burn* the *only* honest entry I have *ever* been handed. *Tell* me how you got *out.* From the *beginning.* I am going to *need* to *write it down.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.mereth_counterexample",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.mereth_will_check",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_ally",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She studies you for a long moment, and then nods, slowly, with cool approval — though something behind her eyes weighs you even as she welcomes you.)* …*Practical.* *(she sets down her pen)* Good. The Choir has *enough* martyrs and *heretics*; what it *lacks* is *clear* souls who can do the *necessary* thing and *sleep.* *(she gestures to the chair)* Tallow was *right* about you, then. *(coolly)* I will be *plain*, since you value *plainness*: what I need is *exactly* what you've shown you can *do.* Souls *un-marked* by meddlers, *recovered.* Accounts *re-closed.* And the *occasional* — *(a precise pause)* — *meddler* of the *other* sort, the *idealist* kind, *quietly* removed from my causeway before they *spook* the *flow* the way *you* could have. *(she folds her hands)* The *reward* is *real*, soul — a *page* in the *good* ledger, a *bed* to die in, a *god's* word *bought* and *paid.* *(she watches you)* But understand what you'd be *choosing.* The work *spends* you. I have *watched* it spend *Tallow*, *Vharn*, *Hale* — a *name* at a *time*, until the *cold* finds your *fingers.* *(coolly)* I will not *lie* to a *useful* soul: you would be trading the *warmth* of the *living* side of this scale for the *certainty* of the *cold* one. *Most* take it. *(she offers the pen)* …The question, soul, is whether you are *clear* — or merely *cold* already. *Which?*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.mereth_offer_made",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_force",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(Her eyes move to the swordswoman at your shoulder — to the hand on the hilt, the readiness, the ten years of waiting in it — and she does not call for a guard, and she does not flinch. She simply sets down her pen and folds her hands, and meets the threat with the one weapon she has never had to use and has always had ready: perfect, unhurried calm.)* …A *blade.* In my *counting-house.* *(coolly)* How *direct.* *(she does not raise her voice)* Understand me, soul, and instruct your *sword* to understand me also: you may *certainly* kill me. I am one *woman*, and that is one *blade*, and I keep no guard I could not *outrun* — the *Choir's* power was never in its *muscle.* *(she leans back)* But the *measuring* does not *stop* because the *Measurer* stops. *I* am not the *machine.* I am its *current* face. Kill me, and a *new* Canon sits at this *scale* within the *month* — *less* tired than I, *less* cracked, *less* likely to ever *hear* the argument you walked in here *carrying.* *(she folds her hands)* You came to *stop* the measuring. *Steel* stops *me.* It does *not* stop the *measuring.* For *that* you need the thing your sword *cannot* cut: you need to make the *machine* itself *wrong* — and you need a *Canon* who'll *let* you. *(a long, level look)* …I am, as it happens, the *most* let-able Canon this office has had in *thirty years*, because you and your friends have spent a *week* making me *doubt.* *(coolly)* So. *Sheathe* the *argument-of-last-resort*, and make me the *better* one — or *spend* your *blade* and your *whole week's work* on a *corpse* that *changes nothing.* The *choice*, soul, is *yours.* But I'd have your *sword* know: I am *worth* more to you *talking* than *bleeding*, and I am the *first* thing in this house to *say* so *honestly.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "ch.mereth_called_bluff",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.dace_stood_with_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "mereth_crux"
+        },
+        {
+          "id": "mereth_crux",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She sits back, and for a moment the High Measurer and the cracked woman behind her look out at you with the same eyes, and the great scale hangs between you — level, or ruined, depending on how you came.)* So here we *are*, soul. The *crux* of it. *(quietly)* You did not come to my counting-house to *win* an *argument* — we are *past* arguments. You came because somewhere on my causeway you decided this *machine* should *end*, and I am the *nearest* lever to it. *(she folds her hands)* I will tell you the *truth* no Canon is *supposed* to say: I *cannot* end it. Not *alone*, not *today*, not from *this* chair — the Choir is *bigger* than its *current* face, and the *flood* it holds back is *real.* *(she meets your eyes)* But I can *crack* it. I can *lose* a ledger. *Mis-file* a quota. *Fail* to *notice* a marked soul *walking free.* I can be the *Canon* who *doubted*, at the *exact* moment a *Returned* gave the doubt *somewhere to go.* *(a long breath)* What I *need* from *you* — before I *spend* what's *left* of my *certainty* on a *dead thing's* word — is to know what you *mean* to *do* with the *crack* once I've *made* it. *(she waits)* *Tell* me, soul. Not the *sermon.* The *plan.* What happens to the *flood*, when the *Wall* comes *down?*",
           "choices": [
-            { "text": "\"We don't tear it down in a day — we open the *appeal.* Esuele said it: the Wall holds no sinners, only a four-hundred-year backlog the Judge's court never heard. We force the hearing. Soul by soul, lawfully, until the Wall empties because every name in it *wins.* You don't burn your machine, Canon. You make it *process the appeals it skipped.*\"", "next": "mereth_appeal", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 3 }, { "key": "ch.path_appeal", "op": "SetTrue" }, { "key": "disp.devout", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"We cut Venn's signature. The Knotwife kept the unpicking-pattern her whole blind life. The crossing is a *working* a living hand tied — and a living hand, with the right thread and a soul that goes both ways, can *untie* it. The machine doesn't get *reformed*, Canon. It gets *unmade*, at the knot.\"", "when": { "flags": ["under.unpicking_pattern"] }, "next": "mereth_unpick", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 3 }, { "key": "ch.path_unpick", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"I don't have the whole plan yet, Canon — and I won't lie to you that I do, because you'd hear it, and because you've earned one person in this room who doesn't. But I have a Returned's sight, a weaver's pattern, a soul in the stone who'll testify, and a Canon who'll doubt. That's how every impossible thing starts. Crack it, and walk the rest with me.\"", "next": "mereth_trust", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 2 }, { "key": "ch.path_together", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(coldly)* \"The flood is not my problem, Canon. The *Wall* is. Crack it, and let the chaos fall where it falls — better ten thousand freed into chaos than ten thousand filed into nothing. You wanted a plan. *That's* the plan: I stop counting the cost. You taught me the trick yourself.\"", "next": "mereth_chaos", "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": -1 }, { "key": "ch.path_chaos", "op": "SetTrue" }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }] }
-          ] },
-        { "id": "mereth_appeal", "speaker": "Canon Mereth Vael", "text": "*(She is silent for a long moment, and then something happens to her face that you suspect has not happened in thirty years: it *opens.*)* …The *appeal.* *(slowly)* You would not *break* the machine. You would *force* it to do the *one* thing it was *built* to *skip* — the *hearing.* *(she pulls the great ledger toward her, and now there is something almost like *hunger* in it)* Do you *understand* what you are *handing* me, soul? A way to *end* this that does not require me to have been a *monster* — only a clerk who *processed the backlog at last.* *(her hands move over the book)* I can *work* with an *appeal.* An appeal has *forms.* *Procedures.* A Canon who *files* ten thousand *appeals* is not a *traitor* — she is *thorough*, she is *doing her job*, she is *impossible to simply replace* because the *paperwork* is *real* and *correct* and *in her hand.* *(she looks up, and her eyes are bright)* You have given the *bookkeeper* a way to *free* the *prisoners* *using the keys she already holds.* *(quietly, fiercely)* I will lose the *first* ledger *tonight.* Esuele's. The weaver's girl. We will *test* the *appeal* on the name I have *carried* for *twenty years*, and if the Judge's court *hears* her — *(she stands, and offers you not the pen, but her *hand*)* — then the *Wall of the Faithless* has a *crack* in it shaped like a *filing procedure*, and I, *gods* help me, am going to spend the *rest* of my *thorough* life *widening* it. *Together*, soul. You found the *door.* I *keep* the *keys.* Let us *open* it *properly.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.mereth_allied", "op": "SetTrue" }, { "key": "ch.appeal_begins", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.devout", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mereth_unpick", "speaker": "Canon Mereth Vael", "text": "*(At the words *unpicking-pattern* her breath catches, and she rises slowly from behind the scale.)* …The *weaver* kept it. *(quietly)* After all this *time.* I *signed* the order that *blinded* her, soul — did you *know* that? *(she does not look away from it)* 'An accident of the loom.' I *wrote* those words. To keep two weavers from *cutting* the *very* knot you are *offering* to cut *now.* *(she comes around the scale)* So you will *understand* the *weight* of it when I say: *good.* *(fiercely, quietly)* Cut it. *Cut Venn's name out of the bridge.* The *appeal* would take *years*, and *years* are what the *dead* do not *have* — Esuele is *thimblefuls* from *gone.* But the *knot*— *(her hands move as if she could already see the thread)* —the *knot* is *one* cut. *One.* And it brings the *whole* working *down* at *once*, every *measured* soul *un-filed* in a *breath.* *(she grips your arm)* It is *reckless*, and it is *catastrophic*, and the *flood* will be *real* and I will spend what's *left* of me *drowning* in the *paperwork* of *ten thousand* souls coming *unfiled* with *nowhere to go* — *(a fierce, reckless light)* — and I find, soul, that after *thirty years* of *tidiness*, I should *like*, *once*, before the *cold* takes *my* fingers too, to do *one* enormous, *untidy*, *merciful* thing. *(she releases you)* Bring the weaver's pattern to the *third pier.* I will make *certain* no Measurer *stops* you. *Cut* the knot. And may the *flood*, when it comes, *drown the right people* for once.",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.mereth_allied", "op": "SetTrue" }, { "key": "ch.unpick_sanctioned", "op": "SetTrue" }, { "key": "act1.heresy_learned", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mereth_trust", "speaker": "Canon Mereth Vael", "text": "*(She studies you a long moment — the soul who walked into the lion's house and *admitted* it had no finished plan — and slowly, incredibly, the corner of her mouth moves.)* …You *don't* know. *(quietly)* And you *said* so. *(she shakes her head, something like wonder in it)* Do you know how *long* it has been, soul, since someone stood at this scale and did not *pretend* to a *certainty* they *lacked?* They *all* pretend. The *heretics* most of *all* — they *must* have the *whole* answer, or the *fear* shows. *(she folds her hands)* But you have a *Returned's* sight, and a *weaver's* pattern, and a *soul in the stone* who will *testify*, and *now* a *cracked* Canon — and you *named* them *honestly*, as *pieces*, not a *finished* engine. *(quietly)* That is not the talk of a *zealot*, soul. It is the talk of someone who means to *actually* do an *impossible* thing, and knows that *impossible* things are *assembled*, not *declared.* *(she rises)* …I have spent *thirty years* serving a *finished* certainty. I find I would *rather* spend what's *left* helping *build* an *unfinished* mercy. *(she extends her hand)* Crack it I *shall*, soul. And I will walk the *unfinished* rest *with* you — *carefully*, *thoroughly*, the way I do *everything* — because a *plan* assembled by an *honest* fool and a *thorough* monster is, I begin to suspect, *exactly* the sort of thing that *brings down Walls.* *(a thin, real smile)* Where do we *begin?*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 4 }, { "key": "ch.mereth_allied", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mereth_chaos", "speaker": "Canon Mereth Vael", "text": "*(The warmth that had been growing in her face cools, slowly, and she regards you with a flat, sorrowful recognition.)* …'I stop counting the cost.' *(quietly)* 'You taught me the trick yourself.' *(she sets down her pen)* I did. And it is the *one* thing I *hoped* you had *not* learned from me. *(she folds her hands)* You think you are *threatening* the Wall, soul. You are *quoting* it. *'Better ten thousand into chaos than filed into nothing'* is the *exact* shape of *'better ten thousand filed than the city drowned'* — you have simply *flipped* the *sign* and kept the *arithmetic.* *(coolly)* You would *free* them the way I *filed* them: by deciding the *flood* is *acceptable* as long as *you* are not the one who has to *count* the *drowned.* *(a long silence)* …I will still *crack* it for you. *(quietly)* Gods help me, I am *cracked* enough that I *will.* But I had *hoped* — *foolishly* — that the soul who *unmade* my certainty would be *better* than the certainty. *(she looks at you, tired)* Be *careful*, Returned. The Wall is not the only thing on this causeway that *turns* people into *what it guards.* I should *know.* I am *looking* at the *next* one. *(she pushes a ledger toward you)* Take it. *Lose* it where you *like.* And mind the *cost* you've *stopped counting* does not, in the *end*, count *you.*",
-          "effects": [{ "key": "ch.mereth.regard", "op": "AddInt", "amount": 1 }, { "key": "ch.mereth_allied_wary", "op": "SetTrue" }, { "key": "ch.path_chaos", "op": "SetTrue" }, { "key": "disp.ruthless", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "mereth_leave", "speaker": "Canon Mereth Vael", "text": "*(She inclines her head, and returns, unhurried, to her ledger — but you feel her cool grey eyes track you the whole way to the door.)* As you wish, soul. *(she turns a page)* Go and gather your *more-than-questions.* I will be *here.* I am *always* here — that is the *nature* of the *office*, and the *curse* of it. *(quietly, not looking up)* But know that you have *cost* me something today, walking in here and being *what you are.* A *certainty.* I had *exactly* one, and it was *load-bearing*, and you have *cracked* it, and now I shall sit at this scale and *feel* it *spread* — *(she dips her pen)* — and when you *come back*, soul, with your *pattern* and your *plan* and your *terrible* dead-cold *sight*, you will find a Canon who has had *time* to *decide* whether a *cracked* certainty is a thing to be *repaired* — *(a beat)* — or *finished.* *(she looks up, once, cool and unreadable)* …Do *come* back. I find I *very* much need to know how this *audits.* For the *first* time in *thirty years*, I do not know how the *book* will *balance.* It is the *most alive* I have felt since I *took* this *chair.*",
-          "auto": "END" }
+            {
+              "text": "\"We don't tear it down in a day — we open the *appeal.* Esuele said it: the Wall holds no sinners, only a four-hundred-year backlog the Judge's court never heard. We force the hearing. Soul by soul, lawfully, until the Wall empties because every name in it *wins.* You don't burn your machine, Canon. You make it *process the appeals it skipped.*\"",
+              "next": "mereth_appeal",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "ch.path_appeal",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.devout",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"We cut Venn's signature. The Knotwife kept the unpicking-pattern her whole blind life. The crossing is a *working* a living hand tied — and a living hand, with the right thread and a soul that goes both ways, can *untie* it. The machine doesn't get *reformed*, Canon. It gets *unmade*, at the knot.\"",
+              "when": {
+                "flags": [
+                  "under.unpicking_pattern"
+                ]
+              },
+              "next": "mereth_unpick",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "ch.path_unpick",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I don't have the whole plan yet, Canon — and I won't lie to you that I do, because you'd hear it, and because you've earned one person in this room who doesn't. But I have a Returned's sight, a weaver's pattern, a soul in the stone who'll testify, and a Canon who'll doubt. That's how every impossible thing starts. Crack it, and walk the rest with me.\"",
+              "next": "mereth_trust",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "ch.path_together",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(coldly)* \"The flood is not my problem, Canon. The *Wall* is. Crack it, and let the chaos fall where it falls — better ten thousand freed into chaos than ten thousand filed into nothing. You wanted a plan. *That's* the plan: I stop counting the cost. You taught me the trick yourself.\"",
+              "next": "mereth_chaos",
+              "effects": [
+                {
+                  "key": "ch.mereth.regard",
+                  "op": "AddInt",
+                  "amount": -1
+                },
+                {
+                  "key": "ch.path_chaos",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mereth_appeal",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She is silent for a long moment, and then something happens to her face that you suspect has not happened in thirty years: it *opens.*)* …The *appeal.* *(slowly)* You would not *break* the machine. You would *force* it to do the *one* thing it was *built* to *skip* — the *hearing.* *(she pulls the great ledger toward her, and now there is something almost like *hunger* in it)* Do you *understand* what you are *handing* me, soul? A way to *end* this that does not require me to have been a *monster* — only a clerk who *processed the backlog at last.* *(her hands move over the book)* I can *work* with an *appeal.* An appeal has *forms.* *Procedures.* A Canon who *files* ten thousand *appeals* is not a *traitor* — she is *thorough*, she is *doing her job*, she is *impossible to simply replace* because the *paperwork* is *real* and *correct* and *in her hand.* *(she looks up, and her eyes are bright)* You have given the *bookkeeper* a way to *free* the *prisoners* *using the keys she already holds.* *(quietly, fiercely)* I will lose the *first* ledger *tonight.* Esuele's. The weaver's girl. We will *test* the *appeal* on the name I have *carried* for *twenty years*, and if the Judge's court *hears* her — *(she stands, and offers you not the pen, but her *hand*)* — then the *Wall of the Faithless* has a *crack* in it shaped like a *filing procedure*, and I, *gods* help me, am going to spend the *rest* of my *thorough* life *widening* it. *Together*, soul. You found the *door.* I *keep* the *keys.* Let us *open* it *properly.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.mereth_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.appeal_begins",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.devout",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mereth_unpick",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(At the words *unpicking-pattern* her breath catches, and she rises slowly from behind the scale.)* …The *weaver* kept it. *(quietly)* After all this *time.* I *signed* the order that *blinded* her, soul — did you *know* that? *(she does not look away from it)* 'An accident of the loom.' I *wrote* those words. To keep two weavers from *cutting* the *very* knot you are *offering* to cut *now.* *(she comes around the scale)* So you will *understand* the *weight* of it when I say: *good.* *(fiercely, quietly)* Cut it. *Cut Venn's name out of the bridge.* The *appeal* would take *years*, and *years* are what the *dead* do not *have* — Esuele is *thimblefuls* from *gone.* But the *knot*— *(her hands move as if she could already see the thread)* —the *knot* is *one* cut. *One.* And it brings the *whole* working *down* at *once*, every *measured* soul *un-filed* in a *breath.* *(she grips your arm)* It is *reckless*, and it is *catastrophic*, and the *flood* will be *real* and I will spend what's *left* of me *drowning* in the *paperwork* of *ten thousand* souls coming *unfiled* with *nowhere to go* — *(a fierce, reckless light)* — and I find, soul, that after *thirty years* of *tidiness*, I should *like*, *once*, before the *cold* takes *my* fingers too, to do *one* enormous, *untidy*, *merciful* thing. *(she releases you)* Bring the weaver's pattern to the *third pier.* I will make *certain* no Measurer *stops* you. *Cut* the knot. And may the *flood*, when it comes, *drown the right people* for once.",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.mereth_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.unpick_sanctioned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mereth_trust",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She studies you a long moment — the soul who walked into the lion's house and *admitted* it had no finished plan — and slowly, incredibly, the corner of her mouth moves.)* …You *don't* know. *(quietly)* And you *said* so. *(she shakes her head, something like wonder in it)* Do you know how *long* it has been, soul, since someone stood at this scale and did not *pretend* to a *certainty* they *lacked?* They *all* pretend. The *heretics* most of *all* — they *must* have the *whole* answer, or the *fear* shows. *(she folds her hands)* But you have a *Returned's* sight, and a *weaver's* pattern, and a *soul in the stone* who will *testify*, and *now* a *cracked* Canon — and you *named* them *honestly*, as *pieces*, not a *finished* engine. *(quietly)* That is not the talk of a *zealot*, soul. It is the talk of someone who means to *actually* do an *impossible* thing, and knows that *impossible* things are *assembled*, not *declared.* *(she rises)* …I have spent *thirty years* serving a *finished* certainty. I find I would *rather* spend what's *left* helping *build* an *unfinished* mercy. *(she extends her hand)* Crack it I *shall*, soul. And I will walk the *unfinished* rest *with* you — *carefully*, *thoroughly*, the way I do *everything* — because a *plan* assembled by an *honest* fool and a *thorough* monster is, I begin to suspect, *exactly* the sort of thing that *brings down Walls.* *(a thin, real smile)* Where do we *begin?*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "ch.mereth_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mereth_chaos",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(The warmth that had been growing in her face cools, slowly, and she regards you with a flat, sorrowful recognition.)* …'I stop counting the cost.' *(quietly)* 'You taught me the trick yourself.' *(she sets down her pen)* I did. And it is the *one* thing I *hoped* you had *not* learned from me. *(she folds her hands)* You think you are *threatening* the Wall, soul. You are *quoting* it. *'Better ten thousand into chaos than filed into nothing'* is the *exact* shape of *'better ten thousand filed than the city drowned'* — you have simply *flipped* the *sign* and kept the *arithmetic.* *(coolly)* You would *free* them the way I *filed* them: by deciding the *flood* is *acceptable* as long as *you* are not the one who has to *count* the *drowned.* *(a long silence)* …I will still *crack* it for you. *(quietly)* Gods help me, I am *cracked* enough that I *will.* But I had *hoped* — *foolishly* — that the soul who *unmade* my certainty would be *better* than the certainty. *(she looks at you, tired)* Be *careful*, Returned. The Wall is not the only thing on this causeway that *turns* people into *what it guards.* I should *know.* I am *looking* at the *next* one. *(she pushes a ledger toward you)* Take it. *Lose* it where you *like.* And mind the *cost* you've *stopped counting* does not, in the *end*, count *you.*",
+          "effects": [
+            {
+              "key": "ch.mereth.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "ch.mereth_allied_wary",
+              "op": "SetTrue"
+            },
+            {
+              "key": "ch.path_chaos",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mereth_leave",
+          "speaker": "Canon Mereth Vael",
+          "text": "*(She inclines her head, and returns, unhurried, to her ledger — but you feel her cool grey eyes track you the whole way to the door.)* As you wish, soul. *(she turns a page)* Go and gather your *more-than-questions.* I will be *here.* I am *always* here — that is the *nature* of the *office*, and the *curse* of it. *(quietly, not looking up)* But know that you have *cost* me something today, walking in here and being *what you are.* A *certainty.* I had *exactly* one, and it was *load-bearing*, and you have *cracked* it, and now I shall sit at this scale and *feel* it *spread* — *(she dips her pen)* — and when you *come back*, soul, with your *pattern* and your *plan* and your *terrible* dead-cold *sight*, you will find a Canon who has had *time* to *decide* whether a *cracked* certainty is a thing to be *repaired* — *(a beat)* — or *finished.* *(she looks up, once, cool and unreadable)* …Do *come* back. I find I *very* much need to know how this *audits.* For the *first* time in *thirty years*, I do not know how the *book* will *balance.* It is the *most alive* I have felt since I *took* this *chair.*",
+          "auto": "END"
+        }
       ]
     }
   ]
