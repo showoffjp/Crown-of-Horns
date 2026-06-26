@@ -11,6 +11,38 @@
 
 ---
 
+## 👑 v6.51.0 — *"The After"* — a seventy-first zone: the scar (consequence content)
+
+> **Realm-side** (off the Night Market) — the **aftermath** of *The Last Word*, and the proof that the
+> saga's reactivity has teeth: **you cannot save Sevrin** (that's the lesson — no soul is good enough to
+> outrun its own ungrieved grief), but **what you did in his zone decides who is left standing in the
+> wreckage.** You return to the same lot, later — the whistling stopped, the cairns gone cold, his thin
+> blade driven point-down in the earth as a grave-marker — to the **shattered court.** Every soul's
+> opening reacts to the flags you set before the fall.
+- ❉ **Sela, who got her fear back all at once** — she handed the unbeatable man her *whole* fear and was
+  free; when he fell, it all crashed back into arms that forgot how to lift it. Her node-0 **reacts to
+  the prior zone**: if you **made him promise** (`sv.watches_the_small`), he spent the half-second your
+  warning bought him **shoving her clear** — dying to protect the small one exactly as his first death
+  couldn't — and she must learn to carry *being saved like that;* if you **warned her** to take her fear
+  back (`sv.sela_takes_it_back`), she's **standing, changed,** instead of destroyed. A **[RETURNED]**
+  reframes the returning fear not as punishment but as her own **waking-up** — the one thing that was
+  always hers; *the Wall waits for the souls who handed their fear away and stopped watching.*
+- ❀ **Coll, the after** — who has been the one-left-standing a dozen times. **Reactive** to whether you
+  believed him before the fall (`sv.two_clear_eyed` → *two* clear-eyed souls to be the after, vs. him
+  alone again). A **[RETURNED]** names him not the *cloud* the courts hate but the **keeper of the dead's
+  names** — the Wall erases the legends too, by scattering the grieving witnesses, and Coll is the one
+  mind that refuses to let the fallen go un-marked. *The keeper, finally, kept.*
+- ✦ **Tamsin, who waits at the door** — the **denial** soul, who will not believe a Returned can truly
+  die (*"nine times — he always comes back"*). The hardest mercy in the lot: a **Persuasion**-gated
+  **[RETURNED]** takes her down off the ceiling — the difference between a **death** and an **unmaking**
+  (*the one death a Returned doesn't walk back from*). **Crit:** she grieves honest at last and goes to
+  sit with Sela; **fail:** she clings to the thread; **fumble:** you break her *wrong* — too blunt, before
+  she's braced — and she falls with no one holding her, *exactly as Coll warned.* Denial is a slow
+  dissolving; waiting forever at a door no one is coming through.
+- 📄 **Docs:** the consequence-engine in action — three souls whose grief is shaped entirely by your
+  earlier choices. **71 walkable zones, 235 souls.** Gate **743** ✓ · full suite **1451** ✓ · all-in-one
+  bundle rebuilt ✓.
+
 ## 👑 v6.50.0 — *"The Last Word"* — a seventieth zone: the false deus ex machina (content)
 
 > **Realm-side** (off the Night Market) — a deliberate piece of **narrative architecture**, not just a zone:

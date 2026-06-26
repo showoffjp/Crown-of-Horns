@@ -2874,6 +2874,40 @@ check("Coll: the foreshadowing trail is fair — he names Haldane (the prior unb
 check("each Last Word soul carries a [RETURNED] line + a Returned-sense", [svS, svE, svC].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+const AF = SCENES && SCENES.theafter;
+check("a seventy-first zone (the After) ships — the aftermath of the Last Word's fall, reactive to whether you reached him", AF && AF.npcs.length >= 3);
+check("the After is reached from the Night Market (Realm-side, NOT a Sigil door)", (SCENES.nightmarket.exits || []).some(x => x.to === "theafter"));
+check("the After exits back to the Night Market (reachable round-trip)", (AF.exits || []).some(x => x.to === "nightmarket"));
+const afS = CONVS.find(c => c.id === "af.sela");
+const afC = CONVS.find(c => c.id === "af.coll");
+const afT = CONVS.find(c => c.id === "af.tamsin");
+check("three souls (the one who got her fear back at once, the one who is the after, the one who won't believe he can die) are present", afS && afC && afT);
+check("Sela's grief is reactive: node-0 variants fire on the prior zone's flags (he died saving her / she'd taken her fear back), and a [RETURNED] reframes the returning fear as her own waking-up", (() => {
+  const v0 = afS.nodes.find(n => n.id === "0");
+  const promiseVar = v0.variants.some(x => (x.when && (x.when.flags || []).includes("sv.watches_the_small")));
+  const tookbackVar = v0.variants.some(x => (x.when && (x.when.flags || []).includes("sv.sela_takes_it_back")));
+  const dflt = v0.variants.some(x => !x.when);
+  const t = afS.nodes.find(n => n.id === "af_s_returned");
+  return promiseVar && tookbackVar && dflt &&
+    afS.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "af.sela_stands");
+})());
+check("Coll is reactive to sv.two_clear_eyed (you believed him before the fall → he is not alone in the after), and a [RETURNED] names him the keeper of the dead's names — the Wall erases by scattering the witnesses", (() => {
+  const v = afC.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("sv.two_clear_eyed")));
+  const t = afC.nodes.find(n => n.id === "af_c_returned");
+  return v && afC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "af.coll_kept");
+})());
+check("Tamsin (denial): a Persuasion-gated [RETURNED] takes her down off the ceiling — death vs unmaking (crit: she grieves honest and goes to Sela; fail: she clings; fumble: you break her wrong, exactly as Coll warned), with a post-grief node-0 variant", (() => {
+  const choice = afT.nodes.find(n => n.id === "1").choices.find(ch => ch.tag === "returned" && (ch.check || {}).skill === "Persuasion");
+  const crit = afT.nodes.find(n => n.id === "af_t_returned_crit");
+  const fumble = afT.nodes.find(n => n.id === "af_t_returned_fumble");
+  const v = afT.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("af.tamsin_grieves")));
+  return choice && choice.crit && choice.fail && choice.fumble && v &&
+    crit && crit.effects.some(e => e.key === "af.tamsin_grieves") &&
+    fumble && fumble.effects.some(e => e.key === "af.tamsin_broken_wrong");
+})());
+check("each After soul carries a [RETURNED] line + a Returned-sense", [afS, afC, afT].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
