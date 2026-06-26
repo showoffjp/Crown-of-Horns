@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.48.0 — *"The Wake the World Withheld"* — a sixty-eighth zone: the unmourned mark each other (content)
+
+> **Realm-side** (off the Night Market) — and the most *on-theme* zone of the run: it's **Act V's Ledger at human
+> scale.** The endgame's golden set-piece is judging the Wall's ten-thousand-year roll of the discarded *one soul at a
+> time, by hand — each name a story.* This zone is that grief made intimate: a quiet candlelit lane where the
+> **unmourned give each other the funerals the world denied them.** The thesis: **a wake is an act of war against the
+> Wall — the Wall feeds on the *un-marked* (a soul no one grieved slides into nothing unnoticed); a soul someone marks,
+> names, says *was here and is gone and worth pausing for,* becomes un-discardable. The grief is the guard.**
+- ✦ **Corliss, who marks the unmarked** — a sexton who stood alone at a pauper's pit and vowed no soul she could reach
+  would go into the dark un-named. A **[RETURNED]** names her candles a war on a machine that erases people — *one
+  forgotten name at a time.*
+- ❖ **Tatters, the unmourned pauper** — a gutter-sparrow who fed the cats and hummed to frightened children and died in
+  a doorway with *no one came.* A **Performance** delivers his eulogy — **crit:** the *true small specifics* (the cats
+  by name, *a kind one*) land, the room passes his name round, and the sixty-year hollow *fills*; **fail:** grand-but-
+  generic (*honors the type, misses the man*); **fumble:** you make it about *your own* grief and the room comforts
+  *you* while he sits forgotten at his own funeral. A **[RETURNED]**: *he wasn't un-mournable, only un-mourned — the
+  song was always there; someone just finally sang it.*
+- ✶ **Brenn, who refuses to be mourned** — did real wrong, knows it, has never lied about it, and calls the silence
+  *justice.* The hardest case: you can't absolve them (they'd reject it, rightly). A **[RETURNED]** instead **pries
+  apart 'deserving forgiveness' from 'deserving to be marked'**: existing was never earned by being good; *the worst
+  soul was still **here**, and a soul that was here gets the candle — not because it was good, but because it was real.*
+  Brenn takes the candle — not as forgiveness, *as true.*
+- 👁️ **Three new Returned-senses.** 🧪 **+9 gates** (**gate suite 716 / 1,424 total**, all green). **68 zones, 226
+  souls.** *You cannot opt out of having existed.*
+
+---
+
 ## 👑 v6.47.0 — *"The Intake Queue"* — a sixty-seventh zone: dark-comic bureaucracy with a knife in it (content)
 
 > A hard **tonal swing** after a long run of earnest grief — **curse words for spice, crit/fumble comedy**, a

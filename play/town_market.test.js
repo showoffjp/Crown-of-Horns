@@ -2764,6 +2764,39 @@ check("the contented one: a [RETURNED] names the limbo-made-home the gentlest tr
 check("each Intake-Queue soul carries a [RETURNED] line + a Returned-sense", [quM, quG, quP].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- sixty-eighth zone (Realm-side, off the Night Market): the Wake the World Withheld — the unmourned mark each other (Act V's Ledger at human scale) ----
+const TW = SCENES && SCENES.thewake;
+check("a sixty-eighth zone (the Wake the World Withheld) ships — the unmourned giving each other funerals", TW && TW.npcs.length >= 3);
+check("the Wake is reached from the Night Market (Realm-side, NOT a Sigil door)", (SCENES.nightmarket.exits || []).some(x => x.to === "thewake"));
+check("the Wake exits back to the Night Market (reachable round-trip)", (TW.exits || []).some(x => x.to === "nightmarket"));
+const twC = CONVS.find(c => c.id === "tw.corliss");
+const twT = CONVS.find(c => c.id === "tw.tatters");
+const twB = CONVS.find(c => c.id === "tw.brenn");
+check("three souls (the one who marks the unmarked, the unmourned pauper, the one who refuses mourning) are present", twC && twT && twB);
+check("the sexton: a [RETURNED] names a wake an act of war against the Wall — a marked soul is un-discardable; the grief is the guard", (() => {
+  const t = twC.nodes.find(n => n.id === "tw_c_returned");
+  return twC.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "tw.corliss_named_the_wall");
+})());
+check("the pauper: a Performance eulogizes a near-stranger (crit: true small specifics land, the hollow fills; fail: grand-but-generic; fumble: you make it about your own grief)", (() => {
+  const eul = twT.nodes.find(n => n.id === "1").choices.find(ch => (ch.check || {}).skill === "Performance");
+  const crit = twT.nodes.find(n => n.id === "tw_t_eulogy_crit");
+  const fumble = twT.nodes.find(n => n.id === "tw_t_eulogy_fumble");
+  return eul && eul.crit && eul.fumble && eul.fail &&
+    crit && crit.effects.some(e => e.key === "tw.eulogy_given") &&
+    fumble && fumble.effects.some(e => e.key === "tw.eulogy_made_it_about_you");
+})());
+check("the pauper: a post-eulogy node-0 variant fires, and a [RETURNED] names a grief witnessed late still a soul finally mattering", (() => {
+  const v = twT.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("tw.eulogy_given")));
+  const t = twT.nodes.find(n => n.id === "tw_t_returned");
+  return v && twT.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "tw.tatters_reframed");
+})());
+check("the one who refuses: a [RETURNED] separates 'deserving forgiveness' from 'deserving to be marked' — existing isn't earned by being good; the worst soul was still HERE", (() => {
+  const t = twB.nodes.find(n => n.id === "tw_b_returned");
+  return twB.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "tw.brenn_takes_the_candle");
+})());
+check("each Wake soul carries a [RETURNED] line + a Returned-sense", [twC, twT, twB].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
