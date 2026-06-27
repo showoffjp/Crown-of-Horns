@@ -11,6 +11,41 @@
 
 ---
 
+## 👑 v6.53.0 — *"The Lidless Eye"* — the capstone: three signature systems, playable (content + systems)
+
+> Not just a zone — the **capstone where the game's three signature mechanics converge, built and
+> test-verified** in the walkable build using the engine's existing `when:{int:{…}}` gating on variants
+> **and** choices. *A door with no other side*, off the Counting-House: the place behind your own eyes.
+> Full design spec in [`docs/story/24_THE_SIGNATURE_SYSTEMS.md`](docs/story/24_THE_SIGNATURE_SYSTEMS.md).
+- 👁️ **System 1 — the dead-sense narrator is the Unmade.** Every read in the game (*"your sense finds a
+  wound at the root of the work…"*) was the grief of every discarded soul looking **through** you,
+  showing you suffering to **radicalize** you toward tearing the Wall down. *You thought the voice was
+  yours. It was never yours.* A **[RETURNED]** names how the weapon misfired: being shown the discarded
+  didn't make you want to *unmake* — it made you want to **witness**; the eye meant to make a weapon
+  made a *book of names* instead. (Entering sets `le.narrator_revealed`, the hook for the specced
+  late-game narration-slip rollout.)
+- 🜏 **System 2 — compassion has a cost (haunt → the Last Returned).** Already canon in `assize.json`
+  (the over-haunted are tried for becoming the Last Returned *"by attrition"*); here the Unmade greets
+  the deep-cold player as **nearly itself** — *"I did not make you cruel — I made you kind, until the
+  kindness froze."* A haunt-gated **choice** (`when:{int:{disp.haunted:14}}`) confronts the cold, and
+  the Unmade names the **way back**: *a soul that only witnesses freezes; a soul that witnesses **and
+  records** can carry an ocean and stay warm.* The cost is real — `disp.haunted` carries **431
+  increments** across the game.
+- ❡ **System 3 — the Niche-Book is the weapon.** The witness-ledger you forged without knowing — a
+  name and the one true thing per soul. Node-0 **branches on `disp.merciful`** (**426 increments**):
+  **full** (a chorus, almost singing), **thin** (real names, blank stretches where you walked on), or
+  **near-blank** — and the blank pages speak for the souls you passed. You **read it aloud** to the
+  grief: a mercy-gated *"read the full book"* **Performance** — **crit:** the refutation completes and
+  the grief comes apart *gently* back into the people it forgot it was; **fumble:** the names crash over
+  you at once and your voice closes (*carry them as a procession, not an ocean*) — beside an
+  always-available *"read what you kept"* that speaks the names **and** the silences. *You never had to
+  tear the Wall down. You only had to out-write it.*
+- ◉ **The Eye can be reclaimed** — a faculty given for a dark purpose, redeemed by the hand that used it
+  for mercy: *"a weapon that chooses, every time, to heal instead of harm, stops being a weapon."*
+- 📄 New canon: [`docs/story/24_THE_SIGNATURE_SYSTEMS.md`](docs/story/24_THE_SIGNATURE_SYSTEMS.md) (built
+  vs. specced clearly marked). **73 walkable zones, 241 souls.** Gate **762** ✓ · full suite **1470** ✓
+  · all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.52.0 — *"The One Left"* — a seventy-second zone: the overlooked, and the weapon that is a victim (content)
 
 > Off the Last Word's lot — the **western corner**, where the overlooked wash up: the souls the bright

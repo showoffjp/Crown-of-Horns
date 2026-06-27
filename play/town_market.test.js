@@ -2940,6 +2940,58 @@ check("Tace (chose to be nothing): a [RETURNED] names self-erasure the Wall winn
 check("each One Left soul carries a [RETURNED] line + a Returned-sense", [olS, olB, olT].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+const LE = SCENES && SCENES.lidlesseye;
+check("a seventy-third zone (the Lidless Eye) ships — the capstone where all three signature systems converge", LE && LE.npcs.length >= 3);
+check("the Lidless Eye is reached from the Counting-House (inward, not a Sigil door)", (SCENES.counthouse.exits || []).some(x => x.to === "lidlesseye"));
+check("the Lidless Eye exits back to the Counting-House (reachable round-trip)", (LE.exits || []).some(x => x.to === "counthouse"));
+const leU = CONVS.find(c => c.id === "le.unmade");
+const leE = CONVS.find(c => c.id === "le.eye");
+const leB = CONVS.find(c => c.id === "le.book");
+check("three presences (the Unmade-as-narrator, the Eye/sense, the Niche-Book) are present", leU && leE && leB);
+// SYSTEM 1: the narrator is the Unmade
+check("SYSTEM 1 (the narrator is the Unmade): entering reveals the dead-sense voice was the Unmade's all along, and a [RETURNED] names how the radicalization misfired into mercy", (() => {
+  const n0 = leU.nodes.find(n => n.id === "0");
+  const revealsFlag = (n0.onEnter || []).some(e => e.key === "le.narrator_revealed");
+  const t = leU.nodes.find(n => n.id === "le_u_returned");
+  return revealsFlag && leU.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.effects.some(e => e.key === "le.weapon_misfired");
+})());
+// SYSTEM 2: compassion has a cost (haunt -> the Last Returned), gated on disp.haunted
+check("SYSTEM 2 (compassion's cost): the Unmade greets the over-haunted player as nearly the Last Returned, and a haunt-gated CHOICE confronts the cold — both via when:{int:{disp.haunted}}", (() => {
+  const n0 = leU.nodes.find(n => n.id === "0");
+  const hauntVar = n0.variants.some(v => v.when && v.when.int && v.when.int["disp.haunted"]);
+  const hauntChoice = leU.nodes.find(n => n.id === "1").choices.some(ch => ch.when && ch.when.int && ch.when.int["disp.haunted"]);
+  return hauntVar && hauntChoice;
+})());
+check("SYSTEM 2 echo on the Eye/Book: the Eye greets the over-haunted player (it cooled you), via int-gated variant", (() => {
+  return leE.nodes.find(n => n.id === "0").variants.some(v => v.when && v.when.int && v.when.int["disp.haunted"]);
+})());
+// SYSTEM 3: the Niche-Book is the weapon, gated on disp.merciful (book-fullness)
+check("SYSTEM 3 (the Niche-Book): node-0 fullness reacts to disp.merciful (full / thin / near-blank), and a [RETURNED] names it the refutation that out-writes the Wall", (() => {
+  const n0 = leB.nodes.find(n => n.id === "0");
+  const fullVar = n0.variants.some(v => v.when && v.when.int && v.when.int["disp.merciful"]);
+  const dflt = n0.variants.some(v => !v.when);
+  const t = leB.nodes.find(n => n.id === "le_b_returned");
+  return fullVar && dflt && leB.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) &&
+    t && t.effects.some(e => e.key === "le.book_is_the_cure");
+})());
+check("SYSTEM 3: a mercy-gated 'read the FULL book aloud' Performance (crit: the refutation completes; fumble: flooded by the names) sits beside an always-available thin-book reading", (() => {
+  const choices = leB.nodes.find(n => n.id === "1").choices;
+  const fullRead = choices.find(ch => ch.when && ch.when.int && ch.when.int["disp.merciful"] && (ch.check || {}).skill === "Performance");
+  const thinRead = choices.find(ch => ch.next === "le_b_thin");
+  const crit = leB.nodes.find(n => n.id === "le_b_aloud_crit");
+  const fumble = leB.nodes.find(n => n.id === "le_b_aloud_fumble");
+  return fullRead && fullRead.crit && fullRead.fail && fullRead.fumble && thinRead &&
+    crit && crit.effects.some(e => e.key === "le.refutation_complete") &&
+    fumble && fumble.effects.some(e => e.key === "le.flooded_by_the_book");
+})());
+check("the Eye can be reclaimed (a tool given for a dark purpose, redeemed by the hand that used it for mercy)", (() => {
+  const t = leE.nodes.find(n => n.id === "le_e_returned");
+  return leE.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "le.sight_reclaimed");
+})());
+check("each Lidless-Eye presence carries a [RETURNED] line + a Returned-sense (meta: sensing the thing that senses)", [leU, leE, leB].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
