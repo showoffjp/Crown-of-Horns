@@ -105,10 +105,27 @@ church's answer — silence), but a **third thing.**
   back into the people it forgot it was; **fumble:** the names crash over you at once and your voice
   closes — *carry them as a procession, one at a time, not an ocean*) sits beside an always-available
   *"read what you kept"* that speaks the names **and** the silences honestly.
+- **The blank-page reproach (now built):** the book's power has an inverse, and the capstone now closes
+  all three systems on the player at once. In *The Lidless Eye* you can **turn to the blank pages** —
+  and the Unmade rises through the empty paper to read your **specific un-witnessed souls back at you,
+  by name.** Nine marquee souls (Tatters, Corliss, Brenn, Dot, Marisa, Onora, Sift, Brynalla, Tace) each
+  get a reproach beat **gated on the *absence* of their witness flag** — so you hear, individually,
+  exactly the people you walked past, *what you'll never know about them* (the one true thing you didn't
+  learn), and the cut: *"the Wall kept them, because you walked on… a blank page is a name **I** keep."*
+  Hearing each reproach **deepens your cold** (`disp.haunted +1` — System 2 fusion: your omissions make
+  you colder) and marks it heard so it won't repeat. A player who witnessed **all nine** instead gets
+  the Unmade *almost grateful* — *"there are no blanks… you wrote down every single one. Close the book.
+  It is full."* And the close is the game's quiet thesis: *"you can go back… the next soul you meet, you
+  could stop, you could learn the name, you could make the book one page less blank than the Wall would
+  like."*
+- **Engine note:** this required a small, faithful extension — `when.flagsNot` (every listed flag must
+  be **unset**) added to the JS `matchesWhen` in both generators, **mirroring C#'s existing
+  `RequireBoolFalse`** (the negation capability already lived in `DialogueRunner.cs`; the JS `when`
+  object simply hadn't exposed it). Covered by new `dialogue_sim` engine unit tests.
 - **The rollout (specced):** a live **Niche-Book HUD** — a diegetic book the player can open any time,
   filling line by line as they witness, becoming their most precious possession; at the climax it is
-  *literally* read aloud against the Unmade, and the un-witnessed souls are the blank pages the Unmade
-  reads back at you.
+  *literally* read aloud against the Unmade. *(The blank-page reproach above is the first built piece of
+  this; expanding the named-soul set beyond the marquee nine is the rollout.)*
 
 ---
 

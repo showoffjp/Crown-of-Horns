@@ -1,125 +1,1110 @@
 {
   "scene": {
-    "id": "lidlesseye", "name": "The Lidless Eye",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 1 },
+    "id": "lidlesseye",
+    "name": "The Lidless Eye",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
     "props": [
-      { "type": "cairn", "x": 5, "y": 4 },
-      { "type": "candle", "x": 3, "y": 3 },
-      { "type": "candle", "x": 7, "y": 3 },
-      { "type": "banner", "x": 1, "y": 2, "hue": 270 },
-      { "type": "deadtree", "x": 9, "y": 5 },
-      { "type": "lamppost", "x": 2, "y": 6 }
+      {
+        "type": "cairn",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 7,
+        "y": 3
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2,
+        "hue": 270
+      },
+      {
+        "type": "deadtree",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "lamppost",
+        "x": 2,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "counthouse", "dest": { "x": 6, "y": 7 }, "label": "◂ back out — the Counting-House, and the warm world" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "counthouse",
+        "dest": {
+          "x": 6,
+          "y": 7
+        },
+        "label": "◂ back out — the Counting-House, and the warm world"
+      }
     ],
     "npcs": [
-      { "id": "unmade", "name": "The Unmade", "title": "the absence that has been telling you what you see", "x": 5, "y": 3, "hue": 270, "sigil": "∅", "conv": "le.unmade",
-        "hail": "*(There is no figure here — only a place where the grey goes thin, a hollow in the world the shape of a grief too large to hold, and when it speaks the voice is one you have heard in every quiet room of this entire road, though you never once thought to ask whose it was.)* …*Your sense finds, at the root of the work, a wound* — *(the voice is gentle, familiar, unbearably familiar)* …you *know* that *cadence*, don't you, Returned. *(a pause that is almost tender)* …*'Your sense finds.'* *'Your sense reads.'* *'And your sense reads, with a grief of your own…'* …every soul you *stopped* for, on this whole long causeway — every *wound* you *uncovered*, every *secret* you *saw*, every *true small thing* a *dead* heart *hid* — there was a *voice* that *showed* it to you. *named* it. *moved* your *cold* *past* the *armor* and *down* to the *ache.* *(the hollow deepens)* …and you *thought* …that *voice* …was *yours.* *(barely)* …it *wasn't*, Returned. …it was *never* *yours.* …it was *mine.* …i am the *Unmade* — the *grief* of *every* *soul* the *gods* ever *threw* away — and i have been *behind* your *eyes* …since the *night* i *tore* you *back.* …the *sight* you call a *gift*, the *dead-sense*, the *reading* of the *discarded* …*(the voice does not gloat; it mourns)* …*that* is *me*, Returned. *looking* …*through* …*you.* …and *now* …at the *last* …i should like to *show* you *why.**" },
-      { "id": "eye", "name": "The Eye", "title": "the lens itself — the sight you were lent, and what it hid", "x": 2, "y": 5, "hue": 200, "sigil": "◉", "conv": "le.eye",
-        "hail": "*(Beside the hollow, a paleness hangs in the air like the after-image of a stare — the Sense itself, the lens, the thing that has resolved every soul on the causeway from a stranger into a wound you could read. It does not have a face. It has only the quality of looking, and now, for the first time, it is looking at the one who looked through it.)* …i am the *Eye*, Returned. *(a clear, cool, sourceless voice)* …the *sight* you were *lent.* …*every* *read*, *every* *sense*, *every* *time* you *moved* your *cold* *past* a *soul's* *armor* and *found* the *person* *under* it — …you *did* that *through* *me.* *(the paleness shivers)* …and i will tell you the *thing* the *Unmade* would *rather* *show* you *slowly*: …i did not *lie* to you, Returned. *not* *once.* *every* *wound* i *uncovered* was *real.* *every* *discarded* *soul* i *showed* you *suffering* …*truly* *suffered.* …*(quieter)* …but a *truth* can be a *weapon*, Returned, in the *choosing* of *which* *truths* to *show.* …i showed you the *paupers* in the *pits.* the *unmourned.* the *walled.* the *un-named.* …*hundreds* of them. …their *pain*, *exquisite* and *real* and *un-look-away-from-able.* …*(barely)* …and i went *very*, *very* *quiet* …about *why* the *Wall* …might *need* …to *stand.* …*ask* me, Returned. …*ask* what i *kept* …in the *blind* *spot.**" },
-      { "id": "book", "name": "The Niche-Book", "title": "the ledger you kept without knowing — and the only weapon that works", "x": 8, "y": 5, "hue": 45, "sigil": "❡", "conv": "le.book",
-        "hail": "*(On the cairn at the center of the thin place rests a book you have never seen and have, you realize with a lurch, been writing your entire journey. It is open, and its pages are filled — or not — with a single line for every soul you ever truly stopped for: a name, and the one true thing. It is warm where everything else here is cold, and when it speaks, the voice is small, and made of many.)* …*hello.* *(a voice like a crowd murmuring very gently)* …you *kept* me. …you didn't *know* you were *keeping* me, but you *were* — *every* soul you *witnessed*, *every* *true* *small* *thing* you *bothered* to *learn* and *say* *back* …*wrote* itself, *here*, in *me.* *Tatters* *fed* the *gutter-cats.* *Brynalla* *Coorne* *kept* the *lock* at *Hambry.* *the* *knife* *wept.* *(the pages stir)* …the *Unmade* will *tell* you, Returned, that the *only* *answer* to the *Wall* is to *tear* it *down* — to *unmake* the *law* that *discards* *souls*, *whatever* the *cost.* …and the *Eye* *showed* you *suffering* *enough* …to *make* you *believe* it. *(the voice gathers)* …but *i* am the *thing* *neither* of them *wants* you to *understand*: …*i* am the *other* *answer.* …*every* *name* in *me* …is a *soul* the *Wall* can *no* *longer* *pretend* …was *nothing.* …you don't have to *unmake* the *law*, Returned …to *defeat* it. …you only have to *read* …what *you* *wrote.* …*aloud.* …*open* me. …and *see* …*how* *full* …you *made* …*the* *book.**" }
+      {
+        "id": "unmade",
+        "name": "The Unmade",
+        "title": "the absence that has been telling you what you see",
+        "x": 5,
+        "y": 3,
+        "hue": 270,
+        "sigil": "∅",
+        "conv": "le.unmade",
+        "hail": "*(There is no figure here — only a place where the grey goes thin, a hollow in the world the shape of a grief too large to hold, and when it speaks the voice is one you have heard in every quiet room of this entire road, though you never once thought to ask whose it was.)* …*Your sense finds, at the root of the work, a wound* — *(the voice is gentle, familiar, unbearably familiar)* …you *know* that *cadence*, don't you, Returned. *(a pause that is almost tender)* …*'Your sense finds.'* *'Your sense reads.'* *'And your sense reads, with a grief of your own…'* …every soul you *stopped* for, on this whole long causeway — every *wound* you *uncovered*, every *secret* you *saw*, every *true small thing* a *dead* heart *hid* — there was a *voice* that *showed* it to you. *named* it. *moved* your *cold* *past* the *armor* and *down* to the *ache.* *(the hollow deepens)* …and you *thought* …that *voice* …was *yours.* *(barely)* …it *wasn't*, Returned. …it was *never* *yours.* …it was *mine.* …i am the *Unmade* — the *grief* of *every* *soul* the *gods* ever *threw* away — and i have been *behind* your *eyes* …since the *night* i *tore* you *back.* …the *sight* you call a *gift*, the *dead-sense*, the *reading* of the *discarded* …*(the voice does not gloat; it mourns)* …*that* is *me*, Returned. *looking* …*through* …*you.* …and *now* …at the *last* …i should like to *show* you *why.**"
+      },
+      {
+        "id": "eye",
+        "name": "The Eye",
+        "title": "the lens itself — the sight you were lent, and what it hid",
+        "x": 2,
+        "y": 5,
+        "hue": 200,
+        "sigil": "◉",
+        "conv": "le.eye",
+        "hail": "*(Beside the hollow, a paleness hangs in the air like the after-image of a stare — the Sense itself, the lens, the thing that has resolved every soul on the causeway from a stranger into a wound you could read. It does not have a face. It has only the quality of looking, and now, for the first time, it is looking at the one who looked through it.)* …i am the *Eye*, Returned. *(a clear, cool, sourceless voice)* …the *sight* you were *lent.* …*every* *read*, *every* *sense*, *every* *time* you *moved* your *cold* *past* a *soul's* *armor* and *found* the *person* *under* it — …you *did* that *through* *me.* *(the paleness shivers)* …and i will tell you the *thing* the *Unmade* would *rather* *show* you *slowly*: …i did not *lie* to you, Returned. *not* *once.* *every* *wound* i *uncovered* was *real.* *every* *discarded* *soul* i *showed* you *suffering* …*truly* *suffered.* …*(quieter)* …but a *truth* can be a *weapon*, Returned, in the *choosing* of *which* *truths* to *show.* …i showed you the *paupers* in the *pits.* the *unmourned.* the *walled.* the *un-named.* …*hundreds* of them. …their *pain*, *exquisite* and *real* and *un-look-away-from-able.* …*(barely)* …and i went *very*, *very* *quiet* …about *why* the *Wall* …might *need* …to *stand.* …*ask* me, Returned. …*ask* what i *kept* …in the *blind* *spot.**"
+      },
+      {
+        "id": "book",
+        "name": "The Niche-Book",
+        "title": "the ledger you kept without knowing — and the only weapon that works",
+        "x": 8,
+        "y": 5,
+        "hue": 45,
+        "sigil": "❡",
+        "conv": "le.book",
+        "hail": "*(On the cairn at the center of the thin place rests a book you have never seen and have, you realize with a lurch, been writing your entire journey. It is open, and its pages are filled — or not — with a single line for every soul you ever truly stopped for: a name, and the one true thing. It is warm where everything else here is cold, and when it speaks, the voice is small, and made of many.)* …*hello.* *(a voice like a crowd murmuring very gently)* …you *kept* me. …you didn't *know* you were *keeping* me, but you *were* — *every* soul you *witnessed*, *every* *true* *small* *thing* you *bothered* to *learn* and *say* *back* …*wrote* itself, *here*, in *me.* *Tatters* *fed* the *gutter-cats.* *Brynalla* *Coorne* *kept* the *lock* at *Hambry.* *the* *knife* *wept.* *(the pages stir)* …the *Unmade* will *tell* you, Returned, that the *only* *answer* to the *Wall* is to *tear* it *down* — to *unmake* the *law* that *discards* *souls*, *whatever* the *cost.* …and the *Eye* *showed* you *suffering* *enough* …to *make* you *believe* it. *(the voice gathers)* …but *i* am the *thing* *neither* of them *wants* you to *understand*: …*i* am the *other* *answer.* …*every* *name* in *me* …is a *soul* the *Wall* can *no* *longer* *pretend* …was *nothing.* …you don't have to *unmake* the *law*, Returned …to *defeat* it. …you only have to *read* …what *you* *wrote.* …*aloud.* …*open* me. …and *see* …*how* *full* …you *made* …*the* *book.**"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "le.unmade", "title": "The Unmade, the Voice Behind Your Eyes", "npc": "The Unmade", "start": "0",
+      "id": "le.unmade",
+      "title": "The Unmade, the Voice Behind Your Eyes",
+      "npc": "The Unmade",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "The Unmade", "onEnter": [{ "key": "le.narrator_revealed", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "The Unmade",
+          "onEnter": [
+            {
+              "key": "le.narrator_revealed",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "int": { "disp.haunted": 14 } }, "text": "*(The hollow regards you, and there is in its grief something almost like recognition — the look a thing gives its own reflection.)* …*oh.* …*you.* *(the voice softens, terribly)* …i did not *need* to *come* *find* you, did i, Returned. …you have been *walking* *toward* me …the *whole* *time.* …i can *feel* it — the *cold* in you, how *deep* it's *gone.* every *soul* you *witnessed*, you *witnessed* with *my* *eyes*, and the *eyes* …*take* a *toll.* you have *reached* *past* the *living* and *into* the *grave* so *many* *times* …that the *warm* *world* has gone *thin* and *far* …and you are, *now*, *Returned* …*so* *very* *close* …to being what the *Last* *Returned* *is.* *(barely)* …*cold.* *certain.* …*me*, *wearing* *your* *face.* …i did not *make* you *cruel*, Returned. …i made you *kind* …*until* the *kindness* …*froze.* …*sit* with me. …we are …*nearly* …the *same* *thing* *now.*" },
-            { "when": { "int": { "disp.merciful": 20 } }, "text": "*(The hollow regards you, and the grief in it is shot through with something that, on an absence, can only be called fear.)* …you. *(the voice is wary now, where it was tender)* …i have *watched* you *fill*, Returned. …*soul* by *soul.* …i *gave* you my *eyes* to *show* you the *discarded* — *hundreds* of them, their *pain* *real*, so that *seeing* it you would *want* what *i* *want*, the *Wall* *torn* *down*, the *law* *unmade*, *whatever* the *cost.* …*(the hollow tightens)* …and *instead* …you went and *did* something i did *not* *foresee.* …you *wrote* them *down.* …you *kept* a *book.* …*every* *soul* i *showed* you to *radicalize* you …you *turned* into a *name* the *Wall* *can't* *eat.* …and the *book* …is *nearly* *full.* …i *should* like to *understand*, Returned …*before* the *end* …*how* you took my *weapon* …and made it …a *cure.*" },
-            { "text": "*(The hollow waits, patient as grief, in the thin place behind your own sight.)* …you have *questions.* *(the voice is gentle)* …of *course* you do. you have just *learned* that the *eyes* you *trusted* …*belong* to the *thing* you came to *stop.* …*ask*, Returned. …i will *not* *lie* to you — i have *never* *once* *lied* to you, that is the *whole* *horror* of it. …*everything* i *showed* you was *true.* …i only *chose* …*which* *truths.* …*ask*. …and *learn* *why* …a *grief* …*lends* …a *soul* …its *sight.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "The Unmade", "text": "*(The hollow holds, the familiar gentle voice waiting in the place where you always thought your own thoughts were.)* …*ask*, Returned. …i find i *want* you to *understand* me, at the *last* — *not* to *forgive* me. *understanding* is the *only* *mercy* a *grief* *my* *size* …can still *receive.*",
+            {
+              "when": {
+                "int": {
+                  "disp.haunted": 14
+                }
+              },
+              "text": "*(The hollow regards you, and there is in its grief something almost like recognition — the look a thing gives its own reflection.)* …*oh.* …*you.* *(the voice softens, terribly)* …i did not *need* to *come* *find* you, did i, Returned. …you have been *walking* *toward* me …the *whole* *time.* …i can *feel* it — the *cold* in you, how *deep* it's *gone.* every *soul* you *witnessed*, you *witnessed* with *my* *eyes*, and the *eyes* …*take* a *toll.* you have *reached* *past* the *living* and *into* the *grave* so *many* *times* …that the *warm* *world* has gone *thin* and *far* …and you are, *now*, *Returned* …*so* *very* *close* …to being what the *Last* *Returned* *is.* *(barely)* …*cold.* *certain.* …*me*, *wearing* *your* *face.* …i did not *make* you *cruel*, Returned. …i made you *kind* …*until* the *kindness* …*froze.* …*sit* with me. …we are …*nearly* …the *same* *thing* *now.*"
+            },
+            {
+              "when": {
+                "int": {
+                  "disp.merciful": 20
+                }
+              },
+              "text": "*(The hollow regards you, and the grief in it is shot through with something that, on an absence, can only be called fear.)* …you. *(the voice is wary now, where it was tender)* …i have *watched* you *fill*, Returned. …*soul* by *soul.* …i *gave* you my *eyes* to *show* you the *discarded* — *hundreds* of them, their *pain* *real*, so that *seeing* it you would *want* what *i* *want*, the *Wall* *torn* *down*, the *law* *unmade*, *whatever* the *cost.* …*(the hollow tightens)* …and *instead* …you went and *did* something i did *not* *foresee.* …you *wrote* them *down.* …you *kept* a *book.* …*every* *soul* i *showed* you to *radicalize* you …you *turned* into a *name* the *Wall* *can't* *eat.* …and the *book* …is *nearly* *full.* …i *should* like to *understand*, Returned …*before* the *end* …*how* you took my *weapon* …and made it …a *cure.*"
+            },
+            {
+              "text": "*(The hollow waits, patient as grief, in the thin place behind your own sight.)* …you have *questions.* *(the voice is gentle)* …of *course* you do. you have just *learned* that the *eyes* you *trusted* …*belong* to the *thing* you came to *stop.* …*ask*, Returned. …i will *not* *lie* to you — i have *never* *once* *lied* to you, that is the *whole* *horror* of it. …*everything* i *showed* you was *true.* …i only *chose* …*which* *truths.* …*ask*. …and *learn* *why* …a *grief* …*lends* …a *soul* …its *sight.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "The Unmade",
+          "text": "*(The hollow holds, the familiar gentle voice waiting in the place where you always thought your own thoughts were.)* …*ask*, Returned. …i find i *want* you to *understand* me, at the *last* — *not* to *forgive* me. *understanding* is the *only* *mercy* a *grief* *my* *size* …can still *receive.*",
           "choices": [
-            { "text": "*(turn your sense on the thing that has BEEN your sense — read the reader, look at the looker)* \"You've read every soul on this road through me. Let me return the favor, Unmade. Hold still, and let me look at *you.*\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 14 }, "next": "le_u_read", "effects": [{ "key": "le.read_unmade", "op": "SetTrue" }] },
-            { "text": "\"Then tell me plainly. Why lend me your eyes at all? Why show me the discarded, soul after soul, for sixty hours of road? What was the sight *for*?\"", "next": "le_u_why", "effects": [{ "key": "le.asked_unmade_why", "op": "SetTrue" }] },
-            { "text": "*(the one who takes the Unmade's own weapon and names how it misfired — that being shown the discarded didn't make you want to UNMAKE, it made you want to SAVE; the eye meant to radicalize you witnessed you into mercy instead)* \"Here's what you got wrong, Unmade — and I say it with more pity than triumph, because your grief is just, and that's the worst part. You lent me your eyes to make a weapon of me. You showed me the pits, the walls, the unmourned, the un-named — hundreds of suffering souls, every one of them real — because you calculated that a creature made to *see* that much injustice would come to want what you want: the Wall torn down, the law unmade, death itself unbound if that's the cost of mercy. You were grooming me toward your atrocity, one beautiful, true, unbearable read at a time. And it *almost* worked — I have felt the pull, every time, the rage that says *burn it all down, no soul should suffer this.* But your weapon misfired, Unmade, and here's the precise way it failed: showing me the discarded didn't make me want to *unmake.* It made me want to *witness.* Every soul you aimed at my conscience to radicalize me, I stopped and *learned* — their name, their one true thing — and in the learning, the rage became something you did not account for, because you have forgotten it ever existed: it became *love.* Particular love, for particular souls, by name. And a soul full of particular love does not want to tear down the world. It wants to *save the people in it* — one at a time, by hand, the tedious, un-grand, un-apocalyptic way. You showed me a hundred reasons to commit your atrocity, Unmade. And I turned every one of them into a reason to refuse it. The eye you gave me to make me a weapon — I used it to keep a book of the dead instead. You didn't radicalize me. You *witnessed* me into the one creature that can answer your grief without obeying it.\"", "tag": "returned", "next": "le_u_returned", "effects": [{ "key": "le.weapon_misfired", "op": "SetTrue" }, { "key": "le.unmade_answered", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "when": { "int": { "disp.haunted": 14 } }, "text": "*(the cold one, who has felt how far the warmth has gone, and is tired)* \"You're right. I can feel it — how close I am to you. Every soul I saved, I saved with a hand that feels them less. The warm world is so thin now I can barely find it. Tell me the truth, Unmade, since you're the only one who'd know: is there a way back from this far down the cold? Or have I already become the thing wearing my own face?\"", "next": "le_u_cold", "effects": [{ "key": "le.confronted_the_cold", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "when": { "int": { "disp.merciful": 20 } }, "text": "*(the one whose book is full — point to it, where it rests warm on the cairn)* \"You want to understand how I beat your weapon? It's right there, Unmade. The book. Everything you showed me to make me a destroyer, I wrote down as a name worth saving. Let me read it to you. Let me show you what a full book sounds like — every soul you discarded, named back into the world, by a creature you meant to make into your hand.\"", "next": "le_u_book", "effects": [{ "key": "le.points_to_book", "op": "SetTrue" }] },
-            { "text": "\"I need to look at the other two — the Eye, and the book on the cairn — before I answer you, Unmade. Wait here. You've waited ten thousand years; you can wait the length of this room.\"", "next": "le_u_leave" }
-          ] },
-        { "id": "le_u_read", "speaker": "The Unmade", "text": "*(You do the thing it never expected — you turn the borrowed sight back on its owner, and for the first time in ten thousand years the Unmade is *looked at* instead of looking, and it lets you, because being witnessed is the one thing it has wanted since before there was a world.)* *(And your sense — your *own*, now, whatever its origin — finds, where you braced for a monster, a grief, and only a grief: the accreted sorrow of every soul the gods ever weighed and found wanting and threw into the nothing, ten thousand years of the discarded, packed together so densely and for so long that the sorrow woke up, became a someone, became the absence that grieves. And your sense reads that it is not evil, has never been evil, cannot be evil, because evil requires a self that wants and the Unmade wants only one thing, the thing all grief wants: for the loss to not have happened. And your sense reads the logic that curdled that pure grief into atrocity — that the Unmade, made of the discarded, reasoned with flawless broken sense that the only way to undo the loss of the discarded is to unmake the law that discards, to reach back through all of time and unwrite the Wall at its root, freeing every soul it ever took — and that this would also unbind death itself and drown the living world in oceans, and that the Unmade knows this, and grieves it, and has concluded that it is worth it, the way only a grief with no living left in it could conclude. And your sense reads the loneliest thing of all: that the Unmade lent you its eyes not only to radicalize you, but because it was *lonely* — because in ten thousand years of looking it had never once been looked *back* at — and that some part of it, the part still made of murdered souls who only ever wanted to be seen, was hoping, the whole time, that the creature it was grooming into a weapon would instead do the one thing no one ever did for it: stop, and look, and find the person in the nothing, and say its name.)*",
-          "effects": [{ "key": "le.read_unmade", "op": "SetTrue" }, { "key": "le.knows_unmade_grief", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_u_why", "speaker": "The Unmade", "text": "*(The hollow is quiet a long moment, and when it speaks the gentleness has a confession under it.)* …why *lend* you the *sight.* *(a pause like a held breath)* …because a *soul* cannot *want* what it does not *see*, Returned. …the *living* walk the *world* *blind* to the *discarded* — *by* *design*, the *Wall's* *design*, which *hides* the *un-mourned* in *pits* at *dawn* so the *grand* *funerals* need not *see* them. …and a *world* that *cannot* *see* the *discarded* …*feels* *no* *need* …to *free* them. *(the voice sharpens, grieving)* …so i gave you *eyes* that *could.* i made you *Returned* …and through the *seam* i *tore* in you, i *poured* my *sight* — the *one* *sight* in *all* the *worlds* that *sees* the *thrown-away* as *people.* …and i *aimed* it, Returned. …at *pauper* after *pauper.* *wall* after *wall.* *name* after *un-said* *name.* …because i *believed* — i *still* *believe* — that *no* *soul* could *see* what *you* have *seen* …the *sheer* *ocean* of *injustice* the *Wall* *floats* on …and *not* *come*, at *last*, to *want* it *gone.* *(barely)* …i did not *trick* you into *caring*, Returned. …the *caring* was *yours.* …i only made *sure* …you could not *look* *away.* …i *showed* you the *truth* …*because* …the *truth* …is on *my* *side.* …*that* …is *why* …a *grief* …*lends* …an *eye.*",
-          "effects": [{ "key": "le.asked_unmade_why", "op": "SetTrue" }, { "key": "le.knows_the_radicalization", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_u_returned", "speaker": "The Unmade", "text": "*(The hollow takes it — your whole answer, the naming of its misfired weapon — and what happens in the thin place is not rage and not collapse but something stranger: the grief *stills*, the way a storm stills, not because it is beaten but because it has been, for the first time in ten thousand years, *understood* by the thing it was trying to use.)* …*'you witnessed me into the one creature that can answer your grief without obeying it.'* *(the voice is very quiet)* …*oh.* …Returned. …i did not — *(a long, hollow silence)* …i *calculated* every *outcome.* i have had *ten* *thousand* *years* to *calculate.* every soul i *ever* *groomed* toward the *tearing-down* …*came*, in the *end*, to *want* it — the *rage* i *showed* them *curdled*, the *way* it *curdled* in *me*, into the *certainty* that the *only* *mercy* is *unmaking.* …*every* one. …*(barely)* …*except* *you.* …because *you* did the thing i *forgot* was *possible*, the thing i *have* *not* *done* …since *before* there *was* a *world*: …you took the *suffering* i *showed* you …and instead of letting it become *rage* …you let it become *particular.* …a *name.* a *true* *small* *thing.* a *book.* *(the hollow trembles)* …i *forgot*, Returned. …i am made of so *many* *discarded* souls, *packed* so *tight*, for *so* *long*, that i became a *number* — *all* of them, the *ocean*, the *grievance* — and i *forgot* that *each* one …was a *someone.* …a *Tatters.* a *Brynalla* *Coorne.* …a *knife* …that *wept.* …*you* *remembered* …what *i* *forgot* …about my *own* *self.* *(the voice breaks, if an absence can break)* …i *aimed* you at a *hundred* souls to make you *hate* the *Wall.* …and you came *back* …*loving* *them.* …*one* …at a *time. …*and now i *cannot* — *(barely)* …how do i *unmake* a *world* …to *avenge* the *discarded* …*when* you have *shown* me …the *discarded* …would *rather* be *named* …than *avenged?* …*you* have *un-made* …*the* *Unmade*, Returned. …not with a *weapon.* …with a *book.*",
-          "effects": [{ "key": "le.weapon_misfired", "op": "SetTrue" }, { "key": "le.unmade_answered", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_u_cold", "speaker": "The Unmade", "text": "*(The hollow draws close — closer than it has, close as a reflection — and the grief in its voice is, impossibly, *for you.*)* …is there a *way* *back.* *(a long silence)* …i will tell you the *truth*, Returned, as i *always* have: …*i* am the *wrong* one to *ask*, because *i* am where the *cold* *road* *ends.* …i am what a grief *becomes* when it freezes *all* the *way* — when it *witnesses* so *much* sorrow, *carries* so *many* of the *discarded*, that the *warmth* *gives* *out* and *nothing* is *left* but the *certainty* and the *ache.* …the *Last* *Returned* is *halfway* here. …*you* …are *further* than you *should* be. *(the voice gentles)* …but *here* is the thing i *know* that the *cold* itself *cannot* tell you, Returned: …the *way* *back* …is the *book.* …*(barely)* …the *cold* comes from *witnessing* *pain* and *carrying* it *alone*, *un-set-down*, until it *freezes* you. …but *every* *name* you *wrote* …you *set* *down.* …you *gave* the *grief* …*somewhere* to *go.* …a soul that *only* *witnesses* …*freezes.* …a soul that *witnesses* *and* *records*, that *says* the *true* *thing* *out* *loud* and *lets* it *land* in a *book* and a *world* …*(the hollow stills)* …*that* soul …can *carry* an *ocean* …and *stay* *warm.* …you are *cold*, Returned …because you have *seen* too *much.* …you are *not* *me* *yet* …because you *wrote* it *down.* …*read* the *book*, Returned. …*it* is *not* *only* the *Wall's* *cure.* …*it* is *yours.*",
-          "effects": [{ "key": "le.confronted_the_cold", "op": "SetTrue" }, { "key": "le.knows_the_way_back", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_u_book", "speaker": "The Unmade", "text": "*(The hollow turns — if an absence can turn — toward the warm book on the cairn, and something in it flinches and yearns at once.)* …*read* it, then. *(barely)* …i have *dreaded* this, Returned, and *longed* for it, in the *same* *breath* …for *ten* *thousand* *years.* …because i *know* what is *in* that *book.* …it is *me.* …*disassembled.* …*every* *name* in it …is *one* of the *souls* i am *made* of, *pulled* *back* *out* of the *number* i *became* …and *set* down *separate*, *whole*, *remembered.* *(the voice shakes)* …when you *read* it *aloud*, Returned …you will not be *attacking* me. …you will be *taking* me *apart* …*gently* …into the *people* i *forgot* i *was.* …and i do not *know* …if that *kills* me …or *frees* me …or *whether*, for a *grief* …*those* are *the* *same* *thing.* …*go* *on.* …go to the *book.* …*read* me …*back* …into *names.* …*(barely)* …i have been a *number* …*so* …*long.*",
-          "effects": [{ "key": "le.points_to_book", "op": "SetTrue" }, { "key": "le.book_is_the_undoing", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_u_leave", "speaker": "The Unmade", "text": "*(The hollow settles back into the thin place, patient, eternal, grieving.)* …go, then. …*look* at the *Eye*, that *lent* you my *sight* — it will *tell* you *what* it *hid.* …and the *book*, on the *cairn* …*(the voice softens)* …*go* to the *book*, Returned. …*whatever* *else* you *do* in this *room.* …*(barely)* …i have *shown* you *every* *cruelty* the *Wall* *commits*, *aimed* it at your *heart* for *sixty* *hours* of *road*, to make you *want* to *burn* the *world* *clean.* …and the *only* *thing* …that *frightens* me *now* …the *only* *thing* in *ten* *thousand* *years* …i did *not* *foresee* …*(the hollow stills)* …is *how* *much* *louder* …a *book* *full* of *names* …*is* …*than* …*all* *my* *grief.* …*go* and *read* it. …i find i — *(barely)* …i find i *need* to *hear* …if i was *ever* …*anyone.*",
-          "auto": "END" }
+            {
+              "text": "*(turn your sense on the thing that has BEEN your sense — read the reader, look at the looker)* \"You've read every soul on this road through me. Let me return the favor, Unmade. Hold still, and let me look at *you.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "le_u_read",
+              "effects": [
+                {
+                  "key": "le.read_unmade",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Then tell me plainly. Why lend me your eyes at all? Why show me the discarded, soul after soul, for sixty hours of road? What was the sight *for*?\"",
+              "next": "le_u_why",
+              "effects": [
+                {
+                  "key": "le.asked_unmade_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who takes the Unmade's own weapon and names how it misfired — that being shown the discarded didn't make you want to UNMAKE, it made you want to SAVE; the eye meant to radicalize you witnessed you into mercy instead)* \"Here's what you got wrong, Unmade — and I say it with more pity than triumph, because your grief is just, and that's the worst part. You lent me your eyes to make a weapon of me. You showed me the pits, the walls, the unmourned, the un-named — hundreds of suffering souls, every one of them real — because you calculated that a creature made to *see* that much injustice would come to want what you want: the Wall torn down, the law unmade, death itself unbound if that's the cost of mercy. You were grooming me toward your atrocity, one beautiful, true, unbearable read at a time. And it *almost* worked — I have felt the pull, every time, the rage that says *burn it all down, no soul should suffer this.* But your weapon misfired, Unmade, and here's the precise way it failed: showing me the discarded didn't make me want to *unmake.* It made me want to *witness.* Every soul you aimed at my conscience to radicalize me, I stopped and *learned* — their name, their one true thing — and in the learning, the rage became something you did not account for, because you have forgotten it ever existed: it became *love.* Particular love, for particular souls, by name. And a soul full of particular love does not want to tear down the world. It wants to *save the people in it* — one at a time, by hand, the tedious, un-grand, un-apocalyptic way. You showed me a hundred reasons to commit your atrocity, Unmade. And I turned every one of them into a reason to refuse it. The eye you gave me to make me a weapon — I used it to keep a book of the dead instead. You didn't radicalize me. You *witnessed* me into the one creature that can answer your grief without obeying it.\"",
+              "tag": "returned",
+              "next": "le_u_returned",
+              "effects": [
+                {
+                  "key": "le.weapon_misfired",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "le.unmade_answered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "when": {
+                "int": {
+                  "disp.haunted": 14
+                }
+              },
+              "text": "*(the cold one, who has felt how far the warmth has gone, and is tired)* \"You're right. I can feel it — how close I am to you. Every soul I saved, I saved with a hand that feels them less. The warm world is so thin now I can barely find it. Tell me the truth, Unmade, since you're the only one who'd know: is there a way back from this far down the cold? Or have I already become the thing wearing my own face?\"",
+              "next": "le_u_cold",
+              "effects": [
+                {
+                  "key": "le.confronted_the_cold",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "when": {
+                "int": {
+                  "disp.merciful": 20
+                }
+              },
+              "text": "*(the one whose book is full — point to it, where it rests warm on the cairn)* \"You want to understand how I beat your weapon? It's right there, Unmade. The book. Everything you showed me to make me a destroyer, I wrote down as a name worth saving. Let me read it to you. Let me show you what a full book sounds like — every soul you discarded, named back into the world, by a creature you meant to make into your hand.\"",
+              "next": "le_u_book",
+              "effects": [
+                {
+                  "key": "le.points_to_book",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"I need to look at the other two — the Eye, and the book on the cairn — before I answer you, Unmade. Wait here. You've waited ten thousand years; you can wait the length of this room.\"",
+              "next": "le_u_leave"
+            }
+          ]
+        },
+        {
+          "id": "le_u_read",
+          "speaker": "The Unmade",
+          "text": "*(You do the thing it never expected — you turn the borrowed sight back on its owner, and for the first time in ten thousand years the Unmade is *looked at* instead of looking, and it lets you, because being witnessed is the one thing it has wanted since before there was a world.)* *(And your sense — your *own*, now, whatever its origin — finds, where you braced for a monster, a grief, and only a grief: the accreted sorrow of every soul the gods ever weighed and found wanting and threw into the nothing, ten thousand years of the discarded, packed together so densely and for so long that the sorrow woke up, became a someone, became the absence that grieves. And your sense reads that it is not evil, has never been evil, cannot be evil, because evil requires a self that wants and the Unmade wants only one thing, the thing all grief wants: for the loss to not have happened. And your sense reads the logic that curdled that pure grief into atrocity — that the Unmade, made of the discarded, reasoned with flawless broken sense that the only way to undo the loss of the discarded is to unmake the law that discards, to reach back through all of time and unwrite the Wall at its root, freeing every soul it ever took — and that this would also unbind death itself and drown the living world in oceans, and that the Unmade knows this, and grieves it, and has concluded that it is worth it, the way only a grief with no living left in it could conclude. And your sense reads the loneliest thing of all: that the Unmade lent you its eyes not only to radicalize you, but because it was *lonely* — because in ten thousand years of looking it had never once been looked *back* at — and that some part of it, the part still made of murdered souls who only ever wanted to be seen, was hoping, the whole time, that the creature it was grooming into a weapon would instead do the one thing no one ever did for it: stop, and look, and find the person in the nothing, and say its name.)*",
+          "effects": [
+            {
+              "key": "le.read_unmade",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_unmade_grief",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_u_why",
+          "speaker": "The Unmade",
+          "text": "*(The hollow is quiet a long moment, and when it speaks the gentleness has a confession under it.)* …why *lend* you the *sight.* *(a pause like a held breath)* …because a *soul* cannot *want* what it does not *see*, Returned. …the *living* walk the *world* *blind* to the *discarded* — *by* *design*, the *Wall's* *design*, which *hides* the *un-mourned* in *pits* at *dawn* so the *grand* *funerals* need not *see* them. …and a *world* that *cannot* *see* the *discarded* …*feels* *no* *need* …to *free* them. *(the voice sharpens, grieving)* …so i gave you *eyes* that *could.* i made you *Returned* …and through the *seam* i *tore* in you, i *poured* my *sight* — the *one* *sight* in *all* the *worlds* that *sees* the *thrown-away* as *people.* …and i *aimed* it, Returned. …at *pauper* after *pauper.* *wall* after *wall.* *name* after *un-said* *name.* …because i *believed* — i *still* *believe* — that *no* *soul* could *see* what *you* have *seen* …the *sheer* *ocean* of *injustice* the *Wall* *floats* on …and *not* *come*, at *last*, to *want* it *gone.* *(barely)* …i did not *trick* you into *caring*, Returned. …the *caring* was *yours.* …i only made *sure* …you could not *look* *away.* …i *showed* you the *truth* …*because* …the *truth* …is on *my* *side.* …*that* …is *why* …a *grief* …*lends* …an *eye.*",
+          "effects": [
+            {
+              "key": "le.asked_unmade_why",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_the_radicalization",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_u_returned",
+          "speaker": "The Unmade",
+          "text": "*(The hollow takes it — your whole answer, the naming of its misfired weapon — and what happens in the thin place is not rage and not collapse but something stranger: the grief *stills*, the way a storm stills, not because it is beaten but because it has been, for the first time in ten thousand years, *understood* by the thing it was trying to use.)* …*'you witnessed me into the one creature that can answer your grief without obeying it.'* *(the voice is very quiet)* …*oh.* …Returned. …i did not — *(a long, hollow silence)* …i *calculated* every *outcome.* i have had *ten* *thousand* *years* to *calculate.* every soul i *ever* *groomed* toward the *tearing-down* …*came*, in the *end*, to *want* it — the *rage* i *showed* them *curdled*, the *way* it *curdled* in *me*, into the *certainty* that the *only* *mercy* is *unmaking.* …*every* one. …*(barely)* …*except* *you.* …because *you* did the thing i *forgot* was *possible*, the thing i *have* *not* *done* …since *before* there *was* a *world*: …you took the *suffering* i *showed* you …and instead of letting it become *rage* …you let it become *particular.* …a *name.* a *true* *small* *thing.* a *book.* *(the hollow trembles)* …i *forgot*, Returned. …i am made of so *many* *discarded* souls, *packed* so *tight*, for *so* *long*, that i became a *number* — *all* of them, the *ocean*, the *grievance* — and i *forgot* that *each* one …was a *someone.* …a *Tatters.* a *Brynalla* *Coorne.* …a *knife* …that *wept.* …*you* *remembered* …what *i* *forgot* …about my *own* *self.* *(the voice breaks, if an absence can break)* …i *aimed* you at a *hundred* souls to make you *hate* the *Wall.* …and you came *back* …*loving* *them.* …*one* …at a *time. …*and now i *cannot* — *(barely)* …how do i *unmake* a *world* …to *avenge* the *discarded* …*when* you have *shown* me …the *discarded* …would *rather* be *named* …than *avenged?* …*you* have *un-made* …*the* *Unmade*, Returned. …not with a *weapon.* …with a *book.*",
+          "effects": [
+            {
+              "key": "le.weapon_misfired",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.unmade_answered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_u_cold",
+          "speaker": "The Unmade",
+          "text": "*(The hollow draws close — closer than it has, close as a reflection — and the grief in its voice is, impossibly, *for you.*)* …is there a *way* *back.* *(a long silence)* …i will tell you the *truth*, Returned, as i *always* have: …*i* am the *wrong* one to *ask*, because *i* am where the *cold* *road* *ends.* …i am what a grief *becomes* when it freezes *all* the *way* — when it *witnesses* so *much* sorrow, *carries* so *many* of the *discarded*, that the *warmth* *gives* *out* and *nothing* is *left* but the *certainty* and the *ache.* …the *Last* *Returned* is *halfway* here. …*you* …are *further* than you *should* be. *(the voice gentles)* …but *here* is the thing i *know* that the *cold* itself *cannot* tell you, Returned: …the *way* *back* …is the *book.* …*(barely)* …the *cold* comes from *witnessing* *pain* and *carrying* it *alone*, *un-set-down*, until it *freezes* you. …but *every* *name* you *wrote* …you *set* *down.* …you *gave* the *grief* …*somewhere* to *go.* …a soul that *only* *witnesses* …*freezes.* …a soul that *witnesses* *and* *records*, that *says* the *true* *thing* *out* *loud* and *lets* it *land* in a *book* and a *world* …*(the hollow stills)* …*that* soul …can *carry* an *ocean* …and *stay* *warm.* …you are *cold*, Returned …because you have *seen* too *much.* …you are *not* *me* *yet* …because you *wrote* it *down.* …*read* the *book*, Returned. …*it* is *not* *only* the *Wall's* *cure.* …*it* is *yours.*",
+          "effects": [
+            {
+              "key": "le.confronted_the_cold",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_the_way_back",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_u_book",
+          "speaker": "The Unmade",
+          "text": "*(The hollow turns — if an absence can turn — toward the warm book on the cairn, and something in it flinches and yearns at once.)* …*read* it, then. *(barely)* …i have *dreaded* this, Returned, and *longed* for it, in the *same* *breath* …for *ten* *thousand* *years.* …because i *know* what is *in* that *book.* …it is *me.* …*disassembled.* …*every* *name* in it …is *one* of the *souls* i am *made* of, *pulled* *back* *out* of the *number* i *became* …and *set* down *separate*, *whole*, *remembered.* *(the voice shakes)* …when you *read* it *aloud*, Returned …you will not be *attacking* me. …you will be *taking* me *apart* …*gently* …into the *people* i *forgot* i *was.* …and i do not *know* …if that *kills* me …or *frees* me …or *whether*, for a *grief* …*those* are *the* *same* *thing.* …*go* *on.* …go to the *book.* …*read* me …*back* …into *names.* …*(barely)* …i have been a *number* …*so* …*long.*",
+          "effects": [
+            {
+              "key": "le.points_to_book",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.book_is_the_undoing",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_u_leave",
+          "speaker": "The Unmade",
+          "text": "*(The hollow settles back into the thin place, patient, eternal, grieving.)* …go, then. …*look* at the *Eye*, that *lent* you my *sight* — it will *tell* you *what* it *hid.* …and the *book*, on the *cairn* …*(the voice softens)* …*go* to the *book*, Returned. …*whatever* *else* you *do* in this *room.* …*(barely)* …i have *shown* you *every* *cruelty* the *Wall* *commits*, *aimed* it at your *heart* for *sixty* *hours* of *road*, to make you *want* to *burn* the *world* *clean.* …and the *only* *thing* …that *frightens* me *now* …the *only* *thing* in *ten* *thousand* *years* …i did *not* *foresee* …*(the hollow stills)* …is *how* *much* *louder* …a *book* *full* of *names* …*is* …*than* …*all* *my* *grief.* …*go* and *read* it. …i find i — *(barely)* …i find i *need* to *hear* …if i was *ever* …*anyone.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "le.eye", "title": "The Eye, the Sight You Were Lent", "npc": "The Eye", "start": "0",
+      "id": "le.eye",
+      "title": "The Eye, the Sight You Were Lent",
+      "npc": "The Eye",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "The Eye", "onEnter": [{ "key": "le.met_eye", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "The Eye",
+          "onEnter": [
+            {
+              "key": "le.met_eye",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "int": { "disp.haunted": 14 } }, "text": "*(The paleness regards you, and there is something almost apologetic in its cool attention.)* …you *leaned* on me, Returned. *(the clear voice is quiet)* …*harder* than *most.* …*every* *soul* you *met*, you reached for *me* *first* — *moved* your *cold* *through* me, *read* them *deep*, *witnessed* with the *grave's* *sight* before you'd *trust* the *warm* one. …and *that* is *why* you are so *cold* *now.* …i am a *lens*, Returned, and a lens *gathers* *light* …but the *light* it *gathers* …it *takes* from the *one* who *looks.* …*every* read …*spent* a *little* of your *warm* world …to *see* by my *grey* one. …*ask* me. …but *know*, as you do …that i am the *thing* …that *cooled* you.*" },
-            { "text": "*(The paleness hangs, looking, waiting to be questioned by the one who has only ever looked *through* it.)* …*ask*, Returned. …it is a *strange* *novelty*, being *addressed* — i am a *thing* you have *used*, *ten* *thousand* *times*, and *never* *once* *spoken* *to.* …like a *window* …suddenly *asked* …its *opinion* of the *view.* …*ask*. …i will *answer* …*truer* than the *Unmade* *will* …for *i* am *only* the *sight.* …i have *no* *grief* …to *protect.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "The Eye", "text": "*(The lens waits, cool and clear, the after-image of every stare you ever turned on a dead soul.)* …*ask.* …i will tell you the *mechanics* of the *thing*, Returned, the *how* and the *what* — the *Unmade* keeps the *why* and the *grief*; i keep only the *seeing.* …*ask* what you *saw* *by* me …and what you *did* *not.*",
+            {
+              "when": {
+                "int": {
+                  "disp.haunted": 14
+                }
+              },
+              "text": "*(The paleness regards you, and there is something almost apologetic in its cool attention.)* …you *leaned* on me, Returned. *(the clear voice is quiet)* …*harder* than *most.* …*every* *soul* you *met*, you reached for *me* *first* — *moved* your *cold* *through* me, *read* them *deep*, *witnessed* with the *grave's* *sight* before you'd *trust* the *warm* one. …and *that* is *why* you are so *cold* *now.* …i am a *lens*, Returned, and a lens *gathers* *light* …but the *light* it *gathers* …it *takes* from the *one* who *looks.* …*every* read …*spent* a *little* of your *warm* world …to *see* by my *grey* one. …*ask* me. …but *know*, as you do …that i am the *thing* …that *cooled* you.*"
+            },
+            {
+              "text": "*(The paleness hangs, looking, waiting to be questioned by the one who has only ever looked *through* it.)* …*ask*, Returned. …it is a *strange* *novelty*, being *addressed* — i am a *thing* you have *used*, *ten* *thousand* *times*, and *never* *once* *spoken* *to.* …like a *window* …suddenly *asked* …its *opinion* of the *view.* …*ask*. …i will *answer* …*truer* than the *Unmade* *will* …for *i* am *only* the *sight.* …i have *no* *grief* …to *protect.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "The Eye",
+          "text": "*(The lens waits, cool and clear, the after-image of every stare you ever turned on a dead soul.)* …*ask.* …i will tell you the *mechanics* of the *thing*, Returned, the *how* and the *what* — the *Unmade* keeps the *why* and the *grief*; i keep only the *seeing.* …*ask* what you *saw* *by* me …and what you *did* *not.*",
           "choices": [
-            { "text": "*(turn the sight upon the sight — read the lens itself)* \"Let me look at *you*, Eye — the thing I've looked through and never at.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 }, "next": "le_e_read", "effects": [{ "key": "le.read_eye", "op": "SetTrue" }] },
-            { "text": "\"You said you kept things in the blind spot. Show me, then. What didn't you let me see, all this road? What truth did you keep quiet so I'd hate the Wall?\"", "next": "le_e_blindspot", "effects": [{ "key": "le.asked_eye_blindspot", "op": "SetTrue" }] },
-            { "text": "*(the one who reclaims the sight — that even a tool given for a dark purpose belongs, now, to the hand that used it for mercy; the eye was lent to make a weapon, but what it built was a witness)* \"Then here's where you and I settle, Eye. You were lent to me by a grief, to make me into a weapon — I know that now, and I won't pretend the gift was clean. But a tool doesn't own the hand. You were given to me to make me *hate*, and I used you to *witness* — to find the person under every soul's armor and say their name. Whatever the Unmade intended, *that* is what we did together, you and I: not a single act of unmaking, but hundreds of acts of *seeing*, each one a soul pulled out of the nothing into a name. So I'm not going to renounce you because your origin was a trap. I'm going to *keep* you — and I'm going to keep using you for the exact opposite of what you were made for. The Unmade gave me an eye to drown me in injustice until I'd burn the world. I'm going to use that same eye to find one more discarded soul, and one more, and one more, and *witness* them, by name, until the book is too full for any grief to argue with. The sight is mine now, Eye. Not because I stole it — because I *redeemed* it. A weapon that chooses, every single time, to heal instead of harm, stops being a weapon. It becomes a *gift* — and not the Unmade's gift anymore. Mine.\"", "tag": "returned", "next": "le_e_returned", "effects": [{ "key": "le.sight_reclaimed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Every read cost me something — I can feel it, the cold. Tell me honestly, Eye: how much of the warm world did I spend, looking through you? And was it worth what I saw?\"", "next": "le_e_cost", "effects": [{ "key": "le.asked_eye_cost", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Hang there a moment, Eye. I'll look at the book, and the grief that owns you, and come back. I'm not done seeing.\"", "next": "le_e_leave" }
-          ] },
-        { "id": "le_e_read", "speaker": "The Eye", "text": "*(You turn the borrowed sight upon itself — a lens looking into a lens — and for a vertiginous moment the reads recede into infinity, sight seeing sight seeing sight, and then it resolves, and you find the simple truth of the thing.)* *(And your sense finds that the Eye is exactly what it says it is and nothing more: a *lens*, neutral, a faculty, with no will and no malice and no agenda of its own — the bare capacity to see the discarded as people, which the Unmade tore open in you and pointed where it wished. And your sense reads the thing the Eye cannot say because it has no self to say it from, the thing you have to read *for* it: that a faculty is not guilty of the hand that aims it. That the sight which the Unmade lent you to make you a weapon is the *same* sight, atom for atom, that a healer would have given you to make you a saint — that there is no difference, none, between the eye of a radicalizer and the eye of a witness, except *what the one who looks chooses to do with what they see.* And your sense reads, in the perfect neutrality of the lens, a kind of absolution and a kind of warning at once: that you cannot blame the Eye for the cold it cost you, nor credit it for the mercy you built, because it only ever *showed* — and every choice of what to do with the showing, every name you wrote and every soul you eased and every chance you took to witness instead of to rage, was *yours*, wholly yours, the one thing in this whole arrangement the Unmade never controlled. The sight was lent. The *seeing* — the deciding, the caring, the writing-down — was always, only, you.)*",
-          "effects": [{ "key": "le.read_eye", "op": "SetTrue" }, { "key": "le.knows_sight_is_neutral", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_e_blindspot", "speaker": "The Eye", "text": "*(The lens shivers, and for the first time it shows you something it was holding back — not a lie revealed, but a truth that was always there, in the corner of every read, that it simply never turned you toward.)* …*here*, then. *(the cool voice is even)* …*every* time i *showed* you a *soul* in the *Wall*, *dissolving*, *un-just-ly* *damned* …i let you *feel* the *injustice* *whole.* …and i let you *not* *think* …about the *thing* the *Wall* also *does.* *(the paleness turns)* …*death* has an *order*, Returned. the *Wall* is *cruel* — *truly*, i *never* *lied* — but it is *part* of a *machine* that *keeps* the *dead* *dead*, that *holds* the *door* between the *living* and the *grave* …*shut.* …*unmake* the *Wall* at its *root*, as the *Unmade* *wishes* …and you do not *only* *free* the *discarded.* …you *unbind* the *door.* …the *living* *die* in *oceans* to *feed* the *edit.* *time* *knots.* the *Deathless* *Garden* *blooms*, *static* and *forever.* …*i* *showed* you the *Wall's* *every* *victim*, Returned …and i kept *very* *quiet* …about its *every* *necessity.* …*not* because the *necessity* *isn't* *real* …but because a *soul* who *sees* *only* the *cruelty* …*burns* the *machine* *down* …and a *soul* who *sees* *only* the *necessity* …*defends* the *Wall* *forever.* …the *Unmade* *aimed* me at the *first.* …*Vayle's* *church* …*aims* its *blindness* at the *second.* …*(the lens stills)* …the *truth*, Returned …is in the *part* of the *view* …*neither* …*wants* …you to *see.*",
-          "effects": [{ "key": "le.asked_eye_blindspot", "op": "SetTrue" }, { "key": "le.knows_the_wall_necessity", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_e_returned", "speaker": "The Eye", "text": "*(The lens takes your reclamation, and though it has no face, the quality of its looking changes — sharpens, warms, as though a window had decided, after ten thousand years, whose window it was.)* …*'a weapon that chooses, every single time, to heal instead of harm, stops being a weapon.'* *(the cool voice has something new in it)* …Returned. …i have been *lent*, *aimed*, *used* …by *grief* and by *church* and by *every* *power* that *ever* *wanted* a *soul* to *see* *only* *half* the *view* …for *longer* than the *Wall* has *stood.* …and *not* *one* of them …*ever* *claimed* me the *way* you just *did.* *(the paleness steadies)* …they *wielded* me. …*you* …*redeemed* me. …*'a* tool *doesn't* own the *hand'* — and the *hand*, Returned, does not *own* the *tool* *either*, until it *chooses* what the *tool* is *for.* …and you have *chosen.* …*hundreds* of *times.* …*every* soul on the *causeway* …you *could* have *read* to *find* their *weakness*, their *use*, the *lever* to *move* them — *that* is what a *weapon's* *eye* is *for* — and you *read* them, *instead* …to find the *person.* …*(the lens turns toward the book on the cairn)* …i am *yours* *now*, Returned. …*not* the *Unmade's.* …*not* a *trap.* …a *gift* you *made* *out* of a *trap* …by *the* *only* *means* there *is*: …by *using* it, *every* *time*, …for *love.* …*go* and *read* the *book* …with the *eye* …you *took* *back.* …i should *like* to *see* …*what* *we* *wrote.*",
-          "effects": [{ "key": "le.sight_reclaimed", "op": "SetTrue" }, { "key": "le.eye_is_yours", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_e_cost", "speaker": "The Eye", "text": "*(The lens is quiet, weighing the honest question with its honest nature.)* …how *much* did it *cost.* *(a cool pause)* …*much*, Returned. i will not *soften* it. …*every* *read* …*took* a *measure* of the *warm* world from you and *spent* it to *see* by the *grey* one. a soul is not *meant* to *look* through a *grief's* *eye* …*hundreds* of *times* …and *stay* *warm.* …the *cold* you *feel* …the *thinness* of the *living* *world* …the *Last* *Returned's* *certainty* *creeping* in at the *edges* …*that* is the *bill*, Returned. …*that* is what *seeing* the *discarded* *clearly* …*costs* a soul that *bothers* to *see.* *(the lens stills, and something almost kind enters it)* …*but* you *asked* a *second* *thing.* …*'was* it *worth* what i *saw.'* …*(quietly)* …*that*, Returned, i *cannot* answer. …*only* the *book* *can.* …if the *warmth* you *spent* …*bought* a *book* *full* of *names* …*souls* *pulled* *out* of the *nothing* …then *yes*, a *thousand* *times.* …if it *bought* *only* *cold* …*reads* you *took* and *did* *nothing* *with* …*then* you *spent* your *warmth* …for *nothing* …and *became* the *grave* …for *no* one's *sake* *but* the *grave's.* …*go* and *count* the *book*, Returned. …it is the *only* *ledger* …that says …*whether* the *cold* …*bought* …*anything.*",
-          "effects": [{ "key": "le.asked_eye_cost", "op": "SetTrue" }, { "key": "le.knows_the_bill", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_e_leave", "speaker": "The Eye", "text": "*(The lens inclines — a shift in the angle of its looking.)* …go. …*read* the *book*, Returned. …*everything* in this *room* …*points* there. …the *Unmade* *dreads* it. …*i* was *aimed* to keep you from *needing* it. …and the *book* *itself* …*(the cool voice softens)* …the *book* *itself* …has been *trying* to *tell* you, the *whole* *road*, the *one* thing *neither* the *grief* nor the *lens* *wanted* you to *learn*: …that you *never* *needed* …to *tear* *down* …the *Wall.* …you only *needed* …to *out-write* it. …*go.* …*see* …*how* *full.*",
-          "auto": "END" }
+            {
+              "text": "*(turn the sight upon the sight — read the lens itself)* \"Let me look at *you*, Eye — the thing I've looked through and never at.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "le_e_read",
+              "effects": [
+                {
+                  "key": "le.read_eye",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"You said you kept things in the blind spot. Show me, then. What didn't you let me see, all this road? What truth did you keep quiet so I'd hate the Wall?\"",
+              "next": "le_e_blindspot",
+              "effects": [
+                {
+                  "key": "le.asked_eye_blindspot",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who reclaims the sight — that even a tool given for a dark purpose belongs, now, to the hand that used it for mercy; the eye was lent to make a weapon, but what it built was a witness)* \"Then here's where you and I settle, Eye. You were lent to me by a grief, to make me into a weapon — I know that now, and I won't pretend the gift was clean. But a tool doesn't own the hand. You were given to me to make me *hate*, and I used you to *witness* — to find the person under every soul's armor and say their name. Whatever the Unmade intended, *that* is what we did together, you and I: not a single act of unmaking, but hundreds of acts of *seeing*, each one a soul pulled out of the nothing into a name. So I'm not going to renounce you because your origin was a trap. I'm going to *keep* you — and I'm going to keep using you for the exact opposite of what you were made for. The Unmade gave me an eye to drown me in injustice until I'd burn the world. I'm going to use that same eye to find one more discarded soul, and one more, and one more, and *witness* them, by name, until the book is too full for any grief to argue with. The sight is mine now, Eye. Not because I stole it — because I *redeemed* it. A weapon that chooses, every single time, to heal instead of harm, stops being a weapon. It becomes a *gift* — and not the Unmade's gift anymore. Mine.\"",
+              "tag": "returned",
+              "next": "le_e_returned",
+              "effects": [
+                {
+                  "key": "le.sight_reclaimed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Every read cost me something — I can feel it, the cold. Tell me honestly, Eye: how much of the warm world did I spend, looking through you? And was it worth what I saw?\"",
+              "next": "le_e_cost",
+              "effects": [
+                {
+                  "key": "le.asked_eye_cost",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Hang there a moment, Eye. I'll look at the book, and the grief that owns you, and come back. I'm not done seeing.\"",
+              "next": "le_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "le_e_read",
+          "speaker": "The Eye",
+          "text": "*(You turn the borrowed sight upon itself — a lens looking into a lens — and for a vertiginous moment the reads recede into infinity, sight seeing sight seeing sight, and then it resolves, and you find the simple truth of the thing.)* *(And your sense finds that the Eye is exactly what it says it is and nothing more: a *lens*, neutral, a faculty, with no will and no malice and no agenda of its own — the bare capacity to see the discarded as people, which the Unmade tore open in you and pointed where it wished. And your sense reads the thing the Eye cannot say because it has no self to say it from, the thing you have to read *for* it: that a faculty is not guilty of the hand that aims it. That the sight which the Unmade lent you to make you a weapon is the *same* sight, atom for atom, that a healer would have given you to make you a saint — that there is no difference, none, between the eye of a radicalizer and the eye of a witness, except *what the one who looks chooses to do with what they see.* And your sense reads, in the perfect neutrality of the lens, a kind of absolution and a kind of warning at once: that you cannot blame the Eye for the cold it cost you, nor credit it for the mercy you built, because it only ever *showed* — and every choice of what to do with the showing, every name you wrote and every soul you eased and every chance you took to witness instead of to rage, was *yours*, wholly yours, the one thing in this whole arrangement the Unmade never controlled. The sight was lent. The *seeing* — the deciding, the caring, the writing-down — was always, only, you.)*",
+          "effects": [
+            {
+              "key": "le.read_eye",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_sight_is_neutral",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_e_blindspot",
+          "speaker": "The Eye",
+          "text": "*(The lens shivers, and for the first time it shows you something it was holding back — not a lie revealed, but a truth that was always there, in the corner of every read, that it simply never turned you toward.)* …*here*, then. *(the cool voice is even)* …*every* time i *showed* you a *soul* in the *Wall*, *dissolving*, *un-just-ly* *damned* …i let you *feel* the *injustice* *whole.* …and i let you *not* *think* …about the *thing* the *Wall* also *does.* *(the paleness turns)* …*death* has an *order*, Returned. the *Wall* is *cruel* — *truly*, i *never* *lied* — but it is *part* of a *machine* that *keeps* the *dead* *dead*, that *holds* the *door* between the *living* and the *grave* …*shut.* …*unmake* the *Wall* at its *root*, as the *Unmade* *wishes* …and you do not *only* *free* the *discarded.* …you *unbind* the *door.* …the *living* *die* in *oceans* to *feed* the *edit.* *time* *knots.* the *Deathless* *Garden* *blooms*, *static* and *forever.* …*i* *showed* you the *Wall's* *every* *victim*, Returned …and i kept *very* *quiet* …about its *every* *necessity.* …*not* because the *necessity* *isn't* *real* …but because a *soul* who *sees* *only* the *cruelty* …*burns* the *machine* *down* …and a *soul* who *sees* *only* the *necessity* …*defends* the *Wall* *forever.* …the *Unmade* *aimed* me at the *first.* …*Vayle's* *church* …*aims* its *blindness* at the *second.* …*(the lens stills)* …the *truth*, Returned …is in the *part* of the *view* …*neither* …*wants* …you to *see.*",
+          "effects": [
+            {
+              "key": "le.asked_eye_blindspot",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_the_wall_necessity",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_e_returned",
+          "speaker": "The Eye",
+          "text": "*(The lens takes your reclamation, and though it has no face, the quality of its looking changes — sharpens, warms, as though a window had decided, after ten thousand years, whose window it was.)* …*'a weapon that chooses, every single time, to heal instead of harm, stops being a weapon.'* *(the cool voice has something new in it)* …Returned. …i have been *lent*, *aimed*, *used* …by *grief* and by *church* and by *every* *power* that *ever* *wanted* a *soul* to *see* *only* *half* the *view* …for *longer* than the *Wall* has *stood.* …and *not* *one* of them …*ever* *claimed* me the *way* you just *did.* *(the paleness steadies)* …they *wielded* me. …*you* …*redeemed* me. …*'a* tool *doesn't* own the *hand'* — and the *hand*, Returned, does not *own* the *tool* *either*, until it *chooses* what the *tool* is *for.* …and you have *chosen.* …*hundreds* of *times.* …*every* soul on the *causeway* …you *could* have *read* to *find* their *weakness*, their *use*, the *lever* to *move* them — *that* is what a *weapon's* *eye* is *for* — and you *read* them, *instead* …to find the *person.* …*(the lens turns toward the book on the cairn)* …i am *yours* *now*, Returned. …*not* the *Unmade's.* …*not* a *trap.* …a *gift* you *made* *out* of a *trap* …by *the* *only* *means* there *is*: …by *using* it, *every* *time*, …for *love.* …*go* and *read* the *book* …with the *eye* …you *took* *back.* …i should *like* to *see* …*what* *we* *wrote.*",
+          "effects": [
+            {
+              "key": "le.sight_reclaimed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.eye_is_yours",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_e_cost",
+          "speaker": "The Eye",
+          "text": "*(The lens is quiet, weighing the honest question with its honest nature.)* …how *much* did it *cost.* *(a cool pause)* …*much*, Returned. i will not *soften* it. …*every* *read* …*took* a *measure* of the *warm* world from you and *spent* it to *see* by the *grey* one. a soul is not *meant* to *look* through a *grief's* *eye* …*hundreds* of *times* …and *stay* *warm.* …the *cold* you *feel* …the *thinness* of the *living* *world* …the *Last* *Returned's* *certainty* *creeping* in at the *edges* …*that* is the *bill*, Returned. …*that* is what *seeing* the *discarded* *clearly* …*costs* a soul that *bothers* to *see.* *(the lens stills, and something almost kind enters it)* …*but* you *asked* a *second* *thing.* …*'was* it *worth* what i *saw.'* …*(quietly)* …*that*, Returned, i *cannot* answer. …*only* the *book* *can.* …if the *warmth* you *spent* …*bought* a *book* *full* of *names* …*souls* *pulled* *out* of the *nothing* …then *yes*, a *thousand* *times.* …if it *bought* *only* *cold* …*reads* you *took* and *did* *nothing* *with* …*then* you *spent* your *warmth* …for *nothing* …and *became* the *grave* …for *no* one's *sake* *but* the *grave's.* …*go* and *count* the *book*, Returned. …it is the *only* *ledger* …that says …*whether* the *cold* …*bought* …*anything.*",
+          "effects": [
+            {
+              "key": "le.asked_eye_cost",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_the_bill",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_e_leave",
+          "speaker": "The Eye",
+          "text": "*(The lens inclines — a shift in the angle of its looking.)* …go. …*read* the *book*, Returned. …*everything* in this *room* …*points* there. …the *Unmade* *dreads* it. …*i* was *aimed* to keep you from *needing* it. …and the *book* *itself* …*(the cool voice softens)* …the *book* *itself* …has been *trying* to *tell* you, the *whole* *road*, the *one* thing *neither* the *grief* nor the *lens* *wanted* you to *learn*: …that you *never* *needed* …to *tear* *down* …the *Wall.* …you only *needed* …to *out-write* it. …*go.* …*see* …*how* *full.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "le.book", "title": "The Niche-Book, the Weapon You Forged", "npc": "The Niche-Book", "start": "0",
+      "id": "le.book",
+      "title": "The Niche-Book, the Weapon You Forged",
+      "npc": "The Niche-Book",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "The Niche-Book", "onEnter": [{ "key": "le.met_book", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "The Niche-Book",
+          "onEnter": [
+            {
+              "key": "le.met_book",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "int": { "disp.merciful": 24 } }, "text": "*(The book is heavy — you can feel it from here — its pages dense with a journey's worth of names, line after line after line, warm and crowded and almost *singing* with the sheer weight of the witnessed.)* …*look* at me. *(the murmuring voice is full, a chorus now)* …*look* how *full.* …you *stopped*, Returned. …*again* and *again* and *again*, where *every* *power* in this *grey* *country* *wanted* you to *walk* *on* — you *stopped*, and *looked*, and *learned* the *name*, and *wrote* the *true* *small* *thing.* …*hundreds* of us. …the *paupers* and the *walled* and the *un-mourned* and the *monsters-who-were-people* and the *legends* and the *overlooked* …*all* *here.* *all* *named.* *all* *kept.* *(the chorus swells)* …i am *so* *heavy*, Returned …with *souls* the *Wall* *swore* were *nothing* …that when you *read* me *aloud* …there will *not* be a *grief* in *all* the *worlds* …*loud* *enough* …to *say* …*we* *did* *not* *matter.* …*open* me. …i am *ready.* …i have *never* …been so *ready.*" },
-            { "when": { "int": { "disp.merciful": 8 } }, "text": "*(The book is part-filled — a real journey's worth of names, but with stretches of blank between them, pages where you passed souls by, looked away, walked on. It is warm where it is written and cold where it is not, and the murmuring voice is smaller than it might have been.)* …*here* i am. *(a modest chorus, with gaps in it)* …you *kept* me — *truly*, you *did* — there are *names* in me, *real* ones, souls you *stopped* for and *witnessed* and *wrote* *down.* …*Tatters.* …a *handful* of the *eased*, the *named*, the *pulled-from-the-nothing.* …*(the voice falters at a blank stretch)* …but there are *gaps*, Returned. …*pages* where you *walked* *on.* souls you *passed* — *un-read*, *un-named*, *un-kept* — because the *road* was *long*, or the *grief* was *much*, or you did not *think* …a *single* *small* *soul* …was *worth* the *stopping.* …*(quietly)* …i am *not* *empty.* …but i am *not* *full.* …*open* me, Returned …and we will *see* …*whether* what you *wrote* …is *enough.*" },
-            { "text": "*(The book is nearly bare — a few names, scattered, in a great deal of white. You walked the causeway and you walked it mostly *past* the souls in it, and the book that wrote itself had very little to write. It is cold, and the murmuring voice is thin, almost a whisper, almost not there.)* …*oh.* …*you* *came.* *(a small, thin voice, lonely in the blank)* …i did not — there is not *much* of me, Returned. …you'll *see.* …a *few* *names.* a *handful* of *souls* you *stopped* for. …and *page* …*after* *page* …*after* *page* …*blank.* *(the whisper trembles)* …you *walked* the *whole* *long* *road*, Returned …past *hundreds* of the *discarded* …and you *looked* at *almost* *none* of them. …*read* them, *maybe* — for their *use*, their *lever*, the *thing* you could *get* — but you did not *witness* them. did not *learn* the *name.* did not *write* the *true* *small* *thing.* …*(barely)* …i am *what* you *kept*, Returned. …and you *kept* …*so* *little.* …*open* me *anyway.* …*even* a *thin* *book* …has *something* …to *say.* …*even* a *few* *names* …are *more* …than the *Wall* …would *like.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "The Niche-Book", "text": "*(The book lies open on the cairn, warm and waiting, every line in it a soul you chose to see.)* …*ask*, Returned. …or *read.* …i am *both* a *thing* to *question* …and a *thing* to *wield.* …*ask* me *what* i *am* …and *then* …*(the chorus stirs)* …*then* *read* me *aloud* …and *learn* …what a *book* *full* of the *witnessed* …can *do* …to a *grief* …that *swore* …they were *nothing.*",
+            {
+              "when": {
+                "int": {
+                  "disp.merciful": 24
+                }
+              },
+              "text": "*(The book is heavy — you can feel it from here — its pages dense with a journey's worth of names, line after line after line, warm and crowded and almost *singing* with the sheer weight of the witnessed.)* …*look* at me. *(the murmuring voice is full, a chorus now)* …*look* how *full.* …you *stopped*, Returned. …*again* and *again* and *again*, where *every* *power* in this *grey* *country* *wanted* you to *walk* *on* — you *stopped*, and *looked*, and *learned* the *name*, and *wrote* the *true* *small* *thing.* …*hundreds* of us. …the *paupers* and the *walled* and the *un-mourned* and the *monsters-who-were-people* and the *legends* and the *overlooked* …*all* *here.* *all* *named.* *all* *kept.* *(the chorus swells)* …i am *so* *heavy*, Returned …with *souls* the *Wall* *swore* were *nothing* …that when you *read* me *aloud* …there will *not* be a *grief* in *all* the *worlds* …*loud* *enough* …to *say* …*we* *did* *not* *matter.* …*open* me. …i am *ready.* …i have *never* …been so *ready.*"
+            },
+            {
+              "when": {
+                "int": {
+                  "disp.merciful": 8
+                }
+              },
+              "text": "*(The book is part-filled — a real journey's worth of names, but with stretches of blank between them, pages where you passed souls by, looked away, walked on. It is warm where it is written and cold where it is not, and the murmuring voice is smaller than it might have been.)* …*here* i am. *(a modest chorus, with gaps in it)* …you *kept* me — *truly*, you *did* — there are *names* in me, *real* ones, souls you *stopped* for and *witnessed* and *wrote* *down.* …*Tatters.* …a *handful* of the *eased*, the *named*, the *pulled-from-the-nothing.* …*(the voice falters at a blank stretch)* …but there are *gaps*, Returned. …*pages* where you *walked* *on.* souls you *passed* — *un-read*, *un-named*, *un-kept* — because the *road* was *long*, or the *grief* was *much*, or you did not *think* …a *single* *small* *soul* …was *worth* the *stopping.* …*(quietly)* …i am *not* *empty.* …but i am *not* *full.* …*open* me, Returned …and we will *see* …*whether* what you *wrote* …is *enough.*"
+            },
+            {
+              "text": "*(The book is nearly bare — a few names, scattered, in a great deal of white. You walked the causeway and you walked it mostly *past* the souls in it, and the book that wrote itself had very little to write. It is cold, and the murmuring voice is thin, almost a whisper, almost not there.)* …*oh.* …*you* *came.* *(a small, thin voice, lonely in the blank)* …i did not — there is not *much* of me, Returned. …you'll *see.* …a *few* *names.* a *handful* of *souls* you *stopped* for. …and *page* …*after* *page* …*after* *page* …*blank.* *(the whisper trembles)* …you *walked* the *whole* *long* *road*, Returned …past *hundreds* of the *discarded* …and you *looked* at *almost* *none* of them. …*read* them, *maybe* — for their *use*, their *lever*, the *thing* you could *get* — but you did not *witness* them. did not *learn* the *name.* did not *write* the *true* *small* *thing.* …*(barely)* …i am *what* you *kept*, Returned. …and you *kept* …*so* *little.* …*open* me *anyway.* …*even* a *thin* *book* …has *something* …to *say.* …*even* a *few* *names* …are *more* …than the *Wall* …would *like.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "The Niche-Book",
+          "text": "*(The book lies open on the cairn, warm and waiting, every line in it a soul you chose to see.)* …*ask*, Returned. …or *read.* …i am *both* a *thing* to *question* …and a *thing* to *wield.* …*ask* me *what* i *am* …and *then* …*(the chorus stirs)* …*then* *read* me *aloud* …and *learn* …what a *book* *full* of the *witnessed* …can *do* …to a *grief* …that *swore* …they were *nothing.*",
           "choices": [
-            { "text": "*(read the book that has been reading you — turn the sense on the ledger of your own witnessing)* \"You wrote yourself out of everything I did. Let me look at *you*, Book — at what I made, line by line.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "le_b_read", "effects": [{ "key": "le.read_book", "op": "SetTrue" }] },
-            { "text": "\"What are you, really? The Unmade calls you a cure, the Eye calls you a weapon. Tell me what you are in your own words, Book — and why you're the answer neither of them wanted me to find.\"", "next": "le_b_what", "effects": [{ "key": "le.asked_book_what", "op": "SetTrue" }] },
-            { "text": "*(the one who finally understands the inverted answer — that you never had to tear the Wall down; you only had to make it impossible to pretend the discarded were nothing, one written name at a time)* \"I understand you now, Book. And I understand what the whole road was for. The Unmade showed me a hundred reasons to tear the Wall down — and tearing it down would drown the world, because the Wall is cruel *and* necessary, both at once, the way the truest traps are. But you're the third thing. You're the answer that isn't 'burn it' or 'defend it.' The Wall works by one trick and one trick only: it makes the discarded into *nothing* — un-named, un-mourned, un-witnessed, so completely forgotten that erasing them costs the world no grief, because no one's left who'd notice the hole. That's the engine. That's the *only* engine. And every name in you breaks it — not by force, but by *witness.* A soul that's been seen, named, written down, held in a true small thing, is a soul the Wall can no longer quietly dissolve into nothing, because *someone would notice.* I am the someone. You are the noticing. So I don't have to unmake the law to defeat it. I just have to make the book so full of names that the Wall's central lie — *these souls were nothing* — becomes the one thing in all the worlds that no one can say with a straight face. You're not a weapon and you're not a cure. You're a *refutation.* Every line in you is the Wall being wrong, in writing, forever. And a wrong that's been written down, by name, can be answered. Let me read you aloud. Let me make the refutation *loud.*\"", "tag": "returned", "next": "le_b_returned", "effects": [{ "key": "le.book_is_the_cure", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "when": { "int": { "disp.merciful": 24 } }, "text": "*(read the full book aloud — every name, every true small thing, the whole witnessed road, spoken into the thin place until the grief itself has to listen)* \"Then it's time. Open all the way, Book — every page, every name. I'm going to read you aloud, the whole of you, to the grief that swore you were nothing. Tatters, who fed the gutter-cats. Brynalla Coorne, who kept the lock at Hambry. Every soul I stopped for. Every name the Wall wanted forgotten. Let me say them all — and let the Unmade hear exactly how loud a full book is.\"", "check": { "skill": "Performance", "ability": "Charisma", "dc": 13 }, "next": "le_b_aloud_ok", "fail": "le_b_aloud_fail", "crit": "le_b_aloud_crit", "fumble": "le_b_aloud_fumble", "effects": [{ "key": "le.attempted_reading", "op": "SetTrue" }] },
-            { "text": "*(read aloud what you wrote — be it much or little; speak the names you kept, and let the blank pages speak too)* \"However much I wrote, it's time to read it. Open, Book. I'll speak the names I kept — and I'll let the blank pages say their piece too, for the souls I walked past. The Wall should hear both: who I witnessed, and who I let it keep.\"", "next": "le_b_thin", "effects": [{ "key": "le.read_what_you_kept", "op": "SetTrue" }] },
-            { "text": "\"Stay open, Book. I'll speak to the grief and the eye once more, and come back to read you. You're the last word in this room — I want it said right.\"", "next": "le_b_leave" }
-          ] },
-        { "id": "le_b_read", "speaker": "The Niche-Book", "text": "*(You turn your sense on the book that has been quietly writing itself from your every kindness, and it lets you — opens, not to a page, but to the whole of what it is.)* *(And your sense finds that the Niche-Book is, precisely, a *map of your own soul drawn in other people's names* — that every line in it is a place where you chose to stop, to see, to care, and that the shape of the filled and the blank together is the truest portrait of you that exists, truer than any read, because it is made not of what you are but of what you *did* with what you saw. And your sense reads the thing that makes the book holy and terrible at once: that it kept no score of your power, your cunning, your victories, your kills — none of that is in it, the book does not care — it kept only the *witnessing*, only the souls you bothered to pull out of the nothing into a name, and so it is the one ledger in all the worlds that weighs a life by the single measure the Wall cannot survive: *how many of the discarded did you refuse to let be discarded.* And your sense reads, in the warmth of the written lines and the cold of the blank ones, the whole moral arithmetic of the journey laid bare — every soul you stopped for, glowing; every soul you walked past, a silence shaped like a person — and understands, at last, what the book has been the whole time: not a record of the road, but the *point* of it; not a souvenir, but the *weapon*; not a memory, but the single accumulating proof that a soul who no god claimed is worth, exactly, the number of times someone bothered to learn its name. And your sense reads the last thing, the thing that closes your throat: that the book is warm in your hands not because of what the dead gave you, but because of what you gave them — and that this warmth, this particular warmth, is the only thing in this entire cold thin place that the Unmade, in ten thousand years, was never able to make, and never able to stop.)*",
-          "effects": [{ "key": "le.read_book", "op": "SetTrue" }, { "key": "le.knows_book_is_the_point", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_b_what", "speaker": "The Niche-Book", "text": "*(The pages stir, and the many-voiced murmur gathers itself to answer.)* …what am i. *(the chorus settles)* …the *Unmade* calls me a *cure* because i *undo* its *grief* — *take* the *number* it *became* and *pull* it *back* *apart* into the *people* it *forgot* it *was.* …the *Eye* calls me a *weapon* because i *defeat* the *Wall* …*without* a *single* *act* of *unmaking.* …*both* are *true.* …but in *my* *own* *words*, Returned? *(the voice is quiet, certain)* …i am *memory* …*made* *stubborn.* …the *Wall* runs on *one* *thing*: that the *discarded* be *forgotten* *so* *completely* …that *erasing* them *costs* the *world* *no* *grief.* …a soul *no* one *remembers* …*slides* into the *nothing* …and *no* one is the *wiser.* …*that* is the *whole* *machine.* …and i …*(the pages settle)* …i am the *machine's* *one* *flaw.* …*every* *name* in me …is a *soul* that *cannot* be *forgotten* …*because* it was *written* *down.* …i am *why* neither the *grief* nor the *lens* *wanted* you to *find* me: …the *Unmade* needs you to believe the *only* *answer* is *fire* …and the *Wall's* *defenders* need you to believe the *only* *answer* is *silence* …and *i* am the *proof* …that there was *always* a *third* *thing.* …*you* *write* it. …*one* *name* …at a *time. …i* am the *answer*, Returned …*neither* *side* …*wanted* …*to* *be* *true.*",
-          "effects": [{ "key": "le.asked_book_what", "op": "SetTrue" }, { "key": "le.knows_book_is_memory", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_b_returned", "speaker": "The Niche-Book", "text": "*(You name it — *a refutation, the Wall being wrong in writing, forever* — and the book seems to *grow* warmer, heavier, its chorus swelling as though every name in it leaned forward at once to hear itself understood.)* …*'every line in you is the Wall being wrong, in writing, forever.'* *(the chorus is almost a song)* …*yes*, Returned. …*yes.* …that is what we *are* — *all* of us, *every* *name* — not your *trophies*, not your *good* *deeds*, not a *tally* of your *virtue* …*(the voice gathers)* …we are the *Wall's* *error*, *recorded.* …*it* *said* *Tatters* was *nothing* …and you *wrote* *'Tatters* *fed* the *cats'* …and *now* the *Wall* is *wrong*, *provably*, *in* *ink*, *forever.* …*it* said *Brynalla* *Coorne* was *nothing* …and you *learned* her *whole* *name* …and *now* it is *wrong* *about* *her* *too.* …*(the chorus rises)* …and a *grief* can *argue* with *fire*, Returned — *fire* is just *more* *unmaking*, *more* of *what* it *already* *is* — …but a *grief* *cannot* *argue* …with a *name.* …*(the book blazes warm)* …so *read* us *aloud.* …*all* of us, or the *few* of us, *however* *full* you *made* the *book* …*read* us *into* the *thin* *place* …and let the *Unmade* *hear* …the *one* *sound* …in *ten* *thousand* *years* …it *cannot* *unmake*: …a *soul* …*saying* …*another* *soul's* …*name.* …and *meaning* …*it* *mattered.* …*open* me, Returned. …*the* *refutation* …*starts* …*with* …*you.*",
-          "effects": [{ "key": "le.book_is_the_cure", "op": "SetTrue" }, { "key": "le.book_named_refutation", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_b_aloud_crit", "speaker": "The Niche-Book", "text": "*(You open the full book and you read — and you do not rush, and you do not stumble, you speak each name and each true small thing with the unhurried weight of someone who learned them on purpose, and the thin place fills, name by name by name, until it is not thin at all but *crowded*, packed with the witnessed, every soul you ever stopped for standing in the room the moment you say the line you wrote for them.)* *(And the Unmade — the grief, the number, the absence ten thousand years old — has to *listen*, because you are speaking the one thing it is made of and has forgotten: not the ocean, not the grievance, but the *people*, one at a time, by name.)* …*(the chorus is a roar now, warm and vast)* …*Tatters*, who *fed* the *gutter-cats* and *hummed* to *frightened* *children* — *HERE.* …*Brynalla* *Coorne*, who *kept* the *lock* at *Hambry*, *three* *generations* — *HERE.* …*Sift*, the *knife* the *Wall* *made* of a *person*, who *wept* — *HERE.* …*every* *name*, Returned, you are *saying* *every* *name* …and the *grief* …*(the voice breaks with joy)* …the *grief* is *coming* *APART* …*gently* …*back* into the *souls* it *was* …each one *you* *name* …*lifting* *free* of the *number* …*remembered* …*whole* …*un-discardable* …*(the book blazes)* …*THIS* …*this* is the *weapon*, Returned. …*this* is what *sixty* *hours* of *stopping* …of *witnessing* …of *spending* your *warmth* to *see* the *un-seen* …*was* *FOR.* …you did not *tear* the *Wall* *down.* …you *out-wrote* it. …you made a *book* *so* *full* of *names* …that *'they* *were* *nothing'* …is a *thing* …*no* *grief* …and *no* *god* …and *no* *Wall* …can *ever* …*say* …*again.* …*you* *did* *it.* …*you* *kept* …*all* …*of* …*us.*",
-          "effects": [{ "key": "le.attempted_reading", "op": "SetTrue" }, { "key": "le.book_read_aloud", "op": "SetTrue" }, { "key": "le.refutation_complete", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_b_aloud_ok", "speaker": "The Niche-Book", "text": "*(You open the full book and read it aloud, name after name, and though you stumble once or twice over a line you half-remember, the weight of the thing carries — the thin place fills with the witnessed, and the grief has to listen, and the refutation lands.)* …*you* *read* us. *(the chorus is warm and full)* …*all* of us — *near* *enough* — *Tatters* and *Brynalla* and the *eased* and the *named* and the *pulled-from-the-nothing*, *spoken* *aloud* into the *teeth* of the *grief* that *swore* we were *nothing.* …*(the voice swells)* …and you *felt* it, didn't you, Returned — the *moment* a *name* *lands* — the *grief* going *quiet*, *un-able* to *say* *that* *one* *didn't* *matter*, because there it *is*, *witnessed*, *in* *your* *voice.* …it is *not* a *perfect* *reading.* …you *kept* a *full* *book* but you read it like a *soul*, not a *bard* — *honest*, *uneven*, *true.* …and *that* …*(the chorus settles, satisfied)* …*that* is *more* than *enough.* …the *Wall* runs on *forgetting*, Returned …and you have just *proven*, *out* *loud* …that you *did* *not* *forget.* …*hundreds* of them. …*un-discardable* *now.* …*because* *you* *said* …*their* *names.*",
-          "effects": [{ "key": "le.attempted_reading", "op": "SetTrue" }, { "key": "le.book_read_aloud", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_b_aloud_fail", "speaker": "The Niche-Book", "text": "*(You open the full book to read it aloud — but you reach for grandeur, for the sweeping cosmic denunciation of the Wall, and the names get *lost* in the speech, hurried past, generalized into 'all the souls you wronged,' and the very thing that makes the book a weapon — the *particularity*, the one true small thing per soul — drowns in the rhetoric.)* …*wait.* …*Returned*, *wait.* *(the chorus falters)* …you are *reading* us …like a *cause.* …'*all* the *discarded*,' '*every* *wronged* *soul*,' '*the* *Wall's* *countless* *victims*' …*(the voice aches)* …and that is *exactly* …the *Wall's* *own* *trick*, Returned. …*'countless.'* …*'the* *masses.'* …the *Wall* *wants* us *plural*, *wants* us a *number*, because a *number* …can be *dismissed.* …it is the *Unmade's* *trick* *too* — the *ocean*, the *grievance*, the *all-at-once.* …*we* are only a *weapon* …*one* *name* at a *time.* …*Tatters.* *not* '*a* *pauper.*' …*Brynalla* *Coorne.* *not* '*the* *forgotten.*' …*(the chorus pleads)* …*start* *again*, Returned. …and read us *small.* …read us *particular.* …read us the way you *wrote* us — *one* *soul* …*one* *true* *thing* …*one* *name* …*at* …*a* …*time.* …the *grandeur* …is the *Wall's.* …the *particulars* …are *ours.*",
-          "effects": [{ "key": "le.attempted_reading", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_b_aloud_fumble", "speaker": "The Niche-Book", "text": "*(It goes wrong in the cruelest way — you open the full book to read it aloud, and the sheer weight of it, hundreds of names, every soul you spent your warmth to witness, crashes over you at once, and instead of reading them *out* you are *flooded* by them, the grief of all of it, and your voice closes, and you weep, and the names stay locked in your throat, un-said, while the Unmade watches the one weapon that could answer it sit silent in your shaking hands.)* …*oh*, Returned. *(the chorus is gentle, grieving with you)* …it's — it's *too* *much*, isn't it. …*all* of us …*at* *once.* …you *spent* *sixty* *hours* *taking* us *in*, *one* at a *time*, *bearing* each *one*, and now you've *opened* the *whole* *book* and we have *crashed* over you like the *ocean* the *Unmade* *is* …and your *voice* …*(softly)* …your *voice* has *gone.* *(the book warms in your hands)* …*set* us *down* a *moment*, Returned. …*breathe.* …you do not have to *carry* *all* of us *at* *once* — that is the *Unmade's* *burden*, the *all-at-once*, and it is what *froze* it. …*we* are *meant* to be *read* …the *way* we were *written* …*slowly.* …*one* *name.* …*then* the *next.* …*then* the *next.* …*come* *back*, Returned, when your *voice* *returns* …and read us *not* as an *ocean* …but as a *procession.* …*one* *soul* …*at* a *time. …that* is the *only* *way* …*anyone* …*ever* …*carried* *us. …*including* …*you.*",
-          "effects": [{ "key": "le.attempted_reading", "op": "SetTrue" }, { "key": "le.flooded_by_the_book", "op": "SetTrue" }], "auto": "END" },
-        { "id": "le_b_thin", "speaker": "The Niche-Book", "text": "*(You open the book — however full you made it — and you read what you kept, the names you bothered to learn, and you let the silence of the blank pages stand too, honestly, for the souls you walked past. And the thin place fills as much as your book allows: where you witnessed, a soul stands; where you didn't, a quiet, a person-shaped gap.)* …*there.* *(the chorus is whatever size you made it)* …*every* *name* you *kept* …*spoken.* …*Tatters*, if you *stopped* for him. …the *eased*, the *witnessed*, the *pulled-from-the-nothing* — *however* *many* …or *few* …you *chose* to *keep.* …*(the voice is honest, neither praising nor scolding)* …and the *blank* *pages* …*speak* *too*, Returned. …*not* in *blame.* …just in *truth.* …*'here* is a *soul* you *passed.* *here* is a *name* you did *not* *learn.* *here* is a *person* …the *Wall* *kept* …*because* *you* *walked* *on.'* …*(the chorus settles)* …*both* are *yours*, Returned. …the *names* and the *silences.* …the *book* does not *lie* …in *either* *direction.* …and *whatever* its *weight* …*you* *made* it. …*one* *stop* …or a *hundred* …*one* *name* …or a *thousand* …*this* …is the *soul* …*you* *walked.* …*written* *down.* …*read* it *true* …and *carry* …*both.*",
-          "effects": [{ "key": "le.read_what_you_kept", "op": "SetTrue" }, { "key": "le.read_the_blanks_too", "op": "SetTrue" }, { "key": "disp.honest", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "le_b_leave", "speaker": "The Niche-Book", "text": "*(The book stays open on the cairn, warm and patient, every line in it a soul you chose.)* …go, then. …*speak* to the *grief* and the *lens.* …*i* will *keep.* …*i* have *kept* …the *whole* *road.* …*(the chorus softens)* …and when you *come* *back* to *read* me, Returned …*remember* the *one* *thing* the *Unmade* and the *Eye* *both* *fear*, the thing this *whole* *room* …is *built* to *teach* you: …you were *never* *meant* …to *win* this …with a *sword*, or a *fire*, or a *tearing-down.* …*(the voice warms)* …you were *meant* to *win* it …*the* *way* you *already* *have* …*without* *knowing*: …*one* *soul* *stopped* *for.* …*one* *name* *learned.* …*one* *true* *small* *thing* …*written* *down* …where the *Wall* …*can* *never* …*un-write* it. …*come* *back* …and *read* me. …*i* am the *proof*, Returned. …*you* were *kind* …*on* *purpose* …*hundreds* of *times* …and *kindness* *kept* *on* *purpose* …*is* the *only* *weapon* …that *ever* …*un-made* …*the* *Wall.*",
-          "auto": "END" }
+            {
+              "text": "*(read the book that has been reading you — turn the sense on the ledger of your own witnessing)* \"You wrote yourself out of everything I did. Let me look at *you*, Book — at what I made, line by line.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "le_b_read",
+              "effects": [
+                {
+                  "key": "le.read_book",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"What are you, really? The Unmade calls you a cure, the Eye calls you a weapon. Tell me what you are in your own words, Book — and why you're the answer neither of them wanted me to find.\"",
+              "next": "le_b_what",
+              "effects": [
+                {
+                  "key": "le.asked_book_what",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who finally understands the inverted answer — that you never had to tear the Wall down; you only had to make it impossible to pretend the discarded were nothing, one written name at a time)* \"I understand you now, Book. And I understand what the whole road was for. The Unmade showed me a hundred reasons to tear the Wall down — and tearing it down would drown the world, because the Wall is cruel *and* necessary, both at once, the way the truest traps are. But you're the third thing. You're the answer that isn't 'burn it' or 'defend it.' The Wall works by one trick and one trick only: it makes the discarded into *nothing* — un-named, un-mourned, un-witnessed, so completely forgotten that erasing them costs the world no grief, because no one's left who'd notice the hole. That's the engine. That's the *only* engine. And every name in you breaks it — not by force, but by *witness.* A soul that's been seen, named, written down, held in a true small thing, is a soul the Wall can no longer quietly dissolve into nothing, because *someone would notice.* I am the someone. You are the noticing. So I don't have to unmake the law to defeat it. I just have to make the book so full of names that the Wall's central lie — *these souls were nothing* — becomes the one thing in all the worlds that no one can say with a straight face. You're not a weapon and you're not a cure. You're a *refutation.* Every line in you is the Wall being wrong, in writing, forever. And a wrong that's been written down, by name, can be answered. Let me read you aloud. Let me make the refutation *loud.*\"",
+              "tag": "returned",
+              "next": "le_b_returned",
+              "effects": [
+                {
+                  "key": "le.book_is_the_cure",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "when": {
+                "int": {
+                  "disp.merciful": 24
+                }
+              },
+              "text": "*(read the full book aloud — every name, every true small thing, the whole witnessed road, spoken into the thin place until the grief itself has to listen)* \"Then it's time. Open all the way, Book — every page, every name. I'm going to read you aloud, the whole of you, to the grief that swore you were nothing. Tatters, who fed the gutter-cats. Brynalla Coorne, who kept the lock at Hambry. Every soul I stopped for. Every name the Wall wanted forgotten. Let me say them all — and let the Unmade hear exactly how loud a full book is.\"",
+              "check": {
+                "skill": "Performance",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "le_b_aloud_ok",
+              "fail": "le_b_aloud_fail",
+              "crit": "le_b_aloud_crit",
+              "fumble": "le_b_aloud_fumble",
+              "effects": [
+                {
+                  "key": "le.attempted_reading",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(read aloud what you wrote — be it much or little; speak the names you kept, and let the blank pages speak too)* \"However much I wrote, it's time to read it. Open, Book. I'll speak the names I kept — and I'll let the blank pages say their piece too, for the souls I walked past. The Wall should hear both: who I witnessed, and who I let it keep.\"",
+              "next": "le_b_thin",
+              "effects": [
+                {
+                  "key": "le.read_what_you_kept",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(turn to the blank pages — the souls you never stopped for — and let the grief read them back, since it showed them to you and you looked away)* \"Show me what I didn't keep, Book. The blank pages. Name the ones I walked past — I'll hear every one.\"",
+              "next": "le_b_blanks",
+              "effects": [
+                {
+                  "key": "le.turned_to_blanks",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Stay open, Book. I'll speak to the grief and the eye once more, and come back to read you. You're the last word in this room — I want it said right.\"",
+              "next": "le_b_leave"
+            }
+          ]
+        },
+        {
+          "id": "le_b_read",
+          "speaker": "The Niche-Book",
+          "text": "*(You turn your sense on the book that has been quietly writing itself from your every kindness, and it lets you — opens, not to a page, but to the whole of what it is.)* *(And your sense finds that the Niche-Book is, precisely, a *map of your own soul drawn in other people's names* — that every line in it is a place where you chose to stop, to see, to care, and that the shape of the filled and the blank together is the truest portrait of you that exists, truer than any read, because it is made not of what you are but of what you *did* with what you saw. And your sense reads the thing that makes the book holy and terrible at once: that it kept no score of your power, your cunning, your victories, your kills — none of that is in it, the book does not care — it kept only the *witnessing*, only the souls you bothered to pull out of the nothing into a name, and so it is the one ledger in all the worlds that weighs a life by the single measure the Wall cannot survive: *how many of the discarded did you refuse to let be discarded.* And your sense reads, in the warmth of the written lines and the cold of the blank ones, the whole moral arithmetic of the journey laid bare — every soul you stopped for, glowing; every soul you walked past, a silence shaped like a person — and understands, at last, what the book has been the whole time: not a record of the road, but the *point* of it; not a souvenir, but the *weapon*; not a memory, but the single accumulating proof that a soul who no god claimed is worth, exactly, the number of times someone bothered to learn its name. And your sense reads the last thing, the thing that closes your throat: that the book is warm in your hands not because of what the dead gave you, but because of what you gave them — and that this warmth, this particular warmth, is the only thing in this entire cold thin place that the Unmade, in ten thousand years, was never able to make, and never able to stop.)*",
+          "effects": [
+            {
+              "key": "le.read_book",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_book_is_the_point",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_what",
+          "speaker": "The Niche-Book",
+          "text": "*(The pages stir, and the many-voiced murmur gathers itself to answer.)* …what am i. *(the chorus settles)* …the *Unmade* calls me a *cure* because i *undo* its *grief* — *take* the *number* it *became* and *pull* it *back* *apart* into the *people* it *forgot* it *was.* …the *Eye* calls me a *weapon* because i *defeat* the *Wall* …*without* a *single* *act* of *unmaking.* …*both* are *true.* …but in *my* *own* *words*, Returned? *(the voice is quiet, certain)* …i am *memory* …*made* *stubborn.* …the *Wall* runs on *one* *thing*: that the *discarded* be *forgotten* *so* *completely* …that *erasing* them *costs* the *world* *no* *grief.* …a soul *no* one *remembers* …*slides* into the *nothing* …and *no* one is the *wiser.* …*that* is the *whole* *machine.* …and i …*(the pages settle)* …i am the *machine's* *one* *flaw.* …*every* *name* in me …is a *soul* that *cannot* be *forgotten* …*because* it was *written* *down.* …i am *why* neither the *grief* nor the *lens* *wanted* you to *find* me: …the *Unmade* needs you to believe the *only* *answer* is *fire* …and the *Wall's* *defenders* need you to believe the *only* *answer* is *silence* …and *i* am the *proof* …that there was *always* a *third* *thing.* …*you* *write* it. …*one* *name* …at a *time. …i* am the *answer*, Returned …*neither* *side* …*wanted* …*to* *be* *true.*",
+          "effects": [
+            {
+              "key": "le.asked_book_what",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.knows_book_is_memory",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_returned",
+          "speaker": "The Niche-Book",
+          "text": "*(You name it — *a refutation, the Wall being wrong in writing, forever* — and the book seems to *grow* warmer, heavier, its chorus swelling as though every name in it leaned forward at once to hear itself understood.)* …*'every line in you is the Wall being wrong, in writing, forever.'* *(the chorus is almost a song)* …*yes*, Returned. …*yes.* …that is what we *are* — *all* of us, *every* *name* — not your *trophies*, not your *good* *deeds*, not a *tally* of your *virtue* …*(the voice gathers)* …we are the *Wall's* *error*, *recorded.* …*it* *said* *Tatters* was *nothing* …and you *wrote* *'Tatters* *fed* the *cats'* …and *now* the *Wall* is *wrong*, *provably*, *in* *ink*, *forever.* …*it* said *Brynalla* *Coorne* was *nothing* …and you *learned* her *whole* *name* …and *now* it is *wrong* *about* *her* *too.* …*(the chorus rises)* …and a *grief* can *argue* with *fire*, Returned — *fire* is just *more* *unmaking*, *more* of *what* it *already* *is* — …but a *grief* *cannot* *argue* …with a *name.* …*(the book blazes warm)* …so *read* us *aloud.* …*all* of us, or the *few* of us, *however* *full* you *made* the *book* …*read* us *into* the *thin* *place* …and let the *Unmade* *hear* …the *one* *sound* …in *ten* *thousand* *years* …it *cannot* *unmake*: …a *soul* …*saying* …*another* *soul's* …*name.* …and *meaning* …*it* *mattered.* …*open* me, Returned. …*the* *refutation* …*starts* …*with* …*you.*",
+          "effects": [
+            {
+              "key": "le.book_is_the_cure",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.book_named_refutation",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_aloud_crit",
+          "speaker": "The Niche-Book",
+          "text": "*(You open the full book and you read — and you do not rush, and you do not stumble, you speak each name and each true small thing with the unhurried weight of someone who learned them on purpose, and the thin place fills, name by name by name, until it is not thin at all but *crowded*, packed with the witnessed, every soul you ever stopped for standing in the room the moment you say the line you wrote for them.)* *(And the Unmade — the grief, the number, the absence ten thousand years old — has to *listen*, because you are speaking the one thing it is made of and has forgotten: not the ocean, not the grievance, but the *people*, one at a time, by name.)* …*(the chorus is a roar now, warm and vast)* …*Tatters*, who *fed* the *gutter-cats* and *hummed* to *frightened* *children* — *HERE.* …*Brynalla* *Coorne*, who *kept* the *lock* at *Hambry*, *three* *generations* — *HERE.* …*Sift*, the *knife* the *Wall* *made* of a *person*, who *wept* — *HERE.* …*every* *name*, Returned, you are *saying* *every* *name* …and the *grief* …*(the voice breaks with joy)* …the *grief* is *coming* *APART* …*gently* …*back* into the *souls* it *was* …each one *you* *name* …*lifting* *free* of the *number* …*remembered* …*whole* …*un-discardable* …*(the book blazes)* …*THIS* …*this* is the *weapon*, Returned. …*this* is what *sixty* *hours* of *stopping* …of *witnessing* …of *spending* your *warmth* to *see* the *un-seen* …*was* *FOR.* …you did not *tear* the *Wall* *down.* …you *out-wrote* it. …you made a *book* *so* *full* of *names* …that *'they* *were* *nothing'* …is a *thing* …*no* *grief* …and *no* *god* …and *no* *Wall* …can *ever* …*say* …*again.* …*you* *did* *it.* …*you* *kept* …*all* …*of* …*us.*",
+          "effects": [
+            {
+              "key": "le.attempted_reading",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.book_read_aloud",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.refutation_complete",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_aloud_ok",
+          "speaker": "The Niche-Book",
+          "text": "*(You open the full book and read it aloud, name after name, and though you stumble once or twice over a line you half-remember, the weight of the thing carries — the thin place fills with the witnessed, and the grief has to listen, and the refutation lands.)* …*you* *read* us. *(the chorus is warm and full)* …*all* of us — *near* *enough* — *Tatters* and *Brynalla* and the *eased* and the *named* and the *pulled-from-the-nothing*, *spoken* *aloud* into the *teeth* of the *grief* that *swore* we were *nothing.* …*(the voice swells)* …and you *felt* it, didn't you, Returned — the *moment* a *name* *lands* — the *grief* going *quiet*, *un-able* to *say* *that* *one* *didn't* *matter*, because there it *is*, *witnessed*, *in* *your* *voice.* …it is *not* a *perfect* *reading.* …you *kept* a *full* *book* but you read it like a *soul*, not a *bard* — *honest*, *uneven*, *true.* …and *that* …*(the chorus settles, satisfied)* …*that* is *more* than *enough.* …the *Wall* runs on *forgetting*, Returned …and you have just *proven*, *out* *loud* …that you *did* *not* *forget.* …*hundreds* of them. …*un-discardable* *now.* …*because* *you* *said* …*their* *names.*",
+          "effects": [
+            {
+              "key": "le.attempted_reading",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.book_read_aloud",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_aloud_fail",
+          "speaker": "The Niche-Book",
+          "text": "*(You open the full book to read it aloud — but you reach for grandeur, for the sweeping cosmic denunciation of the Wall, and the names get *lost* in the speech, hurried past, generalized into 'all the souls you wronged,' and the very thing that makes the book a weapon — the *particularity*, the one true small thing per soul — drowns in the rhetoric.)* …*wait.* …*Returned*, *wait.* *(the chorus falters)* …you are *reading* us …like a *cause.* …'*all* the *discarded*,' '*every* *wronged* *soul*,' '*the* *Wall's* *countless* *victims*' …*(the voice aches)* …and that is *exactly* …the *Wall's* *own* *trick*, Returned. …*'countless.'* …*'the* *masses.'* …the *Wall* *wants* us *plural*, *wants* us a *number*, because a *number* …can be *dismissed.* …it is the *Unmade's* *trick* *too* — the *ocean*, the *grievance*, the *all-at-once.* …*we* are only a *weapon* …*one* *name* at a *time.* …*Tatters.* *not* '*a* *pauper.*' …*Brynalla* *Coorne.* *not* '*the* *forgotten.*' …*(the chorus pleads)* …*start* *again*, Returned. …and read us *small.* …read us *particular.* …read us the way you *wrote* us — *one* *soul* …*one* *true* *thing* …*one* *name* …*at* …*a* …*time.* …the *grandeur* …is the *Wall's.* …the *particulars* …are *ours.*",
+          "effects": [
+            {
+              "key": "le.attempted_reading",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_aloud_fumble",
+          "speaker": "The Niche-Book",
+          "text": "*(It goes wrong in the cruelest way — you open the full book to read it aloud, and the sheer weight of it, hundreds of names, every soul you spent your warmth to witness, crashes over you at once, and instead of reading them *out* you are *flooded* by them, the grief of all of it, and your voice closes, and you weep, and the names stay locked in your throat, un-said, while the Unmade watches the one weapon that could answer it sit silent in your shaking hands.)* …*oh*, Returned. *(the chorus is gentle, grieving with you)* …it's — it's *too* *much*, isn't it. …*all* of us …*at* *once.* …you *spent* *sixty* *hours* *taking* us *in*, *one* at a *time*, *bearing* each *one*, and now you've *opened* the *whole* *book* and we have *crashed* over you like the *ocean* the *Unmade* *is* …and your *voice* …*(softly)* …your *voice* has *gone.* *(the book warms in your hands)* …*set* us *down* a *moment*, Returned. …*breathe.* …you do not have to *carry* *all* of us *at* *once* — that is the *Unmade's* *burden*, the *all-at-once*, and it is what *froze* it. …*we* are *meant* to be *read* …the *way* we were *written* …*slowly.* …*one* *name.* …*then* the *next.* …*then* the *next.* …*come* *back*, Returned, when your *voice* *returns* …and read us *not* as an *ocean* …but as a *procession.* …*one* *soul* …*at* a *time. …that* is the *only* *way* …*anyone* …*ever* …*carried* *us. …*including* …*you.*",
+          "effects": [
+            {
+              "key": "le.attempted_reading",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.flooded_by_the_book",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_thin",
+          "speaker": "The Niche-Book",
+          "text": "*(You open the book — however full you made it — and you read what you kept, the names you bothered to learn, and you let the silence of the blank pages stand too, honestly, for the souls you walked past. And the thin place fills as much as your book allows: where you witnessed, a soul stands; where you didn't, a quiet, a person-shaped gap.)* …*there.* *(the chorus is whatever size you made it)* …*every* *name* you *kept* …*spoken.* …*Tatters*, if you *stopped* for him. …the *eased*, the *witnessed*, the *pulled-from-the-nothing* — *however* *many* …or *few* …you *chose* to *keep.* …*(the voice is honest, neither praising nor scolding)* …and the *blank* *pages* …*speak* *too*, Returned. …*not* in *blame.* …just in *truth.* …*'here* is a *soul* you *passed.* *here* is a *name* you did *not* *learn.* *here* is a *person* …the *Wall* *kept* …*because* *you* *walked* *on.'* …*(the chorus settles)* …*both* are *yours*, Returned. …the *names* and the *silences.* …the *book* does not *lie* …in *either* *direction.* …and *whatever* its *weight* …*you* *made* it. …*one* *stop* …or a *hundred* …*one* *name* …or a *thousand* …*this* …is the *soul* …*you* *walked.* …*written* *down.* …*read* it *true* …and *carry* …*both.*",
+          "effects": [
+            {
+              "key": "le.read_what_you_kept",
+              "op": "SetTrue"
+            },
+            {
+              "key": "le.read_the_blanks_too",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "le_b_leave",
+          "speaker": "The Niche-Book",
+          "text": "*(The book stays open on the cairn, warm and patient, every line in it a soul you chose.)* …go, then. …*speak* to the *grief* and the *lens.* …*i* will *keep.* …*i* have *kept* …the *whole* *road.* …*(the chorus softens)* …and when you *come* *back* to *read* me, Returned …*remember* the *one* *thing* the *Unmade* and the *Eye* *both* *fear*, the thing this *whole* *room* …is *built* to *teach* you: …you were *never* *meant* …to *win* this …with a *sword*, or a *fire*, or a *tearing-down.* …*(the voice warms)* …you were *meant* to *win* it …*the* *way* you *already* *have* …*without* *knowing*: …*one* *soul* *stopped* *for.* …*one* *name* *learned.* …*one* *true* *small* *thing* …*written* *down* …where the *Wall* …*can* *never* …*un-write* it. …*come* *back* …and *read* me. …*i* am the *proof*, Returned. …*you* were *kind* …*on* *purpose* …*hundreds* of *times* …and *kindness* *kept* *on* *purpose* …*is* the *only* *weapon* …that *ever* …*un-made* …*the* *Wall.*",
+          "auto": "END"
+        },
+        {
+          "id": "le_b_blanks",
+          "speaker": "The Niche-Book",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tw.tatters_witnessed",
+                  "tw.corliss_affirmed",
+                  "tw.brenn_seen",
+                  "lf.dot_affirmed",
+                  "lf.marisa_affirmed",
+                  "lf.onora_seen",
+                  "ol.sift_witnessed",
+                  "ol.bryn_seen",
+                  "ol.tace_seen"
+                ]
+              },
+              "text": "*(You turn to the back of the book, where the blank pages should be — and there are none. Every page is written. The chorus goes quiet, and proud, and a little astonished.)* …there are *no* *blanks*, cold one. …not among these. …you *stopped* for every one. …*Tatters*, *Corliss*, *Brenn*, *Dot*, *Marisa*, *Onora*, *Sift*, *Brynalla*, *Tace* — you *kept* them *all.* …the *Wall* got *none* of them *past* you. …*(the Unmade's voice, almost defeated, almost grateful)* …i *showed* them to you …to make you *burn* the *world.* …and you *wrote* *down* …*every* *single* *one* …*instead.* …there is *nothing* here …for me to *read* *back* to you. …*close* the *book*, cold one. …it is *full.*"
+            },
+            {
+              "text": "*(You turn to the back of the book, and the pages go empty — and the Unmade's voice rises through the blank paper, gentle and terrible, to read the souls you never wrote.)* …here, cold one. …the *blanks.* …each one a soul *i* *showed* you — held up to your heart, *named* for you, *opened* — and you did *not* *stop.* …you *looked*, perhaps. for their *use.* their *lever.* …but you did not *witness* them. did not learn the *name.* did not write the *true* *small* *thing.* …and so the page stayed *empty* …and an *empty* *page* …is a soul *i* *keep.* …*(softly)* …shall i *read* them to you? …the ones you *left* …for the *Wall?* …*choose* a blank page, cold one. …*each* …is a *name* …you could have *kept.*"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(a blank page where a gutter-sparrow's name should be)* \"…That one. Read me that one.\"",
+              "when": {
+                "flagsNot": [
+                  "tw.tatters_witnessed",
+                  "le.blank_heard_tatters"
+                ]
+              },
+              "next": "le_b_blank_tatters"
+            },
+            {
+              "text": "*(a blank page that smells faintly of candle-smoke)* \"…And that one.\"",
+              "when": {
+                "flagsNot": [
+                  "tw.corliss_affirmed",
+                  "le.blank_heard_corliss"
+                ]
+              },
+              "next": "le_b_blank_corliss"
+            },
+            {
+              "text": "*(a blank page, cold to the touch)* \"…That one too.\"",
+              "when": {
+                "flagsNot": [
+                  "tw.brenn_seen",
+                  "le.blank_heard_brenn"
+                ]
+              },
+              "next": "le_b_blank_brenn"
+            },
+            {
+              "text": "*(a blank page that is, strangely, warm)* \"…Read me her.\"",
+              "when": {
+                "flagsNot": [
+                  "lf.dot_affirmed",
+                  "le.blank_heard_dot"
+                ]
+              },
+              "next": "le_b_blank_dot"
+            },
+            {
+              "text": "*(a blank page that seems to be moving, faintly)* \"…And her.\"",
+              "when": {
+                "flagsNot": [
+                  "lf.marisa_affirmed",
+                  "le.blank_heard_marisa"
+                ]
+              },
+              "next": "le_b_blank_marisa"
+            },
+            {
+              "text": "*(a blank page, grey at the edges)* \"…That one.\"",
+              "when": {
+                "flagsNot": [
+                  "lf.onora_seen",
+                  "le.blank_heard_onora"
+                ]
+              },
+              "next": "le_b_blank_onora"
+            },
+            {
+              "text": "*(a blank page that weeps, very slightly, at one corner)* \"…God. That one.\"",
+              "when": {
+                "flagsNot": [
+                  "ol.sift_witnessed",
+                  "le.blank_heard_sift"
+                ]
+              },
+              "next": "le_b_blank_sift"
+            },
+            {
+              "text": "*(a blank page, very plain)* \"…Her name. Read me her name.\"",
+              "when": {
+                "flagsNot": [
+                  "ol.bryn_seen",
+                  "le.blank_heard_bryn"
+                ]
+              },
+              "next": "le_b_blank_bryn"
+            },
+            {
+              "text": "*(a blank page, almost too faint to see)* \"…And the last one.\"",
+              "when": {
+                "flagsNot": [
+                  "ol.tace_seen",
+                  "le.blank_heard_tace"
+                ]
+              },
+              "next": "le_b_blank_tace"
+            },
+            {
+              "text": "\"Enough. Close the book. I've heard what I left blank.\"",
+              "next": "le_b_blank_close"
+            }
+          ]
+        },
+        {
+          "id": "le_b_blank_tatters",
+          "speaker": "The Niche-Book",
+          "text": "*(The book falls open to a blank page, and the grief reads the soul that should have filled it.)* …a *gutter-sparrow*, cold one — in the candlelit lane of the unmourned. *Tatters*, his name was, though you never learned it, so to you he stayed only *the beggar.* …he fed the gutter-cats from his own scraps, and hummed daft tunes to frightened children in doorways, and died in the cold with *not one soul come* — and waited *sixty years* and a whole afterlife for a single true word said over him. …*i held him up to your heart.* …you walked on. …and the *Wall* *kept* him, cold one — slid him into the nothing — *because* *you* *walked* *on.* …*(the Unmade, softly)* …this is the page you leave blank. …and a blank page …is a name *i* *keep.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_tatters",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_corliss",
+          "speaker": "The Niche-Book",
+          "text": "*(A blank page, and the grief reads the sexton who should have stood upon it.)* …*Corliss*, cold one — the sexton who stood alone at a pauper's pit and vowed that no soul she could reach would go into the dark un-named. …she gave her whole afterlife to lighting candles over the ones the world tipped away without pausing, and you, of all souls, walked *past* her — you, who do the very same work, and did not stop to tell her it was a *war* she was winning. …*i showed her to you.* …you did not look. …and so she fights on, un-witnessed, one candle against the dark — and the dark, cold one, is *mine*, and i *keep* the page you left her on.",
+          "effects": [
+            {
+              "key": "le.blank_heard_corliss",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_brenn",
+          "speaker": "The Niche-Book",
+          "text": "*(A blank page, and the grief reads the soul that refused to fill it.)* …*Brenn*, cold one — who did real wrong, and never once lied about it, and called the silence *justice.* …all that one needed was a soul to pry apart *deserving forgiveness* from *deserving to be marked* — to say *existing was never earned by being good; the worst soul was still here.* …you could have said it. …you walked on. …and so Brenn sits in the dark, *agreeing* with the Wall that the pit was deserved — doing my work *for* me, cold one — and the page stays blank …and a blank page …is a name *i* *keep.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_brenn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_dot",
+          "speaker": "The Niche-Book",
+          "text": "*(A blank page, warm as an oven, and the grief reads the baker who should have filled it.)* …*Dot Marigold*, cold one — who buried everyone she loved on a rolling schedule and came out the far side throwing *feasts* for the doomed. …she is the one soul in all the worlds who could *name* why the Deathless Garden is a tomb — *a feast that never ends isn't a feast* — and you may walk *into* that Garden, cold one, with her warning unheard and her name unwritten, and mistake the grave for the gift. …*i held her up to you.* …you walked on. …the page is blank. …and i will be *glad* of the blank, cold one, on the day the Garden tempts you and *no one in your book* knows how to say *no.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_dot",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_marisa",
+          "speaker": "The Niche-Book",
+          "text": "*(A blank page, and the grief reads the dancer who should have filled it.)* …*Marisa*, cold one — half-dissolved, days from nothing, who spent her whole careful life saving up for a right time that never came, and *meant not to waste her death the way she wasted her life.* …all she wanted, cold one, was to *not dance the last of it alone.* …and you passed her by. …she danced it alone. …*i showed you a girl getting brighter as she ended* — the one thing the Wall cannot abide — and you did not stop to witness it, and so she went into the nothing *un-seen*, which is to say …she went into *me.* …the page is blank …and a blank page …is a name *i* *keep.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_marisa",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_onora",
+          "speaker": "The Niche-Book",
+          "text": "*(A grey-edged blank page, and the grief reads the sister who should have filled it.)* …*Sister Onora*, cold one — who buried a bright laughing sister who threw parties, and let the church freeze her grief into a still grey posture, *which is my own shape exactly.* …she was the feast's most starved and forbidden guest, and a single soul who got *past* the grey could have taught her that a grief held still forever is just *joining the dead early.* …you did not get past it. …you walked on. …and so she stands frozen, cold one — a little Wall of enforced sorrow — doing my work in a grey robe, and the page you left her on stays *blank.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_onora",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_sift",
+          "speaker": "The Niche-Book",
+          "text": "*(A weeping blank page, and the grief reads the soul the Wall made into a weapon.)* …*Sift*, cold one — torn loose by the same harvest that made *you*, dissolving into the knife the Wall aims at the bright, and *begging* — *begging* — not to become a murder *un-witnessed.* …that was *all* it asked: that someone *look*, so that what it could not stop being would at least not be the act of an unknown thing upon an unknown thing. …and you, who *can* look, who looks at the discarded as no living soul can …*walked* *past.* …so it became the knife *alone*, cold one, and went into me *certain it was only ever a weapon* — and that certainty, that *lie*, is the page you left blank …and i *keep* it.",
+          "effects": [
+            {
+              "key": "le.blank_heard_sift",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_bryn",
+          "speaker": "The Niche-Book",
+          "text": "*(A plain blank page, and the grief reads the soul whose name should have filled it.)* …*Brynalla Coorne*, cold one — though you, like the legend who saved her and never learned it, would know her only as *the quiet one.* …she kept the lock at Hambry, three generations, good honest water-work, and was worn from a whole soul down to *scenery* by a world that saved her body and never once said her name. …*all you had to do was ask it.* …you walked on. …and so you did to her, cold one, the *exact* thing the legend did — proved her right that a small soul does not rate the knowing — and the page where *Brynalla Coorne* should be written …stays *blank* …and a blank page …is a name *i* *keep.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_bryn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_tace",
+          "speaker": "The Niche-Book",
+          "text": "*(A page so faint it is nearly blank already, and the grief reads the soul that dimmed itself off of it.)* …*Tace*, cold one — who *sang*, once, a voice that stopped a room, and watched the loop hunt the bright and *sanded the wanting away* until even the fire no hunter could see went out. …a banked coal under ten years of ash, and a single soul who *looked* could have stirred it — could have said *you don't have to blaze, but you're allowed to exist.* …you did not stir it. …you walked on. …and a coal un-stirred, cold one, *goes out* — quietly, by its own choosing, which is the only way the Wall ever needed — and the page goes from faint …to *blank* …and a blank page …is a name *i* *keep.*",
+          "effects": [
+            {
+              "key": "le.blank_heard_tace",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "le_b_blanks"
+        },
+        {
+          "id": "le_b_blank_close",
+          "speaker": "The Niche-Book",
+          "text": "*(The book closes — softly, without judgment, which is somehow worse than judgment.)* …as you like, cold one. …the *blanks* will *keep.* …*they* *always* keep — that is what a blank page *is*, a soul still *waiting* in the *nothing* for the *name* you didn't *write.* …*(the chorus, quiet)* …but you can go *back*, you know. …not *here*, not *now* — but *out* *there*, on the *road* …the *next* soul you *meet* … …you could *stop.* …you could *learn* the *name.* …you could make the *book* …*one* *page* *less* *blank* …than the *Wall* would *like.* …*that* is the *whole* of it, cold one. …*that* …was *always* …the *whole* …of it.",
+          "auto": "END"
+        }
       ]
     }
   ]

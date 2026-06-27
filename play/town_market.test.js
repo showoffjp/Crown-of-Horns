@@ -3022,6 +3022,32 @@ check("System 1 rollout: the read nodes keep their effects + auto:END (mechanics
   return n.auto === "END" && Array.isArray(n.effects) && n.effects.length >= 1;
 }))
 
+check("System 3 reproach: the Niche-Book has a 'blank pages' beat (le.turned_to_blanks) leading to the hub where the Unmade reads your un-witnessed souls back", (() => {
+  const choice = leB.nodes.find(n => n.id === "1").choices.find(ch => ch.next === "le_b_blanks");
+  const hub = leB.nodes.find(n => n.id === "le_b_blanks");
+  return choice && choice.effects.some(e => e.key === "le.turned_to_blanks") && hub && hub.variants && hub.choices;
+})());
+check("System 3 reproach: 9 blank-page choices each gated on the ABSENCE of that soul's witness flag (when.flagsNot) + not-yet-heard, each naming a specific missed soul", (() => {
+  const hub = leB.nodes.find(n => n.id === "le_b_blanks");
+  const WIT = ["tw.tatters_witnessed","tw.corliss_affirmed","tw.brenn_seen","lf.dot_affirmed","lf.marisa_affirmed","lf.onora_seen","ol.sift_witnessed","ol.bryn_seen","ol.tace_seen"];
+  const gated = hub.choices.filter(ch => ch.when && Array.isArray(ch.when.flagsNot) && WIT.some(w => ch.when.flagsNot.includes(w)));
+  if (gated.length !== 9) return false;
+  // each gated choice points to a reproach node that sets a heard-flag and deepens the cold, then returns to the hub
+  return gated.every(ch => {
+    const rn = leB.nodes.find(n => n.id === ch.next);
+    return rn && rn.auto === "le_b_blanks" && rn.effects.some(e => /^le\.blank_heard_/.test(e.key)) &&
+      rn.effects.some(e => e.key === "disp.haunted" && e.op === "AddInt") &&
+      ch.when.flagsNot.some(f => /^le\.blank_heard_/.test(f));
+  });
+})());
+check("System 3 reproach: a full-book player (all 9 witnessed) gets the 'there are no blanks' variant instead — the Unmade, almost grateful", (() => {
+  const hub = leB.nodes.find(n => n.id === "le_b_blanks");
+  const WIT = ["tw.tatters_witnessed","tw.corliss_affirmed","tw.brenn_seen","lf.dot_affirmed","lf.marisa_affirmed","lf.onora_seen","ol.sift_witnessed","ol.bryn_seen","ol.tace_seen"];
+  const full = hub.variants.find(v => v.when && v.when.flags && WIT.every(w => v.when.flags.includes(w)));
+  const dflt = hub.variants.find(v => !v.when);
+  return full && dflt && /no .?blanks|it is .?full/i.test(full.text);
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

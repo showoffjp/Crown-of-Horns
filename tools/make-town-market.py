@@ -759,6 +759,7 @@ function matchesWhen(char, state, when){ if(!when) return true;
   if(when.ability){ for(const k in when.ability){ if(char.scores[idx(k)]<when.ability[k]) return false; } }
   if(when.flag!==undefined && state.bools[when.flag]!==true) return false;
   if(when.flags){ for(const k of when.flags){ if(state.bools[k]!==true) return false; } }
+  if(when.flagsNot){ for(const k of when.flagsNot){ if(state.bools[k]===true) return false; } }
   if(when.int){ for(const k in when.int){ if((state.ints[k]||0)<when.int[k]) return false; } }
   return true; }
 function pickVariantText(node, char, state){ if(node.variants&&node.variants.length){

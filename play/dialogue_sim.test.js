@@ -137,6 +137,12 @@ let si = E.newState(); si.ints["demo.vane.regard"] = 3;
 check("when int threshold (regard >= 3)", E.matchesWhen(confessor, si, { int: { "demo.vane.regard": 3 } }) === true &&
   E.matchesWhen(confessor, E.newState(), { int: { "demo.vane.regard": 3 } }) === false);
 check("when with no clause always matches", E.matchesWhen(confessor, E.newState(), undefined) === true);
+// flagsNot: every listed flag must be UNSET (powers the Niche-Book blank-page reproach; mirrors C# RequireBoolFalse)
+check("when flagsNot passes when the flag is unset", E.matchesWhen(confessor, E.newState(), { flagsNot: ["soul.witnessed"] }) === true);
+check("when flagsNot rejects when the flag is set", E.matchesWhen(confessor, st2set("soul.witnessed"), { flagsNot: ["soul.witnessed"] }) === false);
+check("when flagsNot requires ALL listed flags unset", E.matchesWhen(confessor, st2set("a"), { flagsNot: ["a", "b"] }) === false &&
+  E.matchesWhen(confessor, E.newState(), { flagsNot: ["a", "b"] }) === true);
+check("when flagsNot composes with positive flags (revealed but not-yet-heard)", E.matchesWhen(confessor, st2set("le.narrator_revealed"), { flags: ["le.narrator_revealed"], flagsNot: ["le.blank_heard_x"] }) === true);
 
 // proficiency math — Cleric+Acolyte is proficient in Religion/Insight/Persuasion; not Stealth
 check("isProficient via class", E.isProficient(confessor, "Religion", MODEL) === true);

@@ -11,6 +11,33 @@
 
 ---
 
+## 👑 v6.56.0 — *"The Blank Pages"* — System 3's reproach; all three systems close at once (systems + content)
+
+> The Niche-Book's power has an **inverse**, and the capstone now lands **all three signature systems on
+> the player at the same moment.** In *The Lidless Eye* you can **turn to the blank pages**, and the
+> Unmade rises through the empty paper to read your **specific un-witnessed souls back at you, by name.**
+- 🕳️ **The reproach** — nine marquee souls (**Tatters, Corliss, Brenn, Dot, Marisa, Onora, Sift,
+  Brynalla Coorne, Tace**) each get a beat **gated on the *absence* of their witness flag**, so you hear,
+  individually, exactly who you walked past — *what you'll never know about them* (the one true thing you
+  didn't learn) — and the cut: *"the Wall kept them, because you walked on… a blank page is a name **I**
+  keep."* Each reproach already heard is hidden (a per-soul `le.blank_heard_*` flag), so it never repeats.
+- 🩶 **Fusion with System 2** — hearing each reproach **deepens your cold** (`disp.haunted +1`): your
+  *omissions* make you colder, exactly as your witnessing does. The book's blank pages and the
+  cold-road are the same ledger read from opposite ends.
+- ✅ **The full-book inverse** — witness all nine and the Unmade is, instead, *almost grateful:* *"there
+  are no blanks… i showed them to you to make you burn the world, and you wrote down every single one
+  instead. Close the book. It is full."* And the close states the whole thesis: *"you can go back… the
+  next soul you meet, you could stop, you could learn the name, you could make the book one page less
+  blank than the Wall would like."*
+- 🔧 **Engine extension (faithful):** `when.flagsNot` (every listed flag must be **unset**) added to the
+  JS `matchesWhen` in **both** generators — **mirroring C#'s existing `RequireBoolFalse`** in
+  `DialogueRunner.cs` (the negation already existed engine-side; the JS `when` object just hadn't exposed
+  it). New `dialogue_sim` engine unit tests cover it (absent → pass, set → fail, all-unset required,
+  composes with positive flags).
+- 📄 [`docs/story/24_THE_SIGNATURE_SYSTEMS.md`](docs/story/24_THE_SIGNATURE_SYSTEMS.md) updated. **73
+  zones, 241 souls.** Gate **768** ✓ · engine **98** ✓ · full suite **1480** ✓ · all-in-one bundle
+  rebuilt ✓.
+
 ## 👑 v6.55.0 — *"The Cold Reading"* — Systems 1 & 2 fuse: the slip worsens with your cold (systems)
 
 > The narration slip is no longer one-size — it **escalates with `disp.haunted`.** Each of the 15
