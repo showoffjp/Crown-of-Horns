@@ -146,6 +146,16 @@
           "y": 7
         },
         "label": "▸ a corner where two dead philosophers have argued for three centuries"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "caprice",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ a path that wasn't there a moment ago… (the Wayward Mile)"
       }
     ],
     "npcs": [

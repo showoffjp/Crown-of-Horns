@@ -13,7 +13,7 @@ const block = h.match(/\/\*<DLGSIM>\*\/([\s\S]*?)\/\*<\/DLGSIM>\*\//);
 check("DLGSIM pure block found", !!block);
 const E = new Function(block[1] +
   "\nreturn {abilityMod,resolveCheck,chanceToPass,newState,applyEffects,conditionsPass," +
-  "isProficient,checkBonus,matchesWhen,pickVariantText,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats," +
+  "isProficient,checkBonus,matchesWhen,pickVariantText,pickDraw,choiceAvailable,isPassiveSkill,passiveScore,passiveBeats," +
   "glossaryHits,loreKnown,secretKnown,returnedClarity,rollResult};")();
 // BG3 crits reach the campaign sim too: nat 20 auto-succeeds, nat 1 auto-fails, with bespoke demo nodes
 check("rollResult: nat 20 auto-success, nat 1 auto-fail", E.rollResult(20, 30, -5).crit === true && E.rollResult(20, 30, -5).success === true &&
@@ -143,6 +143,18 @@ check("when flagsNot rejects when the flag is set", E.matchesWhen(confessor, st2
 check("when flagsNot requires ALL listed flags unset", E.matchesWhen(confessor, st2set("a"), { flagsNot: ["a", "b"] }) === false &&
   E.matchesWhen(confessor, E.newState(), { flagsNot: ["a", "b"] }) === true);
 check("when flagsNot composes with positive flags (revealed but not-yet-heard)", E.matchesWhen(confessor, st2set("le.narrator_revealed"), { flags: ["le.narrator_revealed"], flagsNot: ["le.blank_heard_x"] }) === true);
+// pickDraw: the random "what the road throws" router — skips seen events, honors the per-run cap, falls to drawElse
+(() => {
+  const node = { draw: [{ to: "a", once: "seen.a" }, { to: "b", once: "seen.b" }, { to: "c", once: "seen.c" }], drawCount: "cap.draws", drawMax: 2, drawElse: "quiet" };
+  check("pickDraw returns the first unseen event with rnd->0", E.pickDraw(node, E.newState(), () => 0) === "a");
+  check("pickDraw indexes into the pool (rnd->0.5 of 3 -> middle)", E.pickDraw(node, E.newState(), () => 0.5) === "b");
+  const s1 = E.newState(); s1.bools["seen.a"] = true;
+  check("pickDraw skips an already-seen event (once flag)", E.pickDraw(node, s1, () => 0) === "b");
+  const s2 = E.newState(); s2.ints["cap.draws"] = 2;
+  check("pickDraw falls to drawElse when the per-run cap is reached", E.pickDraw(node, s2, () => 0) === "quiet");
+  const s3 = E.newState(); s3.bools["seen.a"] = true; s3.bools["seen.b"] = true; s3.bools["seen.c"] = true;
+  check("pickDraw falls to drawElse when the pool is drained", E.pickDraw(node, s3, () => 0) === "quiet");
+})();
 
 // proficiency math — Cleric+Acolyte is proficient in Religion/Insight/Persuasion; not Stealth
 check("isProficient via class", E.isProficient(confessor, "Religion", MODEL) === true);

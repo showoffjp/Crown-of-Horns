@@ -113,7 +113,10 @@ const scholar = { cls: "Wizard", scores: [10, 14, 12, 16, 14, 11], race: "Half-E
 check("a sage recalls history a soldier wouldn't", histE && E.loreKnown(scholar, histE, MODEL) === true);
 
 // ---- The Returned-sense (innate, WIS-scaled soul perception) ----
-check("every NPC carries a Returned-sense reveal with a DC", CONVS.every(c => c.returned && c.returned.text && typeof c.returned.dc === "number"));
+// SOUL_CONVS excludes system "zones" that aren't dead souls (the Wayward Mile is the road itself — nothing to sense/witness)
+const SYSTEM_CONVS = new Set(["cap.road"]);
+const SOUL_CONVS = CONVS.filter(c => !SYSTEM_CONVS.has(c.id));
+check("every NPC carries a Returned-sense reveal with a DC", SOUL_CONVS.every(c => c.returned && c.returned.text && typeof c.returned.dc === "number"));
 check("Returned clarity = 10 + Wisdom modifier", E.returnedClarity(confessor) === 10 + E.abilityMod(confessor.scores[4]));
 const blunt = { cls: "Fighter", scores: [16, 14, 15, 10, 8, 10], race: "Human", background: "Soldier", law: "Neutral", morality: "Neutral", deity: "Kelemvor" };
 check("a keen-souled Returned senses what a dull one can't (Sable, DC 12)",
@@ -124,7 +127,7 @@ const dispKeys = new Set();
 CONVS.forEach(c => c.nodes.forEach(n => { (n.effects || []).concat(...(n.choices || []).map(ch => ch.effects || []))
   .forEach(e => { if (e && e.key && e.key.indexOf("disp.") === 0) dispKeys.add(e.key); }); }));
 check("choices/outcomes accrue several dispositions", dispKeys.size >= 4);
-check("each NPC offers a [RETURNED] choice (your uncanny nature)", CONVS.every(c =>
+check("each NPC offers a [RETURNED] choice (your uncanny nature)", SOUL_CONVS.every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned"))));
 // the disposition GATE: Pip's [Merciful] line is hidden at 0 mercy, shown once you've been merciful
 const pip = CONVS.find(c => c.id === "market.pip");
@@ -3046,6 +3049,43 @@ check("System 3 reproach: a full-book player (all 9 witnessed) gets the 'there a
   const full = hub.variants.find(v => v.when && v.when.flags && WIT.every(w => v.when.flags.includes(w)));
   const dflt = hub.variants.find(v => !v.when);
   return full && dflt && /no .?blanks|it is .?full/i.test(full.text);
+})());
+
+// ---- the random-event system: the Wayward Mile (Caprice) ----
+const CAP = SCENES && SCENES.caprice;
+check("a seventy-fourth zone (the Wayward Mile) ships — the random-event 'what the road throws' system", CAP && CAP.npcs.length >= 1);
+check("the Wayward Mile is reached from the market causeway ('a path that wasn't there a moment ago')", (SCENES.market.exits || []).some(x => x.to === "caprice"));
+check("the Wayward Mile exits back to the causeway (reachable round-trip)", (CAP.exits || []).some(x => x.to === "market"));
+const capR = CONVS.find(c => c.id === "cap.road");
+check("the road's draw router exists: a node with draw[] (>=6 events), a per-run cap (drawMax on drawCount), and a drawElse fallback", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  if (!dn) return false;
+  return dn.draw.length >= 6 && dn.drawMax >= 1 && dn.drawCount && dn.drawElse &&
+    dn.auto === dn.drawElse;   // graceful degradation: engines without draw still complete via auto
+})());
+check("every draw entry routes to a real event entry node and carries a once-flag (so it never repeats)", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  const ids = new Set(capR.nodes.map(n => n.id));
+  return dn.draw.every(e => e.to && ids.has(e.to) && /^cap\.seen_/.test(e.once));
+})());
+check("each of the 6 events is a once-only one-off: its entry sets the matching seen-flag AND bumps the run counter (cap.draws)", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  return dn.draw.every(e => {
+    const entry = capR.nodes.find(n => n.id === e.to);
+    return entry && (entry.onEnter || []).some(x => x.key === e.once && x.op === "SetTrue") &&
+      (entry.onEnter || []).some(x => x.key === dn.drawCount && x.op === "AddInt");
+  });
+})());
+check("the six events are genuinely distinct one-offs (coin gamble, the Same Dog, Corval's last-word auction, the recursive beggar, the apocalypse salesman, the mid-joke comedian)", (() => {
+  const ids = new Set(capR.nodes.map(n => n.id));
+  return ["cap_coin_0","cap_dog_0","cap_auction_0","cap_beggar_0","cap_salesman_0","cap_jester_0"].every(x => ids.has(x));
+})());
+check("event richness: the coin and the comedian carry real crit/fumble skill checks; every event terminates (auto END or choices)", (() => {
+  const coin = capR.nodes.find(n => n.id === "cap_coin_0").choices.find(c => c.check);
+  const jest = capR.nodes.find(n => n.id === "cap_jester_0").choices.find(c => c.check);
+  const terminates = ["cap_coin_0","cap_dog_0","cap_auction_0","cap_beggar_0","cap_salesman_0","cap_jester_0"]
+    .every(x => { const n = capR.nodes.find(z => z.id === x); return (n.choices && n.choices.length) || n.auto; });
+  return coin && coin.crit && coin.fumble && jest && jest.crit && jest.fumble && terminates;
 })());
 
 // ---- grand totals across the whole walkable Act ----

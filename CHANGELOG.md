@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v6.57.0 — *"The Wayward Mile"* — a random-event system (systems + content)
+
+> Bolt-from-the-blue one-off events, each **very** unique and idiosyncratic, surfaced **rarely and at
+> random**, so **no two playthroughs see the same handful.** Reached from the causeway via *"a path that
+> wasn't there a moment ago…"* — the **Wayward Mile** (`play/caprice.json`). Full design:
+> [`docs/story/25_THE_WAYWARD_MILE.md`](docs/story/25_THE_WAYWARD_MILE.md).
+- 🎲 **New engine primitive `draw`** — a node routes at **random** to one of a pool of events, **skips
+  any already seen** (a per-event `once` flag, so a one-off never repeats), **honors a per-run cap**
+  (`drawMax` on `drawCount`, currently **4** — a single passage only ever spends a handful), and falls
+  through to `drawElse` (*"the road has gone still… it will be different, next life"*). `pickDraw` is a
+  **pure function, unit-tested deterministically** (rnd→0 picks first unseen; seen skipped; cap + drained
+  pool both fall to `drawElse`); runtime RNG is `Math.random` in the **browser build only**, never in a
+  tested path. The draw node mirrors `drawElse` into `auto`, so the structural `autoPlay` validator still
+  completes gracefully. Added to **both** JS generators + the engine export.
+- 🪙 **The Coin That Calls Heads** — a dead gambler whose coin *is his own worn-thin soul*; a Perception
+  gamble (**crit:** the coin lands on its **edge**, the one outcome the loop has no rule for, and he
+  gives it to you; **fumble:** he drops himself down a crack in the world).
+- 🐕 **The Same Dog** *(canon)* — wordless; drops a bone scratched with a name (*Elsa*); follow it and
+  learn it carries names to the dissolving, every day, for nothing.
+- ⚖️ **The Last Word** *(canon: Corval)* — auctions a stranger's **final word**, paid in *carrying their
+  name*: *"…oh, how silly. I've left the kettle on."*
+- 🫂 **The Recursive Beggar** — a soul made of giving who **splits in two** every time you give him
+  something; the cure is the one alms that doesn't divide him: **refusal.**
+- 🌑 **The Apocalypse Salesman** *(Myrkul tie)* — *"one apocalypse, gently used, one careful owner (a
+  god)"*; even the end of the world is just one more discarded soul holding a thing it hates.
+- 🃏 **The Mid-Joke Comedian** — frozen three centuries one beat from the punchline; a Performance to
+  **land it** (crit/fumble) or the mercy of **leaving him the *almost*.**
+- 🔧 The Wayward Mile is a **device, not a soul**, so it's exempted from the soul-only global checks
+  (Returned-sense / [RETURNED] choice) via an explicit `SYSTEM_CONVS` set. **74 zones, 242 souls.** Gate
+  **776** ✓ · engine **103** ✓ · full suite **1493** ✓ · all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.56.0 — *"The Blank Pages"* — System 3's reproach; all three systems close at once (systems + content)
 
 > The Niche-Book's power has an **inverse**, and the capstone now lands **all three signature systems on

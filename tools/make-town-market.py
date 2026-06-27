@@ -87,6 +87,7 @@ LASTWORD = json.load(open(os.path.join(ROOT, "play", "lastword.json"), encoding=
 THEAFTER = json.load(open(os.path.join(ROOT, "play", "theafter.json"), encoding="utf-8"))
 ONELEFT = json.load(open(os.path.join(ROOT, "play", "oneleft.json"), encoding="utf-8"))
 LIDLESSEYE = json.load(open(os.path.join(ROOT, "play", "lidlesseye.json"), encoding="utf-8"))
+CAPRICE = json.load(open(os.path.join(ROOT, "play", "caprice.json"), encoding="utf-8"))
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -428,7 +429,7 @@ for _c in (MKT["conversations"] + REED["conversations"] + UNDER["conversations"]
            + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
            + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"]
            + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"]
-           + ASSIZE["conversations"] + SIEGE["conversations"] + WAKE["conversations"] + INQUEST["conversations"] + THINPLACE["conversations"] + DISPUTATION["conversations"] + CONFESSION["conversations"] + BOAST["conversations"] + CANTOR["conversations"] + MEMORY["conversations"] + PREDATOR["conversations"] + CUSTODY["conversations"] + PILGRIMAGE["conversations"] + MOOT["conversations"] + BEACON["conversations"] + HOUSE["conversations"] + PLAYHOUSE["conversations"] + LAZARET["conversations"] + FLIGHT["conversations"] + WAYLESS["conversations"] + TONGUES["conversations"] + LASTWATCH["conversations"] + SIGIL["conversations"] + TAPROOM["conversations"] + LONGTABLE["conversations"] + FARDOORS["conversations"] + COMPANIONS["conversations"] + TOMB["conversations"] + SISTERS["conversations"] + REWRITTEN["conversations"] + MENAGERIE["conversations"] + LANCEWARD["conversations"] + LONGNIGHT["conversations"] + FARROADS["conversations"] + FIRSTDELVE["conversations"] + SUNWASTES["conversations"] + FAITHFUL["conversations"] + REUNION["conversations"] + LITTLEONES["conversations"] + LASTJOB["conversations"] + THESONG["conversations"] + TRUCE["conversations"] + FORBIDDEN["conversations"] + UNSEEN["conversations"] + NEWLYDEAD["conversations"] + QUEUE["conversations"] + THEWAKE["conversations"] + LANTERNFEAST["conversations"] + LASTWORD["conversations"] + THEAFTER["conversations"] + ONELEFT["conversations"] + LIDLESSEYE["conversations"]):
+           + ASSIZE["conversations"] + SIEGE["conversations"] + WAKE["conversations"] + INQUEST["conversations"] + THINPLACE["conversations"] + DISPUTATION["conversations"] + CONFESSION["conversations"] + BOAST["conversations"] + CANTOR["conversations"] + MEMORY["conversations"] + PREDATOR["conversations"] + CUSTODY["conversations"] + PILGRIMAGE["conversations"] + MOOT["conversations"] + BEACON["conversations"] + HOUSE["conversations"] + PLAYHOUSE["conversations"] + LAZARET["conversations"] + FLIGHT["conversations"] + WAYLESS["conversations"] + TONGUES["conversations"] + LASTWATCH["conversations"] + SIGIL["conversations"] + TAPROOM["conversations"] + LONGTABLE["conversations"] + FARDOORS["conversations"] + COMPANIONS["conversations"] + TOMB["conversations"] + SISTERS["conversations"] + REWRITTEN["conversations"] + MENAGERIE["conversations"] + LANCEWARD["conversations"] + LONGNIGHT["conversations"] + FARROADS["conversations"] + FIRSTDELVE["conversations"] + SUNWASTES["conversations"] + FAITHFUL["conversations"] + REUNION["conversations"] + LITTLEONES["conversations"] + LASTJOB["conversations"] + THESONG["conversations"] + TRUCE["conversations"] + FORBIDDEN["conversations"] + UNSEEN["conversations"] + NEWLYDEAD["conversations"] + QUEUE["conversations"] + THEWAKE["conversations"] + LANTERNFEAST["conversations"] + LASTWORD["conversations"] + THEAFTER["conversations"] + ONELEFT["conversations"] + LIDLESSEYE["conversations"] + CAPRICE["conversations"]):
     if _c["id"] in NPC_SENSE:
         _c["returned"] = NPC_SENSE[_c["id"]]
 
@@ -439,7 +440,7 @@ ALL_CONVS = (MKT["conversations"] + REED["conversations"] + UNDER["conversations
              + COURT["conversations"] + EPILOGUE["conversations"] + WEEPING["conversations"]
              + CISTERN["conversations"] + CARTOGRAPHER["conversations"] + TRIAL["conversations"]
              + SCRIVENER["conversations"] + ARCHIVE["conversations"] + ADVOCATE["conversations"]
-             + ASSIZE["conversations"] + SIEGE["conversations"] + WAKE["conversations"] + INQUEST["conversations"] + THINPLACE["conversations"] + DISPUTATION["conversations"] + CONFESSION["conversations"] + BOAST["conversations"] + CANTOR["conversations"] + MEMORY["conversations"] + PREDATOR["conversations"] + CUSTODY["conversations"] + PILGRIMAGE["conversations"] + MOOT["conversations"] + BEACON["conversations"] + HOUSE["conversations"] + PLAYHOUSE["conversations"] + LAZARET["conversations"] + FLIGHT["conversations"] + WAYLESS["conversations"] + TONGUES["conversations"] + LASTWATCH["conversations"] + SIGIL["conversations"] + TAPROOM["conversations"] + LONGTABLE["conversations"] + FARDOORS["conversations"] + COMPANIONS["conversations"] + TOMB["conversations"] + SISTERS["conversations"] + REWRITTEN["conversations"] + MENAGERIE["conversations"] + LANCEWARD["conversations"] + LONGNIGHT["conversations"] + FARROADS["conversations"] + FIRSTDELVE["conversations"] + SUNWASTES["conversations"] + FAITHFUL["conversations"] + REUNION["conversations"] + LITTLEONES["conversations"] + LASTJOB["conversations"] + THESONG["conversations"] + TRUCE["conversations"] + FORBIDDEN["conversations"] + UNSEEN["conversations"] + NEWLYDEAD["conversations"] + QUEUE["conversations"] + THEWAKE["conversations"] + LANTERNFEAST["conversations"] + LASTWORD["conversations"] + THEAFTER["conversations"] + ONELEFT["conversations"] + LIDLESSEYE["conversations"])
+             + ASSIZE["conversations"] + SIEGE["conversations"] + WAKE["conversations"] + INQUEST["conversations"] + THINPLACE["conversations"] + DISPUTATION["conversations"] + CONFESSION["conversations"] + BOAST["conversations"] + CANTOR["conversations"] + MEMORY["conversations"] + PREDATOR["conversations"] + CUSTODY["conversations"] + PILGRIMAGE["conversations"] + MOOT["conversations"] + BEACON["conversations"] + HOUSE["conversations"] + PLAYHOUSE["conversations"] + LAZARET["conversations"] + FLIGHT["conversations"] + WAYLESS["conversations"] + TONGUES["conversations"] + LASTWATCH["conversations"] + SIGIL["conversations"] + TAPROOM["conversations"] + LONGTABLE["conversations"] + FARDOORS["conversations"] + COMPANIONS["conversations"] + TOMB["conversations"] + SISTERS["conversations"] + REWRITTEN["conversations"] + MENAGERIE["conversations"] + LANCEWARD["conversations"] + LONGNIGHT["conversations"] + FARROADS["conversations"] + FIRSTDELVE["conversations"] + SUNWASTES["conversations"] + FAITHFUL["conversations"] + REUNION["conversations"] + LITTLEONES["conversations"] + LASTJOB["conversations"] + THESONG["conversations"] + TRUCE["conversations"] + FORBIDDEN["conversations"] + UNSEEN["conversations"] + NEWLYDEAD["conversations"] + QUEUE["conversations"] + THEWAKE["conversations"] + LANTERNFEAST["conversations"] + LASTWORD["conversations"] + THEAFTER["conversations"] + ONELEFT["conversations"] + LIDLESSEYE["conversations"] + CAPRICE["conversations"])
 ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene"],
               UNDER["scene"]["id"]: UNDER["scene"], LASTTORCH["scene"]["id"]: LASTTORCH["scene"],
               LAMPLIT["scene"]["id"]: LAMPLIT["scene"], COUNTHOUSE["scene"]["id"]: COUNTHOUSE["scene"],
@@ -504,7 +505,8 @@ ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene
               LASTWORD["scene"]["id"]: LASTWORD["scene"],
               THEAFTER["scene"]["id"]: THEAFTER["scene"],
               ONELEFT["scene"]["id"]: ONELEFT["scene"],
-              LIDLESSEYE["scene"]["id"]: LIDLESSEYE["scene"]}
+              LIDLESSEYE["scene"]["id"]: LIDLESSEYE["scene"],
+              CAPRICE["scene"]["id"]: CAPRICE["scene"]}
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
          "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
@@ -652,7 +654,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">seventy-three walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">seventy-four walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -764,6 +766,14 @@ function matchesWhen(char, state, when){ if(!when) return true;
   return true; }
 function pickVariantText(node, char, state){ if(node.variants&&node.variants.length){
   for(const v of node.variants){ if(matchesWhen(char,state,v.when)) return v.text; } return ""; } return node.text||""; }
+// pickDraw: a random "what the road throws" router. Skips events already seen (their `once` flag),
+// honors a per-run cap (drawMax on drawCount), and falls through to drawElse when capped or drained.
+function pickDraw(node, state, rnd){
+  if(node.drawMax!=null && (state.ints[node.drawCount]||0) >= node.drawMax) return node.drawElse;
+  const pool=(node.draw||[]).filter(e=> state.bools[e.once]!==true);
+  if(!pool.length) return node.drawElse;
+  return pool[Math.floor(rnd()*pool.length)].to;
+}
 // BG3/5e: knowledge & awareness skills are PASSIVE — they auto-succeed when 10+mod(+prof) >= DC, and the
 // option simply doesn't appear otherwise. The social "attempt" skills are ACTIVE — you roll for those.
 var PASSIVE_SKILLS=["Perception","Insight","Investigation","Arcana","History","Religion","Nature","Medicine","Survival","Animal Handling"];
@@ -1074,6 +1084,7 @@ function goNode(id){
   pendingOpts=null; const n=nodeById(id), script=document.getElementById("dscript");
   if(!n){ endScene(); return; }
   applyEffects(st, n.onEnter); applyEffects(st, n.effects); renderState();   // node entry + outcome effects
+  if(n.draw){ goNode(pickDraw(n, st, Math.random)); return; }   // RNG event surfacing
   const line=pickVariantText(n,char,st)||"〔(no line for this character)〕";
   addLine("", curNpc.name, line);
   // LORE — 5e passive knowledge: surface what your character would *recall* about topics in this line.

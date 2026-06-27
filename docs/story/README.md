@@ -44,6 +44,7 @@ built to deliver. Read in order, or dive where you like.
 | 🎭 | [`22_THE_LADY_IN_THE_MARGINS.md`](22_THE_LADY_IN_THE_MARGINS.md) | The **fifth-dimensional riddler** (G-Man/Gaunter-tier), her huge twist, **the Vault of Tens** riddle room, and **20 original riddles** |
 | 🧱 | [`23_THE_WALL_IS_THE_WORLD.md`](23_THE_WALL_IS_THE_WORLD.md) | **Second-wave twists** — the Wall as the *strata of dead worlds*, the recycled Maerin, the Brick, and the roster of nine new fair-clued reveals with engine-cost notes |
 | 👁️ | [`24_THE_SIGNATURE_SYSTEMS.md`](24_THE_SIGNATURE_SYSTEMS.md) | **The three signature mechanics** — the dead-sense narrator is the Unmade; witnessing costs you (haunt → the Last Returned); the Niche-Book is the weapon. All three converge, *playable & tested*, in the capstone **The Lidless Eye** |
+| 🎲 | [`25_THE_WAYWARD_MILE.md`](25_THE_WAYWARD_MILE.md) | **The random-event system** — a deep pool of wildly idiosyncratic one-offs (`draw` primitive, once-only, per-run cap) surfaced at random, so no two playthroughs see the same handful; ships with **six** no-two-alike events |
 
 > The top-level [`../STORY_BIBLE.md`](../STORY_BIBLE.md) is the **quick reference** (one-page
 > overview + tables). *This* library is the deep water.

@@ -295,6 +295,12 @@ function pickVariantText(node, char, state){
   }
   return node.text || "";
 }
+function pickDraw(node, state, rnd){
+  if(node.drawMax!=null && (state.ints[node.drawCount]||0) >= node.drawMax) return node.drawElse;
+  const pool=(node.draw||[]).filter(e=> state.bools[e.once]!==true);
+  if(!pool.length) return node.drawElse;
+  return pool[Math.floor(rnd()*pool.length)].to;
+}
 // BG3/5e: knowledge & awareness skills are PASSIVE — they auto-succeed when 10+mod(+prof) >= DC, and the
 // option simply doesn't appear otherwise. The social "attempt" skills are ACTIVE — you roll for those.
 // (Compiled-corpus checks carry only an ability and no skill name, so they stay active rolls.)

@@ -1,0 +1,732 @@
+{
+  "scene": {
+    "id": "caprice",
+    "name": "The Wayward Mile",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
+    "props": [
+      {
+        "type": "cairn",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "deadtree",
+        "x": 9,
+        "y": 3
+      },
+      {
+        "type": "lamppost",
+        "x": 2,
+        "y": 6
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2,
+        "hue": 150
+      },
+      {
+        "type": "log",
+        "x": 7,
+        "y": 6
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "market",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ back to the causeway (if it's where you left it)"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "milestone",
+        "name": "the Wayward Mile",
+        "title": "a milestone at a bend that wasn't there a moment ago — the road, throwing something at you",
+        "x": 5,
+        "y": 3,
+        "hue": 150,
+        "sigil": "✦",
+        "conv": "cap.road",
+        "hail": "*(A worn milestone stands where the road bends in a way you are nearly certain it did not, a moment ago. There is no number carved on it — or rather, the number keeps quietly *changing*, counting something. The longer you look, the more the air around it feels *expectant*, like the pause before a stranger speaks, or a card turns, or a thing happens to you that has never happened to anyone in quite this way and never will again. Step close, and the road will show you what it has.)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "cap.road",
+      "title": "The Wayward Mile",
+      "npc": "the Wayward Mile",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.met",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "int": {
+                  "cap.draws": 1
+                }
+              },
+              "text": "*(The wayward mile shivers again. The road — restless, fond of you now, or perhaps only bored — turns itself over once more, and something that was not there a moment ago, is.)*"
+            },
+            {
+              "text": "*(A milestone you do not remember passing stands at a bend in the causeway you were fairly sure was straight a breath ago. It is worn smooth by the passage of more souls than there have ever been souls, and as you near it the air *shifts*, the way a held breath shifts before a word. The road clears its throat. Something is about to happen — the particular kind of something that happens to a soul exactly once, and is never twice the same something.)*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Wayward Mile",
+          "draw": [
+            {
+              "to": "cap_coin_0",
+              "once": "cap.seen_coin"
+            },
+            {
+              "to": "cap_dog_0",
+              "once": "cap.seen_dog"
+            },
+            {
+              "to": "cap_auction_0",
+              "once": "cap.seen_auction"
+            },
+            {
+              "to": "cap_beggar_0",
+              "once": "cap.seen_beggar"
+            },
+            {
+              "to": "cap_salesman_0",
+              "once": "cap.seen_salesman"
+            },
+            {
+              "to": "cap_jester_0",
+              "once": "cap.seen_jester"
+            }
+          ],
+          "drawCount": "cap.draws",
+          "drawMax": 4,
+          "drawElse": "cap_quiet",
+          "auto": "cap_quiet",
+          "text": "*(The road turns over.)*"
+        },
+        {
+          "id": "cap_quiet",
+          "speaker": "the Wayward Mile",
+          "text": "*(The milestone has gone still and ordinary, just a worn grey stone at an ordinary bend. The road is only a road. Whatever caprice it held for you, you have spent — the strange visits a soul only so many times in one passage, and you have had your share of its surprises. *(the faintest grind, like a stone settling)* …it will be *different*, the next life. …it always *is.*)*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_coin_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_coin",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A soul sits cross-legged on the milestone's base, flipping a coin that catches a light there is no source for. He is dressed in the rags of a fine coat, and he grins at you with the bottomless, friendly emptiness of a man who has bet everything so many times that betting is the only thing left of him.)* …*there* you are. *(he doesn't ask your name)* …i've a coin, cold one, and a *proposition.* one flip. *call* it. …*win*, and i'll tell you *one* *true* *thing* about the *road* ahead of you — and i *don't* *lie*, it's the *one* virtue a *gambler* keeps. …*lose*, and i keep something *small* of yours. a *memory* you won't *miss* — the *name* of a street you grew up on, the *taste* of a thing your mother made. *(he flips the coin, catches it, covers it)* …*(quietly)* …the coin's *me*, by the way. what's *left.* worn so *thin* you can *see* the *light* *through* me. …*call* it, cold one. …or *don't.* …the *house* respects a *folded* *hand.*",
+          "choices": [
+            {
+              "text": "*(call it — and let the coin, which is a man, decide)* \"Heads. Flip it.\"",
+              "check": {
+                "skill": "Perception",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "cap_coin_win",
+              "fail": "cap_coin_lose",
+              "crit": "cap_coin_crit",
+              "fumble": "cap_coin_fumble"
+            },
+            {
+              "text": "\"No bet. I'll keep my memories and you'll keep your edge. The house always wins, and I'd rather not be the house's dinner.\"",
+              "next": "cap_coin_decline"
+            }
+          ]
+        },
+        {
+          "id": "cap_coin_win",
+          "speaker": "the Wayward Mile",
+          "text": "*(He uncovers the coin, looks, and his grin goes — not wider, but *gentler.*)* …heads. *(a breath)* …well *called.* …here's your *true* *thing*, cold one, and i'm *sorry* for it, because the *true* ones *always* *cost*: …*you've* *walked* *this* *road* *before.* …not in *metaphor.* …the *bend* you came round to *find* me — you've come round it *other* *times*, in *other* *lives*, and *flipped* this *same* *coin*, and i have told you this *same* *true* *thing* … …and you *forgot*, because *forgetting* is the *toll* the *road* *takes* to let you *walk* it *fresh.* *(he flips himself, idle)* …*win* or *lose*, cold one …the *house* …is the *loop.* …*now* you *know* one *more* *time.* …*spend* it *better* …than you did the *last.*",
+          "effects": [
+            {
+              "key": "cap.coin_won",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_coin_crit",
+          "speaker": "the Wayward Mile",
+          "text": "*(He flips, catches, uncovers — and *stops.* The coin has landed on its *edge.* It stands, impossibly, balanced, the light pouring *up* through it. He stares at it like a man seeing a god.)* …*on* its — *(barely)* …*nine* *thousand* *years*, cold one, and i have *never* — it's *never* — *(he laughs, wild, wet)* …*neither.* not *heads*, not *tails.* …the *one* result the *house* has *no* *rule* for. *(he plucks the coin — himself — from its edge and presses it into your hand, and it is *warm*)* …*take* it. *take* *me.* …a soul that can make the *loop's* *own* *coin* land on the *one* *outcome* it *didn't* *plan* *for* …is a soul that might land *itself* somewhere *new.* …*keep* me in your *pocket*, cold one. …and when the road feels *fixed* …*flip* me. …*remember* there's *always* …an *edge.*",
+          "effects": [
+            {
+              "key": "cap.coin_won",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.has_edge_coin",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_coin_lose",
+          "speaker": "the Wayward Mile",
+          "text": "*(He uncovers the coin, and clicks his tongue, not unkindly.)* …tails. *ah.* …*pay* up, then, cold one — you *called* it, fair's *fair.* *(he reaches out, two fingers, and *takes* something from the air just beside your temple, light as lifting a hair)* …*there.* …a *small* one, like i *promised.* …the — *(he examines it, pockets it)* …the *name* of a *lane.* somewhere you were *small* and *happy*, once. …*(gently)* …don't *grasp* after it; it's *gone*, and grasping only *hurts.* …you'll *feel* the *shape* of where it *was*, some *quiet* *evening*, and *wonder* …and that *wondering*, cold one, is the *only* *interest* the *house* *charges.* …*off* you *go.* …you *played.* …*most* *don't.*",
+          "effects": [
+            {
+              "key": "cap.coin_lost",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_coin_fumble",
+          "speaker": "the Wayward Mile",
+          "text": "*(He flips — but his thin fingers *fumble* it, and the coin — *himself* — spins off the milestone and rolls, edge-on, into a crack in the causeway, gone into the dark below. He *lunges* after it with a sound of pure animal panic, scrabbling at the stone.)* …*no* — *no*, *no*, *catch* it, *catch* — *(it's gone)* …*(he sits back, hollow, staring at the crack)* …that was — cold one, that was *me.* the *thin* part. the *betting* part. …i've *dropped* *myself* into the *underneath.* *(a cracked laugh)* …*don't* — don't go *after* it, you'll *only* *follow* it *down.* …*some* things you *drop*, cold one, you *let* *lie.* …*(he looks at his own hands, faded now)* …*tell* you what. …*that* was the *bet*, after *all*, and the *house* *lost.* …*go* on. …you *owe* me *nothing.* …a man who *drops* his *own* *soul* down a *crack* …has *no* *standing* …to *collect.*",
+          "effects": [
+            {
+              "key": "cap.coin_fumbled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_coin_decline",
+          "speaker": "the Wayward Mile",
+          "text": "*(He tips an invisible hat, the grin never faltering.)* …*smart.* …*smart* one. *(he pockets the coin — himself — with a flourish)* …the *only* *winning* *move*, some say, is *not* to *play.* …*they're* *wrong*, mind — the only winning move is to *play* and *win*, and the *second*-best is to *play* and *lose* and *learn* — but *not*-*playing* is a *respectable* *third*, and *most* souls don't *manage* even *that.* …*(he winks)* …*go* on, cold one. *keep* your *little* *memories.* …*one* of these *lives* …you'll *flip* me. …*they* *all* *do, in* the *end.* …that's the *thing* about a *coin* …*everybody* …*eventually* …*wants* to *know.*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_dog",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A dog is sitting in the middle of the road. Not a ghost-dog, not a horror — a *dog*, brown and ordinary and patient, the kind that waited by a door its whole life. It is the Same Dog, the one the stories say hears the Wall's song, though no one knows whose it was. It looks at you, gets up, trots over, and gently sets a small object at your feet: a bone, smooth with carrying, and scratched into it — by teeth, painstakingly — is a *name.* A name you have never heard. The dog sits back, and watches you, and waits to see what kind of soul you are.)*",
+          "choices": [
+            {
+              "text": "*(crouch, and take the bone, and the name on it)* \"…All right. I'll carry it. I don't know whose name this is — but you went to a lot of trouble, and I'll keep it until it means something.\"",
+              "next": "cap_dog_keep",
+              "effects": [
+                {
+                  "key": "cap.dog_name_kept",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(follow the dog — it clearly wants to show you something)* \"Where, then? Show me. I'll come.\"",
+              "next": "cap_dog_follow",
+              "effects": [
+                {
+                  "key": "cap.dog_followed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(kneel and bury the bone gently in the roadside)* \"I think some names want rest, not carrying. Let me put this one down somewhere quiet.\"",
+              "next": "cap_dog_bury",
+              "effects": [
+                {
+                  "key": "cap.dog_name_buried",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_dog_keep",
+          "speaker": "the Wayward Mile",
+          "text": "*(You take the bone. The name is *Elsa.* The dog's whole body changes — a great, silent, full-body wag, relief and gratitude and something almost like *finally* — and it presses its warm head once into your palm, and then it is simply a dog again, trotting off down the road on some errand only it understands.)* *(You don't know who Elsa is. But the bone is warm in your pocket, and you have the strangest, surest feeling that one life — this one, or the next, or the ninth — you will be standing somewhere terrible, and someone will need a name they've lost, and you will have it, because a dog you met on a road that wasn't there decided you were the sort to be trusted with it. *(softly)* …good dog.)*",
+          "effects": [
+            {
+              "key": "cap.has_the_name_elsa",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_follow",
+          "speaker": "the Wayward Mile",
+          "text": "*(The dog leads you off the road, to a low place where the grey goes thin, and sits, and tips its head — *listen.* And you do, and you hear it: faint, far under everything, the Wall's song, the sound of the dissolving. The dog has been coming here for longer than you can guess, carrying bones with names scratched on them to the very edge of the thin place, and setting them down where the song is loudest — *delivering* them, name by name, to the ones being unmade, so that somewhere in the dissolving a soul hears its own name in a dog's careful keeping and knows, for one more moment, that it *was* someone. *(the dog looks at you, and there is no grief in it, only work)* …no one taught it this. No one asked. It simply found a thing that needed doing, in a country full of gods who wouldn't, and it does it, every day, for nothing, because it was the kind of dog that waited by a door — and the dead, it decided, are only souls waiting by a door no one opens. *(you leave it to its rounds. you will think about it for the rest of the game.)*",
+          "effects": [
+            {
+              "key": "cap.knows_the_dogs_work",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_bury",
+          "speaker": "the Wayward Mile",
+          "text": "*(You dig a small hollow at the road's edge and lay the bone in it, name-up, and cover it. The dog watches the whole time, grave and attentive, and when you pat the earth flat it comes and sits beside the little grave, and leans its weight against your knee, and the two of you stay there a moment in the quiet. *(then it huffs, satisfied, and trots away)* …you'll never know if you did right — whether *Elsa* wanted carrying or wanted rest. But the dog didn't object, and a dog that hears the Wall's song knows more about what the dead want than you do, and it *stayed*, and *leaned*, which dogs do not do for the wrong choice. *(some names want carrying. some want a quiet place and someone to sit with them a moment. you guessed. the dog forgave you either way — that is the entire and bottomless mercy of dogs.)*",
+          "effects": [
+            {
+              "key": "cap.buried_a_name",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_auction_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_auction",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A lectern stands in the road where no lectern was, and behind it, dabbing his eyes with a black handkerchief, is Corval the Weeping Auctioneer — who, the market says, sells the belongings of the harvested and keeps every name. Tonight he has no goods on the block. He has a *sound.*)* …*ah*, a *bidder*, *bless* you — *(sniff)* …i've a *singular* *lot* tonight, cold one, *singular.* …the *last* *word* a *soul* *ever* *said.* *(he holds up an empty hand, reverent)* …a stranger to you. *died* alone, the *word* *unheard* — and an *unheard* *last* *word*, cold one, is a *terrible* thing, it just … *hangs*, in the *nothing*, *said* to *no* one, *forever.* …i *can't* let that *stand.* *(he meets your eyes)* …i'll not take *coin.* the *price* is *this*: you *carry* the *stranger's* *name*, *out* of here, in your *memory*, so the *word* has *someone* it was *said* *to* at *last.* …*(barely)* …*will* you *bid?* …it's only a *word*, cold one. …and it is the *whole* *of* a *life.*",
+          "choices": [
+            {
+              "text": "*(bid — take the stranger's name, and hear the word it was waiting for)* \"I'll carry it. Tell me the name, Corval, and let me be the one it was said to. Nobody should say their last word to nobody.\"",
+              "next": "cap_auction_bid",
+              "effects": [
+                {
+                  "key": "cap.heard_last_word",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I can't, Corval. I'm carrying too many names already — I'd do this one a disservice, taking it on tired. File it kindly.\"",
+              "next": "cap_auction_decline"
+            }
+          ]
+        },
+        {
+          "id": "cap_auction_bid",
+          "speaker": "the Wayward Mile",
+          "text": "*(Corval's face crumples with gratitude. He leans across the lectern and tells you the name — *Hettie Mallow*, a seamstress, eighty-one, who died in a chair by a cold window with no one in the house — and then, cupping his hands as if carrying water, he gives you the word she said, to the empty room, with the last breath she had:)* …*(her voice, somehow, through his hands, thin and certain and not afraid)*: …*\"…oh, how silly. I've left the kettle on.\"* *(and that is all. that is the whole of it. not a prayer, not a name, not a regret — a small domestic nothing, an eighty-one-year-old woman's mind reaching, at the very end, for the ordinary task of a Tuesday, because the ordinary was where she had been happy.)* *(Corval is weeping openly, and so, you find, are you.)* …*carry* her, cold one. …*Hettie* *Mallow.* …*she* *left* the *kettle* *on.* …and *now* …*someone* *knows.*",
+          "effects": [
+            {
+              "key": "cap.carries_hettie",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_auction_decline",
+          "speaker": "the Wayward Mile",
+          "text": "*(Corval nods — he has heard *no* before, and he does not judge it, which is somehow worse than if he did.)* …*of* *course.* …a name carried *tired* is a name carried *poorly*, and you're *right* to know your *limit*; most *don't*, and *crack* under the *weight* of *strangers.* *(he dabs his eyes and, with enormous tenderness, writes the unheard word into a great black ledger)* …*back* you go, then, *little* *word.* …*unsold.* …*unheard*, a while *longer.* …*(to you, gently)* …*don't* *grieve* it, cold one. i'll *try* again, *next* *bidder.* …a *word* can *wait.* …that's the *one* *mercy* of the *dead*: …we have *nothing* …*but* …*time.* …*go* *well.* …and if a night comes you've *room* for *one* *more* *name* …*you* *know* where the *lectern* *isn't.*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_beggar_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_beggar",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A beggar sits against the milestone with a bowl, and there is something *wrong* with the edges of him — they *shimmer*, doubled, as if he can't quite decide how many of him there are. He lifts the bowl.)* …*alms*, kind one? …a *coin*, a *kindness*, *anything* — *(and as he speaks you see it: a faint second beggar, *overlapping* him, mouthing the same words a half-beat behind)* …i was — in *life* i was *generous*, kind one, *gave* and *gave*, *couldn't* *help* it, *every* soul who *asked* … *(the doubling worsens)* …and *now* — *now* every kindness i ever *did* is a *thread* *pulling* me *apart*, and i *can't* *stop* *asking*, and *every* time someone *gives* …*(he winces)* …there's *more* of me, and *less.* …*spare* me *something*, kind one? …*please?* …i'm so — *(both mouths)* …i'm so *thin.*",
+          "choices": [
+            {
+              "text": "*(read what's actually happening to him before you act)* \"Hold still — both of you, all of you. Let me look at what's pulling you apart.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 10
+              },
+              "next": "cap_beggar_read",
+              "effects": [
+                {
+                  "key": "cap.beggar_understood",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(give him something — of course you do, he's begging)* \"Here. Take it. Whatever I've got.\"",
+              "next": "cap_beggar_give"
+            },
+            {
+              "text": "*(refuse — but with the one truth that might heal him)* \"No, friend — and listen to why, because it's the only thing that'll help: you already gave. It already counted. You don't have to keep paying a debt you settled a thousand times in life. Stop asking. You're allowed to be whole.\"",
+              "next": "cap_beggar_whole",
+              "effects": [
+                {
+                  "key": "cap.beggar_made_whole",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_beggar_read",
+          "speaker": "the Wayward Mile",
+          "text": "*(You look, and your sense finds the cruel mechanism plain: this is a soul whose *self* was made entirely of giving, who in life poured itself out to every asker and was *beloved* for it — and who arrived in death so *identified* with the act of giving that it cannot conceive of itself *not* giving, and so every act of generosity, here, literally *divides* it, splits it to give a piece away, until it is splitting endlessly, a self that gave itself away so completely there is almost no self left to give. And your sense reads the way *out*, which is the cruel paradox: that the only thing that will *not* divide him further is *refusal* — that to *give* him a coin is to *split* him again, and the one kindness that *heals* is to *decline* it, and tell him the giving already *counted*, that he is *allowed* to *keep* himself. *(you understand now what to do — and that the loving thing and the giving thing are, just this once, opposites.)*",
+          "effects": [
+            {
+              "key": "cap.beggar_understood",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "cap_beggar_0"
+        },
+        {
+          "id": "cap_beggar_give",
+          "speaker": "the Wayward Mile",
+          "text": "*(You give him something — a coin, a kindness, it doesn't matter what — and the instant it leaves your hand he *splits*, cleanly, into *two* beggars, both blinking, both grateful, both lifting their bowls.)* …*bless* you — *(bless you)* — kind one — *(kind one)* — …*(and they see each other, the two of them, and a flicker of dawning horror crosses both faces, because they understand what you just did with your kindness)* …*oh* — …*oh*, *no*, you've — …we were — i was *one*, and now we're — *(they both start to weep, and the weeping doubles the shimmer, and you can see, sickeningly, the *third* and *fourth* of them beginning to bud)* …*don't* — *(both, then four mouths)* …*don't* give us *more*, kind one. …*please.* …your *kindness* …is *killing* us. …*(go gently. you meant well. that is precisely how it spread.)*",
+          "effects": [
+            {
+              "key": "cap.beggar_divided",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_beggar_whole",
+          "speaker": "the Wayward Mile",
+          "text": "*(He freezes, bowl half-lifted. The doubled edges *shiver* — and then, slowly, like two reflections sliding back into one pane of glass, the second beggar *settles into* the first, and there is one of him, just one, solid and whole and staring at you.)* …*it* — *(he touches his own chest, his own face, his own single solid self)* …it *counted?* …all of it — the *giving*, in *life* — it — it *counted*, and i don't have to — *(he begins to laugh, a sound like a man setting down a weight he forgot he was holding)* …*nobody* *ever* — they all just *gave* me *coins*, kind one, *thinking* it *kind*, and *every* coin *split* me *thinner* — and *you're* the *first* who *refused* me, the *first* who said *stop*, *you've* *done* *enough*, *keep* *yourself* — *(he stands, whole, light)* …*that's* the *trick* of it, isn't it. …*some* souls …you *save* …by *giving* them *nothing* …*but* …*permission* …to *stop.* …*thank* you, kind one. …you gave me the *one* alms …that *didn't* …*divide* me: …*\"enough.\"*",
+          "effects": [
+            {
+              "key": "cap.beggar_made_whole",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_salesman_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_salesman",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A soul in a checked suit and a too-wide smile steps briskly into your path, already talking, a battered case in one hand.)* …*sir* or *madam* — and a *cold* one, *even* *better*, you'll *appreciate* *quality* — have you got a *moment* for the *opportunity* of an *afterlife?* *(he pops the case; inside, nestled in velvet, is a small black *orb* that hurts to look at)* …*behold.* one *apocalypse* — *gently* *used*, *one* *careful* *owner*, *barely* *deployed.* …*end* of the *world*, *complete*, *some* *assembly* *required.* …the *previous* *proprietor* — a *very* *important* *client*, *very* *pale*, *won't* *name* *names* — had it *custom*-*built* and then, *between* us, *lost* his *nerve.* …*(he leans in, conspiratorial)* …*runs* *like* a *dream*, cold one. *kills* *everything.* …i can do you a *very* *fair* *price.* …*interested?*",
+          "choices": [
+            {
+              "text": "*(see what it actually is, and what he actually is)* \"Open the case wider, salesman. Let me see the orb — and let me see you. What is this thing, really, and how did you come to be selling it?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "cap_salesman_see",
+              "effects": [
+                {
+                  "key": "cap.salesman_truth",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Not buying. I don't know what's in that case, but I know a thing dressed up as a bargain when I see one, and the end of the world isn't a curio. Close it up.\"",
+              "next": "cap_salesman_refuse"
+            },
+            {
+              "text": "*(take it — there are reasons a soul might want the world's ending in its pocket)* \"…How much. Quietly. I have my reasons, and they're mine.\"",
+              "next": "cap_salesman_buy",
+              "effects": [
+                {
+                  "key": "cap.bought_apocalypse",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_salesman_see",
+          "speaker": "the Wayward Mile",
+          "text": "*(You look, and the patter falls away, and you see the whole sad machine of it. The orb is real — a genuine engine of unmaking, *Myrkul's*, the Pale Companion's, an apocalypse he commissioned in some cold century and then, finding the Unmade's *larger* hunger rising, abandoned as too small. And the salesman — your sense reads it under the checked suit — is a soul Myrkul *used* to build the thing, a clever dead artificer promised meaning and given a task, and then *discarded* when the task was done, left *bound* to the failed product, *compelled* to sell the very device that consumed his afterlife, forever, to anyone who'll stop. He doesn't *want* you to buy it. He *can't* *stop* *offering*. The smile is *welded* on. *(he sees you see, and for one second the patter cracks, and what's underneath is a craftsman's bottomless shame at being remembered only as the salesman of his own undoing.)* …*(don't buy it. but now you know: even the apocalypse, in this country, is just one more discarded soul, holding a thing it hates, hoping someone will finally see the maker and not the wares.)*",
+          "effects": [
+            {
+              "key": "cap.salesman_truth",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_salesman_refuse",
+          "speaker": "the Wayward Mile",
+          "text": "*(The smile doesn't waver — it *can't* — but something behind the eyes flickers, and for a heartbeat you think it might be *relief.*)* …*no* *sale.* …*quite* *all* *right*, cold one, *quite* — *(he snaps the case shut, almost *gently*)* …*not* for *everyone*, an *apocalypse.* *niche* *product.* *(he straightens his checked lapels, and the patter resumes, but quieter, and there is a terrible thing under the cheer as he turns to go)* …*someone* *buys*, *eventually*, cold one. …*they* *always* *do.* …that's the — *(the smile strains)* …that's the *thing* about an *ending*: …it only *needs* …*one* …*yes.* …and i've *forever* …to *find* it. …*(he tips his hat, and walks on down a road that loops back to you, and you understand he will be here, offering, every passage, until someone says the yes — and you are very, very glad it was not you.)*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_salesman_buy",
+          "speaker": "the Wayward Mile",
+          "text": "*(The salesman's smile somehow *widens*, and he does *not* tell you a price — he simply presses the case into your hands, light as a held breath, and steps back with the air of a man whose long, long shift has, against all hope, just *ended.*)* …*sold.* …*(barely, and for the first time the welded smile is a real one)* …*oh*, *thank* you, cold one. …*thank* you. …you've *no* *idea* — i'm — i can *stop* *now.* …*(he is already fading, unbound, released the instant the thing changed hands)* …*mind* it, won't you. …it *runs* …*like* a *dream.* …and cold one — *(fading)* …*you* *bought* it. …which means *you* *decide* …if it *ever* …*runs.* …*that's* the *whole* …*terrible* *gift* of it: …the *end* of the *world* …is *yours* *now* …to *never* *use.* …*(and he is gone, and the case is in your hands, and it is the heaviest light thing you have ever held.)*",
+          "effects": [
+            {
+              "key": "cap.holds_the_apocalypse",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_jester_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_jester",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A jester stands frozen in the road, mid-gesture, mid-grin, one finger raised — and then he *moves*, delivering, with impeccable timing, the *setup* of a joke: )* …*so* a *paladin*, a *lich*, and a *tax-collector* walk into a *tavern* at the *end* of the *world*, and the *barkeep* says — *(and he stops. The grin holds. The finger stays raised. He blinks, and resets, and does it again:)* …*so* a *paladin*, a *lich*, and a *tax-collector* — *(you understand: he died, on stage, in the half-second before the punchline, and he has been here ever since, three centuries, *forever* one beat from the laugh, the funniest part of him — the landing — locked behind the breath he never finished. He sees you. His eyes, above the frozen grin, are *desperate.*)* …*(help me,)* they say. *(or: let me be. he cannot tell you which he wants. perhaps you can.)*",
+          "choices": [
+            {
+              "text": "*(feed him the ending — pick up the joke and land the punchline for him)* \"…and the barkeep says — let me, friend. Hand it here. *And the barkeep says: 'We don't serve your kind' — and all three of them say 'which kind?' — because not one of them, paladin nor lich nor taxman, has ever once been told they were welcome anywhere.'* There. There's your landing.\"",
+              "check": {
+                "skill": "Performance",
+                "ability": "Charisma",
+                "dc": 12
+              },
+              "next": "cap_jester_ok",
+              "fail": "cap_jester_fail",
+              "crit": "cap_jester_crit",
+              "fumble": "cap_jester_fumble"
+            },
+            {
+              "text": "*(leave him the setup — maybe the joy was never the landing)* \"…No. I don't think I will, friend. Because I think the punchline would *end* you — and you've spent three centuries in the one place a joke is most alive: the half-second of *almost*, when anything could happen and everyone's still leaning in. I'll let you keep it. Stay in the breath before the laugh. It's the best part. It always was.\"",
+              "next": "cap_jester_keep",
+              "effects": [
+                {
+                  "key": "cap.jester_left_in_setup",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_jester_crit",
+          "speaker": "the Wayward Mile",
+          "text": "*(You land it — and your timing is *perfect*, the pause exactly long enough, the turn exactly cruel-then-kind — and the jester's three-centuries-held breath finally, *finally* releases, and he *laughs*, and the laugh is the most astonishing sound, three hundred years of stored-up delight all at once, and the *road* laughs, and the dead for half a mile *laugh* though they can't hear the joke, because a thing that was *stuck* has come *unstuck* and joy like that is *contagious* across any distance.)* …*(he is laughing and dissolving at once, not unmade but *completed*, a soul that needed only its last beat to be *whole* and able, at last, to go)* …*\"which* *kind\"* — *(he wheezes)* — *oh*, that's — that's *BETTER* than mine, cold one, that's — *(laughing, fading, radiant)* …*three* *hundred* *years* …for a *laugh* …and you *gave* me a *better* *one* …than the *one* i *died* on. …*that's* — *(gone, but the laugh hangs in the air a moment after, like warmth after a fire)* …*that's* the *only* *eulogy* …a *comic* …ever *wanted.*",
+          "effects": [
+            {
+              "key": "cap.jester_freed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_jester_ok",
+          "speaker": "the Wayward Mile",
+          "text": "*(You land it — not perfectly, the pause a hair too long, the turn a touch telegraphed — but you land it, and the jester's held breath releases, and he laughs, a real laugh, relieved and grateful, even if it hasn't the three-centuries-thunderclap of a perfect landing.)* …*(he laughs, and loosens, and is able to go)* …*there* it *is.* …*ah.* …*ah*, that's — that's *good*, cold one, that's *kind*, and it's — *(he wipes his eyes, fading gently)* …it's not *quite* how *i'd* have — i'd have *held* the *pause* a *beat* *less*, the *greed's* in the *waiting* — but *who* *cares*, *who* *cares*, it *LANDED*, after *three* *hundred* *years* it *finally* — *(softening, going)* …*thank* you. …a *comic* *dies* *twice*, they say — *once* when the *heart* *stops* …and *once* when the *last* *laugh* *fades.* …you *gave* me the *second* one *proper*, cold one. …*most* …never *get* it …*at* *all.*",
+          "effects": [
+            {
+              "key": "cap.jester_freed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_jester_fail",
+          "speaker": "the Wayward Mile",
+          "text": "*(You reach for the landing — and *flub* it. The punchline comes out mangled, the timing off, the turn that should have been cruel-then-kind just *confusing*, and it lands with a soft, terrible *nothing*, the comedian's worst nightmare: the *silence* after a swung-at joke.)* *(The jester's grin doesn't break — he is far too professional for that — but his eyes close, briefly, in the particular pain of a craftsman watching a beautiful setup die a second death.)* …*ohh.* …*no, that's* — *(he winces, gracious through it)* …it's all *right*, cold one, it's — the *timing's* a *cruel* *mistress*, she's *humbled* *better* than *you* — …*(he resets, the finger lifting, the setup beginning again)* …*so* a *paladin*, a *lich*, and a *tax-collector* — *(he is stuck again, another century at least, but he gives you a tiny rueful nod as you go, comedian to audience: *thanks for trying. it's harder than it looks. it was always harder than it looks.*)*",
+          "effects": [
+            {
+              "key": "cap.jester_flubbed",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_jester_fumble",
+          "speaker": "the Wayward Mile",
+          "text": "*(It goes worse than wrong — you not only flub the punchline, you flub it *confidently*, with a flourish, making it *about you*, the soul who Swept In To Help, and the jester has to stand there, frozen grin and all, and *watch* a stranger bomb his joke and then look *pleased* about it.)* …*(a long, professional silence)* …*welp.* *(the jester's eyes, above the grin, go flat with the ancient weariness of every artist who has watched an amateur mistake enthusiasm for talent)* …*that's* — *yep.* *that's* a *choice* you *made*, cold one. *out* *loud.* in *front* of *people.* …*(he resets, with enormous dignity)* …*tell* you what. …*you* *go* on *ahead.* …leave the *jokes* …to the *dead* *professional* who *died* *doing* them, *eh?* …*so* a *paladin*, a *lich*, and a *tax-collector* — *(and he is stuck again, but you get the distinct impression he'd rather three more centuries of the setup than one more of your help. fair. that's fair.)*",
+          "effects": [
+            {
+              "key": "cap.jester_flubbed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.bombed_for_a_pro",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_jester_keep",
+          "speaker": "the Wayward Mile",
+          "text": "*(He looks at you — and the desperation in his eyes, above the frozen grin, slowly changes into something else: understanding, and then a wild, delighted gratitude, because you are the first soul in three hundred years to grasp the thing he had half-forgotten himself.)* *(He gives you, very slightly, a *wink* — the only motion he can make that isn't the joke — and settles, contentedly, *gladly*, back into the held breath, the raised finger, the eternal almost.)* …*(and you understand you have not trapped him; you have *freed* him from the one thing worse than waiting forever: the *ending*. for a comic, the laugh is a little death — the joke, *over*. but the *setup*, the *lean-in*, the *anything-could-happen* — that is the joke *alive*, forever, and he gets to live in it, the best part, the part before the fall.)* *(you leave him mid-almost, three words from a punchline he will now never need, the happiest stuck soul on the whole road — a joke that never has to end, told by a man who finally understands that was the gift all along.)*",
+          "effects": [
+            {
+              "key": "cap.jester_left_in_setup",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}
