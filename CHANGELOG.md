@@ -11,6 +11,37 @@
 
 ---
 
+## 👑 v6.58.0 — *"The Honest Devil"* — the magnificent-bastard villain (content)
+
+> The cast's **first villain who isn't sad.** Every other antagonist is grief-curdled — Aldric, Myrkul,
+> the Unmade, the Last Returned. **Calloway** looked at the same grey cosmos that discards souls and
+> *grinned, and got rich off it:* a dead con-man who beat the Wall by being **too entertaining to
+> discard** — 20 CHA, an 11/10 aura, and almost impossible to hate even as he fleeces you and tells you,
+> truthfully, that he's doing it. Found at **the Long Odds** (off the Night Market). Full dossier:
+> [`docs/characters/calloway.md`](docs/characters/calloway.md).
+- ♠️ **Calloway, the Honest Devil** — his gimmick is that he **never lies** (*"the truth, fanned out just
+  so, is the prettiest hand at the table"*); his laws are *the first drink's free* and *he honors every
+  wager.* The dead-sense finds **two truths at once that won't resolve**: the **predator** (monetizes
+  the discarding, owns pieces of a hundred souls, would broker the world for the right number) and the
+  **magnificent refusal** (the one soul in all the grey who looked at a cosmos that called him worthless
+  and *claimed himself*, set his own price, threw a party at the Wall) — *both entire, which is the exact
+  reason he's impossible to hate.*
+- 🎴 **You can't beat him with force — only:** **out-deal** him (a haggle Insight check — **crit:** he
+  tears up your debt and *owes you one*; **fumble:** you out-smart yourself into a worse deal and he's
+  delighted); **out-wager** him (cut the cards — **crit:** the only soul in 400 years to beat the house
+  straight, and he hands you a marker with his own name on it; **fumble:** you try to cheat *Calloway, at
+  cards, in his own house*); **name** him ([RETURNED] — and he *loves* being seen, the magnificent-bastard
+  hallmark: *"I'm having that engraved, in gold"*); or **walk clean** — the one move he genuinely
+  respects, which flips his greeting and makes him almost an ally.
+- ◐ **the Mortgaged Man (Em)** — the victim who'd do it again: sold his face, years, and name to escape
+  the Wall, and *defends* Calloway, because the Wall would have dissolved him for free and Calloway
+  *came.* A [RETURNED] names the **false choice** and wakes him to the con under the con.
+- § **the Auditor** — the nemesis who's losing: three months and eleven framed injunctions in, she's
+  being *seen* for the first time in ninety grey years and starting to like it. A [RETURNED] hands her
+  the only weapon that works — **walk out owing nothing: the one audit he can't frame.**
+- 🔧 New cast section ("the wildcard — the magnificent bastard") in the character index. **75 zones, 245
+  souls.** Gate **785** ✓ · full suite **1502** ✓ · all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.57.0 — *"The Wayward Mile"* — a random-event system (systems + content)
 
 > Bolt-from-the-blue one-off events, each **very** unique and idiosyncratic, surfaced **rarely and at

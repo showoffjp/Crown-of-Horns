@@ -42,6 +42,11 @@
 | **[Sister Vayle](sister-vayle.md)** | the institutional foil — defender of the Wall; a true believer, not a villain |
 | **[Jergal](jergal.md)** | the bored eldest scribe; not a faction; the **keyhole** to the golden ending |
 
+### The wildcard — *the magnificent bastard*
+| Character | Role |
+|---|---|
+| **[Calloway, the Honest Devil](calloway.md)** | the cast's **first villain who isn't sad** — a dead con-man who *beat the Wall by being too entertaining to discard.* 20 CHA, never lies, the **capitalist of grief**; impossible to hate even as he fleeces you. You can't beat him with force — only **out-deal him, out-wager him, or walk away clean.** His answer to the central question: *"whatever it has the nerve to charge — the gods discard you for free; I'm the only one who'll pay."* |
+
 ## 🛡️ The companions — *seven, across three eras, plus the secret and the hidden*
 | # | Character | Class · era | Romance | Their answer |
 |---|---|---|---|---|

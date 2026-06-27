@@ -3088,6 +3088,49 @@ check("event richness: the coin and the comedian carry real crit/fumble skill ch
   return coin && coin.crit && coin.fumble && jest && jest.crit && jest.fumble && terminates;
 })());
 
+// ---- the magnificent bastard: Calloway & the Long Odds ----
+const LOD = SCENES && SCENES.longodds;
+check("a seventy-fifth zone (the Long Odds) ships — the magnificent-bastard villain Calloway", LOD && LOD.npcs.length >= 3);
+check("the Long Odds is reached from the Night Market (the dead's black market) and exits back", (SCENES.nightmarket.exits || []).some(x => x.to === "longodds") && (LOD.exits || []).some(x => x.to === "nightmarket"));
+const cal = CONVS.find(c => c.id === "cal.calloway");
+const calEm = CONVS.find(c => c.id === "cal.em");
+const calAud = CONVS.find(c => c.id === "cal.auditor");
+check("three souls (the Honest Devil, the victim who'd do it again, the nemesis being out-played) are present", cal && calEm && calAud);
+check("Calloway offers a DEAL with a haggle check (crit: you out-deal him and he owes YOU; fumble: you out-smart yourself into a worse deal) and a hidden hook", (() => {
+  const dealNode = cal.nodes.find(n => n.id === "cal_deal");
+  const haggle = dealNode.choices.find(c => c.check);
+  const crit = cal.nodes.find(n => n.id === "cal_deal_crit");
+  const fumble = cal.nodes.find(n => n.id === "cal_deal_fumble");
+  return haggle && haggle.crit && haggle.fumble && haggle.fail &&
+    crit.effects.some(e => e.key === "cal.calloway_owes_you") &&
+    fumble.effects.some(e => e.key === "cal.signed_the_worse_deal");
+})());
+check("you can WAGER Calloway directly — a crit/fumble cut of the cards; win and he owes you, lose and you owe him, and he always honors it", (() => {
+  const wager = cal.nodes.find(n => n.id === "1").choices.find(c => c.check && /wager|cut/i.test(c.text));
+  const win = cal.nodes.find(n => n.id === "cal_wager_win");
+  const lose = cal.nodes.find(n => n.id === "cal_wager_lose");
+  return wager && wager.crit && wager.fumble && wager.fail &&
+    win.effects.some(e => e.key === "cal.calloway_owes_you") && lose.effects.some(e => e.key === "cal.owes_calloway");
+})());
+check("the [RETURNED] names him the Wall-with-a-smile and he LOVES being seen (the magnificent-bastard hallmark), agreeing and countering with his seductive logic", (() => {
+  const t = cal.nodes.find(n => n.id === "cal_returned");
+  return cal.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && t && t.effects.some(e => e.key === "cal.calloway_seen") &&
+    /engraved|expensive|name your price/i.test(t.text);
+})());
+check("you can leave money on the table — walk clean — and it's the one move he genuinely respects (a flagged outcome that changes his greeting)", (() => {
+  const refuse = cal.nodes.find(n => n.id === "1").choices.find(c => /No deal|walking/i.test(c.text));
+  const v = cal.nodes.find(n => n.id === "0").variants.some(x => (x.when && (x.when.flags || []).includes("cal.walked_clean")));
+  return refuse && refuse.effects.some(e => e.key === "cal.walked_clean") && v;
+})());
+check("the victim (Em) defends him via a false-choice [RETURNED]; the nemesis (the Auditor) is steeled by a 'walk away clean is the only audit he can't frame' [RETURNED]", (() => {
+  const emT = calEm.nodes.find(n => n.id === "em_returned");
+  const audT = calAud.nodes.find(n => n.id === "aud_returned");
+  return calEm.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && emT.effects.some(e => e.key === "cal.em_woke") &&
+    calAud.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && audT.effects.some(e => e.key === "cal.auditor_walks");
+})());
+check("each Long Odds soul carries a [RETURNED] line + a Returned-sense", [cal, calEm, calAud].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {
