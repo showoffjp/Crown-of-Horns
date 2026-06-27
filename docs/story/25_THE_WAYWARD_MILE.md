@@ -37,6 +37,14 @@ gracefully**. Runtime randomness uses `Math.random` in the browser build — nev
 | 🫂 **The Recursive Beggar** | a **puzzle of generosity** (Insight) | A soul made entirely of giving, who *splits in two every time you give him something.* The cure is the one alms that doesn't divide him: **refusal** — *"you already gave; it counted; you're allowed to keep yourself."* |
 | 🌑 **The Apocalypse Salesman** | **comic → dark** (Myrkul tie) | A chipper door-to-door salesman hawking *"one apocalypse, gently used, one careful owner (a god)."* See the truth: it's Myrkul's discarded end-of-world, and the salesman a soul *bound to sell the thing that consumed him* — even the apocalypse is just one more discarded soul. **Buy** it and you free him, and the world's ending is yours, to never use. |
 | 🃏 **The Mid-Joke Comedian** | **comic / sad** (Performance, crit/fumble) | A jester frozen three centuries one beat before the punchline he died before delivering. **Land it** (crit: the funniest sound in the afterlife; fumble: you bomb, *confidently*, in front of a dead pro) — or **leave him the setup**, because for a comic the laugh is a little death and the *almost* is the joke alive forever. |
+| ♠️ **Calloway, on the Road** | **recurrence** (`need`-gated) | The magnificent bastard *follows up.* Once you've met him at the Long Odds (`need: cal.met`), he can materialize on the road to **settle the marker**, reactive to which one you hold: **pay** what he owes you (gloriously, at the knife-edge — *"Calloway honors every debt"*); **collect** what you owe him (and reveal **his one secret** — he launders a hidden mercy through you, forgiving Em's debt anonymously, because *"if it gets out that Calloway forgave a debt for nothing, I'm ruined"*); **visit** the one who walked clean (the freest soul in the afterlife has no equals, and you're the closest thing); or a charming **cameo.** |
+
+> **The `need` extension.** Adding Calloway's recurrence required one small, reusable engine touch: draw
+> entries now accept an optional **`need`** (a prerequisite flag that must be *set*), so an event stays
+> out of the random pool until the story unlocks it. `pickDraw` filters on `once` (must be unset) **and**
+> `need` (must be set) — covered by new unit tests. This is how a *one-off* becomes a *recurring
+> character*: the encounter is still random and rare, but only ever fires once the relationship exists to
+> pay off.
 
 Every event sets reactive flags + dispositions (mercy, haunt, cunning, heretical) and leaves a keepsake
 or a mark — *the edge-coin, the name Elsa, Hettie's last word, the apocalypse in a case* — so the

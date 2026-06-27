@@ -3080,6 +3080,20 @@ check("the six events are genuinely distinct one-offs (coin gamble, the Same Dog
   const ids = new Set(capR.nodes.map(n => n.id));
   return ["cap_coin_0","cap_dog_0","cap_auction_0","cap_beggar_0","cap_salesman_0","cap_jester_0"].every(x => ids.has(x));
 })());
+check("a need-gated recurrence: Calloway can re-appear on the road ONLY after you've met him (draw entry need:cal.met), to settle the marker — pay / collect / visit / cameo, reactive to which marker you hold", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  const cw = dn.draw.find(e => e.to === "cap_calloway_0");
+  if (!cw || cw.need !== "cal.met" || !/^cap\.seen_/.test(cw.once)) return false;
+  const entry = capR.nodes.find(n => n.id === "cap_calloway_0");
+  const ids = new Set(capR.nodes.map(n => n.id));
+  const branches = ["cap_cal_pays","cap_cal_collects","cap_cal_visits","cap_cal_default"].every(x => ids.has(x));
+  const owesYou = entry.choices.find(c => (c.when && (c.when.flags||[]).includes("cal.calloway_owes_you")) && c.next === "cap_cal_pays");
+  const youOwe = entry.choices.find(c => (c.when && (c.when.flags||[]).includes("cal.owes_calloway")) && c.next === "cap_cal_collects");
+  const collects = capR.nodes.find(n => n.id === "cap_cal_collects");
+  // the collection reveals his one secret (he launders a hidden mercy through you)
+  const secret = collects.effects.some(e => e.key === "cap.calloways_secret");
+  return branches && owesYou && youOwe && secret;
+})());
 check("event richness: the coin and the comedian carry real crit/fumble skill checks; every event terminates (auto END or choices)", (() => {
   const coin = capR.nodes.find(n => n.id === "cap_coin_0").choices.find(c => c.check);
   const jest = capR.nodes.find(n => n.id === "cap_jester_0").choices.find(c => c.check);

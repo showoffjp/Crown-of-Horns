@@ -775,7 +775,7 @@ function pickVariantText(node, char, state){ if(node.variants&&node.variants.len
 // honors a per-run cap (drawMax on drawCount), and falls through to drawElse when capped or drained.
 function pickDraw(node, state, rnd){
   if(node.drawMax!=null && (state.ints[node.drawCount]||0) >= node.drawMax) return node.drawElse;
-  const pool=(node.draw||[]).filter(e=> state.bools[e.once]!==true);
+  const pool=(node.draw||[]).filter(e=> state.bools[e.once]!==true && (!e.need || state.bools[e.need]===true));
   if(!pool.length) return node.drawElse;
   return pool[Math.floor(rnd()*pool.length)].to;
 }

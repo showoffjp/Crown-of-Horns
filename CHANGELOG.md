@@ -11,6 +11,30 @@
 
 ---
 
+## 👑 v6.59.0 — *"The House Always Finds You"* — Calloway recurs (systems + content)
+
+> The magnificent bastard **follows up.** The marker mechanic from *The Honest Devil* now pays off: once
+> you've met Calloway, he can **materialize at random on the Wayward Mile** to settle the debt — reactive
+> to which marker you hold. A one-off becomes a **recurring character.**
+- ♠️ **He pays** (if `cal.calloway_owes_you`) — appears *at the knife-edge*, crushes his own marker, and
+  the locked way simply opens: *"Calloway honors every debt — the only law I never bend; a gambler who
+  welches is just a thief in a nicer coat."* The villain as your most *dependable* ally, because of his
+  code.
+- ♠️ **He collects** (if `cal.owes_calloway`) — and reveals **his one secret.** He calls in your favor to
+  make *you* the instrument of a kindness he'd never admit to: deliver a sealed token to **Em the
+  Mortgaged Man**, his debt *forgiven, in full* — and tell him it came from *anyone but Calloway*,
+  *"because if one soul learns Calloway forgave a debt for nothing, I'm ruined."* The Honest Devil's
+  single crack: he's softer than he sells, and spends your marker to *hide* it (`cap.calloways_secret`).
+- ♠️ **He visits** (if `cal.walked_clean`) — no angle, an empty hand: the freest soul in the afterlife
+  owes everyone nothing and therefore has *no equals*, and you — who walked his floor and folded the
+  winning hand — are the closest thing he's had to one since death. He gives you a real warning, free.
+- 🔧 **Engine: the `need` extension.** Draw entries now accept an optional **`need`** (a prerequisite flag
+  that must be *set*); `pickDraw` filters on `once` (unset) **and** `need` (set), so an event stays out of
+  the random pool until the story unlocks it — *the* mechanism that turns a rare one-off into a recurring
+  character. New `dialogue_sim` unit tests (excluded until met; included once met). **75 zones, 245
+  souls.** Gate **786** ✓ · engine **105** ✓ · full suite **1505** ✓ · all-in-one **15** ✓ · bundle
+  rebuilt ✓.
+
 ## 👑 v6.58.0 — *"The Honest Devil"* — the magnificent-bastard villain (content)
 
 > The cast's **first villain who isn't sad.** Every other antagonist is grief-curdled — Aldric, Myrkul,

@@ -154,6 +154,11 @@ check("when flagsNot composes with positive flags (revealed but not-yet-heard)",
   check("pickDraw falls to drawElse when the per-run cap is reached", E.pickDraw(node, s2, () => 0) === "quiet");
   const s3 = E.newState(); s3.bools["seen.a"] = true; s3.bools["seen.b"] = true; s3.bools["seen.c"] = true;
   check("pickDraw falls to drawElse when the pool is drained", E.pickDraw(node, s3, () => 0) === "quiet");
+  // `need`: an event stays out of the pool until its prerequisite flag is set (gated random events)
+  const gated = { draw: [{ to: "a", once: "seen.a" }, { to: "g", once: "seen.g", need: "met.x" }], drawCount: "cap.draws", drawMax: 9, drawElse: "quiet" };
+  check("pickDraw excludes a `need`-gated event until its prerequisite is met", E.pickDraw(gated, E.newState(), () => 0.99) === "a");
+  const sg = E.newState(); sg.bools["met.x"] = true;
+  check("pickDraw includes a `need`-gated event once its prerequisite is set", E.pickDraw(gated, sg, () => 0.99) === "g");
 })();
 
 // proficiency math — Cleric+Acolyte is proficient in Religion/Insight/Persuasion; not Stealth

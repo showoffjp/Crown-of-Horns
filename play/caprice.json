@@ -120,6 +120,11 @@
             {
               "to": "cap_jester_0",
               "once": "cap.seen_jester"
+            },
+            {
+              "to": "cap_calloway_0",
+              "once": "cap.seen_calloway",
+              "need": "cal.met"
             }
           ],
           "drawCount": "cap.draws",
@@ -721,6 +726,158 @@
             },
             {
               "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_calloway_0",
+          "speaker": "Calloway",
+          "onEnter": [
+            {
+              "key": "cap.seen_calloway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cal.calloway_owes_you"
+                ]
+              },
+              "text": "*(The road turns over — and there is a card on the ground at your feet that was not there, the Tower, face-up, and when you look up Calloway is simply *there*, leaning on the milestone in his impossible wine-red coat as if he'd been waiting an age and enjoyed every second of it.)* …*there* you *are.* *(he beams)* …*small* *world*, the *dead* one — *smaller* than the *living*, and i *own* more of *it.* *(he spins a marker between his fingers — wine-red, his own name on it, the one he owes you)* …i don't *like* *carrying* a *debt*, cold one. it *itches.* and you've a *look* about you tonight — the *look* of a soul whose *road* has just gone *hard.* *(the smile warms)* …*funny* *thing*, that. …*almost* like the *house* …*arranged* …to *be* *here* …*precisely* *now.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cal.owes_calloway"
+                ]
+              },
+              "text": "*(The road turns over — and the warm, low laugh reaches you before he does. Calloway steps out of a shadow that has no business holding a man, immaculate, delighted, turning a marker with *your* mark on it between two fingers.)* …*don't* look so *startled.* *(he tuts, fond)* …a *marker's* a *marker*, cold one, and a soul that *owes* *Calloway* is a soul *Calloway* *finds* — it's not *magic*, it's just *very*, *very* good *bookkeeping.* *(he holds up your mark to what passes for light)* …and i find myself, *tonight*, with a *use* for the *favor* you *owe* me. …*unspecified*, you'll *recall.* *my* *call.* …*(the grin sharpens, but there's something almost *gentle* under it)* …*relax.* …it's *nothing* that'll *cost* you a *thing* you'd *miss.* …*quite* …the *opposite.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cal.walked_clean"
+                ]
+              },
+              "text": "*(The road turns over — and Calloway is there, and he is holding *nothing.* No cards. No marker. No deck. From Calloway, an empty hand is the single most disarming thing in the dead lands, and he knows it, and he spreads both of them wide so you can see they're empty, and *grins.*)* …*the* one who *said* *no.* *(he says it like a toast)* …*relax*, cold one — there's *no* *play* here, no *angle*, the *table's* back at the *house* and i *left* it *there.* *(he tips his head, studying you with frank, undisguised fondness)* …i just — *(and for once the patter stalls, and what's underneath is almost shy)* …i *heard* the *road* got *cruel* for you. and i found, to my *considerable* *annoyance*, that i *cared.* …*me.* …*caring.* *(he shudders theatrically)* …*disgusting.* …so i *came.* …*owing* you *nothing*, and *owed* *nothing*, which is — cold one, do you *understand* how *rare* that *is?* …a soul i can *simply* …*talk* to.*"
+            },
+            {
+              "text": "*(The road turns over — and Calloway is leaning on the milestone, perfectly at ease, as though the bend in the causeway were an extension of his own warm establishment.)* …*fancy* *meeting* *you* *here.* *(the grin)* …and *don't* give me the *'how' —* i'm the *house*, cold one, and the *whole* *dead* *world* is *my* *floor*; i turn up *where* the *odds* are *interesting*, and *you*, friend, are the most *interesting* *odds* in *creation.* *(he produces, from nowhere, a single card, face-down, and offers it)* …*now.* …since the *road's* *thrown* us *together* …*shall* we make it *worth* the *coincidence?*"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(he owes you — call it in, here, at the knife-edge)* \"You picked the perfect moment, Calloway, and we both know it wasn't luck. Yes. I'm calling it in. The favor you owe me — I need it *now*, this road, this door. Pay your debt, Honest Devil.\"",
+              "when": {
+                "flags": [
+                  "cal.calloway_owes_you"
+                ]
+              },
+              "next": "cap_cal_pays"
+            },
+            {
+              "text": "*(you owe him — face the collection)* \"All right. Here it is, then — the favor of your choosing. I signed it; I'll pay it. What does Calloway want?\"",
+              "when": {
+                "flags": [
+                  "cal.owes_calloway"
+                ]
+              },
+              "next": "cap_cal_collects"
+            },
+            {
+              "text": "*(the one who walked clean — hear why he really came)* \"You came all this way, owing me nothing and owed nothing, for the one soul who gave you not a copper. That's not a con, Calloway. That's a man who wanted company. Why me?\"",
+              "when": {
+                "flags": [
+                  "cal.walked_clean"
+                ]
+              },
+              "next": "cap_cal_visits"
+            },
+            {
+              "text": "\"No card. No coincidence I trust. Tell me straight, Calloway — what are you doing on my road?\"",
+              "next": "cap_cal_default"
+            }
+          ]
+        },
+        {
+          "id": "cap_cal_pays",
+          "speaker": "Calloway",
+          "text": "*(He flicks the wine-red marker into the air, catches it, and *crushes* it in his fist — and the moment it's gone, the hard thing on the road ahead of you simply… *resolves*: the locked way opens, the impossible debt is quietly settled, the door you could not pass swings wide, and you understand he has spent, freely and without flinching, exactly the favor he owed.)* …*there.* *paid.* *in* *full.* *(he dusts his hands, immensely satisfied)* …*nobody* believes me, cold one, when i say it, so *watch* and *learn*: *Calloway* *honors* *every* *debt.* *every* one. it's the *only* law i *never* bend, because a *house* that *welches* is a *house* with *no* *players*, and a *gambler* who *welches* …*(he shrugs)* …is just a *thief* in a *nicer* *coat*, and i've *standards.* *(he looks at the opened way, then at you, and the smile is, for once, plain and warm and without a hook)* …you *beat* me *straight*, that night. *fair* *cut*, *fair* *call.* and *this* — *(he gestures at the road, unbarred)* — *this* is what it *bought* you: the *one* *power* in *all* of *creation* …*reliably*, *unfailingly*, *gladly* …*in* *your* *debt* …and *good* for it. …*(he tips an invisible hat)* …*spend* your *next* *marker* *wiser*, cold one. …*oh* — *wait.* …you *don't* *have* one. …you're *square* with the *house* *now.* …*pity.* …i did *so* …*enjoy* …*owing* you. …*(and he's gone, and the road is open, and it is the most dependable thing that has ever happened to you in the land of the dead.)*",
+          "effects": [
+            {
+              "key": "cap.calloway_paid_up",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_cal_collects",
+          "speaker": "Calloway",
+          "text": "*(He produces a small sealed token — wine-red wax, no sigil — and presses it into your hand, closing your fingers around it, and for the first time since you met him his voice drops out of the patter entirely, into something low and serious and almost *careful.*)* …*here's* the *favor*, cold one, and it's the *whole* of it: …there's a soul at the *lowest* *table* in my *house* — you'll *know* the *one*, *faded*, *gappy*, *sold* *himself* for *parts.* …*Em.* …*(he doesn't quite meet your eyes)* …you give him *that.* …and you tell him it's *paid.* …*all* of it. *the* *whole* *debt.* *forgiven*, *cleared*, *gone.* …and when he *asks* who — *and* he *will* — …*(his jaw tightens)* …you tell him it was *no* one. a *stranger.* an *anonymous* *benefactor.* the *house's* *charity*, *anything* — …*anything* …but *me.* *(he steps back, and rearranges the smile, but it doesn't quite take)* …*because* if it gets *out*, cold one — if *one* *soul* in the *dead* *lands* *learns* that *Calloway* *forgave* a *debt* …*for* *nothing* …out of some *sentimental* *rot* i *thought* i'd *traded* *away* *centuries* *ago* — …i am *finished.* *ruined.* every *marker* i *hold* …goes *soft.* *(he meets your eyes at last, and there it is, the one crack in the whole gorgeous edifice)* …*that's* my *favor*, cold one. …*spend* my *secret* …*keeping* it. …*launder* my *one* *mercy* …*through* a soul i *trust* …because you're the *only* one who *walked* my *floor* …and saw *both* *halves* of me …*at* *once.* …*go* on. …and cold one — *(barely)* …*never.* …*tell.* …*him.*",
+          "effects": [
+            {
+              "key": "cap.calloway_collected",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.calloways_secret",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_cal_visits",
+          "speaker": "Calloway",
+          "text": "*(He's quiet a moment — genuinely, the most charming soul in the afterlife caught without a line — and then he laughs, softly, at himself.)* …*why* *you.* *(he turns a card he isn't betting, idle)* …because, cold one, i am the *freest* *thing* in this *whole* *grey* *swindle* — i *owe* the *gods* *nothing*, the *Wall* *nothing*, that *grief* under the *stones* *nothing* — and do you *know* the *one* *cost* of being *that* *free?* …*(he says it lightly, and it isn't light at all)* …there's *no* one *at* my *level.* *everyone* *plays* me, or *fears* me, or *wants* a *piece* — *marks*, all of them, *lovely* *marks* — and a *soul* can go a *very* *long* *four* *hundred* *years*, cold one, being the *cleverest* *creature* in *every* *room* …and *never* *once* …have an *equal* *to* *talk* *to.* *(he flicks the card to you — it's a warning, you realize, a name and a place, *real* and *free*, a danger on your road ahead and exactly how to slip it)* …*take* that. *no* *charge.* …a soul that *walked* my *floor* and *folded* the *winning* *hand* …is the *closest* thing to an *equal* i've *had* …since *death.* …and i find i'd *like* you to *keep* *living*, cold one — *selfishly*, *entirely* selfishly, because the *dead* *lands* are *so* *much* *duller* …*without* …*one* *good* *player* …who *isn't* *playing* me. *(the grin returns, gentle)* …*go* on. …*mind* that *danger.* …and *come* by the *house*, *sometime* …*not* to *deal.* …just …to *make* the *odds* *interesting.*",
+          "effects": [
+            {
+              "key": "cap.calloway_friend",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.calloway_warning",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.stoic",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_cal_default",
+          "speaker": "Calloway",
+          "text": "*(He laughs, delighted to be challenged, and tucks the card away.)* …*straight* it *is.* …*honestly?* — and i'm *always* *honest* — i turned up because the *house* gets *quiet*, cold one, and *you're* the most *entertaining* *account* on my *books*, *open* or *otherwise.* *(he spreads his hands)* …*no* *deal* tonight. *no* *marker.* i just *wanted* to *see* …what the *one* *Returned* who *interests* me …*does* out *here*, on the *road*, with *no* *table* *between* us. *(he steps back toward a shadow that's already taking him)* …*carry* on, cold one. *the* *door's* always *open*, the *first* *drink's* *always* *free* …and the *odds* on *you*, friend — *(the last of the grin, and it's almost *fond*)* …*shorten* …*every* *time* …i *see* you. …*do* *keep* *surprising* me. …it's the *one* thing …i *can't* *buy.*",
+          "effects": [
+            {
+              "key": "cap.calloway_cameo",
               "op": "SetTrue"
             }
           ],
