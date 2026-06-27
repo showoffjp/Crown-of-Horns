@@ -3001,25 +3001,26 @@ const SLIP_READS = [
   ["ol.sift","ol_s_read"],["ol.bryn","ol_b_read"],["ol.tace","ol_t_read"],
 ];
 const slipNode = (cid, nid) => { const c = CONVS.find(x => x.id === cid); return c && c.nodes.find(n => n.id === nid); };
-check("System 1 rollout: 15 beloved reads gain a narrator-slip variant (the Unmade's mask bleeding through) gated on le.narrator_revealed, with a verbatim-original default", SLIP_READS.every(([cid, nid]) => {
+check("System 1 rollout: 15 reads now carry a THREE-TIER narration — escalated (revealed + deep cold) / slip (revealed) / verbatim default — first-match ordered most-gated first", SLIP_READS.every(([cid, nid]) => {
   const n = slipNode(cid, nid);
-  if (!n || !n.variants || n.variants.length !== 2) return false;
-  const slip = n.variants[0], dflt = n.variants[1];
-  const gated = slip.when && (slip.when.flags || []).includes("le.narrator_revealed");
-  const hasDefault = !dflt.when;                      // required no-when fallback (else pickVariantText returns "")
-  return gated && hasDefault && slip.text.length > dflt.text.length;  // slip wraps the verbatim original
+  if (!n || !n.variants || n.variants.length !== 3) return false;
+  const esc = n.variants[0], slip = n.variants[1], dflt = n.variants[2];
+  const escGated = esc.when && (esc.when.flags || []).includes("le.narrator_revealed") && esc.when.int && esc.when.int["disp.haunted"] >= 1;
+  const slipGated = slip.when && (slip.when.flags || []).includes("le.narrator_revealed") && !slip.when.int;
+  const hasDefault = !dflt.when;                       // required no-when fallback
+  return escGated && slipGated && hasDefault;
 }));
-check("System 1 rollout: every slipped read carries the recognizable tell (first-person intrusion + the unmaking whisper) and preserves the original read inside it", SLIP_READS.every(([cid, nid]) => {
+check("System 1+2 fusion: the escalated tier drops the mask further (fully first-person kinship + names the player's cold) and still embeds the verbatim original", SLIP_READS.every(([cid, nid]) => {
   const n = slipNode(cid, nid);
-  const slip = n.variants[0].text, original = n.variants[1].text;
-  const tell = /my sense/i.test(slip) && /(unmake|in conscience|whose eyes|whose grief)/i.test(slip);
-  const preservesOriginal = slip.indexOf(original) !== -1;   // the verbatim original read is embedded in the slip
-  return tell && preservesOriginal;
+  const esc = n.variants[0].text, slip = n.variants[1].text, original = n.variants[2].text;
+  const naked = /(pretending|fiction|pretense|no mask)/i.test(esc) && /(cold one|kin)/i.test(esc) && /(unmake|finish the walk|nearly me|what we must do)/i.test(esc);
+  const bothEmbedOriginal = esc.indexOf(original) !== -1 && slip.indexOf(original) !== -1;
+  return naked && bothEmbedOriginal && esc.length > original.length && slip.length > original.length && esc !== slip;  // both tiers wrap the same verbatim read, distinctly
 }));
-check("System 1 rollout: the read nodes keep their effects + auto:END (mechanics intact under the new variants)", SLIP_READS.every(([cid, nid]) => {
+check("System 1 rollout: the read nodes keep their effects + auto:END (mechanics intact under all three tiers)", SLIP_READS.every(([cid, nid]) => {
   const n = slipNode(cid, nid);
   return n.auto === "END" && Array.isArray(n.effects) && n.effects.length >= 1;
-}));
+}))
 
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&

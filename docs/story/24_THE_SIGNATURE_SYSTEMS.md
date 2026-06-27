@@ -45,6 +45,18 @@ to stand.)
   verbatim inside the slip** (the player must recognize it), and the pre-reveal default is the original,
   untouched. Implemented purely as node `variants` with a required no-`when` default, so it renders in
   **both** the playable build and the dialogue simulator. *Rollout expands toward all ~241 reads.*
+- **The escalation — Systems 1 + 2 fused (built):** the slip **worsens with your cold.** Each of the
+  15 reads now carries a **third, top-priority variant** gated on `le.narrator_revealed` **and**
+  `disp.haunted ≥ 18`, in which the mask drops *all the way.* Where the plain slip catches itself
+  (*"your sense — my sense"*), the escalated tier **never corrects** — it is pure first person, names
+  *your* cold directly (*"you feel how thin the warm world has gone in you. Good."*), addresses you as
+  **kin who has nearly crossed over** (*"you are very nearly me"*), shares the read rather than showing
+  it (*"look with me, kin to kin"*), and turns the recruitment whisper into **settled fact** (*"there is
+  no whisper left between us… you already know what we must do. Finish the walk."*). Because
+  `pickVariantText` returns the **first** matching variant, the tiers are ordered most-gated first:
+  `[escalated (revealed + cold), slip (revealed), verbatim default]`. **This is the two systems made
+  one:** the narrator you can't trust (1) becomes *more* untrustworthy exactly as the cost of trusting
+  it (2) turns you into it.
 
 ## System 2 — *The cost of seeing is becoming the monster*
 **Witnessing accrues `disp.haunted`; maxed, it makes you the Last Returned.**

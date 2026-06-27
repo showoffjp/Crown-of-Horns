@@ -11,6 +11,28 @@
 
 ---
 
+## 👑 v6.55.0 — *"The Cold Reading"* — Systems 1 & 2 fuse: the slip worsens with your cold (systems)
+
+> The narration slip is no longer one-size — it **escalates with `disp.haunted`.** Each of the 15
+> slipped reads gains a **third, top-priority variant** gated on `le.narrator_revealed` **and**
+> `disp.haunted ≥ 18`, in which the Unmade's mask drops **all the way.** This is the two signature
+> systems made one machine: **the narrator you can't trust (System 1) becomes *more* untrustworthy
+> exactly as the cost of trusting it (System 2) turns you into it.**
+- 🩶 **The escalated tier** — where the plain slip *catches itself* (*"your sense — my sense"*), the
+  escalated tier **never corrects.** It is pure first person; it **names your cold directly** (*"you feel
+  how thin the warm world has gone in you. Good."*); it addresses you as **kin who has nearly crossed
+  over** (*"you are very nearly me"*); it **shares** the read instead of showing it (*"look with me, kin
+  to kin"*); and it turns the recruitment whisper into **settled fact** (*"there is no whisper left
+  between us… you already know what we must do. Finish the walk."*).
+- 🔧 **Ordering matters:** `pickVariantText` returns the **first** matching variant, so the tiers are
+  most-gated-first — `[escalated (revealed + cold), slip (revealed), verbatim default]`. A deep-cold
+  revealed player gets the escalated read; a warm revealed player gets the plain slip; a pre-reveal
+  player gets the untouched original. The **verbatim original read is preserved inside every tier**, and
+  the nodes keep their `effects` + `auto:"END"`.
+- 📄 [`docs/story/24_THE_SIGNATURE_SYSTEMS.md`](docs/story/24_THE_SIGNATURE_SYSTEMS.md) updated with the
+  escalation (Systems 1+2 fusion). **73 zones, 241 souls.** Gate **765** ✓ · full suite **1473** ✓ ·
+  all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.54.0 — *"The Slip"* — System 1 reaches backward through the game (systems + content)
 
 > The narration-slip rollout from the capstone's design spec, **built and test-verified.** Once *The
