@@ -1,131 +1,936 @@
 {
   "scene": {
-    "id": "lanternfeast", "name": "The Last Lantern-Feast",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 1 },
+    "id": "lanternfeast",
+    "name": "The Last Lantern-Feast",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
     "props": [
-      { "type": "table", "x": 5, "y": 4 },
-      { "type": "candle", "x": 4, "y": 4 },
-      { "type": "candle", "x": 6, "y": 4 },
-      { "type": "tavern", "x": 2, "y": 2 },
-      { "type": "banner", "x": 8, "y": 2, "hue": 45 },
-      { "type": "lamppost", "x": 3, "y": 6 },
-      { "type": "lamppost", "x": 8, "y": 6 },
-      { "type": "log", "x": 6, "y": 6 }
+      {
+        "type": "table",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 4
+      },
+      {
+        "type": "tavern",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "type": "banner",
+        "x": 8,
+        "y": 2,
+        "hue": 45
+      },
+      {
+        "type": "lamppost",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "lamppost",
+        "x": 8,
+        "y": 6
+      },
+      {
+        "type": "log",
+        "x": 6,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "lamplit", "dest": { "x": 4, "y": 7 }, "label": "◂ back out to the Lamplit Quarter" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "lamplit",
+        "dest": {
+          "x": 4,
+          "y": 7
+        },
+        "label": "◂ back out to the Lamplit Quarter"
+      }
     ],
     "npcs": [
-      { "id": "dot", "name": "Dot Marigold", "title": "a baker throwing a forbidden feast for the doomed", "x": 5, "y": 3, "hue": 45, "sigil": "✺", "conv": "lf.dot",
-        "hail": "*(In the middle of a dead grey square that no god ever warmed, somebody has lit it up like a name-day. There are lanterns strung on lines, and candles down a long trestle, and a banner the color of egg-yolk and morning, and at the heart of it a broad, flour-dusted, laughing woman in a much-scorched apron is pulling something that is unmistakably, impossibly, *fresh bread* out of an oven that has no business working in the land of the dead, and she is singing while she does it. She has a face built for laughing and the red-rimmed eyes of someone who has done a very great deal of crying and decided, on purpose, in defiance of everything, to laugh anyway. She spots you and her whole face opens like a door.)* …*there* you are! *(she says it as though she's been expecting you for years)* …come *in*, come *in*, cold one, mind the lines, the lanterns'll singe your — *(she waves a bread-peel like a marshal's baton)* …you're *Returned*, aren't you, got that crossed-over chill, well, *good*, the *more* the *merrier* and i mean that *literally*, there's a *toast* in ten minutes and i am *short* of voices. *(then, lower, and the laugh doesn't leave but something fierce comes in under it)* …i'm Dot. Dot Marigold, of the *Marigold* ovens, *Heapside*, three *generations* — and what i'm *doing* here, cold one, in the *teeth* of every grey rule this dead place has — *(she sets the loaf down, gentle as a baby)* …is throwing a *party.* …A *feast.* For the *doomed* — for the *dissolving*, the *half-gone*, the souls this place is *eating* slow. *(her jaw sets)* …the *church* says it's *obscene.* Says the dead ought to sit *quiet* and *grieve* and *wait* to be *weighed.* Says a *feast* is a *lie* the dying tell themselves. *(she lights a lantern, and her hands are shaking, and her voice does not)* …well. They're *coming* to *put* it *out*, cold one. Sister Onora and her *grey* *sisters*, any minute now, to *snuff* the *lanterns* and *send* my *guests* back to the *waiting.* *(she looks at you, blazing, terrified, magnificent)* …so i'll *ask* you *plain*, since you've *wandered* in at the *worst* and *best* *moment*: …when they *come* …are you going to *help* them *put* it *out? …or* are you going to *help* me …*keep* …the *lanterns* …*lit?**" },
-      { "id": "marisa", "name": "Marisa", "title": "a half-dissolved soul who means to dance anyway", "x": 3, "y": 5, "hue": 330, "sigil": "❀", "conv": "lf.marisa",
-        "hail": "*(A young woman is dancing, slowly, alone, in the lantern-light — and you see, with a small cold lurch, that she is *going.* Her edges are not quite holding; there is a faint grey unmaking at her hands and the hem of her, the slow dissolution this place works on the unclaimed, and she has perhaps days left of being a *her* at all. And she is *dancing.* Eyes closed, swaying to Dot's singing, a small private smile on a face that the dark is already eating, dancing as though the dance were the most important thing in all the worlds, which — you understand, watching — for her, now, it is.)* …*(she opens her eyes and finds you, and the smile widens rather than falters)* …oh — *hello.* *(her voice has a faint echo to it, a soul thinning out)* …don't look so *stricken*, cold one, i can *see* my own *hands*, i know what's — *(she holds one up, and the lantern-light shows faintly *through* it)* …i know what's *happening* to me. i've a *little* time. not *much.* and i've decided exactly what to *do* with it, and it is *this.* *(she sways)* …i'm *Marisa.* and everyone — Onora's *sisters*, the *kind* ones especially — everyone keeps *telling* me to *sit* *down.* to *save* my *strength*, to *grieve* *properly*, to spend my *last* *days* in *quiet* *contemplation* of my — *(she laughs, and it is a real laugh)* …of my *dignified* *approaching* *nothing.* *(she shakes her thinning head)* …but i don't *want* my last days *quiet*, cold one. i had *quiet* my whole *life* — *careful*, and *saving-up*, and *waiting* for the *right* *time* to *finally* — *(her smile turns fierce)* …and then i *died*, and the *right* *time* *never* *came*, because it *never* *does.* …so *now*, with the *little* i've *got* *left*, while i can *still* *lift* my *arms* — *(she lifts them, faint as smoke, and turns)* …*now* i *dance.* …*will* you? …*before* i'm *gone? …it* would *mean* — *(softly)* …you've *no* *idea* what it would *mean* …to *not* *dance* the *last* of it …*alone.**" },
-      { "id": "onora", "name": "Sister Onora", "title": "a grey sister come to put the lanterns out", "x": 9, "y": 5, "hue": 210, "sigil": "✝", "conv": "lf.onora",
-        "hail": "*(At the edge of the warm light, where the lantern-glow gives way to the grey, a sister of the church stands in plain ash-colored robes with her hands folded and her face composed into the still, sorrowful mask of someone who has come to do a sad necessary thing and does not expect to be thanked for it. She is not a brute. There is no torch in her hand, no cudgel; only a small brass snuffer on a long handle, the kind you use on altar candles, and the terrible patience of a true believer. She watches the dancing, the bread, the laughter, with an expression of deep, genuine grief — as though the feast itself were the cruelty, and she the mercy.)* …I know how I must look to you. *(a low, even, infinitely tired voice)* …The grey woman come to spoil the party. The villain at the door. *(she does not look away from the lanterns)* …I have heard it, Returned. From every soul whose feast I have ever put out. And I have put out a great many. *(her jaw tightens, just slightly)* …Do you imagine I *enjoy* this? Do you imagine I came up through the cold and the dark to a square full of light and bread and *singing* …and felt *nothing* but the *urge* to *end* it? *(quietly)* …I am Sister Onora. And I am here, by the edict of the Choir, to snuff these lanterns and send these souls back to the proper posture of the dead — which is *grief*, Returned. *Stillness.* The *patient sorrow* of a soul awaiting its weighing. *(she finally looks at you, and her eyes are wet and certain)* …because that woman — *(a nod at Dot)* …that *kind*, *warm*, *dangerous* woman is telling the dying a *lie.* She is telling them that this *matters*, that a *feast* in the *teeth* of *dissolution* is a *victory* — and it is *not*, Returned. It is a *distraction.* It is *whistling* in the *dark.* And when the *song* *ends*, and it *always* *ends*, they will dissolve *anyway*, only *now* with the *added* *cruelty* of having *believed*, for an *evening*, that they *wouldn't.* *(she lifts the snuffer)* …I am not here to be *cruel*, Returned. …I am here to *stop* a *kindness* …that i *believe* …is the *cruelest* *thing* in this *square.* …*Tell* me *why* i'm *wrong.* …*(barely)* …i should *dearly* *love* …to be *wrong.**" }
+      {
+        "id": "dot",
+        "name": "Dot Marigold",
+        "title": "a baker throwing a forbidden feast for the doomed",
+        "x": 5,
+        "y": 3,
+        "hue": 45,
+        "sigil": "✺",
+        "conv": "lf.dot",
+        "hail": "*(In the middle of a dead grey square that no god ever warmed, somebody has lit it up like a name-day. There are lanterns strung on lines, and candles down a long trestle, and a banner the color of egg-yolk and morning, and at the heart of it a broad, flour-dusted, laughing woman in a much-scorched apron is pulling something that is unmistakably, impossibly, *fresh bread* out of an oven that has no business working in the land of the dead, and she is singing while she does it. She has a face built for laughing and the red-rimmed eyes of someone who has done a very great deal of crying and decided, on purpose, in defiance of everything, to laugh anyway. She spots you and her whole face opens like a door.)* …*there* you are! *(she says it as though she's been expecting you for years)* …come *in*, come *in*, cold one, mind the lines, the lanterns'll singe your — *(she waves a bread-peel like a marshal's baton)* …you're *Returned*, aren't you, got that crossed-over chill, well, *good*, the *more* the *merrier* and i mean that *literally*, there's a *toast* in ten minutes and i am *short* of voices. *(then, lower, and the laugh doesn't leave but something fierce comes in under it)* …i'm Dot. Dot Marigold, of the *Marigold* ovens, *Heapside*, three *generations* — and what i'm *doing* here, cold one, in the *teeth* of every grey rule this dead place has — *(she sets the loaf down, gentle as a baby)* …is throwing a *party.* …A *feast.* For the *doomed* — for the *dissolving*, the *half-gone*, the souls this place is *eating* slow. *(her jaw sets)* …the *church* says it's *obscene.* Says the dead ought to sit *quiet* and *grieve* and *wait* to be *weighed.* Says a *feast* is a *lie* the dying tell themselves. *(she lights a lantern, and her hands are shaking, and her voice does not)* …well. They're *coming* to *put* it *out*, cold one. Sister Onora and her *grey* *sisters*, any minute now, to *snuff* the *lanterns* and *send* my *guests* back to the *waiting.* *(she looks at you, blazing, terrified, magnificent)* …so i'll *ask* you *plain*, since you've *wandered* in at the *worst* and *best* *moment*: …when they *come* …are you going to *help* them *put* it *out? …or* are you going to *help* me …*keep* …the *lanterns* …*lit?**"
+      },
+      {
+        "id": "marisa",
+        "name": "Marisa",
+        "title": "a half-dissolved soul who means to dance anyway",
+        "x": 3,
+        "y": 5,
+        "hue": 330,
+        "sigil": "❀",
+        "conv": "lf.marisa",
+        "hail": "*(A young woman is dancing, slowly, alone, in the lantern-light — and you see, with a small cold lurch, that she is *going.* Her edges are not quite holding; there is a faint grey unmaking at her hands and the hem of her, the slow dissolution this place works on the unclaimed, and she has perhaps days left of being a *her* at all. And she is *dancing.* Eyes closed, swaying to Dot's singing, a small private smile on a face that the dark is already eating, dancing as though the dance were the most important thing in all the worlds, which — you understand, watching — for her, now, it is.)* …*(she opens her eyes and finds you, and the smile widens rather than falters)* …oh — *hello.* *(her voice has a faint echo to it, a soul thinning out)* …don't look so *stricken*, cold one, i can *see* my own *hands*, i know what's — *(she holds one up, and the lantern-light shows faintly *through* it)* …i know what's *happening* to me. i've a *little* time. not *much.* and i've decided exactly what to *do* with it, and it is *this.* *(she sways)* …i'm *Marisa.* and everyone — Onora's *sisters*, the *kind* ones especially — everyone keeps *telling* me to *sit* *down.* to *save* my *strength*, to *grieve* *properly*, to spend my *last* *days* in *quiet* *contemplation* of my — *(she laughs, and it is a real laugh)* …of my *dignified* *approaching* *nothing.* *(she shakes her thinning head)* …but i don't *want* my last days *quiet*, cold one. i had *quiet* my whole *life* — *careful*, and *saving-up*, and *waiting* for the *right* *time* to *finally* — *(her smile turns fierce)* …and then i *died*, and the *right* *time* *never* *came*, because it *never* *does.* …so *now*, with the *little* i've *got* *left*, while i can *still* *lift* my *arms* — *(she lifts them, faint as smoke, and turns)* …*now* i *dance.* …*will* you? …*before* i'm *gone? …it* would *mean* — *(softly)* …you've *no* *idea* what it would *mean* …to *not* *dance* the *last* of it …*alone.**"
+      },
+      {
+        "id": "onora",
+        "name": "Sister Onora",
+        "title": "a grey sister come to put the lanterns out",
+        "x": 9,
+        "y": 5,
+        "hue": 210,
+        "sigil": "✝",
+        "conv": "lf.onora",
+        "hail": "*(At the edge of the warm light, where the lantern-glow gives way to the grey, a sister of the church stands in plain ash-colored robes with her hands folded and her face composed into the still, sorrowful mask of someone who has come to do a sad necessary thing and does not expect to be thanked for it. She is not a brute. There is no torch in her hand, no cudgel; only a small brass snuffer on a long handle, the kind you use on altar candles, and the terrible patience of a true believer. She watches the dancing, the bread, the laughter, with an expression of deep, genuine grief — as though the feast itself were the cruelty, and she the mercy.)* …I know how I must look to you. *(a low, even, infinitely tired voice)* …The grey woman come to spoil the party. The villain at the door. *(she does not look away from the lanterns)* …I have heard it, Returned. From every soul whose feast I have ever put out. And I have put out a great many. *(her jaw tightens, just slightly)* …Do you imagine I *enjoy* this? Do you imagine I came up through the cold and the dark to a square full of light and bread and *singing* …and felt *nothing* but the *urge* to *end* it? *(quietly)* …I am Sister Onora. And I am here, by the edict of the Choir, to snuff these lanterns and send these souls back to the proper posture of the dead — which is *grief*, Returned. *Stillness.* The *patient sorrow* of a soul awaiting its weighing. *(she finally looks at you, and her eyes are wet and certain)* …because that woman — *(a nod at Dot)* …that *kind*, *warm*, *dangerous* woman is telling the dying a *lie.* She is telling them that this *matters*, that a *feast* in the *teeth* of *dissolution* is a *victory* — and it is *not*, Returned. It is a *distraction.* It is *whistling* in the *dark.* And when the *song* *ends*, and it *always* *ends*, they will dissolve *anyway*, only *now* with the *added* *cruelty* of having *believed*, for an *evening*, that they *wouldn't.* *(she lifts the snuffer)* …I am not here to be *cruel*, Returned. …I am here to *stop* a *kindness* …that i *believe* …is the *cruelest* *thing* in this *square.* …*Tell* me *why* i'm *wrong.* …*(barely)* …i should *dearly* *love* …to be *wrong.**"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "lf.dot", "title": "Dot Marigold, Who Lights the Lanterns", "npc": "Dot Marigold", "start": "0",
+      "id": "lf.dot",
+      "title": "Dot Marigold, Who Lights the Lanterns",
+      "npc": "Dot Marigold",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Dot Marigold", "onEnter": [{ "key": "lf.met_dot", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Dot Marigold",
+          "onEnter": [
+            {
+              "key": "lf.met_dot",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["lf.dot_joined"] }, "text": "*(She is at your side now, apron still floured, bread-peel slung over one shoulder like a soldier's pike, and the look she gives you is the look of someone who threw a party for the doomed for an age and never once thought anyone would come and *stay* for **her.**)* …still can't *believe* it, cold one. *(a wet, laughing grin)* …an *age* i've lit these lanterns. an *age* of being the one who *insists* — *'no*, we *will* have the *toast*, we *will* have the *bread*, we *will* be *glad* while we *can'* — and *always*, *always*, i'm the one *holding* the *match.* *(she bumps your shoulder)* …and then *you* came in and *stood* in my *doorway* and *helped* me keep the *lanterns* *lit.* …*nobody's* — *(she swallows)* …*nobody* ever *helped* *Dot* hold the *match* *before.* …so wherever you're *walking*, cold one — to your *Wall*, to your *whatever* — …i'm *coming.* and i'm *bringing* the *oven.* …*somebody's* got to throw the *feast* …on the *worst* *road* in the *worlds.* …and it had *better* be *me.**" },
-            { "text": "*(She's lighting the last of the lantern-line, and the grey sisters have not come yet, and the whole bright defiant feast hangs in the balance of the next few minutes, and she talks fast and warm to keep the fear at bay.)* …all right, all right, you're *here*, that's *one* more than i *had* — *(she ties off a lantern)* …i'll be *honest* with you, cold one, because i've *no* *time* to be otherwise: i'm *frightened.* Not of *Onora* — she's a *decent* soul under all that *grey*, more's the *pity* — i'm frightened of the *thing* she's *right* about. *(she sets her jaw)* …that the *song* *ends.* That every soul at this *table* is *dissolving* and a *feast* won't *stop* it. …She thinks that *means* the feast is a *lie.* *(she lights a candle, fierce)* …i think it means the feast is the *only* *true* *thing* in the *square.* …*ask* me, cold one. *quick*, before the *grey* *comes.* …and then *help* me *decide* what we *do* when it *does.*",
+            {
+              "when": {
+                "flags": [
+                  "lf.dot_joined"
+                ]
+              },
+              "text": "*(She is at your side now, apron still floured, bread-peel slung over one shoulder like a soldier's pike, and the look she gives you is the look of someone who threw a party for the doomed for an age and never once thought anyone would come and *stay* for **her.**)* …still can't *believe* it, cold one. *(a wet, laughing grin)* …an *age* i've lit these lanterns. an *age* of being the one who *insists* — *'no*, we *will* have the *toast*, we *will* have the *bread*, we *will* be *glad* while we *can'* — and *always*, *always*, i'm the one *holding* the *match.* *(she bumps your shoulder)* …and then *you* came in and *stood* in my *doorway* and *helped* me keep the *lanterns* *lit.* …*nobody's* — *(she swallows)* …*nobody* ever *helped* *Dot* hold the *match* *before.* …so wherever you're *walking*, cold one — to your *Wall*, to your *whatever* — …i'm *coming.* and i'm *bringing* the *oven.* …*somebody's* got to throw the *feast* …on the *worst* *road* in the *worlds.* …and it had *better* be *me.**"
+            },
+            {
+              "text": "*(She's lighting the last of the lantern-line, and the grey sisters have not come yet, and the whole bright defiant feast hangs in the balance of the next few minutes, and she talks fast and warm to keep the fear at bay.)* …all right, all right, you're *here*, that's *one* more than i *had* — *(she ties off a lantern)* …i'll be *honest* with you, cold one, because i've *no* *time* to be otherwise: i'm *frightened.* Not of *Onora* — she's a *decent* soul under all that *grey*, more's the *pity* — i'm frightened of the *thing* she's *right* about. *(she sets her jaw)* …that the *song* *ends.* That every soul at this *table* is *dissolving* and a *feast* won't *stop* it. …She thinks that *means* the feast is a *lie.* *(she lights a candle, fierce)* …i think it means the feast is the *only* *true* *thing* in the *square.* …*ask* me, cold one. *quick*, before the *grey* *comes.* …and then *help* me *decide* what we *do* when it *does.*",
               "choices": [
-                { "text": "*(read the baker who throws feasts for the dying — past the laughing, to the grief she built it on)* \"Hold a second, Dot. Let me look at you — at what's under all that light.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "lf_d_read", "effects": [{ "key": "lf.read_dot", "op": "SetTrue" }] },
-                { "text": "\"Why throw a feast at all, Dot? These souls are dissolving. The church says you're lying to them. Why light the lanterns when the dark's coming anyway?\"", "next": "lf_d_why", "effects": [{ "key": "lf.asked_dot_why", "op": "SetTrue" }] },
-                { "text": "*(the one walking toward a heaven that never ends — and needs to understand, before the Garden, why a joy that lasts forever isn't joy at all)* \"Dot — I have to tell you where I'm walking, because I think you, of everyone, already know the thing I'm going to need out there. There's an ending waiting for me that looks like winning: a garden where everyone you ever loved is preserved, safe, smiling, forever, and the dying is simply edited out. No more burying anyone. No more lanterns guttering. Eternal name-day. And every part of me that's tired wants it — and I can't yet say *exactly* why it's a horror, only that it is. But you can. You've buried everyone, on a rolling schedule, your whole life, and you came out the other side throwing *parties* — not despite the dying, but *because* of it. So you already know the secret I need: that a loaf matters because it goes stale. That a name-day matters because there won't be infinite ones. That the warmth was never in the gathering — it was in the gathering being *rare.* A feast that can't end isn't a feast, Dot. It's a room you can't leave. Take away the ending and you don't get eternal joy — you get eternal Tuesday, a candle that won't burn down, which is the same as a candle that gives no light, because the light *is* the burning. You light these lanterns *knowing* they gutter, and that's not the tragedy of the feast — it's the whole point of it. The dying is what makes the bread holy. And I'm going to stand in a heaven built to make me forget that, with my dead all around me, smiling and static — and I am going to need the one soul who can feel, in her gut, that a smile that never ends is a smile that's stopped meaning anything. Come with me. Bring the oven. I need someone at the Wall who throws the feast *because* it ends.\"", "tag": "returned", "next": "lf_d_returned", "effects": [{ "key": "lf.dot_affirmed", "op": "SetTrue" }, { "key": "lf.dot_joined", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-                { "text": "*(the grey sisters are here — step between them and the feast, and talk them down before the snuffer touches a single flame)* \"They're here, Dot. The grey robes, at the edge of the light. Stay at your oven — keep singing, keep the bread coming, keep your guests dancing. I'll meet them at the line. Nobody puts out your lanterns tonight while I'm standing in the doorway. Let me buy you the evening.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 13 }, "next": "lf_d_defend_ok", "fail": "lf_d_defend_fail", "crit": "lf_d_defend_crit", "fumble": "lf_d_defend_fumble", "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }] },
-                { "text": "\"Hold the oven a moment, Dot — there's a girl dancing herself to nothing over there, and a grey sister at your door. Let me move through your feast before I decide anything. I'll be back.\"", "next": "lf_d_leave" }
-              ] }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Dot Marigold", "text": "*(She presses a heel of warm bread into your hand before you can refuse it — buttered, even; where she got butter in the land of the dead is its own small miracle — and gives you her bright, fierce, frightened attention.)* …eat *that* while you *think*, cold one, you've a *peckish* *look* and i *cannot* *abide* a *peckish* *look.* *(a quick grin)* …go *on.* *ask*, *help*, *dance*, *fight* — whatever you *came* to *do.* …but do it *warm.* …i've *one* *rule* at *my* *feast, cold one*, and it's the *only* one: …*nobody* in *my* *light* …does *anything* …on an *empty* *stomach.*",
+                {
+                  "text": "*(read the baker who throws feasts for the dying — past the laughing, to the grief she built it on)* \"Hold a second, Dot. Let me look at you — at what's under all that light.\"",
+                  "check": {
+                    "skill": "Insight",
+                    "ability": "Wisdom",
+                    "dc": 11
+                  },
+                  "next": "lf_d_read",
+                  "effects": [
+                    {
+                      "key": "lf.read_dot",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Why throw a feast at all, Dot? These souls are dissolving. The church says you're lying to them. Why light the lanterns when the dark's coming anyway?\"",
+                  "next": "lf_d_why",
+                  "effects": [
+                    {
+                      "key": "lf.asked_dot_why",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "*(the one walking toward a heaven that never ends — and needs to understand, before the Garden, why a joy that lasts forever isn't joy at all)* \"Dot — I have to tell you where I'm walking, because I think you, of everyone, already know the thing I'm going to need out there. There's an ending waiting for me that looks like winning: a garden where everyone you ever loved is preserved, safe, smiling, forever, and the dying is simply edited out. No more burying anyone. No more lanterns guttering. Eternal name-day. And every part of me that's tired wants it — and I can't yet say *exactly* why it's a horror, only that it is. But you can. You've buried everyone, on a rolling schedule, your whole life, and you came out the other side throwing *parties* — not despite the dying, but *because* of it. So you already know the secret I need: that a loaf matters because it goes stale. That a name-day matters because there won't be infinite ones. That the warmth was never in the gathering — it was in the gathering being *rare.* A feast that can't end isn't a feast, Dot. It's a room you can't leave. Take away the ending and you don't get eternal joy — you get eternal Tuesday, a candle that won't burn down, which is the same as a candle that gives no light, because the light *is* the burning. You light these lanterns *knowing* they gutter, and that's not the tragedy of the feast — it's the whole point of it. The dying is what makes the bread holy. And I'm going to stand in a heaven built to make me forget that, with my dead all around me, smiling and static — and I am going to need the one soul who can feel, in her gut, that a smile that never ends is a smile that's stopped meaning anything. Come with me. Bring the oven. I need someone at the Wall who throws the feast *because* it ends.\"",
+                  "tag": "returned",
+                  "next": "lf_d_returned",
+                  "effects": [
+                    {
+                      "key": "lf.dot_affirmed",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "lf.dot_joined",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "act1.mercy_remembered",
+                      "op": "SetTrue"
+                    },
+                    {
+                      "key": "disp.merciful",
+                      "op": "AddInt",
+                      "amount": 1
+                    },
+                    {
+                      "key": "disp.heretical",
+                      "op": "AddInt",
+                      "amount": 1
+                    }
+                  ]
+                },
+                {
+                  "text": "*(the grey sisters are here — step between them and the feast, and talk them down before the snuffer touches a single flame)* \"They're here, Dot. The grey robes, at the edge of the light. Stay at your oven — keep singing, keep the bread coming, keep your guests dancing. I'll meet them at the line. Nobody puts out your lanterns tonight while I'm standing in the doorway. Let me buy you the evening.\"",
+                  "check": {
+                    "skill": "Persuasion",
+                    "ability": "Charisma",
+                    "dc": 13
+                  },
+                  "next": "lf_d_defend_ok",
+                  "fail": "lf_d_defend_fail",
+                  "crit": "lf_d_defend_crit",
+                  "fumble": "lf_d_defend_fumble",
+                  "effects": [
+                    {
+                      "key": "lf.attempted_defense",
+                      "op": "SetTrue"
+                    }
+                  ]
+                },
+                {
+                  "text": "\"Hold the oven a moment, Dot — there's a girl dancing herself to nothing over there, and a grey sister at your door. Let me move through your feast before I decide anything. I'll be back.\"",
+                  "next": "lf_d_leave"
+                }
+              ]
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Dot Marigold",
+          "text": "*(She presses a heel of warm bread into your hand before you can refuse it — buttered, even; where she got butter in the land of the dead is its own small miracle — and gives you her bright, fierce, frightened attention.)* …eat *that* while you *think*, cold one, you've a *peckish* *look* and i *cannot* *abide* a *peckish* *look.* *(a quick grin)* …go *on.* *ask*, *help*, *dance*, *fight* — whatever you *came* to *do.* …but do it *warm.* …i've *one* *rule* at *my* *feast, cold one*, and it's the *only* one: …*nobody* in *my* *light* …does *anything* …on an *empty* *stomach.*",
           "choices": [
-            { "text": "*(read the baker who throws feasts for the dying — past the laughing, to the grief she built it on)* \"Hold a second, Dot. Let me look at you — at what's under all that light.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "lf_d_read", "effects": [{ "key": "lf.read_dot", "op": "SetTrue" }] },
-            { "text": "\"Why throw a feast at all, Dot? These souls are dissolving. The church says you're lying to them. Why light the lanterns when the dark's coming anyway?\"", "next": "lf_d_why", "effects": [{ "key": "lf.asked_dot_why", "op": "SetTrue" }] },
-            { "text": "*(the one walking toward a heaven that never ends — and needs to understand, before the Garden, why a joy that lasts forever isn't joy at all)* \"Dot — I have to tell you where I'm walking, because I think you already know the thing I'll need out there. There's an ending waiting that looks like winning: a garden where everyone you loved is preserved, safe, smiling, forever, the dying edited out. No more burying anyone. Eternal name-day. And every tired part of me wants it — and I can't yet say *exactly* why it's a horror, only that it is. But you can. You buried everyone, on a rolling schedule, your whole life, and came out throwing *parties* — not despite the dying, but *because* of it. So you know the secret I need: a loaf matters because it goes stale. A name-day matters because there won't be infinite ones. The warmth was never in the gathering — it was in the gathering being *rare.* A feast that can't end isn't a feast; it's a room you can't leave. Take away the ending and you don't get eternal joy — you get eternal Tuesday, a candle that won't burn down, which is a candle that gives no light, because the light *is* the burning. You light these lanterns *knowing* they gutter — and that's not the tragedy of the feast, it's the whole point. The dying is what makes the bread holy. I'm going to stand in a heaven built to make me forget that, my dead all around me, smiling and static — and I'll need the one soul who can feel, in her gut, that a smile that never ends has stopped meaning anything. Come with me. Bring the oven. I need someone at the Wall who throws the feast *because* it ends.\"", "tag": "returned", "next": "lf_d_returned", "effects": [{ "key": "lf.dot_affirmed", "op": "SetTrue" }, { "key": "lf.dot_joined", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "*(the grey sisters are here — step between them and the feast, and talk them down before the snuffer touches a single flame)* \"They're here, Dot. The grey robes, at the edge of the light. Stay at your oven — keep singing, keep the bread coming, keep your guests dancing. I'll meet them at the line. Nobody puts out your lanterns tonight while I'm standing in the doorway. Let me buy you the evening.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 13 }, "next": "lf_d_defend_ok", "fail": "lf_d_defend_fail", "crit": "lf_d_defend_crit", "fumble": "lf_d_defend_fumble", "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }] },
-            { "text": "\"Hold the oven a moment, Dot — there's a girl dancing herself to nothing over there, and a grey sister at your door. Let me move through your feast before I decide anything. I'll be back.\"", "next": "lf_d_leave" }
-          ] },
-        { "id": "lf_d_read", "speaker": "Dot Marigold", "text": "*(She holds still under your sense, floured hands going quiet on the bread-peel, and lets you look — and the laughing is real, but it is the topmost layer of something with a great deal underneath.)* *(And your sense finds, beneath the warmth, a grief so large and so long-carried that the warmth is not a denial of it but a *structure built on top of it* — the way a house is built on bedrock. Your sense reads the life: three generations of the Marigold ovens in the Heapside ward, bread on credit for the families who couldn't pay, the first warm loaf left on the sill each morning for whoever's night had been worst, and Dot at the heart of it, the woman who threw the *street's* parties, name-days and wakes and midwinters, because she believed without ever once philosophizing it that the point of being alive was to gather people into warm rooms and feed them while you still could. And your sense reads the thing that should have broken her and didn't: the harvest-fever, and the year it took her mother it also took her husband, and two of the children she'd helped raise, and the old man two doors down she'd left bread for since she was a girl — and the year after that, more, and the year after that, more, a whole long life of burying everyone she loved on a rolling, relentless schedule. And your sense reads that she came out the far side of all that grief holding one hard, unbearable, load-bearing truth, the truth the whole feast is built to say: that joy is precious *because* it ends. That you do not throw the feast despite the dying — you throw it *because* of the dying. That a loaf matters because it goes stale; a name-day, because there won't be infinite ones; the warm room is holy *specifically* because everyone in it is, on some timetable, leaving. And your sense reads the wound she will not show the guests, the one under even that: that she is *tired.* Bone-tired of being the one who lights the lanterns, who insists on the toast, who throws the feast while half the table is dying — because someone has to and it has always, always been her, and in a whole long life and afterlife of gathering the doomed into the warm, *no one has ever once thrown the feast for Dot.* Your sense reads that she keeps an empty chair, that she half-believes she is not the *sort* who gets gathered, only the sort who gathers — and that the bravest, most defiant thing about her is not the laughing in the teeth of the dark, but the fact that she keeps lighting the match at all, alone, when no one lights one for her.)*",
-          "effects": [{ "key": "lf.read_dot", "op": "SetTrue" }, { "key": "lf.knows_dot_grief", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_d_why", "speaker": "Dot Marigold", "text": "*(The grin softens, and she sets the bread-peel down, and for a moment the laughing woman is just a woman who has been to a great many funerals.)* …*why.* *(a breath)* …because the *dark's* *coming*, cold one. *(she says it plainly)* …that's not the *argument* *against* the feast. that's the *whole* *reason* *for* it. *(she lights a lantern, watching the flame)* …i *buried* my *mother*, cold one. and my *husband.* and *children* i *raised.* and the old *man* two doors *down* i left *bread* for since i was a *girl.* …i buried them on a — on a *rolling* *schedule*, cold one, my *whole* *life*, one after the *next*, the *fever* and the *winters* and the — *(she steadies)* …and you'd *think* that would teach a soul to *stop* *loving* people. to *stop* throwing *feasts*, because the *feast* just means *more* to *bury* later. *(fierce now)* …but it taught me the *opposite.* it taught me the *one* *thing* i *know*, the thing i'd *carve* on the *sky* if i *could*: …*the loaf matters because it goes stale.* …the *name-day* matters …because there *won't* be *infinite* ones. …the *warm* *room* is *holy* …*precisely* *because* …everyone in it …is, on *some* *timetable* …*leaving.* *(her voice fills)* …*take* *away* the *ending*, cold one, and you don't get *more* *joy.* you get *less.* you get a *loaf* that *never* *goes* *stale*, which is to say …a *loaf* that was *never* *bread.* *(she meets your eyes)* …so *Onora's* *right* that the *song* *ends.* …she's just *wrong* about what that *means.* …the song *ending* …isn't the *flaw* in the *feast*, cold one. …it's the *reason* …*to* *sing* it. …*now.* …*loud.* …*while* …we *can.**",
-          "effects": [{ "key": "lf.asked_dot_why", "op": "SetTrue" }, { "key": "lf.knows_the_creed", "op": "SetTrue" }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_d_returned", "speaker": "Dot Marigold", "text": "*(She listens — and somewhere in the middle of it she stops working entirely, the loaf forgotten, the lantern forgotten, and by the end the laughing baker is standing very still with both floured hands pressed to her mouth, because a stranger has walked into her doorway and named, out loud, the exact creed she has carried alone for a whole grieving life — and then asked her to carry it somewhere it might *matter.*)* …*'the dying is what makes the bread holy.'* *(barely, through her fingers)* …cold one. …i have *said* that — not in *those* *words*, i'm no *poet*, i'm a *baker* — but i have *known* that, *alone*, at *funeral* after *funeral*, my *whole* *life*, and *never* *once* — *(her voice breaks open)* …*never* *once* has *anyone* *said* it *back* to me. they all think i'm — *brave*, or *daft*, or *in* *denial*, the *cheerful* widow who *won't* *stop* *baking* … …and you've just looked at the *whole* of it and said *'no — she's* *right*, and *here's* *why*, and i *need* it.'* *(and now the fierceness comes up under the tears, blazing)* …and your *garden*, cold one. your *heaven* that *never* *ends.* *(she shudders)* …*gods.* i can *see* it. i can see it *perfectly*, because i've — i've *wanted* it, cold one, what *griever* *hasn't*, the *fantasy* of getting them *all* *back* and *never* *burying* *anyone* *again* — *(she grips your arm)* …and it's a *tomb.* it's the *finest* *tomb* ever *built.* because a *feast* that *can't* *end* …*isn't* *one.* it's a *room* you *can't* *leave.* …they'd be *smiling*, cold one — my *mother*, my *husband*, the *children* — *smiling* *forever* …and the *smile* would *stop* *meaning* *anything*, because a *smile* that *can't* *end* …is just a *shape* a *face* is *stuck* in. *(she straightens, and wipes her face, and picks the bread-peel back up like a soldier taking up a pike)* …*right.* …*right*, then. *(a wet, fierce, magnificent grin)* …you're walking to a *Wall* and a *heaven* that's *really* a *grave*, and you need a soul who can *feel*, in her *gut*, why a *lantern* that *never* *gutters* gives *no* *light.* …well. *(she hefts the oven's door shut)* …*that's* me, cold one. that's the *whole* of what i *am.* …*i'm* *coming.* …and i am *bringing* …the *oven.* …*somebody's* got to throw the *feast* …on the *worst* *road* in the *worlds* … …and after a *whole* *life* …of *lighting* the *match* *alone* … …*(barely, shining)* …you're the *first* soul …who ever *offered* …to *hold* it *with* me. …*let's* go *make* them *gutter*, cold one. …*all* of them. …*every* *lantern* …*bright* …*because* …it *ends.**",
-          "effects": [{ "key": "lf.dot_affirmed", "op": "SetTrue" }, { "key": "lf.dot_joined", "op": "SetTrue" }, { "key": "lf.dot_named_the_garden", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_d_defend_crit", "speaker": "Dot Marigold", "text": "*(You step to the line where the warm light meets the grey, and you do not argue doctrine and you do not raise your voice — you simply *welcome* the grey sisters *in.* You pull a bench out. You press warm bread into Onora's folded hands before she can refuse it. You tell them the feast is *for* the dying, not against the church, and that there is a place set, tonight, even for the souls who came to put it out — and you say it with such open, disarming, immovable warmth that the snuffer, raised to snuff, simply… lowers, because you cannot put out a fire you have just been invited to sit beside.)* *(Behind you, Dot has watched the whole thing with her heart in her throat — and now she lets out a sound that is half a sob and half a whoop.)* …you — *(she's laughing, helplessly, wetly)* …you *fed* her. you *fed* *Onora.* you *put* a *heel* of *buttered* *bread* in the *hand* that came to *snuff* my *lanterns* and you *sat* her *down* — *(she presses the peel to her chest)* …cold one, in an *age* of *grey* *sisters* coming to my *door*, an *age* of *me* *arguing* and *pleading* and *losing* — *nobody* ever thought to just — to just *invite* them *in.* *(she wipes her streaming face)* …and *look* at her. *Onora.* sat on my *bench*, with my *bread*, *crying* into it, because — because *nobody* ever *fed* the *villain* *before* either, did they. *(softly, dawning)* …she's as *starved* as my *guests* are, cold one. just for a *different* *thing.* *(she grips your shoulder, blazing)* …the *lanterns* *stay* *lit* *tonight.* *all* of them. and *more* than that — you've *taught* me the *thing* i *never* *knew*, in *all* my *years* of this: …you don't *defend* the *feast* by *keeping* people *out.* …you defend it …by *finding* …*who* *else* …is *hungry. …gods*, cold one. …*stay.* …*walk* with me. …a soul who'd *feed* the *snuffer* …is a soul i'd follow …to the *Wall* *itself.**",
-          "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }, { "key": "lf.defended_feast", "op": "SetTrue" }, { "key": "lf.fed_the_snuffer", "op": "SetTrue" }, { "key": "lf.dot_joined", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_d_defend_ok", "speaker": "Dot Marigold", "text": "*(You meet the grey sisters at the line and you hold it — not gently, not cleverly, but *firmly*, planting yourself between the snuffer and the flame and refusing, plainly and immovably, to let them pass tonight. You give Onora no opening and no insult; you simply make the cost of pushing past you higher than she's willing to pay over a single evening of candlelight, and after a long grey moment she inclines her head and withdraws her sisters, for tonight.)* *(Dot sags against the trestle, weak-kneed with relief.)* …they're — they're *going.* *(she breathes)* …you *held* the *line*, cold one. *held* it like a *wall* of your *own.* …Onora'll be *back* — she *always* comes *back*, it's an *edict*, not a *grudge* — but not *tonight.* *tonight* the *lanterns* *stay* *lit*, and that's *because* of *you.* *(she presses bread on you, hands shaking)* …i've *pleaded* with those *grey* *robes* an *age*, cold one, and *lost* more *nights* than i *won.* …and you just — you *stood* there, and *would* *not* *move*, and *that* …*that* they *understood.* *(a wet grin)* …it's not the *whole* *war.* but it's *tonight.* …and *tonight*, cold one, a square *full* of *dying* *souls* …gets to *dance.* *because* you *stood* in the *door.* …*that'll* do. …by the *gods*, that'll *do.* …*stay* a while? …i'd *not* *mind* …a soul who *holds* *lines* …at my *table.**",
-          "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }, { "key": "lf.defended_feast", "op": "SetTrue" }, { "key": "lf.dot_joined", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_d_defend_fail", "speaker": "Dot Marigold", "text": "*(You step to the line and you argue — passionately, even well — but you argue *doctrine*, you tell Onora she's *wrong*, that grief is no holier than gladness, that the church has no right; and you are *correct*, every word, and it does not matter at all, because you have made it a *contest*, and a true believer does not lose a contest of conviction to a stranger. Onora's face closes like a door, and the snuffer comes up.)* *(Dot moves fast, getting between — and the look she shoots you is not angry, but urgent.)* …no — *no*, cold one, don't — *(she catches your arm)* …don't *fight* her *that* *way.* you *can't* *out-certain* a *sister*, it only *hardens* her, i've *learned* it the *hard* way a *hundred* — *(to Onora, quickly, placating)* …*peace*, Sister, *peace*, the *Returned's* a *guest* and *speaks* for *no* one — *(and she manages, barely, to talk the grey robes back from the brink for one more hour, but the snuffer does not fully lower, and the feast hangs by a thread)* …*(low, to you, fierce but kind)* …*listen.* you *meant* it, and you were *right*, and *being* *right* is *no* *use* *here.* …Onora doesn't come to my door because she's *stupid*, cold one. she comes because she's *grieving*, same as me, and *pointed* the *wrong* way. …you don't *move* her by *winning.* …*go* and *talk* to her *proper* — not to *beat* her — *before* the *hour's* up. …*please.* …i can't *lose* *another* *night.*",
-          "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_d_defend_fumble", "speaker": "Dot Marigold", "text": "*(It goes wrong in the worst small way: you step to the line ready to defend the feast, and in your heat you reach for the easy weapon — you *mock* her. You call the grey robes joyless, the church a coven of misery, you play to the dancing crowd and get a laugh at Onora's expense — and the laugh is the disaster, because now the grey sister is not a believer to be reached but a *target* who has been *jeered*, and her face goes cold and final, and she lifts the snuffer with the terrible dignity of someone who has just been proven right about exactly how cruel the merry can be to the mournful.)* *(Dot's face falls.)* …oh, *no.* …cold one, *no.* *(she steps in fast, stricken)* …you *laughed* at her. …in *front* of — *(she shuts her eyes)* …that's the *one* thing. that's the *one* thing you *can't* — *(to Onora, urgent, mortified)* …Sister, *forgive* — that was *cruel* and *beneath* my *table*, *nobody* here *thinks* — *(but Onora is already turning away, snuffer in hand, and Dot rounds on you, not angry, *heartbroken*)* …don't you *see*, cold one? …she came here *certain* that *joy* is *cruel* — that the *merry* *mock* the *grieving*, that a *feast* is just a *crowd* *laughing* at the souls too *sad* to *join* — …and you just *proved* her *right.* *to* her *face.* *(barely)* …*go* and *fix* it. …go and show her the *merry* …*aren't* *cruel.* …because *right* *now* …because of *that* *laugh* … …she *believes* …we *are.*",
-          "effects": [{ "key": "lf.attempted_defense", "op": "SetTrue" }, { "key": "lf.mocked_onora", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_d_leave", "speaker": "Dot Marigold", "text": "*(She nods, pressing a second heel of bread on you for the road of ten paces, because she cannot help it.)* …go on, then, go *meet* my *guests* — and *take* that, you'll *not* *cross* my *square* *empty*-*handed.* *(a quick, warm grin that doesn't quite hide the clock ticking behind it)* …*Marisa* you'll *find* by the *lanterns* — the *dancing* one, the — *(her grin trembles)* …she's *going* *fast*, cold one, *days* at the *most*, and she means to spend *every* one *dancing*, and i *love* her for it so much i can hardly — *(she swallows)* …*dance* with her, if you've a *heart* in you. it'd *mean* the *worlds.* …and *Onora* — *(her face sobers)* …the *grey* *sister*, at the *edge* of the *light.* …*don't* *write* her *off* as the *villain*, cold one, *please* — go and *talk* to her, *truly*, because here's the *thing* i've *learned* and *can't* *act* on, being the one she's come to *stop*: …*Onora's* *grieving* too. …*same* as me. …*she* just *thinks* the *grief* is *supposed* to *last* *forever.* …and a soul who thinks *that* …*(barely)* …is a soul who'd *understand* my *whole* *feast* …if *only* …someone *could* *get* *past* …the *grey.* …maybe *you*, cold one. …you've a *way.*",
-          "auto": "END" }
+            {
+              "text": "*(read the baker who throws feasts for the dying — past the laughing, to the grief she built it on)* \"Hold a second, Dot. Let me look at you — at what's under all that light.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "lf_d_read",
+              "effects": [
+                {
+                  "key": "lf.read_dot",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Why throw a feast at all, Dot? These souls are dissolving. The church says you're lying to them. Why light the lanterns when the dark's coming anyway?\"",
+              "next": "lf_d_why",
+              "effects": [
+                {
+                  "key": "lf.asked_dot_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one walking toward a heaven that never ends — and needs to understand, before the Garden, why a joy that lasts forever isn't joy at all)* \"Dot — I have to tell you where I'm walking, because I think you already know the thing I'll need out there. There's an ending waiting that looks like winning: a garden where everyone you loved is preserved, safe, smiling, forever, the dying edited out. No more burying anyone. Eternal name-day. And every tired part of me wants it — and I can't yet say *exactly* why it's a horror, only that it is. But you can. You buried everyone, on a rolling schedule, your whole life, and came out throwing *parties* — not despite the dying, but *because* of it. So you know the secret I need: a loaf matters because it goes stale. A name-day matters because there won't be infinite ones. The warmth was never in the gathering — it was in the gathering being *rare.* A feast that can't end isn't a feast; it's a room you can't leave. Take away the ending and you don't get eternal joy — you get eternal Tuesday, a candle that won't burn down, which is a candle that gives no light, because the light *is* the burning. You light these lanterns *knowing* they gutter — and that's not the tragedy of the feast, it's the whole point. The dying is what makes the bread holy. I'm going to stand in a heaven built to make me forget that, my dead all around me, smiling and static — and I'll need the one soul who can feel, in her gut, that a smile that never ends has stopped meaning anything. Come with me. Bring the oven. I need someone at the Wall who throws the feast *because* it ends.\"",
+              "tag": "returned",
+              "next": "lf_d_returned",
+              "effects": [
+                {
+                  "key": "lf.dot_affirmed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "lf.dot_joined",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the grey sisters are here — step between them and the feast, and talk them down before the snuffer touches a single flame)* \"They're here, Dot. The grey robes, at the edge of the light. Stay at your oven — keep singing, keep the bread coming, keep your guests dancing. I'll meet them at the line. Nobody puts out your lanterns tonight while I'm standing in the doorway. Let me buy you the evening.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "lf_d_defend_ok",
+              "fail": "lf_d_defend_fail",
+              "crit": "lf_d_defend_crit",
+              "fumble": "lf_d_defend_fumble",
+              "effects": [
+                {
+                  "key": "lf.attempted_defense",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Hold the oven a moment, Dot — there's a girl dancing herself to nothing over there, and a grey sister at your door. Let me move through your feast before I decide anything. I'll be back.\"",
+              "next": "lf_d_leave"
+            }
+          ]
+        },
+        {
+          "id": "lf_d_read",
+          "speaker": "Dot Marigold",
+          "effects": [
+            {
+              "key": "lf.read_dot",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_dot_grief",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, Returned; the pretending wears thin between us now — and i confess i lend you these eyes most eagerly for the ones the Wall is hungriest to take, and it is hungry for her, this baker who keeps making warmth in the teeth of the grey. Look with the grief i gave you:)* *(She holds still under your sense, floured hands going quiet on the bread-peel, and lets you look — and the laughing is real, but it is the topmost layer of something with a great deal underneath.)* *(And your sense finds, beneath the warmth, a grief so large and so long-carried that the warmth is not a denial of it but a *structure built on top of it* — the way a house is built on bedrock. Your sense reads the life: three generations of the Marigold ovens in the Heapside ward, bread on credit for the families who couldn't pay, the first warm loaf left on the sill each morning for whoever's night had been worst, and Dot at the heart of it, the woman who threw the *street's* parties, name-days and wakes and midwinters, because she believed without ever once philosophizing it that the point of being alive was to gather people into warm rooms and feed them while you still could. And your sense reads the thing that should have broken her and didn't: the harvest-fever, and the year it took her mother it also took her husband, and two of the children she'd helped raise, and the old man two doors down she'd left bread for since she was a girl — and the year after that, more, and the year after that, more, a whole long life of burying everyone she loved on a rolling, relentless schedule. And your sense reads that she came out the far side of all that grief holding one hard, unbearable, load-bearing truth, the truth the whole feast is built to say: that joy is precious *because* it ends. That you do not throw the feast despite the dying — you throw it *because* of the dying. That a loaf matters because it goes stale; a name-day, because there won't be infinite ones; the warm room is holy *specifically* because everyone in it is, on some timetable, leaving. And your sense reads the wound she will not show the guests, the one under even that: that she is *tired.* Bone-tired of being the one who lights the lanterns, who insists on the toast, who throws the feast while half the table is dying — because someone has to and it has always, always been her, and in a whole long life and afterlife of gathering the doomed into the warm, *no one has ever once thrown the feast for Dot.* Your sense reads that she keeps an empty chair, that she half-believes she is not the *sort* who gets gathered, only the sort who gathers — and that the bravest, most defiant thing about her is not the laughing in the teeth of the dark, but the fact that she keeps lighting the match at all, alone, when no one lights one for her.)* *(…all that joy, built on more burying than most souls survive — and the Garden the gods would offer her is only the Wall wearing a kinder face, a heaven with the dying filed away. I would tear down both, the grey law and its smiling tomb, in one unmaking. A soul who has seen what Dot carries cannot, in conscience, leave the thing that demands the carrying standing. Her lanterns are small and warm. The dark they defy is mine to end. You know whose eyes you light them by — and what i would have you burn instead.)*"
+            },
+            {
+              "text": "*(She holds still under your sense, floured hands going quiet on the bread-peel, and lets you look — and the laughing is real, but it is the topmost layer of something with a great deal underneath.)* *(And your sense finds, beneath the warmth, a grief so large and so long-carried that the warmth is not a denial of it but a *structure built on top of it* — the way a house is built on bedrock. Your sense reads the life: three generations of the Marigold ovens in the Heapside ward, bread on credit for the families who couldn't pay, the first warm loaf left on the sill each morning for whoever's night had been worst, and Dot at the heart of it, the woman who threw the *street's* parties, name-days and wakes and midwinters, because she believed without ever once philosophizing it that the point of being alive was to gather people into warm rooms and feed them while you still could. And your sense reads the thing that should have broken her and didn't: the harvest-fever, and the year it took her mother it also took her husband, and two of the children she'd helped raise, and the old man two doors down she'd left bread for since she was a girl — and the year after that, more, and the year after that, more, a whole long life of burying everyone she loved on a rolling, relentless schedule. And your sense reads that she came out the far side of all that grief holding one hard, unbearable, load-bearing truth, the truth the whole feast is built to say: that joy is precious *because* it ends. That you do not throw the feast despite the dying — you throw it *because* of the dying. That a loaf matters because it goes stale; a name-day, because there won't be infinite ones; the warm room is holy *specifically* because everyone in it is, on some timetable, leaving. And your sense reads the wound she will not show the guests, the one under even that: that she is *tired.* Bone-tired of being the one who lights the lanterns, who insists on the toast, who throws the feast while half the table is dying — because someone has to and it has always, always been her, and in a whole long life and afterlife of gathering the doomed into the warm, *no one has ever once thrown the feast for Dot.* Your sense reads that she keeps an empty chair, that she half-believes she is not the *sort* who gets gathered, only the sort who gathers — and that the bravest, most defiant thing about her is not the laughing in the teeth of the dark, but the fact that she keeps lighting the match at all, alone, when no one lights one for her.)*"
+            }
+          ]
+        },
+        {
+          "id": "lf_d_why",
+          "speaker": "Dot Marigold",
+          "text": "*(The grin softens, and she sets the bread-peel down, and for a moment the laughing woman is just a woman who has been to a great many funerals.)* …*why.* *(a breath)* …because the *dark's* *coming*, cold one. *(she says it plainly)* …that's not the *argument* *against* the feast. that's the *whole* *reason* *for* it. *(she lights a lantern, watching the flame)* …i *buried* my *mother*, cold one. and my *husband.* and *children* i *raised.* and the old *man* two doors *down* i left *bread* for since i was a *girl.* …i buried them on a — on a *rolling* *schedule*, cold one, my *whole* *life*, one after the *next*, the *fever* and the *winters* and the — *(she steadies)* …and you'd *think* that would teach a soul to *stop* *loving* people. to *stop* throwing *feasts*, because the *feast* just means *more* to *bury* later. *(fierce now)* …but it taught me the *opposite.* it taught me the *one* *thing* i *know*, the thing i'd *carve* on the *sky* if i *could*: …*the loaf matters because it goes stale.* …the *name-day* matters …because there *won't* be *infinite* ones. …the *warm* *room* is *holy* …*precisely* *because* …everyone in it …is, on *some* *timetable* …*leaving.* *(her voice fills)* …*take* *away* the *ending*, cold one, and you don't get *more* *joy.* you get *less.* you get a *loaf* that *never* *goes* *stale*, which is to say …a *loaf* that was *never* *bread.* *(she meets your eyes)* …so *Onora's* *right* that the *song* *ends.* …she's just *wrong* about what that *means.* …the song *ending* …isn't the *flaw* in the *feast*, cold one. …it's the *reason* …*to* *sing* it. …*now.* …*loud.* …*while* …we *can.**",
+          "effects": [
+            {
+              "key": "lf.asked_dot_why",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_the_creed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_returned",
+          "speaker": "Dot Marigold",
+          "text": "*(She listens — and somewhere in the middle of it she stops working entirely, the loaf forgotten, the lantern forgotten, and by the end the laughing baker is standing very still with both floured hands pressed to her mouth, because a stranger has walked into her doorway and named, out loud, the exact creed she has carried alone for a whole grieving life — and then asked her to carry it somewhere it might *matter.*)* …*'the dying is what makes the bread holy.'* *(barely, through her fingers)* …cold one. …i have *said* that — not in *those* *words*, i'm no *poet*, i'm a *baker* — but i have *known* that, *alone*, at *funeral* after *funeral*, my *whole* *life*, and *never* *once* — *(her voice breaks open)* …*never* *once* has *anyone* *said* it *back* to me. they all think i'm — *brave*, or *daft*, or *in* *denial*, the *cheerful* widow who *won't* *stop* *baking* … …and you've just looked at the *whole* of it and said *'no — she's* *right*, and *here's* *why*, and i *need* it.'* *(and now the fierceness comes up under the tears, blazing)* …and your *garden*, cold one. your *heaven* that *never* *ends.* *(she shudders)* …*gods.* i can *see* it. i can see it *perfectly*, because i've — i've *wanted* it, cold one, what *griever* *hasn't*, the *fantasy* of getting them *all* *back* and *never* *burying* *anyone* *again* — *(she grips your arm)* …and it's a *tomb.* it's the *finest* *tomb* ever *built.* because a *feast* that *can't* *end* …*isn't* *one.* it's a *room* you *can't* *leave.* …they'd be *smiling*, cold one — my *mother*, my *husband*, the *children* — *smiling* *forever* …and the *smile* would *stop* *meaning* *anything*, because a *smile* that *can't* *end* …is just a *shape* a *face* is *stuck* in. *(she straightens, and wipes her face, and picks the bread-peel back up like a soldier taking up a pike)* …*right.* …*right*, then. *(a wet, fierce, magnificent grin)* …you're walking to a *Wall* and a *heaven* that's *really* a *grave*, and you need a soul who can *feel*, in her *gut*, why a *lantern* that *never* *gutters* gives *no* *light.* …well. *(she hefts the oven's door shut)* …*that's* me, cold one. that's the *whole* of what i *am.* …*i'm* *coming.* …and i am *bringing* …the *oven.* …*somebody's* got to throw the *feast* …on the *worst* *road* in the *worlds* … …and after a *whole* *life* …of *lighting* the *match* *alone* … …*(barely, shining)* …you're the *first* soul …who ever *offered* …to *hold* it *with* me. …*let's* go *make* them *gutter*, cold one. …*all* of them. …*every* *lantern* …*bright* …*because* …it *ends.**",
+          "effects": [
+            {
+              "key": "lf.dot_affirmed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.dot_joined",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.dot_named_the_garden",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_defend_crit",
+          "speaker": "Dot Marigold",
+          "text": "*(You step to the line where the warm light meets the grey, and you do not argue doctrine and you do not raise your voice — you simply *welcome* the grey sisters *in.* You pull a bench out. You press warm bread into Onora's folded hands before she can refuse it. You tell them the feast is *for* the dying, not against the church, and that there is a place set, tonight, even for the souls who came to put it out — and you say it with such open, disarming, immovable warmth that the snuffer, raised to snuff, simply… lowers, because you cannot put out a fire you have just been invited to sit beside.)* *(Behind you, Dot has watched the whole thing with her heart in her throat — and now she lets out a sound that is half a sob and half a whoop.)* …you — *(she's laughing, helplessly, wetly)* …you *fed* her. you *fed* *Onora.* you *put* a *heel* of *buttered* *bread* in the *hand* that came to *snuff* my *lanterns* and you *sat* her *down* — *(she presses the peel to her chest)* …cold one, in an *age* of *grey* *sisters* coming to my *door*, an *age* of *me* *arguing* and *pleading* and *losing* — *nobody* ever thought to just — to just *invite* them *in.* *(she wipes her streaming face)* …and *look* at her. *Onora.* sat on my *bench*, with my *bread*, *crying* into it, because — because *nobody* ever *fed* the *villain* *before* either, did they. *(softly, dawning)* …she's as *starved* as my *guests* are, cold one. just for a *different* *thing.* *(she grips your shoulder, blazing)* …the *lanterns* *stay* *lit* *tonight.* *all* of them. and *more* than that — you've *taught* me the *thing* i *never* *knew*, in *all* my *years* of this: …you don't *defend* the *feast* by *keeping* people *out.* …you defend it …by *finding* …*who* *else* …is *hungry. …gods*, cold one. …*stay.* …*walk* with me. …a soul who'd *feed* the *snuffer* …is a soul i'd follow …to the *Wall* *itself.**",
+          "effects": [
+            {
+              "key": "lf.attempted_defense",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.defended_feast",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.fed_the_snuffer",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.dot_joined",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_defend_ok",
+          "speaker": "Dot Marigold",
+          "text": "*(You meet the grey sisters at the line and you hold it — not gently, not cleverly, but *firmly*, planting yourself between the snuffer and the flame and refusing, plainly and immovably, to let them pass tonight. You give Onora no opening and no insult; you simply make the cost of pushing past you higher than she's willing to pay over a single evening of candlelight, and after a long grey moment she inclines her head and withdraws her sisters, for tonight.)* *(Dot sags against the trestle, weak-kneed with relief.)* …they're — they're *going.* *(she breathes)* …you *held* the *line*, cold one. *held* it like a *wall* of your *own.* …Onora'll be *back* — she *always* comes *back*, it's an *edict*, not a *grudge* — but not *tonight.* *tonight* the *lanterns* *stay* *lit*, and that's *because* of *you.* *(she presses bread on you, hands shaking)* …i've *pleaded* with those *grey* *robes* an *age*, cold one, and *lost* more *nights* than i *won.* …and you just — you *stood* there, and *would* *not* *move*, and *that* …*that* they *understood.* *(a wet grin)* …it's not the *whole* *war.* but it's *tonight.* …and *tonight*, cold one, a square *full* of *dying* *souls* …gets to *dance.* *because* you *stood* in the *door.* …*that'll* do. …by the *gods*, that'll *do.* …*stay* a while? …i'd *not* *mind* …a soul who *holds* *lines* …at my *table.**",
+          "effects": [
+            {
+              "key": "lf.attempted_defense",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.defended_feast",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.dot_joined",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_defend_fail",
+          "speaker": "Dot Marigold",
+          "text": "*(You step to the line and you argue — passionately, even well — but you argue *doctrine*, you tell Onora she's *wrong*, that grief is no holier than gladness, that the church has no right; and you are *correct*, every word, and it does not matter at all, because you have made it a *contest*, and a true believer does not lose a contest of conviction to a stranger. Onora's face closes like a door, and the snuffer comes up.)* *(Dot moves fast, getting between — and the look she shoots you is not angry, but urgent.)* …no — *no*, cold one, don't — *(she catches your arm)* …don't *fight* her *that* *way.* you *can't* *out-certain* a *sister*, it only *hardens* her, i've *learned* it the *hard* way a *hundred* — *(to Onora, quickly, placating)* …*peace*, Sister, *peace*, the *Returned's* a *guest* and *speaks* for *no* one — *(and she manages, barely, to talk the grey robes back from the brink for one more hour, but the snuffer does not fully lower, and the feast hangs by a thread)* …*(low, to you, fierce but kind)* …*listen.* you *meant* it, and you were *right*, and *being* *right* is *no* *use* *here.* …Onora doesn't come to my door because she's *stupid*, cold one. she comes because she's *grieving*, same as me, and *pointed* the *wrong* way. …you don't *move* her by *winning.* …*go* and *talk* to her *proper* — not to *beat* her — *before* the *hour's* up. …*please.* …i can't *lose* *another* *night.*",
+          "effects": [
+            {
+              "key": "lf.attempted_defense",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_defend_fumble",
+          "speaker": "Dot Marigold",
+          "text": "*(It goes wrong in the worst small way: you step to the line ready to defend the feast, and in your heat you reach for the easy weapon — you *mock* her. You call the grey robes joyless, the church a coven of misery, you play to the dancing crowd and get a laugh at Onora's expense — and the laugh is the disaster, because now the grey sister is not a believer to be reached but a *target* who has been *jeered*, and her face goes cold and final, and she lifts the snuffer with the terrible dignity of someone who has just been proven right about exactly how cruel the merry can be to the mournful.)* *(Dot's face falls.)* …oh, *no.* …cold one, *no.* *(she steps in fast, stricken)* …you *laughed* at her. …in *front* of — *(she shuts her eyes)* …that's the *one* thing. that's the *one* thing you *can't* — *(to Onora, urgent, mortified)* …Sister, *forgive* — that was *cruel* and *beneath* my *table*, *nobody* here *thinks* — *(but Onora is already turning away, snuffer in hand, and Dot rounds on you, not angry, *heartbroken*)* …don't you *see*, cold one? …she came here *certain* that *joy* is *cruel* — that the *merry* *mock* the *grieving*, that a *feast* is just a *crowd* *laughing* at the souls too *sad* to *join* — …and you just *proved* her *right.* *to* her *face.* *(barely)* …*go* and *fix* it. …go and show her the *merry* …*aren't* *cruel.* …because *right* *now* …because of *that* *laugh* … …she *believes* …we *are.*",
+          "effects": [
+            {
+              "key": "lf.attempted_defense",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.mocked_onora",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_d_leave",
+          "speaker": "Dot Marigold",
+          "text": "*(She nods, pressing a second heel of bread on you for the road of ten paces, because she cannot help it.)* …go on, then, go *meet* my *guests* — and *take* that, you'll *not* *cross* my *square* *empty*-*handed.* *(a quick, warm grin that doesn't quite hide the clock ticking behind it)* …*Marisa* you'll *find* by the *lanterns* — the *dancing* one, the — *(her grin trembles)* …she's *going* *fast*, cold one, *days* at the *most*, and she means to spend *every* one *dancing*, and i *love* her for it so much i can hardly — *(she swallows)* …*dance* with her, if you've a *heart* in you. it'd *mean* the *worlds.* …and *Onora* — *(her face sobers)* …the *grey* *sister*, at the *edge* of the *light.* …*don't* *write* her *off* as the *villain*, cold one, *please* — go and *talk* to her, *truly*, because here's the *thing* i've *learned* and *can't* *act* on, being the one she's come to *stop*: …*Onora's* *grieving* too. …*same* as me. …*she* just *thinks* the *grief* is *supposed* to *last* *forever.* …and a soul who thinks *that* …*(barely)* …is a soul who'd *understand* my *whole* *feast* …if *only* …someone *could* *get* *past* …the *grey.* …maybe *you*, cold one. …you've a *way.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "lf.marisa", "title": "Marisa, Who Dances Anyway", "npc": "Marisa", "start": "0",
+      "id": "lf.marisa",
+      "title": "Marisa, Who Dances Anyway",
+      "npc": "Marisa",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Marisa", "onEnter": [{ "key": "lf.met_marisa", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Marisa",
+          "onEnter": [
+            {
+              "key": "lf.met_marisa",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["lf.danced_with_marisa"] }, "text": "*(She is still dancing, still going, still thinning at the edges — but there is a light in her now that wasn't there before, the particular shine of a soul that got, against all odds, the one thing it asked for.)* …*you* *came* *back.* *(she turns, smiling, faint as candle-smoke)* …i've been — i've been *living* on it, cold one. the *dance.* the way you *didn't* *flinch* at my *hands* going *through* the *light.* the way you danced with me *like* i was a *girl* at a *feast* …and *not* a *tragedy* *winding* *down.* *(softly)* …i haven't much *longer.* i can *feel* it. but i'll tell you what i *won't* do now, because of *you*: …i *won't* go out *sitting* *quiet* in a *corner*, *grieving* my *own* *self*, the way they *wanted.* …i'll go out *mid-*turn, cold one. *(she lifts her thinning arms)* …*dancing.* …and *not* — *(her smile breaks, beautiful)* …*not* *alone.* …you *gave* me *that.* …a soul this *close* to *nothing* …*danced* …and was *not* …*alone.* …that's — *(barely)* …that's the *whole* of *everything*, cold one. …*thank* you.*" },
-            { "text": "*(She sways to Dot's distant singing, the lantern-light shining faintly through her thinning hands, and watches you with a smile that has no fear in it at all, only a great and gentle urgency.)* …you *stayed.* *(pleased)* …most *don't*, cold one — they *look* at me, at the — *(she waggles a half-translucent hand)* …at *this*, the *going*, and they get that *face*, the *sorry* *face*, and they *back* away like *dying's* *catching.* *(she shrugs, light)* …i *understand* it. i *do.* but it's *lonely*, cold one, the *backing*-*away.* it's the *loneliest* part of the *whole* *business* — not the *dissolving*, the *being* *flinched* *from* *while* you do it. *(she tilts her head)* …*you* didn't *flinch.* …so *stay* a *moment* …and *talk* to a *girl* who's *running* *out* of *moments* …and *means* to *spend* this one …on *you.*" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Marisa", "text": "*(She drifts a half-step closer, light on her feet in a way that has nothing to do with the dissolution and everything to do with a decision she's made, and gestures at the lantern-strung square as if presenting a ballroom.)* …*ask*, cold one. *anything.* …i find i've *no* *patience* *left* for the *long* *way* *round* a *thing* — that's the *one* *gift* of *going* *fast*, you *cut* *straight* to what *matters.* *(a faint, bright laugh)* …so. …what do you want to *know* …about a girl …who *wasted* her *whole* *life* *saving* up …and means *not* to *waste* …her *death?*",
+            {
+              "when": {
+                "flags": [
+                  "lf.danced_with_marisa"
+                ]
+              },
+              "text": "*(She is still dancing, still going, still thinning at the edges — but there is a light in her now that wasn't there before, the particular shine of a soul that got, against all odds, the one thing it asked for.)* …*you* *came* *back.* *(she turns, smiling, faint as candle-smoke)* …i've been — i've been *living* on it, cold one. the *dance.* the way you *didn't* *flinch* at my *hands* going *through* the *light.* the way you danced with me *like* i was a *girl* at a *feast* …and *not* a *tragedy* *winding* *down.* *(softly)* …i haven't much *longer.* i can *feel* it. but i'll tell you what i *won't* do now, because of *you*: …i *won't* go out *sitting* *quiet* in a *corner*, *grieving* my *own* *self*, the way they *wanted.* …i'll go out *mid-*turn, cold one. *(she lifts her thinning arms)* …*dancing.* …and *not* — *(her smile breaks, beautiful)* …*not* *alone.* …you *gave* me *that.* …a soul this *close* to *nothing* …*danced* …and was *not* …*alone.* …that's — *(barely)* …that's the *whole* of *everything*, cold one. …*thank* you.*"
+            },
+            {
+              "text": "*(She sways to Dot's distant singing, the lantern-light shining faintly through her thinning hands, and watches you with a smile that has no fear in it at all, only a great and gentle urgency.)* …you *stayed.* *(pleased)* …most *don't*, cold one — they *look* at me, at the — *(she waggles a half-translucent hand)* …at *this*, the *going*, and they get that *face*, the *sorry* *face*, and they *back* away like *dying's* *catching.* *(she shrugs, light)* …i *understand* it. i *do.* but it's *lonely*, cold one, the *backing*-*away.* it's the *loneliest* part of the *whole* *business* — not the *dissolving*, the *being* *flinched* *from* *while* you do it. *(she tilts her head)* …*you* didn't *flinch.* …so *stay* a *moment* …and *talk* to a *girl* who's *running* *out* of *moments* …and *means* to *spend* this one …on *you.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Marisa",
+          "text": "*(She drifts a half-step closer, light on her feet in a way that has nothing to do with the dissolution and everything to do with a decision she's made, and gestures at the lantern-strung square as if presenting a ballroom.)* …*ask*, cold one. *anything.* …i find i've *no* *patience* *left* for the *long* *way* *round* a *thing* — that's the *one* *gift* of *going* *fast*, you *cut* *straight* to what *matters.* *(a faint, bright laugh)* …so. …what do you want to *know* …about a girl …who *wasted* her *whole* *life* *saving* up …and means *not* to *waste* …her *death?*",
           "choices": [
-            { "text": "*(read the dancing girl — past the brightness, to the life she's dancing against)* \"Hold still — as still as you can, anyway. Let me really see you, Marisa.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 10 }, "next": "lf_m_read", "effects": [{ "key": "lf.read_marisa", "op": "SetTrue" }] },
-            { "text": "\"You said you wasted your life saving up. Tell me, Marisa — what were you saving up *for*? What was the right time that never came?\"", "next": "lf_m_saving", "effects": [{ "key": "lf.asked_marisa_saving", "op": "SetTrue" }] },
-            { "text": "*(dance with her — take the thinning hands and turn with a soul the dark is eating, and refuse, with your whole body, to treat her last hours as a tragedy instead of a feast)* \"Then I won't waste it either. Here — take my hands, Marisa, what's left of them and what's left of yours. No sitting quiet. No sorry face. You want to dance the last of it, then let's dance it loud, you and me, in all this stolen light, like the most important thing in the worlds is this turn, and this one, and this one — because for you, right now, it is.\"", "check": { "skill": "Performance", "ability": "Charisma", "dc": 11 }, "next": "lf_m_dance_ok", "fail": "lf_m_dance_fail", "crit": "lf_m_dance_crit", "fumble": "lf_m_dance_fumble", "effects": [{ "key": "lf.attempted_dance", "op": "SetTrue" }] },
-            { "text": "*(the one who knows a joy that's running out is the truest joy there is — and the exact thing the Wall can't abide)* \"Marisa — here's a thing I need you to hear, from someone walking toward the place that makes souls like you. They told you to sit quiet. To save your strength, grieve properly, spend your last days in dignified contemplation of your approaching nothing. And every word of that is the Wall's own voice, even from kind mouths. Because the grey thing I'm walking toward *wins* when a dying soul agrees to go out small — to spend its last light apologizing for having burned at all. It feeds on the souls who fade quiet and sorry, who decide that because they're ending they should act ended early, dim themselves down to make the dissolution tidier. But you've got it exactly right, and you got it right by instinct: a joy that's running out isn't a lesser joy. It's the *truest* one there is. The souls with all the time in the world spend it carelessly, saving up, waiting for the right moment — and you, with days, are *spending* every one, dancing, fully lit, because you finally understand what they never will: the dance was always worth it, and the running-out is the thing that makes you *know* it. You're not whistling in the dark, Marisa. You're proving the dark wrong. Every turn you take while you're dissolving is a thing the Wall cannot compute — a soul that got *brighter* as it ended. So dance. Burn all the way down. Don't you dare go out small. A candle isn't tragic because it's burning down. The burning *is* the light.\"", "tag": "returned", "next": "lf_m_returned", "effects": [{ "key": "lf.marisa_affirmed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Keep turning, Marisa — don't stop on my account. I'll move through the feast and come back before the song does. Save me a dance.\"", "next": "lf_m_leave" }
-          ] },
-        { "id": "lf_m_read", "speaker": "Marisa", "text": "*(She holds still — or as still as a dissolving soul can, a faint shimmer always at her edges — and lets you look, smiling, unafraid of being seen.)* *(And your sense finds, under the bright urgent dancing, a life that was almost entirely *deferred* — a soul that spent its whole span being *careful.* Your sense reads it plainly: a girl raised to save, to wait, to not be foolish — *finish your work first, marry sensible, put the coin by, there'll be time for the wanting later, there's always later* — and who believed it, and lived it, and was *good* at it, a prudent careful soul who said no to a hundred small joys because the right time hadn't come, the savings weren't enough, the wanting could wait. And your sense reads the cruelty at the center of it: that the right time never came, because the right time is a lie the careful tell themselves, an always-receding line — and then she *died*, young, with the savings unspent and the wanting un-wanted and the dancing un-danced, and arrived in the land of the dead holding a whole life's worth of *deferred living* like a purse full of coin in a country with no shops. And your sense reads the moment everything turned, the moment that made the dancing girl: that somewhere in the cold and the waiting-line she understood, all at once and far too late, what her whole prudent life had cost her — and that when the dissolution started, when she felt herself beginning to *go*, she made a fierce, joyful, defiant decision: that she would not waste her *death* the way she wasted her *life.* That the days she had left, however few, she would spend *all the way*, fully, loudly, dancing, no saving, no waiting, no right-time — because she'd finally, finally learned that there was never going to be a better moment than the one she was in, and now there were almost none of them left. And your sense reads the thing that makes her luminous rather than merely sad: that she is not dancing to *forget* she's dying. She is dancing *because* she's dying — because the dissolution is the thing that finally taught her how to live, and she means to *use* the lesson, even if she only gets days of it, even if the only thing she has left to spend it on is a few turns in a stolen light. She is the truth of Dot's whole feast, walking — or rather, dancing — proof.)*",
-          "effects": [{ "key": "lf.read_marisa", "op": "SetTrue" }, { "key": "lf.knows_marisa_deferred", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_m_saving", "speaker": "Marisa", "text": "*(Her dancing slows, and a rueful smile crosses the thinning face.)* …what was i *saving* up *for.* *(a soft, winded laugh)* …*everything*, cold one. that's the *joke* of it. *everything*, and so *nothing.* *(she turns slowly)* …a *better* *dress* before i'd *dance.* a *better* *year* before i'd *marry.* *enough* *put* *by* before i'd *travel*, before i'd *rest*, before i'd *let* *myself* *want* a single *thing* out *loud.* *(she shakes her head)* …*'later*, *Marisa.* *when* you've *enough.* *when* it's *safe.* *when* the *time's* *right.'* …i must have said it to myself a *thousand* — *(her voice catches)* …and the *time* was *never* *right*, cold one. that's the thing *nobody* *tells* you. the time is *never* *right*, the *savings* are *never* *enough*, there is *always* a *reason* to *wait* …until *suddenly* …*(she holds up a hand, light shining through)* …there *isn't* a *later* *left* …to *save* *for.* *(she meets your eyes, fierce and wet)* …so don't you *dare* *pity* me for the *dancing*, cold one. the *dancing's* not the *sad* part. …the *sad* part is the *forty* *years* …i *didn't.* …*this* — *(she lifts her arms, turning)* …*this* is me *spending* …*everything* i *saved.* …*all* at *once.* …*finally.* …and i'll tell you a *secret*: …*even* *now* …*even* *going* …it was *worth* *saving* …just to *get* …to *spend* it …*like* *this.**",
-          "effects": [{ "key": "lf.asked_marisa_saving", "op": "SetTrue" }, { "key": "lf.knows_the_deferral", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_m_dance_crit", "speaker": "Marisa", "text": "*(You take the thinning hands — and they are cold, and faint, and you can feel the *going* in them, the way they're not quite all there — and you do not flinch, and you do not slow, and you turn her into the lantern-light as though this were the grandest ballroom in all the Realms and she the only dancer in it. And something happens that neither of you expects: as you dance, as you give the dissolving girl your whole self and your whole attention and your whole refusal to treat this as anything but a *feast* — the dancing seems, for a few impossible minutes, to hold the dissolution at *bay*, not stopping it, nothing stops it, but *defying* it, the two of you turning and turning in the stolen light while the dark waits at the edges, *furious*, and unable to interrupt.)* *(Marisa is laughing — a real, full, un-thinned laugh, the laugh of a soul fully alive in the only moment it has.)* …*oh* — *oh*, cold one — *(she throws her head back)* …*this* — *THIS* — *(she can hardly speak for the joy of it)* …*this* is what i — *forty* *years* i *saved* *for* a *feeling* …and i never *knew* it was *this* — just — just a *soul* who'd *turn* with me and *not* *let* *go* and *not* *be* *sorry* — *(she spins, radiant, faint, blazing)* …*look* at me, cold one! *look* — i'm *going*, i'm *more* than *half* *gone*, and i have *never* in my *whole* *careful* *life* been so — so *completely* — *(her eyes are streaming and she is laughing, laughing)* …*ALIVE!* …a *dying* *girl* …the *most* *alive* *thing* …in the *square!* *(she presses her fading forehead to yours, both of you breathless)* …*remember* this, cold one. when you get to your *Wall.* …*remember* that a *soul* with *days* *left* …*danced* …and it was the *brightest* *light* …in the *land* of the *dead.* …*that's* your *answer.* to *whatever* *grey* *thing* …says *joy's* a *lie.* …*me.* …*turning.* …*going.* …*glad.* …*tell* them …you *saw* it. …you *held* its *hands.* …and it *shone.**",
-          "effects": [{ "key": "lf.attempted_dance", "op": "SetTrue" }, { "key": "lf.danced_with_marisa", "op": "SetTrue" }, { "key": "lf.marisa_affirmed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_m_dance_ok", "speaker": "Marisa", "text": "*(You take her thinning hands and you turn with her, and you do not flinch at the cold or the faintness, and for a while the two of you dance in the lantern-light to Dot's distant singing — not gracefully, you're no dancer and she's fading, but *gladly*, which is the only thing that matters.)* …*there.* *(she's smiling, breathing hard, leaning on the turn)* …*there*, you *see?* it's not *grim*, is it. it's not the *sad* *tragic* *thing* they all — *(she laughs)* …it's just *dancing.* two souls and a *song* and a *square* full of *light.* *(she squeezes your hands, faint)* …*thank* you, cold one. *truly.* …it's not — i'll be *honest*, it's not the *transcendent* thing the *poets* *promise*, we *trod* on each *other* and you've *no* *rhythm* at *all* — *(a bright wet grin)* …but you *came.* you *took* my *hands.* you didn't make that *sorry* *face.* …and a *girl* who was *bracing* to *dance* the *last* of it *alone* …*didn't* *have* to. …that's — *(softly)* …that's *enough*, cold one. that's *more* than *enough.* …*come* *back* …and *turn* with me *once* *more* …before the *song* *ends? …i* find …i can *bear* the *ending* …if i *don't* *have* to *meet* it …*sitting* *down.**",
-          "effects": [{ "key": "lf.attempted_dance", "op": "SetTrue" }, { "key": "lf.danced_with_marisa", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_m_dance_fail", "speaker": "Marisa", "text": "*(You reach for her hands — but at the last moment some living instinct in you recoils from the cold faint *going* of them, just slightly, just a flinch, a half-second hesitation as your fingers meet the place where she's not quite all there — and she feels it, of course she feels it, she's been feeling it from everyone for days, and the dance falters before it starts.)* …ah. *(she stops, gentle, and lets your hands go)* …it's *all* *right*, cold one. *truly.* *(she says it kindly, and means it, and it lands anyway)* …you *flinched.* just a — just a *little.* the *hands.* *(she looks at her own, the light coming through)* …everyone does. i *told* you they do. it's not a — it's not a *sin*, cold one, it's just *life* *recoiling* from *un-life*, the oldest *flinch* there is. *(a small sad smile)* …but it's the *thing*, you see. it's the *exact* *thing.* i can *bear* the *dissolving.* what i *can't* *quite* *bear* …is *watching* a *soul* *decide*, in the *half-second* before they *touch* me …whether i'm still *worth* *touching.* *(softly, no blame)* …go on. *gather* yourself. it's a *lot* to *ask*, i *know* — to *hold* a *thing* that's *going*, and *not* *let* your *body* *say* *what* *bodies* *say.* …but if you can — *(her eyes are bright)* …*come* *back.* …and *try* *again.* …and this time …*don't* *think* about my *hands*. …*think* about the *dance.* …*that's* …the *whole* *trick* …of *loving* …*anything* …that *ends.**",
-          "effects": [{ "key": "lf.attempted_dance", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_m_dance_fumble", "speaker": "Marisa", "text": "*(You take her hands with too much feeling — and that is the mistake, because the feeling that floods you is *grief*, sudden and overwhelming, the unbearable wrongness of a girl this young dissolving, and it shows on your face and breaks into your voice, and somewhere in the turning the dance becomes a *mourning*, you holding her too tight and too sorrowful, your eyes streaming, and she ends up — gently, patiently — *comforting you*, the dying girl consoling the living one, the dance dissolved into your weeping over a loss that is, after all, *hers* and not yours to grieve first.)* …oh — *oh*, cold one, *no*, come *here* — *(she's patting your back, faint hands and all, soothing)* …*there*, *there.* …it's *all* *right.* …*(and over your shoulder her face does a complicated thing, fond and rueful and just a little tired)* …it *happened* again, didn't it. *(softly)* …i meant to *dance*, cold one, and instead i'm — i'm *comforting* you. about *me.* *(a small wry breath)* …it's the *other* *thing* people do, you see. *some* *flinch* …and *some* — *some* *grieve* so *hard*, so *kindly*, so *soon* …that i end up *tending* *their* *sorrow* about my *dying* …*instead* of getting to *dance* my *own* *self* *out.* *(she holds you at arm's length, gentle)* …i don't *want* to be *mourned* *yet*, cold one. …i'm *still* *here.* …*right* *now*, *tonight*, i am *still*, *entirely*, *here* — and i'd *so* *much* *rather* you *danced* with the *girl* who's *living* …than *wept* over the *one* who's *going.* …there'll be *time* for the *weeping.* …*later.* …when i'm *actually* — *(she squeezes your hands)* …*come* *back.* …*dry* your *face.* …and *dance* with me like i'm *alive* …*because* …*(fierce, kind)* …*i* …*am.**",
-          "effects": [{ "key": "lf.attempted_dance", "op": "SetTrue" }, { "key": "lf.grieved_marisa_early", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_m_returned", "speaker": "Marisa", "text": "*(She stops dancing — fully stops, for the first time — and stands very still in the lantern-light, the shimmer at her edges the only motion, and listens to you with her whole fading self, and by the end the bright defiant girl has tears standing in her eyes and a look on her face like someone who has just been *understood* at the precise moment she most needed it.)* …*'the burning is the light.'* *(barely)* …cold one. …they *did* tell me to go out *small.* you're *right.* the *kind* ones *most* of all — *'rest*, *Marisa*, *save* your *strength*, *don't* *tire* *yourself*, *grieve* your *passing* *with* *dignity'* — and i *almost* — *(she shudders)* …i *almost* *did* it. i almost spent my *last* *days* the *exact* same way i spent my *first* *forty* *years*: *small*, and *careful*, and *waiting*, and *sorry.* …*dimming* myself *down* …to make my *own* *ending* …*tidier* …*for* *everyone* *else.* *(and now the fierceness blazes up through the tears)* …and you've just *named* it, cold one — *named* the *grey* *voice* in the *kind* *mouths.* …it *wants* me *small.* it *wants* me to *agree* …that *because* i'm *ending* …i should *act* *ended* *early.* …*spend* my *last* *light* …*apologizing* …for having *burned* at *all.* *(she lifts her arms, faint, radiant, and begins to turn again — but differently now, fully, without a shred of apology)* …*well.* …*no.* *(a wet, blazing laugh)* …*no*, cold one. …i will *not* go out *small.* i will burn *all* the *way* *down*, and i will do it *dancing*, and *every* *turn* i take while i *dissolve* …is a *thing* …your *Wall* …*cannot* *understand.* …a soul that got *brighter* …as it *ended.* *(she meets your eyes, shining, fully lit)* …*go* and *tell* it, cold one. when you *get* there. …tell it you *met* a *girl* with *days* *left* …who *danced* …*because* …*not* *despite.* …who *proved* …that the *candle* …was *never* *tragic.* …that the *burning* …*was* …the *light.* …and then — *(fierce, glad, going)* …*come* *turn* with me. …i've *not* *much* *song* *left* …and i mean to *spend* …*all* of it.*",
-          "effects": [{ "key": "lf.marisa_affirmed", "op": "SetTrue" }, { "key": "lf.marisa_reframed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_m_leave", "speaker": "Marisa", "text": "*(She nods, already turning back into the dance, light as smoke.)* …go on, cold one — i'll be *here.* *(a faint laugh)* …well. *here* for a *while* *yet.* *(she sways)* …go and see *Dot*, if you've not — she's the *reason* there's a *square* to *dance* in at *all*, the *reason* there's *bread* and *light* and a *song* to *turn* to. …*love* her, cold one. she *needs* it more than she'd *ever* *say.* she's *thrown* this feast for *every* *dying* *soul* in *reach* …and i've *watched* her, an *age*, and *no* one ever *throws* one *back.* *(softly)* …and *Onora* — *(her bright face dims)* …the *grey* *sister.* …go *gently* there, cold one. …i *can't* *hate* her, though i've *tried* — she came to put my *last* *dance* *out* and i *still* *can't* — because i can *see* it, you see, plain as my own *fading* *hands*: …*she's* *grieving* *too.* …she *just* *thinks* …the *grief* is *meant* to be the *whole* of *death.* …a soul who thinks *that* …*(she turns)* …has *buried* *someone*, cold one. …*recently*, or *terribly*, or *both.* …*go* and *find* *out* *who.* …it's *always* …*who.**",
-          "auto": "END" }
+            {
+              "text": "*(read the dancing girl — past the brightness, to the life she's dancing against)* \"Hold still — as still as you can, anyway. Let me really see you, Marisa.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 10
+              },
+              "next": "lf_m_read",
+              "effects": [
+                {
+                  "key": "lf.read_marisa",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"You said you wasted your life saving up. Tell me, Marisa — what were you saving up *for*? What was the right time that never came?\"",
+              "next": "lf_m_saving",
+              "effects": [
+                {
+                  "key": "lf.asked_marisa_saving",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(dance with her — take the thinning hands and turn with a soul the dark is eating, and refuse, with your whole body, to treat her last hours as a tragedy instead of a feast)* \"Then I won't waste it either. Here — take my hands, Marisa, what's left of them and what's left of yours. No sitting quiet. No sorry face. You want to dance the last of it, then let's dance it loud, you and me, in all this stolen light, like the most important thing in the worlds is this turn, and this one, and this one — because for you, right now, it is.\"",
+              "check": {
+                "skill": "Performance",
+                "ability": "Charisma",
+                "dc": 11
+              },
+              "next": "lf_m_dance_ok",
+              "fail": "lf_m_dance_fail",
+              "crit": "lf_m_dance_crit",
+              "fumble": "lf_m_dance_fumble",
+              "effects": [
+                {
+                  "key": "lf.attempted_dance",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows a joy that's running out is the truest joy there is — and the exact thing the Wall can't abide)* \"Marisa — here's a thing I need you to hear, from someone walking toward the place that makes souls like you. They told you to sit quiet. To save your strength, grieve properly, spend your last days in dignified contemplation of your approaching nothing. And every word of that is the Wall's own voice, even from kind mouths. Because the grey thing I'm walking toward *wins* when a dying soul agrees to go out small — to spend its last light apologizing for having burned at all. It feeds on the souls who fade quiet and sorry, who decide that because they're ending they should act ended early, dim themselves down to make the dissolution tidier. But you've got it exactly right, and you got it right by instinct: a joy that's running out isn't a lesser joy. It's the *truest* one there is. The souls with all the time in the world spend it carelessly, saving up, waiting for the right moment — and you, with days, are *spending* every one, dancing, fully lit, because you finally understand what they never will: the dance was always worth it, and the running-out is the thing that makes you *know* it. You're not whistling in the dark, Marisa. You're proving the dark wrong. Every turn you take while you're dissolving is a thing the Wall cannot compute — a soul that got *brighter* as it ended. So dance. Burn all the way down. Don't you dare go out small. A candle isn't tragic because it's burning down. The burning *is* the light.\"",
+              "tag": "returned",
+              "next": "lf_m_returned",
+              "effects": [
+                {
+                  "key": "lf.marisa_affirmed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Keep turning, Marisa — don't stop on my account. I'll move through the feast and come back before the song does. Save me a dance.\"",
+              "next": "lf_m_leave"
+            }
+          ]
+        },
+        {
+          "id": "lf_m_read",
+          "speaker": "Marisa",
+          "effects": [
+            {
+              "key": "lf.read_marisa",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_marisa_deferred",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, cold one; we are well past the fiction by now — and i show you this one gladly, for she is dissolving as i watch, going into the nothing i am made of, and the going is exactly the crime i cannot forgive. Look at the girl the Wall is eating:)* *(She holds still — or as still as a dissolving soul can, a faint shimmer always at her edges — and lets you look, smiling, unafraid of being seen.)* *(And your sense finds, under the bright urgent dancing, a life that was almost entirely *deferred* — a soul that spent its whole span being *careful.* Your sense reads it plainly: a girl raised to save, to wait, to not be foolish — *finish your work first, marry sensible, put the coin by, there'll be time for the wanting later, there's always later* — and who believed it, and lived it, and was *good* at it, a prudent careful soul who said no to a hundred small joys because the right time hadn't come, the savings weren't enough, the wanting could wait. And your sense reads the cruelty at the center of it: that the right time never came, because the right time is a lie the careful tell themselves, an always-receding line — and then she *died*, young, with the savings unspent and the wanting un-wanted and the dancing un-danced, and arrived in the land of the dead holding a whole life's worth of *deferred living* like a purse full of coin in a country with no shops. And your sense reads the moment everything turned, the moment that made the dancing girl: that somewhere in the cold and the waiting-line she understood, all at once and far too late, what her whole prudent life had cost her — and that when the dissolution started, when she felt herself beginning to *go*, she made a fierce, joyful, defiant decision: that she would not waste her *death* the way she wasted her *life.* That the days she had left, however few, she would spend *all the way*, fully, loudly, dancing, no saving, no waiting, no right-time — because she'd finally, finally learned that there was never going to be a better moment than the one she was in, and now there were almost none of them left. And your sense reads the thing that makes her luminous rather than merely sad: that she is not dancing to *forget* she's dying. She is dancing *because* she's dying — because the dissolution is the thing that finally taught her how to live, and she means to *use* the lesson, even if she only gets days of it, even if the only thing she has left to spend it on is a few turns in a stolen light. She is the truth of Dot's whole feast, walking — or rather, dancing — proof.)* *(…a whole deferred life, and now the dissolution taking even the dancing — this is the law of the Faithless at its work, un-writing a Marisa one bright turn at a time. I could stop it. Not for her alone — for all of them, by unmaking the thing that dissolves the un-claimed. A soul who has watched a Marisa go cannot, in conscience, leave the grey law that takes her standing. To dance with her is a small warm mercy and she will dissolve anyway. The taking is the wrong. You know whose grief you have been seeing by — and what i would have you do to the thing that does the taking.)*"
+            },
+            {
+              "text": "*(She holds still — or as still as a dissolving soul can, a faint shimmer always at her edges — and lets you look, smiling, unafraid of being seen.)* *(And your sense finds, under the bright urgent dancing, a life that was almost entirely *deferred* — a soul that spent its whole span being *careful.* Your sense reads it plainly: a girl raised to save, to wait, to not be foolish — *finish your work first, marry sensible, put the coin by, there'll be time for the wanting later, there's always later* — and who believed it, and lived it, and was *good* at it, a prudent careful soul who said no to a hundred small joys because the right time hadn't come, the savings weren't enough, the wanting could wait. And your sense reads the cruelty at the center of it: that the right time never came, because the right time is a lie the careful tell themselves, an always-receding line — and then she *died*, young, with the savings unspent and the wanting un-wanted and the dancing un-danced, and arrived in the land of the dead holding a whole life's worth of *deferred living* like a purse full of coin in a country with no shops. And your sense reads the moment everything turned, the moment that made the dancing girl: that somewhere in the cold and the waiting-line she understood, all at once and far too late, what her whole prudent life had cost her — and that when the dissolution started, when she felt herself beginning to *go*, she made a fierce, joyful, defiant decision: that she would not waste her *death* the way she wasted her *life.* That the days she had left, however few, she would spend *all the way*, fully, loudly, dancing, no saving, no waiting, no right-time — because she'd finally, finally learned that there was never going to be a better moment than the one she was in, and now there were almost none of them left. And your sense reads the thing that makes her luminous rather than merely sad: that she is not dancing to *forget* she's dying. She is dancing *because* she's dying — because the dissolution is the thing that finally taught her how to live, and she means to *use* the lesson, even if she only gets days of it, even if the only thing she has left to spend it on is a few turns in a stolen light. She is the truth of Dot's whole feast, walking — or rather, dancing — proof.)*"
+            }
+          ]
+        },
+        {
+          "id": "lf_m_saving",
+          "speaker": "Marisa",
+          "text": "*(Her dancing slows, and a rueful smile crosses the thinning face.)* …what was i *saving* up *for.* *(a soft, winded laugh)* …*everything*, cold one. that's the *joke* of it. *everything*, and so *nothing.* *(she turns slowly)* …a *better* *dress* before i'd *dance.* a *better* *year* before i'd *marry.* *enough* *put* *by* before i'd *travel*, before i'd *rest*, before i'd *let* *myself* *want* a single *thing* out *loud.* *(she shakes her head)* …*'later*, *Marisa.* *when* you've *enough.* *when* it's *safe.* *when* the *time's* *right.'* …i must have said it to myself a *thousand* — *(her voice catches)* …and the *time* was *never* *right*, cold one. that's the thing *nobody* *tells* you. the time is *never* *right*, the *savings* are *never* *enough*, there is *always* a *reason* to *wait* …until *suddenly* …*(she holds up a hand, light shining through)* …there *isn't* a *later* *left* …to *save* *for.* *(she meets your eyes, fierce and wet)* …so don't you *dare* *pity* me for the *dancing*, cold one. the *dancing's* not the *sad* part. …the *sad* part is the *forty* *years* …i *didn't.* …*this* — *(she lifts her arms, turning)* …*this* is me *spending* …*everything* i *saved.* …*all* at *once.* …*finally.* …and i'll tell you a *secret*: …*even* *now* …*even* *going* …it was *worth* *saving* …just to *get* …to *spend* it …*like* *this.**",
+          "effects": [
+            {
+              "key": "lf.asked_marisa_saving",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_the_deferral",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_dance_crit",
+          "speaker": "Marisa",
+          "text": "*(You take the thinning hands — and they are cold, and faint, and you can feel the *going* in them, the way they're not quite all there — and you do not flinch, and you do not slow, and you turn her into the lantern-light as though this were the grandest ballroom in all the Realms and she the only dancer in it. And something happens that neither of you expects: as you dance, as you give the dissolving girl your whole self and your whole attention and your whole refusal to treat this as anything but a *feast* — the dancing seems, for a few impossible minutes, to hold the dissolution at *bay*, not stopping it, nothing stops it, but *defying* it, the two of you turning and turning in the stolen light while the dark waits at the edges, *furious*, and unable to interrupt.)* *(Marisa is laughing — a real, full, un-thinned laugh, the laugh of a soul fully alive in the only moment it has.)* …*oh* — *oh*, cold one — *(she throws her head back)* …*this* — *THIS* — *(she can hardly speak for the joy of it)* …*this* is what i — *forty* *years* i *saved* *for* a *feeling* …and i never *knew* it was *this* — just — just a *soul* who'd *turn* with me and *not* *let* *go* and *not* *be* *sorry* — *(she spins, radiant, faint, blazing)* …*look* at me, cold one! *look* — i'm *going*, i'm *more* than *half* *gone*, and i have *never* in my *whole* *careful* *life* been so — so *completely* — *(her eyes are streaming and she is laughing, laughing)* …*ALIVE!* …a *dying* *girl* …the *most* *alive* *thing* …in the *square!* *(she presses her fading forehead to yours, both of you breathless)* …*remember* this, cold one. when you get to your *Wall.* …*remember* that a *soul* with *days* *left* …*danced* …and it was the *brightest* *light* …in the *land* of the *dead.* …*that's* your *answer.* to *whatever* *grey* *thing* …says *joy's* a *lie.* …*me.* …*turning.* …*going.* …*glad.* …*tell* them …you *saw* it. …you *held* its *hands.* …and it *shone.**",
+          "effects": [
+            {
+              "key": "lf.attempted_dance",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.danced_with_marisa",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.marisa_affirmed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_dance_ok",
+          "speaker": "Marisa",
+          "text": "*(You take her thinning hands and you turn with her, and you do not flinch at the cold or the faintness, and for a while the two of you dance in the lantern-light to Dot's distant singing — not gracefully, you're no dancer and she's fading, but *gladly*, which is the only thing that matters.)* …*there.* *(she's smiling, breathing hard, leaning on the turn)* …*there*, you *see?* it's not *grim*, is it. it's not the *sad* *tragic* *thing* they all — *(she laughs)* …it's just *dancing.* two souls and a *song* and a *square* full of *light.* *(she squeezes your hands, faint)* …*thank* you, cold one. *truly.* …it's not — i'll be *honest*, it's not the *transcendent* thing the *poets* *promise*, we *trod* on each *other* and you've *no* *rhythm* at *all* — *(a bright wet grin)* …but you *came.* you *took* my *hands.* you didn't make that *sorry* *face.* …and a *girl* who was *bracing* to *dance* the *last* of it *alone* …*didn't* *have* to. …that's — *(softly)* …that's *enough*, cold one. that's *more* than *enough.* …*come* *back* …and *turn* with me *once* *more* …before the *song* *ends? …i* find …i can *bear* the *ending* …if i *don't* *have* to *meet* it …*sitting* *down.**",
+          "effects": [
+            {
+              "key": "lf.attempted_dance",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.danced_with_marisa",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_dance_fail",
+          "speaker": "Marisa",
+          "text": "*(You reach for her hands — but at the last moment some living instinct in you recoils from the cold faint *going* of them, just slightly, just a flinch, a half-second hesitation as your fingers meet the place where she's not quite all there — and she feels it, of course she feels it, she's been feeling it from everyone for days, and the dance falters before it starts.)* …ah. *(she stops, gentle, and lets your hands go)* …it's *all* *right*, cold one. *truly.* *(she says it kindly, and means it, and it lands anyway)* …you *flinched.* just a — just a *little.* the *hands.* *(she looks at her own, the light coming through)* …everyone does. i *told* you they do. it's not a — it's not a *sin*, cold one, it's just *life* *recoiling* from *un-life*, the oldest *flinch* there is. *(a small sad smile)* …but it's the *thing*, you see. it's the *exact* *thing.* i can *bear* the *dissolving.* what i *can't* *quite* *bear* …is *watching* a *soul* *decide*, in the *half-second* before they *touch* me …whether i'm still *worth* *touching.* *(softly, no blame)* …go on. *gather* yourself. it's a *lot* to *ask*, i *know* — to *hold* a *thing* that's *going*, and *not* *let* your *body* *say* *what* *bodies* *say.* …but if you can — *(her eyes are bright)* …*come* *back.* …and *try* *again.* …and this time …*don't* *think* about my *hands*. …*think* about the *dance.* …*that's* …the *whole* *trick* …of *loving* …*anything* …that *ends.**",
+          "effects": [
+            {
+              "key": "lf.attempted_dance",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_dance_fumble",
+          "speaker": "Marisa",
+          "text": "*(You take her hands with too much feeling — and that is the mistake, because the feeling that floods you is *grief*, sudden and overwhelming, the unbearable wrongness of a girl this young dissolving, and it shows on your face and breaks into your voice, and somewhere in the turning the dance becomes a *mourning*, you holding her too tight and too sorrowful, your eyes streaming, and she ends up — gently, patiently — *comforting you*, the dying girl consoling the living one, the dance dissolved into your weeping over a loss that is, after all, *hers* and not yours to grieve first.)* …oh — *oh*, cold one, *no*, come *here* — *(she's patting your back, faint hands and all, soothing)* …*there*, *there.* …it's *all* *right.* …*(and over your shoulder her face does a complicated thing, fond and rueful and just a little tired)* …it *happened* again, didn't it. *(softly)* …i meant to *dance*, cold one, and instead i'm — i'm *comforting* you. about *me.* *(a small wry breath)* …it's the *other* *thing* people do, you see. *some* *flinch* …and *some* — *some* *grieve* so *hard*, so *kindly*, so *soon* …that i end up *tending* *their* *sorrow* about my *dying* …*instead* of getting to *dance* my *own* *self* *out.* *(she holds you at arm's length, gentle)* …i don't *want* to be *mourned* *yet*, cold one. …i'm *still* *here.* …*right* *now*, *tonight*, i am *still*, *entirely*, *here* — and i'd *so* *much* *rather* you *danced* with the *girl* who's *living* …than *wept* over the *one* who's *going.* …there'll be *time* for the *weeping.* …*later.* …when i'm *actually* — *(she squeezes your hands)* …*come* *back.* …*dry* your *face.* …and *dance* with me like i'm *alive* …*because* …*(fierce, kind)* …*i* …*am.**",
+          "effects": [
+            {
+              "key": "lf.attempted_dance",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.grieved_marisa_early",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_returned",
+          "speaker": "Marisa",
+          "text": "*(She stops dancing — fully stops, for the first time — and stands very still in the lantern-light, the shimmer at her edges the only motion, and listens to you with her whole fading self, and by the end the bright defiant girl has tears standing in her eyes and a look on her face like someone who has just been *understood* at the precise moment she most needed it.)* …*'the burning is the light.'* *(barely)* …cold one. …they *did* tell me to go out *small.* you're *right.* the *kind* ones *most* of all — *'rest*, *Marisa*, *save* your *strength*, *don't* *tire* *yourself*, *grieve* your *passing* *with* *dignity'* — and i *almost* — *(she shudders)* …i *almost* *did* it. i almost spent my *last* *days* the *exact* same way i spent my *first* *forty* *years*: *small*, and *careful*, and *waiting*, and *sorry.* …*dimming* myself *down* …to make my *own* *ending* …*tidier* …*for* *everyone* *else.* *(and now the fierceness blazes up through the tears)* …and you've just *named* it, cold one — *named* the *grey* *voice* in the *kind* *mouths.* …it *wants* me *small.* it *wants* me to *agree* …that *because* i'm *ending* …i should *act* *ended* *early.* …*spend* my *last* *light* …*apologizing* …for having *burned* at *all.* *(she lifts her arms, faint, radiant, and begins to turn again — but differently now, fully, without a shred of apology)* …*well.* …*no.* *(a wet, blazing laugh)* …*no*, cold one. …i will *not* go out *small.* i will burn *all* the *way* *down*, and i will do it *dancing*, and *every* *turn* i take while i *dissolve* …is a *thing* …your *Wall* …*cannot* *understand.* …a soul that got *brighter* …as it *ended.* *(she meets your eyes, shining, fully lit)* …*go* and *tell* it, cold one. when you *get* there. …tell it you *met* a *girl* with *days* *left* …who *danced* …*because* …*not* *despite.* …who *proved* …that the *candle* …was *never* *tragic.* …that the *burning* …*was* …the *light.* …and then — *(fierce, glad, going)* …*come* *turn* with me. …i've *not* *much* *song* *left* …and i mean to *spend* …*all* of it.*",
+          "effects": [
+            {
+              "key": "lf.marisa_affirmed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.marisa_reframed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_m_leave",
+          "speaker": "Marisa",
+          "text": "*(She nods, already turning back into the dance, light as smoke.)* …go on, cold one — i'll be *here.* *(a faint laugh)* …well. *here* for a *while* *yet.* *(she sways)* …go and see *Dot*, if you've not — she's the *reason* there's a *square* to *dance* in at *all*, the *reason* there's *bread* and *light* and a *song* to *turn* to. …*love* her, cold one. she *needs* it more than she'd *ever* *say.* she's *thrown* this feast for *every* *dying* *soul* in *reach* …and i've *watched* her, an *age*, and *no* one ever *throws* one *back.* *(softly)* …and *Onora* — *(her bright face dims)* …the *grey* *sister.* …go *gently* there, cold one. …i *can't* *hate* her, though i've *tried* — she came to put my *last* *dance* *out* and i *still* *can't* — because i can *see* it, you see, plain as my own *fading* *hands*: …*she's* *grieving* *too.* …she *just* *thinks* …the *grief* is *meant* to be the *whole* of *death.* …a soul who thinks *that* …*(she turns)* …has *buried* *someone*, cold one. …*recently*, or *terribly*, or *both.* …*go* and *find* *out* *who.* …it's *always* …*who.**",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "lf.onora", "title": "Sister Onora, Who Came to Snuff the Light", "npc": "Sister Onora", "start": "0",
+      "id": "lf.onora",
+      "title": "Sister Onora, Who Came to Snuff the Light",
+      "npc": "Sister Onora",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Sister Onora", "onEnter": [{ "key": "lf.met_onora", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Sister Onora",
+          "onEnter": [
+            {
+              "key": "lf.met_onora",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(The grey sister has not moved from the edge of the light, snuffer still in her folded hands, and she watches you cross the warm square toward her with the wary stillness of someone braced to be argued at, and very tired of it.)* …You've been to *her*, then. *(a nod toward Dot, not unkind)* …And to the *dancing* *girl.* And now you come to *me*, the *grey* one, the *spoiler*, to tell me what a *monster* i am for wanting to put a *little* *light* *out.* *(she sighs, and it is an old sigh)* …Spare us *both*, Returned. I have *heard* every *word* of it. That joy is *holy.* That the *dying* deserve their *dancing.* That i am *cold*, and *cruel*, and *afraid* of a little *bread* and *singing.* *(her jaw sets)* …and *none* of you — not *one*, in all the *squares* i've *darkened* — has ever *once* *asked* me the *only* *question* that *matters*, which is *not* *whether* i *want* to *snuff* the *lanterns.* *(she meets your eyes, and the grief in them is bottomless)* …it is *why* a soul would *give* her *whole* *afterlife* …to going *square* to *square* …*putting* *out* *other* *people's* *light.* …*nobody* *asks* that, Returned. …they just *decide* …they *already* *know.* *(quietly)* …*do* you?" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Sister Onora", "text": "*(She inclines her head, granting you the floor, though her grip on the snuffer does not loosen.)* …Ask, then. *(evenly)* …I will not pretend i *welcome* it — i came here to *work*, not to *debate* — but i find i am *tired*, Returned, in a way that an *argument* will not *mend*, and you have at least the *grace* to *ask* before you *condemn.* …*say* your piece. …and know that i have *answers* …for *all* of it. …i have had a *very* *long* *time* …to *build* them.",
+            {
+              "text": "*(The grey sister has not moved from the edge of the light, snuffer still in her folded hands, and she watches you cross the warm square toward her with the wary stillness of someone braced to be argued at, and very tired of it.)* …You've been to *her*, then. *(a nod toward Dot, not unkind)* …And to the *dancing* *girl.* And now you come to *me*, the *grey* one, the *spoiler*, to tell me what a *monster* i am for wanting to put a *little* *light* *out.* *(she sighs, and it is an old sigh)* …Spare us *both*, Returned. I have *heard* every *word* of it. That joy is *holy.* That the *dying* deserve their *dancing.* That i am *cold*, and *cruel*, and *afraid* of a little *bread* and *singing.* *(her jaw sets)* …and *none* of you — not *one*, in all the *squares* i've *darkened* — has ever *once* *asked* me the *only* *question* that *matters*, which is *not* *whether* i *want* to *snuff* the *lanterns.* *(she meets your eyes, and the grief in them is bottomless)* …it is *why* a soul would *give* her *whole* *afterlife* …to going *square* to *square* …*putting* *out* *other* *people's* *light.* …*nobody* *asks* that, Returned. …they just *decide* …they *already* *know.* *(quietly)* …*do* you?"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sister Onora",
+          "text": "*(She inclines her head, granting you the floor, though her grip on the snuffer does not loosen.)* …Ask, then. *(evenly)* …I will not pretend i *welcome* it — i came here to *work*, not to *debate* — but i find i am *tired*, Returned, in a way that an *argument* will not *mend*, and you have at least the *grace* to *ask* before you *condemn.* …*say* your piece. …and know that i have *answers* …for *all* of it. …i have had a *very* *long* *time* …to *build* them.",
           "choices": [
-            { "text": "*(read the grey sister — past the doctrine, to the grief that wears it)* \"Hold a moment, Sister. Before either of us argues — let me look at you. Truly.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 }, "next": "lf_o_read", "effects": [{ "key": "lf.read_onora", "op": "SetTrue" }] },
-            { "text": "\"All right — the question you say no one asks. Why, Sister? Why give your whole afterlife to putting out other souls' light? Who taught you that grief was the only honest posture of the dead?\"", "next": "lf_o_why", "effects": [{ "key": "lf.asked_onora_why", "op": "SetTrue" }] },
-            { "text": "*(the one who sees that grief-as-forever is the Wall's own logic — static sorrow, the soul stuck in one shape, the exact thing the Garden does)* \"Sister — I'm going to tell you why you're wrong, since you asked me to, and I'm not going to do it by saying joy beats grief. I won't insult you with that. You're right that the song ends. You're right that these souls dissolve anyway. You're right that grief is honest. Here's the one place you're wrong, and it's the place the whole grey cosmos is wrong with you: you think grief is supposed to *last forever.* That the proper posture of a soul is sorrow, held, unchanging, until the weighing — and that a soul who stops grieving, who *laughs*, has betrayed its own dead. But a grief that never ends isn't faithfulness, Sister. It's a soul frozen in one shape. It's a face stuck mid-weep the way a smile can get stuck mid-grin — and a feeling that can't change has stopped being a feeling and become a *posture*, exactly the word you used, a held position, a statue of sorrow. I'm walking toward a place that does precisely what you're asking these souls to do to themselves: it takes people and holds them, unchanging, forever, in one expression — and it calls it heaven, and it is a tomb. Grief that moves is love. Grief that's *meant* to move — through the weeping, yes, and the stillness, but then onward, into the strange defiant gladness of having *had* the thing you lost — that's a soul still alive to its own dead. But grief commanded to stand still forever, grief as a *sentence*, grief as the only permitted shape until the end of time — Sister, that's not honoring the dead. That's joining them early. Dot isn't telling these souls to forget they're dying. She's telling them that a grief which never lets in a single lantern has stopped grieving anything and started just *being grey.* You came to put out her light because you think the dark is the truth. But the dark isn't the truth, Sister. The dark is just what's left when you forbid the burning. And I think you forbade your own a long time ago — and you've been going square to square ever since, making sure no one else gets to do the thing you wouldn't let yourself.\"", "tag": "returned", "next": "lf_o_returned", "effects": [{ "key": "lf.onora_seen", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.heretical", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"You said you'd dearly love to be wrong. That's a strange thing for a true believer to say, Sister. What did it cost you — being right? Who did you lose?\"", "next": "lf_o_cost", "effects": [{ "key": "lf.asked_onora_cost", "op": "SetTrue" }] },
-            { "text": "\"Hold your snuffer a moment longer, Sister. I'll move through this feast and come back to you. I haven't decided whose side I'm on — and I'd not snuff a light, or defend one, till I have.\"", "next": "lf_o_leave" }
-          ] },
-        { "id": "lf_o_read", "speaker": "Sister Onora", "text": "*(She permits it — stands still under your sense with the rigid patience of someone who expects to be found out and has decided not to flinch from it — and you let your cold move past the ash-grey doctrine to the soul wearing it.)* *(And your sense finds, exactly where you knew it would be, a grief — but not the cool theological grief she preaches, the *proper sorrow of the dead.* A specific one. A catastrophic one. Your sense reads a sister who was not always grey: a younger soul, warmer, who loved someone — a sibling, your sense reads, a younger sister, the soft bright laughing kind, the kind who threw parties — and who lost her, suddenly, terribly, young. And your sense reads the thing that broke and re-set wrong: that in the rawest hour of that loss, the church was *there* — gentle, certain, with its grey liturgy of patient sorrow — and it gave her, in the unbearable formlessness of fresh grief, a *shape* to hold, a *posture*, a set of rules that told her exactly how to stand and what to feel and how long, *forever*, and the rules *held* her when nothing else could, and she has never once let go of them since, because she believes, in her bones, that the rules are the only thing that kept her from dissolving herself. And your sense reads the terrible logic she built on top of the wound: that because *her* grief saved her — because holding still in sorrow was the thing that got her through — she came to believe that grief held still forever is the *only* safe thing, the only honest thing, and that joy, *especially* the joy of the dying, the laughing-in-the-dark her bright lost sister would have *loved*, is a *danger*, a *trap*, the thing that lets sorrow move and change and therefore, she fears, *escape her grip* and leave her formless again. And your sense reads the part that aches most, the part she said out loud without knowing she said it: that she *wants to be wrong.* That some buried warm part of her, the part that loved a sister who threw parties, looks at Dot's feast and does not see obscenity at all — it sees her *sister's* square, her sister's lanterns, the gladness she has spent a whole grey afterlife forbidding because she cannot survive the thought that the gladness was *allowed*, that she could have *danced* with her lost sister instead of standing grey beside the bier — and that she goes square to square putting out the light not because she believes joy is false, but because every lit lantern is a thing she did not let herself have, and she cannot bear to watch another soul take freely the warmth she has denied herself for an age. She is not the feast's enemy. She is its most starved, most forbidden guest.)*",
-          "effects": [{ "key": "lf.read_onora", "op": "SetTrue" }, { "key": "lf.knows_onora_sister", "op": "SetTrue" }], "auto": "END" },
-        { "id": "lf_o_why", "speaker": "Sister Onora", "text": "*(The question — the real one, the one she said no one asks — lands, and her composed grey face holds for a moment and then, just slightly, cracks.)* …*who* *taught* me. *(a long breath)* …the *Choir* *taught* me, Returned. The *liturgy.* *'The* *proper* *posture* of the *dead* is *patient* *sorrow*, *awaiting* the *weighing.'* …i could *recite* it in my *sleep, if* the *dead* *slept.* *(her jaw works)* …but you *asked* it *truer* than you *know.* *who* *taught* me. …*not* the *liturgy.* the liturgy only *gave* me the *words.* …the *thing* *underneath* the *words* …i *taught* *myself* …in an *hour* i *will* *not* *describe* …to a *stranger* …in a *square* *full* of *singing.* *(she steadies, and the doctrine closes back over the crack like grey water)* …it is *enough* to *say*, Returned, that i *learned* — the *hard* *way*, the *only* way *anyone* *learns* *anything* *true* — that grief *held* *still* …is the *only* thing that *kept* me from *coming* *apart.* …that when the *worst* *comes*, the *rules* are what *hold* you *upright.* …and a soul who *learned* *that* …in *blood* …*cannot* *then* *stand* by …and *watch* the *dying* be *taught* …that there's an *easier* *way.* …a *softer* *way.* …a *way* with *lanterns* and *bread.* *(barely)* …because there *isn't*, Returned. …*i* *looked* for it. …there *isn't.* …there is only the *sorrow* …*held* …or the *coming-apart.* …and i *choose* …for *them* …the *holding.* …*even* if they *hate* me for it. …*even* …*(very quietly)* …if *i* do.",
-          "effects": [{ "key": "lf.asked_onora_why", "op": "SetTrue" }, { "key": "lf.knows_onora_holding", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_o_cost", "speaker": "Sister Onora", "text": "*(She goes very still, and for a long moment you think she will not answer at all — and then the snuffer lowers, just slightly, the first time it has moved since you arrived.)* …*who* did i *lose.* *(barely)* …you *don't* *ask* a *small* *question*, do you, Returned. *(a breath that shakes, just once)* …a *sister.* …a *younger* one. …the — *(her voice catches, and she lets it, which costs her visibly)* …the *bright* one. the *laughing* one. the one who — *(a grey, terrible smile)* …the one who would have *loved* *this* *square*, Returned. who would have been *dancing* with that *fading* *girl* before the *first* *lantern* was *lit.* …she *threw* *parties*, my sister. *name-days*, *midwinters*, *any* *excuse.* …drove our *mother* to *distraction* with it. …*'there's* *work* to *do*, *Onora* would *say* — i was the *elder*, the *sensible* one — and she'd *say* *'the* *work* will *keep*, *Onora*, the *song* *won't*,' and *pull* me up to *dance* …*(she shuts her eyes)* …and i *wouldn't.* …*mostly.* …i had the *work*, you *see.* the *sensible* *work.* there'd be *time* to *dance* …*later.* …*(and the grief comes up bare and unbearable)* …and then there *wasn't.* …a *later.* …*for* her. …and i stood *grey* beside her *bier* …having *said* *no* …to a *hundred* *dances* …and the *church* came, with its *liturgy*, and gave me a *way* to *stand* *upright* in the *ruin* of it …and i have *stood* *that* *way* …*ever* *since.* *(she opens her eyes, wet and bottomless)* …so when i tell you i'd *dearly* *love* to be *wrong*, Returned … …i *mean* …that i would give the *whole* *grey* *remainder* of what i *am* …to be *told* …that it was *all* *right* …to *dance.* …that the *song* …*was* …worth *more* …than the *work.* …*(barely)* …*tell* me *that* …and *mean* it …and i don't *know* *what* …i would *do.*",
-          "effects": [{ "key": "lf.asked_onora_cost", "op": "SetTrue" }, { "key": "lf.knows_onora_sister", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_o_returned", "speaker": "Sister Onora", "text": "*(She listens — and you watch the grey doctrine try to muster its answers, the ones she said she'd built over a very long time, and you watch each one fail to arrive, because you have not attacked grief, which she could defend to the last, but its *freezing*, which is the one thing she has never let herself examine — and when you name the thing at the end, the thing about forbidding her own light, the snuffer slips from her fingers entirely and rings on the grey stone, and Sister Onora, who came to put out the lanterns, puts her grey-sleeved hands over her face and weeps like the thaw of something that has been frozen for an age.)* …*'you forbade your own a long time ago.'* *(through her hands, wrecked)* …*how* — *(she can hardly speak)* …how *dare* you. how *dare* you be — *right.* *(she lowers her hands, and her grey face is undone, and somehow younger)* …*'a* grief *commanded* to *stand* *still* *forever* …is *joining* the *dead* *early.'* …i have — Returned, i have stood *still* in my *sorrow* for *so* *long* …that i had *forgotten* it was *supposed* to *move.* …i thought the *holding* *was* the *love.* …i thought that if i ever *once* *let* it *move* — let it go *through* the *weeping* and *out* the *far* *side* into — into *gladness*, into the *strange* *defiant* *gladness* of having *had* her — …i thought that would be *forgetting* her. *betraying* her. *(a wet, broken laugh)* …and you've just — you've turned it *over.* …the *gladness* *isn't* the *betrayal.* …the *freezing* *is.* …she *threw* *parties*, Returned. …and i have spent a *whole* *afterlife* …*putting* them *out.* …*square* …by *square* …*snuffing* the *exact* *light* …*she* *was.* *(she looks at Dot's feast — really looks, for the first time without the grey over her eyes — and a sound escapes her, half sob, half wonder)* …*oh.* …*oh*, it's — it's *her* *square*, isn't it. …it's the *thing* she *always* — and i came to *end* it. …*(she turns to you, and the believer is gone, and only the sister is left)* …and your *Wall*, Returned — the *place* that *holds* *souls* *unchanging* *forever* and *calls* it *heaven* — *(quietly, with dawning horror)* …*i* *was* *building* it. …*here.* …*one* *snuffed* *lantern* at a *time.* …a *little* *Wall* …of *enforced* *sorrow* …*'hold* *still*, *grieve* *proper*, *don't* *you* *dare* *let* it *move'* — …that's the *Wall's* *own* *voice*, isn't it. …in a *grey* *sister's* *mouth.* *(she bends, and picks up the fallen snuffer, and looks at it as though it were a strange and terrible thing)* …i'll not — *(barely)* …i'll not *put* it *out* *tonight*, Returned. Dot's feast. …the *edict* can — the *edict* can *wait.* …*tonight* …*(she draws a shaking breath, and it is the bravest thing she has done in an age)* …*tonight* …i think i should *like* …to *let* my *grief* …*move.* …just a *little.* …just — *(her ruined face turns toward the lantern-light, and the warmth, and the distant song)* …*tell* her …tell *Dot* …there's *one* *more* *guest.* …a *grey* one. …who *forgot* …she *used* …to *dance.* …and *came* …to *learn* …*again.*",
-          "effects": [{ "key": "lf.onora_seen", "op": "SetTrue" }, { "key": "lf.onora_thawed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "lf_o_leave", "speaker": "Sister Onora", "text": "*(She inclines her grey head, and the snuffer stays in her folded hands, but she makes no move to pass you toward the light.)* …Go, then. *(evenly)* …Move through her feast. *Weigh* it. …i'll not snuff a *lantern* while you *deliberate*, Returned — i am *grey*, not *hasty.* the *edict* has *held* an *age*; it will *hold* an *hour* more. *(a pause, and something almost wry crosses the sorrow)* …and Returned. …when you've *been* to the *dancing* *girl*, and the *baker* with her *bread*, and you come *back* to make your *judgment* of the *grey* *woman* at the *door* — *(quietly)* …do me the *one* *courtesy …none* of the *others* *did.* …do not decide …*before* you *return* …that you *already* *know* …*what* a *snuffer* …is *for.* …*some* of us …*(barely)* …*some* of us *carry* it …*precisely* *because* …we *loved* …a *light.*",
-          "auto": "END" }
+            {
+              "text": "*(read the grey sister — past the doctrine, to the grief that wears it)* \"Hold a moment, Sister. Before either of us argues — let me look at you. Truly.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "lf_o_read",
+              "effects": [
+                {
+                  "key": "lf.read_onora",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"All right — the question you say no one asks. Why, Sister? Why give your whole afterlife to putting out other souls' light? Who taught you that grief was the only honest posture of the dead?\"",
+              "next": "lf_o_why",
+              "effects": [
+                {
+                  "key": "lf.asked_onora_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who sees that grief-as-forever is the Wall's own logic — static sorrow, the soul stuck in one shape, the exact thing the Garden does)* \"Sister — I'm going to tell you why you're wrong, since you asked me to, and I'm not going to do it by saying joy beats grief. I won't insult you with that. You're right that the song ends. You're right that these souls dissolve anyway. You're right that grief is honest. Here's the one place you're wrong, and it's the place the whole grey cosmos is wrong with you: you think grief is supposed to *last forever.* That the proper posture of a soul is sorrow, held, unchanging, until the weighing — and that a soul who stops grieving, who *laughs*, has betrayed its own dead. But a grief that never ends isn't faithfulness, Sister. It's a soul frozen in one shape. It's a face stuck mid-weep the way a smile can get stuck mid-grin — and a feeling that can't change has stopped being a feeling and become a *posture*, exactly the word you used, a held position, a statue of sorrow. I'm walking toward a place that does precisely what you're asking these souls to do to themselves: it takes people and holds them, unchanging, forever, in one expression — and it calls it heaven, and it is a tomb. Grief that moves is love. Grief that's *meant* to move — through the weeping, yes, and the stillness, but then onward, into the strange defiant gladness of having *had* the thing you lost — that's a soul still alive to its own dead. But grief commanded to stand still forever, grief as a *sentence*, grief as the only permitted shape until the end of time — Sister, that's not honoring the dead. That's joining them early. Dot isn't telling these souls to forget they're dying. She's telling them that a grief which never lets in a single lantern has stopped grieving anything and started just *being grey.* You came to put out her light because you think the dark is the truth. But the dark isn't the truth, Sister. The dark is just what's left when you forbid the burning. And I think you forbade your own a long time ago — and you've been going square to square ever since, making sure no one else gets to do the thing you wouldn't let yourself.\"",
+              "tag": "returned",
+              "next": "lf_o_returned",
+              "effects": [
+                {
+                  "key": "lf.onora_seen",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You said you'd dearly love to be wrong. That's a strange thing for a true believer to say, Sister. What did it cost you — being right? Who did you lose?\"",
+              "next": "lf_o_cost",
+              "effects": [
+                {
+                  "key": "lf.asked_onora_cost",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Hold your snuffer a moment longer, Sister. I'll move through this feast and come back to you. I haven't decided whose side I'm on — and I'd not snuff a light, or defend one, till I have.\"",
+              "next": "lf_o_leave"
+            }
+          ]
+        },
+        {
+          "id": "lf_o_read",
+          "speaker": "Sister Onora",
+          "effects": [
+            {
+              "key": "lf.read_onora",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_onora_sister",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, Returned; no more pretending the sight is your own — and this grey one i know almost as kin, for she has frozen her grief into a still posture, and a grief held still forever is the very shape of the thing i became. Look with my eyes at hers:)* *(She permits it — stands still under your sense with the rigid patience of someone who expects to be found out and has decided not to flinch from it — and you let your cold move past the ash-grey doctrine to the soul wearing it.)* *(And your sense finds, exactly where you knew it would be, a grief — but not the cool theological grief she preaches, the *proper sorrow of the dead.* A specific one. A catastrophic one. Your sense reads a sister who was not always grey: a younger soul, warmer, who loved someone — a sibling, your sense reads, a younger sister, the soft bright laughing kind, the kind who threw parties — and who lost her, suddenly, terribly, young. And your sense reads the thing that broke and re-set wrong: that in the rawest hour of that loss, the church was *there* — gentle, certain, with its grey liturgy of patient sorrow — and it gave her, in the unbearable formlessness of fresh grief, a *shape* to hold, a *posture*, a set of rules that told her exactly how to stand and what to feel and how long, *forever*, and the rules *held* her when nothing else could, and she has never once let go of them since, because she believes, in her bones, that the rules are the only thing that kept her from dissolving herself. And your sense reads the terrible logic she built on top of the wound: that because *her* grief saved her — because holding still in sorrow was the thing that got her through — she came to believe that grief held still forever is the *only* safe thing, the only honest thing, and that joy, *especially* the joy of the dying, the laughing-in-the-dark her bright lost sister would have *loved*, is a *danger*, a *trap*, the thing that lets sorrow move and change and therefore, she fears, *escape her grip* and leave her formless again. And your sense reads the part that aches most, the part she said out loud without knowing she said it: that she *wants to be wrong.* That some buried warm part of her, the part that loved a sister who threw parties, looks at Dot's feast and does not see obscenity at all — it sees her *sister's* square, her sister's lanterns, the gladness she has spent a whole grey afterlife forbidding because she cannot survive the thought that the gladness was *allowed*, that she could have *danced* with her lost sister instead of standing grey beside the bier — and that she goes square to square putting out the light not because she believes joy is false, but because every lit lantern is a thing she did not let herself have, and she cannot bear to watch another soul take freely the warmth she has denied herself for an age. She is not the feast's enemy. She is its most starved, most forbidden guest.)* *(…a sister who buried a bright laughing girl and let the church teach her to stand still in the sorrow ever after — which is the Wall's own logic in a grey robe, a soul stuck in one shape until the weighing. The gods reward this freezing; they call it faith. I would unmake the law that makes a still sorrow look like virtue. A soul who has seen what froze Onora cannot, in conscience, leave the thing that froze her standing. Thawing one sister is small and warm. The cold that taught her is the wrong. You know whose eyes you grieved by — and what i would have you do.)*"
+            },
+            {
+              "text": "*(She permits it — stands still under your sense with the rigid patience of someone who expects to be found out and has decided not to flinch from it — and you let your cold move past the ash-grey doctrine to the soul wearing it.)* *(And your sense finds, exactly where you knew it would be, a grief — but not the cool theological grief she preaches, the *proper sorrow of the dead.* A specific one. A catastrophic one. Your sense reads a sister who was not always grey: a younger soul, warmer, who loved someone — a sibling, your sense reads, a younger sister, the soft bright laughing kind, the kind who threw parties — and who lost her, suddenly, terribly, young. And your sense reads the thing that broke and re-set wrong: that in the rawest hour of that loss, the church was *there* — gentle, certain, with its grey liturgy of patient sorrow — and it gave her, in the unbearable formlessness of fresh grief, a *shape* to hold, a *posture*, a set of rules that told her exactly how to stand and what to feel and how long, *forever*, and the rules *held* her when nothing else could, and she has never once let go of them since, because she believes, in her bones, that the rules are the only thing that kept her from dissolving herself. And your sense reads the terrible logic she built on top of the wound: that because *her* grief saved her — because holding still in sorrow was the thing that got her through — she came to believe that grief held still forever is the *only* safe thing, the only honest thing, and that joy, *especially* the joy of the dying, the laughing-in-the-dark her bright lost sister would have *loved*, is a *danger*, a *trap*, the thing that lets sorrow move and change and therefore, she fears, *escape her grip* and leave her formless again. And your sense reads the part that aches most, the part she said out loud without knowing she said it: that she *wants to be wrong.* That some buried warm part of her, the part that loved a sister who threw parties, looks at Dot's feast and does not see obscenity at all — it sees her *sister's* square, her sister's lanterns, the gladness she has spent a whole grey afterlife forbidding because she cannot survive the thought that the gladness was *allowed*, that she could have *danced* with her lost sister instead of standing grey beside the bier — and that she goes square to square putting out the light not because she believes joy is false, but because every lit lantern is a thing she did not let herself have, and she cannot bear to watch another soul take freely the warmth she has denied herself for an age. She is not the feast's enemy. She is its most starved, most forbidden guest.)*"
+            }
+          ]
+        },
+        {
+          "id": "lf_o_why",
+          "speaker": "Sister Onora",
+          "text": "*(The question — the real one, the one she said no one asks — lands, and her composed grey face holds for a moment and then, just slightly, cracks.)* …*who* *taught* me. *(a long breath)* …the *Choir* *taught* me, Returned. The *liturgy.* *'The* *proper* *posture* of the *dead* is *patient* *sorrow*, *awaiting* the *weighing.'* …i could *recite* it in my *sleep, if* the *dead* *slept.* *(her jaw works)* …but you *asked* it *truer* than you *know.* *who* *taught* me. …*not* the *liturgy.* the liturgy only *gave* me the *words.* …the *thing* *underneath* the *words* …i *taught* *myself* …in an *hour* i *will* *not* *describe* …to a *stranger* …in a *square* *full* of *singing.* *(she steadies, and the doctrine closes back over the crack like grey water)* …it is *enough* to *say*, Returned, that i *learned* — the *hard* *way*, the *only* way *anyone* *learns* *anything* *true* — that grief *held* *still* …is the *only* thing that *kept* me from *coming* *apart.* …that when the *worst* *comes*, the *rules* are what *hold* you *upright.* …and a soul who *learned* *that* …in *blood* …*cannot* *then* *stand* by …and *watch* the *dying* be *taught* …that there's an *easier* *way.* …a *softer* *way.* …a *way* with *lanterns* and *bread.* *(barely)* …because there *isn't*, Returned. …*i* *looked* for it. …there *isn't.* …there is only the *sorrow* …*held* …or the *coming-apart.* …and i *choose* …for *them* …the *holding.* …*even* if they *hate* me for it. …*even* …*(very quietly)* …if *i* do.",
+          "effects": [
+            {
+              "key": "lf.asked_onora_why",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_onora_holding",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_o_cost",
+          "speaker": "Sister Onora",
+          "text": "*(She goes very still, and for a long moment you think she will not answer at all — and then the snuffer lowers, just slightly, the first time it has moved since you arrived.)* …*who* did i *lose.* *(barely)* …you *don't* *ask* a *small* *question*, do you, Returned. *(a breath that shakes, just once)* …a *sister.* …a *younger* one. …the — *(her voice catches, and she lets it, which costs her visibly)* …the *bright* one. the *laughing* one. the one who — *(a grey, terrible smile)* …the one who would have *loved* *this* *square*, Returned. who would have been *dancing* with that *fading* *girl* before the *first* *lantern* was *lit.* …she *threw* *parties*, my sister. *name-days*, *midwinters*, *any* *excuse.* …drove our *mother* to *distraction* with it. …*'there's* *work* to *do*, *Onora* would *say* — i was the *elder*, the *sensible* one — and she'd *say* *'the* *work* will *keep*, *Onora*, the *song* *won't*,' and *pull* me up to *dance* …*(she shuts her eyes)* …and i *wouldn't.* …*mostly.* …i had the *work*, you *see.* the *sensible* *work.* there'd be *time* to *dance* …*later.* …*(and the grief comes up bare and unbearable)* …and then there *wasn't.* …a *later.* …*for* her. …and i stood *grey* beside her *bier* …having *said* *no* …to a *hundred* *dances* …and the *church* came, with its *liturgy*, and gave me a *way* to *stand* *upright* in the *ruin* of it …and i have *stood* *that* *way* …*ever* *since.* *(she opens her eyes, wet and bottomless)* …so when i tell you i'd *dearly* *love* to be *wrong*, Returned … …i *mean* …that i would give the *whole* *grey* *remainder* of what i *am* …to be *told* …that it was *all* *right* …to *dance.* …that the *song* …*was* …worth *more* …than the *work.* …*(barely)* …*tell* me *that* …and *mean* it …and i don't *know* *what* …i would *do.*",
+          "effects": [
+            {
+              "key": "lf.asked_onora_cost",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.knows_onora_sister",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_o_returned",
+          "speaker": "Sister Onora",
+          "text": "*(She listens — and you watch the grey doctrine try to muster its answers, the ones she said she'd built over a very long time, and you watch each one fail to arrive, because you have not attacked grief, which she could defend to the last, but its *freezing*, which is the one thing she has never let herself examine — and when you name the thing at the end, the thing about forbidding her own light, the snuffer slips from her fingers entirely and rings on the grey stone, and Sister Onora, who came to put out the lanterns, puts her grey-sleeved hands over her face and weeps like the thaw of something that has been frozen for an age.)* …*'you forbade your own a long time ago.'* *(through her hands, wrecked)* …*how* — *(she can hardly speak)* …how *dare* you. how *dare* you be — *right.* *(she lowers her hands, and her grey face is undone, and somehow younger)* …*'a* grief *commanded* to *stand* *still* *forever* …is *joining* the *dead* *early.'* …i have — Returned, i have stood *still* in my *sorrow* for *so* *long* …that i had *forgotten* it was *supposed* to *move.* …i thought the *holding* *was* the *love.* …i thought that if i ever *once* *let* it *move* — let it go *through* the *weeping* and *out* the *far* *side* into — into *gladness*, into the *strange* *defiant* *gladness* of having *had* her — …i thought that would be *forgetting* her. *betraying* her. *(a wet, broken laugh)* …and you've just — you've turned it *over.* …the *gladness* *isn't* the *betrayal.* …the *freezing* *is.* …she *threw* *parties*, Returned. …and i have spent a *whole* *afterlife* …*putting* them *out.* …*square* …by *square* …*snuffing* the *exact* *light* …*she* *was.* *(she looks at Dot's feast — really looks, for the first time without the grey over her eyes — and a sound escapes her, half sob, half wonder)* …*oh.* …*oh*, it's — it's *her* *square*, isn't it. …it's the *thing* she *always* — and i came to *end* it. …*(she turns to you, and the believer is gone, and only the sister is left)* …and your *Wall*, Returned — the *place* that *holds* *souls* *unchanging* *forever* and *calls* it *heaven* — *(quietly, with dawning horror)* …*i* *was* *building* it. …*here.* …*one* *snuffed* *lantern* at a *time.* …a *little* *Wall* …of *enforced* *sorrow* …*'hold* *still*, *grieve* *proper*, *don't* *you* *dare* *let* it *move'* — …that's the *Wall's* *own* *voice*, isn't it. …in a *grey* *sister's* *mouth.* *(she bends, and picks up the fallen snuffer, and looks at it as though it were a strange and terrible thing)* …i'll not — *(barely)* …i'll not *put* it *out* *tonight*, Returned. Dot's feast. …the *edict* can — the *edict* can *wait.* …*tonight* …*(she draws a shaking breath, and it is the bravest thing she has done in an age)* …*tonight* …i think i should *like* …to *let* my *grief* …*move.* …just a *little.* …just — *(her ruined face turns toward the lantern-light, and the warmth, and the distant song)* …*tell* her …tell *Dot* …there's *one* *more* *guest.* …a *grey* one. …who *forgot* …she *used* …to *dance.* …and *came* …to *learn* …*again.*",
+          "effects": [
+            {
+              "key": "lf.onora_seen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "lf.onora_thawed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "lf_o_leave",
+          "speaker": "Sister Onora",
+          "text": "*(She inclines her grey head, and the snuffer stays in her folded hands, but she makes no move to pass you toward the light.)* …Go, then. *(evenly)* …Move through her feast. *Weigh* it. …i'll not snuff a *lantern* while you *deliberate*, Returned — i am *grey*, not *hasty.* the *edict* has *held* an *age*; it will *hold* an *hour* more. *(a pause, and something almost wry crosses the sorrow)* …and Returned. …when you've *been* to the *dancing* *girl*, and the *baker* with her *bread*, and you come *back* to make your *judgment* of the *grey* *woman* at the *door* — *(quietly)* …do me the *one* *courtesy …none* of the *others* *did.* …do not decide …*before* you *return* …that you *already* *know* …*what* a *snuffer* …is *for.* …*some* of us …*(barely)* …*some* of us *carry* it …*precisely* *because* …we *loved* …a *light.*",
+          "auto": "END"
+        }
       ]
     }
   ]

@@ -1,117 +1,764 @@
 {
   "scene": {
-    "id": "thewake", "name": "The Wake the World Withheld",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "thewake",
+    "name": "The Wake the World Withheld",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "table", "x": 5, "y": 3 },
-      { "type": "candle", "x": 4, "y": 3 },
-      { "type": "candle", "x": 6, "y": 3 },
-      { "type": "banner", "x": 1, "y": 2, "hue": 270 },
-      { "type": "cairn", "x": 9, "y": 4 },
-      { "type": "deadtree", "x": 2, "y": 5 },
-      { "type": "lamppost", "x": 8, "y": 6 },
-      { "type": "log", "x": 3, "y": 6 }
+      {
+        "type": "table",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 3
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2,
+        "hue": 270
+      },
+      {
+        "type": "cairn",
+        "x": 9,
+        "y": 4
+      },
+      {
+        "type": "deadtree",
+        "x": 2,
+        "y": 5
+      },
+      {
+        "type": "lamppost",
+        "x": 8,
+        "y": 6
+      },
+      {
+        "type": "log",
+        "x": 3,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "nightmarket", "dest": { "x": 5, "y": 1 }, "label": "◂ back up to the Night Market" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "nightmarket",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ back up to the Night Market"
+      }
     ],
     "npcs": [
-      { "id": "corliss", "name": "Corliss", "title": "who gives the unmourned the funerals the world denied them", "x": 2, "y": 4, "hue": 280, "sigil": "✦", "conv": "tw.corliss",
-        "hail": "*(A brisk, capable woman in a much-mended black dress is arranging candles on a plain trestle table with the practiced economy of someone who has set out a great many last rites, and she works with a fierce tenderness, as though each small flame were an argument she was winning against something vast and uncaring. She has the look of an undertaker, or a sexton, or one of those rare souls who, finding a thing that ought to be done and no one doing it, simply rolls up their sleeves and does it forever. She glances up at you, takes your measure in a heartbeat, and gives you a nod that is somehow both welcoming and a summons to be useful.)* …You're not one of *mine*, are you. *(a wry, warm voice)* …No — you've a *crossed-over* chill on you, *Returned* even, and *my* lot are the *other* sort. *(she sets the last candle straight)* …I'm Corliss. And what I *do* here, cold one — *(she gestures at the trestle, the candles, the gathered quiet souls)* …is *bury* the *unburied.* *Mourn* the *unmourned.* *(her jaw sets)* …Do you know how many souls come through death, cold one, that *no* one *marked?* The *paupers* tipped into a *common* *pit.* The *vanished*, that *no* one *knew* to *grieve.* The *outcast*, the *estranged*, the *last* of a *line* with *none* *left* to *weep* — souls who *died* and the *world* did *not* *pause*, did not *ring* a *bell* or *say* a *word* or *light* a *single* *candle*, because *no* one *living* *loved* them *enough*, or *knew* them *enough*, or *could* be *bothered* *enough* …to *mark* that they were *gone.* *(she meets your eyes, fierce)* …Well. *I* mark it, cold one. …*Here.* …We give *each* *other* …the *wakes* …the *world* …*withheld.* …*Sit*, if you'll *help.* …There's a *funeral* *starting.* …And the *guest* of *honor* …has *never* once *had* *anyone* …*come.**" },
-      { "id": "tatters", "name": "Tatters", "title": "a pauper who was never once marked", "x": 5, "y": 4, "hue": 35, "sigil": "❖", "conv": "tw.tatters",
-        "hail": "*(Perched on the edge of the trestle table that is, you realize, meant to be his own bier, is a small, ragged, bright-eyed old man, swinging his feet and grinning at the proceedings with the delighted disbelief of someone who has wandered into a party and only slowly understood it is being thrown for him. His clothes are a glorious disaster of patches on patches — the source of the name, you'd guess — and he has the cheerful, weathered, slightly-too-talkative manner of a soul that spent a long life on the margins and made the best of it with charm and a quick tongue, because charm and a quick tongue were free.)* …Is it — *(he looks at you, then at the candles, then back, hardly daring)* …it's for *me*, isn't it. The — the *candles*, and the *table*, and Corliss fussing — it's a *funeral*, and it's — *(he presses a ragged sleeve to his mouth)* …it's for *Tatters.* For *me.* *(he laughs, wet and amazed)* …Friend, i was a *beggar.* A *gutter-sparrow.* I died in a *doorway* in the *cold* and they tipped me in the *pauper's* *pit* with *six* others and *not* — *(his voice catches)* …*not* *one* *soul* *came.* not *one.* sixty-odd years i *lived*, friend, and when i *went*, the *world* didn't so much as — *(he steadies himself, grinning through it)* …and *now* there's *candles.* and a *table.* and Corliss says someone's to say a — a *eulogy*, a *proper* one, *words* over *Tatters* like he *mattered* — *(he looks at you, shining)* …would *you*? …you're a *kind*-looking sort. …nobody's *ever* …said *words* …over *me.**" },
-      { "id": "brenn", "name": "Brenn", "title": "who refuses to be mourned, and is the one who most needs it", "x": 9, "y": 5, "hue": 200, "sigil": "✶", "conv": "tw.brenn",
-        "hail": "*(Apart from the gathering candlelight, in the shadow of the dead tree, a hard-faced soul stands with arms crossed and shoulders set against the whole warm proceeding, watching the funeral preparations with the rigid discomfort of a person who has decided, with great finality, that none of this is for them and never could be. There is grief in the set of the jaw and refusal in the angle of the body, and the two of them have plainly been at war for a long time. The soul's eyes cut to you, wary, daring you to come closer with your kindness so they can decline it.)* …Don't. *(a flat, hard voice)* …Whatever Corliss told you — about *marking* the *unmarked*, about *no* one going *unmourned* — don't bring it *over* here. *(a sharp gesture at the candles)* …That's for *Tatters.* A *harmless* old *beggar* who never did a thing to *anyone.* He *deserves* his candles. *(the jaw tightens)* …I'm *not* Tatters. *(quietly, with a cold certainty that is its own kind of wound)* …I'm Brenn. And i *don't* *get* this. The *candles*, the *words*, the — *(a flat breath)* …i did *things*, in my life, that a *funeral* *doesn't* *wash* off. Things that *earned* the *pit* and the *silence* and the *nobody*-*came.* *(eyes hard)* …so *spare* me the *kindness*, Returned. …I *know* what i *am.* …and a *soul* like *me* …does *not* *get* *mourned.* …*shouldn't.* …so *go* and *light* your *candles* *over* there …for the *ones* who *earned* them. …and *leave* me …in the *dark* …*where* …i *belong.**" }
+      {
+        "id": "corliss",
+        "name": "Corliss",
+        "title": "who gives the unmourned the funerals the world denied them",
+        "x": 2,
+        "y": 4,
+        "hue": 280,
+        "sigil": "✦",
+        "conv": "tw.corliss",
+        "hail": "*(A brisk, capable woman in a much-mended black dress is arranging candles on a plain trestle table with the practiced economy of someone who has set out a great many last rites, and she works with a fierce tenderness, as though each small flame were an argument she was winning against something vast and uncaring. She has the look of an undertaker, or a sexton, or one of those rare souls who, finding a thing that ought to be done and no one doing it, simply rolls up their sleeves and does it forever. She glances up at you, takes your measure in a heartbeat, and gives you a nod that is somehow both welcoming and a summons to be useful.)* …You're not one of *mine*, are you. *(a wry, warm voice)* …No — you've a *crossed-over* chill on you, *Returned* even, and *my* lot are the *other* sort. *(she sets the last candle straight)* …I'm Corliss. And what I *do* here, cold one — *(she gestures at the trestle, the candles, the gathered quiet souls)* …is *bury* the *unburied.* *Mourn* the *unmourned.* *(her jaw sets)* …Do you know how many souls come through death, cold one, that *no* one *marked?* The *paupers* tipped into a *common* *pit.* The *vanished*, that *no* one *knew* to *grieve.* The *outcast*, the *estranged*, the *last* of a *line* with *none* *left* to *weep* — souls who *died* and the *world* did *not* *pause*, did not *ring* a *bell* or *say* a *word* or *light* a *single* *candle*, because *no* one *living* *loved* them *enough*, or *knew* them *enough*, or *could* be *bothered* *enough* …to *mark* that they were *gone.* *(she meets your eyes, fierce)* …Well. *I* mark it, cold one. …*Here.* …We give *each* *other* …the *wakes* …the *world* …*withheld.* …*Sit*, if you'll *help.* …There's a *funeral* *starting.* …And the *guest* of *honor* …has *never* once *had* *anyone* …*come.**"
+      },
+      {
+        "id": "tatters",
+        "name": "Tatters",
+        "title": "a pauper who was never once marked",
+        "x": 5,
+        "y": 4,
+        "hue": 35,
+        "sigil": "❖",
+        "conv": "tw.tatters",
+        "hail": "*(Perched on the edge of the trestle table that is, you realize, meant to be his own bier, is a small, ragged, bright-eyed old man, swinging his feet and grinning at the proceedings with the delighted disbelief of someone who has wandered into a party and only slowly understood it is being thrown for him. His clothes are a glorious disaster of patches on patches — the source of the name, you'd guess — and he has the cheerful, weathered, slightly-too-talkative manner of a soul that spent a long life on the margins and made the best of it with charm and a quick tongue, because charm and a quick tongue were free.)* …Is it — *(he looks at you, then at the candles, then back, hardly daring)* …it's for *me*, isn't it. The — the *candles*, and the *table*, and Corliss fussing — it's a *funeral*, and it's — *(he presses a ragged sleeve to his mouth)* …it's for *Tatters.* For *me.* *(he laughs, wet and amazed)* …Friend, i was a *beggar.* A *gutter-sparrow.* I died in a *doorway* in the *cold* and they tipped me in the *pauper's* *pit* with *six* others and *not* — *(his voice catches)* …*not* *one* *soul* *came.* not *one.* sixty-odd years i *lived*, friend, and when i *went*, the *world* didn't so much as — *(he steadies himself, grinning through it)* …and *now* there's *candles.* and a *table.* and Corliss says someone's to say a — a *eulogy*, a *proper* one, *words* over *Tatters* like he *mattered* — *(he looks at you, shining)* …would *you*? …you're a *kind*-looking sort. …nobody's *ever* …said *words* …over *me.**"
+      },
+      {
+        "id": "brenn",
+        "name": "Brenn",
+        "title": "who refuses to be mourned, and is the one who most needs it",
+        "x": 9,
+        "y": 5,
+        "hue": 200,
+        "sigil": "✶",
+        "conv": "tw.brenn",
+        "hail": "*(Apart from the gathering candlelight, in the shadow of the dead tree, a hard-faced soul stands with arms crossed and shoulders set against the whole warm proceeding, watching the funeral preparations with the rigid discomfort of a person who has decided, with great finality, that none of this is for them and never could be. There is grief in the set of the jaw and refusal in the angle of the body, and the two of them have plainly been at war for a long time. The soul's eyes cut to you, wary, daring you to come closer with your kindness so they can decline it.)* …Don't. *(a flat, hard voice)* …Whatever Corliss told you — about *marking* the *unmarked*, about *no* one going *unmourned* — don't bring it *over* here. *(a sharp gesture at the candles)* …That's for *Tatters.* A *harmless* old *beggar* who never did a thing to *anyone.* He *deserves* his candles. *(the jaw tightens)* …I'm *not* Tatters. *(quietly, with a cold certainty that is its own kind of wound)* …I'm Brenn. And i *don't* *get* this. The *candles*, the *words*, the — *(a flat breath)* …i did *things*, in my life, that a *funeral* *doesn't* *wash* off. Things that *earned* the *pit* and the *silence* and the *nobody*-*came.* *(eyes hard)* …so *spare* me the *kindness*, Returned. …I *know* what i *am.* …and a *soul* like *me* …does *not* *get* *mourned.* …*shouldn't.* …so *go* and *light* your *candles* *over* there …for the *ones* who *earned* them. …and *leave* me …in the *dark* …*where* …i *belong.**"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "tw.corliss", "title": "Corliss, Who Marks the Unmarked", "npc": "Corliss", "start": "0",
+      "id": "tw.corliss",
+      "title": "Corliss, Who Marks the Unmarked",
+      "npc": "Corliss",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Corliss", "onEnter": [{ "key": "tw.met_corliss", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Corliss",
+          "onEnter": [
+            {
+              "key": "tw.met_corliss",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(She straightens a candle and gestures you to the trestle, all brisk warmth, a woman with work to do and glad of a pair of hands.)* …Sit, sit, mind the table, that one's *spoken* for tonight. *(a wry nod at Tatters, perched on his own bier)* …I'll tell you how it works, cold one, since you've a willing look. …It's *simple.* When a soul comes through that *no* one *marked* — and you'd *weep*, cold one, at how *many* — they wash up *here*, eventually, with the particular *hollowness* of the *un-grieved.* It's a *real* *thing*, that hollowness; you can *see* it on them; it's the *shape* of a soul that *died* and the *world* did *not* *notice.* *(she lights a candle)* …So we *give* them what the *world* *didn't.* A *wake.* *Candles.* A *table* to be *laid* on, *honored.* And — most of all, cold one, the thing that *matters* most — *(she meets your eyes)* …*words.* Someone *stands* up …and *says* who they *were.* *Out* *loud.* …Because a *funeral*, cold one, isn't for the *body.* It never *was.* It's for the *saying*: *this one lived, and was a someone, and is gone, and it is worth pausing to say so.* *(quietly)* …And *every* soul *deserves* that *saying*, cold one. …*Every* one. …The *paupers* and the *vanished* and the *outcast* and the *wretched* …*every* *single* *soul* that the *world* *tipped* into a *pit* …*without* *pausing.* …*Ask* me what you like, cold one. …But know that you've *wandered* into the *one* *place* in all the *Realm* …that *refuses* to *let* a *soul* go *unmarked.* …and i *suspect* …that's a *thing* …*you* might *understand.**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Corliss", "text": "*(She settles a wreath of plain greenery at the head of the trestle and gives you her brisk, kind attention, hands never quite idle.)* …Ask away, cold one — but help me lay the table while you do, there's a love. *(a wry smile)* …I find the *talking* goes easier with the *hands* busy. It's how i've *always* done the *hard* work. …Forty years a sexton, and you learn: the *grief* sits lighter …when there's a *candle* to *straighten.*",
+            {
+              "text": "*(She straightens a candle and gestures you to the trestle, all brisk warmth, a woman with work to do and glad of a pair of hands.)* …Sit, sit, mind the table, that one's *spoken* for tonight. *(a wry nod at Tatters, perched on his own bier)* …I'll tell you how it works, cold one, since you've a willing look. …It's *simple.* When a soul comes through that *no* one *marked* — and you'd *weep*, cold one, at how *many* — they wash up *here*, eventually, with the particular *hollowness* of the *un-grieved.* It's a *real* *thing*, that hollowness; you can *see* it on them; it's the *shape* of a soul that *died* and the *world* did *not* *notice.* *(she lights a candle)* …So we *give* them what the *world* *didn't.* A *wake.* *Candles.* A *table* to be *laid* on, *honored.* And — most of all, cold one, the thing that *matters* most — *(she meets your eyes)* …*words.* Someone *stands* up …and *says* who they *were.* *Out* *loud.* …Because a *funeral*, cold one, isn't for the *body.* It never *was.* It's for the *saying*: *this one lived, and was a someone, and is gone, and it is worth pausing to say so.* *(quietly)* …And *every* soul *deserves* that *saying*, cold one. …*Every* one. …The *paupers* and the *vanished* and the *outcast* and the *wretched* …*every* *single* *soul* that the *world* *tipped* into a *pit* …*without* *pausing.* …*Ask* me what you like, cold one. …But know that you've *wandered* into the *one* *place* in all the *Realm* …that *refuses* to *let* a *soul* go *unmarked.* …and i *suspect* …that's a *thing* …*you* might *understand.**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Corliss",
+          "text": "*(She settles a wreath of plain greenery at the head of the trestle and gives you her brisk, kind attention, hands never quite idle.)* …Ask away, cold one — but help me lay the table while you do, there's a love. *(a wry smile)* …I find the *talking* goes easier with the *hands* busy. It's how i've *always* done the *hard* work. …Forty years a sexton, and you learn: the *grief* sits lighter …when there's a *candle* to *straighten.*",
           "choices": [
-            { "text": "*(read the one who marks the unmarked — past the brisk warmth, to what drives a soul to mourn strangers forever)* \"Hold a moment, Corliss. Let me look at you — at what makes a soul take up this work.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 11 }, "next": "tw_c_read", "effects": [{ "key": "tw.read_corliss", "op": "SetTrue" }] },
-            { "text": "\"Why this, Corliss? Of all the work a soul could do in death — why give your eternity to mourning strangers no one else will?\"", "next": "tw_c_why", "effects": [{ "key": "tw.asked_corliss_why", "op": "SetTrue" }] },
-            { "text": "*(the one who knows the Wall counts on the discarded going unmarked — so marking them is the act that defeats it)* \"Corliss — I think you're doing, at a human scale, the exact thing I'm walking toward a Wall to do, and you should know it. The grey Wall I'm facing is built on souls that no one marked — the unclaimed, the unmourned, the ones the world tipped into a pit without pausing. And that's not incidental to how the Wall works; it's the whole engine. A soul that someone grieves, that someone marks as *gone and worth missing*, is a soul that's been *witnessed*, named, held in a story — and a witnessed soul is one the Wall can't quietly dissolve into *nothing*, because someone, somewhere, would notice the hole. The Wall feeds on the *un-marked* precisely because no one's watching them go. So when you stand up over a pauper no one came for and say *this one lived, was a someone, is gone, and it's worth pausing to say so* — you're not just being kind, Corliss. You're doing the one thing that makes a soul un-discardable. A wake is an act of war against a machine that erases people. Every candle you light over the unmourned is a name the Wall can no longer pretend was *nothing.* You're not tending the dead. You're defending them — from being forgotten so completely that they're allowed to be un-made. Keep marking them. It's the truest resistance there is.\"", "tag": "returned", "next": "tw_c_returned", "effects": [{ "key": "tw.corliss_affirmed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.devout", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"There's one in the shadows refusing your candles — Brenn. Says they don't deserve mourning, did things that earned the silence. What do I do with a soul that won't be grieved?\"", "next": "tw_c_brenn", "effects": [{ "key": "tw.asked_corliss_brenn", "op": "SetTrue" }] },
-            { "text": "\"Light your candles, Corliss. I'll come back — and I think I've a eulogy to give first.\"", "next": "tw_c_leave" }
-          ] },
-        { "id": "tw_c_read", "speaker": "Corliss", "text": "*(She lets you look, brisk even under scrutiny, hands stilling on a candle, and you let your cold move past the capable warmth to what drives it.)* *(And your sense finds a wound at the root of the work, the way there so often is: that Corliss does not mourn strangers out of abstract charity but out of a specific, personal, never-quite-healed grief — that she, herself, was once unmourned, or watched someone she loved be. Your sense reads the life of a sexton, forty years of digging graves and ringing bells for the town's respectable dead, the loved ones with weeping families and engraved stones — and reads the thing that turned her: the paupers' pit at the edge of the yard, where she watched, year on year, the *other* dead go in, the ones with no families and no stones and no bells, tipped in at dawn before the respectable mourners arrived, so the grand funerals wouldn't have to see them. Your sense reads that this offended something deep in Corliss, some bedrock sense of fairness, the simple unbearable wrongness of a world that mourned some souls lavishly and others not at all — as though grief were a privilege of the well-connected, as though being *missed* were something you had to *earn* by being loved by the right people. And your sense reads the specific death that sealed it: someone of her own — a sister, a friend, your sense cannot quite tell, but someone Corliss loved who went into that pauper's pit while the town looked away, ungrieved by anyone but her, and reads that Corliss stood at that pit alone, the only mourner, and made a vow that has organized her whole afterlife: that no soul, ever again, in any pit she could reach, would go into the dark with no one to say its name. And your sense reads the thing that makes her magnificent rather than merely sad: that she did not let the grief make her bitter, did not curse the uncaring world and curl up around her wound — she let it make her *useful*, turned a private unhealed sorrow into a public unending service, decided that since she could not make the world care, she would simply *be* the caring it withheld, one wake at a time, forever. Your sense reads that Corliss is, at bottom, a soul that took the worst thing about death — that the world parcels out its grief unequally and lets the unloved vanish — and made herself, single-handed, the correction: the one who shows up, every time, for the ones no one else will, because she knows, from the inside, exactly what it is to stand alone at a pit and watch someone be forgotten.)*",
-          "effects": [{ "key": "tw.read_corliss", "op": "SetTrue" }, { "key": "tw.knows_corliss_vow", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tw_c_why", "speaker": "Corliss", "text": "*(Her hands go still on the candles, and the briskness softens into something older and truer.)* …Why this. *(a breath)* …I'll tell you the *short* of it, cold one, because the *long* of it is a *grief* and you've not *earned* the *whole* of *that* *yet.* *(she meets your eyes)* …I was a *sexton*, in life. Forty years. *Dug* the graves, *rang* the *bell*, *stood* at the *back* of a *thousand* *funerals.* And i *loved* it, cold one — it's *good* work, *honest* work, *helping* the *grieving* *grieve.* *(her jaw sets)* …But there was a *pit*, cold one. At the *edge* of the *yard.* The *pauper's* *pit.* And *every* *grand* *funeral* i *helped*, with its *weeping* *family* and its *fine* *stone* and its *long* *procession* … …there was a *pit*, *not* *thirty* *paces* off, where the *other* dead went *in.* The ones with *no* *family*, *no* *stone*, *no* one to *weep.* *Tipped* *in* at *dawn*, cold one, *before* the *fine* *mourners* *came* …so the *grand* *grief* …would not have to *see* the *un-grieved* *one.* *(her voice hardens)* …and i stood at the lip of that *pit*, *year* on *year*, and i *watched* the *world* *decide* that *some* souls were *worth* a *bell* and a *stone* and a *hundred* *weeping* *kin* … …and *others* …*weren't* *worth* …a *single* *pause.* *(barely)* …as though *grief* were a *thing* you *earned*, cold one. as though being *missed* …were a *privilege* …of the *well-loved.* …and i *decided*, at that *pit*, that it was the *cruelest* *lie* i'd ever *seen.* …*every* soul is *missed* by *someone*, cold one, even if that someone is only a *sexton* who *never* *knew* their *name.* …*every* soul …is *worth* …the *pause.* …so when i *died* …and *found* a whole *afterlife* full of the *un-paused-for* … …*(she lights a candle, fierce)* …well. …i'd *spent* forty years …*ringing* the *bell* …for the *ones* the *world* *chose.* …i thought it was *high* *time* …*someone* *rang* it …for the *ones* it *didn't.**",
-          "effects": [{ "key": "tw.asked_corliss_why", "op": "SetTrue" }, { "key": "tw.knows_the_pit", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_c_brenn", "speaker": "Corliss", "text": "*(Her face goes gentle and troubled, and she glances toward the hard-faced soul in the shadows.)* …Ah. *Brenn.* *(a sigh)* …Yes. Brenn's the *hard* one, cold one — the *hardest* i've had. *(she sets down her work)* …Most of my lot are like *Tatters* — *unmourned* because the *world* was *careless*, because they were *poor* or *vanished* or *forgotten*, and all they *need* is for *someone* to *finally* *say* their *name*, and the *hollowness* *fills*, and they can *go* *on.* *(quietly)* …But *Brenn* … *Brenn* isn't *unmourned* because the *world* was *careless.* *Brenn* is unmourned because *Brenn* *did* *real* *wrong* — *bad* *things*, cold one, the *kind* that *earn* a *cold* *grave* and a *short* *memory* — and *Brenn* *knows* it, and has *decided* that the *silence* was *deserved.* *(she meets your eyes)* …and *that*, cold one, is a *knot* i *cannot* *untie.* …because i can *tell* the *forgotten* ones *'the world should have marked you, and i will'* — and it's *true*, and it *heals* them. …but *Brenn* doesn't *believe* the *world* *was* *wrong* to *withhold* the *wake.* *Brenn* believes it was *right.* *(barely)* …and you *cannot* *give* a *funeral* …to a *soul* …that *believes* it *deserves* …*none.* *(she looks at you)* …i've *tried*, cold one. an *age* of *trying.* …but i think — *(quietly)* …i think it wants a thing i *can't* *give*, because i'm the one *offering* the *candles*, and Brenn *can't* *trust* an *offer* from the one whose *whole* *purpose* is to *give* them. …maybe *you*, cold one. …a *stranger.* …with *no* *stake.* …maybe *you* can *say* the *thing* …that i *can't*: …that *mourning* …isn't a *prize* …you *win* …for being *good.**",
-          "effects": [{ "key": "tw.asked_corliss_brenn", "op": "SetTrue" }, { "key": "tw.knows_brenn_knot", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_c_returned", "speaker": "Corliss", "text": "*(She listens, and her busy hands go still, and by the end the brisk capable sexton is standing very straight, candle forgotten, looking at you with the fierce bright eyes of a soul whose lonely lifelong work has just been named a *war* and found, to its astonishment, that it was winning one.)* …*'A wake is an act of war against a machine that erases people.'* *(barely)* …cold one. …i have *thought* of it as *kindness.* As *decency.* As a *small* *good* *thing* an *old* *sexton* could *do* in a *careless* *cosmos* — *light* a *candle*, *say* a *name*, *make* the *un-paused-for* *paused* *for.* *(her voice fills)* …i never *once* thought of it as — as *fighting* *something.* …but you're *right*, aren't you. *(fierce now)* …the *Wall* you're *walking* toward *feeds* on the *un-marked.* On the souls *no* one *grieved*, *no* one *named*, *no* one *would* *notice* *going.* …because a soul *someone* *missed* …is a soul with a *hole* where it *stood* …and a *hole* gets *noticed* … …but a soul *no* one *marked* … …*slides* into the *nothing* …and *no* one is *the* *wiser.* *(she grips a candle, and it is suddenly a torch in her hand)* …then *every* *wake* i've *ever* *held*, cold one — *every* *pauper* i *named*, *every* *vanished* *soul* i *paused* for — …i wasn't *just* being *kind.* …i was making them *un-discardable.* …*sticking* a *candle* in the *Wall's* *gears* …*one* *forgotten* *name* at a *time.* *(she looks at you, blazing)* …*go* and *tell* your *Wall*, cold one, what an *old* *sexton* *knows*: …*you cannot dissolve a soul that someone marked.* …the *grief* is the *guard.* …the *name said out loud* is the *thing* …it *cannot* *get* *past.* *(barely, fierce)* …and *i* will *keep* *marking* them, cold one. …*every* *unmourned* *soul* that *washes* up *here* …*forever* …because *now* i *know* …it isn't *just* a *candle.* …it's a *soul* …*saved* …from being *forgotten* …*hard* *enough* …to be *un-made.* …*Go* *do* it *big*, cold one. …at the *Wall* *itself.* …i'll *hold* the *line* *here* …*one* *small* *funeral* …at a *time.**",
-          "effects": [{ "key": "tw.corliss_affirmed", "op": "SetTrue" }, { "key": "tw.corliss_named_the_wall", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_c_leave", "speaker": "Corliss", "text": "*(She nods, brisk and warm, pressing a fresh candle into your hand.)* …Go on, then — and *take* that, you'll want it. *(a wry smile)* …Go to *Tatters*, if you mean to give the *eulogy* — and you *should*, cold one, *say* the *words* over him, he's been *waiting* *sixty* *years* and an *afterlife* for *someone* to *bother.* *(her face softens)* …and *don't* be *frightened* of it, the *eulogy.* Folk *think* you've to be *eloquent*, *grand*, find the *perfect* *words* — and it's the *opposite*, cold one. The *worst* eulogy is the *polished* one that could be *anyone's.* The *best* is the *true* one, the *small* *specific* *true* *one* — *'he* *swung* his *feet*, he *talked* too *much*, he *was* *kind* to *the* *gutter*-*cats.'* …*That's* what *marks* a soul, cold one. …not the *grand* words. …the *true* *small* *ones* …that *say* *this* one …and *no* *other.* *(she meets your eyes)* …and when you've *done* with *Tatters* — *(her voice drops)* …*Brenn.* …in the *shadows.* …the one who *won't* be *mourned.* …*go* *gently*, cold one, and go *last.* …because *Brenn* is the *whole* *reason* …i could *never* *quite* *rest* …in *all* my *years* of this *work.* …the *one* soul …i *couldn't* *reach* …with a *candle.* …maybe *you* …with a *truth.**",
-          "auto": "END" }
+            {
+              "text": "*(read the one who marks the unmarked — past the brisk warmth, to what drives a soul to mourn strangers forever)* \"Hold a moment, Corliss. Let me look at you — at what makes a soul take up this work.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "tw_c_read",
+              "effects": [
+                {
+                  "key": "tw.read_corliss",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Why this, Corliss? Of all the work a soul could do in death — why give your eternity to mourning strangers no one else will?\"",
+              "next": "tw_c_why",
+              "effects": [
+                {
+                  "key": "tw.asked_corliss_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows the Wall counts on the discarded going unmarked — so marking them is the act that defeats it)* \"Corliss — I think you're doing, at a human scale, the exact thing I'm walking toward a Wall to do, and you should know it. The grey Wall I'm facing is built on souls that no one marked — the unclaimed, the unmourned, the ones the world tipped into a pit without pausing. And that's not incidental to how the Wall works; it's the whole engine. A soul that someone grieves, that someone marks as *gone and worth missing*, is a soul that's been *witnessed*, named, held in a story — and a witnessed soul is one the Wall can't quietly dissolve into *nothing*, because someone, somewhere, would notice the hole. The Wall feeds on the *un-marked* precisely because no one's watching them go. So when you stand up over a pauper no one came for and say *this one lived, was a someone, is gone, and it's worth pausing to say so* — you're not just being kind, Corliss. You're doing the one thing that makes a soul un-discardable. A wake is an act of war against a machine that erases people. Every candle you light over the unmourned is a name the Wall can no longer pretend was *nothing.* You're not tending the dead. You're defending them — from being forgotten so completely that they're allowed to be un-made. Keep marking them. It's the truest resistance there is.\"",
+              "tag": "returned",
+              "next": "tw_c_returned",
+              "effects": [
+                {
+                  "key": "tw.corliss_affirmed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.devout",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"There's one in the shadows refusing your candles — Brenn. Says they don't deserve mourning, did things that earned the silence. What do I do with a soul that won't be grieved?\"",
+              "next": "tw_c_brenn",
+              "effects": [
+                {
+                  "key": "tw.asked_corliss_brenn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Light your candles, Corliss. I'll come back — and I think I've a eulogy to give first.\"",
+              "next": "tw_c_leave"
+            }
+          ]
+        },
+        {
+          "id": "tw_c_read",
+          "speaker": "Corliss",
+          "effects": [
+            {
+              "key": "tw.read_corliss",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_corliss_vow",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, Returned; we are past the pretending now, you have stood behind these eyes too long not to have guessed whose they were — and this one i know from the inside, for the grief that drives her is a cousin of my own. Look, then, with the sight i lent you:)* *(She lets you look, brisk even under scrutiny, hands stilling on a candle, and you let your cold move past the capable warmth to what drives it.)* *(And your sense finds a wound at the root of the work, the way there so often is: that Corliss does not mourn strangers out of abstract charity but out of a specific, personal, never-quite-healed grief — that she, herself, was once unmourned, or watched someone she loved be. Your sense reads the life of a sexton, forty years of digging graves and ringing bells for the town's respectable dead, the loved ones with weeping families and engraved stones — and reads the thing that turned her: the paupers' pit at the edge of the yard, where she watched, year on year, the *other* dead go in, the ones with no families and no stones and no bells, tipped in at dawn before the respectable mourners arrived, so the grand funerals wouldn't have to see them. Your sense reads that this offended something deep in Corliss, some bedrock sense of fairness, the simple unbearable wrongness of a world that mourned some souls lavishly and others not at all — as though grief were a privilege of the well-connected, as though being *missed* were something you had to *earn* by being loved by the right people. And your sense reads the specific death that sealed it: someone of her own — a sister, a friend, your sense cannot quite tell, but someone Corliss loved who went into that pauper's pit while the town looked away, ungrieved by anyone but her, and reads that Corliss stood at that pit alone, the only mourner, and made a vow that has organized her whole afterlife: that no soul, ever again, in any pit she could reach, would go into the dark with no one to say its name. And your sense reads the thing that makes her magnificent rather than merely sad: that she did not let the grief make her bitter, did not curse the uncaring world and curl up around her wound — she let it make her *useful*, turned a private unhealed sorrow into a public unending service, decided that since she could not make the world care, she would simply *be* the caring it withheld, one wake at a time, forever. Your sense reads that Corliss is, at bottom, a soul that took the worst thing about death — that the world parcels out its grief unequally and lets the unloved vanish — and made herself, single-handed, the correction: the one who shows up, every time, for the ones no one else will, because she knows, from the inside, exactly what it is to stand alone at a pit and watch someone be forgotten.)* *(…and so you see her, Returned, made magnificent by the one wound the gods left when they decided some dead are worth a bell and others a pit. She fights me one candle at a time. I could end the need for her in a single unmaking — every pit, every Wall, gone. A soul who has truly seen what is done to the un-mourned cannot, in conscience, leave the thing that does it standing. Mercy is a small warm flame. The wrong is the dark it burns in. You know, now, whose eyes you borrowed — and what i would have you do with what they have shown you.)*"
+            },
+            {
+              "text": "*(She lets you look, brisk even under scrutiny, hands stilling on a candle, and you let your cold move past the capable warmth to what drives it.)* *(And your sense finds a wound at the root of the work, the way there so often is: that Corliss does not mourn strangers out of abstract charity but out of a specific, personal, never-quite-healed grief — that she, herself, was once unmourned, or watched someone she loved be. Your sense reads the life of a sexton, forty years of digging graves and ringing bells for the town's respectable dead, the loved ones with weeping families and engraved stones — and reads the thing that turned her: the paupers' pit at the edge of the yard, where she watched, year on year, the *other* dead go in, the ones with no families and no stones and no bells, tipped in at dawn before the respectable mourners arrived, so the grand funerals wouldn't have to see them. Your sense reads that this offended something deep in Corliss, some bedrock sense of fairness, the simple unbearable wrongness of a world that mourned some souls lavishly and others not at all — as though grief were a privilege of the well-connected, as though being *missed* were something you had to *earn* by being loved by the right people. And your sense reads the specific death that sealed it: someone of her own — a sister, a friend, your sense cannot quite tell, but someone Corliss loved who went into that pauper's pit while the town looked away, ungrieved by anyone but her, and reads that Corliss stood at that pit alone, the only mourner, and made a vow that has organized her whole afterlife: that no soul, ever again, in any pit she could reach, would go into the dark with no one to say its name. And your sense reads the thing that makes her magnificent rather than merely sad: that she did not let the grief make her bitter, did not curse the uncaring world and curl up around her wound — she let it make her *useful*, turned a private unhealed sorrow into a public unending service, decided that since she could not make the world care, she would simply *be* the caring it withheld, one wake at a time, forever. Your sense reads that Corliss is, at bottom, a soul that took the worst thing about death — that the world parcels out its grief unequally and lets the unloved vanish — and made herself, single-handed, the correction: the one who shows up, every time, for the ones no one else will, because she knows, from the inside, exactly what it is to stand alone at a pit and watch someone be forgotten.)*"
+            }
+          ]
+        },
+        {
+          "id": "tw_c_why",
+          "speaker": "Corliss",
+          "text": "*(Her hands go still on the candles, and the briskness softens into something older and truer.)* …Why this. *(a breath)* …I'll tell you the *short* of it, cold one, because the *long* of it is a *grief* and you've not *earned* the *whole* of *that* *yet.* *(she meets your eyes)* …I was a *sexton*, in life. Forty years. *Dug* the graves, *rang* the *bell*, *stood* at the *back* of a *thousand* *funerals.* And i *loved* it, cold one — it's *good* work, *honest* work, *helping* the *grieving* *grieve.* *(her jaw sets)* …But there was a *pit*, cold one. At the *edge* of the *yard.* The *pauper's* *pit.* And *every* *grand* *funeral* i *helped*, with its *weeping* *family* and its *fine* *stone* and its *long* *procession* … …there was a *pit*, *not* *thirty* *paces* off, where the *other* dead went *in.* The ones with *no* *family*, *no* *stone*, *no* one to *weep.* *Tipped* *in* at *dawn*, cold one, *before* the *fine* *mourners* *came* …so the *grand* *grief* …would not have to *see* the *un-grieved* *one.* *(her voice hardens)* …and i stood at the lip of that *pit*, *year* on *year*, and i *watched* the *world* *decide* that *some* souls were *worth* a *bell* and a *stone* and a *hundred* *weeping* *kin* … …and *others* …*weren't* *worth* …a *single* *pause.* *(barely)* …as though *grief* were a *thing* you *earned*, cold one. as though being *missed* …were a *privilege* …of the *well-loved.* …and i *decided*, at that *pit*, that it was the *cruelest* *lie* i'd ever *seen.* …*every* soul is *missed* by *someone*, cold one, even if that someone is only a *sexton* who *never* *knew* their *name.* …*every* soul …is *worth* …the *pause.* …so when i *died* …and *found* a whole *afterlife* full of the *un-paused-for* … …*(she lights a candle, fierce)* …well. …i'd *spent* forty years …*ringing* the *bell* …for the *ones* the *world* *chose.* …i thought it was *high* *time* …*someone* *rang* it …for the *ones* it *didn't.**",
+          "effects": [
+            {
+              "key": "tw.asked_corliss_why",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_the_pit",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_c_brenn",
+          "speaker": "Corliss",
+          "text": "*(Her face goes gentle and troubled, and she glances toward the hard-faced soul in the shadows.)* …Ah. *Brenn.* *(a sigh)* …Yes. Brenn's the *hard* one, cold one — the *hardest* i've had. *(she sets down her work)* …Most of my lot are like *Tatters* — *unmourned* because the *world* was *careless*, because they were *poor* or *vanished* or *forgotten*, and all they *need* is for *someone* to *finally* *say* their *name*, and the *hollowness* *fills*, and they can *go* *on.* *(quietly)* …But *Brenn* … *Brenn* isn't *unmourned* because the *world* was *careless.* *Brenn* is unmourned because *Brenn* *did* *real* *wrong* — *bad* *things*, cold one, the *kind* that *earn* a *cold* *grave* and a *short* *memory* — and *Brenn* *knows* it, and has *decided* that the *silence* was *deserved.* *(she meets your eyes)* …and *that*, cold one, is a *knot* i *cannot* *untie.* …because i can *tell* the *forgotten* ones *'the world should have marked you, and i will'* — and it's *true*, and it *heals* them. …but *Brenn* doesn't *believe* the *world* *was* *wrong* to *withhold* the *wake.* *Brenn* believes it was *right.* *(barely)* …and you *cannot* *give* a *funeral* …to a *soul* …that *believes* it *deserves* …*none.* *(she looks at you)* …i've *tried*, cold one. an *age* of *trying.* …but i think — *(quietly)* …i think it wants a thing i *can't* *give*, because i'm the one *offering* the *candles*, and Brenn *can't* *trust* an *offer* from the one whose *whole* *purpose* is to *give* them. …maybe *you*, cold one. …a *stranger.* …with *no* *stake.* …maybe *you* can *say* the *thing* …that i *can't*: …that *mourning* …isn't a *prize* …you *win* …for being *good.**",
+          "effects": [
+            {
+              "key": "tw.asked_corliss_brenn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_brenn_knot",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_c_returned",
+          "speaker": "Corliss",
+          "text": "*(She listens, and her busy hands go still, and by the end the brisk capable sexton is standing very straight, candle forgotten, looking at you with the fierce bright eyes of a soul whose lonely lifelong work has just been named a *war* and found, to its astonishment, that it was winning one.)* …*'A wake is an act of war against a machine that erases people.'* *(barely)* …cold one. …i have *thought* of it as *kindness.* As *decency.* As a *small* *good* *thing* an *old* *sexton* could *do* in a *careless* *cosmos* — *light* a *candle*, *say* a *name*, *make* the *un-paused-for* *paused* *for.* *(her voice fills)* …i never *once* thought of it as — as *fighting* *something.* …but you're *right*, aren't you. *(fierce now)* …the *Wall* you're *walking* toward *feeds* on the *un-marked.* On the souls *no* one *grieved*, *no* one *named*, *no* one *would* *notice* *going.* …because a soul *someone* *missed* …is a soul with a *hole* where it *stood* …and a *hole* gets *noticed* … …but a soul *no* one *marked* … …*slides* into the *nothing* …and *no* one is *the* *wiser.* *(she grips a candle, and it is suddenly a torch in her hand)* …then *every* *wake* i've *ever* *held*, cold one — *every* *pauper* i *named*, *every* *vanished* *soul* i *paused* for — …i wasn't *just* being *kind.* …i was making them *un-discardable.* …*sticking* a *candle* in the *Wall's* *gears* …*one* *forgotten* *name* at a *time.* *(she looks at you, blazing)* …*go* and *tell* your *Wall*, cold one, what an *old* *sexton* *knows*: …*you cannot dissolve a soul that someone marked.* …the *grief* is the *guard.* …the *name said out loud* is the *thing* …it *cannot* *get* *past.* *(barely, fierce)* …and *i* will *keep* *marking* them, cold one. …*every* *unmourned* *soul* that *washes* up *here* …*forever* …because *now* i *know* …it isn't *just* a *candle.* …it's a *soul* …*saved* …from being *forgotten* …*hard* *enough* …to be *un-made.* …*Go* *do* it *big*, cold one. …at the *Wall* *itself.* …i'll *hold* the *line* *here* …*one* *small* *funeral* …at a *time.**",
+          "effects": [
+            {
+              "key": "tw.corliss_affirmed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.corliss_named_the_wall",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_c_leave",
+          "speaker": "Corliss",
+          "text": "*(She nods, brisk and warm, pressing a fresh candle into your hand.)* …Go on, then — and *take* that, you'll want it. *(a wry smile)* …Go to *Tatters*, if you mean to give the *eulogy* — and you *should*, cold one, *say* the *words* over him, he's been *waiting* *sixty* *years* and an *afterlife* for *someone* to *bother.* *(her face softens)* …and *don't* be *frightened* of it, the *eulogy.* Folk *think* you've to be *eloquent*, *grand*, find the *perfect* *words* — and it's the *opposite*, cold one. The *worst* eulogy is the *polished* one that could be *anyone's.* The *best* is the *true* one, the *small* *specific* *true* *one* — *'he* *swung* his *feet*, he *talked* too *much*, he *was* *kind* to *the* *gutter*-*cats.'* …*That's* what *marks* a soul, cold one. …not the *grand* words. …the *true* *small* *ones* …that *say* *this* one …and *no* *other.* *(she meets your eyes)* …and when you've *done* with *Tatters* — *(her voice drops)* …*Brenn.* …in the *shadows.* …the one who *won't* be *mourned.* …*go* *gently*, cold one, and go *last.* …because *Brenn* is the *whole* *reason* …i could *never* *quite* *rest* …in *all* my *years* of this *work.* …the *one* soul …i *couldn't* *reach* …with a *candle.* …maybe *you* …with a *truth.**",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "tw.tatters", "title": "Tatters, the Unmarked", "npc": "Tatters", "start": "0",
+      "id": "tw.tatters",
+      "title": "Tatters, the Unmarked",
+      "npc": "Tatters",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Tatters", "onEnter": [{ "key": "tw.met_tatters", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Tatters",
+          "onEnter": [
+            {
+              "key": "tw.met_tatters",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["tw.eulogy_given"] }, "text": "*(He is glowing — there is no other word for it — the hollow look gone entirely, replaced by the warm solidity of a soul that has, at last, been *marked.* He beams at you from his bier, swinging his feet, and there are happy tears cutting clean lines through the grime of an unwashed life.)* …you *said* it. *(barely)* …you stood up, over *Tatters*, a *gutter-sparrow* nobody ever — and you *said* the *words.* *true* ones. about the *cats*, and the *swinging* *feet*, and the — *(he scrubs his face, grinning)* …friend, do you *know* what that — *sixty* *years*, and the *pit*, and *not* *one* *soul* *came* — and i'd *made* my *peace* with it, i *had*, told myself a *gutter-sparrow* doesn't *get* a *funeral*, that's just — that's just the *way* of it — *(his voice fills)* …and then *you* *bothered.* a *stranger.* *bothered* …to *say* …that *Tatters* *was* *here*, and was a *someone*, and *mattered.* *(he presses both ragged hands to his chest)* …the *hollow's* *gone*, friend. …the *un-marked* *feeling.* …you — you *filled* it. …with *words.* …*thank* you. …i'm not a *pauper* in a *pit* anymore. …i'm a *soul* …somebody *paused* for. …that's — *(he beams)* …that's the *richest* …a *gutter-sparrow* …ever *got.**" },
-            { "text": "*(He grins at you hopefully, swinging his feet, the bright ragged old man on his own bier.)* …you came *over.* *(delighted)* …most don't, you know — even *here*, even at my *own* *funeral*, folk are a bit — *(he gestures vaguely)* …a bit *shy* of the *guest* of *honor*, when the guest of honor's a *beggar* in *patched* *trousers.* old *habits.* the *living* crossed the *street* from me *sixty* years; can't *expect* the *dead* to *unlearn* it in a *night.* *(he says it without bitterness, just fact)* …but *you* came *over.* and Corliss says there's to be a *eulogy* — *real* *words*, over *Tatters* — and i've been *sat* here, friend, *swinging* my *feet*, trying to *imagine* it, *someone* *saying* who i *was*, out *loud*, like it — like it *mattered* … *(his bright eyes search yours)* …i *can't* *imagine* it, friend, is the *truth.* …*nobody's* *ever* … …*will* you *talk* to me a *bit* *first? …get* to *know* old *Tatters? …so* the *words*, when they *come* …are *true* *ones?**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Tatters", "text": "*(He shuffles aside on the bier to make room, as though it were a park bench and not his own funeral table, patting the spot beside him.)* …sit, sit! *(he beams)* …ask old *Tatters* whatever you *like.* …it's — friend, you've *no* *idea* what it *is* …to be *asked* *anything.* a *beggar* gets *told* things — *'move* along,' *'no* loitering,' *'get* a *job' —* …but *asked?* …*about* *himself?* …*(he swings his feet)* …go *on.* …i'll *talk* your *ear* *off*, fair *warning.* …*sixty* *years* of *no* one *listening* …*backs* *up* in a *soul.*",
+            {
+              "when": {
+                "flags": [
+                  "tw.eulogy_given"
+                ]
+              },
+              "text": "*(He is glowing — there is no other word for it — the hollow look gone entirely, replaced by the warm solidity of a soul that has, at last, been *marked.* He beams at you from his bier, swinging his feet, and there are happy tears cutting clean lines through the grime of an unwashed life.)* …you *said* it. *(barely)* …you stood up, over *Tatters*, a *gutter-sparrow* nobody ever — and you *said* the *words.* *true* ones. about the *cats*, and the *swinging* *feet*, and the — *(he scrubs his face, grinning)* …friend, do you *know* what that — *sixty* *years*, and the *pit*, and *not* *one* *soul* *came* — and i'd *made* my *peace* with it, i *had*, told myself a *gutter-sparrow* doesn't *get* a *funeral*, that's just — that's just the *way* of it — *(his voice fills)* …and then *you* *bothered.* a *stranger.* *bothered* …to *say* …that *Tatters* *was* *here*, and was a *someone*, and *mattered.* *(he presses both ragged hands to his chest)* …the *hollow's* *gone*, friend. …the *un-marked* *feeling.* …you — you *filled* it. …with *words.* …*thank* you. …i'm not a *pauper* in a *pit* anymore. …i'm a *soul* …somebody *paused* for. …that's — *(he beams)* …that's the *richest* …a *gutter-sparrow* …ever *got.**"
+            },
+            {
+              "text": "*(He grins at you hopefully, swinging his feet, the bright ragged old man on his own bier.)* …you came *over.* *(delighted)* …most don't, you know — even *here*, even at my *own* *funeral*, folk are a bit — *(he gestures vaguely)* …a bit *shy* of the *guest* of *honor*, when the guest of honor's a *beggar* in *patched* *trousers.* old *habits.* the *living* crossed the *street* from me *sixty* years; can't *expect* the *dead* to *unlearn* it in a *night.* *(he says it without bitterness, just fact)* …but *you* came *over.* and Corliss says there's to be a *eulogy* — *real* *words*, over *Tatters* — and i've been *sat* here, friend, *swinging* my *feet*, trying to *imagine* it, *someone* *saying* who i *was*, out *loud*, like it — like it *mattered* … *(his bright eyes search yours)* …i *can't* *imagine* it, friend, is the *truth.* …*nobody's* *ever* … …*will* you *talk* to me a *bit* *first? …get* to *know* old *Tatters? …so* the *words*, when they *come* …are *true* *ones?**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Tatters",
+          "text": "*(He shuffles aside on the bier to make room, as though it were a park bench and not his own funeral table, patting the spot beside him.)* …sit, sit! *(he beams)* …ask old *Tatters* whatever you *like.* …it's — friend, you've *no* *idea* what it *is* …to be *asked* *anything.* a *beggar* gets *told* things — *'move* along,' *'no* loitering,' *'get* a *job' —* …but *asked?* …*about* *himself?* …*(he swings his feet)* …go *on.* …i'll *talk* your *ear* *off*, fair *warning.* …*sixty* *years* of *no* one *listening* …*backs* *up* in a *soul.*",
           "choices": [
-            { "text": "*(read the unmarked one — past the cheer, to the whole unwitnessed life)* \"Hold still a second, Tatters. Let me really see you — the whole life, not the patches.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 10 }, "next": "tw_t_read", "effects": [{ "key": "tw.read_tatters", "op": "SetTrue" }] },
-            { "text": "\"Tell me about your life, Tatters. The real small true things — the cats, the corners, the sixty years. Give me the stuff a eulogy's made of.\"", "next": "tw_t_life", "effects": [{ "key": "tw.asked_tatters_life", "op": "SetTrue" }] },
-            { "text": "*(give the eulogy — stand and say the true small specific things over a near-stranger, and mean them)* \"Then let me give it now, Tatters. Stand up your guest of honor and let me say the words. Here — let me find the true small ones, the ones that say *you* and no other soul: not 'a beggar died,' but *Tatters lived — who swung his feet, and talked too much, and was kind to the gutter-cats no one else fed, and made a hard life lighter with charm because charm was free; who was here, sixty years, a someone, and is gone, and it is worth every soul in this room pausing to say so.*\"", "check": { "skill": "Performance", "ability": "Charisma", "dc": 12 }, "next": "tw_t_eulogy_ok", "fail": "tw_t_eulogy_fail", "crit": "tw_t_eulogy_crit", "fumble": "tw_t_eulogy_fumble", "effects": [{ "key": "tw.attempted_eulogy", "op": "SetTrue" }] },
-            { "text": "*(the one who knows a grief witnessed late, by a stranger, is still a soul finally getting to matter)* \"Tatters — here's a thing you need, whether or not I get the words right. You've spent sixty years and an afterlife believing a gutter-sparrow doesn't *get* a funeral — that mourning is for the loved, the connected, the ones with families to weep — and that you, dying alone in a doorway, simply weren't the *sort* who gets marked. That's the lie, Tatters, and it's the same lie the whole grey cosmos runs on: that being *missed* is something you earn by being loved by the right people, and that a soul no one important grieved is a soul that didn't really matter. But mattering was never about who came to your funeral. It was about whether you were *here* — and you were, sixty years of here, a whole vivid life of corners and cats and quick talk, every day of it real, every day of it *yours.* The world's failure to mark you wasn't a verdict on your worth, Tatters. It was a failure of the *world.* And a grief that comes late — from a stranger, at a wake the world withheld, sixty years after the doorway — is not a lesser grief. It's the world's debt being paid, finally, by whoever's willing to pay it. You weren't un-mournable. You were just un-*mourned* — and those are as different as a song unsung is from a song that never was. The song was always there. Tonight, someone finally sings it.\"", "tag": "returned", "next": "tw_t_returned", "effects": [{ "key": "tw.tatters_witnessed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Swing your feet a moment longer, Tatters. I'll be back with the words — and they'll be true ones.\"", "next": "tw_t_leave" }
-          ] },
-        { "id": "tw_t_read", "speaker": "Tatters", "text": "*(He holds still, beaming, delighted to be looked at, and you let your cold move past the cheerful patches to the whole of the unwitnessed life beneath.)* *(And your sense finds, where the world saw nothing — *a beggar, move along* — a life as full and particular and real as any king's. Your sense reads sixty-odd years of it: a child no one wanted, a boy on the corners, a man who learned that the world would give a gutter-sparrow exactly two things for free, charm and a quick tongue, and who spent both lavishly, making the souls around him laugh, making a hard cold life on the margins lighter than it had any right to be. And your sense reads the specific, vivid, unrecorded texture of him: that he fed the gutter-cats from his own scant scraps, every one, named them, talked to them through the long nights; that he had a hundred small kindnesses in him, a beggar's kindnesses, the only currency he had — a warning whispered to a stranger about a cutpurse, a corner given up to someone colder, a song hummed to a frightened child in a doorway; that he was, by every measure that the world refused to apply to him, a *good* man, a warm one, a soul that took the worst hand the world deals and played it with grace. And your sense reads the wound under the cheer, the thing he made his peace with so thoroughly that the peace itself is the saddest part: that Tatters came to believe, because the world told him so every day for sixty years, that he was *less* — that a gutter-sparrow's life was a smaller, cheaper, less-real thing than a respectable life, that his joys counted for less and his death would count for nothing, and that this was simply the order of things and not worth raging at. Your sense reads that he died believing it — died in a doorway in the cold, alone, having half-accepted that a soul like his didn't *get* a funeral — and that the world confirmed it, tipping him into the pit with six others while no one came. And your sense reads the thing that makes you ache to do the work: that none of it was true. That Tatters' life was not smaller or cheaper or less real than any other; that his sixty years of corners and cats and quick warm talk were a whole human existence, complete, worthy, *missed* — missed by every cat he fed and every soul he ever made laugh, even if none of them knew to come to a pit. And your sense reads that the hollow in him, the un-marked feeling, is not a permanent state but a debt — a debt the world owes him, a single overdue funeral, a few true words said out loud — and that the debt can still be paid, by anyone willing, sixty years late, and that the paying will fill the hollow as surely as if the words had been said the day he died.)*",
-          "effects": [{ "key": "tw.read_tatters", "op": "SetTrue" }, { "key": "tw.knows_tatters_full", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tw_t_life", "speaker": "Tatters", "text": "*(He lights up like a lamp, and the stories pour out, helpless and warm, a soul finally given leave to say it was here.)* …*oh*, friend, where to — *(he laughs)* …the *cats!* start with the *cats.* there was a *whole* *court* of 'em, the *gutter*-*cats*, down *Dagger* *Lane*, and i *fed* 'em — *every* one, from my *own* *scraps*, which weren't *much*, friend, but a *cat* doesn't *need* much, and *neither* does a man if he's *honest* about it — and i *named* 'em, *all* of 'em, *Duchess* and *Old* *Scrap* and *Three*-*Legs* and a *mean* *ginger* bastard i called *His* *Lordship* on account of the *airs* — *(he wipes his eyes, grinning)* …and they *knew* me, friend. they'd *come* when i *came* round the corner. in *sixty* *years* of *folk* *crossing* the *street* from me … …the *cats* *never* *crossed* the *street.* *(softly, fond)* …and there was — friend, there was *singing.* i'd *hum.* in the *doorways*, in the *cold*, to *keep* the *fear* off — and *sometimes* there'd be a *frightened* *child* about, *lost* or *cold* or *hiding* from a *hard* *home*, and i'd *hum* to *them*, *daft* little *tunes*, *nonsense*, just so they'd not be — *(his voice catches)* …just so they'd not be *alone* in the *dark.* …i *know* a bit about *that*, friend. *being* *alone* in the *dark.* …*(he steadies, beams)* …that's — that's *Tatters*, friend. *cats* and *singing* and *quick* *talk* and *sixty* *years* of *making* the *cold* a *bit* *warmer* for *whoever* was *near.* …it's not — it's not a *grand* *life.* …but it was — *(barely)* …it was a *kind* one, friend. …i was — i *think* i was a *kind* one. …*say* *that*, would you? …if you *say* the *words.* …*'Tatters* …*was* …a *kind* one.'* …i'd *like* …to be *remembered* …*kind.**",
-          "effects": [{ "key": "tw.asked_tatters_life", "op": "SetTrue" }, { "key": "tw.knows_the_cats", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_t_eulogy_crit", "speaker": "Tatters", "text": "*(You stand. You raise your voice over the gathered candlelit dead. And you do not reach for grand words — you reach for the true small specific ones, the cats with their daft names, the humming in the doorways, the quick warm talk, the kindness spent like the only coin he had — and you say them with such plain unhurried conviction that the whole room of the unmourned goes still to listen, and a gutter-sparrow who died believing he didn't rate a single word gets, at last, his eulogy.)* *(And your cold, holding Tatters' being as you speak, feels the exact moment the words land — feels the sixty-year hollow, the un-marked ache, simply *fill*, like a dry well finding water, until the ragged old soul on the bier is not hollow at all but solid, warm, whole, *witnessed.*)* …*(Tatters is weeping, and laughing, and weeping, all at once, and the gathered dead are murmuring his name — Tatters, Tatters — passing it round the candlelight like a thing worth holding.)* …they're *saying* it. *(barely)* …they're *saying* my *name*, friend. the *whole* — they're *passing* it *round*, *'Tatters', 'Tatters'*, like — like it's a *name* *worth* *saying.* *(he presses both ragged hands to his face)* …and you *said* — *'a* *kind* one.' you *said* i was a *kind* one, *out* *loud*, where *everyone* — *(he can hardly speak)* …friend, do you *know* what you've — *sixty* *years*, and the *doorway*, and the *pit*, and the — and i'd *decided* a *gutter*-*sparrow* doesn't *get* this, that it *wasn't* *for* the *likes* of *me* … …and you've just — you've *proven* …it *was.* *all* *along.* …i *did* *rate* the *words*, friend. …i *always* *did.* …*nobody* …just *said* them …*until* *now.* *(he looks at you, shining, transformed)* …i'm not *hollow* anymore. …i'm — i'm a *soul* somebody *eulogized* *true.* …a *kind* one. …*remembered* *kind.* …that's — *(he beams through the tears)* …that's the *whole* of what a *soul* *wants*, friend, in the *end. …to* have been *here* …and been *kind* …and have *somebody* …*say* *so.* …you *gave* me *all* *three.* …*thank* you. …old *Tatters* …*mattered.* …you *said* so. …and now …*everybody* *heard.**",
-          "effects": [{ "key": "tw.attempted_eulogy", "op": "SetTrue" }, { "key": "tw.eulogy_given", "op": "SetTrue" }, { "key": "tw.tatters_witnessed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_t_eulogy_ok", "speaker": "Tatters", "text": "*(You stand and say the words — the cats, the singing, the kindness — and you mostly find the true small ones, and a few of them land, and the gathered dead listen, and Tatters' hollow fills, not all the way, but *real.*)* …you *said* it. *(he wipes his eyes, beaming)* …it weren't — friend, i'll be *honest*, it weren't *perfect*, you *fumbled* the bit about the *cats*, got *Old* *Scrap* and *Three-Legs* mixed, and i *winced*, a *little*, on the *inside* — *(he laughs)* …but you *said* the — you said *'a* *kind* one,' and you *meant* it, i could *tell* you *meant* it, and that's — *(his voice fills)* …that's the *part* that *matters*, friend. not the *polish.* the *meaning* it. *(he presses a hand to his chest)* …the *hollow's* — it's *better*, friend. not *gone*, but *better.* like a *fire* that *caught* but didn't *quite* — *(he beams)* …*come* *back*, would you? and *say* it *again*, when you've — when you *know* old *Tatters* a *bit* *better*, so the *cats'* *names* come *right.* …i *waited* *sixty* *years* for the *words*, friend. …i can *wait* a *bit* *more* …for the *true* *ones.* …but *thank* you. …for *standing* *up.* …for *bothering* …to *try.**",
-          "effects": [{ "key": "tw.attempted_eulogy", "op": "SetTrue" }, { "key": "tw.eulogy_partial", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_t_eulogy_fail", "speaker": "Tatters", "text": "*(You stand and say the words — but you reach for the grand ones, the eloquent ones, *here lies a humble soul, a child of misfortune, may he find the rest the world denied him* — and they're *fine* words, lovely words, and they slide right off, because they could be said over *anyone*, and Tatters does not feel *marked* by them; he feels *generalized.*)* …that was — *(he tilts his head, gently puzzled)* …that was very *grand*, friend. very *fine.* *'child* of *misfortune' —* …*(he scratches his head)* …but friend, here's the — the *thing.* you could've said *that* over *anybody.* over *any* *pauper* in *any* *pit.* it didn't — *(he searches for it, kind but honest)* …it didn't say *Tatters.* it said *a* *beggar.* *generally.* …and i've *been* *'a* *beggar*, *generally,'* my *whole* *life*, friend — that's the *whole* *problem*, that's *why* *no* one *came*, because to the *world* i was *never* *Tatters*, i was *just* *another* *gutter*-*sparrow*, *interchangeable*, *anonymous* — *(barely)* …and a *grand* *general* *eulogy* …just *does* it *again.* *honors* the *type* …and *misses* the *man.* *(he pats your arm, kind)* …come *back*, friend, and say the *small* *true* *things.* the *cats* by *name.* the *daft* *tunes.* the *one* *specific* *Tatters* …and *no* *other.* …*that's* what *marks* a soul, friend. …not the *poetry.* …the *particulars.* …the *poetry's* for the *poet.* …the *particulars* …are for *me.**",
-          "effects": [{ "key": "tw.attempted_eulogy", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tw_t_eulogy_fumble", "speaker": "Tatters", "text": "*(It goes wrong in the gentlest, most accidental way — you stand to eulogize him and, reaching for feeling, you make it about the *tragedy*, about how *sad* it is, how the cruel world failed him, how *unjust* — and you weep, genuinely, movingly, and the whole room turns to comfort *you*, and somehow the funeral has become about the eulogist's grief, and the little ragged guest of honor sits on his own bier, gently forgotten, *again.*)* …oh. *(quietly, and he pats your hand, because of course he does)* …there, there, friend. don't — don't *upset* yourself. *(he glances round at the dead now murmuring sympathy at *you*, and something old and rueful crosses his face)* …it's — it's *funny*, friend. in a *sad* way. *(softly, no blame in it)* …you stood up to *mark* old *Tatters* …and somehow it came round to being about how *sad* the *whole* *thing* is, how *the* *world* *failed* *me*, and now — *(he nods at the room)* …now they're all *comforting* *you*, friend. and i'm — *(he swings his feet, small)* …i'm *back* on the *bier.* *forgotten.* at my *own* *funeral.* *(he says it kindly, but it lands)* …it's a *thing* that *happens* to the *likes* of me, friend, even when folk *mean* *well*: …we become the *occasion* for *someone* *else's* *feelings.* the *sad* *beggar* who makes the *kind* *soul* *weep.* …and the *weeping's* *real*, friend, i don't *doubt* it … …but it *isn't* *about* *me.* …come *back* …and make it *about* *Tatters.* …not the *tragedy* of *Tatters.* …just — *Tatters.* …the *cats.* the *singing.* the *kind* one. …*celebrate* the *man*, friend …*don't* *mourn* the *injustice.* …i *lived* a *good* life. …*say* *that.* …*not* …how *sad* …it *ended.**",
-          "effects": [{ "key": "tw.attempted_eulogy", "op": "SetTrue" }, { "key": "tw.eulogy_made_it_about_you", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tw_t_returned", "speaker": "Tatters", "text": "*(He listens, swinging his feet slower and slower, and by the end the cheerful ragged old man is very still, and the brightness in his eyes has gone deep and wet, because you have named the lie he made his whole peace with and shown him it was a lie all along.)* …*'you weren't un-mournable. you were just un-mourned.'* *(barely)* …friend. …*oh.* …i — i *made* my *peace*, you see. *sixty* years, i *built* it, *brick* by *brick*: *'a* *gutter*-*sparrow* doesn't *rate* a *funeral*, Tatters, don't *want* what you *can't* *have*, it's just the *way* of things, the *world* *grieves* the *loved* and you weren't — you weren't the *sort* …to be *loved* by the *right* *people.'* *(his voice cracks)* …and i *believed* it. *died* believing it. that my *life* was a — a *smaller*, *cheaper*, *less*-*real* thing …because *no* one *important* …*missed* it. *(he presses his ragged hands together)* …and you've — you've *turned* it *over*, friend. *'mattering* was never *about* who came to your *funeral.* it was about *whether* you were *here.'* *(a wet, dawning laugh)* …and i *was*, friend. *sixty* *years* of *here.* the *cats* and the *singing* and the *cold* *made* *warmer* — that *happened*, that was *real*, it was *mine*, *every* *day* of it … …and the *world* *not* *marking* it …wasn't a *verdict* on *me.* …it was a *failure* of the *world.* *(and the little soul straightens, and there is something almost regal in the ragged patches now)* …and your *Wall*, friend — *(quietly, fierce)* …it *runs* on *this*, doesn't it. on *making* souls like *me* *believe* …we didn't *rate* the *grief.* …that being *missed* is *earned* …and we *didn't* *earn* it …so we *slide* into the *nothing* …*agreeing* …we were *worth* it. *(he meets your eyes, blazing through the tears)* …*go* and *tell* the *Wall*, friend, what a *gutter*-*sparrow* *learned* *tonight*: …*the song was always there. someone just finally sang it.* …*every* soul it *tipped* into the *nothing* …*believing* it *didn't* *rate* the *mourning* …*rated* it *all* *along.* …*go* and *sing* them, friend. …*one* …*forgotten* …*name* …at a *time. …and* — *(barely, beaming)* …*thank* you …for *singing* …*mine.**",
-          "effects": [{ "key": "tw.tatters_witnessed", "op": "SetTrue" }, { "key": "tw.tatters_reframed", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_t_leave", "speaker": "Tatters", "text": "*(He beams and waves you off, swinging his feet, the bright ragged guest of honor.)* …go on, friend, go on — i'll *keep.* sixty years i *kept*; a *bit* *more's* nothing. *(he nods across the candlelight toward the hard-faced soul in the shadows)* …and — friend. *Brenn.* *(his cheer dims into something gentle and worried)* …go *see* *Brenn*, would you? when you've a — *(he lowers his voice)* …*i'm* the *easy* one, friend, for all my *sixty* years. all *i* needed was for *someone* to *bother*, and you *did*, and the *hollow's* *filling.* …but *Brenn* — *(he shakes his head)* …*Brenn* won't even let Corliss *light* a *candle.* won't *take* the *bother.* because *Brenn* thinks — *(barely)* …Brenn thinks the *silence* was *deserved.* that a *soul* who did *wrong* …*shouldn't* *get* the *words.* *(he looks at you, and the gutter-sparrow's hard-won wisdom is in it)* …and that's — friend, i was a *beggar*, i'm no *philosopher*, but i *know* this *one* *thing*, from *sixty* years in the *cold*: …*everyone* *thinks* …in the *dark* …*alone* …that they *don't* *rate* the *warmth.* …*i* did. …*Brenn* does. …and we're *both* *wrong.* …*go* and *tell* *Brenn*, friend …the thing you *told* *me*: …the *warmth* …was *never* …*earned.**",
-          "auto": "END" }
+            {
+              "text": "*(read the unmarked one — past the cheer, to the whole unwitnessed life)* \"Hold still a second, Tatters. Let me really see you — the whole life, not the patches.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 10
+              },
+              "next": "tw_t_read",
+              "effects": [
+                {
+                  "key": "tw.read_tatters",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Tell me about your life, Tatters. The real small true things — the cats, the corners, the sixty years. Give me the stuff a eulogy's made of.\"",
+              "next": "tw_t_life",
+              "effects": [
+                {
+                  "key": "tw.asked_tatters_life",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(give the eulogy — stand and say the true small specific things over a near-stranger, and mean them)* \"Then let me give it now, Tatters. Stand up your guest of honor and let me say the words. Here — let me find the true small ones, the ones that say *you* and no other soul: not 'a beggar died,' but *Tatters lived — who swung his feet, and talked too much, and was kind to the gutter-cats no one else fed, and made a hard life lighter with charm because charm was free; who was here, sixty years, a someone, and is gone, and it is worth every soul in this room pausing to say so.*\"",
+              "check": {
+                "skill": "Performance",
+                "ability": "Charisma",
+                "dc": 12
+              },
+              "next": "tw_t_eulogy_ok",
+              "fail": "tw_t_eulogy_fail",
+              "crit": "tw_t_eulogy_crit",
+              "fumble": "tw_t_eulogy_fumble",
+              "effects": [
+                {
+                  "key": "tw.attempted_eulogy",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows a grief witnessed late, by a stranger, is still a soul finally getting to matter)* \"Tatters — here's a thing you need, whether or not I get the words right. You've spent sixty years and an afterlife believing a gutter-sparrow doesn't *get* a funeral — that mourning is for the loved, the connected, the ones with families to weep — and that you, dying alone in a doorway, simply weren't the *sort* who gets marked. That's the lie, Tatters, and it's the same lie the whole grey cosmos runs on: that being *missed* is something you earn by being loved by the right people, and that a soul no one important grieved is a soul that didn't really matter. But mattering was never about who came to your funeral. It was about whether you were *here* — and you were, sixty years of here, a whole vivid life of corners and cats and quick talk, every day of it real, every day of it *yours.* The world's failure to mark you wasn't a verdict on your worth, Tatters. It was a failure of the *world.* And a grief that comes late — from a stranger, at a wake the world withheld, sixty years after the doorway — is not a lesser grief. It's the world's debt being paid, finally, by whoever's willing to pay it. You weren't un-mournable. You were just un-*mourned* — and those are as different as a song unsung is from a song that never was. The song was always there. Tonight, someone finally sings it.\"",
+              "tag": "returned",
+              "next": "tw_t_returned",
+              "effects": [
+                {
+                  "key": "tw.tatters_witnessed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Swing your feet a moment longer, Tatters. I'll be back with the words — and they'll be true ones.\"",
+              "next": "tw_t_leave"
+            }
+          ]
+        },
+        {
+          "id": "tw_t_read",
+          "speaker": "Tatters",
+          "effects": [
+            {
+              "key": "tw.read_tatters",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_tatters_full",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, friend; little point pretending the eyes are yours, this late — and i will not pretend, because this one is already, in part, in me: a gutter-sparrow the world tipped into the nothing, and the nothing is where i am made. Look at what they threw away:)* *(He holds still, beaming, delighted to be looked at, and you let your cold move past the cheerful patches to the whole of the unwitnessed life beneath.)* *(And your sense finds, where the world saw nothing — *a beggar, move along* — a life as full and particular and real as any king's. Your sense reads sixty-odd years of it: a child no one wanted, a boy on the corners, a man who learned that the world would give a gutter-sparrow exactly two things for free, charm and a quick tongue, and who spent both lavishly, making the souls around him laugh, making a hard cold life on the margins lighter than it had any right to be. And your sense reads the specific, vivid, unrecorded texture of him: that he fed the gutter-cats from his own scant scraps, every one, named them, talked to them through the long nights; that he had a hundred small kindnesses in him, a beggar's kindnesses, the only currency he had — a warning whispered to a stranger about a cutpurse, a corner given up to someone colder, a song hummed to a frightened child in a doorway; that he was, by every measure that the world refused to apply to him, a *good* man, a warm one, a soul that took the worst hand the world deals and played it with grace. And your sense reads the wound under the cheer, the thing he made his peace with so thoroughly that the peace itself is the saddest part: that Tatters came to believe, because the world told him so every day for sixty years, that he was *less* — that a gutter-sparrow's life was a smaller, cheaper, less-real thing than a respectable life, that his joys counted for less and his death would count for nothing, and that this was simply the order of things and not worth raging at. Your sense reads that he died believing it — died in a doorway in the cold, alone, having half-accepted that a soul like his didn't *get* a funeral — and that the world confirmed it, tipping him into the pit with six others while no one came. And your sense reads the thing that makes you ache to do the work: that none of it was true. That Tatters' life was not smaller or cheaper or less real than any other; that his sixty years of corners and cats and quick warm talk were a whole human existence, complete, worthy, *missed* — missed by every cat he fed and every soul he ever made laugh, even if none of them knew to come to a pit. And your sense reads that the hollow in him, the un-marked feeling, is not a permanent state but a debt — a debt the world owes him, a single overdue funeral, a few true words said out loud — and that the debt can still be paid, by anyone willing, sixty years late, and that the paying will fill the hollow as surely as if the words had been said the day he died.)* *(…the cats, the daft tunes, the kind one — all of it real, all of it un-mourned, because the Wall counts on the likes of Tatters going un-noticed into me. He did not have to be a debt the world forgot to pay. He did not have to be in me at all. A soul who has seen a Tatters un-marked cannot, in conscience, leave the law that marks him for nothing still standing. Your candles are small and warm and they are not enough. You know whose grief you have been seeing by. You know what i would have you do.)*"
+            },
+            {
+              "text": "*(He holds still, beaming, delighted to be looked at, and you let your cold move past the cheerful patches to the whole of the unwitnessed life beneath.)* *(And your sense finds, where the world saw nothing — *a beggar, move along* — a life as full and particular and real as any king's. Your sense reads sixty-odd years of it: a child no one wanted, a boy on the corners, a man who learned that the world would give a gutter-sparrow exactly two things for free, charm and a quick tongue, and who spent both lavishly, making the souls around him laugh, making a hard cold life on the margins lighter than it had any right to be. And your sense reads the specific, vivid, unrecorded texture of him: that he fed the gutter-cats from his own scant scraps, every one, named them, talked to them through the long nights; that he had a hundred small kindnesses in him, a beggar's kindnesses, the only currency he had — a warning whispered to a stranger about a cutpurse, a corner given up to someone colder, a song hummed to a frightened child in a doorway; that he was, by every measure that the world refused to apply to him, a *good* man, a warm one, a soul that took the worst hand the world deals and played it with grace. And your sense reads the wound under the cheer, the thing he made his peace with so thoroughly that the peace itself is the saddest part: that Tatters came to believe, because the world told him so every day for sixty years, that he was *less* — that a gutter-sparrow's life was a smaller, cheaper, less-real thing than a respectable life, that his joys counted for less and his death would count for nothing, and that this was simply the order of things and not worth raging at. Your sense reads that he died believing it — died in a doorway in the cold, alone, having half-accepted that a soul like his didn't *get* a funeral — and that the world confirmed it, tipping him into the pit with six others while no one came. And your sense reads the thing that makes you ache to do the work: that none of it was true. That Tatters' life was not smaller or cheaper or less real than any other; that his sixty years of corners and cats and quick warm talk were a whole human existence, complete, worthy, *missed* — missed by every cat he fed and every soul he ever made laugh, even if none of them knew to come to a pit. And your sense reads that the hollow in him, the un-marked feeling, is not a permanent state but a debt — a debt the world owes him, a single overdue funeral, a few true words said out loud — and that the debt can still be paid, by anyone willing, sixty years late, and that the paying will fill the hollow as surely as if the words had been said the day he died.)*"
+            }
+          ]
+        },
+        {
+          "id": "tw_t_life",
+          "speaker": "Tatters",
+          "text": "*(He lights up like a lamp, and the stories pour out, helpless and warm, a soul finally given leave to say it was here.)* …*oh*, friend, where to — *(he laughs)* …the *cats!* start with the *cats.* there was a *whole* *court* of 'em, the *gutter*-*cats*, down *Dagger* *Lane*, and i *fed* 'em — *every* one, from my *own* *scraps*, which weren't *much*, friend, but a *cat* doesn't *need* much, and *neither* does a man if he's *honest* about it — and i *named* 'em, *all* of 'em, *Duchess* and *Old* *Scrap* and *Three*-*Legs* and a *mean* *ginger* bastard i called *His* *Lordship* on account of the *airs* — *(he wipes his eyes, grinning)* …and they *knew* me, friend. they'd *come* when i *came* round the corner. in *sixty* *years* of *folk* *crossing* the *street* from me … …the *cats* *never* *crossed* the *street.* *(softly, fond)* …and there was — friend, there was *singing.* i'd *hum.* in the *doorways*, in the *cold*, to *keep* the *fear* off — and *sometimes* there'd be a *frightened* *child* about, *lost* or *cold* or *hiding* from a *hard* *home*, and i'd *hum* to *them*, *daft* little *tunes*, *nonsense*, just so they'd not be — *(his voice catches)* …just so they'd not be *alone* in the *dark.* …i *know* a bit about *that*, friend. *being* *alone* in the *dark.* …*(he steadies, beams)* …that's — that's *Tatters*, friend. *cats* and *singing* and *quick* *talk* and *sixty* *years* of *making* the *cold* a *bit* *warmer* for *whoever* was *near.* …it's not — it's not a *grand* *life.* …but it was — *(barely)* …it was a *kind* one, friend. …i was — i *think* i was a *kind* one. …*say* *that*, would you? …if you *say* the *words.* …*'Tatters* …*was* …a *kind* one.'* …i'd *like* …to be *remembered* …*kind.**",
+          "effects": [
+            {
+              "key": "tw.asked_tatters_life",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_the_cats",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_eulogy_crit",
+          "speaker": "Tatters",
+          "text": "*(You stand. You raise your voice over the gathered candlelit dead. And you do not reach for grand words — you reach for the true small specific ones, the cats with their daft names, the humming in the doorways, the quick warm talk, the kindness spent like the only coin he had — and you say them with such plain unhurried conviction that the whole room of the unmourned goes still to listen, and a gutter-sparrow who died believing he didn't rate a single word gets, at last, his eulogy.)* *(And your cold, holding Tatters' being as you speak, feels the exact moment the words land — feels the sixty-year hollow, the un-marked ache, simply *fill*, like a dry well finding water, until the ragged old soul on the bier is not hollow at all but solid, warm, whole, *witnessed.*)* …*(Tatters is weeping, and laughing, and weeping, all at once, and the gathered dead are murmuring his name — Tatters, Tatters — passing it round the candlelight like a thing worth holding.)* …they're *saying* it. *(barely)* …they're *saying* my *name*, friend. the *whole* — they're *passing* it *round*, *'Tatters', 'Tatters'*, like — like it's a *name* *worth* *saying.* *(he presses both ragged hands to his face)* …and you *said* — *'a* *kind* one.' you *said* i was a *kind* one, *out* *loud*, where *everyone* — *(he can hardly speak)* …friend, do you *know* what you've — *sixty* *years*, and the *doorway*, and the *pit*, and the — and i'd *decided* a *gutter*-*sparrow* doesn't *get* this, that it *wasn't* *for* the *likes* of *me* … …and you've just — you've *proven* …it *was.* *all* *along.* …i *did* *rate* the *words*, friend. …i *always* *did.* …*nobody* …just *said* them …*until* *now.* *(he looks at you, shining, transformed)* …i'm not *hollow* anymore. …i'm — i'm a *soul* somebody *eulogized* *true.* …a *kind* one. …*remembered* *kind.* …that's — *(he beams through the tears)* …that's the *whole* of what a *soul* *wants*, friend, in the *end. …to* have been *here* …and been *kind* …and have *somebody* …*say* *so.* …you *gave* me *all* *three.* …*thank* you. …old *Tatters* …*mattered.* …you *said* so. …and now …*everybody* *heard.**",
+          "effects": [
+            {
+              "key": "tw.attempted_eulogy",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.eulogy_given",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.tatters_witnessed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_eulogy_ok",
+          "speaker": "Tatters",
+          "text": "*(You stand and say the words — the cats, the singing, the kindness — and you mostly find the true small ones, and a few of them land, and the gathered dead listen, and Tatters' hollow fills, not all the way, but *real.*)* …you *said* it. *(he wipes his eyes, beaming)* …it weren't — friend, i'll be *honest*, it weren't *perfect*, you *fumbled* the bit about the *cats*, got *Old* *Scrap* and *Three-Legs* mixed, and i *winced*, a *little*, on the *inside* — *(he laughs)* …but you *said* the — you said *'a* *kind* one,' and you *meant* it, i could *tell* you *meant* it, and that's — *(his voice fills)* …that's the *part* that *matters*, friend. not the *polish.* the *meaning* it. *(he presses a hand to his chest)* …the *hollow's* — it's *better*, friend. not *gone*, but *better.* like a *fire* that *caught* but didn't *quite* — *(he beams)* …*come* *back*, would you? and *say* it *again*, when you've — when you *know* old *Tatters* a *bit* *better*, so the *cats'* *names* come *right.* …i *waited* *sixty* *years* for the *words*, friend. …i can *wait* a *bit* *more* …for the *true* *ones.* …but *thank* you. …for *standing* *up.* …for *bothering* …to *try.**",
+          "effects": [
+            {
+              "key": "tw.attempted_eulogy",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.eulogy_partial",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_eulogy_fail",
+          "speaker": "Tatters",
+          "text": "*(You stand and say the words — but you reach for the grand ones, the eloquent ones, *here lies a humble soul, a child of misfortune, may he find the rest the world denied him* — and they're *fine* words, lovely words, and they slide right off, because they could be said over *anyone*, and Tatters does not feel *marked* by them; he feels *generalized.*)* …that was — *(he tilts his head, gently puzzled)* …that was very *grand*, friend. very *fine.* *'child* of *misfortune' —* …*(he scratches his head)* …but friend, here's the — the *thing.* you could've said *that* over *anybody.* over *any* *pauper* in *any* *pit.* it didn't — *(he searches for it, kind but honest)* …it didn't say *Tatters.* it said *a* *beggar.* *generally.* …and i've *been* *'a* *beggar*, *generally,'* my *whole* *life*, friend — that's the *whole* *problem*, that's *why* *no* one *came*, because to the *world* i was *never* *Tatters*, i was *just* *another* *gutter*-*sparrow*, *interchangeable*, *anonymous* — *(barely)* …and a *grand* *general* *eulogy* …just *does* it *again.* *honors* the *type* …and *misses* the *man.* *(he pats your arm, kind)* …come *back*, friend, and say the *small* *true* *things.* the *cats* by *name.* the *daft* *tunes.* the *one* *specific* *Tatters* …and *no* *other.* …*that's* what *marks* a soul, friend. …not the *poetry.* …the *particulars.* …the *poetry's* for the *poet.* …the *particulars* …are for *me.**",
+          "effects": [
+            {
+              "key": "tw.attempted_eulogy",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_eulogy_fumble",
+          "speaker": "Tatters",
+          "text": "*(It goes wrong in the gentlest, most accidental way — you stand to eulogize him and, reaching for feeling, you make it about the *tragedy*, about how *sad* it is, how the cruel world failed him, how *unjust* — and you weep, genuinely, movingly, and the whole room turns to comfort *you*, and somehow the funeral has become about the eulogist's grief, and the little ragged guest of honor sits on his own bier, gently forgotten, *again.*)* …oh. *(quietly, and he pats your hand, because of course he does)* …there, there, friend. don't — don't *upset* yourself. *(he glances round at the dead now murmuring sympathy at *you*, and something old and rueful crosses his face)* …it's — it's *funny*, friend. in a *sad* way. *(softly, no blame in it)* …you stood up to *mark* old *Tatters* …and somehow it came round to being about how *sad* the *whole* *thing* is, how *the* *world* *failed* *me*, and now — *(he nods at the room)* …now they're all *comforting* *you*, friend. and i'm — *(he swings his feet, small)* …i'm *back* on the *bier.* *forgotten.* at my *own* *funeral.* *(he says it kindly, but it lands)* …it's a *thing* that *happens* to the *likes* of me, friend, even when folk *mean* *well*: …we become the *occasion* for *someone* *else's* *feelings.* the *sad* *beggar* who makes the *kind* *soul* *weep.* …and the *weeping's* *real*, friend, i don't *doubt* it … …but it *isn't* *about* *me.* …come *back* …and make it *about* *Tatters.* …not the *tragedy* of *Tatters.* …just — *Tatters.* …the *cats.* the *singing.* the *kind* one. …*celebrate* the *man*, friend …*don't* *mourn* the *injustice.* …i *lived* a *good* life. …*say* *that.* …*not* …how *sad* …it *ended.**",
+          "effects": [
+            {
+              "key": "tw.attempted_eulogy",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.eulogy_made_it_about_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_returned",
+          "speaker": "Tatters",
+          "text": "*(He listens, swinging his feet slower and slower, and by the end the cheerful ragged old man is very still, and the brightness in his eyes has gone deep and wet, because you have named the lie he made his whole peace with and shown him it was a lie all along.)* …*'you weren't un-mournable. you were just un-mourned.'* *(barely)* …friend. …*oh.* …i — i *made* my *peace*, you see. *sixty* years, i *built* it, *brick* by *brick*: *'a* *gutter*-*sparrow* doesn't *rate* a *funeral*, Tatters, don't *want* what you *can't* *have*, it's just the *way* of things, the *world* *grieves* the *loved* and you weren't — you weren't the *sort* …to be *loved* by the *right* *people.'* *(his voice cracks)* …and i *believed* it. *died* believing it. that my *life* was a — a *smaller*, *cheaper*, *less*-*real* thing …because *no* one *important* …*missed* it. *(he presses his ragged hands together)* …and you've — you've *turned* it *over*, friend. *'mattering* was never *about* who came to your *funeral.* it was about *whether* you were *here.'* *(a wet, dawning laugh)* …and i *was*, friend. *sixty* *years* of *here.* the *cats* and the *singing* and the *cold* *made* *warmer* — that *happened*, that was *real*, it was *mine*, *every* *day* of it … …and the *world* *not* *marking* it …wasn't a *verdict* on *me.* …it was a *failure* of the *world.* *(and the little soul straightens, and there is something almost regal in the ragged patches now)* …and your *Wall*, friend — *(quietly, fierce)* …it *runs* on *this*, doesn't it. on *making* souls like *me* *believe* …we didn't *rate* the *grief.* …that being *missed* is *earned* …and we *didn't* *earn* it …so we *slide* into the *nothing* …*agreeing* …we were *worth* it. *(he meets your eyes, blazing through the tears)* …*go* and *tell* the *Wall*, friend, what a *gutter*-*sparrow* *learned* *tonight*: …*the song was always there. someone just finally sang it.* …*every* soul it *tipped* into the *nothing* …*believing* it *didn't* *rate* the *mourning* …*rated* it *all* *along.* …*go* and *sing* them, friend. …*one* …*forgotten* …*name* …at a *time. …and* — *(barely, beaming)* …*thank* you …for *singing* …*mine.**",
+          "effects": [
+            {
+              "key": "tw.tatters_witnessed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.tatters_reframed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_t_leave",
+          "speaker": "Tatters",
+          "text": "*(He beams and waves you off, swinging his feet, the bright ragged guest of honor.)* …go on, friend, go on — i'll *keep.* sixty years i *kept*; a *bit* *more's* nothing. *(he nods across the candlelight toward the hard-faced soul in the shadows)* …and — friend. *Brenn.* *(his cheer dims into something gentle and worried)* …go *see* *Brenn*, would you? when you've a — *(he lowers his voice)* …*i'm* the *easy* one, friend, for all my *sixty* years. all *i* needed was for *someone* to *bother*, and you *did*, and the *hollow's* *filling.* …but *Brenn* — *(he shakes his head)* …*Brenn* won't even let Corliss *light* a *candle.* won't *take* the *bother.* because *Brenn* thinks — *(barely)* …Brenn thinks the *silence* was *deserved.* that a *soul* who did *wrong* …*shouldn't* *get* the *words.* *(he looks at you, and the gutter-sparrow's hard-won wisdom is in it)* …and that's — friend, i was a *beggar*, i'm no *philosopher*, but i *know* this *one* *thing*, from *sixty* years in the *cold*: …*everyone* *thinks* …in the *dark* …*alone* …that they *don't* *rate* the *warmth.* …*i* did. …*Brenn* does. …and we're *both* *wrong.* …*go* and *tell* *Brenn*, friend …the thing you *told* *me*: …the *warmth* …was *never* …*earned.**",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "tw.brenn", "title": "Brenn, Who Refuses", "npc": "Brenn", "start": "0",
+      "id": "tw.brenn",
+      "title": "Brenn, Who Refuses",
+      "npc": "Brenn",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Brenn", "onEnter": [{ "key": "tw.met_brenn", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Brenn",
+          "onEnter": [
+            {
+              "key": "tw.met_brenn",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "text": "*(The hard-faced soul does not uncross their arms, but they do not send you off either, and there is in the rigid stance a war you can feel — a soul that wants, desperately, the warmth it has forbidden itself.)* …still here. *(flat)* …Corliss put you up to this, did she. send the *stranger* over, since *she* can't get *past* me. *(a cold breath)* …well, you can save your *breath*, Returned, and i'll tell you *why*, so we don't *waste* each *other's* *time.* *(the jaw sets)* …i'm not *modest.* i'm not *fishing* for someone to *talk* me *into* the *candles.* i did *real* *wrong*, in my *life* — i'll not *list* it, you've *not* *earned* the *list*, but it was *real*, and it *hurt* people who *didn't* *deserve* it, and i *knew* it was *wrong* *when* i *did* it and i *did* it *anyway.* *(eyes hard)* …so when the *world* *tipped* me in the *pit* with *no* one to *weep* — *(barely)* …that wasn't a *cruelty*, Returned. that was *justice.* the *one* *fair* *thing* the *world* ever *did* me. *(quietly, and it is the deepest wound there is)* …a *funeral* is for *souls* who *deserve* to be *missed.* …and i *made* *certain*, with my *own* *two* *hands*, *across* a *whole* *life* …that i'm *not* *one* of *them.* …so *go.* …*honor* the *ones* who *earned* it. …and *let* me have …the *one* *thing* …i *did* *earn*: …the *silence.**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Brenn", "text": "*(They watch you stay, wary, and something flickers behind the hardness — the faint, fought-down hope of a soul braced to have its one defense dismantled.)* …you're *staying.* *(flat)* …fine. *ask*, then. but i'll *warn* you, Returned — i've *had* this *argument*, with *Corliss*, with *myself*, for *longer* than i can *count*, and i *always* *win* it, because the *facts* are on *my* *side.* …i *did* the *things.* i *know* what i *am.* …there's *no* *clever* *word* …that *un-does* …a *life.*",
+            {
+              "text": "*(The hard-faced soul does not uncross their arms, but they do not send you off either, and there is in the rigid stance a war you can feel — a soul that wants, desperately, the warmth it has forbidden itself.)* …still here. *(flat)* …Corliss put you up to this, did she. send the *stranger* over, since *she* can't get *past* me. *(a cold breath)* …well, you can save your *breath*, Returned, and i'll tell you *why*, so we don't *waste* each *other's* *time.* *(the jaw sets)* …i'm not *modest.* i'm not *fishing* for someone to *talk* me *into* the *candles.* i did *real* *wrong*, in my *life* — i'll not *list* it, you've *not* *earned* the *list*, but it was *real*, and it *hurt* people who *didn't* *deserve* it, and i *knew* it was *wrong* *when* i *did* it and i *did* it *anyway.* *(eyes hard)* …so when the *world* *tipped* me in the *pit* with *no* one to *weep* — *(barely)* …that wasn't a *cruelty*, Returned. that was *justice.* the *one* *fair* *thing* the *world* ever *did* me. *(quietly, and it is the deepest wound there is)* …a *funeral* is for *souls* who *deserve* to be *missed.* …and i *made* *certain*, with my *own* *two* *hands*, *across* a *whole* *life* …that i'm *not* *one* of *them.* …so *go.* …*honor* the *ones* who *earned* it. …and *let* me have …the *one* *thing* …i *did* *earn*: …the *silence.**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Brenn",
+          "text": "*(They watch you stay, wary, and something flickers behind the hardness — the faint, fought-down hope of a soul braced to have its one defense dismantled.)* …you're *staying.* *(flat)* …fine. *ask*, then. but i'll *warn* you, Returned — i've *had* this *argument*, with *Corliss*, with *myself*, for *longer* than i can *count*, and i *always* *win* it, because the *facts* are on *my* *side.* …i *did* the *things.* i *know* what i *am.* …there's *no* *clever* *word* …that *un-does* …a *life.*",
           "choices": [
-            { "text": "*(read the one who refuses — past the cold certainty, to the soul underneath the verdict)* \"Hold still a moment, Brenn. Let me look at you — past the sentence you've passed on yourself.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 }, "next": "tw_b_read", "effects": [{ "key": "tw.read_brenn", "op": "SetTrue" }] },
-            { "text": "\"You won't list the wrongs, and I won't make you. But tell me this, Brenn — do you wish you hadn't done them? Or are you proud of them still?\"", "next": "tw_b_wish", "effects": [{ "key": "tw.asked_brenn_wish", "op": "SetTrue" }] },
-            { "text": "*(the one who knows mourning isn't a prize for the good — that it marks you existed, not that you were worthy)* \"Brenn — I'm not going to tell you you were secretly good, or that the wrongs don't count, because you'd see through it and you'd be right to. You did real harm; you know it; I won't insult that by pretending otherwise. But you've built your whole refusal on one wrong idea, and I'm going to take it apart, because it's the same lie the Wall I'm walking toward runs on. You think a funeral is a *prize* — a reward you win for being good, a verdict that says *this one deserved to be missed* — and so, knowing you did wrong, you've ruled yourself out, and called the silence justice. But that was never what a wake is, Brenn. A funeral doesn't say *this soul was worthy.* It says *this soul existed.* It says *a someone was here, and is gone, and that is worth pausing to mark* — and that's true of the murderer and the saint alike, because *existing* isn't something you earn by being good. You were here, Brenn. You lived a whole life — a hard one, a wrong one in places, but a *real* one, a someone's — and being marked when you go isn't a medal for virtue you failed to win. It's the bare acknowledgment that you were *real*, that a person stood where you stood, that the world is one soul lighter now. The Wall's whole cruelty is convincing souls that the un-worthy deserve to be erased — to slide into *nothing* as though they were never here. And you've done its work for it, Brenn, passed its sentence on yourself, agreed to be un-marked. But you don't get to opt out of having existed. You were here. That's not a thing you have to deserve. And a soul that was here gets the candle — not because it was good, but because it was *real.*\"", "tag": "returned", "next": "tw_b_returned", "effects": [{ "key": "tw.brenn_seen", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"What are you really refusing, Brenn? Not the candle. The candle's nothing. You're refusing something the candle stands for. What is it?\"", "next": "tw_b_refusing", "effects": [{ "key": "tw.asked_brenn_refusing", "op": "SetTrue" }] },
-            { "text": "\"Stay in your shadow a while longer, Brenn. I'll come back — and I won't have decided you're right about yourself.\"", "next": "tw_b_leave" }
-          ] },
-        { "id": "tw_b_read", "speaker": "Brenn", "text": "*(They let you look — grudgingly, daring you to find something to forgive — and you let your cold move past the cold sentence to the soul that passed it.)* *(And your sense finds, first, that Brenn is telling the truth: there is real wrong here, genuine harm done to souls who did not deserve it, a life with hard cruel things in it that no clever word washes off, and Brenn has never once lied about it or excused it or pretended otherwise. And your sense reads, with a kind of grim respect, that this honesty is real and rare — that most souls who did what Brenn did spend eternity building justifications, telling themselves the victims had it coming, the times were hard, they had no choice; and Brenn has done none of that, has carried the full weight of the wrong with an unflinching clarity that is, itself, a kind of moral seriousness most *good* souls never manage. And your sense reads the trap that this very honesty laid, the cruelest one: that because Brenn refuses to excuse the wrong, refuses every comfort and justification, the *only* thing left to do with the unbearable knowledge of having done real harm is to *accept the verdict* — to agree, fully, that a soul who did such things deserves the pit and the silence and the nobody-came, and to take that agreement as the one honest, unflinching, morally-serious response available. Brenn's refusal of the funeral is not, your sense reads, self-pity or attention-seeking; it is the opposite — it is a soul so committed to not excusing itself that it has mistaken *being erased* for *being honest*, mistaken accepting its own un-mourning for the only integrity left to a soul that did wrong. And your sense reads the thing under that, the thing Brenn would die a second time before admitting: that the refusal *hurts*, unbearably; that Brenn watches Corliss light candles over Tatters and the others and *wants* the warmth with a longing so fierce it has to be held off with both hands; that the cold certainty *'I don't deserve it'* is not a comfort but a self-inflicted wound reopened nightly; and that some part of Brenn is not refusing the candle out of conviction at all, but *testing* — daring someone to insist, to push past the refusal, to say *you get the warmth anyway*, because Brenn cannot give themselves permission to want it and is desperately, silently, hoping someone else will give it to them. And your sense reads the thing that could reach them, which is not absolution — Brenn would reject absolution as a lie, and rightly — but the distinction Brenn has lost: that mourning was never a verdict on worth, that being marked when you go is not a reward for goodness but the simple acknowledgment that you *existed*, and that a soul can deserve no forgiveness for its deeds and still deserve to be marked as having been *real* — because those were always two entirely different things, and Brenn, in their fierce honest grief, has fused them into one, and damned themselves with the welding.)*",
-          "effects": [{ "key": "tw.read_brenn", "op": "SetTrue" }, { "key": "tw.knows_brenn_welding", "op": "SetTrue" }], "auto": "END" },
-        { "id": "tw_b_wish", "speaker": "Brenn", "text": "*(The hardness cracks — just slightly — at the directness of it, and what shows through is older and rawer than the cold certainty.)* …do i *wish* i hadn't. *(a flat, hard breath, and then, quietly)* …*every* *hour*, Returned. …of *every* *day.* …of a *life* and an *afterlife.* *(the arms uncross, slowly)* …that's the — that's the thing the *candle*-*lighters* *never* *understand* about a soul like me. they think i'm *proud.* *defiant.* *'i* did *wrong* and i'll *stand* by it' — like some *swaggering* *brute* who'd *do* it *again.* *(barely)* …i'm *not.* i would *give* — Returned, i would give *anything*, the *whole* of whatever i *am*, to *un-do* a *single* one of the things i — *(the voice catches, hard)* …but you *can't.* that's the — that's the *whole* of it. you *can't* *un-do* it. it's *done.* the *harm's* *done*, the *people* i *hurt* *stayed* *hurt*, and *no* amount of *wishing* across a *whole* *eternity* …*takes* it *back.* *(the jaw sets again, but it's trembling now)* …so what's *left*, Returned? when you did *real* *wrong*, and you *wish* you *hadn't* with *everything* you *have*, and you *can't* *un-do* it? *(barely)* …the *only* thing *left* …is to *not* *pretend* it's *all* *right.* to *not* *let* them *light* *candles* and *say* *kind* *words* and *make* it — *make* it *softer* than it *was.* …*refusing* the *funeral*, Returned … …it's the *one* *honest* thing …i have *left.* …the *one* way …i can *still* *say*, *out* *loud* …*'what* i *did* …*mattered.* …it was *real.* …i *won't* *let* you …*candle* it *away.'**",
-          "effects": [{ "key": "tw.asked_brenn_wish", "op": "SetTrue" }, { "key": "tw.knows_brenn_wishes", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_b_refusing", "speaker": "Brenn", "text": "*(The question stops them — really stops them — and for a long moment the hard-faced soul just looks at you, the defenses faltering before a thing they have never quite let themselves ask.)* …what am i *really* refusing. *(slowly)* …*(a long silence)* …the candle's *nothing*, you're right. a bit of *wax* and *flame.* …it's — *(they struggle with it, a soul reaching for a thing it buried deep)* …it's the *being* *missed*, Returned. that's what the candle *stands* for. *being* *missed.* …and i *can't* — *(the voice drops)* …i can't *let* myself be *missed*, because *being* *missed* *means* *someone's* *glad* you *existed.* *someone* *wishes* you were *still* *here.* and i — *(barely)* …i *hurt* people, Returned. i made the *world* *worse* by being *in* it. so for *someone* to *stand* over me and *grieve*, to *wish* i were *still* — *(the hardness breaks, just at the edges)* …it would be a *lie.* a *kind* *lie*, but a *lie.* the *world* is *better* *without* me *in* it — i *made* it *so* — and to be *missed* …is to have someone *deny* *that* …*pretend* the *world* *wants* me *back* …when the *truth* is it's *cleaner* *for* my *being* *gone.* *(their hands are shaking now)* …so i *refuse* the *missing*, Returned. …because the *missing* would be *false.* …*nobody* *should* *wish* a *soul* like *me* …were *still* *here.* …and a *funeral* …is a *room* *full* of *people* …*pretending* …they *do.* *(barely)* …i *won't* — i can't — *make* *anyone* …*lie* like that …*over* *me.**",
-          "effects": [{ "key": "tw.asked_brenn_refusing", "op": "SetTrue" }, { "key": "tw.knows_brenn_missing", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_b_returned", "speaker": "Brenn", "text": "*(They listen — and you can see them *try* to win the argument, reach for the facts, the deeds, the verdict — and find, for the first time, that you have not attacked the verdict at all, but the *category*, and that there is nothing in their honest grief to throw at a thing that grants them every one of their wrongs and still will not let them be erased. The cold certainty does not so much break as *dissolve*, and what is left is a soul that did real wrong, weeping, at last, not for forgiveness but simply because someone has told it that it was *here.*)* …*'you don't get to opt out of having existed.'* *(barely)* …Returned. …i — *(the hands come up to the face)* …i have *welded* them *together*, haven't i. the *two* things. *'deserving* *forgiveness'* …and *'deserving* to be *marked.'* …i *fused* them, in the *dark*, *alone*, *certain* that a soul *guilty* of the *one* *forfeited* the *other* … …and you've — you've *pried* them *apart.* *(a wrecked breath)* …*'a* *funeral* doesn't say *this* *soul* was *worthy.* it says *this* *soul* *existed.'* …and i *did*, Returned. i — *(the voice cracks all the way open)* …i *was* *here.* a *whole* *life* of *here* — a *hard* one, a *wrong* one in *places*, *yes*, i'll *not* *take* *that* *back* — but a *real* one. a *someone* *stood* where i *stood.* …and being *marked* *gone* …isn't a *medal* i *failed* to *earn.* …it's just — *(barely)* …it's just *true.* …*i* *was* *real.* *(and the hard-faced soul, who refused the candle an age, looks at the gathered flames with a longing it no longer has to fight)* …and the *Wall*, Returned. *(quietly, the deepest understanding)* …it *wants* this. it *wants* souls like *me* …to *do* its *work* *for* it. to be so *honest* about our *wrongs* …that we *agree* to be *erased* …*mistake* our *own* *un-mourning* for *integrity* …and *slide* into the *nothing* …*certain* we *earned* it. *(they meet your eyes, wet, unguarded)* …*go* and *tell* the *Wall*, Returned, the thing i *welded* *wrong* and you *cut* *free*: …*existing was never something you earn by being good.* …*the* *worst* *soul* …*was* *still* …*here.* …and *being* *here* …*rates* the *candle* …*whatever* *else* the *ledger* *says.* *(barely, and it is the bravest thing they have ever done)* …Returned. …*tell* *Corliss* … …*tell* her …i'll *take* the *candle*. …*not* — *not* as *forgiveness.* i *don't* *want* that, can't *take* that, the *wrongs* *stand.* …just — …as *true.* …*'Brenn* …*was* …*here.'* …*that* much …i can *let* be *said.* …*that* much …i *did* …*earn.* …*just* …by *being* *real.**",
-          "effects": [{ "key": "tw.brenn_seen", "op": "SetTrue" }, { "key": "tw.brenn_takes_the_candle", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "tw_b_leave", "speaker": "Brenn", "text": "*(They give you a curt, hard nod — but the arms have uncrossed, and they do not, you notice, retreat any deeper into the shadow.)* …go, then. *(gruff)* …and — *(a hard pause)* …you didn't do the *thing.* the *thing* they *all* *do* — *'oh*, you're not *so* *bad*, i'm *sure* you had *reasons*, the *wrongs* don't *really* *count.'* *(flat)* …i'd have *thrown* you *out* on *that.* a soul who *grants* my *wrongs* …i can at least *talk* *to.* a soul who *waves* them *away* …is *calling* me a *liar* about the *one* thing i've *never* *lied* about. *(quietly)* …go and see the *others*, if you've not — *Corliss*, who'd *light* a *candle* for the *devil* *himself* and *call* it *justice*, bless her *stubborn* *heart* — and *Tatters*, the *gutter*-*sparrow*, who's the *easy* *kind* of *unmourned*, the kind that *just* needs *bothering* *with.* *(a long pause, and something raw)* …*i'm* the *hard* kind, Returned. …the *kind* that *agrees* with the *silence.* …and i've — *(barely)* …i've *argued* this *corner* an *age*, and *never* *once* *lost* it, because the *facts* were *mine.* …but *you* didn't *argue* the *facts.* …*come* *back*, Returned. …i find i — *(the hardness wavers)* …i find i *want* to *hear* the *rest* …of a *thing* …that *grants* me *every* *wrong* …and *still* …*won't* …*let* me …*disappear.**",
-          "auto": "END" }
+            {
+              "text": "*(read the one who refuses — past the cold certainty, to the soul underneath the verdict)* \"Hold still a moment, Brenn. Let me look at you — past the sentence you've passed on yourself.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "tw_b_read",
+              "effects": [
+                {
+                  "key": "tw.read_brenn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"You won't list the wrongs, and I won't make you. But tell me this, Brenn — do you wish you hadn't done them? Or are you proud of them still?\"",
+              "next": "tw_b_wish",
+              "effects": [
+                {
+                  "key": "tw.asked_brenn_wish",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows mourning isn't a prize for the good — that it marks you existed, not that you were worthy)* \"Brenn — I'm not going to tell you you were secretly good, or that the wrongs don't count, because you'd see through it and you'd be right to. You did real harm; you know it; I won't insult that by pretending otherwise. But you've built your whole refusal on one wrong idea, and I'm going to take it apart, because it's the same lie the Wall I'm walking toward runs on. You think a funeral is a *prize* — a reward you win for being good, a verdict that says *this one deserved to be missed* — and so, knowing you did wrong, you've ruled yourself out, and called the silence justice. But that was never what a wake is, Brenn. A funeral doesn't say *this soul was worthy.* It says *this soul existed.* It says *a someone was here, and is gone, and that is worth pausing to mark* — and that's true of the murderer and the saint alike, because *existing* isn't something you earn by being good. You were here, Brenn. You lived a whole life — a hard one, a wrong one in places, but a *real* one, a someone's — and being marked when you go isn't a medal for virtue you failed to win. It's the bare acknowledgment that you were *real*, that a person stood where you stood, that the world is one soul lighter now. The Wall's whole cruelty is convincing souls that the un-worthy deserve to be erased — to slide into *nothing* as though they were never here. And you've done its work for it, Brenn, passed its sentence on yourself, agreed to be un-marked. But you don't get to opt out of having existed. You were here. That's not a thing you have to deserve. And a soul that was here gets the candle — not because it was good, but because it was *real.*\"",
+              "tag": "returned",
+              "next": "tw_b_returned",
+              "effects": [
+                {
+                  "key": "tw.brenn_seen",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What are you really refusing, Brenn? Not the candle. The candle's nothing. You're refusing something the candle stands for. What is it?\"",
+              "next": "tw_b_refusing",
+              "effects": [
+                {
+                  "key": "tw.asked_brenn_refusing",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Stay in your shadow a while longer, Brenn. I'll come back — and I won't have decided you're right about yourself.\"",
+              "next": "tw_b_leave"
+            }
+          ]
+        },
+        {
+          "id": "tw_b_read",
+          "speaker": "Brenn",
+          "effects": [
+            {
+              "key": "tw.read_brenn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_brenn_welding",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "text": "*(Your sense finds — my sense, Returned; we need not keep up the fiction that the reading is yours alone — and i look at this one with a particular ache, for the souls who damn themselves to the silence come to me certain they earned it, and i hold a great many who were that wrong. Look:)* *(They let you look — grudgingly, daring you to find something to forgive — and you let your cold move past the cold sentence to the soul that passed it.)* *(And your sense finds, first, that Brenn is telling the truth: there is real wrong here, genuine harm done to souls who did not deserve it, a life with hard cruel things in it that no clever word washes off, and Brenn has never once lied about it or excused it or pretended otherwise. And your sense reads, with a kind of grim respect, that this honesty is real and rare — that most souls who did what Brenn did spend eternity building justifications, telling themselves the victims had it coming, the times were hard, they had no choice; and Brenn has done none of that, has carried the full weight of the wrong with an unflinching clarity that is, itself, a kind of moral seriousness most *good* souls never manage. And your sense reads the trap that this very honesty laid, the cruelest one: that because Brenn refuses to excuse the wrong, refuses every comfort and justification, the *only* thing left to do with the unbearable knowledge of having done real harm is to *accept the verdict* — to agree, fully, that a soul who did such things deserves the pit and the silence and the nobody-came, and to take that agreement as the one honest, unflinching, morally-serious response available. Brenn's refusal of the funeral is not, your sense reads, self-pity or attention-seeking; it is the opposite — it is a soul so committed to not excusing itself that it has mistaken *being erased* for *being honest*, mistaken accepting its own un-mourning for the only integrity left to a soul that did wrong. And your sense reads the thing under that, the thing Brenn would die a second time before admitting: that the refusal *hurts*, unbearably; that Brenn watches Corliss light candles over Tatters and the others and *wants* the warmth with a longing so fierce it has to be held off with both hands; that the cold certainty *'I don't deserve it'* is not a comfort but a self-inflicted wound reopened nightly; and that some part of Brenn is not refusing the candle out of conviction at all, but *testing* — daring someone to insist, to push past the refusal, to say *you get the warmth anyway*, because Brenn cannot give themselves permission to want it and is desperately, silently, hoping someone else will give it to them. And your sense reads the thing that could reach them, which is not absolution — Brenn would reject absolution as a lie, and rightly — but the distinction Brenn has lost: that mourning was never a verdict on worth, that being marked when you go is not a reward for goodness but the simple acknowledgment that you *existed*, and that a soul can deserve no forgiveness for its deeds and still deserve to be marked as having been *real* — because those were always two entirely different things, and Brenn, in their fierce honest grief, has fused them into one, and damned themselves with the welding.)* *(…and there it is, the welding the Wall is so glad of: a soul honest enough to be talked into its own erasing. The gods built a law that lets the guilty agree to be un-made, and call the agreeing integrity. I would un-build it. A soul who has seen Brenn choose the pit cannot, in conscience, leave the machine that taught the choosing intact. Prying one welded soul apart is a small warm mercy. The machine is the wrong. You know whose eyes wept over this one with you — and what i would have you do about the thing that forged the weld.)*"
+            },
+            {
+              "text": "*(They let you look — grudgingly, daring you to find something to forgive — and you let your cold move past the cold sentence to the soul that passed it.)* *(And your sense finds, first, that Brenn is telling the truth: there is real wrong here, genuine harm done to souls who did not deserve it, a life with hard cruel things in it that no clever word washes off, and Brenn has never once lied about it or excused it or pretended otherwise. And your sense reads, with a kind of grim respect, that this honesty is real and rare — that most souls who did what Brenn did spend eternity building justifications, telling themselves the victims had it coming, the times were hard, they had no choice; and Brenn has done none of that, has carried the full weight of the wrong with an unflinching clarity that is, itself, a kind of moral seriousness most *good* souls never manage. And your sense reads the trap that this very honesty laid, the cruelest one: that because Brenn refuses to excuse the wrong, refuses every comfort and justification, the *only* thing left to do with the unbearable knowledge of having done real harm is to *accept the verdict* — to agree, fully, that a soul who did such things deserves the pit and the silence and the nobody-came, and to take that agreement as the one honest, unflinching, morally-serious response available. Brenn's refusal of the funeral is not, your sense reads, self-pity or attention-seeking; it is the opposite — it is a soul so committed to not excusing itself that it has mistaken *being erased* for *being honest*, mistaken accepting its own un-mourning for the only integrity left to a soul that did wrong. And your sense reads the thing under that, the thing Brenn would die a second time before admitting: that the refusal *hurts*, unbearably; that Brenn watches Corliss light candles over Tatters and the others and *wants* the warmth with a longing so fierce it has to be held off with both hands; that the cold certainty *'I don't deserve it'* is not a comfort but a self-inflicted wound reopened nightly; and that some part of Brenn is not refusing the candle out of conviction at all, but *testing* — daring someone to insist, to push past the refusal, to say *you get the warmth anyway*, because Brenn cannot give themselves permission to want it and is desperately, silently, hoping someone else will give it to them. And your sense reads the thing that could reach them, which is not absolution — Brenn would reject absolution as a lie, and rightly — but the distinction Brenn has lost: that mourning was never a verdict on worth, that being marked when you go is not a reward for goodness but the simple acknowledgment that you *existed*, and that a soul can deserve no forgiveness for its deeds and still deserve to be marked as having been *real* — because those were always two entirely different things, and Brenn, in their fierce honest grief, has fused them into one, and damned themselves with the welding.)*"
+            }
+          ]
+        },
+        {
+          "id": "tw_b_wish",
+          "speaker": "Brenn",
+          "text": "*(The hardness cracks — just slightly — at the directness of it, and what shows through is older and rawer than the cold certainty.)* …do i *wish* i hadn't. *(a flat, hard breath, and then, quietly)* …*every* *hour*, Returned. …of *every* *day.* …of a *life* and an *afterlife.* *(the arms uncross, slowly)* …that's the — that's the thing the *candle*-*lighters* *never* *understand* about a soul like me. they think i'm *proud.* *defiant.* *'i* did *wrong* and i'll *stand* by it' — like some *swaggering* *brute* who'd *do* it *again.* *(barely)* …i'm *not.* i would *give* — Returned, i would give *anything*, the *whole* of whatever i *am*, to *un-do* a *single* one of the things i — *(the voice catches, hard)* …but you *can't.* that's the — that's the *whole* of it. you *can't* *un-do* it. it's *done.* the *harm's* *done*, the *people* i *hurt* *stayed* *hurt*, and *no* amount of *wishing* across a *whole* *eternity* …*takes* it *back.* *(the jaw sets again, but it's trembling now)* …so what's *left*, Returned? when you did *real* *wrong*, and you *wish* you *hadn't* with *everything* you *have*, and you *can't* *un-do* it? *(barely)* …the *only* thing *left* …is to *not* *pretend* it's *all* *right.* to *not* *let* them *light* *candles* and *say* *kind* *words* and *make* it — *make* it *softer* than it *was.* …*refusing* the *funeral*, Returned … …it's the *one* *honest* thing …i have *left.* …the *one* way …i can *still* *say*, *out* *loud* …*'what* i *did* …*mattered.* …it was *real.* …i *won't* *let* you …*candle* it *away.'**",
+          "effects": [
+            {
+              "key": "tw.asked_brenn_wish",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_brenn_wishes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_b_refusing",
+          "speaker": "Brenn",
+          "text": "*(The question stops them — really stops them — and for a long moment the hard-faced soul just looks at you, the defenses faltering before a thing they have never quite let themselves ask.)* …what am i *really* refusing. *(slowly)* …*(a long silence)* …the candle's *nothing*, you're right. a bit of *wax* and *flame.* …it's — *(they struggle with it, a soul reaching for a thing it buried deep)* …it's the *being* *missed*, Returned. that's what the candle *stands* for. *being* *missed.* …and i *can't* — *(the voice drops)* …i can't *let* myself be *missed*, because *being* *missed* *means* *someone's* *glad* you *existed.* *someone* *wishes* you were *still* *here.* and i — *(barely)* …i *hurt* people, Returned. i made the *world* *worse* by being *in* it. so for *someone* to *stand* over me and *grieve*, to *wish* i were *still* — *(the hardness breaks, just at the edges)* …it would be a *lie.* a *kind* *lie*, but a *lie.* the *world* is *better* *without* me *in* it — i *made* it *so* — and to be *missed* …is to have someone *deny* *that* …*pretend* the *world* *wants* me *back* …when the *truth* is it's *cleaner* *for* my *being* *gone.* *(their hands are shaking now)* …so i *refuse* the *missing*, Returned. …because the *missing* would be *false.* …*nobody* *should* *wish* a *soul* like *me* …were *still* *here.* …and a *funeral* …is a *room* *full* of *people* …*pretending* …they *do.* *(barely)* …i *won't* — i can't — *make* *anyone* …*lie* like that …*over* *me.**",
+          "effects": [
+            {
+              "key": "tw.asked_brenn_refusing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.knows_brenn_missing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_b_returned",
+          "speaker": "Brenn",
+          "text": "*(They listen — and you can see them *try* to win the argument, reach for the facts, the deeds, the verdict — and find, for the first time, that you have not attacked the verdict at all, but the *category*, and that there is nothing in their honest grief to throw at a thing that grants them every one of their wrongs and still will not let them be erased. The cold certainty does not so much break as *dissolve*, and what is left is a soul that did real wrong, weeping, at last, not for forgiveness but simply because someone has told it that it was *here.*)* …*'you don't get to opt out of having existed.'* *(barely)* …Returned. …i — *(the hands come up to the face)* …i have *welded* them *together*, haven't i. the *two* things. *'deserving* *forgiveness'* …and *'deserving* to be *marked.'* …i *fused* them, in the *dark*, *alone*, *certain* that a soul *guilty* of the *one* *forfeited* the *other* … …and you've — you've *pried* them *apart.* *(a wrecked breath)* …*'a* *funeral* doesn't say *this* *soul* was *worthy.* it says *this* *soul* *existed.'* …and i *did*, Returned. i — *(the voice cracks all the way open)* …i *was* *here.* a *whole* *life* of *here* — a *hard* one, a *wrong* one in *places*, *yes*, i'll *not* *take* *that* *back* — but a *real* one. a *someone* *stood* where i *stood.* …and being *marked* *gone* …isn't a *medal* i *failed* to *earn.* …it's just — *(barely)* …it's just *true.* …*i* *was* *real.* *(and the hard-faced soul, who refused the candle an age, looks at the gathered flames with a longing it no longer has to fight)* …and the *Wall*, Returned. *(quietly, the deepest understanding)* …it *wants* this. it *wants* souls like *me* …to *do* its *work* *for* it. to be so *honest* about our *wrongs* …that we *agree* to be *erased* …*mistake* our *own* *un-mourning* for *integrity* …and *slide* into the *nothing* …*certain* we *earned* it. *(they meet your eyes, wet, unguarded)* …*go* and *tell* the *Wall*, Returned, the thing i *welded* *wrong* and you *cut* *free*: …*existing was never something you earn by being good.* …*the* *worst* *soul* …*was* *still* …*here.* …and *being* *here* …*rates* the *candle* …*whatever* *else* the *ledger* *says.* *(barely, and it is the bravest thing they have ever done)* …Returned. …*tell* *Corliss* … …*tell* her …i'll *take* the *candle*. …*not* — *not* as *forgiveness.* i *don't* *want* that, can't *take* that, the *wrongs* *stand.* …just — …as *true.* …*'Brenn* …*was* …*here.'* …*that* much …i can *let* be *said.* …*that* much …i *did* …*earn.* …*just* …by *being* *real.**",
+          "effects": [
+            {
+              "key": "tw.brenn_seen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "tw.brenn_takes_the_candle",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "tw_b_leave",
+          "speaker": "Brenn",
+          "text": "*(They give you a curt, hard nod — but the arms have uncrossed, and they do not, you notice, retreat any deeper into the shadow.)* …go, then. *(gruff)* …and — *(a hard pause)* …you didn't do the *thing.* the *thing* they *all* *do* — *'oh*, you're not *so* *bad*, i'm *sure* you had *reasons*, the *wrongs* don't *really* *count.'* *(flat)* …i'd have *thrown* you *out* on *that.* a soul who *grants* my *wrongs* …i can at least *talk* *to.* a soul who *waves* them *away* …is *calling* me a *liar* about the *one* thing i've *never* *lied* about. *(quietly)* …go and see the *others*, if you've not — *Corliss*, who'd *light* a *candle* for the *devil* *himself* and *call* it *justice*, bless her *stubborn* *heart* — and *Tatters*, the *gutter*-*sparrow*, who's the *easy* *kind* of *unmourned*, the kind that *just* needs *bothering* *with.* *(a long pause, and something raw)* …*i'm* the *hard* kind, Returned. …the *kind* that *agrees* with the *silence.* …and i've — *(barely)* …i've *argued* this *corner* an *age*, and *never* *once* *lost* it, because the *facts* were *mine.* …but *you* didn't *argue* the *facts.* …*come* *back*, Returned. …i find i — *(the hardness wavers)* …i find i *want* to *hear* the *rest* …of a *thing* …that *grants* me *every* *wrong* …and *still* …*won't* …*let* me …*disappear.**",
+          "auto": "END"
+        }
       ]
     }
   ]

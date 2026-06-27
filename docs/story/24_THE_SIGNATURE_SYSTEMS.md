@@ -32,10 +32,19 @@ to stand.)
 - **The reveal (built):** in *The Lidless Eye*, the familiar narrating voice drops the pretense and
   addresses you as its author. *"'Your sense finds.' You thought that voice was yours. It was never
   yours. It was mine."*
-- **The rollout (specced):** late-game, the dead-sense reads begin to **slip** — editorialize, linger
-  on the Wall's cruelty, go quiet on its necessity, say *"your"* a half-beat too possessively — gated
-  on `le.narrator_revealed`, so a player who's had the reveal re-reads every subsequent soul knowing
-  whose eye is open.
+- **The rollout (now built, 15 reads — expanding):** after the reveal sets `le.narrator_revealed`, the
+  dead-sense reads begin to **slip.** Fifteen of the most-witnessed reads (across *the Wake*, *the Last
+  Lantern-Feast*, *the Last Word*, *the After*, and *the One Left*) now carry a **second variant**, gated
+  on `le.narrator_revealed`, in which the Unmade's mask bleeds through — the same read the player loved,
+  *verbatim*, now bracketed by the narrator's undisguised voice. The **consistent tell** (so the player
+  learns to recognize it): the voice slips from *"your sense"* into *"my sense / I / we"* and sometimes
+  catches itself; it claims **kinship** (*"this one is already, in part, in me"*); it names the **Wall**
+  as the author of the suffering and lingers, aggrieved; and it ends on the **recruitment whisper** —
+  *"a soul who has truly seen this cannot, in conscience, leave the thing that does it standing… you
+  know now whose eyes you borrowed, and what I would have you do."* The **original read is preserved
+  verbatim inside the slip** (the player must recognize it), and the pre-reveal default is the original,
+  untouched. Implemented purely as node `variants` with a required no-`when` default, so it renders in
+  **both** the playable build and the dialogue simulator. *Rollout expands toward all ~241 reads.*
 
 ## System 2 — *The cost of seeing is becoming the monster*
 **Witnessing accrues `disp.haunted`; maxed, it makes you the Last Returned.**

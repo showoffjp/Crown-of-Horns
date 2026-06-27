@@ -2992,6 +2992,35 @@ check("the Eye can be reclaimed (a tool given for a dark purpose, redeemed by th
 check("each Lidless-Eye presence carries a [RETURNED] line + a Returned-sense (meta: sensing the thing that senses)", [leU, leE, leB].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
 
+// ---- SYSTEM 1 rollout: the narration slip reaches backward through the game ----
+const SLIP_READS = [
+  ["tw.corliss","tw_c_read"],["tw.tatters","tw_t_read"],["tw.brenn","tw_b_read"],
+  ["lf.dot","lf_d_read"],["lf.marisa","lf_m_read"],["lf.onora","lf_o_read"],
+  ["sv.sevrin","sv_s_read"],["sv.sela","sv_e_read"],["sv.coll","sv_c_read"],
+  ["af.sela","af_s_read"],["af.coll","af_c_read"],["af.tamsin","af_t_read"],
+  ["ol.sift","ol_s_read"],["ol.bryn","ol_b_read"],["ol.tace","ol_t_read"],
+];
+const slipNode = (cid, nid) => { const c = CONVS.find(x => x.id === cid); return c && c.nodes.find(n => n.id === nid); };
+check("System 1 rollout: 15 beloved reads gain a narrator-slip variant (the Unmade's mask bleeding through) gated on le.narrator_revealed, with a verbatim-original default", SLIP_READS.every(([cid, nid]) => {
+  const n = slipNode(cid, nid);
+  if (!n || !n.variants || n.variants.length !== 2) return false;
+  const slip = n.variants[0], dflt = n.variants[1];
+  const gated = slip.when && (slip.when.flags || []).includes("le.narrator_revealed");
+  const hasDefault = !dflt.when;                      // required no-when fallback (else pickVariantText returns "")
+  return gated && hasDefault && slip.text.length > dflt.text.length;  // slip wraps the verbatim original
+}));
+check("System 1 rollout: every slipped read carries the recognizable tell (first-person intrusion + the unmaking whisper) and preserves the original read inside it", SLIP_READS.every(([cid, nid]) => {
+  const n = slipNode(cid, nid);
+  const slip = n.variants[0].text, original = n.variants[1].text;
+  const tell = /my sense/i.test(slip) && /(unmake|in conscience|whose eyes|whose grief)/i.test(slip);
+  const preservesOriginal = slip.indexOf(original) !== -1;   // the verbatim original read is embedded in the slip
+  return tell && preservesOriginal;
+}));
+check("System 1 rollout: the read nodes keep their effects + auto:END (mechanics intact under the new variants)", SLIP_READS.every(([cid, nid]) => {
+  const n = slipNode(cid, nid);
+  return n.auto === "END" && Array.isArray(n.effects) && n.effects.length >= 1;
+}));
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.54.0 — *"The Slip"* — System 1 reaches backward through the game (systems + content)
+
+> The narration-slip rollout from the capstone's design spec, **built and test-verified.** Once *The
+> Lidless Eye* sets `le.narrator_revealed`, **fifteen of the most-witnessed dead-sense reads** gain a
+> **second variant** in which the Unmade's mask bleeds through — so System 1 (*the narrator was the
+> Unmade all along*) is no longer confined to the capstone; it **retro-actively poisons the reads the
+> player already loved.**
+- 👁️ **The slip, across 15 reads** — in *the Wake* (Corliss, Tatters, Brenn), *the Last Lantern-Feast*
+  (Dot, Marisa, Onora), *the Last Word* (Sevrin, Sela, Coll), *the After* (Sela, Coll, Tamsin), and
+  *the One Left* (Sift, Bryn, Tace). After the reveal, each read shows the **same beloved text,
+  verbatim**, now bracketed by the narrator's undisguised voice.
+- 🩸 **The consistent tell** (so the player learns to recognize the one voice): the narration slips from
+  *"your sense"* into *"my sense / I / we"* and sometimes catches itself; claims **kinship** (*"this one
+  is already, in part, in me"*); names the **Wall** as the author of the suffering and lingers,
+  aggrieved; and closes on the **recruitment whisper** — *"a soul who has truly seen this cannot, in
+  conscience, leave the thing that does it standing… you know now whose eyes you borrowed, and what I
+  would have you do."* *On a replay: "oh god, it was always talking like this and I never noticed."*
+- 🔧 **Implementation:** pure node `variants` gated on `le.narrator_revealed`, with the **verbatim
+  original as the required no-`when` default** — verified to render in **both** the playable build
+  (renderer calls `pickVariantText` on every node) and the dialogue simulator. The reads keep their
+  `effects` + `auto:"END"`, so all mechanics stay intact. Rollout **expands toward all 241 reads.**
+- 📄 [`docs/story/24_THE_SIGNATURE_SYSTEMS.md`](docs/story/24_THE_SIGNATURE_SYSTEMS.md) updated (System 1
+  rollout now "built, 15 reads — expanding"). **73 zones, 241 souls.** Gate **765** ✓ · full suite
+  **1473** ✓ · all-in-one bundle rebuilt ✓.
+
 ## 👑 v6.53.0 — *"The Lidless Eye"* — the capstone: three signature systems, playable (content + systems)
 
 > Not just a zone — the **capstone where the game's three signature mechanics converge, built and
