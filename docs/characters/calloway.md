@@ -99,6 +99,34 @@ His most dangerous offer isn't a deal; it's the seductive idea that **the system
 might as well profit** — and the game lets you be tempted, because he's so charming, and his point is so
 nearly *right.*
 
+## The three-encounter arc (the loaded gun)
+Calloway isn't a one-zone NPC — he **recurs**, and his arc is a Chekhov's gun you load yourself:
+1. **The Long Odds** — you deal, wager, name, or walk clean (above). The markers you leave with are
+   live flags.
+2. **The road (recurrence #1)** — he materializes on the Wayward Mile to **settle the marker**: pays his
+   debt to you at the knife-edge; or **collects yours** — and reveals **his one secret**, laundering a
+   hidden mercy through you (forgiving Em's debt anonymously, *"because if one soul learns Calloway
+   forgave a debt for nothing, I'm ruined"*); or just **visits** the one who walked clean.
+3. **The secret, tested** — if you carry `cap.calloways_secret`, you hold the one thing that can
+   **destroy him**: his power is *credibility* — that a marker is iron — and the truth that he's a soft
+   touch turns every marker he owns to paper. At the Long Odds you can **hand that lever to the Auditor**
+   and *ruin him* (the house folds, his hundred indentured souls go free overnight, Em walks whole — a
+   *just* act that also ends the one soul in the dead lands who was never afraid), or **protect it**
+   (and the Auditor, moved, keeps her oath and walks clean too — *"closing him with a secret he was
+   ashamed of isn't an audit, it's a mugging with letterhead"*).
+4. **The road (recurrence #2)** — Calloway *responds*, gated on the secret:
+   - **Ruined**, he is — magnificently — *gracious*: no hate, a connoisseur's appreciation, and then,
+     softly, *delight*, because *"four hundred years of winning is boring, and you've just dealt me the
+     one hand I don't know how to play"* — he'll claim himself again, from nothing, the way he did the
+     first time.
+   - **Spared**, and he is *undone* — the gambler learns he read one soul right, and you've made him,
+     for the first time since the cold, **safe with someone** who holds the whole of him and didn't cut.
+     He owes you the one thing he's never given anyone in four centuries: **a friend who knows the worst
+     of him and stayed.** (`cap.calloway_truefriend`)
+
+> *(Engine: the recurrences use the `need`-gated random-event system — they fire rarely, from nowhere,
+> but only once the relationship exists to pay off. See [`../story/25_THE_WAYWARD_MILE.md`](../story/25_THE_WAYWARD_MILE.md).)*
+
 ## Key relationships
 - **The Wall of the Faithless** — his mirror and his business model: *"the Wall of the Faithless with a
   good coat and a better smile."* He is what the Wall would be if it had *style* and *charged retail.*

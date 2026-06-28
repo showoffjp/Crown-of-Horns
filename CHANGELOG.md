@@ -11,6 +11,31 @@
 
 ---
 
+## 👑 v6.60.0 — *"The Knife You Carry"* — Calloway's secret becomes a loaded gun (content)
+
+> The payoff of the whole Calloway arc: the secret you may be carrying — *that the Honest Devil secretly
+> forgives debts for nothing* — is **the one thing that can destroy him**, and the game puts the choice
+> entirely in your hands.
+- 🔪 **The lever (at the Long Odds).** Carry `cap.calloways_secret` and a new option opens with **the
+  Auditor**: his power is *credibility* — that a marker is iron — so the truth that he's a soft touch
+  **turns every marker he owns to paper.** Hand her that, and you can **ruin him**
+  (`cal.calloway_ruined`): the house folds, his **hundred indentured souls go free overnight**, Em walks
+  whole — *a genuinely just act* that also ends the one soul in the dead lands who was never afraid of
+  anything. Both truths, carried at once.
+- 🤝 **Or protect it** (`cal.protected_secret`) — and the Auditor, moved that you'd spare a man his single
+  shameful decency, keeps her oath and walks clean too: *"closing him with a secret he was ashamed of
+  isn't an audit, it's a mugging with letterhead — I did not stay honest ninety years to become that."*
+  Two souls leaving his table with clean hands. *He'd hate it. Don't tell him.*
+- ♠️ **The response (recurrence #2, `need: cap.calloways_secret`):** Calloway finds you again, reactive
+  to what you did. **Ruined**, he is *magnificently gracious* — no hate, a connoisseur's appreciation,
+  then *delight:* *"four hundred years of winning is boring, and you've just dealt me the one hand I
+  don't know how to play"* — he'll claim himself from nothing again, the way he did the first time.
+  **Spared**, he is **undone** — the gambler learns he read one soul right, made *safe with someone* for
+  the first time since the cold, and owes you the one thing he's never given anyone in four centuries:
+  **a friend who knows the worst of him and stayed** (`cap.calloway_truefriend`).
+- 📄 Dossier updated with the full **three-encounter arc.** **75 zones, 245 souls.** Gate **788** ✓ ·
+  engine **105** ✓ · full suite **1507** ✓ · all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.59.0 — *"The House Always Finds You"* — Calloway recurs (systems + content)
 
 > The magnificent bastard **follows up.** The marker mechanic from *The Honest Devil* now pays off: once

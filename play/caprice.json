@@ -125,6 +125,11 @@
               "to": "cap_calloway_0",
               "once": "cap.seen_calloway",
               "need": "cal.met"
+            },
+            {
+              "to": "cap_calloway2_0",
+              "once": "cap.seen_calloway2",
+              "need": "cap.calloways_secret"
             }
           ],
           "drawCount": "cap.draws",
@@ -879,6 +884,112 @@
             {
               "key": "cap.calloway_cameo",
               "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_calloway2_0",
+          "speaker": "Calloway",
+          "onEnter": [
+            {
+              "key": "cap.seen_calloway2",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cal.calloway_ruined"
+                ]
+              },
+              "text": "*(The road turns over — and Calloway is there, and he is *diminished.* The wine-red coat is the same, immaculate as ever, but it hangs differently now, on a soul with no house behind it; the magnetic tilt of the world toward him has gone slack. He is, for the first time, simply a man on a road. And when he sees you — the soul who ruined him — he does the single most disarming thing left in his repertoire: he *smiles*, and it is real, and it is *warm*, and it does not have one grain of hate in it.)* …*ah.* …*the* *soul* who *held* the *knife.* *(he spreads his empty hands — emptier than ever now)* …*and* *used* it. …*(he tips his head, studying you, and there is no rancor, only a connoisseur's appreciation)* …*go* *on*, then, cold one. …*say* your *piece.* …i find i *can't* *quite* *hate* *you* for it …and *believe* me …*(the ghost of the old grin)* …i have *tried.*"
+            },
+            {
+              "text": "*(The road turns over — and Calloway is there, leaning on the milestone, but the patter doesn't come, and the cards don't come, and he just *looks* at you for a long, unguarded moment with the still, careful expression of a gambler who has bet everything on a single read and is waiting to learn if he read right.)* …*you* *know* *something*, cold one. *(quietly)* …i *gave* it to you — *handed* it *over*, the *one* *card* that *kills* me, *trusting* a soul i've known *one* *evening* to *carry* my *throat* in their *pocket* and *not* *cut* it. …*(he doesn't smile; this is the realest you've ever seen him)* …i don't — cold one, i've not *slept* in *four* *hundred* *years* and i find i'm *not* *sleeping* *harder*, lately, over *you.* …so. …*here* i *am.* …*owing* you *nothing*, *owed* *nothing*, *holding* *nothing* …except the *knowledge* that you could *end* me with a *sentence* …and *haven't.* …*why?*"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(to the ruined Calloway — own it, square)* \"I freed a hundred souls you had in chains, Calloway. Em walked out whole. That was worth your house — even worth your fear, which I know is the thing you actually lost. I won't pretend it didn't cost you everything. But you'd have done the same in my seat, and you know it.\"",
+              "when": {
+                "flags": [
+                  "cal.calloway_ruined"
+                ]
+              },
+              "next": "cap_cal2_ruined"
+            },
+            {
+              "text": "*(to the trusting Calloway — tell him why you kept it)* \"Because you showed me the one decent thing you were ashamed of, Calloway — that under the whole gorgeous racket, you forgive debts for nothing — and a soul who'd ruin a man for his single act of mercy isn't a soul I want to be. You bet everything that I'd read you right. You did. I kept the knife. Keep your house.\"",
+              "next": "cap_cal2_trust"
+            },
+            {
+              "text": "\"What happens now, Calloway? For you, I mean. The house, the markers, the four hundred years — what's a magnificent bastard do when the game finally changes on him?\"",
+              "next": "cap_cal2_whatnow"
+            }
+          ]
+        },
+        {
+          "id": "cap_cal2_ruined",
+          "speaker": "Calloway",
+          "text": "*(He listens, and nods, slowly, the way a man nods at a bill he knows is correct.)* …*you're* *right.* …*all* of it. …i *did* keep them in *chains*, and i *did* call it *generosity*, and the *hundred* are *worth* more than the *one* — *(the ghost-grin)* …i *taught* you that *math* *myself*, didn't i. *'a* soul is *worth* whatever it can *charge' —* …and a *hundred* *charge* *more* than *one.* …*(he looks at his own empty hands)* …and *yes*, cold one. it wasn't the *house* i *lost.* houses are *cheap*; i've *built* and *lost* a *dozen.* …it was the *fear.* …*four* *hundred* *years* i was the *one* *thing* in the *dead* *lands* that *nothing* *frightened* …because i *owed* *nothing* and *feared* *nothing* and *every* *soul* *feared* *me* … …and *now* a *bookkeeper* in *grey* has *posted* a *notice* …and i am *just* …*a* *man.* …*(and here is the magnificent thing: he begins, softly, to laugh)* …*do* you *know*, cold one …i think it's the *most* *interesting* thing …to *happen* to me …since *death.* …*(he wipes his eye, genuinely delighted under the loss)* …*four* *hundred* *years* of *winning* …is *boring*, friend. …*nobody* *tells* you that. …and you've just *dealt* me …the *one* *hand* …i *don't* *know* how to *play.* …*(he straightens, and something of the old magnetism flickers back, defiant)* …*watch* me *learn* it. …i'll be *back*, cold one. *smaller*. *for* *now.* …but a soul that *claimed* *himself* once, with *nothing* …*(the grin, returning)* …can *do* it *again.* …*you* didn't *kill* me, friend. …you just …*raised* the *stakes.* …*gods*, i'd *forgotten* …how *good* …*that* *feels.*",
+          "effects": [
+            {
+              "key": "cap.calloway2_done",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_cal2_trust",
+          "speaker": "Calloway",
+          "text": "*(For a long moment the most charming soul in the afterlife says nothing at all — and you watch the gambler learn he read the hand right, and watch what that does to a creature who has trusted, fully, exactly once in four hundred years and bet his existence on it. When he speaks, the patter is entirely gone, and what's left is bare.)* …*(barely)* …*huh.* …*(he looks at you like you're a card that came up impossible)* …i *had* a *speech* *ready*, cold one. *several.* one to *buy* your *silence*, one to *threaten* it, one to *charm* it — i've spent *four* *hundred* *years* *learning* to *make* a *soul* do *anything* …and i walked out here with *all* *three* *loaded* …and *not* *one* of them *fits* …a soul that *just* …*didn't* *cut.* *(he exhales, and something in him that has been clenched for centuries, lets go)* …you *understand* what you've *done*, don't you. …you've made me — *(he can hardly say it)* …*safe.* …with *someone.* …for the *first* *time* …since i *decided*, in the *cold*, that *no* one *would* *ever* *hold* a *piece* of me *again* …because *holding* a *piece* of *Calloway* …is how you *end* him. …*(he meets your eyes)* …and you *hold* the *whole* of me, cold one. the *throat*. the *secret*. the *soft* *rotten* *centre* i'd *die* before *admitting* to. …and you've *had* it …and *kept* it …and *asked* me for *nothing.* …*(the grin returns, but it's different now, unguarded)* …*Calloway* …*owes* you. …and *not* a *marker* — *markers* are *cheap.* …i owe you the *one* thing i have *never* *once* *given* *anyone* in *four* *centuries* …*(barely)* …a *friend* who *knows* the *worst* of me …and *stayed.* …*come* by the *house*, cold one. …*any* time. …*you'll* find …the *first* *drink's* *free* …and so is …*everything* *after.* …*just* *you.* …*don't* *tell* a *soul.* …it'd *ruin* me. …*(and for once you both know he means it as a joke, and as the truest thing he's ever said, at once.)*",
+          "effects": [
+            {
+              "key": "cap.calloway2_done",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.calloway_truefriend",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_cal2_whatnow",
+          "speaker": "Calloway",
+          "text": "*(He considers the question with the relish of a man who genuinely loves a good one.)* …*what* *does* a *magnificent* *bastard* *do* …when the *game* *changes.* *(he grins)* …*the* *same* thing he *did* the *first* time, cold one, when the *Wall* had him and the *gods* had *thrown* him *out* and he had *nothing* but a *cold* *seat* by the *abyss*: …*he* *deals* *again.* …*(he spreads his hands)* …the *game* *changing* isn't the *end*, friend — it's the *only* *part* worth *playing.* a *fixed* *game* is a *dead* one; i've *run* a *fixed* one for *four* *centuries* and i'll tell you a *secret* the *house* *never* *admits*: …it got *boring* about *century* *two.* …*(the old fire, undimmed)* …*you*, cold one — *you* and that *grey* *auditor* and that *grief* under the *stones* and the *whole* *turning*-*over* *world* — you've made the *table* *interesting* *again.* …and an *interesting* *table* …*(he taps the milestone like felt)* …is the *only* *thing* *Calloway* …has *ever* *truly* *wanted* …to *sit* *at.* …*deal* *me* *in*, friend. …*whatever* *comes.* …i've *played* *worse* *hands* …than *'everything's* *changed'* …and *won.* …*(the grin)* …*ask* the *gods.* …they *threw* me *out* …and i *built* an *empire* in their *graveyard.* …*this* is just …*the* *next* *hand.*",
+          "effects": [
+            {
+              "key": "cap.calloway2_done",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
             }
           ],
           "auto": "END"

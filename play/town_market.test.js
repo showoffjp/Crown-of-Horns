@@ -3144,6 +3144,27 @@ check("the victim (Em) defends him via a false-choice [RETURNED]; the nemesis (t
 })());
 check("each Long Odds soul carries a [RETURNED] line + a Returned-sense", [cal, calEm, calAud].every(c =>
   c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+check("Calloway's secret is a loaded gun: carrying cap.calloways_secret unlocks an Auditor lever to RUIN him (frees his hundred debtors) or PROTECT him", (() => {
+  const lever = calAud.nodes.find(n => n.id === "1").choices.find(c => c.when && (c.when.flags||[]).includes("cap.calloways_secret") && c.next === "cal_aud_lever");
+  const ruin = calAud.nodes.find(n => n.id === "cal_aud_ruin");
+  const protect = calAud.nodes.find(n => n.id === "cal_aud_protect");
+  const choose = calAud.nodes.find(n => n.id === "cal_aud_lever");
+  const give = choose.choices.find(c => c.next === "cal_aud_ruin");
+  const hold = choose.choices.find(c => c.next === "cal_aud_protect");
+  return lever && ruin && protect &&
+    give.effects.some(e => e.key === "cal.calloway_ruined") && give.effects.some(e => e.key === "cal.freed_the_debtors") &&
+    hold.effects.some(e => e.key === "cal.protected_secret");
+})());
+check("a THIRD Calloway recurrence (need: cap.calloways_secret) responds — gracious in ruin, or hands you the knife and trusts you (a true friend) if you kept the secret", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  const cw2 = dn.draw.find(e => e.to === "cap_calloway2_0");
+  if (!cw2 || cw2.need !== "cap.calloways_secret") return false;
+  const entry = capR.nodes.find(n => n.id === "cap_calloway2_0");
+  const ruinedVar = entry.variants.some(v => v.when && (v.when.flags||[]).includes("cal.calloway_ruined"));
+  const dflt = entry.variants.some(v => !v.when);
+  const trust = capR.nodes.find(n => n.id === "cap_cal2_trust");
+  return ruinedVar && dflt && trust && trust.effects.some(e => e.key === "cap.calloway_truefriend");
+})());
 
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
