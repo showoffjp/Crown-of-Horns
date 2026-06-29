@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v6.63.0 — *"The Party Is Alive"* — reactive party banter (systems + content)
+
+> The biggest *"this world breathes"* multiplier — the BG3/Disco-Elysium secret sauce the game was
+> missing. Companions now react to **each other**, to **what you've done**, and to **how cold or kind
+> you've become.** A real, tested system (`play/banter.js` + `play/banter.json`), mirroring the C#
+> `CampfireBanter` / `PartyBanter` content classes — turning a set of great scenes into a *party you
+> travel with.*
+- 💬 **24 cross-companion barters** in the first batch. Character friction & warmth: **Dot & Garrow** on
+  what the dead are owed (a party vs. solemnity); **Varra** needling **Ilfaeril**'s ten-thousand-year
+  guilt, then admitting she lies awake too; **Naeve** trying to *measure* **Maerin**'s dissolution and
+  getting told *"I'm dying, not a theorem — ask me about the cats";* **Roen & Maerin** (the orphan who
+  chose his name and the girl who refuses her symbol); **Dot** force-feeding **Varra** because *"I made
+  too much, like always, and the people I made it for are mostly dead."*
+- 🪡 **Reactions to what you did:** the party on Calloway (Varra admires, Garrow can't hate him either),
+  on the Wake, on **Sevrin's death you couldn't prevent**, on the **Second Death** verdict (Garrow's law
+  vs. Varra's mercy), on learning the **dead-sense was the Unmade all along.**
+- 🩶 **Reactions to how cold/kind you've grown** (gated on `disp.*`): **Ilfaeril** feeling you go cold and
+  begging you not to carry the grief alone — *"I am ten thousand years old and still warm; the secret is
+  do not carry it alone";* **Dot** taking your freezing hands and teaching you to *stay warm on purpose,
+  out of spite;* **Garrow**'s quiet pride as your mercy mounts; **Roen**'s unease when **Varra** starts
+  admiring how ruthless you've gotten.
+- ✅ **The engine** (`banter.js`, mirrors C#): a banter fires only when its companions are present and its
+  `flags` / `flagsNot` / `int` gates pass; `once` (default) means no repeats. A new gate
+  (`play/banter.test.js`, wired into `run-all`) tests presence, eligibility, once-gating, and selection —
+  **and a live cross-check proves no dead banter** (every flag and recruitable companion a banter needs
+  is actually set by real content). *(Next: surface it in-game via a camp/road hook; then the Same Dog
+  through-line.)*
+- 📄 **76 zones, 248 souls, 20 quests, 24 banters.** Gate **796** ✓ · banter gate **13** ✓ · full suite
+  **1543** ✓ · all green.
+
 ## 👑 v6.62.0 — *"New Side Quests"* — 4 new caprices + a murder-mystery zone, all tracked (content)
 
 > Fresh content on top of the new quest log: **four new Wayward Mile caprices** (the random side-quest
