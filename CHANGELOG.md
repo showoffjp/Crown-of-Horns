@@ -11,6 +11,35 @@
 
 ---
 
+## 🧱 v6.71.0 — *"The Mortar"* — a new zone on the Wall, built on the faith axis (content)
+
+> A new walkable zone, **The Mortar** — a stretch of the Wall of the Faithless itself — written to put the
+> reactivity we just bridged to *work.* Two souls set in the stone, a cross-soul truth-carry, a three-way
+> verdict, and **opening lines that change with the player's own faith** (the `pc.deity` system, now live
+> end-to-end from prototype to the C# bridge).
+- 🪦 **Wessel** — *the mother who claimed a heresy that was never hers.* A Faithless woman who falsely
+  confessed her husband's doubt as her own, to strike the "taint" from her devout daughter Anwen's roll and
+  buy the girl a warm afterlife. She climbed into the Wall on purpose. She wants one thing: to know it
+  worked. Her opening **reacts to your deity** — kin if you're Faithless (`deity: None`), a wary plea if
+  you serve Kelemvor (whose Wall this is), neutral otherwise.
+- 📖 **Coram** — *the clerk who filed the lie he knew was a lie.* Walled in with his own ledgers, running
+  the same audit nine hundred times — not for the error (the numbers balance; that's the horror) but for a
+  line he's *allowed* to have signed. He kept the one record in creation that files Wessel as a mother
+  instead of a heretic. A **Persuasion check with crit/fumble** decides whether he opens the book all the
+  way, half, or slams shut.
+- ⚖️ **The verdict** (gated on what you learned from Coram): tell Wessel only the **kind half** (she's
+  warm — Wessel rests, never knowing the cost); the **whole truth** (Anwen is warm *and* believes her
+  mother a heretic who shamed the house); or the **third road only the Returned can walk** — promise to
+  carry the truth *across*, to find Anwen in the dawn and tell her what her mother did. Hope, not closure.
+- 🔌 Wired the full pipeline: `play/mortar.json` → generator load + `NPC_SENSE` reads for both souls → two
+  conversation merges + scene dict → an exit from the **Last Torch** along the seawall. Tracked as a real
+  side-quest (**"What the Wall Kept"**, now 21 quests) with every flag set by live content.
+- ✅ Rebuilt `town_market.html` (**77 zones, 250 souls, 250 conversations**) and the `crown_of_horns.html`
+  bundle. **Gate at 801/0; full suite green.** The bridge auto-emits both new souls as C# with their
+  `pc.deity` variants — the new system, exercised by new content, end to end.
+
+---
+
 ## 🩸 v6.70.0 — *"Who You Are"* — non-flag gates cross via the `pc.*` profile (engine)
 
 > The last reactivity gap that mattered: dialogue that gates on **who the player is** — their faith, race,

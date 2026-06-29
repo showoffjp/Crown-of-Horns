@@ -563,6 +563,35 @@
       ],
       "completionFlag": "sx.case_closed",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_mortar",
+      "title": "What the Wall Kept",
+      "region": "The Wall of the Faithless — along the seawall from the Last Torch",
+      "giver": "Wessel, a mother set in the stone by her own hand",
+      "premise": "A Faithless woman claimed a heresy that was never hers, to clear her devout daughter from the Choir's rolls and buy the girl a warm afterlife. She climbed into the Wall on purpose. She wants only one thing: to know the lie worked — and the clerk who filed it kept the record.",
+      "theme": "Love as forfeiture. The cruelest mercy is the one the saved can never be told. To the Returned alone, the truth has somewhere to go.",
+      "reward": "Wessel rests, or holds the whole truth, or sends you across with a word for the daughter who never knew.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear why Wessel walled herself in",
+          "completionFlag": "mt.met_wessel"
+        },
+        {
+          "objectiveId": "record",
+          "desc": "Reach Coram and learn where Anwen landed",
+          "completionFlag": "mt.knows_anwen_warm",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Bring Wessel her news — however you choose to tell it",
+          "completionFlag": "mt.wessel_answered"
+        }
+      ],
+      "completionFlag": "mt.wessel_answered",
+      "failureFlag": ""
     }
   ]
 }
