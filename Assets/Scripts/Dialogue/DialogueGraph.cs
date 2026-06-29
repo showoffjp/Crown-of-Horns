@@ -33,6 +33,24 @@ namespace SunderedCrown.Dialogue
         public int checkDC = 0;
         [Tooltip("Node to jump to if the skill check FAILS (falls back to nextNodeId if blank).")]
         public string failNodeId;
+
+        [Tooltip("Natural 20 on the check routes here (the crit branch). Blank = no special crit.")]
+        public string critNodeId;
+        [Tooltip("Natural 1 on the check routes here (the fumble branch). Blank = no special fumble.")]
+        public string fumbleNodeId;
+    }
+
+    /// <summary>
+    /// One text variant of a node. The first variant whose <see cref="when"/> conditions all pass is
+    /// shown; if none match, the node's plain <c>text</c> is used as the default. Lets a single line
+    /// react to flags/disposition without authoring a separate node per state.
+    /// </summary>
+    [Serializable]
+    public class DialogueVariant
+    {
+        [Tooltip("All clauses must pass for this variant to be chosen. Empty = always matches.")]
+        public FlagClause[] when;
+        [TextArea(2, 6)] public string text;
     }
 
     /// <summary>A single line of dialogue spoken by one party.</summary>
@@ -42,6 +60,9 @@ namespace SunderedCrown.Dialogue
         public string id;
         public string speaker = "NPC";
         [TextArea(2, 6)] public string text;
+
+        [Tooltip("Optional reactive text. First variant whose conditions pass wins; else `text`.")]
+        public DialogueVariant[] variants;
 
         [Tooltip("Effects applied the moment this node is shown (e.g. start a quest).")]
         public FlagClause[] onEnter;

@@ -95,12 +95,24 @@ function emitChoice(ch) {
     parts.push(`checkAbility = Ability.${ch.checkAbility}`, `checkDC = ${ch.checkDC}`);
     const fail = endRef(ch.failNodeId);
     if (fail) parts.push(`failNodeId = ${csharpString(fail)}`);
+    const crit = endRef(ch.critNodeId);
+    if (crit) parts.push(`critNodeId = ${csharpString(crit)}`);
+    const fumble = endRef(ch.fumbleNodeId);
+    if (fumble) parts.push(`fumbleNodeId = ${csharpString(fumble)}`);
   }
   return `new DialogueChoice { ${parts.join(", ")} }`;
 }
 
+function emitVariant(v) {
+  const parts = [];
+  if (v.when && v.when.length) parts.push(`when = ${emitClauseArray(v.when)}`);
+  parts.push(`text = ${csharpString(v.text)}`);
+  return `new DialogueVariant { ${parts.join(", ")} }`;
+}
+
 function emitNode(n, indent) {
   const parts = [`id = ${csharpString(n.id)}`, `speaker = ${csharpString(n.speaker)}`, `text = ${csharpString(n.text)}`];
+  if (n.variants && n.variants.length) parts.push(`variants = new[] { ${n.variants.map(emitVariant).join(", ")} }`);
   if (n.onEnter && n.onEnter.length) parts.push(`onEnter = ${emitClauseArray(n.onEnter)}`);
   const auto = endRef(n.autoNextNodeId);
   if (auto) parts.push(`autoNextNodeId = ${csharpString(auto)}`);
@@ -161,9 +173,60 @@ ${blocks}
 `;
 }
 
-// Group the converter's flat graph list back by source file so each emitted class mirrors one zone.
-// `skip` is the set of conversationIds already in the C# build (dedup); those are omitted. Returns
-// { byFile: Map<file, graphs[]>, skipped: number } so callers can report the dedup honestly.
+// Richer normalization than json-to-unity's convertConversation: the C# runner now supports `variants`
+// and crit/fumble routing (see Assets/Scripts/Dialogue/DialogueRunner.cs), so we preserve those rather
+// than collapsing them. Reuses the tested when->FlagClause translator. A `when` that uses a non-flag
+// character-state gate (race/class/deity/...) still can't be represented, so such variants are skipped
+// (the node's default text covers them) and counted.
+const hasNonFlagGate = (when) => when && U.NONFLAG_GATES.some(g => g in when);
+
+function normChoice(ch, gaps, loc) {
+  const out = { text: ch.text || "...", nextNodeId: ch.next || "", conditions: [], effects: [], checkAbility: "Charisma", checkDC: 0, failNodeId: ch.fail || "", critNodeId: ch.crit || "", fumbleNodeId: ch.fumble || "" };
+  if (Array.isArray(ch.conditions)) out.conditions.push(...ch.conditions);
+  const tw = U.translateWhen(ch.when);
+  out.conditions.push(...tw.conditions);
+  for (const u of tw.untranslated) gaps.nonFlagGates.push({ at: loc, ...u });
+  if (Array.isArray(ch.effects)) out.effects = ch.effects;
+  if (ch.check) {
+    out.checkAbility = U.ABILITIES.has(ch.check.ability) ? ch.check.ability : "Charisma";
+    out.checkDC = ch.check.dc | 0;
+  }
+  return out;
+}
+
+function normNode(n, gaps, loc) {
+  const out = { id: n.id, speaker: n.speaker || "NPC", text: "", variants: [], onEnter: [], choices: [], autoNextNodeId: n.auto || "" };
+  // base text = the node's own text, or the unconditional default variant
+  if (typeof n.text === "string") out.text = n.text;
+  else if (Array.isArray(n.variants)) {
+    const def = n.variants.find(v => !v.when) || n.variants[n.variants.length - 1];
+    out.text = (def && def.text) || "";
+  }
+  // conditional variants that ARE representable (flag/int only) become real C# variants
+  if (Array.isArray(n.variants)) {
+    for (const v of n.variants) {
+      if (!v.when) continue;                       // the default — already captured as base text
+      if (hasNonFlagGate(v.when)) { gaps.variantNonFlag = (gaps.variantNonFlag || 0) + 1; continue; }
+      const tw = U.translateWhen(v.when);
+      if (tw.conditions.length) out.variants.push({ when: tw.conditions, text: v.text || "" });
+    }
+  }
+  if (Array.isArray(n.onEnter)) out.onEnter.push(...n.onEnter);
+  if (Array.isArray(n.effects)) out.onEnter.push(...n.effects);
+  for (const ch of n.choices || []) out.choices.push(normChoice(ch, gaps, { conv: loc, node: n.id }));
+  return out;
+}
+
+function normConversation(conv, gaps) {
+  return {
+    conversationId: conv.id,
+    startNodeId: conv.start || (conv.nodes && conv.nodes[0] && conv.nodes[0].id) || "",
+    nodes: (conv.nodes || []).map(n => normNode(n, gaps, conv.id)),
+  };
+}
+
+// Group conversations by source file so each emitted class mirrors one zone. `skip` is the set of
+// conversationIds already in the C# build (dedup); those are omitted. Returns { byFile, skipped }.
 function graphsByFile(skip) {
   skip = skip || csharpConversationIds();
   const byFile = new Map();
@@ -173,12 +236,12 @@ function graphsByFile(skip) {
     if (!file.endsWith(".json")) continue;
     let data; try { data = JSON.parse(fs.readFileSync(path.join(dir, file), "utf8")); } catch { continue; }
     if (!data || !Array.isArray(data.conversations)) continue;
-    const gaps = { variants: [], banter: [], draw: [], dynamic: [], crit: [], fumble: [], nonFlagGates: [], unknownAbility: [], droppedSkillName: [], choiceTag: [] };
+    const gaps = { nonFlagGates: [], variantNonFlag: 0 };
     const graphs = [];
     for (const c of data.conversations) {
       if (!c || !c.id) continue;
       if (skip.has(c.id)) { skipped++; continue; }
-      graphs.push(U.convertConversation(c, gaps));
+      graphs.push(normConversation(c, gaps));
     }
     if (graphs.length) byFile.set(file, graphs);
   }
@@ -199,5 +262,5 @@ function main() {
   console.log(`  drop into Assets/Scripts/Content/Bridge/ and call <Class>.Build(); compile once in the Editor.`);
 }
 
-module.exports = { csharpString, unescapeCsharpString, emitClause, emitChoice, emitNode, emitGraph, emitFile, className, graphsByFile, csharpConversationIds, isEndSentinel, endRef, FLAG_OPS };
+module.exports = { csharpString, unescapeCsharpString, emitClause, emitChoice, emitVariant, emitNode, emitGraph, emitFile, className, graphsByFile, normChoice, normNode, normConversation, csharpConversationIds, isEndSentinel, endRef, FLAG_OPS };
 if (require.main === module) main();

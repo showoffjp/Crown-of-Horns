@@ -108,23 +108,34 @@ crossing is clean: **no new C# enum values are required for the data that crosse
 | `objectives[].{objectiveId, desc, completionFlag, hidden, optional}` | `QuestObjective.{objectiveId, description, completionFlag, hidden, optional}` |
 | (defaults) | `experienceReward = 100`, `goldReward = 0` |
 
-## What does NOT cross yet — the finite Unity-side work list
+## Engine features — now IMPLEMENTED in the runner
 
-These are the only things standing between "data converted" and "game runs the session content."
-The converter counts each one exactly (see `gap-report.json`); current counts:
+The two highest-value reactivity features are **done in C#** (additive, backward-compatible — existing
+conversations are untouched and behave identically). Both are emitted by `json-to-csharp.js` and verified
+by its gate (every routing target resolves; 236 variants, 84 crit, 84 fumble emitted):
+
+| Feature | Status | How |
+|---|---|---|
+| **variants** | ✅ implemented | `DialogueNode.variants` (`DialogueVariant { FlagClause[] when; string text }`). `DialogueRunner.ResolveText` returns the first variant whose conditions pass, else `text`, exposed as `CurrentText` (the UI prefers it). The emitter translates each variant's flag/int `when`; the unconditional default stays as `text`. |
+| **crit / fumble** | ✅ implemented | `DialogueChoice.critNodeId` / `fumbleNodeId`. `DialogueRunner.Choose` captures the raw d20: a natural 20 routes to the crit branch and a natural 1 to the fumble branch (regardless of DC); both are no-ops when unset, so old checks are unchanged. |
+
+## What does NOT cross yet — the remaining finite work list
 
 | Gap | Count | What it is | Unity-side fix |
 |---|---|---|---|
-| **variants** | 278 | nodes whose text changes by `when` (flags/disp/deity/etc.) | add `DialogueNode.variants` (a `when`→text list); runner picks first match, else base text. The converter already stores the unconditional default as `text`, so a variant-less C# still *runs* — it just won't react. |
-| **crit / fumble** | 84 / 84 | nat-20 / nat-1 narration branches on a skill check | add `critNodeId` / `fumbleNodeId` to `DialogueChoice`; runner routes on a natural 20/1 before DC compare. |
-| **non-flag gates** | 75 | `when` gates on race/class/deity/ability/gender/law/morality | add character-state clauses to `FlagClause` (or mirror these into bool flags at chargen). |
-| **draw** | 1 | the Wayward Mile random-event router | a `DrawNode` component; or precompute one branch. Single use — low priority. |
+| **non-flag gates** | 75 | `when` gates on race/class/deity/ability/gender/law/morality | needs chargen state plumbing (the sheet has race + ability scores; deity/gender/alignment/background live in the creation flow). Variants/choices using these are skipped today and fall through to the default — counted, never silently shown to the wrong player. |
+| **dynamic** | 18 | nodes whose choices are generated at runtime | bespoke per node; the prototype's main-spine dynamic nodes already live in C#. |
+| **draw** | 1 | the Wayward Mile random-event router | a `DrawNode` component; or precompute one branch. Single use. |
 | **banter** | 1 | the campfire banter intercept node | the banter system is its own engine (`CampfireBanter.cs` exists); wire the intercept, don't port it as dialogue. |
-| **dynamic** | 18 | nodes whose choices are generated at runtime | bespoke per node; smallest count, handle last. |
 
 `droppedSkillName` (286) and `choiceTag` (252) are **informational, not blocking**: C# keeps
 ability+DC (the skill *name* is cosmetic), and `[RETURNED]`-style tags are a surfacing hint the UI
 can re-derive. They're reported so nothing is invisible.
+
+> **Honest caveat:** the runner changes (`DialogueGraph.cs`, `DialogueRunner.cs`, `DialogueScreen.cs`)
+> are additive and mirror the proven prototype semantics (which the JS port tests cover), but there is
+> **no C# compiler in this environment** — they are unverified until compiled once in the Editor. The
+> changes are deliberately small and backward-compatible to keep that first compile boring.
 
 ## Staged import checklist
 
@@ -139,8 +150,8 @@ can re-derive. They're reported so nothing is invisible.
 3. **Import without the gaps.** Run the importer. Every conversation loads and *plays* using base
    text + translatable conditions/effects. This is a real, walkable build of the whole session's
    content — just not yet reactive on the 6 gap features.
-4. **Add the gaps in priority order.** variants (biggest reactivity win) → crit/fumble (the crit
-   comedy) → non-flag gates → dynamic → draw. Each is an independent, testable engine extension.
+4. **Reactivity.** variants + crit/fumble are already in the runner (above). The remaining gaps —
+   non-flag gates → dynamic → draw → banter — are independent, each small, and addressed last.
 5. **Re-export, re-import.** The converter is the single source of truth; re-run it after any
    prototype change. Nothing is authored twice.
 

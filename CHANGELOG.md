@@ -11,6 +11,34 @@
 
 ---
 
+## ⚙️ v6.69.0 — *"And It Reacts"* — variants + crit/fumble land in the C# runner (engine)
+
+> The bridge stops shipping flat text and starts shipping **reactivity.** The two highest-value engine
+> features the C# runner was missing — **node variants** (one line that changes by what you've done) and
+> **crit/fumble routing** (the nat-20/nat-1 comedy) — are now implemented in the real `DialogueRunner`,
+> additive and backward-compatible, and emitted by the C# bridge. The honest caveat stands: no C# compiler
+> exists here, so these are unverified-until-compiled — but the changes are small, mirror the proven
+> prototype semantics, and the existing 201 conversations are untouched.
+- 🎭 **Variants** — `DialogueNode.variants` (`DialogueVariant { FlagClause[] when; string text }`).
+  `DialogueRunner.ResolveText` returns the first variant whose conditions pass, else the base `text`,
+  exposed as `CurrentText` (the dialogue UI now prefers it). **236 variants** emit across the new content.
+- 🎲 **Crit / fumble** — `DialogueChoice.critNodeId` / `fumbleNodeId`. `Choose` now captures the raw d20:
+  a natural 20 routes to the crit branch, a natural 1 to the fumble branch, regardless of DC — and both
+  are no-ops when unset, so every existing skill check behaves *exactly* as before. **84 crit + 84 fumble**
+  branches emit, and **every routing target resolves** (verified).
+- 🔧 **Touched, minimally:** `Assets/Scripts/Dialogue/DialogueGraph.cs` (new fields), `DialogueRunner.cs`
+  (ResolveText + crit/fumble routing + `CurrentText`), `UI/DialogueScreen.cs` (2 lines: prefer
+  `CurrentText`). All additive; no existing field or behavior changed.
+- 🧱 **Emitter upgraded** — `tools/json-to-csharp.js` now emits `variants` (translating each variant's
+  flag/int `when`; non-flag-gated variants skip to the default and are counted) and `critNodeId`/
+  `fumbleNodeId`. Samples in `tools/bridge-sample/` regenerated to show them.
+- 🧪 **Gate at 34/0** — `tools/json-to-csharp.test.js` now asserts the new features emit in quantity and
+  that crit/fumble routing targets all resolve. Full suite green.
+- 📖 `docs/UNITY_BRIDGE_PLAN.md`: variants + crit/fumble moved from "gaps" to "implemented"; remaining
+  gaps narrowed to non-flag gates / dynamic / draw / banter.
+
+---
+
 ## 🌉 v6.68.0 — *"It Lands as Code"* — the new content emits as native C# (tooling)
 
 > The bridge stops being JSON-and-a-loader and becomes **the codebase's own idiom.** The Unity game

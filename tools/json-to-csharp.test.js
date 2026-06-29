@@ -37,6 +37,17 @@ check("a check choice emits Ability enum + DC + failNodeId", (() => {
   const s = E.emitChoice({ text: "x", nextNodeId: "win", checkAbility: "Wisdom", checkDC: 16, failNodeId: "lose" });
   return s.includes("checkAbility = Ability.Wisdom") && s.includes("checkDC = 16") && s.includes(`failNodeId = "lose"`);
 })());
+check("crit/fumble route nodes emit only inside a real check", (() => {
+  const withCheck = E.emitChoice({ text: "x", nextNodeId: "ok", checkAbility: "Charisma", checkDC: 14, critNodeId: "great", fumbleNodeId: "oops" });
+  const noCheck = E.emitChoice({ text: "y", nextNodeId: "ok", critNodeId: "great" });
+  return withCheck.includes(`critNodeId = "great"`) && withCheck.includes(`fumbleNodeId = "oops"`) && !noCheck.includes("critNodeId");
+})());
+check("a variant emits when-conditions + text; the default variant omits when", (() => {
+  const cond = E.emitVariant({ when: [{ key: "k", op: "RequireBoolTrue" }], text: "reactive" });
+  const def = E.emitVariant({ text: "default" });
+  return cond.includes("when = new[]") && cond.includes(`text = "reactive"`) && !def.includes("when") && def === `new DialogueVariant { text = "default" }`;
+})());
+check("a node with variants emits the variants array", E.emitNode({ id: "0", speaker: "X", text: "base", variants: [{ when: [{ key: "k", op: "RequireBoolTrue" }], text: "alt" }], choices: [] }, "").includes("variants = new[] { new DialogueVariant"));
 check("a plain choice omits check/conditions/effects entirely", E.emitChoice({ text: "y", nextNodeId: "1" }) === `new DialogueChoice { text = "y", nextNodeId = "1" }`);
 check("a node with no choices/auto/onEnter emits just id+speaker+text", E.emitNode({ id: "0", speaker: "X", text: "hi", choices: [] }, "").trim() === `g.nodes.Add(new DialogueNode { id = "0", speaker = "X", text = "hi" });`);
 check("className sanitises a filename to a C# identifier", E.className("second_death.json") === "SecondDeathBridgeContent" && /^[A-Za-z]/.test(E.className("123.json")));
@@ -54,22 +65,29 @@ check("the session's marquee content is in the emit set", (() => {
   return ids.has("sx.sahl") && [...ids].some(i => i.startsWith("cal.")) && [...ids].some(i => i.startsWith("lf."));
 })());
 
-// ---- reference integrity across ALL emitted (NEW) content ----
+// ---- reference integrity across ALL emitted (NEW) content (incl. crit/fumble routing) ----
 const badRefs = [];
+let critCount = 0, fumbleCount = 0, variantCount = 0;
 for (const g of emitted) {
   const ids = new Set(g.nodes.map(n => n.id));
   if (g.startNodeId && !ids.has(g.startNodeId)) badRefs.push(`${g.conversationId} start->${g.startNodeId}`);
   for (const n of g.nodes) {
+    variantCount += (n.variants || []).length;
     const refs = [];
     if (E.endRef(n.autoNextNodeId)) refs.push(E.endRef(n.autoNextNodeId));
     for (const c of n.choices) {
       if (E.endRef(c.nextNodeId)) refs.push(E.endRef(c.nextNodeId));
-      if (c.checkDC > 0 && E.endRef(c.failNodeId)) refs.push(E.endRef(c.failNodeId));
+      if (c.checkDC > 0) {
+        if (E.endRef(c.failNodeId)) refs.push(E.endRef(c.failNodeId));
+        if (E.endRef(c.critNodeId)) { refs.push(E.endRef(c.critNodeId)); critCount++; }
+        if (E.endRef(c.fumbleNodeId)) { refs.push(E.endRef(c.fumbleNodeId)); fumbleCount++; }
+      }
     }
     for (const r of refs) if (!ids.has(r)) badRefs.push(`${g.conversationId}[${n.id}]->${r}`);
   }
 }
-check("every node reference in the new content resolves (no dead-end branches): " + (badRefs.slice(0, 5).join(", ") || "all resolve"), badRefs.length === 0);
+check("every node reference in the new content resolves — incl. crit/fumble routing (no dead-ends): " + (badRefs.slice(0, 5).join(", ") || "all resolve"), badRefs.length === 0);
+check("the new engine features are actually emitted (crit + fumble + variants, in quantity)", critCount >= 80 && fumbleCount >= 80 && variantCount >= 200);
 
 // ---- emit a real file and verify it is brace/bracket-balanced with strings masked ----
 const sampleFile = [...byFile.keys()].find(f => f.includes("seconddeath")) || [...byFile.keys()][0];
@@ -112,12 +130,13 @@ const ABIL = U.ABILITIES;
 let badEnum = 0;
 for (const g of emitted) for (const n of g.nodes) {
   for (const cl of (n.onEnter || [])) if (!E.FLAG_OPS.has(cl.op)) badEnum++;
+  for (const v of (n.variants || [])) for (const cl of (v.when || [])) if (!E.FLAG_OPS.has(cl.op)) badEnum++;
   for (const c of n.choices) {
     for (const cl of (c.conditions || []).concat(c.effects || [])) if (!E.FLAG_OPS.has(cl.op)) badEnum++;
     if (c.checkDC > 0 && !ABIL.has(c.checkAbility)) badEnum++;
   }
 }
-check("every emitted FlagOp and Ability is a real enum value", badEnum === 0);
+check("every emitted FlagOp and Ability is a real enum value (incl. variant when-clauses)", badEnum === 0);
 
 console.log(`\n  C# content emitter — ${emitted.length} NEW DialogueGraphs from ${byFile.size} zones, ${skipped} dedup-skipped:`);
 console.log(`  ${pass} passed, ${fail} failed`);

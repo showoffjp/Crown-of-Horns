@@ -57,7 +57,7 @@ namespace SunderedCrown.UI
         void Update()
         {
             if (_runner == null || !_runner.IsActive || _node == null) return;
-            string text = _node.text ?? "";
+            string text = (!string.IsNullOrEmpty(_runner.CurrentText) ? _runner.CurrentText : _node.text) ?? "";
             bool complete = RevealedLength(text) >= text.Length;
 
             if (!complete)
@@ -105,7 +105,7 @@ namespace SunderedCrown.UI
             // Reset the reveal clock whenever a new node is shown.
             if (_node != _revealNode) { _revealNode = _node; _revealAt = Time.time; _snap = false; }
 
-            string full = _node.text ?? "";
+            string full = (!string.IsNullOrEmpty(_runner.CurrentText) ? _runner.CurrentText : _node.text) ?? "";
             int shown = RevealedLength(full);
             bool complete = shown >= full.Length;
 

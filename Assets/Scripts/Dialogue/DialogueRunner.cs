@@ -19,6 +19,10 @@ namespace SunderedCrown.Dialogue
         private DialogueGraph _graph;
         private DialogueNode _current;
 
+        /// <summary>The text the current node should display, after variant resolution. The UI should
+        /// prefer this over node.text so reactive variants are shown. Falls back to node.text.</summary>
+        public string CurrentText { get; private set; }
+
         /// <summary>Fired with the current line + the list of selectable choices.</summary>
         public event Action<DialogueNode, List<DialogueChoice>> OnNodeShown;
         public event Action OnConversationEnded;
@@ -44,6 +48,7 @@ namespace SunderedCrown.Dialogue
             _current = _graph.GetNode(nodeId);
             if (_current == null) { End(); return; }
 
+            CurrentText = ResolveText(_current);
             ApplyClauses(_current.onEnter);
 
             // Build the list of choices whose conditions currently pass.
@@ -74,11 +79,26 @@ namespace SunderedCrown.Dialogue
             {
                 var speaker = ResolvePlayerSpeaker?.Invoke();
                 int mod = speaker != null ? speaker.Modifier(choice.checkAbility) : 0;
-                int roll = Dice.D20() + mod;
-                bool success = roll >= choice.checkDC;
-                OnSkillCheck?.Invoke(choice.checkAbility, choice.checkDC, roll, success);
-                if (!success && !string.IsNullOrEmpty(choice.failNodeId))
-                    next = choice.failNodeId;
+                int natural = Dice.D20();           // the raw face — drives crit/fumble branches
+                int roll = natural + mod;
+
+                if (natural == 20 && !string.IsNullOrEmpty(choice.critNodeId))
+                {
+                    OnSkillCheck?.Invoke(choice.checkAbility, choice.checkDC, roll, true);
+                    next = choice.critNodeId;       // nat 20 → the crit branch, regardless of DC
+                }
+                else if (natural == 1 && !string.IsNullOrEmpty(choice.fumbleNodeId))
+                {
+                    OnSkillCheck?.Invoke(choice.checkAbility, choice.checkDC, roll, false);
+                    next = choice.fumbleNodeId;     // nat 1 → the fumble branch, regardless of DC
+                }
+                else
+                {
+                    bool success = roll >= choice.checkDC;
+                    OnSkillCheck?.Invoke(choice.checkAbility, choice.checkDC, roll, success);
+                    if (!success && !string.IsNullOrEmpty(choice.failNodeId))
+                        next = choice.failNodeId;
+                }
             }
 
             ApplyClauses(choice.effects);
@@ -100,6 +120,18 @@ namespace SunderedCrown.Dialogue
             _graph = null;
             _current = null;
             OnConversationEnded?.Invoke();
+        }
+
+        // ---- Variant resolution ------------------------------------------
+
+        /// <summary>The text to show for a node: the first variant whose conditions all pass, else the
+        /// node's plain text. Variants let one line react to flags/disposition without extra nodes.</summary>
+        private string ResolveText(DialogueNode node)
+        {
+            if (node.variants != null)
+                foreach (var v in node.variants)
+                    if (ConditionsPass(v.when)) return v.text;
+            return node.text;
         }
 
         // ---- Flag evaluation ---------------------------------------------
