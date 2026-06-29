@@ -130,6 +130,22 @@
               "to": "cap_calloway2_0",
               "once": "cap.seen_calloway2",
               "need": "cap.calloways_secret"
+            },
+            {
+              "to": "cap_complaint_0",
+              "once": "cap.seen_complaint"
+            },
+            {
+              "to": "cap_war_0",
+              "once": "cap.seen_war"
+            },
+            {
+              "to": "cap_orchard_0",
+              "once": "cap.seen_orchard"
+            },
+            {
+              "to": "cap_memory_0",
+              "once": "cap.seen_memory"
             }
           ],
           "drawCount": "cap.draws",
@@ -988,6 +1004,336 @@
             },
             {
               "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_complaint_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_complaint",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(The road turns over into a tidy little office that should not be outdoors, with a counter, a brass bell, and a sign in immaculate lettering: RETURNS & GRIEVANCES — ALL DEATHS FINAL — COMPLAINTS RECEIVED 9 TO 5. Behind it stands the ghost of a shopkeeper, sleeve-gartered, pencil behind one ear, radiating the magnificent unkillable patience of a soul who spent forty years saying 'have you got your receipt.' He brightens at a customer.)* …*afternoon.* …you'll be wanting to *file*, i expect — *everyone* who *finds* this counter wants to *file.* *(he licks a thumb, peels a form off a stack a mile high)* …*Grievances* *against* the *Management*, that's my *department.* the *Management* being — *(he gestures vaguely upward, and also downward, and also at a grey wall on the horizon)* …*all* of it. the *gods.* the *order* of *death.* the *Wall.* *(he sets the form down, smooths it)* …*now.* …i'll not *lie* to you, like *some* would: it goes *nowhere.* there is *no* *higher* *desk.* the *Management* does *not* *read* its *mail.* …*but* — *(he taps the form, and his voice drops into something almost sacred)* …it gets *filed.* *stamped.* *received.* …and a *grievance* *received*, friend …is a *grievance* that *someone*, *somewhere* …*wrote* *down.* …*do* you want to *file?*",
+          "choices": [
+            {
+              "text": "*(file a formal grievance against the Wall of the Faithless itself)* \"Yes. I want to file a complaint against the Wall of the Faithless. For every soul it ever discarded, dissolved, or walled alive for the crime of belonging to no god. Give me the form. I'll fill out every line.\"",
+              "next": "cap_complaint_file",
+              "effects": [
+                {
+                  "key": "cap.filed_complaint",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"If it goes nowhere and no one reads it, why do you keep the desk?\"",
+              "next": "cap_complaint_why"
+            }
+          ]
+        },
+        {
+          "id": "cap_complaint_file",
+          "speaker": "the Wayward Mile",
+          "text": "*(You fill it out. All of it. The complainant: every godless soul. The grievance: the whole grey atrocity, named, item by item, in a steady hand. And the shopkeeper does not hurry you, does not smirk, does not say it won't matter — he simply waits, with grave professional dignity, and when you slide the finished form across the counter he reads every word, and nods, once, and brings down a heavy brass stamp with the full weight of his arm.)* *RECEIVED.* *(the ink is very red, and very final, and somehow it is the most satisfying sound you have heard since you died.)* …*there.* *(he files it, careful, in a drawer that is somehow full of thousands of others in thousands of hands)* …it's *in* the *system* now, friend. …the *system* that *doesn't* *work*, that *no* one *reads*, that *changes* *nothing.* *(he meets your eyes, and there is iron under the mild manner)* …but you *said* it. *officially.* *on* the *record.* …the *Wall* would *prefer* you *dissolved* *quiet*, *agreeing* you were *nothing.* …and *instead* you stood at a *counter* …and *lodged* a *formal* *objection* …to the *management* of *the* *universe.* …*(he tucks the pencil back behind his ear)* …*most* souls *never* *file*, friend. they just …*endure.* …*you* *filed.* …*come* *again.* …the *desk* …is *always* *open.*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_complaint_why",
+          "speaker": "the Wayward Mile",
+          "text": "*(He considers the question with the seriousness of a man who has had four hundred years to consider it.)* …*why* *keep* the *desk.* *(he straightens a stack)* …because, friend, i was a *shopkeeper* for *forty* *years*, and i learned the *one* *thing* a *counter* *teaches*: …a *person* with a *grievance* and *nowhere* to *bring* it …*curdles.* goes *bitter.* *rots* from the *inside* round the *unsaid* *thing.* …but a *person* who gets to *stand* at a *counter* and *say* *'this* was *wrong*, and i *want* it *on* the *record' —* …*(he taps the bell, lightly)* …*that* *person* …can *go* *home.* …even if *nothing's* *fixed.* *especially* if *nothing's* *fixed.* …the *filing* *is* the *fix*, friend. not of the *grievance.* …of the *griever.* …*(a mild, unkillable smile)* …the *Management* *built* a *universe* with *no* *complaints* *department.* …so i *built* *one.* …it's the *one* *act* of *defiance* …a *shopkeeper* *knows* *how* to *make*: …*excellent* *customer* *service* …in a *cosmos* …that *offers* *none.*",
+          "effects": [
+            {
+              "key": "cap.complaint_wisdom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_war_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_war",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(The road turns over onto a battlefield — two ragged lines of dead soldiers dug in across a strip of grey mud, hurling themselves at each other, falling, reforming, charging again, in a loop you can feel has been running a very long time. A sergeant on the near side hauls himself out of the mud and clutches your sleeve, desperate.)* …*you* — you're not *one* of *ours* and not one of *theirs*, you can *cross* the *line* — *(he gasps)* …*listen.* this *war*, friend — in *life* it lasted *two* *minutes.* *two.* a *skirmish* at a *ford* nobody *remembers*, both *companies* *wiped* in the *time* it takes to *boil* an *egg* — and we've been *fighting* it *here* …*three* *hundred* *years.* *(his voice cracks)* …because *nobody* *won.* nobody *lost.* we just *died*, all at *once*, *mid*-*charge* …and *came* *here* …*still* *charging.* …and we *all* — *both* *sides* — we are *so* *tired*, friend. we *want* to *stop.* *(his jaw sets, miserable)* …but you *can't* *stop* a *war* by *yourself* *stopping* — that's just *losing* — and *nobody* …*nobody* …will be the *first* …to *lay* *down* …*arms.*",
+          "choices": [
+            {
+              "text": "*(broker it — get both sides to lay down arms in the same instant, so no one is first)* \"Then no one will be first. Listen to me — both lines, at once. I'll stand on the ridge between you and count to three, and on three every soul on this field sets down their weapon together. Not a surrender. A simultaneous, mutual, no-one-went-first end to a war that ended three hundred years ago. Will your side hold to a three-count if I swear the other will too?\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "cap_war_ok",
+              "fail": "cap_war_fail",
+              "crit": "cap_war_crit",
+              "fumble": "cap_war_fumble",
+              "effects": [
+                {
+                  "key": "cap.brokered_truce",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Why does it have to be no one first? You're all dead. You all want to stop. What's left to lose?\"",
+              "next": "cap_war_why"
+            }
+          ]
+        },
+        {
+          "id": "cap_war_crit",
+          "speaker": "the Wayward Mile",
+          "text": "*(You climb the ridge between the two exhausted armies, and you do the impossible thing: you make both sides believe, at once, that the other will hold. You count — slow, clear, carrying — and on three, three hundred years of war end in a single, soft, simultaneous sound: the sound of every weapon on a field touching the ground at the same instant, so that not one soldier, on either side, can say they were the one who yielded first.)* *(For a moment nobody moves. Then a man on the far line begins, quietly, to weep, and then the whole field is weeping, both sides, three centuries of held breath let go at once — and they are not enemies now and never really were, just two companies of frightened boys who died at a ford in two minutes and have wanted, every day since, to go home.)* …*(the sergeant grips your arm, undone)* …it's — they're *down.* *both* lines. …*nobody* *broke.* *nobody* *won.* we just — *(he laughs, wet)* …we just *stopped.* …*together.* …*three* *hundred* *years*, friend, and the *only* thing we *needed* …was a *soul* with *no* *side* …to *count* to *three.* …*(soldiers from both companies are walking toward the middle now, hands open)* …*go* *well*, friend. …you didn't *end* a *war.* …a *war* that *size* …*ended* in *two* *minutes*, *long* ago. …you ended the *part* that *hurt*: …the *part* where we *couldn't* …*let* …*each* *other* …*stop.*",
+          "effects": [
+            {
+              "key": "cap.ended_the_war",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_war_ok",
+          "speaker": "the Wayward Mile",
+          "text": "*(You broker it — not perfectly; a few soldiers on each side hesitate, distrust dies hard after three centuries — but enough hold to the three-count that the line breaks, the charge doesn't reform, and the loop, for the first time in an age, simply… stops. The field goes quiet. It is a ragged, imperfect, real peace.)* …*they're* — most of them are *down*, friend. *(the sergeant breathes)* …not *all.* a *few* on *each* side *couldn't* *trust* it, *still* *clutching* their *blades*, *watching* the *other* line — *old* *fear* *dies* *hard.* …but the *charge* didn't *reform.* and a war that *can't* *charge* …*(he looks around at the stillness)* …*isn't* a war *anymore.* it's just …*tired* *men*, in a *field*, *finally* *allowed* to *sit* *down.* …*thank* you, friend. it's not the *clean* *ending* the *poets* *want* — *(a worn smile)* …but a *three*-*hundred*-*year* *war* …*ending* *messy* …is *still* *ending.* …*go* on. …*we'll* …*manage* the *rest* …*from* *here.*",
+          "effects": [
+            {
+              "key": "cap.ended_the_war",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_war_fail",
+          "speaker": "the Wayward Mile",
+          "text": "*(You try — you stand on the ridge, you count — but the trust isn't there, not yet; on three, a soul on one line flinches, raises a blade instead of lowering it, and the whole fragile arrangement collapses back into the charge, the loop reasserting itself, three hundred years of reflex swallowing one stranger's count.)* …*(the sergeant sags)* …*close.* …*gods*, that was *close*, friend — i *saw* it, half the line *started* to *lower* — and then *Harla* *flinched*, she *always* *flinches*, and — *(he wipes mud from his face)* …*don't* — don't *blame* yourself. *three* *hundred* *years* of *'never* be *first'* …doesn't *un*-*learn* in *one* *count.* …*(he looks at the reforming lines, weary past despair)* …*come* *back*, if the *road* *brings* you. …*try* *again.* …*every* *count* that *gets* *half* the *line* to *lower* …is *half* a *line* …that *remembers* …it *wanted* to. …*next* *time* …*maybe* …the *other* *half* …*remembers* *too.*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_war_fumble",
+          "speaker": "the Wayward Mile",
+          "text": "*(It goes wrong fast: you climb the ridge and call for the surrender too plainly — 'lay down your arms, the war is over, you've lost' — and the word lands like a spark in dry grass, because to three hundred years of soldiers who never yielded, 'you've lost' is the one thing worse than fighting forever, and BOTH lines turn their fury, briefly and unanimously, on the outsider who dared call them beaten.)* …*down!* *get* *DOWN* — *(the sergeant yanks you off the ridge as something whistles past)* …*gods*, friend, you *can't* — you *can't* say *'surrender'* to *these* *men*, you can't say *'lost' —* …*(he hauls you to cover)* …that's the *one* *word* …*three* *hundred* *years* of *dying* …*taught* them to *hate* *more* …than *each* *other.* …*(he catches his breath)* …it's *not* a *surrender* they *need*, friend. *nobody* *surrenders.* it's a *way* to *stop* …that *isn't* *losing.* …*'no* one *first.'* *'both* at *once.'* *'a* *draw.'* …*those* they might *hear.* …*'you've* *lost' —* …*(he shakes his head)* …go. …*come* *back* …when you've *thought* of a *way* …to *let* a *soldier* …*stop* …*without* …*kneeling.*",
+          "effects": [
+            {
+              "key": "cap.botched_truce",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_war_why",
+          "speaker": "the Wayward Mile",
+          "text": "*(The sergeant laughs, bitter and tired, scrubbing mud from his eyes.)* …*'what's* *left* to *lose.'* *(he shakes his head)* …you're *thinking* like a *living* *soul*, friend — like it's about the *ford*, the *ground*, the *winning.* …it was *never* about the *ground.* *(quietly)* …we were *boys.* *both* sides. *scared* *boys* who'd *never* *killed* anyone, *charging* a *ford* because *someone* *told* us to, and we *died* …all of us …in the *time* it takes to *change* your *mind* …*before* we *could.* …and the *one* thing, friend, the *one* thing a *boy* who *died* *scared* and *charging* *clings* to …is that he didn't *run.* didn't *yield.* *stood.* …it's *all* we *have.* …*all* we *brought* *across.* …and to *lay* *down* *first* …is to *say* …*'i* was the one who *broke' —* …and a *boy* who *broke* …*(his voice cracks)* …has *nothing* *left* …in the *whole* *grey* *country* …to *call* his *own.* …*that's* …*what's* *left* to *lose*, friend. …the *last* *thing.* …*not* the *war.* …the *not*-*having*-*run.*",
+          "effects": [
+            {
+              "key": "cap.knows_the_war",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_orchard_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_orchard",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(The road turns over into an orchard, and it takes you a long, vertiginous moment to understand what grows here. The trees are bare and grey, and from their branches, instead of fruit, hang hands. Pairs of them, cupped, open, reaching — thousands, gently swaying, every size and age, a baby's and a crone's and a soldier's and a mother's. A soul moves among them with a watering can, tending them, and looks up at you with the serene melancholy of a gardener who loves a strange and sorrowful crop.)* …*mind* the *low* *branches.* *(a soft voice)* …they're *tender*, the *new* ones. …you're *wondering* what they *are.* *everyone* does. *(she touches a pair, fond)* …they're the *hands*, friend. …*every* *hand* …that *ever* *let* *go* …of a *dying* one. *(she moves down the row)* …the *daughter* who *held* her *father's* hand till the *breathing* *stopped* and then …had to …*open* her *fingers.* the *nurse.* the *stranger* at the *roadside.* the *mother* — *(she pauses at a small pair, and her voice goes very gentle)* …*every* *letting*-*go*, friend, *every* *'i* *have* to *let* you *go* *now' —* …it *grows*, *here.* …because a *letting*-*go* like *that* …is *too* *large* …for *one* *soul* to *carry* *alone.* …so the *orchard* *carries* it. …*holds* the *hands* …that *had* to *open.* …*(she offers you the watering can)* …*walk* a *while*, if you *like.* …*see* if you *find* …a *pair* …you *know.*",
+          "choices": [
+            {
+              "text": "*(walk the rows — look for a pair of hands you know: your own letting-go, or a stranger's you might honor)* \"I'll walk. And I'll water the ones no one comes for. If I find a pair I know... I'd like to hold them a moment. Even a stranger's. Especially a stranger's.\"",
+              "next": "cap_orchard_walk",
+              "effects": [
+                {
+                  "key": "cap.orchard_seen",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Doesn't it break you, tending this? An orchard of every worst goodbye there ever was?\"",
+              "next": "cap_orchard_break"
+            }
+          ]
+        },
+        {
+          "id": "cap_orchard_walk",
+          "speaker": "the Wayward Mile",
+          "text": "*(You take the can and walk the grey rows, and you water the hands no one comes for, and somewhere deep in the orchard you stop — because there is a pair you know. Maybe they're yours: the exact shape of your own fingers, caught forever in the half-open curl of the worst morning of a life you're only beginning to remember. Maybe they're a stranger's, but you know them anyway, because a letting-go is a letting-go and you have done it or had it done to you and the shape is the same in every soul. You cup them in your own. They are warm. They have been waiting, it turns out, not to be re-closed — that letting-go was right, was love, was the last gift — but simply to be held by someone who understood that opening them was the hardest thing their owner ever did.)* *(The gardener watches from a distance, and does not intrude, because this is the whole purpose of her orchard: not to undo a single letting-go, but to make sure that no hand that ever had to open over a dying love is left, forever, holding nothing.)* …*(you stay a while. you water a few more. then you set the can down, gently, and go — lighter, and heavier, and more whole than when you came.)*",
+          "effects": [
+            {
+              "key": "cap.held_the_hands",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_orchard_break",
+          "speaker": "the Wayward Mile",
+          "text": "*(The gardener smiles, and it is sad, and it is not broken.)* …*break* me. *(she shakes her head slowly)* …*no*, friend. …the *opposite.* …i *was* *breaking*, you see — *out* *there* — *(she nods at the grey beyond the orchard)* …i was a *soul* who'd had to *let* *go* of *too* *many*, in *life*, a *nurse*, *forty* *years* of *opening* my *fingers* over the *dying* …and i came *here* *certain* …that *every* *letting*-*go* was a *small* *betrayal*, a *failure*, a *hand* that *should* have *held* *on.* *(she touches a pair, tender)* …and then i *found* the *orchard.* …and i *understood.* …*holding* *on* …is *not* the *love*, friend. *anyone* can *clutch.* …the *love* …is the *opening.* …the *terrible*, *generous*, *necessary* *opening* …that *says* *'go* *gently*, i *won't* *make* you *stay* …for *me.'* …*(she resumes her watering)* …so *no.* it doesn't *break* me. …*tending* it *healed* me. …*every* *hand* *here* …did the *bravest* *thing* a *soul* can *do.* …i just …*make* *sure* …they're not *alone* …*for* *having* done it.",
+          "effects": [
+            {
+              "key": "cap.orchard_wisdom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_memory_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_memory",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(The road turns over and a memory hits you like a wave — vivid, total, and not yours. A kitchen with yellow curtains. The smell of bread and a particular rain. A wedding where you wept, a hand you held for sixty years, a specific blue door, a child's laugh you would know anywhere — an entire life, lived and loved and not for one second your own, flooding into you with the unbearable clarity of someone else's whole heart. And standing in the road before you is a soul with a hole in it — a soul gone strangely blank, vague, unfinished, looking at you with desperate recognition.)* …*you* — *(the blank soul reaches out)* …you have it. i can *see* it on you — the *yellow* *curtains*, the *blue* *door* — that's — *(its voice shakes)* …that's *mine.* that's my — the *Wall* *mis*-*filed* it, friend, when i came *through*, it *takes* the *names* and the *lives* and it *sorts* them and *sometimes* …*sometimes* it *drops* one …into the *wrong* *soul.* …and *you* *caught* *it.* my — *(it presses where a face should be)* …*sixty* *years.* my *whole* — i can't *remember* my *own* *wedding*, friend, because *you're* *remembering* it *for* me, and it's the *best* thing i ever — *(barely)* …*will* you …*give* it *back?* …i *know* it's *beautiful.* …i *know* …what i'm *asking* you to *let* *go* of. …but it's …*mine.*",
+          "choices": [
+            {
+              "text": "*(give it back — open your hands and return the stranger's whole life, even though it's the most beautiful thing you've held since you died)* \"Of course it's yours. Here — take it back. All of it: the yellow curtains, the blue door, the sixty years, the rain. It was never mine to keep, however much I'll miss it. A soul should die remembering its own wedding. Take it.\"",
+              "next": "cap_memory_return",
+              "effects": [
+                {
+                  "key": "cap.returned_memory",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(ask the harder thing — whether a memory can be shared instead of surrendered)* \"Before I give it back — does it have to be all-or-nothing? Could I hold a copy? Carry your wedding with me, so two souls remember it instead of one? Or does returning it mean losing it from me entirely?\"",
+              "next": "cap_memory_share"
+            }
+          ]
+        },
+        {
+          "id": "cap_memory_return",
+          "speaker": "the Wayward Mile",
+          "text": "*(You open your hands — your mind — and you let it go, all of it, the kitchen and the rain and the sixty years, pouring out of you and into the blank soul before you, and you feel it leave the way you'd feel warmth leave a room, and then it is gone and you cannot quite recall the color of the door, only that it mattered, only that it was beautiful, only that it wasn't yours.)* *(And the soul before you fills. You watch it happen — the blankness resolving into a face, a whole face, lit from within by a returned life, sixty years rushing home all at once — and it gasps, and laughs, and weeps, and remembers, finally, its own wedding, its own blue door, its own beloved, restored entire to the one soul who had the right to them.)* …*(it can hardly speak)* …*i* — *oh.* …*oh*, *there* she *is.* …*there's* her — i can *see* her *face* again, friend, the — *(it presses both hands to its restored face, overcome)* …you *gave* it *back.* …you *held* the *best* thing i *ever* *was* …and you *handed* it *home* …and *kept* …*nothing.* …*(it looks at you, whole)* …i'll *remember* *you*, now — *you're* in it, the *kind* *stranger* who *carried* my *whole* *heart* a *little* *way* and *gave* it *back.* …*you're* *part* of the *memory* now, friend. …*that's* …the *only* *thanks* …a *soul* has: …*you* *get* …to be *remembered* …*inside* …the *thing* …you *returned.*",
+          "auto": "END"
+        },
+        {
+          "id": "cap_memory_share",
+          "speaker": "the Wayward Mile",
+          "text": "*(The blank soul goes still, and then — slowly — something like wonder moves through it.)* …*share* it. *(it turns the idea over)* …i don't — friend, i don't *know.* *no* one ever *asked.* every soul who *catches* a *mis*-*filed* *life* either *clutches* it, *keeps* it, *won't* *give* it *back* — *(a flicker of old grief)* …or *hands* it *over* *whole* and *forgets* it *clean.* …*nobody's* ever *asked* …if a *memory* could be *two* *souls'* at *once.* …*(it considers, and a fragile hope rises)* …maybe — maybe it *can*, friend. maybe that's the — maybe that's the *one* *thing* the *Wall* *never* *counted* on: that a *life*, *shared*, isn't *halved.* …it's *doubled.* *two* souls *remembering* the *yellow* *curtains* …isn't *half* a *wedding* *each.* it's the *wedding*, *witnessed* *twice.* …*(it reaches out, and you don't surrender the memory — you let it copy, let it bloom in the blank soul while staying, fainter but real, in you)* …*there* — *oh*, *there* it — *we* *both* — *(it laughs, amazed)* …*i* *remember* my *wedding* …and *so* do *you* …and *neither* of us …*has* *less.* …*(it meets your eyes, transformed)* …*carry* it *gently*, friend. …you're a *witness* *now*, to a *love* you *never* *lived.* …and a *love* with *two* *who* *remember* it …*(barely)* …is a love …the *Wall* …*can't* …*dissolve.*",
+          "effects": [
+            {
+              "key": "cap.shared_memory",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.returned_memory",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
               "op": "AddInt",
               "amount": 1
             }

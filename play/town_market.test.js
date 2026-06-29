@@ -3166,6 +3166,43 @@ check("a THIRD Calloway recurrence (need: cap.calloways_secret) responds — gra
   return ruinedVar && dflt && trust && trust.effects.some(e => e.key === "cap.calloway_truefriend");
 })());
 
+// ---- a fresh shape: the murder mystery (the Second Death) ----
+const SD = SCENES && SCENES.seconddeath;
+check("a seventy-sixth zone (the Second Death) ships — a murder mystery: a soul un-made, which should be impossible", SD && SD.npcs.length >= 3);
+check("the Second Death is reached from the Lamplit Quarter and exits back", (SCENES.lamplit.exits || []).some(x => x.to === "seconddeath") && (SD.exits || []).some(x => x.to === "lamplit"));
+const sxSahl = CONVS.find(c => c.id === "sx.sahl");
+const sxCorwin = CONVS.find(c => c.id === "sx.corwin");
+const sxLiss = CONVS.find(c => c.id === "sx.liss");
+check("three souls (the Inquisitor, the friend who carries it, the witness who knows the loop) are present", sxSahl && sxCorwin && sxLiss);
+check("the verdict is a real three-way moral choice, each gated on what you investigated: ACCUSE (knows-who) / PROTECT (knows-she-begged) / argue MERCY (knows-both, a Persuasion with crit & fumble)", (() => {
+  const n1 = sxSahl.nodes.find(n => n.id === "1");
+  const accuse = n1.choices.find(c => c.next === "sx_accuse" && c.when && (c.when.flags||[]).includes("sx.knows_corwin_did_it"));
+  const protect = n1.choices.find(c => c.next === "sx_protect" && c.when && (c.when.flags||[]).includes("sx.knows_she_begged"));
+  const mercy = n1.choices.find(c => c.check && c.when && (c.when.flags||[]).includes("sx.knows_torment") && (c.when.flags||[]).includes("sx.knows_she_begged"));
+  const crit = sxSahl.nodes.find(n => n.id === "sx_mercy_crit");
+  return accuse && protect && mercy && mercy.crit && mercy.fail && mercy.fumble && crit && crit.effects.some(e => e.key === "sx.law_overturned");
+})());
+check("every TERMINAL verdict closes the case (a failed persuasion leaves it open to re-verdict, by design)", (() => {
+  return ["sx_accuse","sx_protect","sx_mercy_crit","sx_mercy_ok","sx_mercy_fumble"].every(id => {
+    const n = sxSahl.nodes.find(x => x.id === id);
+    return n && n.effects.some(e => e.key === "sx.case_closed");
+  });
+})());
+check("Corwin's grief is reactive: post-verdict node-0 variants (free vs. taken) fire on the verdict you delivered", (() => {
+  const v0 = sxCorwin.nodes.find(n => n.id === "0");
+  return v0.variants.some(x => (x.when && (x.when.flags||[]).includes("sx.protected_corwin"))) &&
+    v0.variants.some(x => (x.when && (x.when.flags||[]).includes("sx.accused_corwin")));
+})());
+check("each Second-Death soul carries a [RETURNED] line that names the right-to-a-true-end + a Returned-sense", [sxSahl, sxCorwin, sxLiss].every(c =>
+  c.nodes.some(n => (n.choices || []).some(ch => ch.tag === "returned")) && c.returned));
+// the caprice pool grew with 4 new one-offs
+check("the Wayward Mile pool grew to a dozen+ events (4 new: the complaint desk, the Two-Minute War, the Orchard of Hands, the mis-filed memory)", (() => {
+  const cr = CONVS.find(c => c.id === "cap.road");
+  const dn = cr.nodes.find(n => Array.isArray(n.draw));
+  const ids = new Set(cr.nodes.map(n => n.id));
+  return dn.draw.length >= 12 && ["cap_complaint_0","cap_war_0","cap_orchard_0","cap_memory_0"].every(x => ids.has(x));
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

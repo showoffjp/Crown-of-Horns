@@ -11,6 +11,36 @@
 
 ---
 
+## 👑 v6.62.0 — *"New Side Quests"* — 4 new caprices + a murder-mystery zone, all tracked (content)
+
+> Fresh content on top of the new quest log: **four new Wayward Mile caprices** (the random side-quest
+> pool is now a **dozen** events) and a **brand-new standalone zone in a shape the game didn't have — a
+> murder mystery.** All wired into the live catalog (now **20 tracked quests**).
+- 🧾 **The Last Customer Complaint** — a dead shopkeeper mans a *Returns & Grievances* desk; **file a
+  formal complaint against the Wall of the Faithless itself.** It goes nowhere and means everything,
+  stamped **RECEIVED** — *the filing is the fix; not of the grievance, of the griever.*
+- ⚔️ **The Two-Minute War** — two dead armies re-fighting forever a battle that lasted *two minutes* in
+  life. Broker a **simultaneous** laying-down so no one is first (a Persuasion — crit: three centuries
+  end on one soft sound; fumble: never say *surrender* to men who never ran). *The only thing they can't
+  lose is the not-having-run.*
+- 🤲 **The Orchard of Hands** — a soul grows, from grey trees, **the hands of everyone who ever had to
+  let go of a dying one.** Walk the rows; hold a letting-go you know. *The love is the opening, not the
+  clutching.*
+- 🪟 **The Memory That Isn't Yours** — the Wall mis-filed a stranger's whole life into you (a kitchen, a
+  blue door, sixty years). **Return it** — or discover a memory *shared* isn't halved but **doubled**, a
+  love two souls remember that the Wall can't dissolve.
+- 🔎 **The Second Death** *(new standalone zone — a murder mystery)* — a soul has been **un-made** (truly
+  ended), which should be impossible. Investigate **Inquisitor Sahl** (her doctrine cracking), **Corwin**
+  (the friend who carries it alone), and **Liss** (who knows the Wall's worst-minute torment-loop from the
+  inside) — uncover that **Edda** spent *eleven years* looped in her worst minute and begged her oldest
+  friend to open the door — then **deliver the verdict yourself**, each gated on what you investigated:
+  **accuse** (the law is the law), **protect** (an honest lie — she chose her own end), or argue the whole
+  truth and **overturn the law** (a Persuasion — *crit:* an Inquisitor of Kelemvor renounces her sigil and
+  carries the *right to a true end* to the grey Concord). Corwin's grief is reactive to your verdict.
+- 🔧 Catalog → **20 quests** (the new mystery + the 4 caprices tracked under *What the Road Throws*), still
+  **all live** (every flag set by content). **76 walkable zones, 248 souls.** Gate **796** ✓ · side-quest
+  gate **15** ✓ · full suite **1530** ✓ · all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.61.0 — *"The Quest Log"* — the side quests become a live, tracked, tested catalog (systems)
 
 > The game shipped a full **QuestManager** engine (explicit start → objectives advance on flags →

@@ -10,7 +10,7 @@
 
 > **🗂️ Now a LIVE tracked catalog.** This doc is the design bible; the playable build now has a real,
 > structured **Side-Quest Catalog** — [`../../play/sidequests.json`](../../play/sidequests.json) — that
-> runs on the game's `QuestManager` engine: **19 tracked, multi-objective, branching quests** with
+> runs on the game's `QuestManager` engine: **20 tracked, multi-objective, branching quests** (incl. the murder-mystery *Second Death*) with
 > givers, premises, themes, rewards, and optional/hidden objectives. **Every objective/completion/failure
 > flag is set by real walkable content** (cross-checked in [`../../play/sidequests.test.js`](../../play/sidequests.test.js)
 > — no dead quests), so the rich zones already built (the Wake, the Last Lantern-Feast, the Last Word,
