@@ -11,6 +11,26 @@
 
 ---
 
+## 👑 v6.65.0 — *"The Fire Talks"* — party banter, now surfaced in-game (systems)
+
+> The banter system (v6.63.0) was tested but not yet *playable*. Now it is. At the **Hearth** (camp), a
+> new *"sit back and let the party talk"* choice plays a **live banter** — the engine picks one that fits
+> your **current party + deeds + dispositions**, voices the companions line by line, marks it heard so it
+> won't repeat, and returns you to the fire to hear another.
+- 🔥 **The renderer hook:** a node with `banter: true` calls `pickBanterNow` over the **embedded catalog**
+  (the same `banter.js` logic the headless gate proves now runs in the playable browser build — engine +
+  data injected via a `__BANTER__` token). Sit at the fire after a hard zone and you'll hear Dot and
+  Garrow argue what the dead are owed, or **Ilfaeril quietly clock how cold you've gotten and beg you not
+  to carry it alone.**
+- 🛟 **`autoPlay`-safe:** the listen choice is inserted so it's never the completeness-simulator's *first*
+  pick, so the banter node (which loops back to the camp menu for "hear another") is never walked by the
+  validator — no false "dead end."
+- ✅ Both the **engine embed** (`pickBanterNow` / `banterEligible` / `const BANTER` present in the build)
+  and the **camp surfacing** (`hearth.fire` → `hf_banter`) are gate-tested. This **completes the party-
+  banter delighter** — the connective tissue that turns 76 brilliant rooms into a party you travel with.
+- 📄 **76 zones, 248 souls, 24 banters (now audible).** Gate **799** ✓ · full suite **1546** ✓ ·
+  all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.64.0 — *"The Same Dog"* — the warm emotional through-line (content)
 
 > The highest emotional ROI per line in the game. The **Same Dog** — the brown ordinary dog that hears

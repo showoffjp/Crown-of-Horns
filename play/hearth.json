@@ -270,6 +270,10 @@
               "next": "fire_thaw"
             },
             {
+              "text": "*(sit back, and let the party talk — the souls who walk this grey road beside you)* \"…Enough reckoning. Let's just be, a while. Talk to me. Talk to each other. I'd like to hear it.\"",
+              "next": "hf_banter"
+            },
+            {
               "text": "*(bank the fire, and rest)* \"Enough reckoning. Sleep.\"",
               "next": "fire_sleep"
             }
@@ -365,6 +369,13 @@
             }
           ],
           "auto": "END"
+        },
+        {
+          "id": "hf_banter",
+          "speaker": "the fire",
+          "banter": true,
+          "text": "*(The fire pops and settles. For a while no one says anything new — and the quiet of a party that has run out of words for the night is its own kind of comfort.)*",
+          "auto": "1"
         }
       ]
     },

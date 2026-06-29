@@ -3214,6 +3214,18 @@ check("the Wayward Mile pool grew to a dozen+ events (4 new: the complaint desk,
   return dn.draw.length >= 12 && ["cap_complaint_0","cap_war_0","cap_orchard_0","cap_memory_0"].every(x => ids.has(x));
 })());
 
+// ---- party banter is SURFACED (wired into the playable build, not just data) ----
+check("the playable build embeds the banter engine + catalog (reactive companion cross-talk you can actually hear)", (() => {
+  return h.includes("function pickBanterNow(") && h.includes("function banterEligible(") && /const BANTER = \[/.test(h);
+})());
+check("the camp (Hearth) surfaces it: a 'listen to the party' choice leads to a banter node that plays an eligible barter and returns", (() => {
+  const fire = CONVS.find(c => c.id === "hearth.fire");
+  if (!fire) return false;
+  const choice = fire.nodes.find(n => n.id === "1").choices.find(c => c.next === "hf_banter");
+  const bn = fire.nodes.find(n => n.id === "hf_banter");
+  return choice && bn && bn.banter === true && bn.auto === "1";   // auto back to the menu (autoPlay never walks it — it's not the first choice)
+})());
+
 // ---- grand totals across the whole walkable Act ----
 check("the playable Act spans a dozen connected zones and 40+ souls", Object.keys(SCENES).length >= 12 &&
   Object.values(SCENES).reduce((a, s) => a + s.npcs.length, 0) >= 40 && (() => {

@@ -90,6 +90,7 @@ LIDLESSEYE = json.load(open(os.path.join(ROOT, "play", "lidlesseye.json"), encod
 CAPRICE = json.load(open(os.path.join(ROOT, "play", "caprice.json"), encoding="utf-8"))
 LONGODDS = json.load(open(os.path.join(ROOT, "play", "longodds.json"), encoding="utf-8"))
 SECONDDEATH = json.load(open(os.path.join(ROOT, "play", "seconddeath.json"), encoding="utf-8"))
+BANTER_DATA = json.load(open(os.path.join(ROOT, "play", "banter.json"), encoding="utf-8"))["banters"]
 MODEL = DEMO["characterModel"]
 
 BUILDS = [
@@ -712,6 +713,7 @@ HTML = r"""<!DOCTYPE html>
 const DATA = __BLOB__;
 const BUILDS = __BUILDS__;
 const INT_LABELS = __INTLABELS__;
+const BANTER = __BANTER__;
 let SCENE = DATA.scene;   // the active zone (swapped by loadScene when you cross an exit)
 const SCENES = DATA.scenes || {market:DATA.scene}, CONVS = DATA.conversations, MODEL = DATA.model, GLOSS = DATA.glossary;
 const ABILS = ["Strength","Dexterity","Constitution","Intelligence","Wisdom","Charisma"];
@@ -784,6 +786,12 @@ function pickDraw(node, state, rnd){
   if(!pool.length) return node.drawElse;
   return pool[Math.floor(rnd()*pool.length)].to;
 }
+// --- party banter (reactive companion cross-talk; mirrors banter.js) ---
+const BANTER_PRESENT = {garrow:null, roen:"companion.roen.recruited", varra:"companion.varra.recruited", naeve:"companion.naeve.recruited", ilfaeril:"companion.ilfaeril.recruited", maerin:"companion.maerin.recruited", dot:"lf.dot_joined", mournlight:"companion.mournlight.recruited"};
+function banterPresent(state,id){ if(!(id in BANTER_PRESENT)) return false; const f=BANTER_PRESENT[id]; if(f===null) return id==="garrow"; return state.bools[f]===true; }
+function banterReqMet(state,req){ req=req||{}; for(const c of (req.companions||[])){ if(!banterPresent(state,c)) return false; } for(const f of (req.flags||[])){ if(state.bools[f]!==true) return false; } for(const f of (req.flagsNot||[])){ if(state.bools[f]===true) return false; } for(const k in (req.int||{})){ if((state.ints[k]||0)<req.int[k]) return false; } return true; }
+function banterEligible(state,b){ if(b.once!==false && state.bools["banter.seen."+b.id]===true) return false; return banterReqMet(state,b); }
+function pickBanterNow(state){ const pool=(BANTER||[]).filter(b=>banterEligible(state,b)); if(!pool.length) return null; return pool[Math.floor(Math.random()*pool.length)]; }
 // BG3/5e: knowledge & awareness skills are PASSIVE — they auto-succeed when 10+mod(+prof) >= DC, and the
 // option simply doesn't appear otherwise. The social "attempt" skills are ACTIVE — you roll for those.
 var PASSIVE_SKILLS=["Perception","Insight","Investigation","Arcana","History","Religion","Nature","Medicine","Survival","Animal Handling"];
@@ -1095,6 +1103,13 @@ function goNode(id){
   if(!n){ endScene(); return; }
   applyEffects(st, n.onEnter); applyEffects(st, n.effects); renderState();   // node entry + outcome effects
   if(n.draw){ goNode(pickDraw(n, st, Math.random)); return; }   // RNG event surfacing
+  if(n.banter){ const _b=pickBanterNow(st);
+    if(_b){ _b.lines.forEach(l=>addLine("", l.speaker, l.text)); st.bools["banter.seen."+_b.id]=true; renderState(); }
+    else { addLine("", curNpc.name, n.text||"*(The party is quiet tonight \u2014 no one has anything new to say, which is its own kind of peace.)*"); }
+    const _o=document.createElement("div"); _o.className="opts"; script.appendChild(_o);
+    if(n.auto && !isEnd(n.auto)){ const _bt=document.createElement("button"); _bt.className="continue"; _bt.textContent="Continue \u25b8"; _bt.onclick=()=>{ sfx('page'); _o.remove(); goNode(n.auto); }; _o.appendChild(_bt); }
+    else endScene();
+    script.scrollTop=script.scrollHeight; return; }
   const line=pickVariantText(n,char,st)||"〔(no line for this character)〕";
   addLine("", curNpc.name, line);
   // LORE — 5e passive knowledge: surface what your character would *recall* about topics in this line.
@@ -1269,7 +1284,8 @@ renderBuilds(); renderState(); requestAnimationFrame(loop);
 
 out = (HTML.replace("__BLOB__", BLOB)
        .replace("__BUILDS__", json.dumps(BUILDS, ensure_ascii=False))
-       .replace("__INTLABELS__", json.dumps(INT_LABELS, ensure_ascii=False)))
+       .replace("__INTLABELS__", json.dumps(INT_LABELS, ensure_ascii=False))
+       .replace("__BANTER__", json.dumps(BANTER_DATA, ensure_ascii=False)))
 dst = os.path.join(ROOT, "play", "town_market.html")
 open(dst, "w", encoding="utf-8").write(out)
 _npcs = sum(len(s['npcs']) for s in ALL_SCENES.values())
