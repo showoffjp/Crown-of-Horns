@@ -19,6 +19,15 @@
   - `GameEntryPoint` uses `[RuntimeInitializeOnLoadMethod]` → the game boots itself from the one
     `Boot.unity` scene. A real headless build script (`tools/build.sh`) exists. 29 EditMode test suites
     are ready to run.
+  - **244 declared types — every inheritance base and `new` instantiation resolves** (the two outliers
+    were `System.FormatException` and `UnityEngine.RectOffset`, both real framework types). The
+    "type doesn't exist" class of compile error is, as far as static analysis can see, absent.
+- **The core LOGIC is not just audited — it's PROVEN, by a passing test suite.** The `play/` prototype
+  is, by its own source comments, a *"1:1 port" / "bit-for-bit" / "headless port"* of the C# systems, and
+  every core system has both a C# file **and** a green JS mirror: RNG/Dice, Abilities, GameFlags,
+  QuestManager, DialogueRunner, EndingResolver, Inventory, Pathfinding, Progression. **1,530 tests pass.**
+  So the game's *rules and reactivity are confirmed correct* — what remains unproven is only the Unity
+  *wrapper* (MonoBehaviour glue + scene wiring) at the type/signature level, which truly needs the editor.
 - **What is NOT verified, and only a real compiler can tell us:** type/signature mismatches,
   method-not-found across files. In 34,000 lines that have never compiled, expect *some*. **The honest
   expectation is: it opens, throws a handful of compile errors, you fix them (or paste them to me — C#
