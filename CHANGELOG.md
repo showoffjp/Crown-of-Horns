@@ -11,6 +11,29 @@
 
 ---
 
+## 👑 v6.61.0 — *"The Quest Log"* — the side quests become a live, tracked, tested catalog (systems)
+
+> The game shipped a full **QuestManager** engine (explicit start → objectives advance on flags →
+> completion/failure precedence → save round-trip, mirroring C#) — but the playable build **never
+> populated a quest catalog.** Every rich zone *was* a side quest; **none were tracked.** Now they are.
+- 🗂️ **[`play/sidequests.json`](play/sidequests.json) — 19 tracked, multi-objective, branching side
+  quests** with givers, premises, themes, rewards, and optional/hidden objectives, spanning the whole
+  game: *The Wake the World Withheld · The Last Lantern-Feast · The Last Word · The After · The One Left ·
+  The Lidless Eye · The Honest Devil · The Knife You Carry* (a branching **ruin-or-protect** arc) *· The
+  Intake Queue · A Custody of the Small ·* the Sigil omniverse doors (*A Reunion Across an Age · The Last
+  Job · The Long Truce · The Song That Remembers · The Unseen Hands · The Forbidden Loves*) *· A Refugee
+  Named · What the Road Throws* (the random caprices) *·* and the meta *Ledger of Small Mercies.*
+- ✅ **No dead quests.** A new gate, [`play/sidequests.test.js`](play/sidequests.test.js), **scans every
+  walkable zone** and proves that **every objective / completion / failure flag the catalog references is
+  actually set by real content** — then **runs each quest through the live engine** (StartQuest →
+  activate → objectives report as flags land → completes on its completion flag; and the C# contract that
+  *failure beats a simultaneous completion*), and round-trips the whole catalog through
+  ExportState/ImportState. Wired into `run-all.js`.
+- 📄 The design bible [`docs/story/11_SIDEQUESTS_AND_NPCS.md`](docs/story/11_SIDEQUESTS_AND_NPCS.md) now
+  points at the live catalog. The catalog **grows as content does** — each new quest is one entry wired
+  to flags the content already sets. **75 zones, 245 souls, 19 tracked side quests.** Gate **788** ✓ ·
+  side-quest gate **15** ✓ · full suite **1522** ✓ · all green.
+
 ## 👑 v6.60.0 — *"The Knife You Carry"* — Calloway's secret becomes a loaded gun (content)
 
 > The payoff of the whole Calloway arc: the secret you may be carrying — *that the Honest Devil secretly
