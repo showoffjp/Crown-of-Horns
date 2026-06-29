@@ -274,6 +274,10 @@
               "next": "hf_banter"
             },
             {
+              "text": "*(reckon up the road behind you — not the Wall ahead, but everything you've already carried to get here)* \"…Let me look back, for once. At the road behind me. At what it's made of me.\"",
+              "next": "fire_road"
+            },
+            {
               "text": "*(bank the fire, and rest)* \"Enough reckoning. Sleep.\"",
               "next": "fire_sleep"
             }
@@ -376,6 +380,251 @@
           "banter": true,
           "text": "*(The fire pops and settles. For a while no one says anything new — and the quiet of a party that has run out of words for the night is its own kind of comfort.)*",
           "auto": "1"
+        },
+        {
+          "id": "fire_road",
+          "speaker": "the fire",
+          "text": "*(You let the fire pull your gaze, and for once you do not look at the grey Wall ahead — you look *back*, down the long road you've walked to get here, and let it surface, thread by thread. Some of it warms you. Some of it you'd rather not touch. All of it is yours.)* *(…what do you reckon up?)*",
+          "choices": [
+            {
+              "text": "*(the names you've kept)* \"…The souls. The ones I stopped for.\"",
+              "when": {
+                "int": {
+                  "disp.merciful": 8
+                }
+              },
+              "next": "fire_road_mercy"
+            },
+            {
+              "text": "*(the cold in you)* \"…How cold I've gotten. Be honest about it.\"",
+              "when": {
+                "int": {
+                  "disp.haunted": 10
+                }
+              },
+              "next": "fire_road_cold"
+            },
+            {
+              "text": "*(the dog asleep against your leg)* \"…The dog. The one that chose me.\"",
+              "when": {
+                "flags": [
+                  "cap.named_the_dog"
+                ]
+              },
+              "next": "fire_road_dog"
+            },
+            {
+              "text": "*(the gambler in the wine-red coat)* \"…Calloway. The Honest Devil.\"",
+              "when": {
+                "flags": [
+                  "cal.met"
+                ]
+              },
+              "next": "fire_road_calloway"
+            },
+            {
+              "text": "*(the baker who throws feasts for the doomed)* \"…Dot. The lantern-feast.\"",
+              "when": {
+                "flags": [
+                  "lf.dot_joined"
+                ]
+              },
+              "next": "fire_road_dot"
+            },
+            {
+              "text": "*(the man you couldn't save)* \"…The Last Word. Sevrin.\"",
+              "when": {
+                "flags": [
+                  "sv.warned"
+                ]
+              },
+              "next": "fire_road_sevrin"
+            },
+            {
+              "text": "*(the verdict you handed down)* \"…The second death. The friend, and the door.\"",
+              "when": {
+                "flags": [
+                  "sx.case_closed"
+                ]
+              },
+              "next": "fire_road_verdict"
+            },
+            {
+              "text": "*(the strange things the road threw at you)* \"…The caprices. The road that's never twice the same.\"",
+              "when": {
+                "flags": [
+                  "cap.met"
+                ]
+              },
+              "next": "fire_road_caprice"
+            },
+            {
+              "text": "*(the voice you trusted)* \"…The reading. The voice behind my eyes.\"",
+              "when": {
+                "flags": [
+                  "le.narrator_revealed"
+                ]
+              },
+              "next": "fire_road_unmade"
+            },
+            {
+              "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
+              "next": "1"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_mercy",
+          "speaker": "the fire",
+          "text": "*(You've been keeping a list, you realize, without ever deciding to. Not on paper — in the warm crowded back of you, where the names go. Tatters, who fed the gutter-cats and died with no one come. Brynalla Coorne, who kept the lock at Hambry. The knife that wept. A hundred souls the grey world tipped into the nothing without pausing — and you paused. Every time. You don't fully know why. Except you do: because someone has to mark that a soul was *here*, and was a someone, and is gone, and is worth the pausing… and you were the one standing there. It is the heaviest thing you carry. It is the only thing, you suspect, that's keeping you warm.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_mercy",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_cold",
+          "speaker": "the fire",
+          "text": "*(All right. Honest, then. Your hands don't warm at the fire the way they used to. The world has gone thin and far at the edges — the living world, the warm one — and you've reached into the grave one too many times to get it all the way back. You've felt it: the certainty creeping in where the warmth used to be. The way grief stops landing. *(quietly, to yourself)* …there is a version of you at the end of this road, you think, who can't feel anything at all. Who is just cold and sure and tired. …and the thing that frightens you, sitting here, is that you're fairly certain you've already *met* him. He wears your face. …don't go cold, you tell yourself. Not all the way. Hold one warm thing. …you reach down and put your hand on the dog, or the fire, or the memory of someone's name, and you hold on.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_cold",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_dog",
+          "speaker": "the fire",
+          "text": "*(The dog is asleep against your leg, a warm brown weight, twitching at some dream-rabbit in a field neither of you will ever see again. You didn't choose it. That's the part that gets you. In a country built on the gods throwing souls away, a stray with no name and no master took one look at you — a Returned, walking backward through every catastrophe, trailing the Wall's song — and decided, instantly and completely, that you were *its person*, and that it would simply keep turning up wherever the road bent, for as long as you needed a warm thing to walk beside. *(you scratch behind its ear; it sighs without waking)* …you would burn the whole grey world to ash, you realize, before you'd let one thing happen to it. Funny. After everything — the cosmology, the Wall, the loop — it's a *dog* that turns out to matter most. …you wouldn't change it.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_dog",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_calloway",
+          "speaker": "the fire",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cal.calloway_ruined"
+                ]
+              },
+              "text": "*(Calloway. You ruined him. Handed the Auditor the one true thing and watched the Long Odds fold, watched a hundred indentured souls walk free into the morning, watched the one soul in the dead lands who wasn't afraid of anything become, at last, afraid. It was *right.* You'd do it again. …and you still think about that grin. The dead lands are dimmer with him gone, and you did the just thing, and both of those are true, and you've stopped trying to make them stop being true. *(barely)* …he said he couldn't hate you for it. You believe him. That's the worst part, and the best.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cap.calloway_truefriend"
+                ]
+              },
+              "text": "*(Calloway. You hold the man's throat in your pocket — the one secret that would turn every marker he owns to paper — and you chose, knowing exactly what it was worth, not to squeeze. He walked out here once, empty-handed, undone, because for the first time in four hundred years a soul knew the worst of him and *stayed.* …you have a friend, now, who is a magnificent monster, who owes the gods nothing and the Wall nothing and you *everything*, and who would deny all three with his last breath. *(you almost smile)* …first drink's free, he said. And everything after. Just you. …you'll take him up on it, one of these grey nights.)*"
+            },
+            {
+              "text": "*(Calloway. The Honest Devil — the soul who looked at a cosmos that discards the unwanted and built an empire monetizing the discarding, and made you *like* him doing it. You've bargained with a creature who never once lied and walked away owing him something anyway. …you're still not sure who won. Which, you suspect, is exactly how he'd want you to feel. …the most dangerous thing in the dead lands, you've decided, isn't the Wall. It's a cruelty you can't quite hate.)*"
+            }
+          ],
+          "effects": [
+            {
+              "key": "fire.reckoned_calloway",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_dot",
+          "speaker": "the fire",
+          "text": "*(Dot's banked the oven for the night, somewhere off in the dark, and the camp still smells faintly of bread that has no business existing in the land of the dead. A baker who buried everyone she ever loved, on a rolling schedule, her whole long life — and came out the far side throwing *parties.* Not despite the dying. *Because* of it. *(you turn it over)* …you think she might be the single bravest soul you have ever met, living or dead, and if you said so she'd laugh you out of the firelight and then press a bun into your hand and refuse to let you leave hungry. …the lantern that gutters, she taught you, is the only one that gives light. …you reckon you'll keep her warning when you reach the Garden. You reckon it might be the only thing that saves you there.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_dot",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_sevrin",
+          "speaker": "the fire",
+          "text": "*(The Last Word. Sevrin Vael, nine lifetimes, never once lost — and you warned him. Told him the loop hunts the bright, that it would send not a worthy foe but the small thing he'd never deign to watch. He didn't listen. They never do. …you keep coming back to the wink. *'Oh, that old thing? Stay behind me, little ghost. I've got this.'* The easy warmth of it. The way the grin was still on his face as the light went out. *(quietly)* …you couldn't have saved him. You know that. Coll told you, the loop always takes the bright. But some cold tired part of you is still, even now, learning the hardest sum there is: that *couldn't* and *failed* are not the same word. …you hope you've learned it before the road asks you to prove it again.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_sevrin",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_verdict",
+          "speaker": "the fire",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "sx.law_overturned"
+                ]
+              },
+              "text": "*(The second death. A soul un-made, a friend who opened the door, a law that had lost the words *against its will.* …and you didn't just spare him. You stood in front of an Inquisitor of Kelemvor and argued the *law itself* into the ground, and watched a grey woman take off her sigil and decide to carry the right to a true end back to the Concord that will break her for it. *(you sit with the weight of that)* …you didn't solve a murder. You overturned a cruelty eleven thousand years old, one Inquisitor at a time. …Edda's the last soul, maybe, who'll scream eleven years with the door locked. If Sahl is as brave as you made her be. …you think she will be. You think you saw to that.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sx.accused_corwin"
+                ]
+              },
+              "text": "*(The second death. You named the friend. A soul was un-made by a hand, and you decided that cannot be allowed, whatever the reason, or no soul in the dead lands is safe. …Corwin didn't run. He'd been *waiting* — wanting it, almost, the relief of finally setting down a thing too heavy to carry alone. *(you turn it over, uneasy)* …it was the law. It was even, maybe, justice. …but you keep hearing Liss: *the murder happened eleven years before the shard.* …you did the lawful thing. You're less sure, by this fire, that you did the *right* one. …some verdicts don't let a soul sleep. This is one.)*"
+            },
+            {
+              "text": "*(The second death. A soul who spent eleven years looped in her worst minute, no door, no exit, screaming — and a friend who loved her enough to open the one door the gods wouldn't. You ruled it her own choice. No crime. No culprit. An honest lie, filed clean, so a grieving man could walk free carrying a mercy the world would have called murder. …it wasn't the truth. You both knew that. …but it might have been the most honest lie you ever told. …you reckon you can live with it. You reckon that's the most a soul can ask of a verdict that hard: that you can live with it.)*"
+            }
+          ],
+          "effects": [
+            {
+              "key": "fire.reckoned_verdict",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_caprice",
+          "speaker": "the fire",
+          "text": "*(The road that's never twice the same. You've stopped being surprised by it, which is its own kind of surprise. A coin that was a worn-thin gambler's soul. A dog with a stranger's name scratched on a bone. An auctioneer selling a dead woman's last word — *oh, how silly, I've left the kettle on.* A salesman peddling a gently-used apocalypse, one careful owner, a god. …you carry stranger things now than you ever did in life, and lighter, somehow, for the carrying. *(you watch the fire)* …the strange visits a soul only so many times in one passage, the milestone told you. You hope it's not done with you yet. …a road that can still surprise you is a road that hasn't decided how your story ends. …and you'd like to keep it undecided a while longer.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_caprice",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_unmade",
+          "speaker": "the fire",
+          "text": "*(The reading. The dead-sense. The voice that, all this long road, moved your cold past a soul's armor and named the ache beneath it — *your sense finds a wound at the root of the work.* …except it was never yours. It was the Unmade, looking through the seam it tore in you, showing you the discarded suffering so that, seeing it, you would come to want what it wants. Every act of compassion, *cultivated.* *(you stare into the flames, unsettled)* …and the worst part, the part you can't put down: you *miss* not knowing. The reads were beautiful. They felt like *you.* …now every one comes with the cold little question of whose eye is open behind your own. …but you took the enemy's gift and built a kindness with it. You kept a book where it wanted a weapon. …let it look through you, then. Let it see what a soul does with a stolen eye, when the soul refuses to become what the eye was for.)*",
+          "effects": [
+            {
+              "key": "fire.reckoned_unmade",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "fire_road"
         }
       ]
     },

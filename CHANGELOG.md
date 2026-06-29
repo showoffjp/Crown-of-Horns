@@ -11,6 +11,27 @@
 
 ---
 
+## 👑 v6.66.0 — *"The Road Behind You"* — the world remembers (content)
+
+> *"The world remembers,"* concentrated into a camp beat that makes the player feel **seen.** At the
+> **Hearth**, a new *"reckon up the road behind you"* choice opens a reflection where **the threads that
+> appear are the ones *you* walked** — and only those. A soul looking back at what the journey made of it.
+- 🪡 **The threads** (each gated on what you did): **the names you've kept** (`disp.merciful` — Tatters,
+  Brynalla Coorne, the knife that wept, *the list you keep without deciding to*); **the cold in you**
+  (`disp.haunted` — *there's a version of you at the end of this road who can't feel anything, and you're
+  fairly sure you've already met him, and he wears your face*); **the dog that chose you**; **the
+  gambler**; **Dot** (*the lantern that gutters is the only one that gives light*); **the man you couldn't
+  save** (*still learning that "couldn't" and "failed" aren't the same word*); **the verdict** you handed
+  down in the Second Death; **the caprices**; and **the voice behind your eyes** (*whose eye is open
+  behind your own*).
+- 🔀 **The reflections are themselves reactive:** Calloway reads differently if you **ruined** him vs.
+  became the **friend who holds his throat and chose not to squeeze**; the verdict reads differently for
+  **overturned-the-law / accused / honest-lie** — each its own weight.
+- 🛟 Built as gated reflection choices off `hearth.fire` (every thread `when`-gated on a flag/disposition,
+  with an ungated exit); **autoPlay-safe** (the reflection is never the validator's first pick) and
+  gate-tested for both the thread-gating and the reactive variants. **76 zones, 248 souls, 24 banters.**
+  Gate **801** ✓ · full suite **1548** ✓ · all-in-one **15** ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.65.0 — *"The Fire Talks"* — party banter, now surfaced in-game (systems)
 
 > The banter system (v6.63.0) was tested but not yet *playable*. Now it is. At the **Hearth** (camp), a

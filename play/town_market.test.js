@@ -3214,6 +3214,28 @@ check("the Wayward Mile pool grew to a dozen+ events (4 new: the complaint desk,
   return dn.draw.length >= 12 && ["cap_complaint_0","cap_war_0","cap_orchard_0","cap_memory_0"].every(x => ids.has(x));
 })());
 
+// ---- "the world remembers": the camp reflection reads back YOUR specific journey ----
+check("the Hearth has a 'reckon up the road behind you' beat whose threads appear only if you walked them (mercy/cold/dog/Calloway/Dot/Sevrin/verdict/caprice/the reveal)", (() => {
+  const fire = CONVS.find(c => c.id === "hearth.fire");
+  const road = fire.nodes.find(n => n.id === "fire_road");
+  if (!road) return false;
+  const gated = road.choices.filter(c => c.when && (c.when.flags || (c.when.int && Object.keys(c.when.int).length)));
+  // each gated thread points at a real reflection node; an ungated "enough" exit exists
+  const allReal = road.choices.every(c => fire.nodes.some(n => n.id === c.next) || c.next === "1");
+  const hasExit = road.choices.some(c => !c.when && c.next === "1");
+  return gated.length >= 7 && allReal && hasExit;
+})());
+check("the reflections themselves are reactive: Calloway reads differently if you ruined vs. befriended him; the verdict reads differently for overturned/accused/default", (() => {
+  const fire = CONVS.find(c => c.id === "hearth.fire");
+  const cal = fire.nodes.find(n => n.id === "fire_road_calloway");
+  const ver = fire.nodes.find(n => n.id === "fire_road_verdict");
+  const calBranch = cal.variants.some(v => (v.when && (v.when.flags||[]).includes("cal.calloway_ruined"))) &&
+                    cal.variants.some(v => (v.when && (v.when.flags||[]).includes("cap.calloway_truefriend")));
+  const verBranch = ver.variants.some(v => (v.when && (v.when.flags||[]).includes("sx.law_overturned"))) &&
+                    ver.variants.some(v => !v.when);
+  return calBranch && verBranch;
+})());
+
 // ---- party banter is SURFACED (wired into the playable build, not just data) ----
 check("the playable build embeds the banter engine + catalog (reactive companion cross-talk you can actually hear)", (() => {
   return h.includes("function pickBanterNow(") && h.includes("function banterEligible(") && /const BANTER = \[/.test(h);
