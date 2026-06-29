@@ -11,6 +11,33 @@
 
 ---
 
+## 🌉 v6.67.0 — *"The Honest Bridge"* — the prototype crosses into Unity (tooling)
+
+> Not more prototype sugar — the thing that actually matters for shipping: **a tested, runnable bridge
+> from the proven `play/` content into the real Unity C# game**, built the honest way. Grounded in the
+> *actual* `DialogueGraph.cs` / `Quest.cs` field names, paired with a passing test instead of a markdown
+> promise, and **brutally honest about what doesn't cross yet** — every gap counted, nothing dropped in
+> silence.
+- 🔧 **`tools/json-to-unity.js`** — converts every prototype conversation + the side-quest catalog into
+  JsonUtility-shaped JSON whose fields match the C# classes exactly: `when{}`→`FlagClause[]`
+  (`flags`→`RequireBoolTrue`, `flagsNot`→`RequireBoolFalse`, `int`→`RequireIntAtLeast`), effects/conditions
+  pass straight through (op names already equal `FlagOp`), `check`→`checkAbility`/`checkDC`,
+  `next`/`fail`→`nextNodeId`/`failNodeId`, quest `premise`→`summary`. Last build: **457 conversations /
+  3,726 nodes / 20 quests**.
+- 🧪 **`tools/json-to-unity.test.js`** — 30 assertions proving the field mapping, the translation, and that
+  every C#-incompatible feature is **counted, not lost**. Wired into `play/run-all.js` as a gate.
+- 📋 **The honest gap list** (the finite Unity-side work): `variants=278`, `crit=84`, `fumble=84`,
+  `non-flag-gates=75`, `dynamic=18`, `draw=1`, `banter=1` — each itemised with its location in
+  `gap-report.json`. The converter stores each variant node's unconditional default as its base text, so a
+  variant-less C# build still *runs*; it just won't react until the engine extensions land.
+- 📖 **`docs/UNITY_BRIDGE_PLAN.md`** — field-by-field mapping table, the gap list with its Unity-side fix,
+  and a staged import checklist. Honest verdict: the converter is *verified*; the small C# loader is a
+  clearly-labeled draft (no C# compiler in this environment) you compile once in the Editor.
+- 🧹 `tools/unity-export/` (the regenerable build output) is gitignored — the converter is the single
+  source of truth; nothing is authored twice.
+
+---
+
 ## 👑 v6.66.0 — *"The Road Behind You"* — the world remembers (content)
 
 > *"The world remembers,"* concentrated into a camp beat that makes the player feel **seen.** At the

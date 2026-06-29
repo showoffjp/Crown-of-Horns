@@ -39,3 +39,6 @@ crashlytics-build.properties
 __pycache__/
 *.pyc
 Builds/
+
+# Generated Unity-bridge export (regenerate with: node tools/json-to-unity.js)
+tools/unity-export/
