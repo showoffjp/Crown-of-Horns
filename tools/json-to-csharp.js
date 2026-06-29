@@ -178,20 +178,43 @@ ${blocks}
 // than collapsing them. Reuses the tested when->FlagClause translator. A `when` that uses a non-flag
 // character-state gate (race/class/deity/...) still can't be represented, so such variants are skipped
 // (the node's default text covers them) and counted.
-const hasNonFlagGate = (when) => when && U.NONFLAG_GATES.some(g => g in when);
+// Non-flag character-state gates map onto GameFlags via the `pc.*` convention (see
+// Assets/Scripts/Dialogue/PlayerProfileFlags.cs), so the runner needs no special evaluation: a scalar
+// gate becomes one bool clause; an ability gate becomes a RequireIntAtLeast; an array gate is OR — and
+// since FlagClause[] is AND-only, we EXPAND it into multiple alternatives (the player has exactly one
+// race/class/etc., so at most one alternative ever matches — no visible duplicate).
+const PC_CATS = ["gender", "deity", "race", "class", "background", "law", "morality"];
+const pcKey = (cat, val) => `pc.${cat}.${val}`;
 
-function normChoice(ch, gaps, loc) {
-  const out = { text: ch.text || "...", nextNodeId: ch.next || "", conditions: [], effects: [], checkAbility: "Charisma", checkDC: 0, failNodeId: ch.fail || "", critNodeId: ch.crit || "", fumbleNodeId: ch.fumble || "" };
-  if (Array.isArray(ch.conditions)) out.conditions.push(...ch.conditions);
-  const tw = U.translateWhen(ch.when);
-  out.conditions.push(...tw.conditions);
-  for (const u of tw.untranslated) gaps.nonFlagGates.push({ at: loc, ...u });
-  if (Array.isArray(ch.effects)) out.effects = ch.effects;
-  if (ch.check) {
-    out.checkAbility = U.ABILITIES.has(ch.check.ability) ? ch.check.ability : "Charisma";
-    out.checkDC = ch.check.dc | 0;
+// Returns { sets: [[FlagClause,...], ...] } — one set per AND-combination. Length 1 unless an array
+// gate forces OR-expansion. `gaps` counts any gate we still can't represent (multiple array gates).
+function expandWhen(when, conditionsPre, gaps, loc) {
+  const tw = U.translateWhen(when);                 // flags / flagsNot / flag / int
+  const base = [...(conditionsPre || []), ...tw.conditions];
+  if (when && when.ability) for (const k of Object.keys(when.ability)) base.push({ key: `pc.score.${k}`, op: "RequireIntAtLeast", amount: when.ability[k] });
+
+  let orCat = null, orVals = null;
+  for (const cat of PC_CATS) {
+    if (!when || !(cat in when)) continue;
+    const v = when[cat];
+    if (Array.isArray(v)) {
+      if (orCat) { if (gaps) (gaps.multiArrayGate = (gaps.multiArrayGate || 0) + 1); continue; } // >1 array: rare/none
+      orCat = cat; orVals = v;
+    } else {
+      base.push({ key: pcKey(cat, v), op: "RequireBoolTrue", amount: 0 });
+    }
   }
-  return out;
+  if (gaps && when) for (const cat of PC_CATS) if (cat in when) gaps.nonFlagTranslated = (gaps.nonFlagTranslated || 0) + 1;
+  if (orCat) return { sets: orVals.map(v => [...base, { key: pcKey(orCat, v), op: "RequireBoolTrue", amount: 0 }]) };
+  return { sets: [base] };
+}
+
+// One source choice → one or more normalized choices (OR-expansion). Returns an array.
+function normChoice(ch, gaps, loc) {
+  const proto = { text: ch.text || "...", nextNodeId: ch.next || "", effects: Array.isArray(ch.effects) ? ch.effects : [], checkAbility: "Charisma", checkDC: 0, failNodeId: ch.fail || "", critNodeId: ch.crit || "", fumbleNodeId: ch.fumble || "" };
+  if (ch.check) { proto.checkAbility = U.ABILITIES.has(ch.check.ability) ? ch.check.ability : "Charisma"; proto.checkDC = ch.check.dc | 0; }
+  const { sets } = expandWhen(ch.when, ch.conditions, gaps, loc);
+  return sets.map(conditions => ({ ...proto, conditions }));
 }
 
 function normNode(n, gaps, loc) {
@@ -202,18 +225,17 @@ function normNode(n, gaps, loc) {
     const def = n.variants.find(v => !v.when) || n.variants[n.variants.length - 1];
     out.text = (def && def.text) || "";
   }
-  // conditional variants that ARE representable (flag/int only) become real C# variants
+  // conditional variants become real C# variants; array gates expand into one variant per value
   if (Array.isArray(n.variants)) {
     for (const v of n.variants) {
-      if (!v.when) continue;                       // the default — already captured as base text
-      if (hasNonFlagGate(v.when)) { gaps.variantNonFlag = (gaps.variantNonFlag || 0) + 1; continue; }
-      const tw = U.translateWhen(v.when);
-      if (tw.conditions.length) out.variants.push({ when: tw.conditions, text: v.text || "" });
+      if (!v.when) continue;                         // the default — already captured as base text
+      const { sets } = expandWhen(v.when, null, gaps, loc);
+      for (const conditions of sets) if (conditions.length) out.variants.push({ when: conditions, text: v.text || "" });
     }
   }
   if (Array.isArray(n.onEnter)) out.onEnter.push(...n.onEnter);
   if (Array.isArray(n.effects)) out.onEnter.push(...n.effects);
-  for (const ch of n.choices || []) out.choices.push(normChoice(ch, gaps, { conv: loc, node: n.id }));
+  for (const ch of n.choices || []) out.choices.push(...normChoice(ch, gaps, { conv: loc, node: n.id }));
   return out;
 }
 

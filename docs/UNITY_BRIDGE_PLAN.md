@@ -118,15 +118,21 @@ by its gate (every routing target resolves; 236 variants, 84 crit, 84 fumble emi
 |---|---|---|
 | **variants** | ✅ implemented | `DialogueNode.variants` (`DialogueVariant { FlagClause[] when; string text }`). `DialogueRunner.ResolveText` returns the first variant whose conditions pass, else `text`, exposed as `CurrentText` (the UI prefers it). The emitter translates each variant's flag/int `when`; the unconditional default stays as `text`. |
 | **crit / fumble** | ✅ implemented | `DialogueChoice.critNodeId` / `fumbleNodeId`. `DialogueRunner.Choose` captures the raw d20: a natural 20 routes to the crit branch and a natural 1 to the fumble branch (regardless of DC); both are no-ops when unset, so old checks are unchanged. |
+| **non-flag gates** | ✅ implemented | race/class/deity/gender/law/morality/background/ability gates map onto GameFlags via the `pc.*` convention (`PlayerProfileFlags.Apply`, called once at chargen), so the runner needs **no special evaluation** — they're ordinary bool/int clauses. A scalar gate → one `RequireBoolTrue pc.<cat>.<value>`; an ability gate → `RequireIntAtLeast pc.score.<ability>`; an array (OR) gate → OR-expanded into one alternative per value (the player has exactly one race/etc., so at most one matches). 116 bool + 27 int clauses emitted across the new content. |
 
 ## What does NOT cross yet — the remaining finite work list
 
 | Gap | Count | What it is | Unity-side fix |
 |---|---|---|---|
-| **non-flag gates** | 75 | `when` gates on race/class/deity/ability/gender/law/morality | needs chargen state plumbing (the sheet has race + ability scores; deity/gender/alignment/background live in the creation flow). Variants/choices using these are skipped today and fall through to the default — counted, never silently shown to the wrong player. |
 | **dynamic** | 18 | nodes whose choices are generated at runtime | bespoke per node; the prototype's main-spine dynamic nodes already live in C#. |
 | **draw** | 1 | the Wayward Mile random-event router | a `DrawNode` component; or precompute one branch. Single use. |
 | **banter** | 1 | the campfire banter intercept node | the banter system is its own engine (`CampfireBanter.cs` exists); wire the intercept, don't port it as dialogue. |
+
+> **One chargen call wires it up:** at character creation, call
+> `PlayerProfileFlags.Apply(GameFlags.Current, playerSheet, new PlayerProfile { gender, deity, law, morality, background })`.
+> Race/class/ability scores are read off the sheet automatically. `deity = "None"` marks the Faithless —
+> the game's central reactive axis. Until that call exists, these gates simply never match and the default
+> text/choices show; nothing breaks.
 
 `droppedSkillName` (286) and `choiceTag` (252) are **informational, not blocking**: C# keeps
 ability+DC (the skill *name* is cosmetic), and `[RETURNED]`-style tags are a surfacing hint the UI

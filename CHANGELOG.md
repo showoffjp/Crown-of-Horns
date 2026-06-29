@@ -11,6 +11,32 @@
 
 ---
 
+## 🩸 v6.70.0 — *"Who You Are"* — non-flag gates cross via the `pc.*` profile (engine)
+
+> The last reactivity gap that mattered: dialogue that gates on **who the player is** — their faith, race,
+> class, alignment, background, raw ability. The game's whole spine is the *Wall of the Faithless*, so a
+> `deity = "None"` gate isn't a nicety — it's the central axis. These now cross, and the cleanest possible
+> way: they become ordinary GameFlags, so the runner needs **zero new evaluation code.**
+- 🪪 **The `pc.*` convention** — `Assets/Scripts/Dialogue/PlayerProfileFlags.cs` mirrors the character's
+  chargen choices + sheet facts into flags: `pc.deity.Kelemvor`, `pc.deity.None` (the Faithless),
+  `pc.gender.Female`, `pc.race.Tiefling`, `pc.class.Cleric`, `pc.background.Acolyte`, `pc.law.Lawful`,
+  `pc.morality.Good`, and `pc.score.Strength` (int). One call at character creation:
+  `PlayerProfileFlags.Apply(GameFlags.Current, sheet, profile)`. Race/class/ability read off the sheet
+  automatically. **Additive, nothing else calls it — zero risk to the existing build.**
+- 🔁 **Emitter translates every non-flag gate** — scalar → `RequireBoolTrue pc.<cat>.<value>`; ability →
+  `RequireIntAtLeast pc.score.<ability>`; **array (OR) gate → OR-expanded** into one alternative per
+  value (the player has exactly one race/class/etc., so at most one matches — no visible duplicate).
+  Across the new content: **133 gates → 116 bool + 27 int clauses** (deity 56, race 29 post-expansion,
+  ability 27, background 10, class 8, morality 8, law 3, gender 2).
+- 🧠 **No runner change at all** — because the gates are now plain bool/int clauses, the *existing*
+  `ConditionsPass` evaluates them. The only new C# is the tiny chargen helper.
+- 🧪 **Gate at 40/0** — six new assertions cover the translation (scalar deity, the Faithless `None`
+  axis, ability thresholds, gender+flag AND, array OR-expansion, deity-gated variants). Full suite green.
+- 📖 `docs/UNITY_BRIDGE_PLAN.md`: non-flag gates moved to "implemented"; remaining gaps now just
+  dynamic / draw / banter (18 / 1 / 1) — all low- or single-use.
+
+---
+
 ## ⚙️ v6.69.0 — *"And It Reacts"* — variants + crit/fumble land in the C# runner (engine)
 
 > The bridge stops shipping flat text and starts shipping **reactivity.** The two highest-value engine

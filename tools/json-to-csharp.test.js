@@ -48,6 +48,33 @@ check("a variant emits when-conditions + text; the default variant omits when", 
   return cond.includes("when = new[]") && cond.includes(`text = "reactive"`) && !def.includes("when") && def === `new DialogueVariant { text = "default" }`;
 })());
 check("a node with variants emits the variants array", E.emitNode({ id: "0", speaker: "X", text: "base", variants: [{ when: [{ key: "k", op: "RequireBoolTrue" }], text: "alt" }], choices: [] }, "").includes("variants = new[] { new DialogueVariant"));
+
+// ---- non-flag character-state gates -> pc.* flag clauses (no runner change needed) ----
+check("a scalar deity gate becomes a pc.deity.* RequireBoolTrue clause", (() => {
+  const [c] = E.normChoice({ text: "x", next: "1", when: { deity: "Kelemvor" } }, { nonFlagTranslated: 0 }, "loc");
+  return c.conditions.some(cl => cl.key === "pc.deity.Kelemvor" && cl.op === "RequireBoolTrue");
+})());
+check("the Faithless gate (deity None) maps to pc.deity.None — the central reactive axis", (() => {
+  const [c] = E.normChoice({ text: "x", next: "1", when: { deity: "None" } }, {}, "loc");
+  return c.conditions.some(cl => cl.key === "pc.deity.None");
+})());
+check("an ability gate becomes pc.score.* RequireIntAtLeast with the threshold", (() => {
+  const [c] = E.normChoice({ text: "x", next: "1", when: { ability: { Strength: 13 } } }, {}, "loc");
+  return c.conditions.some(cl => cl.key === "pc.score.Strength" && cl.op === "RequireIntAtLeast" && cl.amount === 13);
+})());
+check("a gender + flag gate combine (AND) into one clause set", (() => {
+  const [c] = E.normChoice({ text: "x", next: "1", when: { gender: "Female", flags: ["seen"] } }, {}, "loc");
+  return c.conditions.some(cl => cl.key === "pc.gender.Female") && c.conditions.some(cl => cl.key === "seen" && cl.op === "RequireBoolTrue");
+})());
+check("an array race gate OR-expands into one choice per value, each requiring its own pc.race.*", (() => {
+  const cs = E.normChoice({ text: "x", next: "1", when: { race: ["Elf", "Half-Elf"] } }, {}, "loc");
+  return cs.length === 2 && cs.every(c => c.conditions.length === 1) &&
+    cs.some(c => c.conditions[0].key === "pc.race.Elf") && cs.some(c => c.conditions[0].key === "pc.race.Half-Elf");
+})());
+check("a variant with a deity gate emits a pc.deity.* when-clause", (() => {
+  const n = E.normNode({ id: "0", speaker: "X", variants: [{ when: { deity: "Myrkul" }, text: "alt" }, { text: "base" }] }, {}, "conv");
+  return n.text === "base" && n.variants.length === 1 && n.variants[0].when.some(cl => cl.key === "pc.deity.Myrkul");
+})());
 check("a plain choice omits check/conditions/effects entirely", E.emitChoice({ text: "y", nextNodeId: "1" }) === `new DialogueChoice { text = "y", nextNodeId = "1" }`);
 check("a node with no choices/auto/onEnter emits just id+speaker+text", E.emitNode({ id: "0", speaker: "X", text: "hi", choices: [] }, "").trim() === `g.nodes.Add(new DialogueNode { id = "0", speaker = "X", text = "hi" });`);
 check("className sanitises a filename to a C# identifier", E.className("second_death.json") === "SecondDeathBridgeContent" && /^[A-Za-z]/.test(E.className("123.json")));
