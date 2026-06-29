@@ -16,6 +16,40 @@ runnable today, and every feature that *can't* cross yet is counted, not hand-wa
 
 Last build: **457 conversations / 3,726 nodes / 20 quests** from 78 files.
 
+## The native bridge target: C# content classes (recommended path)
+
+The Unity game does **not** author dialogue as JSON assets — it hand-writes C# that builds
+`DialogueGraph` in code (see `Assets/Scripts/Content/GarrowQuestContent.cs`). So the cleanest, lowest-risk
+bridge emits **C# that looks exactly like what a human wrote**, drops into `SunderedCrown.Content`, and
+compiles into the existing `DialogueRunner` with no asset-import step.
+
+- **`tools/json-to-csharp.js`** — emits one C# content class per prototype zone, reusing the tested
+  normalization from `json-to-unity.js`. Each class exposes `public static List<DialogueGraph> Build()`.
+- **`tools/json-to-csharp.test.js`** — 30 assertions; since there's no C# compiler here, it verifies the
+  output as hard as possible without one (string-escape round-trip, brace/bracket/paren balance with
+  string contents masked, enum validity, and **every node reference resolves**).
+- **`tools/bridge-sample/`** — two committed preview files (`SeconddeathBridgeContent.cs`,
+  `LongoddsBridgeContent.cs`) so the output is reviewable in the repo. They live outside `Assets/`, so
+  Unity never compiles them.
+
+### The dedup finding (important)
+
+`dialogue-data.json` is **extracted from the existing C# content** — those conversations are already in
+the build. The emitter scans `Assets/Scripts/**/*.cs` for `conversationId = "..."` and **skips anything
+already authored**, so re-emitting can't collide. Current split:
+
+- **201 conversations already in the C# build** → skipped.
+- **256 genuinely new conversations** (this session's work: Calloway, Sevrin, the Second Death mystery,
+  Dot, the signature systems, the Wayward Mile, the new banter) → emitted.
+- The new content is **100% reference-clean**: every `next`/`auto`/`fail` resolves to a real node (or the
+  `END` sentinel → empty = end conversation). The only broken branches in the corpus (37) live entirely
+  in the already-built main spine, where they're handled by runtime/dynamic C# code — not the bridge's
+  concern.
+
+> Two emit targets exist and both are tested: **JSON + JsonUtility loader** (`json-to-unity.js`) and
+> **native C# content classes** (`json-to-csharp.js`). The C# path is recommended — it matches the
+> codebase's own authoring idiom and needs no importer.
+
 ## The field mapping (prototype JSON → C# class)
 
 ### Conversation → `SunderedCrown.Dialogue.DialogueGraph`

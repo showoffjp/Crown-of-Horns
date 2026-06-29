@@ -11,6 +11,37 @@
 
 ---
 
+## 🌉 v6.68.0 — *"It Lands as Code"* — the new content emits as native C# (tooling)
+
+> The bridge stops being JSON-and-a-loader and becomes **the codebase's own idiom.** The Unity game
+> authors dialogue as hand-written C# that builds `DialogueGraph` in code (`GarrowQuestContent.cs`); so
+> the honest bridge **emits exactly that** — C# you can drop into `SunderedCrown.Content` and compile,
+> no importer. And it taught us something real about the project.
+- 🧱 **`tools/json-to-csharp.js`** — emits one C# content class per prototype zone (each a
+  `public static List<DialogueGraph> Build()`), reusing the tested `json-to-unity.js` normalization.
+  Renders `FlagClause`/`DialogueChoice`/`DialogueNode` in the exact hand-authored style, omitting empty
+  fields like the humans do.
+- 🔎 **The dedup finding (the real discovery):** `dialogue-data.json` is *extracted from* the existing
+  C# content — those conversations are **already in the build.** The emitter scans
+  `Assets/Scripts/**/*.cs` for `conversationId = "…"` and skips anything already authored. The split:
+  **201 conversations already in C#** (skipped) · **256 genuinely new** (this session's work —
+  Calloway, Sevrin, the Second Death mystery, Dot, the signature systems, the Wayward Mile, the new
+  banter) → emitted with **zero collisions.**
+- ✅ **The new content is 100% reference-clean** — every `next`/`auto`/`fail` resolves to a real node
+  (or the `END` sentinel → end conversation). The only broken branches in the whole corpus (37) live
+  entirely in the already-built main spine, handled there by dynamic C#; none are the bridge's concern.
+- 🧪 **`tools/json-to-csharp.test.js`** — 30 assertions, wired into `run-all.js`. No C# compiler exists
+  here, so it verifies the output as hard as possible without one: string-escape round-trip,
+  brace/bracket/paren balance with string contents masked (catches any unterminated literal), enum
+  validity, dedup correctness, and **every node reference resolves.**
+- 📄 **`tools/bridge-sample/`** — two committed preview files (`SeconddeathBridgeContent.cs`,
+  `LongoddsBridgeContent.cs`) so the output is reviewable in-repo. They live outside `Assets/`, so Unity
+  never compiles them — no risk to the build.
+- 📖 `docs/UNITY_BRIDGE_PLAN.md` updated with the C#-emitter path, the dedup finding, and the honest
+  two-target story (JSON loader *or* native C# — the C# path recommended).
+
+---
+
 ## 🌉 v6.67.0 — *"The Honest Bridge"* — the prototype crosses into Unity (tooling)
 
 > Not more prototype sugar — the thing that actually matters for shipping: **a tested, runnable bridge
