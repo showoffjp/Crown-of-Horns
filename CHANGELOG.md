@@ -11,6 +11,28 @@
 
 ---
 
+## 👑 v6.64.0 — *"The Same Dog"* — the warm emotional through-line (content)
+
+> The highest emotional ROI per line in the game. The **Same Dog** — the brown ordinary dog that hears
+> the Wall's song — already turned up in six zones; now it **recurs deliberately**, finding you wherever
+> the road bends, because it decided (the way dogs decide) to walk you home.
+- 🐕 **Name it** — or refuse to, in the truest way: *"Names are for things that leave. You never leave.
+  So I won't name you — I'll just call you **mine.** That's not a name. It's a promise."*
+- 🐾 **Ask why it keeps finding you** — your dead-sense reads the shape of it: it hears the Wall's song,
+  goes to the souls the song is pulling at, and *stays* — for nothing, forever, in a country of gods
+  who won't.
+- 🛋️ **Just sit** — climb-half-into-your-lap, set every grief down for one stolen minute, *let the
+  simplest comfort there is — a dog, leaning — be enough.*
+- 🩶 **The beat that lands hardest** (fusing the Dog with the cold-cost system): when **you** go cold —
+  `disp.haunted` high, the Wall beginning to sing *your* name — the dog comes straight to you, presses
+  its whole warm weight against your leg, and **will not leave**, because the one thing a dog knows how
+  to do about a person slipping into the dark is *stay, lean, be warm and here.* *"Dogs don't save you.
+  They just make sure you're not alone in the cold long enough to save yourself."*
+- 🔧 Built as a **`need`-gated recurrence** (need: `cap.seen_dog`) with variants reactive to your state
+  (cold / named / first-return); tracked in the side-quest catalog (`cap.named_the_dog`). **76 zones,
+  248 souls, 13 road-caprices, 24 banters.** Gate **797** ✓ · full suite **1544** ✓ · all-in-one **15**
+  ✓ · bundle rebuilt ✓.
+
 ## 👑 v6.63.0 — *"The Party Is Alive"* — reactive party banter (systems + content)
 
 > The biggest *"this world breathes"* multiplier — the BG3/Disco-Elysium secret sauce the game was

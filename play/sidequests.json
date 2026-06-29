@@ -303,6 +303,13 @@
           "completionFlag": "cap.returned_memory",
           "optional": true,
           "hidden": true
+        },
+        {
+          "objectiveId": "dog_friend",
+          "desc": "The Same Dog adopts you — name it, or let it anchor you against the cold",
+          "completionFlag": "cap.named_the_dog",
+          "optional": true,
+          "hidden": true
         }
       ],
       "completionFlag": "cap.met",

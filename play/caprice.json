@@ -146,6 +146,11 @@
             {
               "to": "cap_memory_0",
               "once": "cap.seen_memory"
+            },
+            {
+              "to": "cap_dog_returns_0",
+              "once": "cap.seen_dog2",
+              "need": "cap.seen_dog"
             }
           ],
           "drawCount": "cap.draws",
@@ -1330,6 +1335,168 @@
             },
             {
               "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_returns_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_dog2",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "int": {
+                  "disp.haunted": 14
+                }
+              },
+              "text": "*(The road turns over — and the Same Dog is there, the brown ordinary dog that hears the Wall's song, except this time it does not bring you anything. It comes straight to you, fast, and presses its whole warm weight against your leg, and looks up at you, and *will not move.* And you understand, with a cold lurch, what it is doing: it hears the song in *you* now. The grey pull. The thinning. The slow slide toward the cold that takes a soul who has reached into the grave one too many times. It hears the Wall starting to sing your name — and it has planted itself against you like an anchor, because that is the one thing a dog knows how to do about a person who is slipping away: stay. Lean. Be warm and heavy and *here.* It whines, once, low, and presses harder.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cap.named_the_dog"
+                ]
+              },
+              "text": "*(The road turns over — and the dog is there, *your* dog, the one you named, and the moment it sees you its whole body becomes a wag, and it trots over and bumps its head against your hand in greeting, the way it always does now, because somewhere on this long grey road the two of you became a fixed thing. It has been finding you, life after life, bend after bend. It sits at your feet and looks up, perfectly content, asking nothing, the one constant in a country of the lost.)*"
+            },
+            {
+              "text": "*(The road turns over — and the Same Dog is sitting in the middle of it, again, watching you come, and you realize with a small jolt that this is not the first time, nor the second. It has been turning up the whole way: at the wake, at the lantern-feast, at the edge of the dissolving, at your lowest hours. The same brown ordinary dog, appearing wherever the road bends, as though it has decided — without anyone asking — to walk you home. It thumps its tail once, and waits.)*"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(crouch, and let the dog anchor you — and let yourself feel how cold you've gotten, and how much you needed something warm to lean on)* \"…Okay. Okay. I feel it too — the pull. The cold. You can feel I'm slipping, can't you. …All right. I'm not going anywhere. Lean on me and I'll lean on you. Good dog. Good dog. Stay.\"",
+              "when": {
+                "int": {
+                  "disp.haunted": 14
+                }
+              },
+              "next": "cap_dog_anchor",
+              "effects": [
+                {
+                  "key": "cap.dog_anchored_me",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(name it — or rather, refuse to, in the truest way there is)* \"You keep finding me. I should give you a name. …No. Names are for things that leave, that you call back. You never leave. So I won't name you — I'll just call you *mine.* That's not a name. It's a promise.\"",
+              "when": {
+                "flagsNot": [
+                  "cap.named_the_dog"
+                ]
+              },
+              "next": "cap_dog_name",
+              "effects": [
+                {
+                  "key": "cap.named_the_dog",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Why, though? Why do you keep finding me, of all the souls on this road?\"",
+              "next": "cap_dog_why"
+            },
+            {
+              "text": "*(just sit with the dog a while — no questions, no destination, just a warm thing in the cold)* \"…Come here. Let's just sit a minute. You and me. The road can wait.\"",
+              "next": "cap_dog_sit",
+              "effects": [
+                {
+                  "key": "cap.sat_with_dog",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_dog_anchor",
+          "speaker": "the Wayward Mile",
+          "text": "*(You crouch, and you put your arms around the warm brown weight of it, and the dog leans its full self into you and lets you hold on, and for a long moment in the grey, the two of you are just a soul and a dog refusing, together, to let the cold finish its work. You feel the Wall's song in you go quiet — not gone, never gone, but *quieter*, the way any terrible thing goes quieter when something warm is pressed against you and will not let go. The dog does not understand the cosmology. It does not need to. It understood the only thing that mattered the moment it heard the song start to take you: that you were a person, slipping into the dark, and that the cure for that is not a sword or a name or a god. It is a warm body that stays. *(it licks your face, once, and you laugh, wet, despite everything)* …and you get up, after a while, a little warmer than you were. Not saved. Dogs don't save you. They just make sure you're not alone in the cold long enough to save yourself. …it falls into step beside you, and does not leave.)*",
+          "effects": [
+            {
+              "key": "cap.dog_anchored_me",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.named_the_dog",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_name",
+          "speaker": "the Wayward Mile",
+          "text": "*(The dog hears the tone if not the words — that particular warmth a voice gets when it has just decided to keep something — and it presses its whole head into your open hand, hard, the way a dog leans into the one person it has chosen, and you feel the warm solid weight of a thing in the land of the dead that is entirely, uncomplicatedly *yours.* It has no name, and needs none. It has something better: a soul on a doomed road who looked at a stray that kept turning up and said *mine*, and meant it like a vow. *(it walks beside you now, where before it only appeared. some part of the long grey ahead just got a little less lonely — for both of you.)*",
+          "effects": [
+            {
+              "key": "cap.named_the_dog",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_why",
+          "speaker": "the Wayward Mile",
+          "text": "*(The dog, of course, does not answer — it is a dog. But you crouch to its level and look into its ordinary brown eyes, and your dead-sense, almost without meaning to, reaches, and what it finds is not words but a *shape*, the shape of why.)* *(And you understand: the Same Dog hears the Wall's song. It always has — that is the whole of what makes it strange. It hears, under everything, the low endless sound of souls being sung into the nothing. And a dog that hears that sound cannot bear it, and cannot fix it, and has only one thing it knows how to do about it: go to the ones the song is pulling at, and stay with them. It found you on the road because the song is loud around you — a Returned, walking backward through every catastrophe, reaching into the grave again and again — and it decided, the way dogs decide, instantly and completely, that you were one of its people, and that it would simply *keep turning up* wherever the road bent, for as long as you needed a warm thing to walk beside. No one taught it this. No one asked. It is just what it does, for nothing, forever, in a country of gods who won't. …you scratch behind its ears, and it leans into your hand, and that — you understand — is the entire answer to your question.)*",
+          "effects": [
+            {
+              "key": "cap.knows_why_the_dog",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cap_dog_sit",
+          "speaker": "the Wayward Mile",
+          "text": "*(You sit down in the middle of the grey road, and the dog climbs half into your lap the way dogs do when they have decided dignity is beneath them, and the two of you just *are*, for a while, in the quiet. No quest. No witnessing. No soul to ease, no Wall to fight, no name to recover. Just the warm weight of a dog and the small animal fact of company. *(you have walked a hard road, Returned. you have carried more grief than a soul should. and for this one stolen minute, you set all of it down, and put your hand on a warm brown head, and let the simplest comfort there is — a dog, leaning — be enough.)* …it sighs, content. you sigh too. somewhere far off the Wall sings on, and for once, you are not listening. …you stay until you're ready. the dog would stay forever.)*",
+          "effects": [
+            {
+              "key": "cap.sat_with_dog",
               "op": "SetTrue"
             },
             {

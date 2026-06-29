@@ -3080,6 +3080,17 @@ check("the six events are genuinely distinct one-offs (coin gamble, the Same Dog
   const ids = new Set(capR.nodes.map(n => n.id));
   return ["cap_coin_0","cap_dog_0","cap_auction_0","cap_beggar_0","cap_salesman_0","cap_jester_0"].every(x => ids.has(x));
 })());
+check("the Same Dog recurs as an emotional through-line (need: cap.seen_dog), and when YOU go cold it anchors you — a dog that hears the Wall's song refusing to let you slip", (() => {
+  const dn = capR.nodes.find(n => Array.isArray(n.draw));
+  const dog = dn.draw.find(e => e.to === "cap_dog_returns_0");
+  if (!dog || dog.need !== "cap.seen_dog") return false;
+  const entry = capR.nodes.find(n => n.id === "cap_dog_returns_0");
+  const coldVariant = entry.variants.some(v => v.when && v.when.int && v.when.int["disp.haunted"]);
+  const namedVariant = entry.variants.some(v => v.when && (v.when.flags||[]).includes("cap.named_the_dog"));
+  const anchorChoice = entry.choices.find(c => c.when && c.when.int && c.when.int["disp.haunted"] && c.next === "cap_dog_anchor");
+  const anchorNode = capR.nodes.find(n => n.id === "cap_dog_anchor");
+  return coldVariant && namedVariant && anchorChoice && anchorNode && anchorNode.effects.some(e => e.key === "cap.dog_anchored_me");
+})());
 check("a need-gated recurrence: Calloway can re-appear on the road ONLY after you've met him (draw entry need:cal.met), to settle the marker — pay / collect / visit / cameo, reactive to which marker you hold", (() => {
   const dn = capR.nodes.find(n => Array.isArray(n.draw));
   const cw = dn.draw.find(e => e.to === "cap_calloway_0");
