@@ -679,6 +679,35 @@
       ],
       "completionFlag": "pd.voss_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_unspooling",
+      "title": "The Last Thread",
+      "region": "The Unspooling — where the Wall runs thinnest, past the Last Torch",
+      "giver": "Sefa, a story-teller dissolving thread by thread",
+      "premise": "A soul is coming apart in the Wall's slow forgetting — gentle, untroubled, nearly gone. In her brief lucid windows she has worked out one last freedom the Wall usually takes: she gets to keep a single thread as the rest unspools, and she cannot decide which. Help her choose what to be when there is only room to be one thing. Beside her sits Edrin, who has stayed to be forgotten a thousand times.",
+      "theme": "The ending is for the teller, not the tale. The hardest love is the one that gives the dying back to themselves instead of keeping them for you.",
+      "reward": "Sefa goes down holding the thread you help her choose — the love that held her, the self that made her, or a small warmth that doesn't ache. disp.merciful / honest by what you give her.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Catch Sefa in a lucid window and hear what she's choosing",
+          "completionFlag": "us.met_sefa"
+        },
+        {
+          "objectiveId": "edrin",
+          "desc": "Speak with Edrin, the one who stays",
+          "completionFlag": "us.knows_edrin_stays",
+          "optional": true
+        },
+        {
+          "objectiveId": "choose",
+          "desc": "Help Sefa choose her last thread",
+          "completionFlag": "us.sefa_answered"
+        }
+      ],
+      "completionFlag": "us.sefa_answered",
+      "failureFlag": ""
     }
   ]
 }

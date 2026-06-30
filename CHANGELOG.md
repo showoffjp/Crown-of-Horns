@@ -11,6 +11,35 @@
 
 ---
 
+## 🧵 v6.75.0 — *"The Unspooling"* — a conversation that forgets you as you have it (content)
+
+> Another tonal turn — from the Pardoner's comedy into quiet dread and almost unbearable tenderness — and
+> the **most novel mechanic yet**: a conversation that *degrades as you have it.* A soul dissolving into the
+> Wall's slow forgetting, in real time, mid-sentence — and the player races her own fog to help her choose
+> the single thread she keeps as her last self.
+- ◌ **Sefa** — *a soul unspooling, forgetting herself thread by thread.* A story-teller from a town with a
+  blue harbor, her edges gone soft as ink in water, meeting you — always — for the first time. She surfaces
+  in brief, frightened lucid windows and has worked out the one freedom the Wall usually takes: *when the
+  fog comes all the way in, she gets to keep one thread.* She cannot choose which. The Returned-sense can
+  **steady the lucid window** (Insight crit/fumble): **crit** lifts the fog entirely for one whole bright
+  stretch and she is wholly herself; **fumble** is the wrong shape of a grab and she slips faster, and she
+  tells you, not knowing how she knows it — *the clear place is a frightened one; come into it soft.*
+- ♡ **Edrin** — *the one who stays to be forgotten, over and over.* Her husband of forty years, who sits
+  beside her and says *"hello, I'm Edrin"* a thousand times and receives her delight as a gift instead of a
+  knife. His Returned-sense reveals the thing he's never let himself say: that he is *tired* — and that he
+  needs to be told being tired doesn't make the love less true.
+- 🧶 **The choice — which thread she keeps:** **him** (she goes down knowing she was loved, held to the
+  end); **herself** (the first story she ever told, going as Sefa entire, *her own*, not anyone's beloved);
+  or **a small warmth** — warm bread, grey-gold light, a morning that doesn't hurt — going not into grief or
+  pride but simple peace. Edrin, asked, gives the answer that costs him everything: *choose what's hers, not
+  what's mine.*
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Last
+  Torch→Unspooling exit). Tracked side-quest **"The Last Thread"** (now 25). Rebuilt `town_market.html`
+  (**81 zones, 258 souls**) and the bundle. **Gate 801/0; full suite green;** the C# bridge auto-emits both
+  souls.
+
+---
+
 ## 🎭 v6.74.0 — *"The Pardoner"* — the kindest fraud in the grey (content · 80 zones)
 
 > A deliberate **tonal palette-cleanser** after the somber Wall trilogy — charm and comedy in the key of

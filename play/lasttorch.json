@@ -128,6 +128,16 @@
           "y": 1
         },
         "label": "▸ along the seawall to the Mortar — two souls set in the stone, one by her own hand"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "unspooling",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ where the Wall runs thinnest and a soul comes apart thread by thread — the Unspooling"
       }
     ],
     "npcs": [
