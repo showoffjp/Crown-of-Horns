@@ -650,6 +650,35 @@
       ],
       "completionFlag": "pn.vidkun_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_pardoner",
+      "title": "A Kinder Lie",
+      "region": "The Pardoner's Stall — a velvet stall off the Night Market",
+      "giver": "Pardoner Voss, a charlatan who sold the dying a warmer afterlife than the real one",
+      "premise": "A fast-talking fraud sells the new dead a comforting story — a warm place, a reunion — for the price of their name. It's all invented. But the Wall proved his lies kinder than the truth, and now a terrified new soul named Renn is about to pay her name for the comfort. Decide: expose the fraud, let the kind lie stand, or — if you've stood in a real warm place — make the lie true.",
+      "theme": "Is a kind lie better than a cruel truth? The cruelest joke is that the charlatan's invented heaven was gentler than the real god's. A name is not loose change; it is the last of a soul.",
+      "reward": "Expose Voss (Renn keeps her name and her grief, both); let it ride (she walks off light and empty); or hand the fraud a true fact and watch him become the honest guide he only ever played. disp.honest / merciful / cunning by your answer.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Learn what Voss is really selling",
+          "completionFlag": "pd.saw_the_patter"
+        },
+        {
+          "objectiveId": "renn",
+          "desc": "Reach Renn before she pays her name",
+          "completionFlag": "pd.met_renn",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Decide the pardoner's con — expose, allow, or make it real",
+          "completionFlag": "pd.voss_answered"
+        }
+      ],
+      "completionFlag": "pd.voss_answered",
+      "failureFlag": ""
     }
   ]
 }

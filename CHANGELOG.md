@@ -11,6 +11,35 @@
 
 ---
 
+## 🎭 v6.74.0 — *"The Pardoner"* — the kindest fraud in the grey (content · 80 zones)
+
+> A deliberate **tonal palette-cleanser** after the somber Wall trilogy — charm and comedy in the key of
+> Calloway and Dot, with the gut-punch underneath. A new mechanic, too: a **con you can expose, allow, or
+> *complete*** — and it cross-links to the Dawn House two versions back.
+- 🃏 **Pardoner Voss** — *the charlatan who sold a kinder heaven than the one that came.* In life he sold
+  the dying fake relics and an invented warm hereafter for coppers. Then he died, found the real
+  afterlife — a *Wall*, worse than his cheapest lie — and discovered the cruelest joke: **his fakes were
+  kinder than the truth.** Fast, funny, theatrical, impossible to fully hate; his Returned-sense reveals
+  the cynicism is the costume and the kindness is the man. To a **Faithless** player he's downright
+  delighted (*"you and I are going to get along"*).
+- ✽ **Renn** — *newly dead, and about to pay her name for a comfort.* A terrified new soul about to trade
+  the last of herself — her name, and with it her grief — for Voss's invented reunion. Read her and you
+  learn the fear isn't of the forever; it's of a quarrel with someone she loved, never mended, and the lie
+  wouldn't reunite her — it would just erase that she ever lost anything. *A name is not loose change.*
+- 🎲 **The con, three ways:** **expose** it (Renn keeps her name and her grief, both — and Voss warns you
+  to have something to put in the hole the truth leaves); **let it ride** (she walks off light and empty,
+  and you and Voss quietly agree a kind lie beat a true grey — *god help us both if we're right*); or —
+  gated on having stood in the **Dawn House** — **make the lie true** (Persuasion crit/fumble): hand the
+  fraud a true fact and he quits the racket to become the honest guide he only ever played — **crit** sets
+  him up at the gates of the new-dead to out-shout every fraud in the grey *with the one pitch none of them
+  can match: the truth.*
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Night
+  Market→Pardoner exit). Tracked side-quest **"A Kinder Lie"** (now 24). Rebuilt `town_market.html`
+  (**80 zones, 256 souls** — a milestone) and the bundle. **Gate 801/0; full suite green;** the C# bridge
+  auto-emits both souls with their reactivity.
+
+---
+
 ## ⚖️ v6.73.0 — *"The Penitent"* — the hardest case: does mercy reach the guilty? (content)
 
 > The Mortar → Dawn arc was about an *innocent* wrongly damned. This **deepens the thesis instead of
