@@ -11,6 +11,39 @@
 
 ---
 
+## ⚖️ v6.73.0 — *"The Penitent"* — the hardest case: does mercy reach the guilty? (content)
+
+> The Mortar → Dawn arc was about an *innocent* wrongly damned. This **deepens the thesis instead of
+> repeating it** with the hardest case the game can pose: does the Wall's indictment hold even for the
+> *guilty*? Fresh tone, too — not grief, but a fierce moral argument, and a new structure where **the
+> wronged, not the player, holds the key.**
+- 🗡️ **Vidkun Holt** — *the witch-finder who walked into his own Wall.* In life, the Choir's hand: he
+  dragged scores of the Faithless to the stone, certain and competent and proud of the reading. Judged
+  *faithful* at death, he refused the rest his victims were denied and climbed into the Wall himself — and
+  now he *wants* your condemnation, because being condemned is the one thing that keeps his guilt feeling
+  like justice. His opening reacts hard to your faith: to a **Faithless** player he is facing *his own kind
+  of victim*; to a **Kelemvorite**, a man who wore the same coat.
+- ✦ **Marenka** — *the last soul he condemned, who won't give him the hate he's earned.* A Faithless
+  midwife walled ten feet away, who put her hate down a century ago — not because he deserved forgiveness
+  but because hating him was a second cage. She blames the Wall, not the hand. Her forgiveness is whole,
+  hard-won, and *has nowhere to go*, because the man it's for is too proud of his guilt to turn his head.
+- 🎲 **The argument** (Persuasion crit/fumble): that suffering-as-apology is the inquisitor's own creed —
+  *pain as justice* — turned inward; that his penance is his crime wearing a martyr's coat, reaching no
+  one. Land it and he gets *out* to un-build the Wall he served; **crit** re-forges the Choir's best weapon
+  into the one who *turned* ("they should have prayed I stayed guilty — a guilty man suffers; a redeemed one
+  hunts"); **fumble** lands it as a verdict and he closes around his guilt like a fist.
+- 🕯️ **The deepest path** (gated on having crossed to Marenka): don't argue at all — *make him turn his
+  head* and let **her** forgiveness, not yours, land. A man who could withstand any judge breaks on the one
+  thing he has no armor against: being forgiven by the one soul with standing to do it. Or give him the
+  **condemnation** he begged for — and watch the Wall win again, ten feet from the woman who'd have freed
+  him.
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Mortar→Penitent
+  exit, deeper along the seawall). Tracked side-quest **"What He Earned"** (now 23). Rebuilt
+  `town_market.html` (**79 zones, 254 souls**) and the bundle. **Gate 801/0; full suite green;** the C#
+  bridge auto-emits both souls with their faith reactivity.
+
+---
+
 ## 🌅 v6.72.0 — *"The Dawn House"* — the promise paid off, the loop closed (content)
 
 > The Mortar planted a Chekhov's gun: Wessel's third road — the Returned's promise to carry the truth

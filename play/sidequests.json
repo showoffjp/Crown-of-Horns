@@ -621,6 +621,35 @@
       ],
       "completionFlag": "dh.told_anwen",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_penitent",
+      "title": "What He Earned",
+      "region": "The Penitent's Length — deeper along the Wall, past the Mortar",
+      "giver": "Vidkun Holt, a witch-finder set in his own Wall by his own hand",
+      "premise": "A witch-finder who dragged scores of the Faithless to the Wall, then walked into it himself as penance and refuses to leave — he wants your condemnation, because being condemned is the one thing that keeps his guilt feeling like justice. Ten feet away is Marenka, the last soul he condemned, who put down her hate a century ago and cannot get him to turn his head and take her forgiveness.",
+      "theme": "The hardest test of mercy: does the Wall's indictment hold even for the guilty? Suffering-as-apology is the inquisitor's own creed — pain as justice — turned inward. The wronged, not the judge, hold the key.",
+      "reward": "Condemn him (he stays, the book balanced, the Wall winning again); argue him free to un-build the thing he served; or make him finally listen to Marenka, ten feet away. disp.ruthless / merciful / cunning by your answer.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear why Vidkun walled himself",
+          "completionFlag": "pn.met_vidkun"
+        },
+        {
+          "objectiveId": "marenka",
+          "desc": "Cross the last ten feet to the woman he condemned",
+          "completionFlag": "pn.knows_marenka_forgives",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the penitent — condemn, free, or make him listen",
+          "completionFlag": "pn.vidkun_answered"
+        }
+      ],
+      "completionFlag": "pn.vidkun_answered",
+      "failureFlag": ""
     }
   ]
 }
