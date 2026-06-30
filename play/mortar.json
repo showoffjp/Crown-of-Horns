@@ -56,6 +56,16 @@
           "y": 2
         },
         "label": "◂ back along the Wall to the Last Torch"
+      },
+      {
+        "x": 9,
+        "y": 1,
+        "to": "dawnhouse",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ where the grey Wall thins to a crack of warm gold — the road to the dawn, for a soul who can walk it"
       }
     ],
     "npcs": [
@@ -257,6 +267,26 @@
               ]
             },
             {
+              "text": "*(you came back — across the whole grey, with her daughter's answer in your mouth)* \"Wessel. I went to the dawn. I found Anwen. I told her everything — the lie, the coat, the cold you wore so she could stay warm. And she lit the candle, Wessel. The remembrance flame. For you. She told me to carry you this, before the stone takes the rest of you: *Anwen knows. Anwen lit the Dawn for you. You are not unmourned. You go lit.*\"",
+              "when": {
+                "flags": [
+                  "dh.word_for_wessel"
+                ]
+              },
+              "next": "mt_w_word",
+              "effects": [
+                {
+                  "key": "mt.loop_closed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
               "text": "\"I'm not ready to answer you yet, Wessel. Let me keep walking the Wall.\"",
               "next": "mt_w_leave"
             }
@@ -338,6 +368,17 @@
           "id": "mt_w_leave",
           "speaker": "Wessel",
           "text": "*(She accepts it, and goes back to the patience she's perfected, the stoop-sitting wait for the late knock.)* …*walk*, then. …i'm not going *anywhere* — that's the one *joke* the Wall and i *share.* …*(a faint, dry tilt)* …come *back* when you've something to *carry*, cold one. or *don't.* …i've *waited* a *long* *time* already. …i can *wait* the *length* of *you.*"
+        },
+        {
+          "id": "mt_w_word",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.loop_closed",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You carry it back across the whole grey distance — the candle, the knowing, the daughter's answer — and you watch a woman who climbed into a Wall dry-eyed and proud and certain receive the one thing her cold arithmetic never dared to put in the ledger: that the price she paid was *seen.*)* …she *lit* it. …*(the words come apart in her)* …my Anwen *lit* the *candle.* …she *knows.* …*(she presses both hands to the stone that holds her, and she is weeping, and there is no fear anywhere in it, none, for the first time since she climbed in)* …i told myself i didn't *need* this. i told myself the *deed* was *enough*, that a thing done for *love* doesn't *require* the *loved* one to *know* it, that *needing* to be *known* was a *vanity* i'd *put* down with everything *else* i put down. …*(she laughs, wet and broken and free)* …*liar.* …i *needed* it. i needed it like *air* i don't *breathe* anymore. …*(the grey stone is loosening, sloughing, releasing her at last — not the slow dissolve of the forgotten but the clean letting-go of a soul with nothing left unfinished)* …you *carried* it *both* ways, cold one. you took my *coat* to the *dawn* and brought her *candle* to the *dark.* …*(going now, light, unafraid)* …there's a *word* for what you are, and it isn't *Returned*, and it isn't *cold.* …*(softer, almost gone)* …it's the *one* the *Wall* was *built* to *make* *impossible.* …a soul that *crosses.* …that *carries* *love* across a thing meant to *stop* it. …*tell* the next *mother* in the *next* *stone* …that it *can* be *crossed.* …*tell* them *all.* …*(and she is gone, into the light her daughter lit, and the stone where she stood is, for once, warm)*"
         }
       ]
     },

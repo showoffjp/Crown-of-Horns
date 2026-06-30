@@ -592,6 +592,35 @@
       ],
       "completionFlag": "mt.wessel_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.candle_in_the_dawn",
+      "title": "A Candle in the Dawn",
+      "region": "The House of the Dawn — through the thinning Wall, into Lathander's light",
+      "giver": "A promise carried from Wessel, in the Mortar",
+      "premise": "You told a mother in the Wall you would cross to the dawn and tell her devout daughter the truth: that the heresy was a coat, worn in the cold so the girl could stay warm. Now keep it. Find Anwen in the light, and decide how to hand a warm child the cold, true thing that will break her peace and mend her grief.",
+      "theme": "The Returned is the one soul who can carry love across a Wall built to stop it. Closure runs both ways, or not at all.",
+      "reward": "Anwen lights the remembrance candle and gives you her answer to carry back — and Wessel, if she is still there to receive it, goes lit, not unmourned.",
+      "objectives": [
+        {
+          "objectiveId": "cross",
+          "desc": "Reach the House of the Dawn and find Anwen",
+          "completionFlag": "dh.met_anwen"
+        },
+        {
+          "objectiveId": "tell",
+          "desc": "Tell Anwen the truth of her mother's lie",
+          "completionFlag": "dh.told_anwen"
+        },
+        {
+          "objectiveId": "carry_back",
+          "desc": "Carry Anwen's answer back to Wessel at the Wall",
+          "completionFlag": "mt.loop_closed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "dh.told_anwen",
+      "failureFlag": ""
     }
   ]
 }

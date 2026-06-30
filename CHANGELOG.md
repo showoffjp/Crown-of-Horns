@@ -11,6 +11,36 @@
 
 ---
 
+## 🌅 v6.72.0 — *"The Dawn House"* — the promise paid off, the loop closed (content)
+
+> The Mortar planted a Chekhov's gun: Wessel's third road — the Returned's promise to carry the truth
+> *across* to her daughter in the dawn. This pays it off, and then closes the loop both ways. It's also the
+> **first warm place in the entire grey saga** — and it lands harder *because* everything else is grey.
+- ☀️ **The House of the Dawn** (`dawnhouse.json`) — Lathander's light, reachable through the thinning Wall
+  from the Mortar. The first gold in a world of grey; the cold of the Returned *aches* like a thawing limb.
+- 🌼 **Anwen** — *a daughter, warm and whole, and wrong about her mother.* Fourteen forever, fearless,
+  content — and she will not light the remembrance candle for the woman she believes threw the family's god
+  away. The Returned can tell her the truth (a **Persuasion check with crit/fumble**): land it and an
+  eternity of crooked-healed peace breaks open along the wrong-set seam, and she lights the candle at last —
+  **crit** blazes the whole east wall alight and the warden weeps to see it; **fumble** delivers the truth
+  as a *verdict* instead of a *love* and she recoils, but you can come back and say it slower. Her opening
+  **reacts to whether you carried Wessel's word**, and to your own faith (Faithless kinship; Lathander's-own
+  wonder).
+- ☼ **Sister Auria** — *a warden of the dawn, troubled by the cold thing at her door.* A gentle gatekeeper
+  who has never believed Anwen's roll-note and filed her doubt away for years; reads the Returned by deity
+  and, once she knows your errand, sends you to the girl with her own confession to carry.
+- 🔁 **The loop closes both ways.** Tell Anwen, and she gives you her answer to carry *back*: *Anwen knows.
+  Anwen lit the Dawn for you. You go lit.* A new choice at **Wessel** (gated on `dh.word_for_wessel`) lets
+  you return it — and a mother who climbed into the Wall dry-eyed and proud finally receives the one thing
+  her cold arithmetic never dared to ledger: that the price she paid was *seen.* She goes lit, not unmourned,
+  and the stone where she stood is, for once, warm.
+- 🔌 Full pipeline wired (load + `NPC_SENSE` for both souls + merges + scene dict + the Mortar→Dawn exit).
+  Two new tracked side-quests folded in — **"What the Wall Kept"** and **"A Candle in the Dawn"** (now 22).
+  Rebuilt `town_market.html` (**78 zones, 252 souls**) and the bundle. **Gate 801/0; full suite green;** the
+  C# bridge auto-emits both dawn souls with their reactivity.
+
+---
+
 ## 🧱 v6.71.0 — *"The Mortar"* — a new zone on the Wall, built on the faith axis (content)
 
 > A new walkable zone, **The Mortar** — a stretch of the Wall of the Faithless itself — written to put the
