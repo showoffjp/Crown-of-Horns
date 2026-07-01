@@ -11,6 +11,33 @@
 
 ---
 
+## ✲ v6.79.0 — *"The Greeter"* — a child, and the biggest job in the grey (content)
+
+> A register this run hadn't touched: **childhood**, handled with care — brave and tender, not grim, and
+> aimed squarely at maximum emotional impact. Also a rare zone with **no dice roll** in it: comforting a
+> frightened child shouldn't be gated on a stat, and that restraint is itself the point (anyone can do this;
+> it costs nothing but presence).
+- ✲ **Sparrow** — *a child who greets the frightened dead, and is going soft at the edges.* She died small,
+  came up the intake queue alone and shaking with no one to catch her — and built her whole afterlife into a
+  vow that no other little one ever would. She meets every scared new kid at the step and teaches them a
+  rulebook she invented (*rule one: you can always sit on the step; rule two: nobody sits alone*). To a
+  **Faithless** player she shares a secret — *"no god came for me either; I made up new rules for us."* Her
+  sense reveals the ache under the Job: **she holds every shaking hand and no one has ever held hers.**
+- ◦ **Eli, the new one** — *a very small soul, very newly dead, very afraid.* The mirror: too new to have a
+  brave face, asking the only questions that matter — *is my mum coming, am I going to be here by myself
+  forever, do I still get to stay me.* You can carry them the ten steps to Sparrow and watch a kid stop
+  shaking because another kid told them the rules.
+- 💗 **The answer, two ways:** **promise her a successor** (the step won't be empty; she goes lighter, not
+  the last — *"somebody's coming to catch them, finally"*); or do the thing no one ever did — **sit down on
+  the step and greet the greeter**, say her own rules back to her, hold her hand, and let the child who has
+  held a thousand shaking hands finally set the Job down, held. *Rule five, said to Sparrow: it works.*
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Newly-Dead→
+  Threshold-Step exit). Tracked side-quest **"Nobody Sits Alone"** (now 27). Rebuilt `town_market.html`
+  (**83 zones, 263 souls**) and the bundle. **Gate 801/0; full suite green;** the reskin + C# bridge both
+  auto-cover the new souls.
+
+---
+
 ## 🔩 v6.78.0 — *"The Last Three Gaps"* — draw, banter & dynamic land in the C# runner (engine)
 
 > Closing out the Unity-bridge reactivity story. After variants → crit/fumble → non-flag gates, these were

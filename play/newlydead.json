@@ -1,119 +1,776 @@
 {
   "scene": {
-    "id": "newlydead", "name": "The First Threshold, Where the Newly Dead Arrive",
-    "w": 11, "h": 9,
-    "playerStart": { "x": 5, "y": 7 },
+    "id": "newlydead",
+    "name": "The First Threshold, Where the Newly Dead Arrive",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
     "props": [
-      { "type": "deathdoor", "x": 5, "y": 1 },
-      { "type": "lamppost", "x": 5, "y": 3 },
-      { "type": "candle", "x": 2, "y": 3 },
-      { "type": "candle", "x": 8, "y": 3 },
-      { "type": "bedroll", "x": 1, "y": 5 },
-      { "type": "cairn", "x": 9, "y": 5 },
-      { "type": "tree", "x": 3, "y": 6 },
-      { "type": "tree", "x": 7, "y": 6 }
+      {
+        "type": "deathdoor",
+        "x": 5,
+        "y": 1
+      },
+      {
+        "type": "lamppost",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 2,
+        "y": 3
+      },
+      {
+        "type": "candle",
+        "x": 8,
+        "y": 3
+      },
+      {
+        "type": "bedroll",
+        "x": 1,
+        "y": 5
+      },
+      {
+        "type": "cairn",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "tree",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "tree",
+        "x": 7,
+        "y": 6
+      }
     ],
     "exits": [
-      { "x": 5, "y": 8, "to": "sigil", "dest": { "x": 5, "y": 7 }, "label": "◂ back into the lanes of Sigil" }
+      {
+        "x": 5,
+        "y": 8,
+        "to": "sigil",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "◂ back into the lanes of Sigil"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "greeter",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ the threshold step, where a child greets the frightened new dead so none stand alone"
+      }
     ],
     "npcs": [
-      { "id": "nim", "name": "Nim", "title": "just crossed, and terrified", "x": 2, "y": 4, "hue": 200, "sigil": "✦", "conv": "nd.nim",
-        "hail": "*(A young soul is huddled against the wall just inside the great dark door, knees drawn up, looking about with the wide, blind, animal terror of a creature that does not understand where it is or what has happened to it — and you know that look, because you wore it once, on the far side of your own crossing. This one has only just arrived. The death-cold is still settling into them, the disorientation still total, and they have not yet met a single kind face, not yet learned that the dark is not the end of them but the beginning of something else. They flinch as you approach, then go very still, the way the cornered go.)* …Don't — *(a small, shaking voice)* …please, I don't — I don't know what's *happening*, I was — I was *somewhere*, and then it went *dark* and *cold* and I *woke* *up* *here*, wherever *here* is, and there's a *door* and I can't — *(they press back against the wall)* …I'm Nim. I think. I'm *still* Nim, aren't I? Am I still — *(their voice cracks)* …am I *dead?* Is that — is this what — *(the terror brims over)* …I'm so *scared*, and I'm so *alone*, and I don't *understand*, and nobody's *come*, nobody's *told* me *anything*, and I keep thinking *this is it, this is forever, alone in the dark not understanding* — *(they look up at you, drowning)* …you're — you're *calm.* How are you *calm?* …Do you — do you *know* this place? …Please. …*Please* don't *leave* me *alone* in it.*" },
-      { "id": "dorn", "name": "Dorn", "title": "just crossed, and refusing it", "x": 9, "y": 4, "hue": 10, "sigil": "❖", "conv": "nd.dorn",
-        "hail": "*(A solid, middle-aged soul is pacing the threshold with furious, frightened energy, fists clenched, jaw working, rounding on the great dark door again and again as though he might bully it into opening backward — the unmistakable bearing of a man who has just understood that he is dead and has decided, with the whole of his considerable will, that he simply will not have it. He wheels on you as you approach, and the fear comes out, as it so often does, as anger.)* …You. *(hard, demanding)* …You look like you *belong* here, like you *know* the way of it — so you can *tell* me how to *undo* it. *(he jabs a finger toward the dark door)* …There's been a *mistake.* I wasn't — it wasn't my *time*, I had *things*, I had *plans*, I had a *business* and a *quarrel* I never *settled* and a *daughter* I parted from *angry* and I am *not* — *(his voice rises, cracks)* …I am *NOT* going to *accept* this. There has to be a way *back.* There's *always* a way back, you just have to — to *find* the right — to *bargain*, to *appeal*, to — *(he is breathing hard, a man holding a flood behind a wall)* …*don't* you *dare* tell me to *accept* it. *Don't* you *dare* do the *calm* *voice* and tell me it's *over* and I should make my *peace.* *(barely, fierce)* …I will *claw* at this *door* …until my *fingers* are *gone* …before I'll *accept* …that I *don't* *get* …to *go* *back* …and *fix* it.*" },
-      { "id": "elga", "name": "Elga", "title": "just crossed, and only worried for who she left", "x": 5, "y": 5, "hue": 50, "sigil": "✶", "conv": "nd.elga",
-        "hail": "*(An old woman sits quietly near the lamppost, and she is not frightened, and she is not raging — she has the settled calm of a soul that lived a long full life and is not, herself, troubled by its ending; she met death the way you meet an old expected guest. But her face is turned back toward the great dark door with an ache that has nothing to do with her own dying, and her hands are working in her lap, and you understand at once that whatever peace she has for herself, she has none at all for someone she left on the other side.)* …Oh — hello, dear. *(a warm, worn voice, steadier than the young one's, sadder than the angry one's)* …Don't mind me. I'm all right, truly — I'm Elga, and I was *old*, dear, and *ready*, I'd no quarrel with the *going.* I had a good long life and I was *tired* at the end of it and the dark, when it came, was almost — *(a small smile)* …almost a *kindness.* *(then the ache returns, and the smile fades)* …It's just — *(her working hands still)* …I left someone, dear. On the other side. My granddaughter. I *raised* her — her mother passed young, and it was *me* and the little one, just the two of us, for *fifteen* years — and she's not so little now, but she's *not* *ready*, dear, to be *without* me, and I went so *sudden*, in my *sleep*, no *goodbye*, no — *(her voice catches)* …I'm not afraid for *myself*, dear. Not even a little. …I'm only — *(barely)* …I'm only *afraid* for *her.* …Is there — *(she looks at you, and the question is the whole of her)* …is there *any* way …to know …that she'll be …*all* *right* …*without* me?*" }
+      {
+        "id": "nim",
+        "name": "Nim",
+        "title": "just crossed, and terrified",
+        "x": 2,
+        "y": 4,
+        "hue": 200,
+        "sigil": "✦",
+        "conv": "nd.nim",
+        "hail": "*(A young soul is huddled against the wall just inside the great dark door, knees drawn up, looking about with the wide, blind, animal terror of a creature that does not understand where it is or what has happened to it — and you know that look, because you wore it once, on the far side of your own crossing. This one has only just arrived. The death-cold is still settling into them, the disorientation still total, and they have not yet met a single kind face, not yet learned that the dark is not the end of them but the beginning of something else. They flinch as you approach, then go very still, the way the cornered go.)* …Don't — *(a small, shaking voice)* …please, I don't — I don't know what's *happening*, I was — I was *somewhere*, and then it went *dark* and *cold* and I *woke* *up* *here*, wherever *here* is, and there's a *door* and I can't — *(they press back against the wall)* …I'm Nim. I think. I'm *still* Nim, aren't I? Am I still — *(their voice cracks)* …am I *dead?* Is that — is this what — *(the terror brims over)* …I'm so *scared*, and I'm so *alone*, and I don't *understand*, and nobody's *come*, nobody's *told* me *anything*, and I keep thinking *this is it, this is forever, alone in the dark not understanding* — *(they look up at you, drowning)* …you're — you're *calm.* How are you *calm?* …Do you — do you *know* this place? …Please. …*Please* don't *leave* me *alone* in it.*"
+      },
+      {
+        "id": "dorn",
+        "name": "Dorn",
+        "title": "just crossed, and refusing it",
+        "x": 9,
+        "y": 4,
+        "hue": 10,
+        "sigil": "❖",
+        "conv": "nd.dorn",
+        "hail": "*(A solid, middle-aged soul is pacing the threshold with furious, frightened energy, fists clenched, jaw working, rounding on the great dark door again and again as though he might bully it into opening backward — the unmistakable bearing of a man who has just understood that he is dead and has decided, with the whole of his considerable will, that he simply will not have it. He wheels on you as you approach, and the fear comes out, as it so often does, as anger.)* …You. *(hard, demanding)* …You look like you *belong* here, like you *know* the way of it — so you can *tell* me how to *undo* it. *(he jabs a finger toward the dark door)* …There's been a *mistake.* I wasn't — it wasn't my *time*, I had *things*, I had *plans*, I had a *business* and a *quarrel* I never *settled* and a *daughter* I parted from *angry* and I am *not* — *(his voice rises, cracks)* …I am *NOT* going to *accept* this. There has to be a way *back.* There's *always* a way back, you just have to — to *find* the right — to *bargain*, to *appeal*, to — *(he is breathing hard, a man holding a flood behind a wall)* …*don't* you *dare* tell me to *accept* it. *Don't* you *dare* do the *calm* *voice* and tell me it's *over* and I should make my *peace.* *(barely, fierce)* …I will *claw* at this *door* …until my *fingers* are *gone* …before I'll *accept* …that I *don't* *get* …to *go* *back* …and *fix* it.*"
+      },
+      {
+        "id": "elga",
+        "name": "Elga",
+        "title": "just crossed, and only worried for who she left",
+        "x": 5,
+        "y": 5,
+        "hue": 50,
+        "sigil": "✶",
+        "conv": "nd.elga",
+        "hail": "*(An old woman sits quietly near the lamppost, and she is not frightened, and she is not raging — she has the settled calm of a soul that lived a long full life and is not, herself, troubled by its ending; she met death the way you meet an old expected guest. But her face is turned back toward the great dark door with an ache that has nothing to do with her own dying, and her hands are working in her lap, and you understand at once that whatever peace she has for herself, she has none at all for someone she left on the other side.)* …Oh — hello, dear. *(a warm, worn voice, steadier than the young one's, sadder than the angry one's)* …Don't mind me. I'm all right, truly — I'm Elga, and I was *old*, dear, and *ready*, I'd no quarrel with the *going.* I had a good long life and I was *tired* at the end of it and the dark, when it came, was almost — *(a small smile)* …almost a *kindness.* *(then the ache returns, and the smile fades)* …It's just — *(her working hands still)* …I left someone, dear. On the other side. My granddaughter. I *raised* her — her mother passed young, and it was *me* and the little one, just the two of us, for *fifteen* years — and she's not so little now, but she's *not* *ready*, dear, to be *without* me, and I went so *sudden*, in my *sleep*, no *goodbye*, no — *(her voice catches)* …I'm not afraid for *myself*, dear. Not even a little. …I'm only — *(barely)* …I'm only *afraid* for *her.* …Is there — *(she looks at you, and the question is the whole of her)* …is there *any* way …to know …that she'll be …*all* *right* …*without* me?*"
+      }
     ]
   },
   "conversations": [
     {
-      "id": "nd.nim", "title": "Nim, Newly Crossed", "npc": "Nim", "start": "0",
+      "id": "nd.nim",
+      "title": "Nim, Newly Crossed",
+      "npc": "Nim",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Nim", "onEnter": [{ "key": "nd.met_nim", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Nim",
+          "onEnter": [
+            {
+              "key": "nd.met_nim",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["act1.mercy_remembered"] }, "text": "*(They stare up at you, and something in your bearing — the deep, road-worn calm of a soul that has walked through grief after grief and come out carrying mercy instead of fear — reaches them even through their terror, and they grip your sleeve like a drowning swimmer finding a rope.)* …you're — *(they search your face)* …you're not scared. Of *any* of it. The dark, the door, the — you're *calm*, all the way down, like you've — like you've *been* here, *seen* it, *all* of it, and it didn't — *(a shaking breath)* …how. *How* are you like that? I'm *new*, I just — and you look like you've walked through *every* terrible thing there is and come out the *far* side *gentle.* *(barely)* …*please.* …whatever you *know* — whatever you *learned* out there, in this place, that made you like *this* — *(they grip tighter)* …*give* it to me. …I'm *so* *scared*, and you're *so* *not*, and I need — I need to know it's *possible* …to *end* up like *you.**" },
-            { "text": "*(They huddle smaller, watching you with drowning eyes, and the words tumble out, fast and frightened.)* …are you — are you *real?* are you *another* — are you *dead* too, or are you — I can't *tell* anything *here*, it's all *dark* and *cold* and the *door* and I *woke* up and there was *nobody*, just the *door*, and I thought — *(they shudder)* …I thought *this is hell, this is the punishment, alone forever in the dark not understanding* — and I've been *waiting*, and *waiting*, for *something* to *happen*, for *someone* to *come* and *tell* me — *(they look up at you)* …did you *come?* For *me?* Or did you just — *(barely)* …please be *real.* please be someone who *came.* …i can't do the *alone* part. …whatever *else* this is, i can't — *(their voice fails)* …i can't do it *alone.**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Nim", "text": "*(They have not let go of your sleeve, and they watch your face with a desperate, total attention, as though you are the only fixed point in a spinning dark.)* …you'll — you'll talk to me? you'll *stay*, a minute? *(a shaking breath)* …ask me things, or — or *tell* me things, i don't — i just need to *hear* a *voice* that *isn't* the *scared* one in my *own* *head.* …please. …i'm listening. …i'm *so* glad you're *here.*",
+            {
+              "when": {
+                "flags": [
+                  "act1.mercy_remembered"
+                ]
+              },
+              "text": "*(They stare up at you, and something in your bearing — the deep, road-worn calm of a soul that has walked through grief after grief and come out carrying mercy instead of fear — reaches them even through their terror, and they grip your sleeve like a drowning swimmer finding a rope.)* …you're — *(they search your face)* …you're not scared. Of *any* of it. The dark, the door, the — you're *calm*, all the way down, like you've — like you've *been* here, *seen* it, *all* of it, and it didn't — *(a shaking breath)* …how. *How* are you like that? I'm *new*, I just — and you look like you've walked through *every* terrible thing there is and come out the *far* side *gentle.* *(barely)* …*please.* …whatever you *know* — whatever you *learned* out there, in this place, that made you like *this* — *(they grip tighter)* …*give* it to me. …I'm *so* *scared*, and you're *so* *not*, and I need — I need to know it's *possible* …to *end* up like *you.**"
+            },
+            {
+              "text": "*(They huddle smaller, watching you with drowning eyes, and the words tumble out, fast and frightened.)* …are you — are you *real?* are you *another* — are you *dead* too, or are you — I can't *tell* anything *here*, it's all *dark* and *cold* and the *door* and I *woke* up and there was *nobody*, just the *door*, and I thought — *(they shudder)* …I thought *this is hell, this is the punishment, alone forever in the dark not understanding* — and I've been *waiting*, and *waiting*, for *something* to *happen*, for *someone* to *come* and *tell* me — *(they look up at you)* …did you *come?* For *me?* Or did you just — *(barely)* …please be *real.* please be someone who *came.* …i can't do the *alone* part. …whatever *else* this is, i can't — *(their voice fails)* …i can't do it *alone.**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Nim",
+          "text": "*(They have not let go of your sleeve, and they watch your face with a desperate, total attention, as though you are the only fixed point in a spinning dark.)* …you'll — you'll talk to me? you'll *stay*, a minute? *(a shaking breath)* …ask me things, or — or *tell* me things, i don't — i just need to *hear* a *voice* that *isn't* the *scared* one in my *own* *head.* …please. …i'm listening. …i'm *so* glad you're *here.*",
           "choices": [
-            { "text": "*(read the newly-crossed — and recognize, with a jolt, your own first moments in their terror)* \"Hold still, Nim. Let me look at you a moment.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 9 }, "next": "nd_n_read", "effects": [{ "key": "nd.read_nim", "op": "SetTrue" }] },
-            { "text": "\"You're not in hell, Nim. You're not being punished. You crossed over — that's all. It's frightening because it's new, not because it's bad. Breathe, even though you don't need to. I'm here.\"", "next": "nd_n_reassure", "effects": [{ "key": "nd.asked_nim", "op": "SetTrue" }] },
-            { "text": "*(the one who was just as terrified once — and was met, by soul after soul, with the kindness you now give back)* \"Nim — listen, because I'm going to give you the exact thing I needed when I was where you are, and someone gave it to me, and then someone else, until I could carry it myself. You're not alone. That's the first and biggest thing, and it's true: you're not alone, because I'm here, and I'm not leaving you in the dark. The second thing: this isn't forever-alone-and-not-understanding. This is just the *doorway*, the worst and most frightening part, and it *passes* — there's a whole strange city beyond that door, full of souls, and griefs that get witnessed, and kindnesses you can't imagine yet. And the third thing, Nim — the one it took me the longest to learn — is that the terror you're feeling, the not-understanding, the certainty that this is the end of you: it's a lie the dark tells the newly-arrived, and the cure for it isn't an explanation. It's a hand. Someone came and sat with me when I was you, and I stopped being so afraid, not because they explained death, but because I was no longer facing it alone. So here's my hand, Nim. I came. For you. And I promise you, on the far side of this terror, there is a whole existence waiting — and one day, I think, you'll be the calm one, sitting with some other terrified soul just arrived, giving them the hand you were given. That's how it works here. That's the whole secret. We pass it on.\"", "tag": "returned", "next": "nd_n_returned", "effects": [{ "key": "nd.nim_steadied", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"What's the last thing you remember, Nim? From before. Tell me, and we'll hold it together — the dark's less dark with two looking at it.\"", "next": "nd_n_last", "effects": [{ "key": "nd.asked_nim_last", "op": "SetTrue" }] },
-            { "text": "\"I'm not going far, Nim. I'll come right back — and you won't be alone while I'm gone, because now you know someone's coming.\"", "next": "nd_n_leave" }
-          ] },
-        { "id": "nd_n_read", "speaker": "Nim", "text": "*(They hold still, trembling, and you let your cold settle gently on them — and the jolt that goes through you is recognition, total and undoing, because you are looking at yourself.)* *(Your sense finds the exact shape of your own first moment on the far side of the crossing: the blind animal terror, the disorientation so complete it has no bottom, the certainty — not a thought, deeper than a thought — that this dark is the end of everything and that one will face it alone forever. Your sense reads that there is nothing *wrong* with Nim, no special wound, no flaw — this is simply what crossing over does to a soul before any kindness reaches it, the raw universal terror of the threshold, the thing every single soul in the whole vast City beyond that door once felt and survived. And your sense reads the thing that will save them, which is not information — Nim cannot yet hold information, is too deep in the fear — but presence: that the one and only thing that pulls a soul out of the first terror is another soul, arrived, staying, unafraid, proving by simple steady company that the dark is survivable because here is someone who survived it. And your sense reads, with a strange turning-over of your whole understanding, what you have become: that you were Nim, once, exactly this, and that soul after soul came and sat with you across all the doors you walked, and witnessed you, and steadied you, and now the terror has so completely left you that a newly-dead child can feel your calm from across a room and reach for it like warmth. You did not just walk the doors, your sense tells you. You were *changed* by them. You came through your own threshold a terrified thing, and you are standing now where you began, on the first threshold, and you are the calm one. You are the one who came. And your sense reads, last and clearest, the whole shape of the thing: that this is what all of it was *for* — every witnessed grief, every kindness received — not so that you could be saved, but so that you could become, in your turn, a savior of the next frightened soul through the door. The mercy was never meant to stop with you. It was always meant to flow *through* you, to Nim, and through Nim to the next, forever. You are not at the end of the journey. You are at the place where it starts again, with you as the witness now.)*",
-          "effects": [{ "key": "nd.read_nim", "op": "SetTrue" }, { "key": "nd.knows_you_were_nim", "op": "SetTrue" }], "auto": "END" },
-        { "id": "nd_n_reassure", "speaker": "Nim", "text": "*(They listen, and the wild terror in their eyes ebbs, just a little, just enough — the simple fact of a steady voice saying steady things doing more than the words themselves.)* …not — not hell. *(a shaking breath)* …not *punishment.* just — *crossed* *over.* *(they swallow)* …you say it so — so *sure*, like you *know* it, like it's just a *fact* and not a — and that helps, somehow, more than if you'd *argued* it. you're not *trying* to *convince* me. you just *know.* *(they loosen their grip on your sleeve, slightly)* …breathe even though i don't need to. *(they try it, a shaky unnecessary breath, and something in it steadies them)* …okay. …okay. it's — it's still *dark*, and i'm still *scared*, but you're — you're *here*, and you're not *scared*, and that — *(barely)* …that makes it *smaller.* the *dark.* it makes it — *(they look up at you)* …it makes it something i could maybe — with *help* — *get* *through.* …don't go far, will you? …it gets *big* again …when there's *no* one *looking* at it *with* me.*",
-          "effects": [{ "key": "nd.asked_nim", "op": "SetTrue" }, { "key": "nd.nim_steadier", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_n_last", "speaker": "Nim", "text": "*(They close their eyes, reaching back, and the reaching seems to steady them — a thing to hold that isn't the dark.)* …the last thing. *(softly)* …i was — it's already going *soft*, the *before*, like a *dream* when you *wake* — but i was — *(they frown, holding it)* …i was *warm.* i remember being *warm.* and there was — *light*, the ordinary kind, *sun* maybe, or a *lamp*, and a *sound* i *liked*, voices, people i — *(their face works)* …people i *loved*, i think, near me, and i was — i wasn't *afraid*, in the last thing. that's the part i keep — *(barely)* …the *last* thing wasn't *scary.* it was *warm*, and there was *light*, and people i *loved.* …it was only *after* — when it went *dark* and i woke up *here*, *alone* — that the *scared* started. *(they open their eyes, and something has shifted)* …so maybe — *(slowly, working it out)* …maybe the *dark* and the *scared* aren't the *true* part. maybe they're just the — the *doorway.* and the *warm* and the *light* and the *loved* — maybe *that's* what's *real*, and *that's* what i *came* *from*, and *that's* — *(they look at you)* …is there *warm* and *light* and *loved* …on the *far* *side* of the *dark* *too?* …is the *doorway* …the *only* *dark* *part?* …because i could *bear* the *doorway* …if i *knew* …it *opened* …onto the *warm* *again.**",
-          "effects": [{ "key": "nd.asked_nim_last", "op": "SetTrue" }, { "key": "nd.knows_the_doorway", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_n_returned", "speaker": "Nim", "text": "*(They listen to the whole of it, and as you speak — *you're not alone, it passes, here's my hand, I came for you, one day you'll be the calm one* — the terror that has had them in its jaws since they woke simply, slowly, lets go, and they are left shaking and wet-eyed and, for the first time, not drowning.)* …you *came.* *(barely)* …for *me.* …a stranger, just — just *appeared* in the *dark*, *scared* and *alone* and *nobody*, and you *came*, and you *sat*, and you — *(they grip your hand, both of theirs around it)* …*'we pass it on.'* *(they say it like something holy)* …somebody did this *for* *you.* When you were *me.* Somebody *came* into *your* dark and *sat* with *you* until you weren't so — and then you — *(their wet eyes widen with a dawning, enormous thing)* …and *now* you're doing it for *me.* …and one day — you *said* — one day *i'll* — *(they look at the great dark door, and at the lamppost beyond it, and something kindles in them that was pure terror a moment ago)* …one day some *other* soul is going to *wake* up *here*, *scared* and *alone*, *certain* it's the *end* … …and *i'm* going to be the *calm* one. …*i'm* going to *come.* …and *sit.* …and *pass* it *on.* *(they look back at you, and they are crying, but they are *smiling*)* …that's — that's not *nothing*, is it. that's — that might be the *whole* *thing.* …not that the *dark* *isn't* *real* — it *is*, i *felt* it — but that *nobody* has to face it *alone*, *ever*, because there's always *someone* who *came* *through* *already* …*coming* *back* …to *sit* with the *next* one. *(barely, luminous)* …*thank* you …for *coming.* …i'm not *scared* anymore. …well — i *am*, a little. …but i'm not *scared* *alone.* …and that — *(they squeeze your hand)* …that turns out to be the *whole* *difference.* …*go*, if you have to. …i'll be *all* *right* now. …*you* *made* me *all* *right.* …and *one* *day* …*i'll* *make* *someone* *else.**",
-          "effects": [{ "key": "nd.nim_steadied", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "nd.chain_continues", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_n_leave", "speaker": "Nim", "text": "*(They nod, and let go of your sleeve — they can, now — and though the fear isn't gone, it has stopped being a drowning thing.)* …okay. *(a small, steadier breath)* …go. i'll — i'll be *here.* and i won't be — *(they test the word)* …i won't be *alone*, even while you're *gone*, because now i *know* someone *comes.* that *changes* it. just *knowing* someone *comes.* *(they glance at the two other newly-arrived souls across the threshold)* …there's — there's *others*, aren't there. like me. just — *(they nod toward Dorn, pacing and furious, and Elga, quiet and aching)* …the *angry* one, and the *sad* old one. they're — they're *scared* too, aren't they, *under* it. the *angry* one *especially* — he's the *most* *scared*, i think, he's just *wearing* it *different.* *(quietly)* …*go* to them too, will you? …the way you came to *me.* …nobody should be *alone* in the *doorway.* …you *taught* me that, just *now*, by *not* *leaving* me in it. *(they manage a real, small, wet smile)* …look at me. …*minutes* *dead* …and *already* …*passing* it *on.* …go on. …go *be* …what you *were* …to *me.**",
-          "auto": "END" }
+            {
+              "text": "*(read the newly-crossed — and recognize, with a jolt, your own first moments in their terror)* \"Hold still, Nim. Let me look at you a moment.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 9
+              },
+              "next": "nd_n_read",
+              "effects": [
+                {
+                  "key": "nd.read_nim",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"You're not in hell, Nim. You're not being punished. You crossed over — that's all. It's frightening because it's new, not because it's bad. Breathe, even though you don't need to. I'm here.\"",
+              "next": "nd_n_reassure",
+              "effects": [
+                {
+                  "key": "nd.asked_nim",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who was just as terrified once — and was met, by soul after soul, with the kindness you now give back)* \"Nim — listen, because I'm going to give you the exact thing I needed when I was where you are, and someone gave it to me, and then someone else, until I could carry it myself. You're not alone. That's the first and biggest thing, and it's true: you're not alone, because I'm here, and I'm not leaving you in the dark. The second thing: this isn't forever-alone-and-not-understanding. This is just the *doorway*, the worst and most frightening part, and it *passes* — there's a whole strange city beyond that door, full of souls, and griefs that get witnessed, and kindnesses you can't imagine yet. And the third thing, Nim — the one it took me the longest to learn — is that the terror you're feeling, the not-understanding, the certainty that this is the end of you: it's a lie the dark tells the newly-arrived, and the cure for it isn't an explanation. It's a hand. Someone came and sat with me when I was you, and I stopped being so afraid, not because they explained death, but because I was no longer facing it alone. So here's my hand, Nim. I came. For you. And I promise you, on the far side of this terror, there is a whole existence waiting — and one day, I think, you'll be the calm one, sitting with some other terrified soul just arrived, giving them the hand you were given. That's how it works here. That's the whole secret. We pass it on.\"",
+              "tag": "returned",
+              "next": "nd_n_returned",
+              "effects": [
+                {
+                  "key": "nd.nim_steadied",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "nd.became_the_witness",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What's the last thing you remember, Nim? From before. Tell me, and we'll hold it together — the dark's less dark with two looking at it.\"",
+              "next": "nd_n_last",
+              "effects": [
+                {
+                  "key": "nd.asked_nim_last",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"I'm not going far, Nim. I'll come right back — and you won't be alone while I'm gone, because now you know someone's coming.\"",
+              "next": "nd_n_leave"
+            }
+          ]
+        },
+        {
+          "id": "nd_n_read",
+          "speaker": "Nim",
+          "text": "*(They hold still, trembling, and you let your cold settle gently on them — and the jolt that goes through you is recognition, total and undoing, because you are looking at yourself.)* *(Your sense finds the exact shape of your own first moment on the far side of the crossing: the blind animal terror, the disorientation so complete it has no bottom, the certainty — not a thought, deeper than a thought — that this dark is the end of everything and that one will face it alone forever. Your sense reads that there is nothing *wrong* with Nim, no special wound, no flaw — this is simply what crossing over does to a soul before any kindness reaches it, the raw universal terror of the threshold, the thing every single soul in the whole vast City beyond that door once felt and survived. And your sense reads the thing that will save them, which is not information — Nim cannot yet hold information, is too deep in the fear — but presence: that the one and only thing that pulls a soul out of the first terror is another soul, arrived, staying, unafraid, proving by simple steady company that the dark is survivable because here is someone who survived it. And your sense reads, with a strange turning-over of your whole understanding, what you have become: that you were Nim, once, exactly this, and that soul after soul came and sat with you across all the doors you walked, and witnessed you, and steadied you, and now the terror has so completely left you that a newly-dead child can feel your calm from across a room and reach for it like warmth. You did not just walk the doors, your sense tells you. You were *changed* by them. You came through your own threshold a terrified thing, and you are standing now where you began, on the first threshold, and you are the calm one. You are the one who came. And your sense reads, last and clearest, the whole shape of the thing: that this is what all of it was *for* — every witnessed grief, every kindness received — not so that you could be saved, but so that you could become, in your turn, a savior of the next frightened soul through the door. The mercy was never meant to stop with you. It was always meant to flow *through* you, to Nim, and through Nim to the next, forever. You are not at the end of the journey. You are at the place where it starts again, with you as the witness now.)*",
+          "effects": [
+            {
+              "key": "nd.read_nim",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_you_were_nim",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_n_reassure",
+          "speaker": "Nim",
+          "text": "*(They listen, and the wild terror in their eyes ebbs, just a little, just enough — the simple fact of a steady voice saying steady things doing more than the words themselves.)* …not — not hell. *(a shaking breath)* …not *punishment.* just — *crossed* *over.* *(they swallow)* …you say it so — so *sure*, like you *know* it, like it's just a *fact* and not a — and that helps, somehow, more than if you'd *argued* it. you're not *trying* to *convince* me. you just *know.* *(they loosen their grip on your sleeve, slightly)* …breathe even though i don't need to. *(they try it, a shaky unnecessary breath, and something in it steadies them)* …okay. …okay. it's — it's still *dark*, and i'm still *scared*, but you're — you're *here*, and you're not *scared*, and that — *(barely)* …that makes it *smaller.* the *dark.* it makes it — *(they look up at you)* …it makes it something i could maybe — with *help* — *get* *through.* …don't go far, will you? …it gets *big* again …when there's *no* one *looking* at it *with* me.*",
+          "effects": [
+            {
+              "key": "nd.asked_nim",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.nim_steadier",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_n_last",
+          "speaker": "Nim",
+          "text": "*(They close their eyes, reaching back, and the reaching seems to steady them — a thing to hold that isn't the dark.)* …the last thing. *(softly)* …i was — it's already going *soft*, the *before*, like a *dream* when you *wake* — but i was — *(they frown, holding it)* …i was *warm.* i remember being *warm.* and there was — *light*, the ordinary kind, *sun* maybe, or a *lamp*, and a *sound* i *liked*, voices, people i — *(their face works)* …people i *loved*, i think, near me, and i was — i wasn't *afraid*, in the last thing. that's the part i keep — *(barely)* …the *last* thing wasn't *scary.* it was *warm*, and there was *light*, and people i *loved.* …it was only *after* — when it went *dark* and i woke up *here*, *alone* — that the *scared* started. *(they open their eyes, and something has shifted)* …so maybe — *(slowly, working it out)* …maybe the *dark* and the *scared* aren't the *true* part. maybe they're just the — the *doorway.* and the *warm* and the *light* and the *loved* — maybe *that's* what's *real*, and *that's* what i *came* *from*, and *that's* — *(they look at you)* …is there *warm* and *light* and *loved* …on the *far* *side* of the *dark* *too?* …is the *doorway* …the *only* *dark* *part?* …because i could *bear* the *doorway* …if i *knew* …it *opened* …onto the *warm* *again.**",
+          "effects": [
+            {
+              "key": "nd.asked_nim_last",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_the_doorway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_n_returned",
+          "speaker": "Nim",
+          "text": "*(They listen to the whole of it, and as you speak — *you're not alone, it passes, here's my hand, I came for you, one day you'll be the calm one* — the terror that has had them in its jaws since they woke simply, slowly, lets go, and they are left shaking and wet-eyed and, for the first time, not drowning.)* …you *came.* *(barely)* …for *me.* …a stranger, just — just *appeared* in the *dark*, *scared* and *alone* and *nobody*, and you *came*, and you *sat*, and you — *(they grip your hand, both of theirs around it)* …*'we pass it on.'* *(they say it like something holy)* …somebody did this *for* *you.* When you were *me.* Somebody *came* into *your* dark and *sat* with *you* until you weren't so — and then you — *(their wet eyes widen with a dawning, enormous thing)* …and *now* you're doing it for *me.* …and one day — you *said* — one day *i'll* — *(they look at the great dark door, and at the lamppost beyond it, and something kindles in them that was pure terror a moment ago)* …one day some *other* soul is going to *wake* up *here*, *scared* and *alone*, *certain* it's the *end* … …and *i'm* going to be the *calm* one. …*i'm* going to *come.* …and *sit.* …and *pass* it *on.* *(they look back at you, and they are crying, but they are *smiling*)* …that's — that's not *nothing*, is it. that's — that might be the *whole* *thing.* …not that the *dark* *isn't* *real* — it *is*, i *felt* it — but that *nobody* has to face it *alone*, *ever*, because there's always *someone* who *came* *through* *already* …*coming* *back* …to *sit* with the *next* one. *(barely, luminous)* …*thank* you …for *coming.* …i'm not *scared* anymore. …well — i *am*, a little. …but i'm not *scared* *alone.* …and that — *(they squeeze your hand)* …that turns out to be the *whole* *difference.* …*go*, if you have to. …i'll be *all* *right* now. …*you* *made* me *all* *right.* …and *one* *day* …*i'll* *make* *someone* *else.**",
+          "effects": [
+            {
+              "key": "nd.nim_steadied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.became_the_witness",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.chain_continues",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_n_leave",
+          "speaker": "Nim",
+          "text": "*(They nod, and let go of your sleeve — they can, now — and though the fear isn't gone, it has stopped being a drowning thing.)* …okay. *(a small, steadier breath)* …go. i'll — i'll be *here.* and i won't be — *(they test the word)* …i won't be *alone*, even while you're *gone*, because now i *know* someone *comes.* that *changes* it. just *knowing* someone *comes.* *(they glance at the two other newly-arrived souls across the threshold)* …there's — there's *others*, aren't there. like me. just — *(they nod toward Dorn, pacing and furious, and Elga, quiet and aching)* …the *angry* one, and the *sad* old one. they're — they're *scared* too, aren't they, *under* it. the *angry* one *especially* — he's the *most* *scared*, i think, he's just *wearing* it *different.* *(quietly)* …*go* to them too, will you? …the way you came to *me.* …nobody should be *alone* in the *doorway.* …you *taught* me that, just *now*, by *not* *leaving* me in it. *(they manage a real, small, wet smile)* …look at me. …*minutes* *dead* …and *already* …*passing* it *on.* …go on. …go *be* …what you *were* …to *me.**",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "nd.dorn", "title": "Dorn, Refusing", "npc": "Dorn", "start": "0",
+      "id": "nd.dorn",
+      "title": "Dorn, Refusing",
+      "npc": "Dorn",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Dorn", "onEnter": [{ "key": "nd.met_dorn", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Dorn",
+          "onEnter": [
+            {
+              "key": "nd.met_dorn",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["act1.mercy_remembered"] }, "text": "*(He rounds on you, fists clenched — and then something in your steadiness, the way you do not flinch from his fury and do not rush to smother it, makes him falter, because he has been braced for someone to do the calm voice at him and you are doing something else, something he can't name.)* …you're not — *(he stops, off-balance)* …you're not going to *tell* me to *accept* it. i can *see* it. everyone *else* gets that *look*, that *soft* *sorry* *look*, and starts in with *'it's* *over*, make your *peace'* — and you're just — *(he searches your face, furious and lost)* …you're just *looking* at me like you *know* something. like you've *been* angry like this and *come* out the *other* side of it. *(his fists loosen, a fraction)* …*have* you? …because *don't* — *don't* you *dare* tell me the *anger's* *wrong*, that i should be *calm*, that — *(barely, the flood pressing the wall)* …but if you *know* a thing …about how a man *carries* *this* …without it *eating* him … …i'm — *(he can hardly say it)* …i'm *listening.* …god help me. …i'm *listening.**" },
-            { "text": "*(He wheels on you, jaw set, fists clenched, all the fear coming out sideways as rage.)* …*well?* are you going to *help* or are you going to *gawp?* *(he jabs at the dark door)* …there is a *mistake* here, and *someone* is going to *fix* it, and if you *know* this place you can *tell* me *who* to *see*, *who* to *appeal* to, *who* holds the *authority* to send a man *back* when it *wasn't* his *time* — *(his voice climbs)* …and *don't* — i *swear* — *don't* do the *soft* *voice*, don't tell me to *settle*, don't tell me it's *done* — *(he is shaking)* …because i have a *daughter* i parted from in *anger*, the *last* words between us were *cruel* ones, *mine* were, and i am *NOT* going to *spend* *forever* with *that* as the *last* — i have to *go* *back*, i have to *fix* it, i have to *tell* her — *(he chokes on it)* …*tell* me there's a *way.* …*tell* me. …or *get* out of my *way* …so i can *claw* at this *door* …*myself.**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Dorn", "text": "*(He's still breathing hard, still half-turned toward the door, but he hasn't sent you off — the fury is loud, but under it is a man who badly does not want to be alone with it.)* …*what.* ask your — fine. *ask.* *(a hard breath)* …but i'm *warning* you. the *second* you do the *peace* *talk*, the *acceptance* talk, i'm *done* with you and *back* to the *door.* …i don't *want* *peace.* …i want to *go* *back.* …get that *straight* before you *say* anything.",
+            {
+              "when": {
+                "flags": [
+                  "act1.mercy_remembered"
+                ]
+              },
+              "text": "*(He rounds on you, fists clenched — and then something in your steadiness, the way you do not flinch from his fury and do not rush to smother it, makes him falter, because he has been braced for someone to do the calm voice at him and you are doing something else, something he can't name.)* …you're not — *(he stops, off-balance)* …you're not going to *tell* me to *accept* it. i can *see* it. everyone *else* gets that *look*, that *soft* *sorry* *look*, and starts in with *'it's* *over*, make your *peace'* — and you're just — *(he searches your face, furious and lost)* …you're just *looking* at me like you *know* something. like you've *been* angry like this and *come* out the *other* side of it. *(his fists loosen, a fraction)* …*have* you? …because *don't* — *don't* you *dare* tell me the *anger's* *wrong*, that i should be *calm*, that — *(barely, the flood pressing the wall)* …but if you *know* a thing …about how a man *carries* *this* …without it *eating* him … …i'm — *(he can hardly say it)* …i'm *listening.* …god help me. …i'm *listening.**"
+            },
+            {
+              "text": "*(He wheels on you, jaw set, fists clenched, all the fear coming out sideways as rage.)* …*well?* are you going to *help* or are you going to *gawp?* *(he jabs at the dark door)* …there is a *mistake* here, and *someone* is going to *fix* it, and if you *know* this place you can *tell* me *who* to *see*, *who* to *appeal* to, *who* holds the *authority* to send a man *back* when it *wasn't* his *time* — *(his voice climbs)* …and *don't* — i *swear* — *don't* do the *soft* *voice*, don't tell me to *settle*, don't tell me it's *done* — *(he is shaking)* …because i have a *daughter* i parted from in *anger*, the *last* words between us were *cruel* ones, *mine* were, and i am *NOT* going to *spend* *forever* with *that* as the *last* — i have to *go* *back*, i have to *fix* it, i have to *tell* her — *(he chokes on it)* …*tell* me there's a *way.* …*tell* me. …or *get* out of my *way* …so i can *claw* at this *door* …*myself.**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Dorn",
+          "text": "*(He's still breathing hard, still half-turned toward the door, but he hasn't sent you off — the fury is loud, but under it is a man who badly does not want to be alone with it.)* …*what.* ask your — fine. *ask.* *(a hard breath)* …but i'm *warning* you. the *second* you do the *peace* *talk*, the *acceptance* talk, i'm *done* with you and *back* to the *door.* …i don't *want* *peace.* …i want to *go* *back.* …get that *straight* before you *say* anything.",
           "choices": [
-            { "text": "*(read the raging soul — past the fury, to the fear and the grief it's wrapped around)* \"Hold on a second, Dorn. Let me actually look at you.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 10 }, "next": "nd_d_read", "effects": [{ "key": "nd.read_dorn", "op": "SetTrue" }] },
-            { "text": "\"Tell me about your daughter, Dorn. The angry parting, the cruel words. That's not really about the door, is it — it's about her.\"", "next": "nd_d_daughter", "effects": [{ "key": "nd.asked_dorn_daughter", "op": "SetTrue" }] },
-            { "text": "*(don't soothe him — meet the rage with the truth, the way the doors taught you; honor the fury before you ease it)* \"I'm not going to tell you to accept it, Dorn — I learned better than that, out there, from souls angrier than you and right to be. So here's the true thing instead: you're RIGHT to be furious. It's NOT fair. You got cut off mid-sentence, parted from your daughter on cruel words, and now the door won't open backward, and that is an OUTRAGE, and your rage is the correct size for it. I won't make it smaller. But hear the rest, because it's also true: the door doesn't open backward. Not for anyone. Not because you don't deserve it — because that's simply the one direction it doesn't go. And the rage you're throwing at the door, all that will and fury — it's real, and it's earned, but it can't move the door, and so it's eating you instead. The question isn't how to go back, Dorn. There's no how. The question is what you do with a love for your daughter that's still real, still here, still burning, on this side of a door that won't open. Because the love didn't die when you did. And there may be more you can do with it than claw at a door that was never going to give.\"", "check": { "skill": "Persuasion", "ability": "Charisma", "dc": 13 }, "next": "nd_d_meet_ok", "fail": "nd_d_meet_fail", "crit": "nd_d_meet_crit", "fumble": "nd_d_meet_fumble", "effects": [{ "key": "nd.tried_meet_dorn", "op": "SetTrue" }] },
-            { "text": "*(the one who knows the door only goes one way — but learned, out there, that the unfinished love isn't lost)* \"Dorn — I'm the one soul who can tell you this and mean it, because I'm the Returned: I went through that door and I came back, and I'm telling you it only opens the one way for the rest of us, and clawing at it will cost you your fingers and not move it an inch. But I learned something out there, across a hundred doors, that you need: the things we leave unfinished — the cruel last word, the unmended quarrel, the love we never got to say right — they aren't lost when we die. They're *carried.* I've met souls who searched an age for the ones they lost, and found them. I've met soldiers who reconciled across death itself. I've carried a dying child's message back toward the living. The door is one-way, Dorn — but love isn't trapped behind it. Your love for your daughter crossed over *with* you; it's here, in you, right now, as real as it ever was. You can't go back and unsay the cruel words. But the love that makes you so desperate to — that love is not behind the door. It's in your hands. And there are things to do with it on this side that you can't imagine yet, standing here raging at a door. Stop clawing at the one way out. The love you're trying to go back for is already here, with you, where you can still use it.\"", "tag": "returned", "next": "nd_d_returned", "effects": [{ "key": "nd.dorn_eased", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"Rage a while longer if you need to, Dorn. I'll come back — and I won't have told you to settle.\"", "next": "nd_d_leave" }
-          ] },
-        { "id": "nd_d_read", "speaker": "Dorn", "text": "*(He glares, but he holds still — barely — and you let your cold move past the fury to what it's wrapped so tightly around.)* *(And your sense finds, exactly as the terrified child predicted, that Dorn is the most frightened soul on the threshold — that the rage is not the opposite of fear but its disguise, a thing he learned long ago, the way some souls do, because anger at least feels like *power* and fear feels like helplessness, and a man who cannot bear to feel helpless will turn every terror into a fight. Your sense reads the fear under it, the raw thing the anger is covering: not fear of death itself, exactly, but fear of *finality* — the unbearable understanding that the door won't open backward means that everything left unfinished is now unfinished *forever*, and that for Dorn the unfinished thing is enormous and specific and shaped like his daughter. Your sense reads the parting, the cruel words, his own cruel words, and reads that the rage at the door is really rage at *himself* — that he is not truly trying to bully death into reversing; he is trying to outrun the intolerable knowledge that the last thing he ever gave the person he loved most was unkindness, and that he can never, now, take it back. And your sense reads the thing that could reach him, which is not soothing — soothing would only tell him his fear was too big to look at, and he would rage harder — but the same medicine you learned from a furious nine-year-old and two soldiers and a guilt-locked thief: that you do not calm a raging grief, you *meet* it, you stand in the fire beside it and agree that it is real and earned, and only from inside that shared fury can you gently turn it toward the truth: that the door won't open, that this is real, but that the love driving the rage is not trapped behind the door — it crossed over with him, and there may be more to do with it than claw. Your sense reads, last, the turning-over that has become familiar across this whole threshold: that you have *met* this exact rage before, in soul after soul, and learned, the hard way, how to sit with it without flinching and without smothering it — and that you are standing now in front of a newly-dead man throwing the precise fury you once felt, equipped, because of every door you walked, to be for him what someone was for you. You know how to do this now. They taught you. All of them taught you. And here is where you find out that you learned.)*",
-          "effects": [{ "key": "nd.read_dorn", "op": "SetTrue" }, { "key": "nd.knows_dorn_fear", "op": "SetTrue" }], "auto": "END" },
-        { "id": "nd_d_daughter", "speaker": "Dorn", "text": "*(The fury cracks, all at once, and what pours through the crack is so much worse — and so much truer — than the anger.)* …my daughter. *(his voice breaks)* …*Mara.* …we *quarreled*, the last time. Over — god, over *nothing*, over something so *small* i can't even — money, or a *choice* she made i didn't *like*, some *stupid* — and i said — *(he presses a fist to his mouth)* …i said *cruel* things. *Cutting* ones. The kind you say *because* you know exactly *where* someone's *soft*, *because* you *love* them and so you *know* the *tender* spots, and i *used* them, i used *every* one, to *win* a *quarrel* that *didn't* *matter.* *(barely)* …and she *left*, and i thought *'i'll* *mend* it *next* week, when we've both *cooled' —* …and there *was* no next week. i *died*, in my *sleep*, with *cruel* the *last* thing i ever — *(he chokes)* …and now she's out there, on the *other* side of that *door*, with her *father's* *cruelty* as the *last* *thing* he ever *gave* her, *forever*, and i can't — i *can't* — *(the rage surges back, but it's hollow now, a man hitting a wall he knows won't move)* …*that's* why i have to go *back.* not for *me.* for *her.* so the *last* thing isn't — so she doesn't *carry* — *(he looks at you, and the fury is just grief now)* …how do i *live* with it? …how does *any* soul *live* — *exist* — *forever* …knowing the *last* thing it *gave* …the *one* it *loved* *most* …was a *wound?**",
-          "effects": [{ "key": "nd.asked_dorn_daughter", "op": "SetTrue" }, { "key": "nd.knows_the_last_word", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_d_meet_crit", "speaker": "Dorn", "text": "*(You don't flinch from the rage and you don't smother it — you stand in it, agree it's earned, call the unfairness by its name — and only once he feels truly met, not managed, do you turn it, gently, toward the truth: the door won't open, but the love isn't trapped behind it. And a man braced his whole death for someone to tell him to calm down hears, instead, someone tell him he's *right* — and the fight goes out of him, not because he lost, but because he was finally joined.)* *(He stops. The fists open. And the flood he's been holding behind the wall of his anger finally comes, and the solid furious man sits down hard on the cold threshold and weeps.)* …you didn't — *(he can barely speak)* …you didn't tell me to *accept* it. you told me i was *right.* …and then you — *(he scrubs at his face)* …*'the love isn't trapped behind the door.'* …god. *god.* …i've been — i've been throwing *everything* at that *door*, all my *will*, *certain* if i just *raged* *hard* *enough* — and you're telling me the *thing* i'm raging *for* …isn't *back* *there* at *all.* …it's *here.* *(he presses a hand to his chest)* …the *love* for *Mara* …it *came* *with* me. it's *right* *here*, *burning*, same as ever — and i've been so *busy* *clawing* at a *door* that *won't* *open* …that i never *asked* what i could *do* with it on *this* *side.* *(he looks up at you, wrecked and, for the first time, not raging)* …*is* there? …something i can — i *can't* go *back* and *unsay* it. i *know* that *now.* …but the *love* that *makes* me *want* to — *(barely)* …if *that's* still *here* … …then maybe there's a soul out there, in this *city*, who knows how a *dead* father *reaches* a *living* daughter, even a *little*, even just to — *(his voice fills with something that isn't rage and isn't despair: it's *purpose*)* …you've *turned* me *around.* …i was facing the *door.* …the *one* way that *doesn't* *open.* …and you've turned me to face the *city.* …where the love i'm *carrying* …might still have *somewhere* …to *go.* …*thank* you. …for not telling me to *calm* down. …for telling me i was *right* …*first.* …it's the only thing …that could've *reached* me. …how did you *know* that? *(barely)* …who *taught* you …to meet a man's *fury* …without *flinching* …*or* *smothering* it?*",
-          "effects": [{ "key": "nd.tried_meet_dorn", "op": "SetTrue" }, { "key": "nd.dorn_eased", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_d_meet_ok", "speaker": "Dorn", "text": "*(You meet the rage instead of smothering it — agree it's earned, then turn it toward the truth — and though he doesn't break all the way, the fury loses its grip, a man who expected a fight finding there's no one to fight.)* …you're — *(he's wary, off-balance)* …you *agreed* with me. that it's not *fair.* …nobody *does* that. they all — *(he frowns)* …they all rush to the *'but,'* the *'but* it's *over*, *but* make your *peace.'* and you — you *let* it *be* not-fair, for a *minute*, before you — *(he scrubs his jaw)* …*'the love isn't trapped behind the door.'* …i don't — i need to *sit* with that. i can't — the *rage* is *old*, it's how i've *carried* *everything* my whole *life*, it doesn't *let* *go* because someone *says* a *true* thing *once.* *(a hard, shaky breath)* …but you've — you've put a *dent* in it. the door's still — i still *want* to *claw* at it. but you've made me *wonder*, for the *first* time, if the thing i *want* …is even *back* *there.* *(he looks at you)* …come *back.* …say it again, the *'love's* still *here'* part — and *keep* not telling me to *calm* down, that's the — that's the *only* reason i'm *listening.* …i think — *(barely)* …i think if you *keep* *meeting* me instead of *managing* me …i might *put* the *door* *down.* …i've been *clawing* at it …a *long* *time.* …longer than i've been *dead*, if i'm *honest.**",
-          "effects": [{ "key": "nd.tried_meet_dorn", "op": "SetTrue" }, { "key": "nd.dorn_denting", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_d_meet_fail", "speaker": "Dorn", "text": "*(You mean to meet him — but you reach the 'but' too fast, the door-won't-open part arriving before he feels you've truly stood in the fire with him, and he hears it as one more soul rushing him toward acceptance.)* …*there* it is. *(he turns back toward the door)* …you *started* good. *'you're* *right* to be *angry.'* and then — *two* *breaths* later — *'but* the *door* *won't* *open.'* *(bitterly)* …the *but.* you all get to the *but* so *fast.* …i don't *need* the *but* yet, friend. i *know* the door won't open — some *part* of me *knows* — i don't need it *explained*, i need someone to *stand* in the *not-fair* with me *long* enough that i don't feel so — *(he stops, jaw working)* …*alone* in it. *(quietly, hard)* …you rushed to the *truth* before you *earned* it. the truth's *right*, friend — but a *right* truth, *delivered* *too* *soon*, just feels like *another* soul who *can't* *wait* for me to *stop* being *angry* because my *anger* makes *them* *uncomfortable.* …come *back.* …and *stay* in the *fire* with me *longer* …before you try to *lead* me *out* of it. …the *door* will *still* be *here.* …it's the *one* thing …that's *never* in a *hurry.**",
-          "effects": [{ "key": "nd.tried_meet_dorn", "op": "SetTrue" }], "auto": "END" },
-        { "id": "nd_d_meet_fumble", "speaker": "Dorn", "text": "*(It goes exactly wrong — you reach, by reflex, for the calm voice, the soft sorry look, *I know it's hard, but it's over, you have to accept it now* — the one thing he warned you against, the one thing that has never once helped a raging grief — and he rounds on you, and the fury is back, twice as hard, with a wall behind its eyes now.)* …i *TOLD* you. *(cold and loud)* …i *told* you not to do the *peace* *voice*, not to tell me it's *over*, not to — and you *did* it *anyway*, you did it *first* *thing*, *'i* know it's *hard* *but* you have to *accept* it' — *(he turns fully back to the door)* …*that's* not *help*, friend. that's you wanting me to *shut* *up.* that's you finding my *grief* *inconvenient* and reaching for the *words* that make it *stop* — *for* *your* *sake*, not *mine.* *(he sets his fists against the dark door)* …*go.* …go and leave me to *claw.* at *least* the *door* doesn't *pretend* to *care* while it *tells* me to *settle.* *(barely, savage)* …and if you come *back* — *don't* you *DARE* …lead with *acceptance.* …a man at *this* *threshold* …does *not* need to be told to *ACCEPT.* …he needs someone to *stand* in the *NO* with him …until he can *bear* to *look* *past* it *himself.* …*that's* the *only* *way* …anyone *ever* …put the *door* …*down.**",
-          "effects": [{ "key": "nd.tried_meet_dorn", "op": "SetTrue" }, { "key": "nd.dorn_walled_up", "op": "SetTrue" }], "auto": "END" },
-        { "id": "nd_d_returned", "speaker": "Dorn", "text": "*(He listens — really listens, the fight draining out of him as you speak, because you are not telling him to give up, you are telling him the thing he is fighting *for* was never behind the door — and when you finish, the solid furious man is still, and something in his weathered face has turned from a clenched fist into an open hand.)* …*'the love crossed over with you.'* *(barely)* …you're the — you *went* through. and *came* *back.* so you'd *know* — if *anyone* *knows*, it's *you* — that the door's *one*-*way*, that clawing's *useless.* …and you didn't *just* tell me to *stop.* you told me *where* the *love* *went.* …*here.* …*with* me. *(he looks down at his own open hands, the hands that were clawing at a door a moment ago)* …i've been trying to go *back* for *Mara.* …and you're saying the *love* for *Mara* …isn't *back* *there* to *go* *to.* …it's *here.* in *these* *hands.* …and there are — you *said* — souls in this city who *know* how the *dead* can still *reach* the *living*, a *little*, the *unfinished* things, the *unsaid* — *(he surges to his feet, but it's not rage now, it's *purpose*)* …then i'm not *stuck*, am i. …i'm not *trapped* on the *wrong* side of a *door* with a *cruelty* i can *never* *take* *back.* …i'm a *father* …*carrying* a *whole* *love* …*looking* for the *way* to *get* it to *her.* *(he grips your shoulder, hard, grateful)* …you *turned* me *around*, Returned. …i was going to spend *forever* …*facing* the *one* door that *doesn't* *open* …and you turned me to face the *city*, where the love i'm *carrying* …might still find *somewhere* to *land.* *(and then he stops, and looks at you with a dawning wonder)* …and *you* — …you did for *me* …what *somebody*, *somewhere*, must have done for *you.* …you *know* this *grief* …from the *inside.* …you've *been* …*right* *here.* …*raging* at *this* *exact* *door.* *(quietly)* …and *someone* *met* you in it. …and now you're — *(barely)* …go on, Returned. …go *be* …what you were *given.* …and i'll go *find* …the *way* …to *reach* my *girl.* …*thank* you. …for standing in the *fire* …*long* *enough.* …it's the *only* thing …that ever *put* …a *door* …*down.**",
-          "effects": [{ "key": "nd.dorn_eased", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "nd.dorn_turned_around", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_d_leave", "speaker": "Dorn", "text": "*(He gives you a curt nod — but he's stopped pacing, and he doesn't immediately turn back to the door.)* …go, then. *(gruff)* …and — *(he works his jaw)* …you didn't do the *peace* *voice.* you didn't tell me to *settle.* …i *noticed.* it's — *(grudgingly)* …it's the only reason i *talked* to you at *all.* *(he glances at the other two newly-arrived souls)* …the — the *young* one, by the wall. the *scared* one. *(his gruffness softens, unwillingly)* …*go* back to *them*, if you've *settled* them — they looked *less* *drowned* than when you *started*, i *saw.* …and the *old* woman. *(quietly)* …she's not *raging* and she's not *drowning*, she's just — *aching*, for someone she *left.* same as *me*, really, under it — we're *both* just *fathers* and *grandmothers* *scared* for the ones on the *far* side. *(he looks at the dark door, then deliberately away from it, toward the city beyond)* …*go* to *Elga*, Returned. …and — *(barely)* …if you find, out there, the thing you said — the *way* a dead soul *reaches* a *living* one — …*come* *back* and *tell* me. …i'll be *here.* …*not* *clawing*, maybe. …*trying* not to *claw.* …*facing* the *city* …like you *turned* me to.*",
-          "auto": "END" }
+            {
+              "text": "*(read the raging soul — past the fury, to the fear and the grief it's wrapped around)* \"Hold on a second, Dorn. Let me actually look at you.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 10
+              },
+              "next": "nd_d_read",
+              "effects": [
+                {
+                  "key": "nd.read_dorn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Tell me about your daughter, Dorn. The angry parting, the cruel words. That's not really about the door, is it — it's about her.\"",
+              "next": "nd_d_daughter",
+              "effects": [
+                {
+                  "key": "nd.asked_dorn_daughter",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(don't soothe him — meet the rage with the truth, the way the doors taught you; honor the fury before you ease it)* \"I'm not going to tell you to accept it, Dorn — I learned better than that, out there, from souls angrier than you and right to be. So here's the true thing instead: you're RIGHT to be furious. It's NOT fair. You got cut off mid-sentence, parted from your daughter on cruel words, and now the door won't open backward, and that is an OUTRAGE, and your rage is the correct size for it. I won't make it smaller. But hear the rest, because it's also true: the door doesn't open backward. Not for anyone. Not because you don't deserve it — because that's simply the one direction it doesn't go. And the rage you're throwing at the door, all that will and fury — it's real, and it's earned, but it can't move the door, and so it's eating you instead. The question isn't how to go back, Dorn. There's no how. The question is what you do with a love for your daughter that's still real, still here, still burning, on this side of a door that won't open. Because the love didn't die when you did. And there may be more you can do with it than claw at a door that was never going to give.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 13
+              },
+              "next": "nd_d_meet_ok",
+              "fail": "nd_d_meet_fail",
+              "crit": "nd_d_meet_crit",
+              "fumble": "nd_d_meet_fumble",
+              "effects": [
+                {
+                  "key": "nd.tried_meet_dorn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who knows the door only goes one way — but learned, out there, that the unfinished love isn't lost)* \"Dorn — I'm the one soul who can tell you this and mean it, because I'm the Returned: I went through that door and I came back, and I'm telling you it only opens the one way for the rest of us, and clawing at it will cost you your fingers and not move it an inch. But I learned something out there, across a hundred doors, that you need: the things we leave unfinished — the cruel last word, the unmended quarrel, the love we never got to say right — they aren't lost when we die. They're *carried.* I've met souls who searched an age for the ones they lost, and found them. I've met soldiers who reconciled across death itself. I've carried a dying child's message back toward the living. The door is one-way, Dorn — but love isn't trapped behind it. Your love for your daughter crossed over *with* you; it's here, in you, right now, as real as it ever was. You can't go back and unsay the cruel words. But the love that makes you so desperate to — that love is not behind the door. It's in your hands. And there are things to do with it on this side that you can't imagine yet, standing here raging at a door. Stop clawing at the one way out. The love you're trying to go back for is already here, with you, where you can still use it.\"",
+              "tag": "returned",
+              "next": "nd_d_returned",
+              "effects": [
+                {
+                  "key": "nd.dorn_eased",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "nd.became_the_witness",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Rage a while longer if you need to, Dorn. I'll come back — and I won't have told you to settle.\"",
+              "next": "nd_d_leave"
+            }
+          ]
+        },
+        {
+          "id": "nd_d_read",
+          "speaker": "Dorn",
+          "text": "*(He glares, but he holds still — barely — and you let your cold move past the fury to what it's wrapped so tightly around.)* *(And your sense finds, exactly as the terrified child predicted, that Dorn is the most frightened soul on the threshold — that the rage is not the opposite of fear but its disguise, a thing he learned long ago, the way some souls do, because anger at least feels like *power* and fear feels like helplessness, and a man who cannot bear to feel helpless will turn every terror into a fight. Your sense reads the fear under it, the raw thing the anger is covering: not fear of death itself, exactly, but fear of *finality* — the unbearable understanding that the door won't open backward means that everything left unfinished is now unfinished *forever*, and that for Dorn the unfinished thing is enormous and specific and shaped like his daughter. Your sense reads the parting, the cruel words, his own cruel words, and reads that the rage at the door is really rage at *himself* — that he is not truly trying to bully death into reversing; he is trying to outrun the intolerable knowledge that the last thing he ever gave the person he loved most was unkindness, and that he can never, now, take it back. And your sense reads the thing that could reach him, which is not soothing — soothing would only tell him his fear was too big to look at, and he would rage harder — but the same medicine you learned from a furious nine-year-old and two soldiers and a guilt-locked thief: that you do not calm a raging grief, you *meet* it, you stand in the fire beside it and agree that it is real and earned, and only from inside that shared fury can you gently turn it toward the truth: that the door won't open, that this is real, but that the love driving the rage is not trapped behind the door — it crossed over with him, and there may be more to do with it than claw. Your sense reads, last, the turning-over that has become familiar across this whole threshold: that you have *met* this exact rage before, in soul after soul, and learned, the hard way, how to sit with it without flinching and without smothering it — and that you are standing now in front of a newly-dead man throwing the precise fury you once felt, equipped, because of every door you walked, to be for him what someone was for you. You know how to do this now. They taught you. All of them taught you. And here is where you find out that you learned.)*",
+          "effects": [
+            {
+              "key": "nd.read_dorn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_dorn_fear",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_daughter",
+          "speaker": "Dorn",
+          "text": "*(The fury cracks, all at once, and what pours through the crack is so much worse — and so much truer — than the anger.)* …my daughter. *(his voice breaks)* …*Mara.* …we *quarreled*, the last time. Over — god, over *nothing*, over something so *small* i can't even — money, or a *choice* she made i didn't *like*, some *stupid* — and i said — *(he presses a fist to his mouth)* …i said *cruel* things. *Cutting* ones. The kind you say *because* you know exactly *where* someone's *soft*, *because* you *love* them and so you *know* the *tender* spots, and i *used* them, i used *every* one, to *win* a *quarrel* that *didn't* *matter.* *(barely)* …and she *left*, and i thought *'i'll* *mend* it *next* week, when we've both *cooled' —* …and there *was* no next week. i *died*, in my *sleep*, with *cruel* the *last* thing i ever — *(he chokes)* …and now she's out there, on the *other* side of that *door*, with her *father's* *cruelty* as the *last* *thing* he ever *gave* her, *forever*, and i can't — i *can't* — *(the rage surges back, but it's hollow now, a man hitting a wall he knows won't move)* …*that's* why i have to go *back.* not for *me.* for *her.* so the *last* thing isn't — so she doesn't *carry* — *(he looks at you, and the fury is just grief now)* …how do i *live* with it? …how does *any* soul *live* — *exist* — *forever* …knowing the *last* thing it *gave* …the *one* it *loved* *most* …was a *wound?**",
+          "effects": [
+            {
+              "key": "nd.asked_dorn_daughter",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_the_last_word",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_meet_crit",
+          "speaker": "Dorn",
+          "text": "*(You don't flinch from the rage and you don't smother it — you stand in it, agree it's earned, call the unfairness by its name — and only once he feels truly met, not managed, do you turn it, gently, toward the truth: the door won't open, but the love isn't trapped behind it. And a man braced his whole death for someone to tell him to calm down hears, instead, someone tell him he's *right* — and the fight goes out of him, not because he lost, but because he was finally joined.)* *(He stops. The fists open. And the flood he's been holding behind the wall of his anger finally comes, and the solid furious man sits down hard on the cold threshold and weeps.)* …you didn't — *(he can barely speak)* …you didn't tell me to *accept* it. you told me i was *right.* …and then you — *(he scrubs at his face)* …*'the love isn't trapped behind the door.'* …god. *god.* …i've been — i've been throwing *everything* at that *door*, all my *will*, *certain* if i just *raged* *hard* *enough* — and you're telling me the *thing* i'm raging *for* …isn't *back* *there* at *all.* …it's *here.* *(he presses a hand to his chest)* …the *love* for *Mara* …it *came* *with* me. it's *right* *here*, *burning*, same as ever — and i've been so *busy* *clawing* at a *door* that *won't* *open* …that i never *asked* what i could *do* with it on *this* *side.* *(he looks up at you, wrecked and, for the first time, not raging)* …*is* there? …something i can — i *can't* go *back* and *unsay* it. i *know* that *now.* …but the *love* that *makes* me *want* to — *(barely)* …if *that's* still *here* … …then maybe there's a soul out there, in this *city*, who knows how a *dead* father *reaches* a *living* daughter, even a *little*, even just to — *(his voice fills with something that isn't rage and isn't despair: it's *purpose*)* …you've *turned* me *around.* …i was facing the *door.* …the *one* way that *doesn't* *open.* …and you've turned me to face the *city.* …where the love i'm *carrying* …might still have *somewhere* …to *go.* …*thank* you. …for not telling me to *calm* down. …for telling me i was *right* …*first.* …it's the only thing …that could've *reached* me. …how did you *know* that? *(barely)* …who *taught* you …to meet a man's *fury* …without *flinching* …*or* *smothering* it?*",
+          "effects": [
+            {
+              "key": "nd.tried_meet_dorn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.dorn_eased",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.became_the_witness",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_meet_ok",
+          "speaker": "Dorn",
+          "text": "*(You meet the rage instead of smothering it — agree it's earned, then turn it toward the truth — and though he doesn't break all the way, the fury loses its grip, a man who expected a fight finding there's no one to fight.)* …you're — *(he's wary, off-balance)* …you *agreed* with me. that it's not *fair.* …nobody *does* that. they all — *(he frowns)* …they all rush to the *'but,'* the *'but* it's *over*, *but* make your *peace.'* and you — you *let* it *be* not-fair, for a *minute*, before you — *(he scrubs his jaw)* …*'the love isn't trapped behind the door.'* …i don't — i need to *sit* with that. i can't — the *rage* is *old*, it's how i've *carried* *everything* my whole *life*, it doesn't *let* *go* because someone *says* a *true* thing *once.* *(a hard, shaky breath)* …but you've — you've put a *dent* in it. the door's still — i still *want* to *claw* at it. but you've made me *wonder*, for the *first* time, if the thing i *want* …is even *back* *there.* *(he looks at you)* …come *back.* …say it again, the *'love's* still *here'* part — and *keep* not telling me to *calm* down, that's the — that's the *only* reason i'm *listening.* …i think — *(barely)* …i think if you *keep* *meeting* me instead of *managing* me …i might *put* the *door* *down.* …i've been *clawing* at it …a *long* *time.* …longer than i've been *dead*, if i'm *honest.**",
+          "effects": [
+            {
+              "key": "nd.tried_meet_dorn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.dorn_denting",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_meet_fail",
+          "speaker": "Dorn",
+          "text": "*(You mean to meet him — but you reach the 'but' too fast, the door-won't-open part arriving before he feels you've truly stood in the fire with him, and he hears it as one more soul rushing him toward acceptance.)* …*there* it is. *(he turns back toward the door)* …you *started* good. *'you're* *right* to be *angry.'* and then — *two* *breaths* later — *'but* the *door* *won't* *open.'* *(bitterly)* …the *but.* you all get to the *but* so *fast.* …i don't *need* the *but* yet, friend. i *know* the door won't open — some *part* of me *knows* — i don't need it *explained*, i need someone to *stand* in the *not-fair* with me *long* enough that i don't feel so — *(he stops, jaw working)* …*alone* in it. *(quietly, hard)* …you rushed to the *truth* before you *earned* it. the truth's *right*, friend — but a *right* truth, *delivered* *too* *soon*, just feels like *another* soul who *can't* *wait* for me to *stop* being *angry* because my *anger* makes *them* *uncomfortable.* …come *back.* …and *stay* in the *fire* with me *longer* …before you try to *lead* me *out* of it. …the *door* will *still* be *here.* …it's the *one* thing …that's *never* in a *hurry.**",
+          "effects": [
+            {
+              "key": "nd.tried_meet_dorn",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_meet_fumble",
+          "speaker": "Dorn",
+          "text": "*(It goes exactly wrong — you reach, by reflex, for the calm voice, the soft sorry look, *I know it's hard, but it's over, you have to accept it now* — the one thing he warned you against, the one thing that has never once helped a raging grief — and he rounds on you, and the fury is back, twice as hard, with a wall behind its eyes now.)* …i *TOLD* you. *(cold and loud)* …i *told* you not to do the *peace* *voice*, not to tell me it's *over*, not to — and you *did* it *anyway*, you did it *first* *thing*, *'i* know it's *hard* *but* you have to *accept* it' — *(he turns fully back to the door)* …*that's* not *help*, friend. that's you wanting me to *shut* *up.* that's you finding my *grief* *inconvenient* and reaching for the *words* that make it *stop* — *for* *your* *sake*, not *mine.* *(he sets his fists against the dark door)* …*go.* …go and leave me to *claw.* at *least* the *door* doesn't *pretend* to *care* while it *tells* me to *settle.* *(barely, savage)* …and if you come *back* — *don't* you *DARE* …lead with *acceptance.* …a man at *this* *threshold* …does *not* need to be told to *ACCEPT.* …he needs someone to *stand* in the *NO* with him …until he can *bear* to *look* *past* it *himself.* …*that's* the *only* *way* …anyone *ever* …put the *door* …*down.**",
+          "effects": [
+            {
+              "key": "nd.tried_meet_dorn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.dorn_walled_up",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_returned",
+          "speaker": "Dorn",
+          "text": "*(He listens — really listens, the fight draining out of him as you speak, because you are not telling him to give up, you are telling him the thing he is fighting *for* was never behind the door — and when you finish, the solid furious man is still, and something in his weathered face has turned from a clenched fist into an open hand.)* …*'the love crossed over with you.'* *(barely)* …you're the — you *went* through. and *came* *back.* so you'd *know* — if *anyone* *knows*, it's *you* — that the door's *one*-*way*, that clawing's *useless.* …and you didn't *just* tell me to *stop.* you told me *where* the *love* *went.* …*here.* …*with* me. *(he looks down at his own open hands, the hands that were clawing at a door a moment ago)* …i've been trying to go *back* for *Mara.* …and you're saying the *love* for *Mara* …isn't *back* *there* to *go* *to.* …it's *here.* in *these* *hands.* …and there are — you *said* — souls in this city who *know* how the *dead* can still *reach* the *living*, a *little*, the *unfinished* things, the *unsaid* — *(he surges to his feet, but it's not rage now, it's *purpose*)* …then i'm not *stuck*, am i. …i'm not *trapped* on the *wrong* side of a *door* with a *cruelty* i can *never* *take* *back.* …i'm a *father* …*carrying* a *whole* *love* …*looking* for the *way* to *get* it to *her.* *(he grips your shoulder, hard, grateful)* …you *turned* me *around*, Returned. …i was going to spend *forever* …*facing* the *one* door that *doesn't* *open* …and you turned me to face the *city*, where the love i'm *carrying* …might still find *somewhere* to *land.* *(and then he stops, and looks at you with a dawning wonder)* …and *you* — …you did for *me* …what *somebody*, *somewhere*, must have done for *you.* …you *know* this *grief* …from the *inside.* …you've *been* …*right* *here.* …*raging* at *this* *exact* *door.* *(quietly)* …and *someone* *met* you in it. …and now you're — *(barely)* …go on, Returned. …go *be* …what you were *given.* …and i'll go *find* …the *way* …to *reach* my *girl.* …*thank* you. …for standing in the *fire* …*long* *enough.* …it's the *only* thing …that ever *put* …a *door* …*down.**",
+          "effects": [
+            {
+              "key": "nd.dorn_eased",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.became_the_witness",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.dorn_turned_around",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_d_leave",
+          "speaker": "Dorn",
+          "text": "*(He gives you a curt nod — but he's stopped pacing, and he doesn't immediately turn back to the door.)* …go, then. *(gruff)* …and — *(he works his jaw)* …you didn't do the *peace* *voice.* you didn't tell me to *settle.* …i *noticed.* it's — *(grudgingly)* …it's the only reason i *talked* to you at *all.* *(he glances at the other two newly-arrived souls)* …the — the *young* one, by the wall. the *scared* one. *(his gruffness softens, unwillingly)* …*go* back to *them*, if you've *settled* them — they looked *less* *drowned* than when you *started*, i *saw.* …and the *old* woman. *(quietly)* …she's not *raging* and she's not *drowning*, she's just — *aching*, for someone she *left.* same as *me*, really, under it — we're *both* just *fathers* and *grandmothers* *scared* for the ones on the *far* side. *(he looks at the dark door, then deliberately away from it, toward the city beyond)* …*go* to *Elga*, Returned. …and — *(barely)* …if you find, out there, the thing you said — the *way* a dead soul *reaches* a *living* one — …*come* *back* and *tell* me. …i'll be *here.* …*not* *clawing*, maybe. …*trying* not to *claw.* …*facing* the *city* …like you *turned* me to.*",
+          "auto": "END"
+        }
       ]
     },
     {
-      "id": "nd.elga", "title": "Elga, Worried for the Living", "npc": "Elga", "start": "0",
+      "id": "nd.elga",
+      "title": "Elga, Worried for the Living",
+      "npc": "Elga",
+      "start": "0",
       "nodes": [
-        { "id": "0", "speaker": "Elga", "onEnter": [{ "key": "nd.met_elga", "op": "SetTrue" }],
+        {
+          "id": "0",
+          "speaker": "Elga",
+          "onEnter": [
+            {
+              "key": "nd.met_elga",
+              "op": "SetTrue"
+            }
+          ],
           "variants": [
-            { "when": { "flags": ["act1.mercy_remembered"] }, "text": "*(She looks up at you, and her worn worried face softens, because there is something in you she recognizes — the deep settledness of a soul that has carried a great deal of others' grief and learned how to hold it, the very thing she spent her own life doing for a motherless child.)* …Oh, you've a *kind* way about you, dear. *(a small, sad smile)* …More than kind — you've the look of someone who's *sat* with a *great* *deal* of *sorrow* and didn't *let* it *make* you *hard.* I know that look; I wore it, raising my girl. *(her working hands still)* …Then maybe *you* can tell me, dear, what no one *else* on this cold threshold seems to *know* — you've been *here*, in this place, longer than my *minutes*; you've *seen* how it *works.* *(barely)* …Is there *any* *way* — for a *grandmother* on *this* side — to know that the *child* she left on the *other* …won't be *alone?* …That's the *only* thing, dear. …I made my *peace* with *dying.* …I *cannot* make my *peace* …with her being *alone.**" },
-            { "text": "*(She turns to you, and her calm holds, but the ache behind it is plain.)* …Hello, dear. *(a warm, worn voice)* …You'll forgive an old woman for not being more *frightened* — I know I *ought* to be, just crossed and all, but the truth is the *dying* didn't *scare* me. I was *old*, and *ready*, and the dark was almost a *rest.* *(her hands work in her lap)* …It's only — *(she glances back at the dark door)* …I left my *granddaughter*, dear. *Senna.* Raised her from a little one, just the two of us, her mother gone young. And I went *sudden*, in my *sleep*, no *goodbye* — and she's *grown* *now*, but she's not — *(her voice catches)* …she's not *ready* to be *without* me, dear, and I keep — I keep *reaching* for the *door*, not to go *back* for *myself*, I don't *want* to go back, I'm *done* — but just to *see*, to *know*, to make *sure* she's — *(she looks at you, the whole of her in it)* …*is* there a way, dear? …to know …that the one you *left* …will be *all* *right?**" }
-          ], "auto": "1" },
-        { "id": "1", "speaker": "Elga", "text": "*(She folds her worn hands and gives you her warm, worried attention, an old woman used to caring for others turning, with some difficulty, toward being cared for.)* …Ask, dear, of course. *(a soft smile)* …Though I warn you, every road in me leads back to the same place — my Senna, on the other side, and whether she'll manage. An old grandmother hasn't much else on her mind, even dead. …Especially dead, perhaps. There's nothing *else* to do, here, but *worry* about them.",
+            {
+              "when": {
+                "flags": [
+                  "act1.mercy_remembered"
+                ]
+              },
+              "text": "*(She looks up at you, and her worn worried face softens, because there is something in you she recognizes — the deep settledness of a soul that has carried a great deal of others' grief and learned how to hold it, the very thing she spent her own life doing for a motherless child.)* …Oh, you've a *kind* way about you, dear. *(a small, sad smile)* …More than kind — you've the look of someone who's *sat* with a *great* *deal* of *sorrow* and didn't *let* it *make* you *hard.* I know that look; I wore it, raising my girl. *(her working hands still)* …Then maybe *you* can tell me, dear, what no one *else* on this cold threshold seems to *know* — you've been *here*, in this place, longer than my *minutes*; you've *seen* how it *works.* *(barely)* …Is there *any* *way* — for a *grandmother* on *this* side — to know that the *child* she left on the *other* …won't be *alone?* …That's the *only* thing, dear. …I made my *peace* with *dying.* …I *cannot* make my *peace* …with her being *alone.**"
+            },
+            {
+              "text": "*(She turns to you, and her calm holds, but the ache behind it is plain.)* …Hello, dear. *(a warm, worn voice)* …You'll forgive an old woman for not being more *frightened* — I know I *ought* to be, just crossed and all, but the truth is the *dying* didn't *scare* me. I was *old*, and *ready*, and the dark was almost a *rest.* *(her hands work in her lap)* …It's only — *(she glances back at the dark door)* …I left my *granddaughter*, dear. *Senna.* Raised her from a little one, just the two of us, her mother gone young. And I went *sudden*, in my *sleep*, no *goodbye* — and she's *grown* *now*, but she's not — *(her voice catches)* …she's not *ready* to be *without* me, dear, and I keep — I keep *reaching* for the *door*, not to go *back* for *myself*, I don't *want* to go back, I'm *done* — but just to *see*, to *know*, to make *sure* she's — *(she looks at you, the whole of her in it)* …*is* there a way, dear? …to know …that the one you *left* …will be *all* *right?**"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Elga",
+          "text": "*(She folds her worn hands and gives you her warm, worried attention, an old woman used to caring for others turning, with some difficulty, toward being cared for.)* …Ask, dear, of course. *(a soft smile)* …Though I warn you, every road in me leads back to the same place — my Senna, on the other side, and whether she'll manage. An old grandmother hasn't much else on her mind, even dead. …Especially dead, perhaps. There's nothing *else* to do, here, but *worry* about them.",
           "choices": [
-            { "text": "*(read the grandmother — past her own peace, to the love that won't let her rest)* \"Let me look at you a moment, Elga.\"", "check": { "skill": "Insight", "ability": "Wisdom", "dc": 10 }, "next": "nd_e_read", "effects": [{ "key": "nd.read_elga", "op": "SetTrue" }] },
-            { "text": "\"Tell me about Senna, Elga. The fifteen years, just the two of you. What you gave her, raising her alone.\"", "next": "nd_e_senna", "effects": [{ "key": "nd.asked_elga_senna", "op": "SetTrue" }] },
-            { "text": "*(the one who learned, across every door, that the love we give doesn't die with us — so she's not gone from Senna at all)* \"Elga — I'm going to tell you the truest thing I learned out there, across more doors than I can count, and it's exactly for you. You're afraid Senna will be alone without you. But you've got it wrong, in the most beautiful way, and here's how I know. I met a mother once whose lullaby outlived her by ten generations — she was forgotten, her name lost, but the love she put into that song is still rocking children to sleep tonight, because love doesn't die with the one who gave it; it stays in the ones who received it. You raised Senna for fifteen years. Every kindness, every steadiness, every time you taught her how to face a hard thing — all of it went *into* her, and it's *still there*, Elga, it didn't cross over with you, it stayed behind in her, woven into who she is. You're not gone from Senna. You're in her hands when she does a thing the way you taught her, in her voice when she comforts someone the way you comforted her, in the steadiness you spent fifteen years building into her bones. She won't be alone. She'll be carrying *you* — not a memory of you, but the actual love you gave, which is now *hers*, permanently, to spend on her own life and one day on her own children. The grandmother doesn't leave when she dies. She moves into the granddaughter, and lives there, doing her love, for as long as the granddaughter lives — and then moves into *her* children, and on, and on. You didn't leave Senna alone, Elga. You spent fifteen years making sure she never could be — because you put yourself *inside* her, where no door can ever take you.\"", "tag": "returned", "next": "nd_e_returned", "effects": [{ "key": "nd.elga_eased", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }] },
-            { "text": "\"What do you most wish you'd told her, Elga? If the door had given you one more morning — what's the thing you'd have said?\"", "next": "nd_e_onemore", "effects": [{ "key": "nd.asked_elga_onemore", "op": "SetTrue" }] },
-            { "text": "\"Rest easy a while, Elga. I'll come back.\"", "next": "nd_e_leave" }
-          ] },
-        { "id": "nd_e_read", "speaker": "Elga", "text": "*(She lets you look, with the unselfconscious ease of the old, and you let your cold move past her own genuine peace to the love that holds her here.)* *(And your sense finds a soul entirely without fear for itself — which is rare, and beautiful, and true: Elga met her death as a tired traveler meets a warm bed, with relief, with readiness, with no clinging at all, because she lived long and lived well and was, simply, finished, in the good way, the way a soul is finished when it has poured itself out completely and has no regrets to keep it grasping. Your sense reads that her peace is real, all the way down — she does not need to be reassured about death, does not fear the dark or the door or the unknown beyond, has made the kind of peace with her own ending that the young one across the threshold cannot yet imagine and the angry one is fighting with all his might. And your sense reads the single thread that holds her, the one thing her perfect peace cannot reach: Senna. The motherless girl she raised alone for fifteen years. And your sense reads the particular shape of this love and this fear, and finds it is the truest and most selfless thing on the whole threshold — that Elga is not afraid of *her* loss, of *her* dying, of *her* solitude; she is afraid only of *Senna's*, afraid that the girl she spent her life making strong is not yet strong enough to stand without her, afraid that her sudden going left a child unready and unguarded. Your sense reads a love so complete in its outward turning that even death cannot make it about the self — a grandmother who, given her own crossing and her own peace, spends the whole of it worrying about someone else. And your sense reads the thing that could ease her, which she cannot see from inside her love because she is too busy looking at Senna's need to see what she already gave: that the fifteen years of raising are not erased by the dying, that everything Elga poured into that child is still in the child, that a grandmother who spent fifteen years building steadiness and kindness and the strength-to-stand into a motherless girl did not leave that girl alone by dying — she left her *equipped*, carrying everything Elga gave, which did not cross over but stayed behind, woven permanently into who Senna is. Elga thinks she abandoned a child. Your sense reads the truth she gave away too freely to recognize: she spent fifteen years making sure the child would never be abandoned, by putting herself, permanently, inside her.)*",
-          "effects": [{ "key": "nd.read_elga", "op": "SetTrue" }, { "key": "nd.knows_elga_selfless", "op": "SetTrue" }], "auto": "END" },
-        { "id": "nd_e_senna", "speaker": "Elga", "text": "*(Her worn face fills with a warmth that pushes the worry back, just for a moment.)* …*Senna.* *(softly, fond)* …Oh, dear. Fifteen years, just the two of us. Her mother — my daughter — passed when Senna was *three*, and there was no one *else*, so it was *me*, old even *then*, raising a *grieving* *little* *girl* with *these* *hands.* *(she looks at her worn hands)* …And I was *frightened*, dear, the *whole* time — *'I'm* too *old*, I'll *die* before she's *grown*, I'll *leave* her *alone'* — that *fear* was *with* me *every* *day* of those *fifteen* *years.* *(her voice softens)* …But here's what I *did* with the fear, dear, because I *couldn't* do *nothing*: I — every day, I tried to put a little *more* *into* her. A little more *steadiness.* A little more *knowing-how* — how to mend a thing, how to face a hard day, how to *grieve* and *keep* *going*, which I'd *learned* *burying* her *mother.* *(barely)* …I thought, *'if* I *can't* *promise* her I'll *stay*, then I'll *give* her *everything* I *have*, as *fast* as I can, so that *whenever* I *go*, she'll have — she'll have *enough* of me *in* her …to *manage* *without* the *rest.'* *(she meets your eyes, and the worry is back)* …And now the *day* has *come*, dear, the day I *always* *feared* … …and I *don't* *know* …if I *gave* her *enough.* …I *ran* out of *time* so *sudden.* …Was it *enough*, dear? …All those *years* of *pouring* *myself* *into* her …*against* this *exact* *day?* …Did I get *enough* of me …*into* her …*in* *time?**",
-          "effects": [{ "key": "nd.asked_elga_senna", "op": "SetTrue" }, { "key": "nd.knows_the_pouring", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_e_onemore", "speaker": "Elga", "text": "*(She is quiet a long moment, and her worn hands go still, and when she speaks it is the softest she has been.)* …One more morning. *(barely)* …Oh, dear. …I've *thought* about it, since I *woke* up *here* — *'if* only I'd had *one* more *morning, one* more *ordinary* *breakfast* with her across the *table.'* …And do you know what I'd *say*, dear? *(a wet, small smile)* …Not anything *grand.* Not *wisdom*, not *deathbed* *speeches* — she'd have *laughed* at me for that, and *rightly.* *(softly)* …I'd just — I'd *look* at her, over the *porridge*, the way I did a *thousand* *ordinary* *mornings* and *never* *said* it because there was always going to be *another* — and I'd *say*: *'Senna. You were the best thing. The whole of my old age — the worry, the work, the fear of leaving you — every bit of it was worth it, a hundred times over, because I got to be the one who raised you. You weren't a* burden *I took on. You were the* gift *I got. And I am so — I am so* proud *of who you are.'* *(her voice breaks)* …*That's* it, dear. …Not a *lesson.* Just — *'you* were the *best* thing, and I'm *proud* of you, and *thank* *you* for being *mine* to *raise.'* *(barely)* …And I never — there was always *another* *morning* — until there *wasn't* — and now she'll *never* — *(she presses her worn hand to her mouth)* …*that's* the thing, dear. …Not that I'm *dead.* …That she'll never *hear* …the *one* thing …I most *needed* …to *say.**",
-          "effects": [{ "key": "nd.asked_elga_onemore", "op": "SetTrue" }, { "key": "nd.knows_the_unsaid_morning", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_e_returned", "speaker": "Elga", "text": "*(She listens, and as you speak — the lullaby that outlived its maker, the love that stays in the ones who received it, the grandmother who moves into the granddaughter and lives there — her worn worried face goes through wonder, and grief, and at last a peace deeper than the one she came in with, because this peace is for Senna and not just for herself.)* …*'You put yourself inside her, where no door can take you.'* *(barely)* …Oh, dear. …*Oh.* *(she presses both worn hands to her chest)* …I've been — all this *while*, these *minutes* that have felt like *years* — I've been *certain* I *abandoned* her. That I *died* and *left* her *alone* and *unready.* …And you've — you've *turned* it *over.* …Those *fifteen* *years* of *pouring* *myself* *into* her, *against* this *day* — they *worked*, didn't they. The *me* I put *in* her — the *steadiness*, the *knowing-how*, the *grieve-and-keep-going* — it *stayed.* It didn't *cross* over with me. It *stayed* *behind* …*in* *her.* *(her voice fills)* …She's not *alone*, dear. …She's *carrying* *me.* …Not a — not just a *memory*, a *sad* *picture* of *grandmother-who's-gone* — but the *actual* *me*, the *love* I *gave*, *woven* into *how* she *faces* a *hard* *day*, *how* she *comforts* someone, *how* she *stands.* *(she looks at her worn hands with wonder)* …I *spent* fifteen years …*moving* *into* her. …And now I *live* there. …And when she has *children*, dear — *(barely, luminous)* …I'll move into *them* *too*, won't I. The way I — without her even *knowing* she's *passing* me *on.* *(and the old grandmother weeps, but it is the most peaceful weeping you have ever seen)* …Then I didn't *leave* her, dear. …I spent my *whole* *old* *age* …making *sure* …I *never* *could.* *(she takes your hand in both her worn ones)* …And *you* — *(she searches your face)* …you *learned* this *out* *there*, didn't you. From *soul* after *soul.* The *lullaby* *mother*, you *said.* …You've been *gathering* *this* — all these *truths* — *door* after *door* — *(her wonder grows)* …*why?* …Why does a soul *gather* *so* *much* *comfort* …unless it's *meant* …to be *given* *away?* *(softly, certain)* …*Go*, dear. …You've a *gift* for this — *witnessing*, *easing*, *carrying* the *truth* from *soul* to *soul* — and it's *plain* to an *old* *woman* who spent her *life* *giving* *things* *away* …that a *gift* like *that* …was *never* *meant* …to *stop* …with *you.* …*Go* and *give* it. …To the *next* *frightened* one through the *door.* …*That's* — *(barely)* …*that's* what you *are*, dear, isn't it. …You're the *grandmother* …of the *newly* *dead.* …*Go* …and *raise* *them* …the way I *raised* *Senna.* …*Pour* *yourself* *in.* …It's the *only* thing …that *outlasts* …*any* *door.**",
-          "effects": [{ "key": "nd.elga_eased", "op": "SetTrue" }, { "key": "nd.became_the_witness", "op": "SetTrue" }, { "key": "nd.chain_continues", "op": "SetTrue" }, { "key": "act1.mercy_remembered", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 }], "auto": "END" },
-        { "id": "nd_e_leave", "speaker": "Elga", "text": "*(She pats your hand with both of her worn ones, the gesture of a lifetime of comforting others, turned now, gently, on you.)* …Go on, dear. *(a soft, worn smile)* …And — thank you, for sitting with an old woman's worry. It's a *small* thing, a grandmother fretting about a grown girl, next to the *grand* *griefs* of this place — but you didn't *treat* it small, and that's — *(her eyes glisten)* …that's a *kindness* I'll not forget. *(she glances at the other two newly-arrived souls)* …See to the *young* one and the *angry* one, dear, if you've not *settled* them — *(her face softens with an old, practiced concern)* …the *young* one's just *frightened*, and *frightened* *eases* with *company.* …But the *angry* one — *Dorn* — *(she lowers her voice)* …go *gentle* and go *patient* with *him*, dear. He's not *angry*, *underneath.* He's a *father*, *terrified* he *hurt* his *girl* and can't *take* it *back* — same *love* as *mine*, just *turned* to *fury* because he can't *bear* the *helplessness.* *(quietly)* …We're *all* the *same* *thing*, here at the *threshold*, dear — the *scared* one, the *furious* one, and the *fretting* old *woman.* …Just *love*, *frightened*, *wearing* *different* *faces.* *(she meets your eyes, warm)* …And *you* go *between* us …*easing* *each* in *turn. …Go* on, dear. …*That's* your *trade* *now*, I *think.* …And it's the *best* one …there *is.**",
-          "auto": "END" }
+            {
+              "text": "*(read the grandmother — past her own peace, to the love that won't let her rest)* \"Let me look at you a moment, Elga.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 10
+              },
+              "next": "nd_e_read",
+              "effects": [
+                {
+                  "key": "nd.read_elga",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Tell me about Senna, Elga. The fifteen years, just the two of you. What you gave her, raising her alone.\"",
+              "next": "nd_e_senna",
+              "effects": [
+                {
+                  "key": "nd.asked_elga_senna",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who learned, across every door, that the love we give doesn't die with us — so she's not gone from Senna at all)* \"Elga — I'm going to tell you the truest thing I learned out there, across more doors than I can count, and it's exactly for you. You're afraid Senna will be alone without you. But you've got it wrong, in the most beautiful way, and here's how I know. I met a mother once whose lullaby outlived her by ten generations — she was forgotten, her name lost, but the love she put into that song is still rocking children to sleep tonight, because love doesn't die with the one who gave it; it stays in the ones who received it. You raised Senna for fifteen years. Every kindness, every steadiness, every time you taught her how to face a hard thing — all of it went *into* her, and it's *still there*, Elga, it didn't cross over with you, it stayed behind in her, woven into who she is. You're not gone from Senna. You're in her hands when she does a thing the way you taught her, in her voice when she comforts someone the way you comforted her, in the steadiness you spent fifteen years building into her bones. She won't be alone. She'll be carrying *you* — not a memory of you, but the actual love you gave, which is now *hers*, permanently, to spend on her own life and one day on her own children. The grandmother doesn't leave when she dies. She moves into the granddaughter, and lives there, doing her love, for as long as the granddaughter lives — and then moves into *her* children, and on, and on. You didn't leave Senna alone, Elga. You spent fifteen years making sure she never could be — because you put yourself *inside* her, where no door can ever take you.\"",
+              "tag": "returned",
+              "next": "nd_e_returned",
+              "effects": [
+                {
+                  "key": "nd.elga_eased",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "nd.became_the_witness",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What do you most wish you'd told her, Elga? If the door had given you one more morning — what's the thing you'd have said?\"",
+              "next": "nd_e_onemore",
+              "effects": [
+                {
+                  "key": "nd.asked_elga_onemore",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Rest easy a while, Elga. I'll come back.\"",
+              "next": "nd_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "nd_e_read",
+          "speaker": "Elga",
+          "text": "*(She lets you look, with the unselfconscious ease of the old, and you let your cold move past her own genuine peace to the love that holds her here.)* *(And your sense finds a soul entirely without fear for itself — which is rare, and beautiful, and true: Elga met her death as a tired traveler meets a warm bed, with relief, with readiness, with no clinging at all, because she lived long and lived well and was, simply, finished, in the good way, the way a soul is finished when it has poured itself out completely and has no regrets to keep it grasping. Your sense reads that her peace is real, all the way down — she does not need to be reassured about death, does not fear the dark or the door or the unknown beyond, has made the kind of peace with her own ending that the young one across the threshold cannot yet imagine and the angry one is fighting with all his might. And your sense reads the single thread that holds her, the one thing her perfect peace cannot reach: Senna. The motherless girl she raised alone for fifteen years. And your sense reads the particular shape of this love and this fear, and finds it is the truest and most selfless thing on the whole threshold — that Elga is not afraid of *her* loss, of *her* dying, of *her* solitude; she is afraid only of *Senna's*, afraid that the girl she spent her life making strong is not yet strong enough to stand without her, afraid that her sudden going left a child unready and unguarded. Your sense reads a love so complete in its outward turning that even death cannot make it about the self — a grandmother who, given her own crossing and her own peace, spends the whole of it worrying about someone else. And your sense reads the thing that could ease her, which she cannot see from inside her love because she is too busy looking at Senna's need to see what she already gave: that the fifteen years of raising are not erased by the dying, that everything Elga poured into that child is still in the child, that a grandmother who spent fifteen years building steadiness and kindness and the strength-to-stand into a motherless girl did not leave that girl alone by dying — she left her *equipped*, carrying everything Elga gave, which did not cross over but stayed behind, woven permanently into who Senna is. Elga thinks she abandoned a child. Your sense reads the truth she gave away too freely to recognize: she spent fifteen years making sure the child would never be abandoned, by putting herself, permanently, inside her.)*",
+          "effects": [
+            {
+              "key": "nd.read_elga",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_elga_selfless",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_e_senna",
+          "speaker": "Elga",
+          "text": "*(Her worn face fills with a warmth that pushes the worry back, just for a moment.)* …*Senna.* *(softly, fond)* …Oh, dear. Fifteen years, just the two of us. Her mother — my daughter — passed when Senna was *three*, and there was no one *else*, so it was *me*, old even *then*, raising a *grieving* *little* *girl* with *these* *hands.* *(she looks at her worn hands)* …And I was *frightened*, dear, the *whole* time — *'I'm* too *old*, I'll *die* before she's *grown*, I'll *leave* her *alone'* — that *fear* was *with* me *every* *day* of those *fifteen* *years.* *(her voice softens)* …But here's what I *did* with the fear, dear, because I *couldn't* do *nothing*: I — every day, I tried to put a little *more* *into* her. A little more *steadiness.* A little more *knowing-how* — how to mend a thing, how to face a hard day, how to *grieve* and *keep* *going*, which I'd *learned* *burying* her *mother.* *(barely)* …I thought, *'if* I *can't* *promise* her I'll *stay*, then I'll *give* her *everything* I *have*, as *fast* as I can, so that *whenever* I *go*, she'll have — she'll have *enough* of me *in* her …to *manage* *without* the *rest.'* *(she meets your eyes, and the worry is back)* …And now the *day* has *come*, dear, the day I *always* *feared* … …and I *don't* *know* …if I *gave* her *enough.* …I *ran* out of *time* so *sudden.* …Was it *enough*, dear? …All those *years* of *pouring* *myself* *into* her …*against* this *exact* *day?* …Did I get *enough* of me …*into* her …*in* *time?**",
+          "effects": [
+            {
+              "key": "nd.asked_elga_senna",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_the_pouring",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_e_onemore",
+          "speaker": "Elga",
+          "text": "*(She is quiet a long moment, and her worn hands go still, and when she speaks it is the softest she has been.)* …One more morning. *(barely)* …Oh, dear. …I've *thought* about it, since I *woke* up *here* — *'if* only I'd had *one* more *morning, one* more *ordinary* *breakfast* with her across the *table.'* …And do you know what I'd *say*, dear? *(a wet, small smile)* …Not anything *grand.* Not *wisdom*, not *deathbed* *speeches* — she'd have *laughed* at me for that, and *rightly.* *(softly)* …I'd just — I'd *look* at her, over the *porridge*, the way I did a *thousand* *ordinary* *mornings* and *never* *said* it because there was always going to be *another* — and I'd *say*: *'Senna. You were the best thing. The whole of my old age — the worry, the work, the fear of leaving you — every bit of it was worth it, a hundred times over, because I got to be the one who raised you. You weren't a* burden *I took on. You were the* gift *I got. And I am so — I am so* proud *of who you are.'* *(her voice breaks)* …*That's* it, dear. …Not a *lesson.* Just — *'you* were the *best* thing, and I'm *proud* of you, and *thank* *you* for being *mine* to *raise.'* *(barely)* …And I never — there was always *another* *morning* — until there *wasn't* — and now she'll *never* — *(she presses her worn hand to her mouth)* …*that's* the thing, dear. …Not that I'm *dead.* …That she'll never *hear* …the *one* thing …I most *needed* …to *say.**",
+          "effects": [
+            {
+              "key": "nd.asked_elga_onemore",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.knows_the_unsaid_morning",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_e_returned",
+          "speaker": "Elga",
+          "text": "*(She listens, and as you speak — the lullaby that outlived its maker, the love that stays in the ones who received it, the grandmother who moves into the granddaughter and lives there — her worn worried face goes through wonder, and grief, and at last a peace deeper than the one she came in with, because this peace is for Senna and not just for herself.)* …*'You put yourself inside her, where no door can take you.'* *(barely)* …Oh, dear. …*Oh.* *(she presses both worn hands to her chest)* …I've been — all this *while*, these *minutes* that have felt like *years* — I've been *certain* I *abandoned* her. That I *died* and *left* her *alone* and *unready.* …And you've — you've *turned* it *over.* …Those *fifteen* *years* of *pouring* *myself* *into* her, *against* this *day* — they *worked*, didn't they. The *me* I put *in* her — the *steadiness*, the *knowing-how*, the *grieve-and-keep-going* — it *stayed.* It didn't *cross* over with me. It *stayed* *behind* …*in* *her.* *(her voice fills)* …She's not *alone*, dear. …She's *carrying* *me.* …Not a — not just a *memory*, a *sad* *picture* of *grandmother-who's-gone* — but the *actual* *me*, the *love* I *gave*, *woven* into *how* she *faces* a *hard* *day*, *how* she *comforts* someone, *how* she *stands.* *(she looks at her worn hands with wonder)* …I *spent* fifteen years …*moving* *into* her. …And now I *live* there. …And when she has *children*, dear — *(barely, luminous)* …I'll move into *them* *too*, won't I. The way I — without her even *knowing* she's *passing* me *on.* *(and the old grandmother weeps, but it is the most peaceful weeping you have ever seen)* …Then I didn't *leave* her, dear. …I spent my *whole* *old* *age* …making *sure* …I *never* *could.* *(she takes your hand in both her worn ones)* …And *you* — *(she searches your face)* …you *learned* this *out* *there*, didn't you. From *soul* after *soul.* The *lullaby* *mother*, you *said.* …You've been *gathering* *this* — all these *truths* — *door* after *door* — *(her wonder grows)* …*why?* …Why does a soul *gather* *so* *much* *comfort* …unless it's *meant* …to be *given* *away?* *(softly, certain)* …*Go*, dear. …You've a *gift* for this — *witnessing*, *easing*, *carrying* the *truth* from *soul* to *soul* — and it's *plain* to an *old* *woman* who spent her *life* *giving* *things* *away* …that a *gift* like *that* …was *never* *meant* …to *stop* …with *you.* …*Go* and *give* it. …To the *next* *frightened* one through the *door.* …*That's* — *(barely)* …*that's* what you *are*, dear, isn't it. …You're the *grandmother* …of the *newly* *dead.* …*Go* …and *raise* *them* …the way I *raised* *Senna.* …*Pour* *yourself* *in.* …It's the *only* thing …that *outlasts* …*any* *door.**",
+          "effects": [
+            {
+              "key": "nd.elga_eased",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.became_the_witness",
+              "op": "SetTrue"
+            },
+            {
+              "key": "nd.chain_continues",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "nd_e_leave",
+          "speaker": "Elga",
+          "text": "*(She pats your hand with both of her worn ones, the gesture of a lifetime of comforting others, turned now, gently, on you.)* …Go on, dear. *(a soft, worn smile)* …And — thank you, for sitting with an old woman's worry. It's a *small* thing, a grandmother fretting about a grown girl, next to the *grand* *griefs* of this place — but you didn't *treat* it small, and that's — *(her eyes glisten)* …that's a *kindness* I'll not forget. *(she glances at the other two newly-arrived souls)* …See to the *young* one and the *angry* one, dear, if you've not *settled* them — *(her face softens with an old, practiced concern)* …the *young* one's just *frightened*, and *frightened* *eases* with *company.* …But the *angry* one — *Dorn* — *(she lowers her voice)* …go *gentle* and go *patient* with *him*, dear. He's not *angry*, *underneath.* He's a *father*, *terrified* he *hurt* his *girl* and can't *take* it *back* — same *love* as *mine*, just *turned* to *fury* because he can't *bear* the *helplessness.* *(quietly)* …We're *all* the *same* *thing*, here at the *threshold*, dear — the *scared* one, the *furious* one, and the *fretting* old *woman.* …Just *love*, *frightened*, *wearing* *different* *faces.* *(she meets your eyes, warm)* …And *you* go *between* us …*easing* *each* in *turn. …Go* on, dear. …*That's* your *trade* *now*, I *think.* …And it's the *best* one …there *is.**",
+          "auto": "END"
+        }
       ]
     }
   ]

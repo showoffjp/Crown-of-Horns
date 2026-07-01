@@ -742,6 +742,35 @@
       ],
       "completionFlag": "wd.neven_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_greeter",
+      "title": "Nobody Sits Alone",
+      "region": "The Threshold Step — off the intake queue, where the new dead arrive",
+      "giver": "Sparrow, a child who greets the frightened dead",
+      "premise": "A child who died small has appointed herself to meet every scared dead kid at the step, teaching them a rulebook she invented so the worst place there is feels smaller. She's going soft at the edges now, and terrified of only one thing: that when she's gone, the next little one will come up the queue and stand there shaking with no one to catch them — exactly the way no one caught her. Help her greet the newest arrival, and answer the fear she's carried alone.",
+      "theme": "She holds every shaking hand and no one has ever held hers. The greatest kindness is not to answer a need yourself, but to make sure it keeps being answered after you.",
+      "reward": "Promise her the step won't be empty and she goes lighter, not the last; or do the thing no one ever did — sit down and greet the greeter — and she finally gets to set the Job down, held. disp.merciful / honest.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Learn what Sparrow does at the step",
+          "completionFlag": "gr.met_sparrow"
+        },
+        {
+          "objectiveId": "greet",
+          "desc": "Help Sparrow greet the newest scared arrival",
+          "completionFlag": "gr.helped_greet",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the fear Sparrow has carried alone",
+          "completionFlag": "gr.sparrow_answered"
+        }
+      ],
+      "completionFlag": "gr.sparrow_answered",
+      "failureFlag": ""
     }
   ]
 }
