@@ -42,3 +42,6 @@ Builds/
 
 # Generated Unity-bridge export (regenerate with: node tools/json-to-unity.js)
 tools/unity-export/
+
+# Generated serial-numbers-filed build (regenerate with: node tools/reskin.js)
+tools/reskin-build/

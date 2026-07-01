@@ -11,6 +11,33 @@
 
 ---
 
+## 🪪 v6.76.0 — *"Serial Numbers Filed"* — a licence-independent build from the same source (tooling)
+
+> De-risking the Forgotten Realms licensing question: if the licence falls through, the damage is
+> **cosmetic, not structural.** The game's value — souls, systems, code, ~258-soul body of writing — is
+> original. What's FR-proprietary is a thin layer of ~50 proper nouns, and this swaps them for an original
+> pantheon **mechanically, from the same source**, so either version ships from one canonical tree.
+- 🗺️ **`tools/reskin-map.json`** — the single-source map: Kelemvor→**Sarran**, Doomguide→**Greywarden**,
+  Wall of the Faithless→**Wall of the Unclaimed**, Sigil→**Threnn**, Candlekeep→**Tallowkeep**,
+  Elminster→**Vandemar**, the whole pantheon and geography, plus the game's own title (**Crown of Horns**
+  is itself an FR artifact → **the Hollow Crown**). Every value tunable.
+- 🔧 **`tools/reskin.js`** — applies the map as **whole-word, case-sensitive, longest-key-first**
+  substitutions across every `play/*.json` *and* the generator, writing to `tools/reskin-build/` (never
+  touches source). Boundaries are surgical: `drow`→`duskling` but *drowned* untouched; `Amn`→`Kesh` but
+  *damn* untouched; `Bane` the god swaps but *bane* the word doesn't; `mask`/`chosen`/`reaper` never
+  matched. Last run: **1,976 substitutions across 91 files.**
+- 🧪 **`tools/reskin.test.js`** — 13 assertions, wired into `run-all.js`. Proves the map is **complete**
+  (zero FR terms survive a full reskin), **safe** (no common word corrupted), **reactivity-preserving**
+  (every `when.deity` gate value swaps in lockstep with the character builds — faith-reactivity intact),
+  and **structure-preserving** (reskinned JSON stays valid and introduces no new broken references).
+- 🔎 Audited for **Product-Identity monsters** (beholder, mind flayer, githyanki, …): **none present**,
+  nothing to rename. `tiefling` intentionally **kept** — it's in the CC-BY 5.1 SRD.
+- 📖 **`docs/RESKIN_MAP.md`** — the copyright/trademark/mechanics breakdown (incl. the SRD-is-CC-now point),
+  the full original pantheon & world bible, and the how-to. Honest verdict: a day of tuning names changes
+  nothing about what makes the game land.
+
+---
+
 ## 🧵 v6.75.0 — *"The Unspooling"* — a conversation that forgets you as you have it (content)
 
 > Another tonal turn — from the Pardoner's comedy into quiet dread and almost unbearable tenderness — and
