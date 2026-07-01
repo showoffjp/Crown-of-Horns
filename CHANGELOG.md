@@ -11,6 +11,35 @@
 
 ---
 
+## 🔩 v6.78.0 — *"The Last Three Gaps"* — draw, banter & dynamic land in the C# runner (engine)
+
+> Closing out the Unity-bridge reactivity story. After variants → crit/fumble → non-flag gates, these were
+> the last three engine features the prototype used that the C# runner lacked. All three now land —
+> additive, backward-compatible, and emitted by the bridge. **Every reactivity feature the prototype uses
+> now has a C# home.**
+- 🎲 **Draw (random routing)** — `DialogueNode.draw` (`DrawOption[] { to, onceFlag, needFlag }`) +
+  `drawCountKey`/`drawMax`/`drawElse`. `DialogueRunner.HandleDraw` picks a random eligible option (skipping
+  already-seen `onceFlag`s and unmet `needFlag`s, honouring the `drawMax` cap), sets its once-flag, bumps
+  the counter, and routes — falling back to `drawElse`/auto when exhausted. This is the engine under the
+  **Wayward Mile** caprice router (13 options, drawMax 4). Mirrors the proven prototype `pickDraw` exactly.
+- 🎭 **Banter** — `DialogueNode.isBanter` + a `BanterHook` on the runner. A banter node hands off to the
+  party-banter system (`CampfireBanter`) and auto-advances; no subscriber = it simply auto-advances. The
+  banter engine stays separate — the node is just the intercept.
+- 🗣️ **Dynamic** — `DialogueNode.isDynamic` + a `ResolveDynamicChoices` hook. Game code supplies runtime
+  choices (e.g. the crier who recaps your deeds); returning null falls back to static choices/auto, so the
+  node always runs.
+- 🔧 **Touched, minimally:** `DialogueGraph.cs` (the `DrawOption` type + the new node fields),
+  `DialogueRunner.cs` (`HandleDraw` + the draw/banter/dynamic intercepts in `GoTo` + two optional hooks).
+  All additive; unwired hooks degrade gracefully to auto-advance — no existing behavior changes.
+- 🧱 **Emitter + gate:** `json-to-csharp.js` now emits `draw`/`drawElse`/`drawCountKey`/`drawMax` +
+  `isBanter`/`isDynamic`; `json-to-csharp.test.js` (now **44/0**) asserts they emit and that **draw
+  routing targets resolve** (folded into the corpus reference-integrity check).
+- 📖 `docs/UNITY_BRIDGE_PLAN.md`: draw/banter/dynamic moved to "implemented." Only `droppedSkillName` and
+  `choiceTag` remain, both explicitly informational/non-blocking. *(Honest caveat unchanged: no C# compiler
+  here, so the runner edits are unverified-until-compiled — kept small and mirroring the tested prototype.)*
+
+---
+
 ## 💍 v6.77.0 — *"The Vow"* — a wedding of the dead, and a new shape (content)
 
 > A deliberate break from *shape*, not just tone: eight two-soul "meet-A-and-B-and-mediate" zones in a row

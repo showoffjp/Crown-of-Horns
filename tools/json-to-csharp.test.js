@@ -49,6 +49,21 @@ check("a variant emits when-conditions + text; the default variant omits when", 
 })());
 check("a node with variants emits the variants array", E.emitNode({ id: "0", speaker: "X", text: "base", variants: [{ when: [{ key: "k", op: "RequireBoolTrue" }], text: "alt" }], choices: [] }, "").includes("variants = new[] { new DialogueVariant"));
 
+// ---- draw / banter / dynamic node emission ----
+check("a draw node emits DrawOption[] + drawMax/drawCountKey/drawElse", (() => {
+  const s = E.emitNode({ id: "r", speaker: "X", text: "", choices: [], draw: [{ to: "a", onceFlag: "seen.a", needFlag: "" }, { to: "b", onceFlag: "seen.b", needFlag: "cal.met" }], drawCountKey: "draws", drawMax: 4, drawElse: "quiet" }, "");
+  return s.includes("draw = new[] { new DrawOption { to = \"a\", onceFlag = \"seen.a\" }") && s.includes(`needFlag = "cal.met"`) && s.includes("drawMax = 4") && s.includes(`drawCountKey = "draws"`) && s.includes(`drawElse = "quiet"`);
+})());
+check("a banter node emits isBanter, a dynamic node emits isDynamic", (() => {
+  const b = E.emitNode({ id: "b", speaker: "X", text: "", choices: [], isBanter: true, autoNextNodeId: "1" }, "");
+  const d = E.emitNode({ id: "d", speaker: "X", text: "", choices: [], isDynamic: true, autoNextNodeId: "1" }, "");
+  return b.includes("isBanter = true") && d.includes("isDynamic = true");
+})());
+check("normNode carries draw/dynamic/banter from the raw prototype shape", (() => {
+  const n = E.normNode({ id: "1", draw: [{ to: "x", once: "seen.x", need: "y" }], drawCount: "d", drawMax: 3, drawElse: "e", dynamic: true, banter: true, choices: [] }, {}, "c");
+  return n.draw.length === 1 && n.draw[0].onceFlag === "seen.x" && n.draw[0].needFlag === "y" && n.drawCountKey === "d" && n.drawMax === 3 && n.drawElse === "e" && n.isDynamic && n.isBanter;
+})());
+
 // ---- non-flag character-state gates -> pc.* flag clauses (no runner change needed) ----
 check("a scalar deity gate becomes a pc.deity.* RequireBoolTrue clause", (() => {
   const [c] = E.normChoice({ text: "x", next: "1", when: { deity: "Kelemvor" } }, { nonFlagTranslated: 0 }, "loc");
@@ -95,13 +110,21 @@ check("the session's marquee content is in the emit set", (() => {
 // ---- reference integrity across ALL emitted (NEW) content (incl. crit/fumble routing) ----
 const badRefs = [];
 let critCount = 0, fumbleCount = 0, variantCount = 0;
+let drawCount = 0, banterCount = 0, dynamicCount = 0;
 for (const g of emitted) {
   const ids = new Set(g.nodes.map(n => n.id));
   if (g.startNodeId && !ids.has(g.startNodeId)) badRefs.push(`${g.conversationId} start->${g.startNodeId}`);
   for (const n of g.nodes) {
     variantCount += (n.variants || []).length;
+    if (n.isBanter) banterCount++;
+    if (n.isDynamic) dynamicCount++;
     const refs = [];
     if (E.endRef(n.autoNextNodeId)) refs.push(E.endRef(n.autoNextNodeId));
+    if (n.draw && n.draw.length) {
+      drawCount++;
+      for (const o of n.draw) if (E.endRef(o.to)) refs.push(E.endRef(o.to));
+      if (E.endRef(n.drawElse)) refs.push(E.endRef(n.drawElse));
+    }
     for (const c of n.choices) {
       if (E.endRef(c.nextNodeId)) refs.push(E.endRef(c.nextNodeId));
       if (c.checkDC > 0) {
@@ -113,8 +136,9 @@ for (const g of emitted) {
     for (const r of refs) if (!ids.has(r)) badRefs.push(`${g.conversationId}[${n.id}]->${r}`);
   }
 }
-check("every node reference in the new content resolves — incl. crit/fumble routing (no dead-ends): " + (badRefs.slice(0, 5).join(", ") || "all resolve"), badRefs.length === 0);
+check("every node reference in the new content resolves — incl. crit/fumble + draw routing (no dead-ends): " + (badRefs.slice(0, 5).join(", ") || "all resolve"), badRefs.length === 0);
 check("the new engine features are actually emitted (crit + fumble + variants, in quantity)", critCount >= 80 && fumbleCount >= 80 && variantCount >= 200);
+check("draw / banter / dynamic nodes emit and their draw targets resolve (the last three gaps)", drawCount >= 1 && banterCount >= 1 && dynamicCount >= 1);
 
 // ---- emit a real file and verify it is brace/bracket-balanced with strings masked ----
 const sampleFile = [...byFile.keys()].find(f => f.includes("seconddeath")) || [...byFile.keys()][0];

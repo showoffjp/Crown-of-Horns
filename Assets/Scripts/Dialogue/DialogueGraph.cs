@@ -53,6 +53,15 @@ namespace SunderedCrown.Dialogue
         [TextArea(2, 6)] public string text;
     }
 
+    /// <summary>One candidate branch of a random-draw node (e.g. the Wayward Mile's caprice router).</summary>
+    [Serializable]
+    public class DrawOption
+    {
+        public string to;                 // node to route to if this option is drawn
+        public string onceFlag;           // bool set true when drawn, so it won't repeat (blank = repeatable)
+        public string needFlag;           // required bool prereq (blank = always eligible)
+    }
+
     /// <summary>A single line of dialogue spoken by one party.</summary>
     [Serializable]
     public class DialogueNode
@@ -72,6 +81,21 @@ namespace SunderedCrown.Dialogue
 
         [Tooltip("If no choices, auto-advance to this node. Blank = end conversation.")]
         public string autoNextNodeId;
+
+        [Header("Random draw (optional — the Wayward Mile router)")]
+        [Tooltip("If set, this node routes to a random eligible option instead of showing itself.")]
+        public DrawOption[] draw;
+        [Tooltip("GameFlags int key counting how many draws have fired (for the cap).")]
+        public string drawCountKey;
+        [Tooltip("Once this many draws have fired, route to drawElse instead.")]
+        public int drawMax;
+        [Tooltip("Where to route when the draw is exhausted or capped (falls back to autoNextNodeId).")]
+        public string drawElse;
+
+        [Tooltip("Choices are generated at runtime by game code (ResolveDynamicChoices); static choices/auto are the fallback.")]
+        public bool isDynamic;
+        [Tooltip("This node hands off to the party-banter system (CampfireBanter) instead of showing a line.")]
+        public bool isBanter;
     }
 
     /// <summary>

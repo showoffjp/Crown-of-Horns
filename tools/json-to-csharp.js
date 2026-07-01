@@ -110,12 +110,27 @@ function emitVariant(v) {
   return `new DialogueVariant { ${parts.join(", ")} }`;
 }
 
+function emitDrawOption(o) {
+  const parts = [`to = ${csharpString(o.to)}`];
+  if (o.onceFlag) parts.push(`onceFlag = ${csharpString(o.onceFlag)}`);
+  if (o.needFlag) parts.push(`needFlag = ${csharpString(o.needFlag)}`);
+  return `new DrawOption { ${parts.join(", ")} }`;
+}
+
 function emitNode(n, indent) {
   const parts = [`id = ${csharpString(n.id)}`, `speaker = ${csharpString(n.speaker)}`, `text = ${csharpString(n.text)}`];
   if (n.variants && n.variants.length) parts.push(`variants = new[] { ${n.variants.map(emitVariant).join(", ")} }`);
   if (n.onEnter && n.onEnter.length) parts.push(`onEnter = ${emitClauseArray(n.onEnter)}`);
   const auto = endRef(n.autoNextNodeId);
   if (auto) parts.push(`autoNextNodeId = ${csharpString(auto)}`);
+  if (n.draw && n.draw.length) {
+    parts.push(`draw = new[] { ${n.draw.map(emitDrawOption).join(", ")} }`);
+    if (n.drawCountKey) parts.push(`drawCountKey = ${csharpString(n.drawCountKey)}`);
+    if (n.drawMax) parts.push(`drawMax = ${n.drawMax}`);
+    if (n.drawElse) parts.push(`drawElse = ${csharpString(n.drawElse)}`);
+  }
+  if (n.isDynamic) parts.push(`isDynamic = true`);
+  if (n.isBanter) parts.push(`isBanter = true`);
   let body = parts.join(", ");
   if (n.choices && n.choices.length) {
     const ci = indent + "    ";
@@ -218,7 +233,9 @@ function normChoice(ch, gaps, loc) {
 }
 
 function normNode(n, gaps, loc) {
-  const out = { id: n.id, speaker: n.speaker || "NPC", text: "", variants: [], onEnter: [], choices: [], autoNextNodeId: n.auto || "" };
+  const out = { id: n.id, speaker: n.speaker || "NPC", text: "", variants: [], onEnter: [], choices: [], autoNextNodeId: n.auto || "",
+    draw: Array.isArray(n.draw) ? n.draw.map(o => ({ to: o.to || "", onceFlag: o.once || "", needFlag: o.need || "" })) : [],
+    drawCountKey: n.drawCount || "", drawMax: n.drawMax | 0, drawElse: n.drawElse || "", isDynamic: !!n.dynamic, isBanter: !!n.banter };
   // base text = the node's own text, or the unconditional default variant
   if (typeof n.text === "string") out.text = n.text;
   else if (Array.isArray(n.variants)) {
@@ -284,5 +301,5 @@ function main() {
   console.log(`  drop into Assets/Scripts/Content/Bridge/ and call <Class>.Build(); compile once in the Editor.`);
 }
 
-module.exports = { csharpString, unescapeCsharpString, emitClause, emitChoice, emitVariant, emitNode, emitGraph, emitFile, className, graphsByFile, normChoice, normNode, normConversation, csharpConversationIds, isEndSentinel, endRef, FLAG_OPS };
+module.exports = { csharpString, unescapeCsharpString, emitClause, emitChoice, emitVariant, emitDrawOption, emitNode, emitGraph, emitFile, className, graphsByFile, normChoice, normNode, normConversation, csharpConversationIds, isEndSentinel, endRef, FLAG_OPS };
 if (require.main === module) main();

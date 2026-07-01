@@ -32,6 +32,14 @@ namespace SunderedCrown.Dialogue
         // Provide the speaking character's sheet so skill checks use real modifiers.
         public Func<Characters.CharacterSheet> ResolvePlayerSpeaker;
 
+        /// <summary>Optional: game code builds the choices for a node flagged isDynamic (e.g. the crier who
+        /// recaps your deeds). Returning null falls back to the node's static choices/auto.</summary>
+        public Func<DialogueNode, List<DialogueChoice>> ResolveDynamicChoices;
+
+        /// <summary>Optional: a node flagged isBanter hands off here (the CampfireBanter system) before
+        /// auto-advancing. No subscriber = the node simply auto-advances.</summary>
+        public Action BanterHook;
+
         void Awake() => Instance = this;
 
         public void Begin(DialogueGraph graph)
@@ -51,11 +59,22 @@ namespace SunderedCrown.Dialogue
             CurrentText = ResolveText(_current);
             ApplyClauses(_current.onEnter);
 
-            // Build the list of choices whose conditions currently pass.
-            var available = new List<DialogueChoice>();
-            if (_current.choices != null)
-                foreach (var c in _current.choices)
-                    if (ConditionsPass(c.conditions)) available.Add(c);
+            // Random-draw node (the Wayward Mile router): route to a random eligible option, don't show.
+            if (_current.draw != null && _current.draw.Length > 0) { HandleDraw(_current); return; }
+
+            // Banter node: hand off to the party-banter system, then auto-advance.
+            if (_current.isBanter) { BanterHook?.Invoke(); GoTo(_current.autoNextNodeId); return; }
+
+            // Build the list of choices whose conditions currently pass. Dynamic nodes let game code supply them.
+            List<DialogueChoice> available = null;
+            if (_current.isDynamic && ResolveDynamicChoices != null) available = ResolveDynamicChoices(_current);
+            if (available == null)
+            {
+                available = new List<DialogueChoice>();
+                if (_current.choices != null)
+                    foreach (var c in _current.choices)
+                        if (ConditionsPass(c.conditions)) available.Add(c);
+            }
 
             OnNodeShown?.Invoke(_current, available);
 
@@ -120,6 +139,35 @@ namespace SunderedCrown.Dialogue
             _graph = null;
             _current = null;
             OnConversationEnded?.Invoke();
+        }
+
+        // ---- Random draw (the Wayward Mile router) ------------------------
+
+        /// <summary>Pick a random eligible draw option and route to it: skip options already seen (onceFlag)
+        /// or whose prereq (needFlag) isn't met, honour the drawMax cap, and fall back to drawElse/auto when
+        /// the draw is exhausted. Sets the drawn option's onceFlag and bumps the draw counter.</summary>
+        private void HandleDraw(DialogueNode n)
+        {
+            var f = GameFlags.Current;
+            string elseTarget = !string.IsNullOrEmpty(n.drawElse) ? n.drawElse : n.autoNextNodeId;
+
+            if (!string.IsNullOrEmpty(n.drawCountKey) && n.drawMax > 0 && f.GetInt(n.drawCountKey) >= n.drawMax)
+            { GoTo(elseTarget); return; }
+
+            var eligible = new List<DrawOption>();
+            foreach (var o in n.draw)
+            {
+                if (o == null || string.IsNullOrEmpty(o.to)) continue;
+                if (!string.IsNullOrEmpty(o.onceFlag) && f.GetBool(o.onceFlag)) continue;
+                if (!string.IsNullOrEmpty(o.needFlag) && !f.GetBool(o.needFlag)) continue;
+                eligible.Add(o);
+            }
+            if (eligible.Count == 0) { GoTo(elseTarget); return; }
+
+            var pick = eligible[Dice.Roll(eligible.Count) - 1];   // Dice.Roll(k) returns 1..k
+            if (!string.IsNullOrEmpty(pick.onceFlag)) f.SetBool(pick.onceFlag, true);
+            if (!string.IsNullOrEmpty(n.drawCountKey)) f.AddInt(n.drawCountKey, 1);
+            GoTo(pick.to);
         }
 
         // ---- Variant resolution ------------------------------------------
