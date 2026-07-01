@@ -708,6 +708,40 @@
       ],
       "completionFlag": "us.sefa_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_vow",
+      "title": "The Vow",
+      "region": "The Vow — a grey canopy off the Lamplit Quarter",
+      "giver": "Neven, a widow of death who would marry again",
+      "premise": "Two Unclaimed souls found each other in the grey and mean to wed — but the Unclaimed get no priest, no god, no rite the world would count. And the bride's first husband, Ord, is here, watching, doing the hardest arithmetic a soul can do. Move among the three of them — the widow, her new love Verah, and the husband who cannot look away — and, as the one soul the Wall gave back, decide whether to stand up as the witness the Unclaimed are denied.",
+      "theme": "To be witnessed is the opposite of the Wall. A blessing given through tears is not a lesser blessing. Love that arrives second does not have to apologize for existing.",
+      "reward": "You officiate the godless wedding — radiant, with Ord crossing the ten feet to give her away, if you helped him find the grace; brave and quiet, grief unhidden at the candlelight's edge, if he could not. disp.merciful / honest by how you tend the three.",
+      "objectives": [
+        {
+          "objectiveId": "neven",
+          "desc": "Hear Neven's fear that a second love is a betrayal",
+          "completionFlag": "wd.met_neven"
+        },
+        {
+          "objectiveId": "ord",
+          "desc": "Reach Ord, the first husband, watching",
+          "completionFlag": "wd.met_ord"
+        },
+        {
+          "objectiveId": "verah",
+          "desc": "See Verah, the one who came late and loved anyway",
+          "completionFlag": "wd.met_verah",
+          "optional": true
+        },
+        {
+          "objectiveId": "wed",
+          "desc": "Stand up as the witness and marry them — however it lands",
+          "completionFlag": "wd.neven_answered"
+        }
+      ],
+      "completionFlag": "wd.neven_answered",
+      "failureFlag": ""
     }
   ]
 }

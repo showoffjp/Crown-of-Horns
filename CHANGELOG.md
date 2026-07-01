@@ -11,6 +11,36 @@
 
 ---
 
+## 💍 v6.77.0 — *"The Vow"* — a wedding of the dead, and a new shape (content)
+
+> A deliberate break from *shape*, not just tone: eight two-soul "meet-A-and-B-and-mediate" zones in a row
+> was becoming its own pattern. This is a small **ensemble** — three souls, one event the player
+> *catalyzes* — with a genuinely new player role: you don't *solve* a soul, you **perform a rite.** And it's
+> a warm, defiant counterweight to the recent heaviness: witnessing is the exact opposite of the Wall.
+- ❦ **Neven** — *a widow of death, about to marry again, afraid it's a betrayal.* Godless, luminous and
+  terrified at once, in a dress mended into a wedding gown. Her sense reveals the knot isn't Verah — it's a
+  belief the living world taught her, that love is a finite cup, and that a faithful widow holds it untouched
+  forever. It isn't; forty years didn't use love up, they taught her how to make more.
+- ◈ **Ord** — *the first husband, watching his widow wed again.* Not a villain — a man doing the hardest
+  arithmetic a soul can do and losing and doing it anyway. He has *already* decided he wants her warm; he's
+  stuck on how to bless it and grieve it in the same breath. Argue it (Persuasion crit/fumble) and he crosses
+  the ten feet at last — **crit:** *"a dead man, giving his widow away to a warmth he'll never feel again, and
+  blessing it gladly, with his whole broken radiant heart."* **Fumble:** you press it like a case and he digs
+  in — *"don't tell me to free her like she's trapped; tell me how to give her away like she's loved."*
+- ✿ **Verah** — *the second love, marrying into a grief she can't share.* The one who came late, who's
+  decided her job is to want as little as possible so no one can call her the intruder. Her sense: she's
+  allowed to be a bride at her own wedding, not a stagehand — *"to want to be held instead of to hold."*
+- 🕯️ **The rite:** as the one soul the Wall gave back — witnessed, and a witness — you stand up for a vow
+  no god will bless. If Ord found his grace, he gives her away and it's radiant; if not, you marry them
+  honest and small, the grief unhidden at the candlelight's edge. Either way it *counts* — the first
+  Unclaimed souls in the grey to be *seen* choosing each other.
+- 🔌 Wired through the generator (load + `NPC_SENSE` for all three souls + merges + scene dict + a
+  Lamplit→Vow exit). Tracked side-quest **"The Vow"** (now 26). Rebuilt `town_market.html` (**82 zones, 261
+  souls**) and the bundle. **Gate 801/0; full suite green;** the reskin + C# bridge both auto-cover the new
+  souls.
+
+---
+
 ## 🪪 v6.76.0 — *"Serial Numbers Filed"* — a licence-independent build from the same source (tooling)
 
 > De-risking the Forgotten Realms licensing question: if the licence falls through, the damage is

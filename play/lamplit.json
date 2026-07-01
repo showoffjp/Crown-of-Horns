@@ -147,6 +147,16 @@
           "y": 1
         },
         "label": "▸ grey robes over a patch of un-light — a death that should be impossible"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "wedding",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ a grey canopy and candles — two Unclaimed souls mean to wed, and a first husband watches"
       }
     ],
     "npcs": [
