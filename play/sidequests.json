@@ -771,6 +771,35 @@
       ],
       "completionFlag": "gr.sparrow_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_collector",
+      "title": "The Hoard",
+      "region": "The Hoard — a chair that shouldn't exist, off the Night Market",
+      "giver": "Vesper, the Collector — the one vivid soul in the grey",
+      "premise": "The only soul in the grey who isn't fading — because she stopped fading by wearing other people's best days. Magnetic, generous-seeming, and utterly predatory, she keeps a court of half-smudged souls who gave her their brightest pieces gladly, and she will offer you a taste of warmth (harder, the colder you've become). Read her, and you find there's nothing under the hundred stolen coats — she spent her own self first. The one thing that could break her is being made to feel a single stolen grief as hers to hold.",
+      "theme": "A private Wall, erasing people for her own brilliance. The robbed, unlike the erased, can be repaid. The coldest soul in the grey is the one at the center of the bonfire.",
+      "reward": "Crack her (a Persuasion crit/fumble): she gives the stolen selves back and fades, at last, as one cold nobody who is finally herself — and her court flickers back toward personhood. Or take a taste and become complicit. disp.honest / cunning / merciful, or ruthless if you feed on the hoard.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet the Collector and see what she's made of",
+          "completionFlag": "co.met_vesper"
+        },
+        {
+          "objectiveId": "toller",
+          "desc": "Find Toller, who gave her his daughter's face",
+          "completionFlag": "co.met_toller",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Make her feel what she's spent an age refusing to",
+          "completionFlag": "co.vesper_answered"
+        }
+      ],
+      "completionFlag": "co.vesper_answered",
+      "failureFlag": ""
     }
   ]
 }

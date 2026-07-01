@@ -165,6 +165,16 @@
           "y": 2
         },
         "label": "▸ a velvet stall in a crooked lane, hung with relics and patter — the Pardoner works the new dead"
+      },
+      {
+        "x": 0,
+        "y": 8,
+        "to": "collector",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ a chair that shouldnt exist, and the one vivid soul in the grey — the Collector keeps a hoard of stolen selves"
       }
     ],
     "npcs": [

@@ -11,6 +11,36 @@
 
 ---
 
+## ◆ v6.80.0 — *"The Collector"* — the magnificent bastard the run was missing (content)
+
+> The edge this run lacked. Every recent soul was sympathetic; the palette needed a genuine **antagonist
+> with menace** — in the key of Calloway (the magnificent bastard you loved) but a wholly different flavor,
+> and leaning on a system I'd barely touched: she tempts you **harder the colder you've become.**
+- ◆ **Vesper** — *the Collector, vivid with a hundred stolen selves.* The one soul in the grey who isn't
+  fading — because she stopped fading by *wearing other people's best days.* Magnetic, witty, generous-
+  seeming, genuinely delightful company, and utterly predatory. Her opening **reacts to your disposition**:
+  to a **cold/haunted** player (`disp.haunted ≥ 12`) she purrs an offer of warmth you can *feel* yourself
+  wanting; to a **Faithless** player she calls you her favorite vintage (no god to miss the warmth you'd
+  give). Read her (DC 14) and you find **nothing under the hundred coats** — she spent her own self first,
+  the coldest soul in the grey at the center of a bonfire of other people's lives.
+- ◌ **Toller** — *a soul who gave Vesper his best pieces, and can't remember why.* A father who handed her
+  his daughter's face for the warmth of being admired, now a rained-on page still murmuring *"isn't she
+  marvelous."* His sense reveals the mercy in the horror: the memories aren't destroyed, only *worn* — ten
+  feet away, intact — and **the robbed, unlike the erased, can be repaid.**
+- 🎲 **Four ways to answer her:** take **a taste** (the cold in you recedes for one shameful hour — and you
+  become complicit, `disp.haunted`+`disp.ruthless`); **name the theft** (she *applauds* — she knows, and
+  argues that the whole cosmos is theft and she merely robbed back); or the deep path (gated on reading her),
+  **make her feel one stolen grief as hers to hold** — a Persuasion crit/fumble. Land it and she gives the
+  hundred selves *back*, her court flickering toward personhood as she empties, and fades at last as one cold
+  nobody who is finally, wholly *herself.* **Crit:** she gives her own name back to herself like meeting a
+  stranger. **Fumble:** you go grand, and she's worn a hundred suits of *grand* — *"come back quiet, or not
+  at all."*
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Night
+  Market→Hoard exit). Tracked side-quest **"The Hoard"** (now 28). Rebuilt `town_market.html` (**84 zones,
+  265 souls**) and the bundle. **Gate 801/0; full suite green;** reskin + C# bridge auto-cover both souls.
+
+---
+
 ## ✲ v6.79.0 — *"The Greeter"* — a child, and the biggest job in the grey (content)
 
 > A register this run hadn't touched: **childhood**, handled with care — brave and tender, not grim, and
