@@ -151,6 +151,18 @@
               "to": "cap_dog_returns_0",
               "once": "cap.seen_dog2",
               "need": "cap.seen_dog"
+            },
+            {
+              "to": "cap_door_0",
+              "once": "cap.seen_door"
+            },
+            {
+              "to": "cap_stage_0",
+              "once": "cap.seen_stage"
+            },
+            {
+              "to": "cap_wren_0",
+              "once": "cap.seen_wren"
             }
           ],
           "drawCount": "cap.draws",
@@ -1506,6 +1518,307 @@
             }
           ],
           "auto": "END"
+        },
+        {
+          "id": "cap_door_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_door",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A door stands in the middle of the road. Just a door — a plain wooden one, in a plain frame, with no wall around it, no house behind it, nothing on the far side but more grey road you can see perfectly well by walking around it. It is shut. As you approach, there is a sound from the other side of it — the side that is also just road — a soft, polite, unmistakable *knock.* And then a voice, muffled, apologetic:)* …*(from inside a door that has no inside)* …is — is someone *there?* …oh, *thank* goodness. …i've — i've been *meaning* to come *out*, i really *have*, it's just — *(a nervous little laugh)* …it's very *big* out there, isn't it. the *out.* …*could* you — would you mind *terribly* — …*(the knob does not turn)* …*no.* …no, i can't, i — …*could* you just *tell* me …what it's *like?* …the *out?* …i haven't *looked* …in a *very* long time.",
+          "choices": [
+            {
+              "text": "*(open it — gently, from your side)* \"I'll open it. You don't have to do anything. Just... let me show you there's nothing to be afraid of out here.\"",
+              "next": "cap_door_open",
+              "effects": [
+                {
+                  "key": "cap.door_opened",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(knock back — meet them where they are)* \"...Knock knock. There. Now there's someone on your side too. You're not knocking into an empty road anymore.\"",
+              "next": "cap_door_knock"
+            },
+            {
+              "text": "\"There's nothing out here worth being afraid of — and nothing out here worth much at all. Grey road, grey sky. You're not missing a great deal. But you're also not alone unless you choose to be.\"",
+              "next": "cap_door_tell"
+            },
+            {
+              "text": "*(leave the door to its road)* \"...\" *(you walk on, and let the door keep its own counsel)*",
+              "next": "cap_door_leave"
+            }
+          ]
+        },
+        {
+          "id": "cap_door_open",
+          "speaker": "the soul behind the door",
+          "onEnter": [
+            {
+              "key": "cap.door_opened",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You turn the knob and swing the door wide — and there is no room, no house, no inside; there is only a soul, standing exactly where the far side of the door is, on the same grey road, clutching the frame as though it were a cliff's edge and not a thing with open air on every side of it.)* …*(they blink at the grey, at you, at the appalling openness they have been hiding from behind a door that never enclosed anything)* …*oh.* …oh, it's — it's just *road.* …*(a small, wondering, frightened breath)* …i built a whole — i've been *behind* this door for — i thought if i just *stayed* *in*, where it was *safe*, where nothing could — …*(they look at the door in their hands, understanding it for the first time)* …there was never an *in*, was there. …i've been *standing* in the *open* the *whole* time, *holding* a *door* …and *calling* it a *house.*",
+          "choices": [
+            {
+              "text": "*(don't make them leave — sit down in the doorway with them, and bring the world to the threshold)* \"Then let's not go anywhere. Sit down in the doorway with me. Half in, half out. You keep your door. I'll keep you company. The 'out' can come to us.\"",
+              "next": "cap_door_sit",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"You could set it down. The door. Whenever you're ready — not now if now's too much. It's been holding you as much as you've been holding it.\"",
+              "next": "cap_door_set"
+            }
+          ]
+        },
+        {
+          "id": "cap_door_sit",
+          "speaker": "the soul behind the door",
+          "onEnter": [
+            {
+              "key": "cap.door_befriended",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You sit down right in the frame, half in the nothing they called safe and half in the grey they feared, and after a long moment they lower themselves down beside you, still holding the door, but sitting, now, in the open, with someone.)* …*(a shaky, astonished sound that is almost a laugh)* …this is — i haven't *sat* *next* to *anyone* since — …*(they look out at the grey road, and it does not eat them, and slowly their grip on the frame loosens by a finger)* …it's not so *big*, when there's *two* of you looking at it. …*(quietly, the profoundest thing a frightened soul can learn)* …the *out* was never the *thing* i was *scared* of. …it was being in it *alone.* …*(they lean, just slightly, against your shoulder, door and all)* …*stay* till the *light* changes? …*(there is no light and it never changes, and that is exactly why the asking, and the staying, matters)* …*(you stay a while, in the doorway of a house that was only ever a door, and it is enough.)*"
+        },
+        {
+          "id": "cap_door_set",
+          "speaker": "the soul behind the door",
+          "text": "*(They look at the door, and for a moment you think they might — and then their hands tighten on it again, not from fear exactly, but from a tenderness toward the thing that got them through.)* …*not* — not *yet.* …*(gently, without shame now)* …i'm not — i think i'm not *ready* to be a soul with *no* *door* at *all.* …but i'll — *(they push it, experimentally, so it stands open instead of shut)* …*open.* i can do *open.* …*(a small, brave smile at the grey)* …*open's* a start. …*thank* you, cold one, for — for *knocking* *back.* …*nobody* *knocks* *back.* …they just walk *around.*"
+        },
+        {
+          "id": "cap_door_knock",
+          "speaker": "the soul behind the door",
+          "onEnter": [
+            {
+              "key": "cap.door_befriended",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(You rap your knuckles on the empty air beside the frame, and the effect on the voice within is immediate and enormous.)* …*(a sound of pure astonishment)* …you *knocked* — you knocked *back!* …*(the voice trembles with something that has been starved a long time)* …*nobody* — everyone just *walks* *around*, cold one, they *see* there's no *wall* and they *laugh* and they *walk* *around*, and i — i *hear* them *not*-*knocking* all the *long* while — …*(a wet, grateful breath)* …but you *knocked.* like it was a *real* door. like *i* was a real — …*(the knob turns, just a fraction, then stops, but it turned)* …*not* *today.* i can't *open* it *today.* …but you *knocked*, and now i *know* …the *next* one who *knocks* …*might.* …*(softly)* …you've made the *door* …a little less …*forever.* …*go* on, cold one. …and — *knock* on the *next* *lonely* thing you *pass*, would you? …it's the *whole* *world*, that. …*someone* *knocking* *back.*"
+        },
+        {
+          "id": "cap_door_tell",
+          "speaker": "the soul behind the door",
+          "text": "*(The honesty seems to settle them more than any comfort would have.)* …*grey* road, *grey* sky. …*(a small laugh)* …you're not *selling* it, are you. …*(and somehow that helps)* …*good.* everyone *else* who passes either *ignores* me or tries to *coax* me out with *promises* about how *lovely* it *is.* it *isn't* *lovely.* it's *grey.* …but you said the *other* thing. the *true* thing. *'not* *alone* unless you *choose* to *be.'* …*(the knob turns a quarter, holds)* …i'll — i'll *think* on that, cold one. *properly.* …a *grey* road with *company* …is a *different* *road* …than a *grey* one *alone.* …*(the door stays shut, but the voice is lighter)* …*come* *back* *by*, sometime. …i'm — *(a small joke, the first in an age)* …i'm *not* *going* *anywhere.*"
+        },
+        {
+          "id": "cap_door_leave",
+          "speaker": "the Wayward Mile",
+          "text": "*(You walk on, around the door that is only a door, and behind you the polite knocking resumes — patient, hopeful, aimed at the next soul who might pass, and the next, however long it takes.)* *(You do not open it. Some doors a soul must open from the inside, in their own time, and no kindness of yours can turn a knob that isn't ready. But you carry the sound of that knocking a little way down the road with you — a small reminder that half the grief in the grey is just souls behind doors that were never locked, waiting for someone to knock back.)*"
+        },
+        {
+          "id": "cap_stage_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_stage",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(A soul stands on a stage that isn't there — you can see the shape of it in the way they hold themselves, downstage-center, addressing a house of empty grey as though it were packed to the rafters. They are mid-rehearsal, and they clock you not as an intruder but as the thing they have been waiting an eternity for.)* …*an* *audience.* …*(they press their hands together, reverent)* …a *real* *one.* …cold one, i have *rehearsed* the *same* *scene* for — i've lost the *count* of it. *one* scene. the *only* one that *matters.* …and i have *never*, *not* *once*, had *anyone* to *play* it *to.* …*(they gesture at the invisible stage)* …*will* you? *sit*. *watch.* it's *short.* …it's the scene of *my* *death*, you see. …and i've — *(a flicker of shame under the theatricality)* …i've been *rewriting* it. the *ending.* i've *tried* it *a* *hundred* *ways.* …*(they take their mark)* …*watch*, and then *tell* me — *honestly* — …*which* *ending* …i should *keep.*",
+          "choices": [
+            {
+              "text": "*(watch the whole thing — every rewritten ending they've built)* \"I'll watch. All of it. Show me how you've been trying to end.\"",
+              "next": "cap_stage_watch"
+            },
+            {
+              "text": "\"Why rewrite it? What was wrong with the ending you actually got?\"",
+              "next": "cap_stage_why"
+            }
+          ]
+        },
+        {
+          "id": "cap_stage_watch",
+          "speaker": "the understudy of their own death",
+          "text": "*(They perform it, and they are, you realize, extraordinary — a soul who found their whole art too late, or never got to use it, pouring an eternity of unspent craft into the one scene they were ever cast in. And they play you the endings, one after another.)* *(In the FIRST, they die BRAVE — a defiant word, a lifted chin, a good line delivered clean.)* *(In the SECOND, they die at PEACE — surrounded, forgiven, a hand held, everything settled and soft.)* *(In the THIRD, they falter, and stop, and can't quite perform it, because the third is the TRUE one — and in the true one they died as they actually died: small, and afraid, and alone, and none of the fine words came, and there was no one holding a hand.)* …*(they turn to you, the performer's mask slipping)* …*those* are the — those are the *endings* i've *built.* the *brave* one. the *peaceful* one. and the — *(they can't say 'true')* …*which*, cold one? which should i — which should be the *one* i *keep?* which is the *real* *me?*",
+          "choices": [
+            {
+              "text": "\"Keep the brave one. Not because it's what happened — but because bravery you rehearse a hundred times is still bravery. You're allowed to author who you were.\"",
+              "next": "cap_stage_brave",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Keep the true one. The small, afraid, alone one. Because dying badly isn't a worse performance — it's just the one they gave you no rehearsal for. And it doesn't get the last word on who you were.\"",
+              "next": "cap_stage_true",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the thing that unmakes the whole exercise, kindly)* \"None of them. Because a death isn't an ending — it's just the last scene, and it's the shortest one, and it's the one you had the least say in. You were a whole play, friend. Stop rehearsing the final page. You were everything that came before it.\"",
+              "next": "cap_stage_whole",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cap_stage_brave",
+          "speaker": "the understudy of their own death",
+          "text": "*(They take it, and square their shoulders, and perform the brave ending one more time — and this time, with an audience, with a witness, it lands differently. Not as a lie over a shameful truth. As a choice.)* …*(a breath)* …*'you're* allowed to *author* who you *were.'* …*(they nod, slowly, the shame lifting)* …i *always* thought the *rewriting* was a *cheat.* a *coward* *painting* over how it *really* — …but you're saying it's — it's just *casting.* i get to *decide* which *take* is *canon.* …*(they lift their chin, and it is real now)* …then *the* *brave* one. …*(they bow to you, their one and only audience, an eternity of rehearsal finally received)* …*that's* a *wrap*, cold one. …*a* *hundred* *years* to a *full* *house* of *one.* …*worth* it. …*worth* *every* *empty* *night.*"
+        },
+        {
+          "id": "cap_stage_true",
+          "speaker": "the understudy of their own death",
+          "text": "*(They flinch from it, and then — because you're still sitting there, still watching, not looking away from the small afraid alone version — they perform the true ending. Once. All the way through. Badly, humanly, no fine words. And you don't leave. And that, it turns out, is the thing they needed and could never give themselves: a witness to the real one who stayed.)* …*(when it's done they are shaking)* …you *watched* the — you didn't *look* *away* from the *bad* one. …*(a wet, disbelieving breath)* …i *rewrote* it a *hundred* times because i couldn't *bear* for the *real* one to be *seen.* …and you just — *sat* there. and *saw* it. and you're *still* — …*(they wipe their face)* …*'it* doesn't get the *last* *word* on who you *were.'* …*(they nod, undone, freed)* …then i can *stop.* …i can stop *rehearsing.* …the *real* one's been *seen* now. by *someone* *kind.* …*that's* — *(barely)* …*that's* the *ending* i was *actually* *rehearsing* *toward.* …not a *better* *death.* …just *one* *soul* …who'd *watch* the *true* one …and *stay.*"
+        },
+        {
+          "id": "cap_stage_whole",
+          "speaker": "the understudy of their own death",
+          "onEnter": [
+            {
+              "key": "cap.stage_freed",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You refuse the question entirely, and the refusal hits them like the note a whole opera was building toward.)* …*(they go very still on their invisible stage)* …*the* *last* *scene* …is the *shortest* one. …*(they look, as if for the first time, at the enormous dark house of the whole rest of their life behind them)* …*(a sound comes out of them, half sob, half laugh)* …*a* *hundred* *years.* …a *hundred* *years* i've stood on this *one* *mark*, *rehearsing* the *four* *minutes* i *died*, and *forgetting* i had — cold one, i had a *whole* — there were *summers.* there was a *person* who *loved* my *loud* *laugh.* there was a *morning* i *fixed* a *thing* that was *broken* and felt like a *king.* …*there* was a *WHOLE* *PLAY.* …*(they step off their mark — off it, for the first time in an age)* …and i've been *stuck* on the *last* *page* …because i *died* *badly* …and thought *that* was the *review.* …*(they turn to you, luminous)* …*it* *isn't.* the *death* was *four* *minutes* of *bad* *staging.* …the *play* …the *play* was *good.* …*(they take one last bow, and this time it is not for the death, it is for the whole of it)* …*thank* you, cold one. …you didn't *pick* my *ending.* …you *reminded* me …i was *more* …than my *closing* *scene.* …*(and they walk off the stage that was never there, into the rest of a life they had forgotten they were allowed to remember.)*"
+        },
+        {
+          "id": "cap_stage_why",
+          "speaker": "the understudy of their own death",
+          "text": "*(The question stops the performance cold, and for a moment the real soul looks out from behind the theatricality.)* …*what* was *wrong* with it. …*(quietly)* …i died *badly*, cold one. …*small.* and *afraid.* and *alone*, with *none* of the — i was a *person* who *had* *words*, who could make a *room* *laugh* or *weep*, and when it *counted*, when it was *my* turn to — …*nothing* *came.* i just …*went* *out.* *frightened.* *quiet.* like a *nobody.* …*(the shame is total)* …so i've been *rewriting* it. giving my *death* the *lines* i *choked* on. …*(they look at you, pleading)* …is that — is that *pathetic? …or* is it the *one* *mercy* a *soul* can *do* for *itself* — …*give* the *worst* *four* *minutes* of its *existence* …a *better* *draft?* …*(they wait for your judgment, an artist and a coward and a grieving thing, all at once)* …*sit.* …*watch* them. …and *tell* me *which* one …*forgives* me.",
+          "auto": "cap_stage_watch"
+        },
+        {
+          "id": "cap_wren_0",
+          "speaker": "the Wayward Mile",
+          "onEnter": [
+            {
+              "key": "cap.seen_wren",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cap.draws",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(Two old souls sit on either side of the road, and they are *arguing*. Not fighting — arguing, the comfortable, total, load-bearing argument of two people who have been at it a very long time. As you approach, they both turn to you at once, each certain you are the arbiter they have awaited for a century.)* …*YOU!* — *(they say it in unison, then glare at each other for the overlap)* …*(the first, jabbing a finger)* …*settle* it, cold one. the *bird.* the one on the *washing*-*line*, the *last* *summer* we were both *alive* — *(the second cuts in)* …it was a *SPARROW*, i've *said* it a *hundred* — *(the first, overriding)* …it was a *WREN*, it had the *cocked* *tail*, i'd know a *wren* from a — *(the second)* …oh, here we *go* with the *tail* — …*(they both round on you)* …*(together)* …*well?* which was it? …we've *waited* a *hundred* *years* for someone who *saw* *birds* to *walk* *by.* …*settle* it. *finally.* …*(a beat)* …*(the first, quietly, almost to themselves)* …*(…a hundred years. gods. has it really been —)*",
+          "choices": [
+            {
+              "text": "*(actually settle it — look hard at the memory they're both describing, and identify the bird)* \"Describe it again. The tail, the size, the color. Let me tell you what it actually was.\"",
+              "check": {
+                "skill": "Nature",
+                "ability": "Intelligence",
+                "dc": 12
+              },
+              "next": "cap_wren_settle",
+              "crit": "cap_wren_crit",
+              "fumble": "cap_wren_fumble"
+            },
+            {
+              "text": "*(you see what the argument actually is)* \"...It doesn't matter what the bird was. Does it. You two have been arguing about a wren for a hundred years because the argument is the last thing you have that's *shared*. Settle it and you'd have nothing left to hold onto each other with. The bird isn't a wren or a sparrow. It's a rope.\"",
+              "next": "cap_wren_rope",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I refuse to settle it. Some arguments are load-bearing. Carry on — and enjoy every second of being wrong at each other.\"",
+              "next": "cap_wren_refuse"
+            }
+          ]
+        },
+        {
+          "id": "cap_wren_settle",
+          "speaker": "the two arguing souls",
+          "text": "*(You make them describe it — the cocked tail, the round brown body, the size of a thumb, the loud song out of all proportion to it — and you know your birds, and you tell them, plainly, what it was.)* …*(you deliver the verdict: it was a wren — the tail settles it)* …*(silence. a long one. the first soul looks vindicated, and then, unexpectedly, stricken. the second soul looks defeated, and then, unexpectedly, stricken too. because the argument is over.)* …*(the first, slowly)* …*i* — i was *right.* …*(and it does not feel the way a hundred years of being right was supposed to feel)* …*(the second, quietly)* …*yes.* …*yes*, you were. …*(they look at each other across the road, and something in both of them has come loose)* …*(the second)* …*well.* …*that's* — that's *that*, then. …*(a hundred years of a thing they did together, finished, in a sentence)* …*(they are quiet, and content, and beginning, very gently, to drift — the argument that anchored them settled, the anchor lifted)* …*(the first, softly, to the second)* …*it* was a *good* *hundred* *years* …of being *wrong* at *you.* …*(and they let go, unhurried, at peace, into whatever comes after an argument finally ends.)*"
+        },
+        {
+          "id": "cap_wren_crit",
+          "speaker": "the two arguing souls",
+          "onEnter": [
+            {
+              "key": "cap.wren_gift",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You know your birds cold, and you don't just name it — you give them the whole of it, the wren's cocked tail and its absurd enormous song, and then the thing they both actually miss underneath the argument: the washing-line, the last summer, the two of them young and alive and watching a small brown bird together, which is the real thing the century-long quarrel has been lovingly, stubbornly *keeping.*)* …*(they both go quiet, and this time it is not defeat, it is remembering)* …*(the first)* …the *washing*-*line.* …your *mother's* *sheets.* …*(the second)* …and you *spilled* the — we were *supposed* to be *taking* them *in* before the *rain* and instead we *stood* there *arguing* about a *WREN* while the *sheets* got *soaked* — …*(and both of them are laughing now, a hundred years falling away)* …*(the first, wiping their eyes)* …*that's* what it *was.* the *bird* was never the — it was the *sheets*, and the *rain*, and *you*, and being *twenty* and *stupid* and *not* *caring* about the *washing.* …*(they look at you, grateful past words)* …you didn't *end* our *argument*, cold one. …you *told* us what it was *ABOUT.* …*(they turn back to each other, and take it up again, but softer now, joyful)* …*'it* was a *WREN' — 'it* was a *SPARROW' —* …*(and they argue on, anchored, delighted, together, and there is no need to ever settle it now that they know what it holds.)*"
+        },
+        {
+          "id": "cap_wren_fumble",
+          "speaker": "the two arguing souls",
+          "text": "*(You squint at the memory and commit, with total confidence, to the wrong bird entirely — 'it was clearly a chaffinch' — and the two souls unite, instantly and joyfully, in the one thing better than winning: a common enemy.)* …*(they round on you in perfect, gleeful unison)* …*a* CHAFFINCH?! …*(the first)* …did you *hear* — a *CHAFFINCH*, they said — …*(the second)* …in a *hundred* *years* of *wrong* i have *never* heard *anything* as *wrong* as — …*(and they are, for the first time in a century, entirely on the same side, and it is against you, and they are having the time of their afterlives)* …*(the first, delighted)* …*OFF* with you, cold one, and take your *chaffinch* with you — …*(the second)* …*we'll* *settle* it *ourselves*, thank *you*, we don't need *bird*-*ignorant* *ghosts* — …*(and as you go, you hear them take it up again with fresh vigor, united in scorn, and you realize you have, by being magnificently wrong, given them another hundred happy years.)*"
+        },
+        {
+          "id": "cap_wren_rope",
+          "speaker": "the two arguing souls",
+          "onEnter": [
+            {
+              "key": "cap.wren_named",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(The word *rope* lands, and both of them stop, and for a moment the century-old argument hangs suspended, exposed for what it is.)* …*(the first, quietly)* …a *rope.* …*(they look at the second, across the road, across a hundred years)* …*(the second, just as quiet)* …*is* that — …oh. …*oh*, it *is*, isn't it. …if we *settle* it, there's — there's *nothing* *left* that's *ours.* just two *old* *souls* on a *grey* *road* …with *nothing* to *say.* …*(a long, tender silence, and then the first soul starts to smile)* …*(the first)* …*well* then i shall *never* *concede* it was a *sparrow.* …*(the second, smiling now too, eyes bright)* …*nor* i that it was a *wren.* …*(they take it up again, but they are looking at each other differently now, holding the rope on purpose, hand over hand)* …*(the first, to you, warmly)* …*clever* *thing.* you *saw* it. …*most* would've *settled* it and *walked* on and *left* us with *nothing.* …*(the second)* …*go* on, cold one. *leave* us to our *bird.* …*(a wink)* …*it* was a *wren*, of *course.* …but i'll *die* a *second* *death* …before i *tell* *him* *that.* …*(and they argue on, forever, anchored, and it is one of the great love stories of the grey.)*"
+        },
+        {
+          "id": "cap_wren_refuse",
+          "speaker": "the two arguing souls",
+          "onEnter": [
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(You throw up your hands and refuse to arbitrate, and the two souls exchange a look of deep, delighted approval.)* …*(the first)* …*ha!* a *wise* one. …*(the second)* …*finally*, someone who *understands* that the *point* was never to — …*(the first, cutting in)* …the point was *always* to be *proven* *right*, don't *reframe* it — …*(the second)* …*there* *he* goes *again* — …*(they're off, happily, and they wave you along without breaking stride)* …*(the first, mid-argument, to you)* …*good* *road* to you, cold one! …*(the second)* …*aye*, safe *travels* — it was a *SPARROW* — …*(the first)* …*WREN* — …*(and their voices carry after you down the grey road, two souls who will never dissolve because they will never, ever run out of things to be wrong at each other about, which is a kind of immortality, and a kind of marriage, and the warmest sound on the whole Wayward Mile.)*"
         }
       ]
     }

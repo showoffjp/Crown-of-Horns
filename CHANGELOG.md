@@ -11,6 +11,34 @@
 
 ---
 
+## 🎲 v6.81.0 — *"What the Road Throws, More of It"* — 3 new Wayward Mile caprices (content)
+
+> A change of *format* after eight big multi-soul zones — back to the **Wayward Mile caprices** you loved:
+> the short, idiosyncratic random events that come out of nowhere, a handful per playthrough. Three new
+> ones, each a completely different register, bringing the pool to **16** (still `drawMax` 4, so they stay
+> rare). And now that the C# `draw` router is bridged, all 16 auto-cross to Unity.
+- 🚪 **The Door** *(surreal / tender)* — a door standing alone in the road, no wall, no house, nothing on
+  the far side but more grey — and something knocks from the "inside," politely, apologetically. It's a
+  soul who never left home in life and clings to the one door even though it never enclosed anything. You
+  can open it (there was never an "in" — they've stood in the open the whole time), **knock back** (nobody
+  ever knocks back), or just sit in the doorway with them and bring the world to the threshold. *The "out"
+  was never the thing they feared; it was being in it alone.*
+- 🎭 **The Understudy** *(theatrical / melancholy)* — a soul rehearsing, to an empty grey house, the one
+  scene that matters: their own death, rewritten a hundred ways. They perform you the **brave** ending, the
+  **peaceful** ending, and the true one — small, afraid, alone, no fine words. Pick which they keep, or
+  refuse the whole exercise: *a death isn't an ending, it's the shortest scene and the one you had least say
+  in — you were a whole play; stop rehearsing the final page.*
+- 🐦 **The Argument** *(comedy → love story)* — two old souls who've argued for a century about whether a
+  bird on a washing-line was a wren or a sparrow, and won't dissolve until it's settled. **Settle it**
+  (Nature check, crit/fumble) and the anchor lifts and they drift apart, content; **be magnificently wrong**
+  (fumble: "a *chaffinch*?!") and you unite them against a common enemy for another happy century; or *name
+  what the argument actually is* — a rope, the last thing that's theirs — and they hold it on purpose, hand
+  over hand, forever. One of the great love stories of the grey.
+- 🔌 Merged into the `cap.road` draw router (16 options, integrity-checked); the C# bridge emits all 16
+  `DrawOption`s. Rebuilt `town_market.html` + the bundle. **Gate 801/0; full suite green.**
+
+---
+
 ## ◆ v6.80.0 — *"The Collector"* — the magnificent bastard the run was missing (content)
 
 > The edge this run lacked. Every recent soul was sympathetic; the palette needed a genuine **antagonist
