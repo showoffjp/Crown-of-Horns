@@ -468,6 +468,69 @@
               "next": "fire_road_unmade"
             },
             {
+              "text": "*(the mother in the Wall, and the daughter in the dawn)* \"…The one who climbed into the stone on purpose. What her love bought.\"",
+              "when": {
+                "flags": [
+                  "mt.met_wessel"
+                ]
+              },
+              "next": "fire_road_wall"
+            },
+            {
+              "text": "*(the witch-finder who sentenced himself)* \"…The man in the seawall who wanted the verdict.\"",
+              "when": {
+                "flags": [
+                  "pn.met_vidkun"
+                ]
+              },
+              "next": "fire_road_penitent"
+            },
+            {
+              "text": "*(the pardoner and his kinder lie)* \"…The fraud who sold a warmer heaven than the real one.\"",
+              "when": {
+                "flags": [
+                  "pd.met_voss"
+                ]
+              },
+              "next": "fire_road_pardoner"
+            },
+            {
+              "text": "*(the storyteller coming apart, thread by thread)* \"…The one who chose what to keep, at the end.\"",
+              "when": {
+                "flags": [
+                  "us.met_sefa"
+                ]
+              },
+              "next": "fire_road_unspool"
+            },
+            {
+              "text": "*(the wedding of the dead, and the husband who watched)* \"…The vow no god would bless.\"",
+              "when": {
+                "flags": [
+                  "wd.met_neven"
+                ]
+              },
+              "next": "fire_road_vow"
+            },
+            {
+              "text": "*(the child who greets the frightened dead)* \"…The keeper of the step.\"",
+              "when": {
+                "flags": [
+                  "gr.met_sparrow"
+                ]
+              },
+              "next": "fire_road_greeter"
+            },
+            {
+              "text": "*(the vivid one, wearing a hundred stolen selves)* \"…The Collector. The bonfire of other people's lives.\"",
+              "when": {
+                "flags": [
+                  "co.met_vesper"
+                ]
+              },
+              "next": "fire_road_collector"
+            },
+            {
               "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
               "next": "1"
             }
@@ -625,6 +688,236 @@
             }
           ],
           "auto": "fire_road"
+        },
+        {
+          "id": "fire_road_wall",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "mt.loop_closed"
+                ]
+              },
+              "text": "*(Wessel. The mother who claimed a heresy that was never hers, to strike the taint off her daughter and buy the girl a warm forever. You carried her word across the whole grey to Anwen in the dawn — and carried the daughter's answer back to the stone before it took the rest of her. She went lit. Not unmourned. You did the thing the Wall was built to make impossible: you carried love across it, both ways. *(quietly)* …the stone where she stood was warm, after. You felt it. You've been cold a long time, and you felt one warm stone, and you think about it more than you'd admit.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "dh.candle_lit"
+                ]
+              },
+              "text": "*(Wessel, and her daughter Anwen. You crossed to the dawn and told the girl the truth her mother died to keep from her — that the heresy was a coat, worn in the cold so the child could stay warm. She lit the candle. An eternity of crooked-healed peace broke open along the wrong-set seam, and underneath it was just the grief, true-sized at last. You may not have made it back to Wessel in time. But somewhere in the gold, a daughter grieves her mother right, now. You did that.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "mt.told_whole_truth"
+                ]
+              },
+              "text": "*(Wessel. You gave her all of it — that her daughter is warm, and safe, and ashamed of her, and doesn't know she was loved past damnation. She took it standing, the way she took the Wall. *'I'd rather she be warm and wrong about me than cold and right.'* You didn't spare her the cold half. She thanked you for not lying. She'd had enough of the kindness that's a lie. …so had you, you think. So had you.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "mt.wessel_rested"
+                ]
+              },
+              "text": "*(Wessel. You gave her the warm half and kept the cold half folded in your hand — told her only that her daughter is safe in the light, and let her rest without ever learning the girl grieves her angry. She went easy, weeping, glad. A kind lie, or a true mercy, or both. *(the fire pops)* …you've stopped being sure those are different things. Some nights that certainty is the thing you miss most.)*"
+            },
+            {
+              "text": "*(The woman who climbed into a Wall on purpose. Wessel. She wanted one thing — to know the lie worked, that her daughter reached somewhere warm — and you haven't brought her the answer yet. She's still there. Waiting on a stoop for a knock that's years late. …you know where the answer is. You just haven't crossed to get it. There's still time. There's almost always still time, until suddenly there isn't.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_penitent",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "pn.vidkun_turned"
+                ]
+              },
+              "text": "*(Vidkun. The witch-finder who dragged the godless to the Wall, then walled himself in penance and begged you to condemn him. You didn't. You showed him his penance was his crime in a martyr's coat — pain-as-justice turned inward — and something re-forged in him. The Choir's best weapon walked out of the stone to un-build the thing he served. *'A guilty man suffers. A redeemed one hunts.'* Somewhere out there tonight, the finders are being found. You did that, and it frightens you a little, and you're proud of it anyway.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "pn.made_him_listen"
+                ]
+              },
+              "text": "*(Vidkun, and Marenka. You didn't argue him free — you did the harder thing. You made him turn his head and let the woman he condemned, ten feet away, forgive him at last. A man who came starving to be condemned broke completely on the one thing he had no armor against: being forgiven by the one soul with standing to do it. You didn't judge him. You made him listen. …you think about how rarely anyone does the harder thing, and how you did, that once.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "pn.condemned"
+                ]
+              },
+              "text": "*(Vidkun. He begged you for a verdict, and you gave him the one he wanted: guilty, stay, suffer, the book balanced. He thanked you. That was the worst of it — the gratitude. And ten feet down the Wall, unheard, a woman who put her hate down a century ago watched you confirm the one sentence she'd spent all that time trying to overturn. *(the fire is quiet)* …the Wall won that night. You handed it a soul and called it justice. You're not sure, some nights, that you were wrong. You're not sure you were right, either.)*"
+            },
+            {
+              "text": "*(The witch-finder in the seawall. Vidkun. He wanted you to judge him — starved for it, the one soul in the grey who thinks he belongs in the stone. You walked the length and didn't rule. He's still there, rigid, waiting, half-sentenced. …a soul left half-sentenced, he told you, is a cruel thing. He'd know. He left enough of them.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_pardoner",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "pd.voss_redeemed"
+                ]
+              },
+              "text": "*(Voss. The pardoner who sold the dying a warmer heaven than the real one, and discovered the cruelest joke — his fakes were kinder than the truth. You handed the fraud a true fact: the warm place is real, you've stood in it. Forty years of armored cynicism met the one thing it couldn't survive, good news it couldn't disprove. He struck his own set and quit the racket. First honest day's work of his whole death. …a con man with a true thing to sell, at last. You gave him that. It suits him better than the lie did.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "pd.exposed"
+                ]
+              },
+              "text": "*(Voss, and the girl about to pay her name for his lie. You took the lie away — told her the truth, that the warm place he sold was invented, that she should keep whatever she was clutching. A cruel truth over a theft dressed as mercy. Voss didn't fight it. He just asked you to have something to put in the hole the truth leaves. …you hope you did. You think about that girl, standing in the bare grey with her name still hers and no candle in her hand, and you hope the truth was enough.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "pd.let_ride"
+                ]
+              },
+              "text": "*(Voss. You let him keep selling — let the frightened new soul buy her comfort, keep her candle even a fake one, walk off light. You and the pardoner agreed, that night, that a kind lie beat a true grey. *(the fire flickers)* …*'god help us both if we're right,'* he said. You've turned that over more than once. You still don't know. You suspect you never will, and that not-knowing is the honest place to live.)*"
+            },
+            {
+              "text": "*(The kindest fraud in the grey. Voss, the pardoner, selling the new dead a warm hereafter for the price of their names. You saw the con and left it running, undecided — is he a monster, or the only mercy in the market? He asked you that himself. You still haven't answered. He's still selling. The new dead never stop coming.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_unspool",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "us.sefa_chose_love"
+                ]
+              },
+              "text": "*(Sefa. The storyteller coming apart in the Wall's slow forgetting, who got to keep one thread as the rest unspooled. You helped her keep *him* — Edrin, the husband who stayed to be forgotten a thousand times. She went down knowing she was loved, held to the end, the gladness for him at last. *(quietly)* …a soul that got to choose its own last thought, in a place that steals even that. You gave her the choosing. Most never get it. You think about your own last thread, sometimes, and what you'd keep, and whose face.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "us.sefa_chose_self"
+                ]
+              },
+              "text": "*(Sefa. The teller, unspooling. You helped her keep *herself* — the first story she ever told, the winter and the fish and the brother who stopped crying, the moment she became who she was. She went down as Sefa entire, her own, not anyone's beloved — a teller telling, forever, in the one instant it mattered most. *'That's how a teller ends her own tale. Not on someone else's name.'* You gave a dissolving soul back to herself. That's a rare kind of mercy.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "us.sefa_chose_joy"
+                ]
+              },
+              "text": "*(Sefa. You helped her set the whole weight down — not a person, not a story, just a warmth. Warm bread, grey-gold light through a window, a morning that hadn't started yet and didn't hurt. She went down into the easy thing, not Sefa and not anyone's, just a body in a kitchen on a morning that doesn't ache. *(the fire is soft)* …not every ending has to mean something. Some of them just have to not hurt. You let hers be easy. That was the kindness she couldn't give herself.)*"
+            },
+            {
+              "text": "*(The soul who was coming apart — Sefa, the teller, forgetting herself thread by thread, meeting you always for the first time. She surfaced clear, once, and begged you to help her choose what to keep at the end. You didn't finish it. A story you don't finish, she said, just aches. …hers is still open. She doesn't have many clear moments left. You know that. You walked on anyway.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_vow",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "wd.ord_blessed"
+                ]
+              },
+              "text": "*(Neven's wedding. Two Unclaimed souls who found each other in the grey, and the first husband, Ord, watching. You didn't argue him into anything — you helped him find the grace to cross the ten feet himself, and he gave his widow away, weeping, meaning every tear. You stood up as the witness the Unclaimed are denied, and it counted. The first godless souls in the grey to be *seen* choosing each other. *(warm)* …you were the seeing. In a place built to leave souls unwitnessed, you were the witness. That's the whole war, in one wedding.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "wd.married"
+                ]
+              },
+              "text": "*(Neven's wedding. You married two Unclaimed souls under a grey canopy — and because the first husband couldn't quite cross the distance, you did it honest: small, brave, the grief standing just outside the candlelight, unhidden. You wouldn't build the joy on hiding his hurt. It counted anyway, quieter. …the Unclaimed learn early to build a whole life in the space the world leaves over. You helped two of them build theirs beside a grief, gently. Hoping he'd cross, someday.)*"
+            },
+            {
+              "text": "*(A wedding, of all things, in the land of the dead. Neven, godless and luminous and terrified, afraid a second love was a betrayal of the husband watching ten feet away. You left it unfinished — the vow unspoken, the canopy still empty. A vow you don't speak, she said, is the one that aches worst of all. …you know a little about unspoken things.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_greeter",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "gr.greeted_sparrow"
+                ]
+              },
+              "text": "*(Sparrow. The child who greets the frightened dead at the step — who came up the queue alone and shaking, with no one to catch her, and built her whole afterlife into a vow that no little one ever would. She holds every shaking hand, and no one ever held hers. So you sat down on the step and did the thing no one ever did: you said her own rules back to her, and held her hand, and greeted the greeter. *(the fire is very quiet)* …you gave the giver the thing she gives everyone and never gets. She stopped shaking. Rule five works. You keep it now, too — the one about being scared meaning you loved your life.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "gr.promised_successor"
+                ]
+              },
+              "text": "*(Sparrow. The keeper of the step, going soft at the edges, terrified of only one thing — that when she's gone, the next scared child comes up the queue and no one's there to catch them. Just like no one caught her. You promised her a successor. That the Job outlives her, that the chain won't break, that she won't be the last. *'Somebody's coming to catch them. Finally.'* …you gave a dying child the only thing she ever wanted. Not to stay. Just to not be the last. Teach the next one rule five. You promised.)*"
+            },
+            {
+              "text": "*(A child, at the step where the new dead arrive, teaching the scared ones a rulebook she made up because somebody had to. Sparrow. You met her, and heard about the biggest job in the grey, and moved on before you answered the fear she carries alone. She doesn't have long. Her edges are going soft. The step will be empty soon, unless someone sees to it. She asked you to think about who.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_collector",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "co.vesper_undone"
+                ]
+              },
+              "text": "*(Vesper. The Collector, the one vivid soul in the grey, warm with a hundred stolen selves — and hollow at the center, having spent her own self first. You didn't out-argue her; you can't, she's worn forty philosophers. You made her *feel* one stolen grief as hers to hold, and the bonfire collapsed inward. She gave the hundred selves back, her court flickering toward personhood as she emptied, and faded at last as one cold nobody who was finally, wholly herself. *'Thank you for handing me the one thing I could never steal. Myself.'* …you unmade a private Wall. One soul at a time is how it's done.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "co.cracked_her"
+                ]
+              },
+              "text": "*(Vesper. The Collector, vivid with stolen warmth, hollow underneath. You handed her a drowned girl's grief and made her hold whose it was, and something broke behind her eyes — a hundred refused griefs pressing at a door she'd held shut for centuries. She began to give them back. *'I spent me first, didn't I. The very first coin.'* You reached the coldest soul in the grey. Not with a verdict. With a single unbearable feeling she'd spent an age refusing. …you know something about refusing to feel things. That's why you knew where to press.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "co.tasted"
+                ]
+              },
+              "text": "*(Vesper. The Collector offered you a taste — warmth to fill the cold that's been climbing your arms — and you took it. A fisherman's daughter's wedding morning, someone else's summer, borrowed for one shameful hour. It faded, and you were colder after than before, and you understood exactly why the smudged souls in her court gave and gave. *(the fire dims)* …you didn't stay. But you know, now, that you *could* have. That the cold makes the theft make sense. That's the thing you carry away from her, and it's heavier than warmth.)*"
+            },
+            {
+              "text": "*(The one vivid thing in all the grey. Vesper, the Collector, wearing a hundred stolen lives, generous and magnetic and predatory, keeping a court of the half-faded who gave her their best days gladly. You saw what she was and left her to her hoard, undecided. *'Which of us,'* she asked, *'is really the Wall?'* …you didn't answer. You're still not sure you have one.)*"
+            }
+          ]
         }
       ]
     },

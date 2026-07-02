@@ -11,6 +11,36 @@
 
 ---
 
+## 🔗 v6.82.0 — *"The Road Remembers the Rest"* — the campfire reflects this whole run (content · cohesion)
+
+> Not a ninth isolated zone — the **connective tissue** that turns this run's zones from scattered rooms
+> into one journey. The Hearth's *"reckon up the road behind you"* reflection (the "world remembers" beat)
+> didn't know about anything built since v6.66.0. Now it does — and it reacts to **how you resolved each.**
+- 🔥 **Seven new campfire threads**, each gated on having walked the zone and voiced in outcome-keyed
+  variants (with a *default* that reflects leaving it unfinished):
+  - **The Wall** (Wessel/Anwen) — carried both ways / told Anwen / the whole truth / the kind lie / *still
+    unanswered, and there's almost always still time until suddenly there isn't.*
+  - **The Penitent** (Vidkun) — re-forged into the finder who turned / made him listen to Marenka /
+    condemned (*the Wall won that night*) / left half-sentenced.
+  - **The Pardoner** (Voss) — the fraud with a true thing to sell at last / exposed / let it ride (*god help
+    us both if we're right*) / left undecided.
+  - **The Unspooling** (Sefa) — kept him / kept herself / kept a small warmth / *hers is still open, and she
+    doesn't have many clear moments left.*
+  - **The Vow** (Neven) — Ord gave her away weeping / married quiet with the grief unhidden / the vow still
+    unspoken.
+  - **The Greeter** (Sparrow) — you greeted the greeter / promised her a successor / *the step will be empty
+    soon unless someone sees to it.*
+  - **The Collector** (Vesper) — unmade the private Wall / cracked her / *you took a taste, and now you know
+    you could have stayed.*
+- 🪞 Every thread is written in the reflective second-person "the fire" voice, folding each zone back into
+  the player's accumulated disposition and choices — the thing that makes a soul feel **seen** for the
+  specific road it walked, not a generic one. Merged into `hearth.fire` (17 reflection threads now),
+  autoPlay-safe (the "enough looking back" exit stays the sim's pick), every gate-flag set by live content.
+- ✅ Rebuilt `town_market.html` + the bundle. **Gate 801/0; full suite green;** reskin + C# bridge auto-cover
+  the new threads.
+
+---
+
 ## 🎲 v6.81.0 — *"What the Road Throws, More of It"* — 3 new Wayward Mile caprices (content)
 
 > A change of *format* after eight big multi-soul zones — back to the **Wayward Mile caprices** you loved:
