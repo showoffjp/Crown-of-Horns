@@ -823,6 +823,35 @@
       ],
       "completionFlag": "rd.tended",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_standing_fire",
+      "title": "Don't Go Gentle",
+      "region": "The Standing Fire — a milestone off the Grey Wayshrine",
+      "giver": "Rook, a firebrand raging against the quiet dead's slow surrender",
+      "premise": "A soul blazes on a milestone, shouting at the drifting dead not to fade quiet — because every soul that goes gentle into the Wall hands it a win, and anger is the one fuel the Wall can't digest. The rage is real and the cause is just. But under the fire is a single grief Rook has been screaming to avoid feeling. And a little way down the road sits Cinder, who raged exactly like this for a century and burned out into grey ash, and is the living warning of where the fire goes when it's lit to not-feel instead of to fight.",
+      "theme": "Is righteous fury hope, or grief in armor? A fire fed on grief you've let yourself feel warms you forever; a fire fed on grief refused eats the very thing you lit it for. Don't calm down — aim it.",
+      "reward": "Fan the flames (a rebellion, or a hundred souls taught a louder way to never heal); or reach the grief under the rage and aim it — the fire doesn't go out, it gets eyes. disp.heretical / merciful / honest by how you meet the fire.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear Rook's rage against the drifting dead",
+          "completionFlag": "fb.met_rook"
+        },
+        {
+          "objectiveId": "cinder",
+          "desc": "Meet Cinder, where the fire's road ends",
+          "completionFlag": "fb.met_cinder",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Meet the fire — fan it, or aim it at the grief underneath",
+          "completionFlag": "fb.rook_answered"
+        }
+      ],
+      "completionFlag": "fb.rook_answered",
+      "failureFlag": ""
     }
   ]
 }

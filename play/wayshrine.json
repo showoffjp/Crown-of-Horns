@@ -120,6 +120,16 @@
           "y": 2
         },
         "label": "▸ a plain bench at the roads edge, where an old soul sits finished and content, and waves you over"
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "to": "firebrand",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ a soul on a milestone, blazing, shouting at the quiet dead not to drift — the Standing Fire"
       }
     ],
     "npcs": [

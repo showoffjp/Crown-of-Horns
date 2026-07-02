@@ -11,6 +11,38 @@
 
 ---
 
+## ✺ v6.84.0 — *"The Firebrand"* — rage, and where it burns (content)
+
+> A register this run hadn't hit — **rage / defiance** — with an energy opposite to the tender "Your Turn,"
+> and played *directly against* it: this soul would call Oona's peaceful finish a **surrender.** (If you've
+> met Oona, Rook says so, to your face.) The hard question underneath: is righteous fury hope, or grief
+> wearing armor?
+- ✺ **Rook** — *a firebrand raging against the quiet dead's slow surrender.* Where every soul in the grey
+  dims, Rook *burns* — shouting the drifting dead awake, writing the faded on a board, insisting that a soul
+  that rages burns slower than a soul that sighs, that anger is the one fuel the Wall can't digest. The rage
+  is **real and the cause is just** — but read them (DC 13) and your sense finds the log at the bottom of the
+  fire isn't the Wall at all. It's a single grief: someone they loved faded *gentle* into the Wall while they
+  screamed to stay, and they've never once stopped moving long enough to feel it, because *fury is loud
+  enough to drown grief out.* Reacts to a **cold/haunted** player (*"the cold is rage with nowhere to go"*).
+- 🪫 **Cinder** — *the burned-out fire.* A soul who raged *exactly* like Rook, for a century, and burned out
+  into grey ash — the living warning. Her sense reveals the trap: a fire lit to *avoid* a feeling must burn
+  forever, and it consumes its own fuel — the anger, then the memory, then *the beloved face itself*, used as
+  kindling — until she can't remember the name she spent a hundred years being furious *for.* *"Grieve them
+  first. Keep the face. Then burn."*
+- 🎲 **Four ways to meet the fire:** **fan it** (a rebellion — or a hundred grieving souls taught a louder
+  way to never heal); **defend Oona's peace** (and Rook's fury cracks to show the wound: someone *they*
+  loved chose the Wall over staying); or the deep path (gated on learning the grief), **aim it** — don't
+  calm the fire, *grieve the thing and let the grief point it* (Persuasion crit/fumble). Land it and Rook
+  doesn't extinguish — they *forge*: **crit** turns the shouting agitator into something quieter and far more
+  dangerous, teaching the dead to *remember* each other (the one fire the Wall can't eat). **Fumble:** you
+  therapize them, and they hear the Wall's own voice — *"calm down, let go, make your peace."*
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Grey Wayshrine→
+  Standing Fire exit, beside Oona's bench so the peace/rage contrast is spatial). Tracked side-quest **"Don't
+  Go Gentle"** (now **30**). Rebuilt `town_market.html` (**86 zones, 267 souls**) and the bundle. **Gate
+  801/0; full suite green;** reskin + C# bridge auto-cover both souls.
+
+---
+
 ## ❈ v6.83.0 — *"Your Turn"* — the soul who tends you (content · inversion)
 
 > The freshest thing possible after this run: **invert the pattern itself.** Every soul so far has needed
