@@ -1,0 +1,438 @@
+# DENIZENS OF THE GILDED GATE — Wave I
+# A crowded, specific, human Lower City under the harvest's shadow. Comic, tragic, absurd,
+# sinister — many reactive to your Act I deeds (faction.*, act1.*). BG2 register: wit on top,
+# grief underneath, and the occasional person who is simply, gloriously, a lunatic.
+class: GateDenizensContent
+
+# ─── 1 ─── Jonn "Two-Cups" Tallow — chandler, supplies Aldric's kettle, doesn't know it ───
+conversation: npc.gate.twocups | Jonn "Two-Cups" Tallow
+node: 0 | Jonn Tallow
+  *(A round, anxious man behind a counter of candles, drinking from two cups at once — one tea, one something stronger, alternating.)* Customer! Gods, a customer, a live one — most of mine lately have that *look*, you know the look, the harvest-look, like they've already got one foot in the — anyway. Candles. Beeswax, tallow, scented, funereal, I do a lovely funereal. Half the Lower City's burying somebody. Business is, ah. Business is *grim*, is what business is.
+  enter: SET npc.twocups_met
+  auto: 1
+node: 1 | Jonn Tallow
+  *(He drinks from the wrong cup, grimaces, corrects.)* Why two cups? Tea calms the nerves, the other settles the tea. My physician says it's a "concerning system." My physician also owes me four crowns and is, I notice, never sober when he says it. *(He leans in, conspiratorial.)* Listen — you look like someone who *does* things. Can I ask you a thing? A worry thing? I've a worry, and Pellingham up the hill says worries are for the poor, and I says, lady, I *am* the poor, it's practically my trade.
+  * "Go on. What's the worry?" -> worry
+  * "Two cups is one cup short of a problem, friend." -> joke | fx appr.garrow +1
+  * "Sorry. I do things, but not *worry* things." -> decline
+node: worry | Jonn Tallow
+  *(He lowers his voice to a whisper that everyone can hear.)* I've a *standing order*. Big one. Best customer I've got — a chandler's chandler, kettle always on, very particular about the wax, pays in old coin, never haggles. And I heard a thing. I heard the man with the kettle is — *(he can't quite say it)* — is the one the Doomguides have papered the walls about. The Heretic. *(He drinks from both cups at once, which is new.)* And I don't know if I'm supplying a saint or a monster, and either way I rather need the four crowns.
+  enter: SET npc.twocups_suspects_aldric, SET sq.kettle_available
+  * "He's the man trying to tear down the Wall of the Faithless. Decide for yourself what that makes him." -> truth
+  * [INSIGHT 13] "You already know. You just wanted someone to make it harder to keep selling to him." -> insight ?? deflect
+  * "Keep selling. Coin's coin, and Aldric's the least of this city's monsters." -> keepselling | fx appr.garrow -1
+  * "Stop supplying him. Tell the Flaming Fist about the order." -> snitch | fx faction.fist +3, SET sq.kettle_betrayed
+node: truth | Jonn Tallow
+  *(He sits down heavily on a crate of funereal beeswax.)* Tear down the *Wall*. *(quietly)* My mother's in that Wall, friend. Doubted her whole life, sweet as anything, never hurt a soul, and they sorted her to the nothing for it. *(He looks at his two cups.)* So now I find out my best customer's the only man in the Realms trying to get her *out*, and he might burn down half the city to do it, and I'm sat here worried about four crowns. *(a wet laugh)* Gods, what a small man a worry makes you. ...Sell to him. And if you ever speak to him — tell him there's a candle here that doesn't cost. For the kettle. From a son.
+  enter: SET sq.kettle_blessing, SET npc.twocups_mother_in_wall
+  auto: close
+node: insight | Jonn Tallow
+  *(He stares at you, then deflates like a bellows.)* ...That's a horrible thing to be right about. *(He pushes one cup away — the strong one — a small, real act of courage.)* Yes. I knew. I've known a week. I just wanted somebody else to hold the knowing, so it'd weigh less. *(He doesn't pick the cup back up.)* It doesn't, by the way. Weigh less. But thank you for being the somebody.
+  enter: SET npc.twocups_honest, appr.garrow +2
+  auto: close
+node: deflect | Jonn Tallow
+  Just a worried man and his candles, friend. Forget I said anything. *(He drinks from both cups.)*
+  auto: close
+node: keepselling | Jonn Tallow
+  *(Relief, then a flicker of shame at the relief.)* ...Aye. Coin's coin. *(He doesn't sound convinced, but he writes the order anyway.)* You're probably right. Probably. *(He'll tell himself that for years.)*
+  auto: close
+node: snitch | Jonn Tallow
+  *(He goes pale.)* The Fist. Gods. I — aye, that's the *right* thing, isn't it, the lawful thing — *(he's already regretting it)* — only the lawful thing in this city wears Vayle's face and a torch, and now I've handed it a name. *(quietly)* I hope it was right. I'll not sleep wondering.
+  enter: SET npc.twocups_regret
+  auto: close
+node: joke | Jonn Tallow
+  *(He brightens for exactly one second.)* Ha! One cup short of a problem. I'll have that on my headstone. *(deflates)* Which, the rate the harvest's going, I should probably order now while I can still pick the wax.
+  auto: 1
+node: decline | Jonn Tallow
+  Fair, fair. Everyone's got a full plate and a half-empty city. *(He raises both cups.)* Candles when you need them. You'll need them. Everyone needs them, lately.
+  auto: close
+node: close | Jonn Tallow
+  *(He resumes his two-cup vigil, a small anxious man at the exact center of an enormous question, which is, you reflect, where most of us live.)*
+
+# ─── 2 ─── Lady Pellingham — patriar, collects "authentic experiences" ───
+conversation: npc.gate.pellingham | Lady Pellingham
+node: 0 | Lady Pellingham
+  *(Silk, three rings per finger, and the specific predatory delight of the very rich encountering something they cannot yet purchase.)* Oh. *Oh.* You're the dead one, aren't you. The Returned. *(She circles you like an auction lot.)* I simply must have you at my salon. Tuesday. The de Lancie woman had a genuine archdevil last season — a tedious creature, all contracts and ennui — but a person who has *seen the afterlife and come back to gossip*? Darling, you'd be the *event* of the year.
+  enter: SET npc.pellingham_met
+  auto: 1
+node: 1 | Lady Pellingham
+  *(She produces a tiny enameled notebook.)* Just a few questions for the invitations. Is the Wall as *dreadful* as they say? Did you see anyone *important*? And — this is the one everyone will ask, so do prepare a witty answer — what is death actually *like*? Make it pithy. My guests have the attention spans of mayflies and twice the jewelry.
+  * "It's like being filed under nothing while you're still awake to feel it. Pithy enough?" -> pithy
+  * [PERSUADE 15] "I'll come to your salon — if you fund Mother Cass's almshouse for a year. Authenticity has a price." -> patron ?? offended
+  * "Your archdevil was bored because the rich are the same on both sides of death. Good day." -> insult | fx appr.varra +3
+  * "I'm not a curiosity, Lady Pellingham." -> notcurio
+node: pithy | Lady Pellingham
+  *(For one instant — one — the predatory delight slips, and a frightened old woman looks out.)* ...Filed under nothing. *(She writes it down, hand not quite steady.)* That's — yes. That's very pithy. *(She closes the notebook.)* I shall be ninety next spring, you know. I have spent a great deal of money on the assumption that death is something that happens to *other* people, and you've just informed me, over the price of a salon invitation, that I have been *misinvested.* *(She rallies, because rallying is all she has.)* Tuesday. Eight o'clock. I'll seat you near the brandy. We frightened people drink near the brandy.
+  enter: SET npc.pellingham_frightened, SET sq.salon_available
+  auto: close
+node: patron | Lady Pellingham
+  *(She blinks, genuinely caught off guard, then laughs — a real one, surprised out of her.)* A *ransom* for my own party. Oh, I like you. The almshouse — that's Cass's grubby little place by the docks, the one that smells of cabbage and dignity? *(She waves a ringed hand.)* Done. A year. Cheaper than the archdevil and far better gossip. *(She makes a note.)* "Funded a charity to secure a dead person for Tuesday." Darling, I'll dine out on the *hypocrisy* alone for a month.
+  enter: SET npc.pellingham_patron, SET almshouse.funded, faction.fist +1
+  auto: close
+node: insult | Lady Pellingham
+  *(She gasps, delighted and offended in equal measure — to the rich these are the same emotion.)* The *same* on both sides! *(She fans herself.)* You horrid creature, that's going on the invitations whether you come or not. "An evening of mortal honesty — the Returned says we're all equally damned." They'll faint. They'll *adore* it. Go, go, be appalling somewhere else, you've made my entire season.
+  auto: close
+node: offended | Lady Pellingham
+  *(The ringed hand stops mid-air; the warmth, such as it was, frosts over.)* A *condition* on attending MY salon. *(She draws herself up to her considerable hauteur.)* Darling, one does not *negotiate* one's way into society — one is *admitted* to it, or one is *furniture* at it, and you have just upholstered yourself. *(She turns away.)* Pity. You had the makings of an anecdote. Now you're merely a *cause*, and causes are so terribly Tuesday-after-next.
+  enter: SET npc.pellingham_snubbed
+  auto: close
+node: notcurio | Lady Pellingham
+  *(She tilts her head, uncomprehending, the way a cat regards a closed door.)* Not a curiosity. *(slowly)* Darling, *everything* is a curiosity, given enough money. That's what the money is *for.* *(But something flickers.)* ...Though I suppose a thing that insists it isn't for sale is the rarest curiosity of all. *(She tucks the notebook away.)* Come Tuesday or don't. But you've made me curious about being un-buyable, and at my age, a new curiosity is worth more than a salon. Hmf. Off with you.
+  enter: SET npc.pellingham_intrigued
+  auto: close
+node: close | Lady Pellingham
+  *(She glides off toward someone less unsettling, already rewriting the anecdote into something that flatters her, which is the patriar's truest magic.)*
+
+# ─── 3 ─── Grud the Optimist — half-orc gravedigger, relentlessly cheerful ───
+conversation: npc.gate.grud | Grud the Optimist
+node: 0 | Grud
+  *(A vast half-orc leaning on a shovel, beaming, in a graveyard that is doing record business.)* Beautiful day for it! *(He gestures at the rows of fresh-turned earth like a proud gardener.)* Look at that drainage. Look at that *loam.* You know most folk see a graveyard and think sad thoughts? I see a *neighborhood.* Quiet neighbors. Never complain about the noise. Property values only go up — well. Down. But *up*, spiritually. *(He extends a hand the size of a dinner plate.)* Grud. I plant people. Best in the Gate.
+  enter: SET npc.grud_met
+  auto: 1
+node: 1 | Grud
+  *(He pats a headstone affectionately.)* This here's Old Merrow. Cheated me at dice for thirty years. Now he's under my shovel and I win every game, on account of he can't reach the cup. *(He laughs, then sobers, just slightly.)* Lot of harvest folk coming through lately, though. Them I don't joke about. Them I plant *careful.* A man's got to know which deaths are funny and which are just... Tuesday. *(He brightens again.)* You need planting? You look spry, but I'm a patient man, and I do a discount for repeat customers. ...You being a Returned and all. *(beat)* That were a joke. Mostly.
+  * "How do you stay so cheerful surrounded by all this?" -> cheerful
+  * [INSIGHT 14] "You're not cheerful. You're *defended*. The jokes are how you survive the careful ones." -> defended ?? laugh
+  * "The harvest folk — anyone come through you'd want me to know about?" -> harvest
+  * "Plant me when I'm done, Grud. Loam like that, who could refuse." -> plantme | fx appr.varra +2
+node: cheerful | Grud
+  *(He considers this seriously, leaning on the shovel.)* Way I figure it — somebody's got to be glad to see them. *(He looks out over the rows.)* They come to me on the worst day anybody's having, carried by people too cried-out to speak. And I can be one more grey face doing a grim job, or I can be the big daft fellow who tells them Old Merrow can't reach the dice cup, and gives the children a job holding the marker, and makes the worst day have *one* warm thing in it. *(He shrugs, mountainous.)* Cheerful's not how I feel. Cheerful's the *service.* Anybody can dig a hole. I dig a *kindness.*
+  enter: SET npc.grud_philosophy, appr.garrow +3
+  auto: close
+node: defended | Grud
+  *(The beam falters, and for a moment the half-orc is just tired, the way only the relentlessly cheerful get tired.)* ...You're a sharp one. *(quietly)* Aye. I planted my whole family in a fortnight, in the last bad winter. Eight of them. And I found that if I stopped smiling even once, I'd not get it started again, and then who'd be glad to see the next ones? *(He squares his shoulders, and the beam comes back, but you've seen behind it now.)* So I decided to be glad on purpose. Forever. It's the only fight I know how to keep winning. Don't tell the children. They like Old Merrow's dice story.
+  enter: SET npc.grud_grief, appr.garrow +4
+  auto: close
+node: harvest | Grud
+  *(His face goes still and careful — the planting-careful.)* Aye. One. Young fella, sorted to the Wall, but his sister couldn't afford a Choir burial nor a church one, so she brought him to me with nothing but his name on a scrap. *(He nods at a plain marker.)* I planted him free. Wrote the name myself. *(He looks at you.)* The church says the Faithless don't get markers — that's the *point*, the forgetting. So if you're the sort who pokes the church in the eye, you might tell that girl her brother's got a marker after all. Lula, her name is. Keeps a list of the forgotten. Find her if you've a heart for it.
+  enter: SET npc.grud_points_to_lula, SET sq.lulaslist_hinted
+  auto: close
+node: plantme | Grud
+  *(He roars with delight.)* HA! "Loam like that, who could refuse!" *(He claps you on the shoulder, nearly felling you.)* Oh, I *like* you. Tell you what — you die again, you come straight to Grud, no waiting list, premium plot, and I'll cheat Old Merrow out of his dice in your honor. *(He wipes his eyes.)* Spry AND funny. The good ones always plant well. Off you go. Try not to need me too soon.
+  auto: close
+node: laugh | Grud
+  *(He just laughs, big and uncomplicated.)* Defended! From a *graveyard!* Friend, the only thing I'm defending is this loam from amateurs. Go on with you.
+  auto: close
+node: close | Grud
+  *(He returns to his shovel, whistling something that might be a hymn or might be a drinking song — with Grud, you suspect, there was never much difference.)*
+
+# ─── 4 ─── Pib & Wee Pib — ratcatcher and his "apprentice" (a rat) ───
+conversation: npc.gate.pib | Pib (and Wee Pib)
+node: 0 | Pib
+  *(A wiry man with a sack, a stick, and a single enormous rat riding on his shoulder with the bearing of a small unpleasant king.)* Shh! *(He holds up a hand.)* Wee Pib is *thinking.* He thinks better than three guildmasters and a magistrate, do Wee Pib, on account of he's got no distractions, being a rat. *(The rat regards you with cold contempt.)* We're ratcatchers. Well. *I'm* the ratcatcher. Wee Pib's the consultant. Strategic vermin acquisition. He shows me where the others are. Professional courtesy, see. Rat solidarity, but for *money.*
+  enter: SET npc.pib_met
+  auto: 1
+node: 1 | Pib
+  *(He lowers his voice; the rat leans in too, uncannily.)* Here's the thing nobody'll credit. Since the harvest started, the rats've gone *strange.* Won't go near the Cinderhaunt. Won't cross where the Choir's been. Wee Pib reckons — and I trust him absolute — that the rats can *smell* the unmaking. The nothing. They run from where souls get filed. *(He taps his nose.)* Rats know death like you know your own hand. And lately they're running from places that look perfectly ordinary to you and me. Makes a fella think. Makes Wee Pib *furious*, which is his resting state, but extra.
+  * "You're telling me your rat is a... soul-detector." -> detector
+  * [ARCANA 13] "He's not wrong. Vermin flee thinning Weave — they feel the holes the harvest leaves." -> arcane ?? scoff
+  * "Where, specifically, are the rats refusing to go?" -> where
+  * "I'm going to pet the rat now." -> pet
+node: detector | Pib
+  *(Affronted on the rat's behalf.)* *Soul-detector.* He's not a *device*, he's a *colleague.* *(The rat preens.)* But — aye. In essence. Wee Pib's the finest unmaking-sniffer in the Lower City, and his rates are reasonable, being he works for cheese and the occasional act of recognition such as you have *signally failed to provide.* *(He sighs.)* Look. You're a Returned. You're a great big walking hole in death's bookkeeping. *(He squints.)* Wee Pib won't even look at you direct. That's either a very bad sign or he's sulking. With Wee Pib it's genuinely hard to tell.
+  enter: SET npc.pib_wee_pib_avoids_you
+  auto: close
+node: arcane | Pib
+  *(He grabs your sleeve, electrified.)* You — you *believe* me! A learned person, believing PIB! *(The rat sits up, vindicated.)* Holes the harvest leaves! That's it, that's the words, Wee Pib's been trying to tell me for a *month* and he's got no mouth-parts for the technical terms! *(He's nearly weeping.)* Do you know what it is to be *right* for years and have only a rat agree with you? It is *lonely*, friend. It is professionally lonely. *(He composes himself.)* Here. Wee Pib's map. The places the rats won't go. Might be the harvest's spread. Might be where they'll strike next. We give it free, to the one person who didn't laugh.
+  enter: SET npc.pib_gives_map, SET sq.harvest_map_obtained, appr.naeve +2
+  auto: close
+node: where | Pib
+  *(He unrolls a filthy, surprisingly detailed map, the rat supervising.)* Here, here, and — this one'll trouble you — *here*, under the Kelemvorite chapel. The *church's own floor.* Rats run from it like it's afire. *(He taps it.)* Now either the good Doomguides have got something unmaking in their cellar, or the harvest's reached holier ground than anyone'll admit. *(quietly, for once not performing.)* I'm a ratcatcher, friend. Nobody listens to ratcatchers. But you might. Somebody ought to look under that chapel before more rats are right about it than people.
+  enter: SET npc.pib_chapel_warning, SET sq.chapel_cellar_hinted
+  auto: close
+node: pet | Pib
+  *(Both man and rat freeze in identical horror.)* I would not. *(Wee Pib bares teeth that are far too large.)* He's a *consultant*, not a — he's bitten a magistrate, friend. The magistrate apologized. *To the rat.* *(beat)* ...But you can give him cheese. He respects cheese. It's the only thing he respects. Him and me both, if we're honest, which we're contractually not.
+  auto: close
+node: scoff | Pib
+  *(crushed)* ...Aye. Course. Madman and his rat. Heard it before. *(The rat looks away, wounded in its tiny cold heart.)* Go on. We've vermin to consult.
+  auto: close
+node: close | Pib
+  *(He shoulders his sack; the rat resumes its throne; and the two of them stalk off to be vindicated by no one, which is, you sense, the great tragedy and the only joy of Pib's entire career.)*
+
+# ─── 5 ─── The Weeping Auctioneer — sells the harvested's belongings, despises himself ───
+conversation: npc.gate.auctioneer | The Weeping Auctioneer
+node: 0 | Corval the Auctioneer
+  *(A dapper man at a podium, gavel in hand, tears running freely down his face the entire time, voice perfectly steady.)* Lot forty-one — a child's shoe, single, good condition, owner regrettably *(his voice does not waver; his eyes do not stop)* filed to the Wall. Do I hear two coppers. Two coppers for a shoe with nowhere left to walk. *(He sees you.)* Ah. A browser. Browse freely. Everything here belonged to someone the city decided to forget. I sell their forgetting back to them at a markup. *(The tears fall.)* It is the worst job in the Realms and I am very, very good at it.
+  enter: SET npc.auctioneer_met
+  auto: 1
+node: 1 | Corval the Auctioneer
+  *(He sets down the shoe with terrible gentleness.)* You're wondering why I weep. Everyone wonders. The simple folk think it's an act, for the crowd. The clever folk think I've a condition. *(He wipes his face with a black-bordered handkerchief and it does no good at all.)* The truth is duller and worse: I started weeping at the first harvest auction nine months ago and I have not stopped since. Not sleeping, not eating, not — *(small, awful laugh)* — not *auctioning.* The body decided. The body was right. I'm the only honest mourner in a city that's made forgetting into commerce, and I cannot even quit, because if I don't sell them gently, *(he gestures at the goblins and pawnbrokers circling)* — *they* will sell them cruelly.
+  * "Then stop selling. Walk away. Let it be cruel and let the cruelty be theirs, not yours." -> walk
+  * [PERSUADE 16] "Give me your ledger of the harvested. Every name, every lot. I'll make the forgetting cost the city something." -> ledger ?? compose
+  * "You're not a mourner, Corval. You're a profiteer who cries. The tears don't refund the markup." -> cruel | fx appr.garrow -2
+  * "Who buys a dead child's shoe?" -> whobuys
+node: walk | Corval the Auctioneer
+  *(He laughs, and it dislodges fresh tears, an endless supply.)* Walk away. *(quietly)* I have a daughter. She's nine. She's *alive*, gods keep it, but she eats, and the rent is the rent, and this is the only trade that's hiring in a city that's mostly funerals now. *(He picks up the gavel, hating it.)* So no. I can't walk away. I can only do the unforgivable thing *kindly*, which is no virtue, I know it's no virtue, it's just the shape my cowardice takes. *(He meets your eyes, streaming.)* But thank you for thinking I could. For one moment you made me a man with a choice. I'll keep that one. Lot forty-one, two coppers, do I hear two coppers...
+  enter: SET npc.auctioneer_daughter, appr.garrow +2
+  auto: close
+node: ledger | Corval the Auctioneer
+  *(He stops. The gavel lowers. For the first time the steady voice cracks.)* Make the forgetting *cost* them. *(He produces a thick, tear-warped ledger from beneath the podium, clutched like a relic.)* Every name. Every lot. Nine months of the disappeared, recorded by the one fool who couldn't stop crying long enough to look away. *(He presses it into your hands.)* Take it. Read them aloud somewhere it'll embarrass a patriar. Nail it to the church door. I don't care. I have been the city's *receipt* for its sins — *(the tears come faster, but there's something under them now, fierce)* — make me its *evidence* instead. Please. I should so love to be evidence before I'm a customer.
+  enter: SET npc.auctioneer_gives_ledger, SET sq.harvest_ledger_obtained, SET act1.mercy_remembered, appr.garrow +5
+  auto: close
+node: cruel | Corval the Auctioneer
+  *(He absorbs it without flinching, the way only a man who's said it to himself nightly can.)* The tears don't refund the markup. *(He nods, streaming.)* No. They don't. You're entirely right, and I've no defense, only a nine-year-old who'd like to keep eating. *(steady again, terribly)* You may be the first honest thing said to me at this podium. I'll remember you said it. I remember everything; it's my curse. Lot forty-one. A shoe. Two coppers. Going once.
+  enter: SET npc.auctioneer_judged
+  auto: close
+node: whobuys | Corval the Auctioneer
+  *(He gestures, weeping, at the crowd.)* Three sorts. Collectors, who want the *frisson* of owning a forgotten thing. Profiteers, who'll resell it. And — *(his voice finally, fractionally breaks)* — *survivors.* Now and then a mother buys back her own son's shoe, at a markup, from a weeping man, because the city sold her grief and this is the only counter that'll sell it back. *(He composes himself by main force.)* Those, I let win the bid. Quietly. It's the one larceny I commit, and I'd hang for it gladly, and no one's noticed yet. Don't tell the goblins. They'd want a cut.
+  enter: SET npc.auctioneer_secret_kindness, appr.garrow +3
+  auto: close
+node: compose | Corval the Auctioneer
+  *(He shakes his head, clutching the ledger closer, not yet, not for this.)* No. Not — not yet. I'm sorry. The ledger is the last of them I have left to protect. Convince me it'll be *evidence* and not just spectacle, and it's yours. But not for a clever word. They deserve better than to be a clever word. *(He resumes, streaming.)* Lot forty-one...
+  auto: close
+node: close | Corval the Auctioneer
+  *(The gavel falls. Somewhere a mother quietly wins a shoe. Corval weeps, and sells, and weeps, the city's one honest accountant of its own forgetting.)*
+
+# ─── 6 ─── Old Threnody — blind dirge-bard who claims she hears the Wall ───
+conversation: npc.gate.threnody | Old Threnody
+node: 0 | Old Threnody
+  *(A blind old woman on a chapel step, a cracked viol across her knees, playing something that makes the air feel like the inside of a grave.)* Sit, if you're sitting. Don't, if you're the sort that doesn't. *(She doesn't stop playing.)* I only know the one kind of song, child. Dirges. Have done since the Wall started getting *loud.* Oh, you can't hear it. Nobody can hear it but me and the dogs and the one mad ratcatcher. But it sings, the Wall does. A million voices and not one tune among them. I just put words to what I'm already hearing. Someone ought.
+  enter: SET npc.threnody_met
+  auto: 1
+node: 1 | Old Threnody
+  *(The viol moans.)* You, now. *You* I can hear different. *(Her clouded eyes find you with unsettling precision.)* The Wall sings a held note for everyone it's keeping — a long, flat, waiting sound. But you, child — you make the note *bend.* Like a string going slack. Like the Wall forgot the words to its own song when you walked past. *(She finally stops playing.)* I've sung over this city forty years. I have never once heard the Wall hesitate. You make it hesitate. Tell me true, while an old woman's nerve holds — what *are* you?
+  * "I'm the soul the Wall couldn't keep. The one whose name didn't take." -> name
+  * [PERSUADE 14] "Sing me the bent note. I need to hear what the Wall sounds like when it's afraid." -> sing ?? sorrow
+  * "I don't know what I am. I was hoping the song knew." -> unknown
+  * "Don't put me in your dirges, Threnody. I'm not dead yet." -> refuse
+node: name | Old Threnody
+  *(She nods slowly, and a tear tracks down a face that has cried so many it's worn channels.)* The one that didn't take. *(She plucks a single string, and it *bends*, exactly the wrong way, and the hair rises on your arms.)* That's you. That's the sound of you. *(quietly)* Do you know what hope sounds like, child, to someone who's only sung grief for forty years? It sounds *wrong.* It sounds like a mistake. *(She smiles, toothless and radiant.)* I have been waiting my whole career for a wrong note. Go and bend the whole song. I'll put it to words after, if there's anyone left to sing it to.
+  enter: SET npc.threnody_blessing, SET prologue.crack_seeded
+  auto: close
+node: sing | Old Threnody
+  *(She lifts the viol, and what comes out is not music. It is the sound of a million held breaths, and under it, threaded through, one note bending free — and you recognize it, with horror, as the sound you make. The crowd nearby goes silent. A dog howls. Threnody plays on, weeping, until she cannot.)* *(She lowers the bow, spent.)* That. That's the Wall, and that's you in it, pulling loose. *(barely a whisper)* It's the most frightened sound I've ever made. And the most *hopeful.* I didn't know a sound could be both. I do now. You taught an old dirge-singer something new at the end of her life. Bless you for it, and damn you for it, which round here is the same blessing.
+  enter: SET npc.threnody_played_the_wall, appr.naeve +3, appr.garrow +2
+  auto: close
+node: unknown | Old Threnody
+  *(She resumes playing, gently now.)* The song doesn't know *what* you are, child. Songs never do. They only know how you *feel*, which is a truer thing and no use at all for planning. *(the viol sighs)* And you feel like a door left ajar in a house full of the locked-in. *(quietly)* Whatever you are, you're a draught. And the kept have been so still, so long, that even a draught feels like weather. Go make weather. The still ones are dying of stillness.
+  enter: SET npc.threnody_door_ajar
+  auto: close
+node: refuse | Old Threnody
+  *(She cackles, delighted.)* Not dead yet! Oh, child, *none* of us are dead yet, that's the whole horror — we're all of us *not dead yet*, right up until the part where we're filed under nothing forever. *(She waves the bow.)* Fine, fine, no dirge for the living miracle. But I'll keep a verse open. I keep verses open for all the interesting ones. You'd be amazed how many come back to claim them.
+  auto: close
+node: sorrow | Old Threnody
+  *(She lowers the bow, gentle.)* Not today, child. Some sounds you don't make twice in a day; they cost too much, and I've a long evening of ordinary grief ahead. *(she plucks one soft, kind string)* Come back when your nerve and mine both hold. The Wall's note isn't going anywhere. More's the pity. More's the whole pity.
+  auto: close
+node: close | Old Threnody
+  *(She bends back over the viol, and the dirge resumes, and you walk away certain that the old blind woman on the chapel step understands the entire shape of the saga better than any priest, scholar, or king you will ever meet.)*
+
+# ─── 7 ─── The Smiling Man — Choir recruiter, far too reasonable ───
+conversation: npc.gate.smiling | The Smiling Man
+node: 0 | The Smiling Man
+  *(He is unremarkable in every way except the smile, which is warm, and patient, and never once reaches the stillness of his eyes.)* Friend. You look troubled. The whole city looks troubled, lately — and isn't that *strange*, in a city with a god who promises to keep the dead? *(The smile deepens, kindly.)* I represent some people who think the trouble has a cause, and a cure. We don't shout it from crates like that poor zealous boy on the corner. We just... ask reasonable questions. May I ask you one?
+  enter: SET npc.smiling_met
+  auto: 1
+node: 1 | The Smiling Man
+  *(He folds his hands.)* If a god could end all death — truly end it, the Wall and the grave and the grief, every one — and the only cost were a little fire now, in the short term, borne by people who were going to die anyway... *(the smile holds, immovable)* ...would refusing that not be the *real* cruelty? I ask everyone. Most can't answer. You, I think, can. You've seen the other side of the question. So. Would refusing be cruel?
+  * "That's not a question. That's a leash with a smile on it." -> leash | fx faction.choir -4
+  * [INSIGHT 16] "You don't believe a word of it. You're a recruiter, not a believer — Aldric's the true one, and you're his salesman." -> salesman ?? smile
+  * "Yes. Refusing would be cruel. ...And I still might." -> might
+  * "Take your reasonable question and your unreasonable smile elsewhere." -> dismiss | if act1.named_vayle_monster
+node: leash | The Smiling Man
+  *(The smile does not falter — that is the unsettling thing, it *never* falters.)* A leash with a smile. *(He inclines his head, as if you've paid him a compliment.)* You're sharper than most. Yes, of course it's a leash. *Everything* offered to the grieving is a leash. The church's heaven is a leash. The Heretic's cure is a leash. The difference is only which hand holds it, and whether that hand smiles. *(softly)* I smile. You'll find, in the end, that you prefer the leash that smiles. They all do. We're very patient. Grief makes everyone patient eventually — patient, and tired, and ready to be led.
+  enter: SET npc.smiling_unmasked
+  auto: close
+node: salesman | The Smiling Man
+  *(For one half-second — one — the smile *thins*, and something cold and amused looks out, and then it's gone.)* ...Ah. You've met the type before. *(He doesn't deny it.)* Yes. Aldric *believes*; belief is his gift and his disease. I *sell.* He's never noticed the difference, bless him — a true believer never can tell the apostle from the hawker, they sound so alike. *(the smile returns, complete)* But understand: a thing can be *sold* and still be *true.* The Wall really is a horror. The cure really might work. I'm simply the one who can say so without weeping, which makes me far more dangerous than the weepers, and far better company. Do consider us.
+  enter: SET npc.smiling_is_salesman, SET act1.choir_doubt_seeded
+  auto: close
+node: might | The Smiling Man
+  *(Genuine, naked delight — the first real expression you've seen on him.)* *"And I still might."* *(He actually claps, once, soft.)* Oh, that's *honest.* That's the most honest thing anyone's said to me at this corner. You understand the cost, you grant it's cruel to refuse, and you reserve the cruelty anyway, *knowingly.* *(the smile turns, for once, into something like respect)* That's not a recruit. That's a *peer.* We don't get peers. We get the desperate and the certain. *(he steps back, bowing slightly)* When you choose — and you will choose, your sort always does — I do hope you'll remember the man who didn't lie to you about the leash. So few of us don't.
+  enter: SET npc.smiling_respects_you
+  auto: close
+node: dismiss | The Smiling Man
+  *(He bows, the smile sailing serenely on.)* You named the Doomguide a monster, I hear, in the firelight at Hollowmere. *(He's well-informed; that's its own threat.)* So you're not squeamish about monsters — you're only deciding *which* monster you trust. That's all anyone in this city is doing. *(he withdraws)* When you've finished deciding, friend, the Choir's door smiles wider than the church's. Remember that. Monsters should stick together. We're so rarely invited anywhere else.
+  enter: SET npc.smiling_notes_your_deeds
+  auto: close
+node: smile | The Smiling Man
+  *(The smile receives your failed read like a wall receiving a thrown pebble.)* Mm. Not quite. *(gently)* You reached for the man behind the smile and found only more smile. Don't feel badly. Cleverer people have. *(he folds his hands)* The offer stands, friend. It always stands. That's the whole technique.
+  auto: close
+node: close | The Smiling Man
+  *(He turns to the next troubled face in the crowd, and the warm, patient, bottomless smile begins again, word for word, and you understand that you have met something far more frightening than a fanatic: a man who is *right*, and *calm*, and *for sale.*)*
+
+# ─── 8 ─── Velith the Unlucky — a gambler who genuinely cannot win ───
+conversation: npc.gate.velith | Velith the Unlucky
+node: 0 | Velith
+  *(A thin man at an empty gaming table, rolling dice against himself and losing.)* Don't. *(He doesn't look up.)* Whatever you're about to propose — a wager, a game, a friendly little flip of the coin — don't. Not out of menace. Out of *mercy.* I am Velith, and I cannot win. Not "rarely win." *Cannot.* I have flipped a two-headed coin and had it land on its edge, in mud, and roll into a sewer, and come up tails *somehow.* The gods don't hate me. Hate would require attention. They simply *forgot to give me luck*, and I've been filing the complaint for thirty years.
+  enter: SET npc.velith_met
+  auto: 1
+node: 1 | Velith
+  *(He rolls. Snake eyes. He nods, unsurprised, almost serene.)* See? *(He sweeps his own coins toward an empty chair, paying a debt to no one.)* People think it's a curse. It's not dramatic enough for a curse. A curse would *do* something. This is just... statistical malice. The universe's most boring miracle. *(He finally looks at you, and his eyes are oddly peaceful.)* But here's the thing nobody believes until they've lost everything they have: once you *cannot* win, you stop being afraid of losing. And a man with nothing left to lose is the freest creature in the Gilded Gate. Ask me anything. I've no luck to protect.
+  * "If you can't win, why keep rolling?" -> whyroll
+  * [INSIGHT 14] "You're not unlucky. You're *grieving*. You gambled away something that mattered, and now you lose on purpose so it stops being your fault." -> grief ?? laugh
+  * "A man with nothing to lose. I could use one of those. Walk with me." -> recruit
+  * "Roll for me. Once. Let's see if my luck cancels yours." -> rollforme
+node: whyroll | Velith
+  *(He gathers the dice with a gambler's tenderness.)* Because the *roll* is the only honest moment left in this city. *(quietly)* Everything else is rigged — the harvest, the church, the patriars' courts, the Choir's smiling man. Everyone's loading the dice. But *my* dice? *(he tumbles them)* My dice are pure. Incorruptibly, catastrophically *fair.* They take everything from me every single time, and they never once cheat to do it. *(he smiles, beatific)* In a city of loaded games, I am the last honest table. I lose, but I lose *clean.* You've no idea how restful that is. Pull up a chair. Lose something clean. It's the only luxury I can afford to share.
+  enter: SET npc.velith_philosophy
+  auto: close
+node: grief | Velith
+  *(The dice go still in his hand. For a long moment he says nothing.)* ...Her name was Anneke. *(very quietly)* I had one good roll, once. One. The best of my life — a card-game that won me a little house and a future and a girl who laughed at my terrible luck like it was charming. And I got *greedy*, friend. I bet the house, the future, the lot, on one more roll, because for once I thought my luck had *turned* — *(he sets the dice down)* — and it hadn't, and I lost it all, and her with it. *(he meets your eyes)* So now I lose on purpose. Small things. Coppers. Because if I'm *meant* to lose, then losing Anneke wasn't my *fault*, it was just... the dice. *(a broken smile)* You're the first to see the difference. Damn you for it. ...Thank you for it. With me it's the same coin. Lands on its edge.
+  enter: SET npc.velith_anneke, appr.varra +3, appr.garrow +2
+  auto: close
+node: recruit | Velith
+  *(He laughs, the first warmth in it.)* Walk with you. A Returned and a loser — gods, what a pair. *(he pockets his pure, pitiless dice)* You know what, miracle? Yes. A man who fears losing is a man who hesitates, and you don't look like you can afford a companion who hesitates. *(he stands)* I'll throw myself between you and whatever's coming, gladly, because the *worst* case is I die, and dying's just the biggest loss, and I've made my peace with the whole *genre.* *(beat)* Besides. Standing next to the one thing in creation that beat the house? *(grinning)* Maybe your luck's contagious. It's the first bet I've wanted to make in years.
+  enter: SET npc.velith_joins_loosely, SET sq.velith_wager_available
+  auto: close
+node: rollforme | Velith
+  *(He hesitates, then — intrigued — places the dice in your palm.)* The Returned's hand. The one thing the universe couldn't keep. *(quietly)* Go on, then. Roll. If anything in the Realms could break my streak, it's the soul that broke death's bookkeeping. *(You roll. The dice tumble. And come up — gods — a perfect, impossible pair of sixes, the first win Velith has witnessed in thirty years. He stares. His eyes fill.)* ...Oh. *(barely a whisper)* Oh, you *can.* You really are a hole in the rules. *(he closes your fingers over the dice, reverent.)* Keep them. The luckiest things I own, for the one night they ever worked. And friend — if you can break *my* luck, you can break anything. *Anything.* Go and prove me right.
+  enter: SET npc.velith_witnessed_a_win, SET npc.velith_lucky_dice, appr.varra +2
+  auto: close
+node: laugh | Velith
+  *(He chuckles, sweeping coppers to the empty chair.)* Grieving! Everyone's a philosopher when they meet a loser. No, friend, I'm just unlucky — it's far less interesting and twice as permanent. Roll if you're rolling. Or move along and let an honest man lose in peace.
+  auto: close
+node: close | Velith
+  *(He rolls again. Loses again. And smiles, the freest man in the Gilded Gate, at the one honest table in a loaded city.)*
+
+# ─── 9 ─── Sergeant Bricka — Flaming Fist, gallows humor, reactive to your standing ───
+conversation: npc.gate.bricka | Sergeant Bricka
+node: 0 | Sergeant Bricka
+  *(A scarred Fist sergeant eating a meat pie with the grim efficiency of someone who's learned to eat whenever there's food, because there often isn't.)* Huh. The dead one. *(She chews.)* You know how many "impossible" things I've filed a report on this year? Six. A talking statue, a rain of frogs that turned out to be a wizard's laundry accident, and now you, four times, because nobody upstairs believes the first three reports. *(she gestures with the pie)* I've stopped being amazed. Amazement's a young soldier's hobby. I'm just trying to get through my shift without it ending up being *about* anything.
+  enter: SET npc.bricka_met
+  auto: 1
+node: 1 | Sergeant Bricka
+  *(She squints at you, sizing up which kind of trouble you are.)* So which are you. Because from where I stand there's three kinds of person in the Gate right now: the kind that makes my shift longer, the kind that makes it shorter, and the kind that makes it *end early and badly.* *(she finishes the pie)* The harvest's got everyone choosing sides — church, Choir, Heretic — and every side's convinced the other two are the villains, and meanwhile *I'm* the one scraping the results off the cobbles. So. You going to make my shift longer, shorter, or fatal? Be honest. I've a pie's worth of patience and it's gone.
+  * "Shorter. I'm trying to end the harvest at the source." -> shorter | if act1.vayle_third_path
+  * "Longer, probably. I attract complications." -> longer
+  * "I helped your sergeant at the gate. Ask him. I'm on the short-shift side." -> ally | if act1.fist_ally
+  * [INSIGHT 13] "You've already decided I'm trouble. You're just hoping I'm the *useful* kind." -> useful ?? shrug
+node: shorter | Sergeant Bricka
+  *(She actually stops chewing.)* The *source.* *(she sets down the pie, which from Bricka is the equivalent of standing at attention)* You know how long I've been writing "recommend addressing root cause" at the bottom of harvest reports? Eleven months. You know what happens to those recommendations? They get *filed*, which in this city is a word with a nasty second meaning. *(she stands)* If you're really going for the source — not a side, the *source* — then you've got one Fist sergeant's unofficial, deniable, absolutely-against-orders help. *(she jerks a thumb at the barracks)* I know which patrols are bought and which doors don't lock. Come find me. Let's make my shift *shorter* for once. Permanently.
+  enter: SET npc.bricka_ally, SET sq.fist_backchannel, faction.fist +5
+  auto: close
+node: longer | Sergeant Bricka
+  *(She sighs, retrieves the pie.)* Knew it. The honest ones are always the complicated ones. *(she resumes eating)* Fine. You'll make my shift longer. But you know what? *(grudgingly)* Longer's better than *fatal*, and lately those are the only two options walking through my district. A complication I can write up is a complication that didn't kill anybody. *(she points the pie at you)* Stay the *write-up* kind of trouble, dead one. The other kind, I have to attend the funerals for, and I've run out of black.
+  enter: SET npc.bricka_neutral
+  auto: close
+node: ally | Sergeant Bricka
+  *(She brightens fractionally — for Bricka, a sunrise.)* You're the one Hargroves vouched for. *(she nods, recalculating)* He's a soft touch but he's not a *fool*, and if he stuck his neck out for a walking corpse, the corpse is probably worth a sergeant's nod. *(she offers the last bite of pie, the highest honor in her gift)* Here. Fist hospitality. You're on the short-shift list, dead one. That means when you're in my district and something goes sideways, my patrol arrives *first* and asks questions *second.* In this city that's worth more than gold and twice as rare as honesty.
+  enter: SET npc.bricka_ally, faction.fist +3
+  auto: close
+node: useful | Sergeant Bricka
+  *(A bark of laughter, genuine.)* Ha! Aye. Caught me. *(she salutes with the pie)* I decided you were trouble the second I saw you — that's just *experience*, dead one, everything interesting is trouble — but I'm *hoping* you're the kind of trouble I can point at *bigger* trouble. *(she leans in)* Because there's a lot of bigger trouble in this city right now, and a sergeant's got no budget to address root causes, but a *miracle* with a grudge? That's off the books entirely. Be my off-the-books solution. I'll keep the patrols off your back. Deal?
+  enter: SET npc.bricka_ally, SET sq.fist_backchannel, faction.fist +4
+  auto: close
+node: shrug | Sergeant Bricka
+  *(She shrugs, unbothered, eating.)* Cold read, dead one. I've been read by better and arrested most of them. *(she waves the pie)* Go on. Be whatever kind of trouble you are. I'll find out which on the report, same as always.
+  auto: close
+node: close | Sergeant Bricka
+  *(She finishes the pie, dusts the crumbs from a breastplate that's stopped more knives than she'll ever admit, and ambles back toward a shift that is, against all the odds of the Gilded Gate, still merely long and not yet fatal.)*
+
+# ─── 10 ─── Mother Cass — runs the almshouse, carries the unclaimed dead's tokens ───
+conversation: npc.gate.cass | Mother Cass
+node: 0 | Mother Cass
+  *(A stout old woman in an apron, ladling soup in a low room that smells of cabbage and, underneath it, of dignity kept alive by sheer stubbornness.)* Sit, sit, there's broth — don't argue, everyone who comes through that door gets broth, it's the one rule, even the dead ones. *(she peers at you)* And you'd be a dead one, wouldn't you. I can always tell. Not by the chill. By the *eyes.* The recently-dead and the about-to-die have the same eyes — like they've read the last page and didn't care for the ending. Here. *(she presses a bowl into your hands.)* You'll have read a worse ending than most. Broth first. Sorrows after.
+  enter: SET npc.cass_met
+  auto: 1
+node: 1 | Mother Cass
+  *(She wipes her hands and produces, from a deep apron pocket, a heavy clinking bag.)* These are tokens. *(she pours a few into her palm — small clay disks, each scratched with a name.)* One for every soul that died in my almshouse with no kin to claim them, no coin for a burial, no name the church would write. The Faithless, most of them. The forgotten. *(her voice is matter-of-fact, which is somehow worse than weeping.)* I make a token. I scratch the name. And I keep them, because somebody has to, because the whole *point* of the Wall is that nobody does. *(she looks at you.)* I'm seventy-one, love. When I go, the bag goes in a drawer and the names go quiet. I've been praying for someone who could carry them somewhere they'd *matter.* And then a dead thing walked in for broth.
+  * "Give me the tokens. I'll carry them to the Court of the Dead itself if I have to." -> carry | fx SET almshouse.token, SET sq.cass_tokens_taken, appr.garrow +6
+  * [PERSUADE 15] "Don't give them away yet. Let me get the almshouse funded so YOU can keep carrying them — and outlive the drawer." -> funded ?? humble
+  * "Why clay? Why not just remember the names yourself?" -> whyclay
+  * "That's a heavy bag for one old woman." -> heavy
+node: carry | Mother Cass
+  *(Her hands shake as she ties the bag closed and presses it into yours, and she does not let go for a moment.)* You'll carry them. *(quietly)* I have ladled broth in this room for forty years and buried half the people I served it to, and I have never once been able to do the one thing that mattered — make the *forgetting* stop. *(she finally lets go)* Now there's a token in that bag for every name the city threw away, and a Returned to carry it, and if you ever stand before the god of the dead himself — *(her voice cracks, the first crack)* — you put these on his table, love. You make him *read them.* That's all the unclaimed ever wanted. Not heaven. Just to be *read.*
+  enter: SET almshouse.token, SET sq.cass_tokens_taken, SET act1.mercy_remembered
+  auto: close
+node: funded | Mother Cass
+  *(She blinks, the ladle pausing.)* Fund the — outlive the drawer. *(slowly, a hope she'd long since stopped letting herself feel)* You'd get some patriar to pay for cabbage and broth and a roof, so I could keep the bag a while longer, keep scratching names, keep being the one who remembers? *(she sets the bag down, but close, like a hand on a sleeping child.)* That's — love, that's better than carrying them away. That's letting the *remembering* go on living. *(fierce, suddenly)* Yes. Yes, do that. I'm not done. I've names in me yet, and broth to ladle, and I will be *furious* to die before the drawer's full. Get me my roof. I'll keep the dead company till you do.
+  enter: SET npc.cass_wants_funding, SET sq.almshouse_funding_active, appr.garrow +5
+  auto: close
+node: whyclay | Mother Cass
+  *(She turns a token over in her fingers, fond.)* Because memory dies with me, love, but clay's stubborn. *(she taps it.)* A thing I *remember* is a thing that ends when I do — and at seventy-one, that's a short lease on a soul. But a thing I *make*, with my hands, with the name scratched in — that can be held by another hand after mine. *(she presses the token to her chest.)* The church writes the saved in a great gold book and says that's eternity. I scratch the forgotten in cabbage-smelling clay and say *this* is eternity, the kind you can fit in an apron. *(she smiles, gap-toothed.)* I'll back my clay against their gold any day. Clay remembers the ones the gold left out.
+  enter: SET npc.cass_philosophy, appr.garrow +3
+  auto: close
+node: heavy | Mother Cass
+  *(She hefts the bag, and her old arms know its weight exactly.)* Aye. It is. *(quietly)* Gets heavier every season, and not just the clay. *(she sets it down with a tenderness usually reserved for the living.)* But here's the thing, love — it's *meant* to be heavy. A light bag would mean I'd stopped scratching names, and a city that lets you carry the forgotten *lightly* is a city that's finished forgetting them. *(she returns to her ladle.)* So I carry it heavy, and I complain about my back, and I keep the names. It's the most useful aching I've ever done. Drink your broth. You've a heavy bag of your own to carry, I think, and yours doesn't fit in a pocket.
+  enter: SET npc.cass_wisdom
+  auto: close
+node: humble | Mother Cass
+  *(She shakes her head gently, pressing the bag toward you anyway.)* No, no — you're kind, love, but no patriar funds an old woman's bag of dead strangers. I've asked. They smile and they don't. *(she ties the bag.)* Take them instead. A dead thing carrying the dead — that's a likelier miracle than a rich man's charity. Carry them well. That's the only funding the forgotten ever get: somebody who won't put the bag in a drawer.
+  auto: close
+node: close | Mother Cass
+  *(She resumes ladling broth for the about-to-die and the already-gone, a small stout monument to the radical proposition that no one, no one at all, should be filed under nothing while Mother Cass has cabbage and breath.)*
+
+# ─── 11 ─── Tobias the Tax-Ghost — a dead clerk who doesn't know he's dead ───
+conversation: npc.gate.tobias | Tobias Ledgerwhite
+node: 0 | Tobias Ledgerwhite
+  *(A translucent, fastidious clerk shuffling spectral papers at a desk that isn't there, in the corner of a counting-house everyone else carefully avoids looking at.)* You're late. *(he doesn't look up.)* Form fourteen-C, the harvest-tithe reconciliation, was due at noon and it is — *(he checks a watch that passes through his own wrist)* — it is always noon, somehow, which is precisely the *sort* of irregularity I'd flag if anyone would *bring me the form.* No one brings me the form. No one brings me *anything.* The service in this counting-house has deteriorated *shockingly* in the last — how long has it been? It feels like months. Have I had lunch? I can't recall having lunch.
+  enter: SET npc.tobias_met
+  auto: 1
+node: 1 | Tobias Ledgerwhite
+  *(He finally looks up, and there's a terrible bewildered patience in him.)* You'll do. You've a *competent* look. Tell me — and I ask everyone, and they all just *walk away*, the rudeness — tell me why no one will process my filings. Why my colleagues won't meet my eye. Why the ink won't take and the papers won't stay and I can't, for the *life* of me, recall going home. *(he laughs, a thin spectral thing.)* "For the life of me." Curious expression. Why did that feel... cold, just now. Why is it always noon. Tell me. You've a competent look. Competent people give straight answers.
+  * "Tobias. You're dead. The harvest took you. You've been filing forms in the afterlife." -> dead
+  * [INSIGHT 15] "The form you keep waiting for is your own death certificate. Some part of you knows. That's why it's always noon — you stopped the clock at the moment." -> certificate ?? confused
+  * "You're not late, Tobias. You're early. You died before your time, and the paperwork hasn't caught up." -> early
+  * "What was the last form you remember filing?" -> lastform
+node: dead | Tobias Ledgerwhite
+  *(The spectral papers drift to the floor that isn't there.)* ...Dead. *(a long, awful pause, his whole fastidious world rearranging.)* That would — *(slowly)* — that would actually reconcile a great deal. The ink. The noon. The cold. The way Henrik on the third stool keeps *weeping* when he passes my desk; I'd assumed a personal matter. *(he looks at his translucent hands.)* I'm *dead.* And I've been... working. *(and then, devastatingly, the smallest, most human thing:)* Did anyone notice I'd gone? Or did they only notice the forms stopped? *(he is weeping now, ghostly and silent.)* Forty years I balanced this city's ledgers. I should so like to know if I balanced as a *person*, or only as a *function.*
+  enter: SET npc.tobias_knows, SET sq.taxghost_active
+  auto: 2
+node: certificate | Tobias Ledgerwhite
+  *(He goes very still, and for the first time the fussiness drops entirely.)* ...My own. *(he understands all at once, the way only a clerk could — through the filing.)* The form I've been waiting for is the one that files *me.* And I've stopped the clock at noon because — *(his voice fails)* — because to let it strike one would be to let the day *end*, and a day that ends is a *life* that ended, and I am not — I was not — *ready.* *(he looks at you with infinite weary gratitude.)* No one's ever been competent enough to tell me. They just look away. You looked *at* me, and read the ledger of me, and found the one unfiled form. *(quietly)* Thank you. I think. Ask me to help and I'll know, now, that it's a dead man volunteering. That's only proper. One should know one's own status before signing anything.
+  enter: SET npc.tobias_knows, SET sq.taxghost_active, appr.naeve +2
+  auto: 2
+node: early | Tobias Ledgerwhite
+  *(He brightens, pathetically.)* Early! Yes — *early*, that's far more *orderly* than the alternative I can feel pressing at the edges. *(but the relief can't hold.)* Though... early for *what*, exactly. The paperwork catching up to *what.* *(his face falls by degrees as the logic completes itself, because he is, above all, logical.)* ...Oh. Oh, I see. The form that's late is the one that ends me. I've been *avoiding my own deadline.* *(a hysterical little laugh.)* A lifetime of punctuality and I'm late for the only appointment that mattered. *(he steadies.)* Help me file it properly. If I must be dead, I'll be dead *correctly*, with the forms in order. It's all I ever was. It's not nothing. Tell me it's not nothing.
+  enter: SET npc.tobias_suspects, SET sq.taxghost_active
+  auto: 2
+node: lastform | Tobias Ledgerwhite
+  *(He frowns, reaching back.)* The last form. Let me — it was — *(his spectral hand finds it in the air, and he reads, and the color drains from a face that has none.)* "Harvest reconciliation, district seven. Souls processed: four hundred and eleven. Discrepancy: one. Unaccounted: one." *(he looks up, terrified.)* District seven is *this* district. And the discrepancy — the one unaccounted soul — *(he stares at his own translucent hands.)* The form I was filing when I died was the form that *should have listed me.* And I left myself off. I was the discrepancy. I've been hunting my own missing entry for — for however long noon has lasted. *(quietly)* Help me account for the one unaccounted soul. Help me file *Tobias.* I cannot rest as a rounding error.
+  enter: SET npc.tobias_the_discrepancy, SET sq.taxghost_active
+  auto: 2
+node: confused | Tobias Ledgerwhite
+  *(He blinks, the fussiness snapping back like a defense.)* My own — no, no, that's far too *irregular* a notion, a form that files the filer, it doesn't *reconcile.* *(but his hands have begun to tremble through the desk.)* ...Though it would explain the noon. And the cold. And why Henrik weeps. *(he shakes himself.)* No. I shan't think about it. I shall simply wait for someone to bring the correct form, as I always have, as I always — *(quietly, lost)* — as I always will, apparently. Forever. At noon. *(he doesn't finish the thought; some part of him won't let himself.)*
+  enter: SET npc.tobias_in_denial
+  auto: 2
+node: 2 | Tobias Ledgerwhite
+  *(He gathers his spectral papers with shaking, careful hands.)* Then here is my situation, stated plainly, as I'd want it stated to me: I am dead, unfiled, and stuck. To move on — to let it be one o'clock at last — I must complete my own death-certificate, form forty-four, which requires *(he winces)* three signatures I can no longer obtain: my employer's, the church's, and *(quietly)* a witness who'll swear I *mattered*, which is the box no clerk ever expects to need filled, and which I find, at the end, is the only one I'm afraid of. Will you help me file myself? It is a small quest, and a strange one, and the most important thing I have ever asked anyone.
+  enter: SET sq.taxghost_active
+  * "I'll get your three signatures, Tobias. Including the last one." -> accept | fx SET sq.taxghost_accepted, appr.garrow +3
+  * "Why does a clerk need a *witness that he mattered* to rest?" -> whymatter
+  * "I have my own dead to file first. But I'll come back." -> later
+node: accept | Tobias Ledgerwhite
+  *(He straightens, and forty years of dignity settle onto him like a clean coat.)* Then I am, for the first time since noon, a man with a *deadline he intends to meet.* *(he hands you a blank form forty-four, which somehow you can hold.)* The employer's signature you'll find at the counting-house above; the church's at the Kelemvorite chapel, though they're stingy with ink for the Faithless and I may technically qualify, which is a horror I'll address *after* I'm filed. And the witness — *(he falters)* — the witness I leave to you. You barely know me. But you're the only one who *looked.* Perhaps that's witness enough. Perhaps that's what witnessing *is.*
+  auto: close
+node: whymatter | Tobias Ledgerwhite
+  *(He folds his hands precisely.)* Because, in forty years of balancing this city's books, I came to suspect I *was* a book — a function, a column that added correctly and was loved by no one and noticed only when it stopped. *(quietly)* The death-certificate's witness-box exists for the *kin*, the friends, the mourners. I have none. So the box has been empty my whole afterlife, and an empty box, to a clerk, means the entry is *invalid.* I cannot file an invalid soul. *I* cannot rest as one. *(he meets your eyes.)* I need someone to swear I was a person and not a procedure. It is the only sum I was never able to total myself.
+  enter: SET npc.tobias_the_fear
+  auto: 2
+node: later | Tobias Ledgerwhite
+  *(He nods, with a clerk's understanding of priority queues.)* Of course. Your filings first; mine will keep. *(a thin smile.)* It's kept this long. Noon is very patient. *(quietly)* But do come back. I've been a rounding error for so long, and you're the first to suggest I might be a *name.* I should like to test that hypothesis before the clock strikes one.
+  auto: close
+node: close | Tobias Ledgerwhite
+  *(He returns to his phantom desk, but he does not file; he simply sits, for the first time, *waiting* — which is, you realize, a far more alive thing for a dead clerk to do than working.)*
+
+# ─── 12 ─── Lula the Memorist — a girl who keeps the list of the forgotten ───
+conversation: npc.gate.lula | Lula
+node: 0 | Lula
+  *(A girl of maybe twelve, sharp-eyed and ink-stained, perched on a barrel with an enormous, fraying ledger far too big for her lap, muttering names under her breath like a rosary.)* —Hessel the netmender, Asa who sold winkles, Old Bray with the limp, Tam, little Tam, Tam who liked frogs— *(she notices you, and her hand flattens protectively over the page.)* Don't read over my shoulder. These are *mine.* Well. They're not mine. That's the point. They're nobody's. That's *why* they're mine. *(she eyes you.)* You're the dead one everyone's whispering about. Good. You'll understand, then. You came back. These didn't. Somebody has to keep them till they can.
+  enter: SET npc.lula_met
+  auto: 1
+node: 1 | Lula
+  *(She turns the great ledger toward you, fierce and proud.)* It's a list. Every name the harvest took and the church won't write and the Choir only wants to *use.* I get them from Grud the gravedigger, from Mother Cass's tokens, from the weeping man at the auction, from anybody who'll tell me a forgotten name before it's gone. *(she taps the page.)* The church says the Faithless are *meant* to be forgotten — that the forgetting *is* the punishment. So I decided, when they took my brother Tam, that I would be the thing the punishment didn't account for. I would *remember on purpose.* I'm twelve. It's all I've got. It's *working.* *(quietly, the fierceness wavering)* Only — people have started asking for the list. Grown-up people. With reasons.
+  * "Who's asking for the list, Lula? And what do they want it for?" -> who
+  * [INSIGHT 14] "You're not just remembering them. You're keeping your brother company. As long as the list grows, Tam isn't alone in it." -> tam ?? guard
+  * "The list is the bravest thing in this whole city. Let me help you protect it." -> protect | fx SET sq.lulaslist_active, appr.garrow +5
+  * "A list of the dead is dangerous to carry, child. The wrong people would kill for those names." -> danger
+node: who | Lula
+  *(She counts them off on ink-stained fingers, too young to be this wary and far too practiced at it.)* The Choir's smiling man — he says the names should be *honored*, which means *harvested*, because a named soul's worth more to whatever Aldric's building than a forgotten one. *(a finger.)* A church clerk — he says the list is *heresy*, that writing the Faithless undoes the sorting, and he'd like to *burn* it, politely. *(a finger.)* And a patriar's man, who'd *buy* it, to sell back to the survivors one name at a time. *(she closes the ledger with a snap.)* Three grown-ups. Three reasons. All of them want my list to make the dead *useful* again. *(she glares.)* But the dead aren't *for* anything. That's the whole — that's the *whole thing.* They're just supposed to be *remembered.* Why does everyone want to make remembering into a *transaction?*
+  enter: SET npc.lula_threats_known, SET sq.lulaslist_active
+  auto: close
+node: tam | Lula
+  *(Her sharp little face crumples, just for a second, before the fierceness clamps back down.)* ...You're not supposed to be able to see that. *(very quietly)* He was eight. He liked frogs. He doubted — about gods, about everything, he was a *questioner*, my Tam, and they decided questioning was a crime worth the nothing. *(she opens the ledger to a page she's clearly opened ten thousand times.)* His name's first. Right at the top. And every name I add under it is a — is a *neighbor*, see, so he's not in the dark alone. *(she looks up, and the whole tragic engine of her is suddenly visible.)* As long as the list grows, Tam's got *company.* That's all the list is. It's me, refusing to let my little brother be alone in the nothing. *(fierce again, wet-eyed.)* So you understand why I'd die before I'd let the smiling man *use* him.
+  enter: SET npc.lula_tam, SET sq.lulaslist_active, appr.garrow +6
+  auto: close
+node: protect | Lula
+  *(She studies you with a child's merciless assessment, and decides.)* ...All right. *(she says it like a treaty.)* You're dead, so you can't be bought, and you're a miracle, so the smiling man can't out-reason you, and you looked at the *list* before you looked at *me*, which means you understand what matters. *(she shoves the great ledger half toward you, then clutches it back, then compromises by holding one side while you hold the other.)* We protect it *together.* You keep the grown-ups with reasons off it, and I keep *adding*, because the second I stop adding, the forgetting wins. *(quietly, the deal sealed.)* And if it ever comes to the Court of the Dead — if you ever stand where the sorting happens — you bring the list. You make them read every name. Starting with Tam. Promise me. Promise me on whatever a dead thing swears by.
+  enter: SET sq.lulaslist_active, SET sq.lulaslist_allied, SET act1.mercy_remembered, appr.garrow +4
+  auto: close
+node: danger | Lula
+  *(She lifts her sharp little chin.)* I *know* it's dangerous. *(quietly)* My brother died for *doubting.* I'm not going to be scared into forgetting him by people who'd kill for a list of the people they already killed. *(she clutches the ledger.)* That's the trick they don't expect, see — they think a child with a list is *fragile.* But I've already lost the thing I was afraid of losing. Tam's already gone. *(fierce.)* You can't threaten somebody whose worst day already happened. You can only *help* them, or get *out of their way.* So which are you, dead one? Help, or out of the way? Because I've names to add and the light's going.
+  enter: SET npc.lula_unbreakable
+  auto: close
+node: guard | Lula
+  *(She hugs the ledger to her chest.)* Don't do the clever-grown-up thing where you guess at me. *(warily)* You're not the first to try and *understand* me into handing it over. Help or don't. But don't *read* me. I'm not on the list. Only the dead get to be on the list.
+  auto: close
+node: close | Lula
+  *(She bends back over the great fraying ledger, ink-stained and unbreakable, murmuring the names of the forgotten into the failing light — Hessel, Asa, Old Bray, little Tam who liked frogs — a twelve-year-old standing alone against the entire architecture of oblivion, and winning.)*

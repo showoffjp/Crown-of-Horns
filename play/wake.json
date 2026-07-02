@@ -1,0 +1,638 @@
+{
+  "scene": {
+    "id": "wake",
+    "name": "The Wake of Goodman Doget",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "campfire",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "table",
+        "x": 3,
+        "y": 3
+      },
+      {
+        "type": "table",
+        "x": 7,
+        "y": 3
+      },
+      {
+        "type": "barrel",
+        "x": 2,
+        "y": 5
+      },
+      {
+        "type": "barrel",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "type": "banner",
+        "x": 9,
+        "y": 2
+      },
+      {
+        "type": "log",
+        "x": 4,
+        "y": 5
+      },
+      {
+        "type": "log",
+        "x": 6,
+        "y": 5
+      },
+      {
+        "type": "tree",
+        "x": 1,
+        "y": 6
+      },
+      {
+        "type": "tree",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 7,
+        "y": 6
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "reedwalk",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "◂ back down to the Reed-Walk and the river"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "cantor",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a quieter song, upriver — the last cantor of the deathsong"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "host",
+        "name": "Tib Garron",
+        "title": "who throws wakes for the fairly dead",
+        "x": 3,
+        "y": 4,
+        "hue": 30,
+        "sigil": "G",
+        "conv": "wk.host",
+        "hail": "*(a round, beaming shade with a tapped barrel under each arm works the gathering like a publican who died doing exactly this and saw no reason to stop, pressing cups of something that isn't quite ale into hands that aren't quite solid, and the instant your cold falls across the firelight he wheels toward you with the delight of a host who has just spotted the one guest who'll make the night interesting)*"
+      },
+      {
+        "id": "doget",
+        "name": "Goodman Doget",
+        "title": "the guest of honor, at peace",
+        "x": 5,
+        "y": 4,
+        "hue": 40,
+        "sigil": "D",
+        "conv": "wk.doget",
+        "hail": "*(an old farmer sits at the head of his own wake with a cup he keeps forgetting to drink, watching the souls who came to send him off with the mild, astonished contentment of a man who lived a whole ordinary good life, settled all his debts, was loved, and died easy in his bed at the end of it — the rarest thing on this causeway, and he knows it, and it has made him gentle)*"
+      },
+      {
+        "id": "mourner",
+        "name": "the Uninvited",
+        "title": "a Faithless soul at the window",
+        "x": 8,
+        "y": 5,
+        "hue": 280,
+        "sigil": "u",
+        "conv": "wk.mourner",
+        "hail": "*(a thin shade hovers at the very edge of the firelight, not quite daring to come in, watching the warmth and the songs and the sending-off with a hunger that is not for the ale but for the *whole impossible thing* — a death mourned, a soul celebrated, a wake — because it is Faithless, and marked, and it has understood, watching, that the one party in all the after it will never be thrown is its own)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "wk.host",
+      "title": "Tib Garron, Host of the Fairly Dead",
+      "npc": "Tib Garron",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Tib Garron",
+          "onEnter": [
+            {
+              "key": "wk.met_host",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(He presses a cup into your hand before you can decline, beaming, entirely undeterred by the cold of you.)* …*There* he is! Or *she*, or — *(he peers)* — *cold*, anyway, properly *cold*, which means you're one of the *interesting* dead, and the *interesting* dead are *always* welcome at a *Garron* wake! *(he clinks his cup to yours)* *Tib Garron* — publican in *life*, publican in *death*, and the *one* fool on this *whole* grey causeway who looked around at all the *grieving* and the *mortaring* and the *general* *misery* and thought: *somebody* ought to throw a *party* when a soul does it *right.* *(he gestures grandly at the gathering)* And *Goodman Doget* did it *right*, friend — *whole* life, *square* ledger, *loved* to the *last*, died *easy* in his *bed* at the *end* of a *long* good *road.* *(he wipes his eye, still beaming)* That doesn't *happen* much, down here. So when it *does* — *(he raises his cup)* — *by the gods*, we *drink* to it. *Sit!* *Drink!* It's the *one* wake on the causeway where *nobody's* *crying*, and I *intend* to *keep* it that way!"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Tib Garron",
+          "text": "*(He settles a barrel down as a stool and plops onto it, cup in hand, the very picture of a soul doing the afterlife correctly.)* So! *(he grins)* Ask old *Tib* whatever you *like* — I've *all* the *gossip*, *half* the *songs*, and a *theory* about *death* that'll either *cheer* you *up* or *get* me *flogged*, depending. *(he sips)* What'll it *be*, cold friend?",
+          "choices": [
+            {
+              "text": "\"A party? Here? Tib, the whole causeway is one long funeral. How does a soul end up throwing *wakes* in a place like this?\"",
+              "next": "host_why"
+            },
+            {
+              "text": "\"What makes a death 'fair,' to you? You said Doget did it right. Right how?\"",
+              "next": "host_fair",
+              "effects": [
+                {
+                  "key": "wk.knows_fair",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"There's a soul at the window, Tib. Faithless, by the cold on it. Not coming in. You going to do anything about that?\"",
+              "next": "host_uninvited",
+              "effects": [
+                {
+                  "key": "wk.noticed_uninvited",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(let the cold one toast the warm gathering)* \"I'll drink your toast, Tib — and I'll tell you why it matters more than you let on. I've walked this whole causeway, and it is wall to wall with souls who got *robbed* of exactly this: the sending-off, the songs, the going-out-loved. A wake for a fair death isn't a party. It's the one place down here that remembers what the cosmos was *supposed* to feel like. So pour me one. I'm drinking to the *idea* of it.\"",
+              "tag": "returned",
+              "next": "host_toast",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Good wake, Tib. I'll let you work the room.\"",
+              "next": "host_leave"
+            }
+          ]
+        },
+        {
+          "id": "host_why",
+          "speaker": "Tib Garron",
+          "text": "*(He laughs, a big warm sound that turns heads across the gathering.)* …How does a soul end up *here.* *(he refills his cup)* Same way I ended up *anywhere*, friend — I *poured.* *(he gestures with the cup)* Fifty years behind a *bar* in the *living* world, and you learn a *thing*, pouring for *fifty* years: that a *life* is *bracketed* by *two* gatherings — a *christening* and a *wake* — and the *Choir* and the *priests* have *cornered* the *first* one, all *solemn* and *fee'd*, but the *wake* — *(he grins)* — the *wake* belongs to the *people.* *(he leans in)* So I *died*, and I *came* down *here*, and I *found* the *grey* of it — souls *dissolving* unmourned, *mortared* unsung, the *whole* *miserable* *processing-plant* of the *dead* — and I thought: *no.* *Not* on *my* *causeway.* *(he thumps his chest)* Somebody *poured* for the *living*; *somebody'd* *better* pour for the *dead.* So I *find* the *fair* ones — the *Dogets*, the souls who *earned* a *send-off* and would've *gone* *unsent* — and I throw them the *wake* the *cosmos* *forgot* to. *(softly, the beam gentling)* It's not *much*, friend. It doesn't *un-mortar* a *single* *Faithless* soul. But a *soul* that gets *sung* *out* *proper* goes a *little* *lighter* into *whatever's* *next.* And *light*, down *here* — *(he raises the cup)* — *light* is the *whole* of what I've *got* to *give.*",
+          "effects": [
+            {
+              "key": "wk.host_story",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "host_fair",
+          "speaker": "Tib Garron",
+          "text": "*(He grows thoughtful, swirling the cup.)* …What makes a death *fair.* *(he considers)* *Not* a *good* one — *don't* mistake me. *Good* deaths are *easy* to *fake*: die *rich*, die *godded*, buy a *grand* tomb and a *choir* to *sing* you, and the *world* calls it *good* and *means* *expensive.* *(he shakes his head)* *Fair's* different. *Fair* is — *(he points his cup at Doget)* — *that.* A soul that *took* no more than it *gave.* That *paid* what it *owed* and *forgave* what it was *owed.* That was *loved* by souls who *knew* it *true*, *flaws* and *all*, and *loved* it *anyway.* That *died* with its *ledger* *square* — not with the *gods*, friend, *square* with the *people.* *(he meets your eyes)* *Doget* *farmed* the same *patch* *sixty* years, *fed* whoever was *hungry*, *cheated* *no* one, *raised* *kids* who *visit* him *even* *here*, and at the *end* he *lay* down *tired* and *satisfied* and *let* go. *(softly)* *That's* fair. It's the *commonest* thing in the *world* and the *rarest* thing *down* here, because the *causeway* is *built* to *make* sure the *poor* and the *godless* *never* get to *have* it. *(he raises the cup)* So when *one* slips *through* — when a soul gets the *fair* death the *system's* *rigged* against — we *celebrate* like we *robbed* a *bank.* Because, friend? In a way, *Doget* *did.*",
+          "effects": [
+            {
+              "key": "wk.knows_fair",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.fair_defined",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "host_uninvited",
+          "speaker": "Tib Garron",
+          "text": "*(The beam falters, and for the first time the round face shows the grief that lives under all the cheer.)* …*Aye.* *(quietly)* I *see* it. I *always* see them, friend. *(he sets down the cup)* There's *always* one. At *every* wake I throw, there's a *Faithless* soul at the *window* — *marked*, *doomed*, *watching* the *warm* thing it'll *never* *get*, because you *can't* throw a *wake* for a soul the *Wall's* going to *eat.* What's the *use* of *singing* a soul *out* *proper* when the *stone's* about to *un-make* it was ever *in?* *(his jaw works)* It's the *one* *crack* in my *whole* *philosophy*, cold friend, and *you've* put your *finger* *right* on it. I *celebrate* the *fair* dead — and *every* *celebration* is a *wall* I'm *building* between the *fairly*-dead and the *Faithless*, a *line* that says *'this* soul *earned* a *send-off* and *that* one *didn't.'* *(he looks at you, stricken)* I *hate* it. I *hate* that I *do* it. But if I *let* *every* *grieving* *Faithless* soul *in*, it stops being a *wake* and becomes a *wake*, and the *whole* *causeway* *floods* in, and the *one* *bright* *thing* I *made* *drowns* in the *misery* it was *meant* to be a *break* from. *(barely)* …Unless *you've* a *better* *idea.* You've the *look* of a soul that *breaks* *rules* I've been *too* *scared* to.",
+          "effects": [
+            {
+              "key": "wk.host_conflicted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.host_sees_uninvited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "host_toast",
+          "speaker": "Tib Garron",
+          "text": "*(He goes still, the cup halfway to his lips, and looks at you with a wonder that slowly fills his whole round face.)* …*'The one place that remembers what the cosmos was supposed to feel like.'* *(barely)* *Gods*, friend. *(he sets the cup down to grip your cold hand in both of his)* In *fifty* years of *pouring* and *however*-*many* down *here*, *nobody* has *ever* said *back* to me what I've been *too* *daft* to *say* *myself.* *(his eyes shine)* I *thought* I was just — *throwing* *parties.* Being a *fool* with a *barrel*, *keeping* my *chin* up. *(he shakes his head)* But you're *right.* It's not a *party.* It's a — it's a *protest.* A *wake* for a *fair* death, in a *place* that *murders* fairness, is me *standing* in the *grey* and *insisting*, *loud*, *drunk*, *every* *time*, that *this* — *(he sweeps the cup at the firelight, the songs, the love)* — *this* is what *all* of it was *supposed* to be. *(fierce, beaming through tears)* So *yes*, cold friend. *Drink* to the *idea* of it. *Drink* to the *cosmos* that *should* *have* *been.* And then — *(he presses the cup back into your hand)* — *help* me make the *next* one *bigger*, and the *one* after *louder*, until the *whole* causeway *can't* *help* but *remember* what it's *been* *robbed* of. *That's* a *toast* worth *dying* *twice* for. *To the idea of it!*",
+          "effects": [
+            {
+              "key": "wk.toast_shared",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.host_radicalized",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "host_leave",
+          "speaker": "Tib Garron",
+          "text": "*(He waves you off cheerfully, already turning to refill someone else's cup.)* *Go*, *mingle*, *drink*, *talk* to the *guest* of *honor* — old *Doget's* *got* *stories*, and the *rare* good *fortune* to have *lived* long enough to *tell* them *right.* *(he grins)* And cold friend? *(he calls after you)* Whatever *grim* business has you *walking* this *causeway* — and a soul that *cold* is *always* on *grim* business — *do* yourself *one* mercy and *stay* for a *song* before you *go.* *(softly, warmly)* The *dead* don't get *many.* And *you've* the *look* of a soul that's *forgotten* the *last* time it *heard* one. *That's* the *worst* kind of *cold*, friend — *worse* than the *Wall's.* *Stay.* *Sing.* It *thaws* the *right* things.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "wk.doget",
+      "title": "Goodman Doget, At Peace",
+      "npc": "Goodman Doget",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Goodman Doget",
+          "onEnter": [
+            {
+              "key": "wk.met_doget",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "way.doget_carried"
+                ]
+              },
+              "text": "*(The old farmer's face creases into a smile of pure recognition as your cold falls across him.)* …*You.* *(he sets down the cup he keeps forgetting to drink)* The traveler from the *wayshrine.* You were *there* when I *crossed* — and you carried that *neighbor* of mine, the *godless* one the *Wall* took, *across* with me, when *no* one *else* would *bother.* *(his eyes are warm and wet)* I've *thought* about that, friend, in the *time* since. A *fair* death's a *gift*, and I *had* one — but you *taught* me, that *day*, that a *fair* death you *don't* *share* is just a *lucky* one. *(he gestures at the wake)* So I told *Tib*: throw the *party*, *aye* — but leave the *window* *open.* For the *ones* who *didn't* get *mine.* *(he pats the bench)* *Sit.* The guest of *honor* *commands* it. And the *guest* of *honor* *owes* you a *thank-you* that's been *waiting* a *while.*"
+            },
+            {
+              "text": "*(The old farmer looks up from a cup he plainly keeps forgetting he's holding, and his weathered face settles into the easy welcome of a man with nothing left to fear or want.)* …Sit *down*, traveler, sit. *(he pats the bench)* Don't *mind* the *cold* you carry — at *my* *age*, *dead* or *living*, you stop *flinching* at *much.* *(he chuckles)* I'm *Doget.* This is *my* wake, which is a *strange* thing to *host*, let me *tell* you — you spend your *whole* life *dreading* the *day*, and then it *comes*, and it turns out to be the *best* *party* you were *ever* *thrown*, and you can't even *get* *properly* *drunk* for it. *(he sets the cup down)* *Sixty* years I farmed the *Hollow* *acre.* *Buried* a *wife* I *loved*, *raised* *three* who *loved* me *back*, *paid* my *debts*, *forgave* the *ones* owed *me*, and *laid* down *tired* at the *end* of it and just… *let* *go.* *(he smiles, mild and astonished)* They tell me that's *rare*, down *here.* A *fair* death. I didn't *know* it was *rare* when I was *having* it. *That's* rather the *point* of a *fair* one, I *think* — you *don't* *notice.* *Ask* me *anything*, traveler. I've the *one* thing *most* of the *dead* *don't*: *no* *regrets* to *guard.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodman Doget",
+          "text": "*(He folds his weathered hands and regards you with the bottomless patience of a soul that has all the time there is and no anxiety left to spend it on.)* Go on, then. *(a mild smile)* It's *rare* I get *asked* things by a soul as *interesting* as *you.* Most of my *guests* just want to *cry* on me and *tell* me I was *good.* *Pleasant* enough. But *you* — you've *questions* in you. I can *tell.* *Out* with them.",
+          "choices": [
+            {
+              "text": "\"What does it actually feel like, Doget — a fair death? I've been inside the Wall, which is the opposite. I'd hear the other end of it from someone who got there.\"",
+              "next": "doget_feels",
+              "effects": [
+                {
+                  "key": "wk.asked_feels",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Doesn't it sit wrong with you — celebrating, while a Faithless soul watches from the window who'll never get this? How do you enjoy a fair death you didn't all get?\"",
+              "next": "doget_guilt"
+            },
+            {
+              "text": "*(one who's seen the worst end, asking the one who got the best)* \"You and I are the two poles of this whole causeway, Doget. You got the death the system was supposed to give everyone; I came back from the death it actually gives the godless. Between us we've seen both ends of the same cruelty. So tell me — having had the fair one — was it worth the cosmos rigging the game so hard that yours is a miracle and mine is the rule?\"",
+              "tag": "returned",
+              "next": "doget_poles",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Any wisdom, Doget? Sixty good years, a fair death — if you've one thing to hand a soul still walking the hard road, I'd take it.\"",
+              "next": "doget_wisdom",
+              "effects": [
+                {
+                  "key": "wk.asked_wisdom",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Rest easy, Goodman Doget. You earned it.\"",
+              "next": "doget_leave"
+            }
+          ]
+        },
+        {
+          "id": "doget_feels",
+          "speaker": "Goodman Doget",
+          "text": "*(He's quiet a while, looking into the fire, finding the words for a thing most souls never get to describe.)* …What it *feels* like. *(softly)* You'd think it'd feel like *fear*, at the *end.* It doesn't. *(he turns the cup)* It feels like — you know the *feeling*, traveler, after a *long* day in the *fields*, when the *light's* going *gold* and the *work's* all *done* and you *sit* on the *step* and your *body* *aches* in the *good* way and there's *nothing* *left* you *have* to *do?* *(he smiles)* *That.* *Dying* *fair* feels like *that*, only *bigger* — like the *whole* *life* was the *long* day, and the *work* really *is* all *done*, and you've *earned* the *sitting-down*, and the *gold* light just… *keeps* *getting* *softer*, and you *let* it. *(he meets your eyes, gentle)* No *grand* *reckoning.* No *gods* with *scales.* Just a *tired* soul that *paid* its *way*, *laying* its *tools* down at the *end* of an *honest* row. *(quietly)* I'm *sorry*, traveler. For what *they* gave *you* instead — the *cold*, the *stone*, the *coming-back-wrong.* That's the *opposite* of the *gold* light. That's *being* *robbed* of the *sitting-down.* *(he reaches out, and his warm old hand doesn't flinch from your cold one)* You should've had the *step*, and the *gold*, and the *good* *ache.* *Every* soul should. That you *didn't* — that's not a *thing* you *failed.* It's a *thing* you were *failed* *by.* *Don't* you *ever* *carry* it as *yours.*",
+          "effects": [
+            {
+              "key": "wk.doget_describes_peace",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_guilt",
+          "speaker": "Goodman Doget",
+          "text": "*(He nods slowly, unsurprised by the question, as if he's asked it of himself many times.)* …It *does* sit *wrong.* *(quietly)* You're *right* to *name* it. *(he looks toward the window, the thin shade beyond it)* For a *while*, traveler, it sat *so* wrong I *near* told *Tib* to *call* the *whole* thing *off* — *'how* *dare* I *celebrate*, with *that* soul *watching*, *marked* for the *stone?'* *(he turns the cup)* But I had a *neighbor* set me *straight* — or *you* did, if you're the *one* from the *wayshrine*, I *misremember*, the *dead* go *soft* in the *memory.* *(he smiles)* Whoever it was *said*: *'Doget*, a *fair* death you *hide* out of *guilt* helps *no* one. The *Faithless* soul at the *window* doesn't *want* you to *stop* *celebrating.* It wants *the window left open.* It wants to *know* the *warm* thing is *real*, that it *exists*, that *some* soul *got* it — because if *no* one *ever* gets the *fair* death, then it's not a *thing* *stolen* from the *Faithless*, it's just a *thing* that *doesn't* *exist*, and *that* is a *colder* *thought* than *any* *Wall.'* *(he meets your eyes)* So I *keep* the *party.* And I *keep* the *window* *open.* And I *make* sure *every* *Faithless* soul that *watches* knows it is *welcome* to *come* *warm* its *hands*, even if I *can't* *save* it from the *stone.* *(softly)* It's *not* *enough*, traveler. *Nothing's* *enough.* But a *fair* death *shared* through an *open* *window* is *more* than a *fair* death *hidden* out of *shame.* *That* much, I *learned.* *Late.* But I *learned* it.",
+          "effects": [
+            {
+              "key": "wk.doget_open_window",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_poles",
+          "speaker": "Goodman Doget",
+          "text": "*(The mild contentment deepens into something graver, and he holds your cold gaze with his warm one for a long moment before he answers.)* …The *two* *poles.* *(quietly)* *Aye.* You've the *right* of it, and it's a *hard* *right.* *(he sets the cup down for good)* Was it *worth* it — my *fair* death — *given* what it *cost* *you* and *yours* to make it a *miracle* instead of a *rule?* *(he's silent a moment)* …*No.* *(simply)* It *wasn't.* And I'll *not* *insult* you by *pretending* *otherwise.* A *gift* that *only* *some* get, in a *world* that *could* give it to *all* and *chooses* not to — that *gift* is *stained*, traveler, *however* *sweet* it *tasted* *going* *down.* I *enjoyed* my *gold* light. And *every* *minute* of it was a *minute* the *Wall* was *eating* a soul *no* *worse* than *me*, for *no* *reason* but the *coin* in its *pocket* and the *god* on its *lips.* *(fierce, for a gentle man)* So *here's* my *answer*, and it's the *only* *thing* I've *got* to *give* a soul *walking* the *hard* road: *don't* you *make* my *death* the *goal*, traveler. Don't you *fight* to give *more* souls a *fair* death like *mine* was — *rare*, *lucky*, *one* in *ten* *thousand.* *(he grips your hand)* You *fight* to make it the *rule.* So *common* *nobody* *throws* a *party* for it, because *every* soul gets the *gold* light and the *good* ache and the *earned* *sitting-down*, and a *fair* death is just *called* *a* *death*, and *Tib* *Garron* has to find a *new* *line* of *work.* *(softly)* *That's* what it's *worth*, traveler. *Not* my *wake.* The *day* *wakes* like *mine* aren't *worth* *having.* *Aim* *there.* I'll be *cheering* you *on* from the *gold.*",
+          "effects": [
+            {
+              "key": "wk.doget_charge",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.aim_for_the_rule",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_wisdom",
+          "speaker": "Goodman Doget",
+          "text": "*(He chuckles, warm and self-deprecating.)* …*Wisdom.* *(he shakes his head)* Everyone wants the *dying* *farmer's* *wisdom*, like *sixty* years of *mud* and *turnips* *taught* me the *secret* of *the universe.* *(he leans in, conspiratorial)* I'll tell you the *truth*, traveler: there's *no* *secret.* That's the *secret.* *(he grins)* I didn't *live* *fair* by *knowing* some *grand* *thing.* I lived *fair* by doing the *small* *right* *thing* in *front* of me, *most* days, *most* of the *time* — *feeding* the *hungry* one at the *gate*, *paying* the *debt* I could've *dodged*, *forgiving* the *grudge* it would've *cost* me *more* to *keep.* *(he spreads his weathered hands)* *None* of it *grand.* *None* of it *worth* a *song.* Just — *small*, *right*, *repeated*, until *sixty* years of *small* *right* *things* *added* *up*, *without* my *noticing*, to a *life* I could *lay* *down* *easy.* *(he meets your eyes, kind)* You're on a *grand* *road*, traveler — *crowns* and *gods* and *walls*, I can *smell* it on you. And I'll *not* *pretend* my *turnip* *wisdom* *fits* a *road* like *that.* But *maybe* — *(softly)* — *maybe* the *grand* road's the *same* as the *small* one, *underneath.* *Maybe* you *save* the *cosmos* the *exact* same *way* I *farmed* the *Hollow* *acre*: *one* *small* *right* *thing* in *front* of you, *most* days, until they *add* up to *something* you *didn't* *plan* and *couldn't* *see* *coming.* *(he raises the cup)* *That's* my *wisdom*, *traveler*. *It's* *not* *much*. But it *grew* a *fair* *death*. *Maybe* it'll *grow* a *fair* *world.* *Worth* a *try.* *Most* *small* *right* *things* are.",
+          "effects": [
+            {
+              "key": "wk.doget_wisdom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_leave",
+          "speaker": "Goodman Doget",
+          "text": "*(He lifts his forgotten cup to you in a slow, warm salute.)* …*Rest* easy *yourself*, traveler — *eventually.* *(a kind, knowing look)* Not *yet*, I *know.* You've a *cold* road *left* in you, and *miles* of it. *(he settles back)* But when it's *done* — *whatever* you *make* of the *crowns* and the *walls* and the *gods* — you *find* yourself a *step*, and a *gold* *evening*, and you *sit* *down*, and you let the *light* go *soft.* *(softly)* You've *earned* it *harder* than *I* ever did, traveler. *I* got my *fair* death *lucky.* *You're* out there *trying* to *build* one for *everybody.* *(he smiles)* If *anyone* on this *whole* grey causeway *deserves* the *gold* *light* at the *end*, it's the *cold* soul *fighting* to make sure *no* one *else* gets *robbed* of it. *Go* on. *Mind* the *road.* And *stay* — *(he nods toward the fire, where someone's started a song)* — *stay* for *one* *song* *first.* *Doget's* *orders.* It's *my* *wake.* I get to *say.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "wk.mourner",
+      "title": "The Uninvited",
+      "npc": "the Uninvited",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Uninvited",
+          "onEnter": [
+            {
+              "key": "wk.met_mourner",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(The thin shade startles back from the firelight as your cold approaches, then steadies when it sees you're not here to shoo it off.)* …I'm not — I'm not *crashing.* *(quickly, defensive)* I'm just — *watching.* From *here.* The *window's* *open*, the old *farmer* *said* it was *alright* to *watch*, I'm *not* *taking* any *ale*, I'm *not* — *(it stops, and the defensiveness crumbles into a naked, aching want)* …it's *nice*, isn't it. *(barely)* The *songs.* The *way* they're *sending* him *off.* *Loved.* *(it wraps thin arms around itself)* I'm *Faithless*, cold one. *Marked.* The *Wall's* got my *name.* And I worked it out, standing *here*, watching *Doget* get *sung* *out* *proper* — *(its voice breaks)* — *nobody's* ever going to *do* this for *me.* There's no *wake* for a soul the *stone's* about to *eat.* You can't *celebrate* a *life* that's about to be *un-lived.* *(it looks at you)* So I just — *watch.* And *want.* It's the *closest* I'll *get.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Uninvited",
+          "text": "*(It hovers at the threshold of the warmth, not quite in, not quite able to leave.)* You don't have to — *(it falters)* — you don't have to *stay* and *talk* to the *sad* one at the *window*, cold one. *Go* *enjoy* it. *Somebody* *should.* *(but it doesn't want you to go, and you can both tell.)*",
+          "choices": [
+            {
+              "text": "\"Come in. That's it — that's the whole solution. The window's open, Doget said so himself. You don't have to watch from the cold. Come warm your hands. A wake's for the dead, and you're dead enough.\"",
+              "next": "mourner_invite",
+              "effects": [
+                {
+                  "key": "wk.invited_in",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Why a wake, though? You're still here — still a soul, still standing. Why grieve a send-off you haven't missed yet?\"",
+              "next": "mourner_why"
+            },
+            {
+              "text": "*(the one who beat the stone, to the one still marked for it)* \"Listen to me. The Wall has your name — but I walked out of it wearing its cold, so I'm proof the name isn't the end of the story. I can't promise to save you. But I can promise you this isn't the closest you'll get to a wake. Stay near me on this causeway, and I'll see you get something better than a send-off: a chance the stone doesn't get you at all.\"",
+              "tag": "returned",
+              "next": "mourner_hope",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What would you want sung, if you got one? Tell me. I'll carry it, even if I can't carry you.\"",
+              "next": "mourner_song",
+              "effects": [
+                {
+                  "key": "wk.heard_the_song",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"I'm sorry, friend. Truly.\" *(leave it to its window)*",
+              "next": "mourner_leave"
+            }
+          ]
+        },
+        {
+          "id": "mourner_invite",
+          "speaker": "the Uninvited",
+          "text": "*(It stares at you, then at the open window, then at the firelight beyond, and something in its thin form trembles on the edge of belief.)* …*In.* *(barely)* You mean — *actually* *in.* *(it takes a half-step, then stops, the old fear)* But I'm — I'm the *thing* that *ruins* a *wake*, cold one. The *Faithless* soul at the *feast.* The *reminder* that the *system's* *rigged.* If I come *in*, I *bring* the *Wall* *with* me, and the *party's* the *one* place down here that *forgets* the *Wall* for an *hour* — *(it wavers)* — I'd be — I'd be *spoiling* the *one* good thing.* *(but you hold out your cold hand, and the old farmer at the head of the wake has turned, and is beaming, and beckoning)* …He's — *(its voice cracks)* — he's *waving* me *in.* The *guest* of *honor.* *He's* *waving* *me* *IN.* *(it takes the step. Then another. And the warmth doesn't reject it, and the songs don't stop, and a cup that isn't quite ale finds its hand.)* …*Oh.* *(barely, weeping)* It doesn't — it doesn't *spoil* it. *Being* *here* doesn't *spoil* it. *(it looks around, dazed)* They're — they're *glad* I *came.* The *Faithless* soul *came* *in* and they're *GLAD* — *(it turns to you, transformed)* …you *fixed* it, cold one. The *one* *crack* in the *one* *good* thing. You just — you *opened* the *window* *all* the *way.* *Now* it's a *wake* for *whoever* the *stone* *forgot* to *let* be *loved.* *Now* it's a wake for *me.*",
+          "effects": [
+            {
+              "key": "wk.mourner_came_in",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.window_opened_wide",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mourner_why",
+          "speaker": "the Uninvited",
+          "text": "*(It hugs itself tighter, looking into the firelight.)* …Why *grieve* it *now.* *(quietly)* Because *now* is *all* I've *got* to *grieve* it *in*, cold one. *(it meets your eyes)* When the *Wall* *takes* me, I won't be *able* to *miss* the *wake* — I won't be *able* to *miss* *anything.* That's the *whole* *horror* of the *stone*: it doesn't just *end* you, it *un-makes* the *part* that *could* *mind* being *ended.* *(it shivers)* So *this* — *standing* here, *wanting* the *send-off* I'll *never* get, *grieving* it *while* I *still* *have* a *self* to *grieve* *with* — *this* is the *only* *mourning* my *wake* will *ever* *get.* *I* have to *do* it. *Now.* *In* *advance.* *Because* there'll be *no* *one* *left* to *do* it *after* — *(its voice breaks)* — not *even* *me.* *(barely)* I'm at my *own* wake, cold one. It's just that *I'm* the *only* *guest*, and it's *happening* *before* I *die* instead of *after*, because *after*, there'll be *nothing* to *have* a *wake* *for.* *(it looks at you)* …*Funny*, isn't it. The *Faithless* don't *get* *mourned.* So we *learn* to *mourn* *ourselves.* *Early.* It's the *one* *funeral* *rite* the *Wall* can't *take* — *because* we *do* it *while* we're *still* *warm* *enough* to *cry.*",
+          "effects": [
+            {
+              "key": "wk.mourner_grieves_self",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mourner_hope",
+          "speaker": "the Uninvited",
+          "text": "*(It goes utterly still, and stares at the cold pouring off you as if seeing it truly for the first time.)* …You *walked* *out.* *(barely)* Of the *stone.* *Wearing* its *cold.* *(it reaches toward you, stops)* Then the *name* *isn't* — the *Wall's* got my *name*, but *yours* too, *once*, and *you're* — you're *standing* *here.* *(its thin form shudders with something it had forgotten how to feel)* I *gave* *up*, cold one. I *want* you to *know* that — I *gave* *up* so *long* *ago* I *forgot* I'd *done* it. I came to *this* *wake* to *practice* being *un-mourned*, to get *good* at *wanting* a thing I'd *never* *have*, because *wanting-and-not-getting* is *survivable* and *hoping-and-losing* is *not.* *(it meets your eyes, terrified and alight)* And *now* you're telling me there's a — a *chance.* That the *stone* might *not* — *(it can barely say it)* — that I might get a *real* *wake. After* a *real* *life. Saved.* *(a long, shaking breath)* …I'm *scared* to *believe* you, cold one. *Hope's* the *one* thing down here that can still *hurt* me, and I *retired* it for a *reason.* *(but it steps out of the shadow, toward you)* …But I'll *stay* *near* you. I'll — I'll *risk* the *hope.* *One* *more* *time.* Because a soul that *walked* *out* of the *Wall* is a *better* *reason* to *hope* than *any* I *ever* *had* to *quit.* *(fierce, trembling)* *Don't* — *don't* make me *wrong* about *this* one, cold one. It's the *last* *hope* I've *got*, and I'm *spending* it *all* on *you.*",
+          "effects": [
+            {
+              "key": "wk.mourner_hopes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.mourner_follows",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mourner_song",
+          "speaker": "the Uninvited",
+          "text": "*(The question stops it cold — no one has ever asked — and it has to think, and the thinking is its own small grief.)* …What would I *want* *sung.* *(barely)* *Nobody's* *ever* — *(it swallows)* …I worked a *ferry-landing.* *Thirty* years. *Loaded* and *unloaded*, *dawn* to *dark*, *honest* *work*, *no* *god*, *no* *fuss.* *(its voice steadies, finding the thing)* And *nobody* *important* ever *knew* my *name.* But the *dockhands* did. And every *evening*, *packing* up, one of them would *start* a *song* — a *stupid* *work-song*, *filthy* *verses*, you *know* the *kind* — and we'd *all* *join*, *tired*, *laughing*, *hauling* the *last* *crates* to the *beat* of it. *(it almost smiles)* *That's* what I'd *want* *sung*, cold one. *Not* a *hymn.* Not a *lament.* That *stupid* *filthy* *dock-song*, sung *badly*, by *tired* souls who *liked* me *enough* to *make* the *work* *lighter.* *(its eyes shine)* Because *that's* what my *life* *was.* *Not* *grand.* *Not* *holy.* Just — *thirty* years of *making* the *work* *lighter* for the *souls* beside me, to a *stupid* *song.* *(it looks at you)* *Carry* *that*, if you can't *carry* *me.* The *song.* *'The* *Ferryman's* *Last* *Load.'* *Filthy* *third* *verse.* *(barely)* If *one* soul *somewhere* *sings* it and *thinks* of the *dock-hand* who *had* *no* *name* — then I got a *wake* after *all.* A *small* one. The *only* *kind* the *Wall* *can't* *reach*: the *kind* that *lives* in *somebody* *else's* *mouth.*",
+          "effects": [
+            {
+              "key": "wk.carries_the_song",
+              "op": "SetTrue"
+            },
+            {
+              "key": "wk.ferryman_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mourner_leave",
+          "speaker": "the Uninvited",
+          "text": "*(It nods, and pulls back toward its window, but the naked want in it has eased a fraction, just from being *seen.*)* …*Thank* you. *(quietly)* For *stopping.* For *saying* *sorry* and *meaning* it. *(it returns its gaze to the firelight, the songs)* Most souls *don't* *see* the *one* at the *window.* You *did.* *(barely)* That's — that's a *small* *thing*, cold one. But the *Faithless* *live* on *small* *things.* They're the *only* *size* the *Wall* *leaves* us. *(it almost smiles)* Go on. *Warm* yourself. And if you *ever* — *(it stops, then says it anyway)* — if you *ever* find a *way* to *make* the *cosmos* *throw* a *wake* for *souls* like *me*, cold one… *(its voice is very small)* …*hurry.* There's *so* *many* of us at *so* *many* *windows.* And the *stone* is *so* *very* *patient.* And we are *running*, *all* of us, *out* of *self* to *grieve* *with.*",
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}

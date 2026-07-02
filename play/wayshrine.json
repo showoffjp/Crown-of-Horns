@@ -1,0 +1,1018 @@
+{
+  "scene": {
+    "id": "wayshrine",
+    "name": "The Grey Wayshrine",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "greyshrine",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "milestone",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "type": "milestone",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "type": "cairn",
+        "x": 1,
+        "y": 6
+      },
+      {
+        "type": "cairn",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 5
+      },
+      {
+        "type": "tree",
+        "x": 0,
+        "y": 1
+      },
+      {
+        "type": "tree",
+        "x": 10,
+        "y": 1
+      },
+      {
+        "type": "barrel",
+        "x": 9,
+        "y": 8
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "hearth",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ back down the road to the Hearth"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "to": "threshold",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▴ where the road ends — the Threshold of the Crown's Road"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "scrivener",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "◂ a dusty side-path — a clerk keeps a desk at the crossroads"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "assize",
+        "dest": {
+          "x": 5,
+          "y": 8
+        },
+        "label": "▸ where the dead gather to weigh you — the Assize"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "pilgrimage",
+        "dest": {
+          "x": 5,
+          "y": 8
+        },
+        "label": "▸ the pilgrim road — souls who walk to the Court on foot"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "harbinger",
+        "name": "the Grey Harbinger",
+        "title": "an aspect of the Judge of the Dead",
+        "x": 5,
+        "y": 4,
+        "hue": 220,
+        "sigil": "◈",
+        "conv": "way.harbinger",
+        "hail": "*(a tall, robed nothing stands at the wayshrine — a shape the dusk pours into and does not fill, with a face that is the grey balance-sigil itself, turning to you the way a compass turns to true north: it has been waiting for the one soul on the Sword Coast that its ledger cannot hold)*"
+      },
+      {
+        "id": "orin",
+        "name": "Justiciar Orin",
+        "title": "a sword of the Doomguard",
+        "x": 3,
+        "y": 4,
+        "hue": 210,
+        "sigil": "JO",
+        "conv": "way.orin",
+        "hail": "*(a hard-faced knight in grey-and-iron stands a little apart from the shrine, hand never far from the longsword at her hip, and watches the robed nothing the way a guard dog watches a storm — and watches you worse)*"
+      },
+      {
+        "id": "doget",
+        "name": "Goodman Doget",
+        "title": "waiting, gladly, to be judged",
+        "x": 7,
+        "y": 5,
+        "hue": 90,
+        "sigil": "Gd",
+        "conv": "way.doget",
+        "hail": "*(an old farmer sits on a cairn-stone with his hat in his hands and his eyes closed, smiling faintly at the dusk, with the unmistakable settled stillness of a soul that has finished its business and is simply, peacefully, waiting for the ferry it actually believes is coming)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "way.doget",
+      "title": "Goodman Doget, Waiting Gladly",
+      "npc": "Goodman Doget",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Goodman Doget",
+          "onEnter": [
+            {
+              "key": "way.met_doget",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(He opens his eyes, sees the grey balance at your throat, and his weathered face creases into a warm, unworried smile.)* Ah — one of the Judge's own. *(he pats the cairn-stone beside him)* Then you'll not think me *daft*, sitting here. *(he nods at the shrine)* I'm *waiting*, see. Died this morning — heart, in the turnip field, quick as you like, no fuss. *(he chuckles)* Eighty-one years, a wife I'll see again, four children, eleven grandchildren, and a god I prayed to every harvest. *(he closes his eyes again, content)* So I sit at the grey shrine and I *wait* for the weighing, and I'm not *afraid*, padre, because I've kept the ledger square my whole life. *(softly)* It's a *good* thing, a fair death. I know they're not all this kind. But mine is. And I'd not trade it."
+            },
+            {
+              "text": "*(He opens his eyes at the sound of you, and his smile is the most untroubled thing you have encountered in a long while.)* Evening, traveler. *(he doesn't get up)* Mind an old man not rising — I'm a touch *dead*, you see, and the legs are the first to know it. *(he says it without a trace of fear, almost cheerful)* Doget. Goodman Doget, of the turnip-field two ridges over. Went this morning, heart just — *stopped*, between one row and the next. *(he pats the stone)* And here I sit, *waiting* for the weighing, calm as Sunday. *(he peers at you)* You've a *cold* look about you, friend. The kind that's *seen* the far shore. So you'll *know* — is it long, the wait? I've a wife on the other side I'm *keen* to get back to, and the *patience* was never my strong suit, living *or* dead."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Goodman Doget",
+          "text": "*(He settles his hat more comfortably on his knee and regards you with the easy, open curiosity of a man with nothing left to lose and no reason to fear anything.)* Sit a spell, if you like. *(he nods at the shrine, the robed shape, the hard-eyed knight)* It's a *queer* gathering tonight, even for a wayshrine. The grey *one* there's been *still* as a post for an hour, and the *knight* won't take her eyes off it, and now *you* — *(he chuckles)* — well. An old farmer could do worse than a *front-row* seat to whatever *this* is. What's on your mind, traveler?",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You're not just unafraid, Doget. You're *happy.* You died in a turnip field at eighty-one with a square ledger and a wife waiting, and you think this — the wayshrine, the weighing, the fair death — is how it works *for everyone.* It isn't. Does it change the wait, knowing some souls don't get a shrine at all?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "doget_truth",
+              "fail": "doget_content"
+            },
+            {
+              "text": "\"What was it like, Doget? Eighty-one years, a wife, eleven grandchildren — the whole long ordinary good of it. Tell an old soul what a *fair* life weighs, before they call you in.\"",
+              "next": "doget_life"
+            },
+            {
+              "text": "*(one who has seen the far shore, to one who is sure of it)* \"You've a wife on the other side, you said. Doget — I've been across. It's not quite the reunion the harvest-songs promise, but it's not *nothing*, either, and a soul like yours, square-ledgered and beloved? You'll weigh light and you'll cross easy. Keep the faith. The wait's shorter than the *love* makes it feel.\"",
+              "tag": "returned",
+              "next": "doget_returned",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Rest easy, Doget. The ferry's a sure thing for you, whatever it is for the rest of us.\"",
+              "next": "doget_leave"
+            }
+          ]
+        },
+        {
+          "id": "doget_truth",
+          "speaker": "Goodman Doget",
+          "text": "*(The smile falters, and for the first time the easy contentment shows the seam in it — not fear, but a decent man's discomfort at a truth he'd half-managed not to look at.)* …Aye. *(quietly)* I know it. Down deep. *(he turns his hat in his hands)* My neighbour Tomas — good man, *better* than me, gave more and took less — but he'd no god, never could *feel* one, said the praying was like *talking to a well.* *(his jaw works)* And when he passed, there was no shrine for *Tomas.* No weighing. They say the *Wall* — *(he stops)* I didn't *look* too hard at it, traveler, I'll confess that to a cold-eyed stranger I'll not see again. A man wants his *own* fair death to *feel* fair, and looking too hard at *Tomas* makes it feel like — like I won a *lottery* I told myself was a *wage.* *(he meets your eyes, troubled and honest)* It *doesn't* change my wait. That's the *shameful* part. I'll still cross easy, and see my wife, and it'll still be *sweet.* But you've put *Tomas* in the seat beside me, and I'll be thinking of him when they call my name. *(a long breath)* …Maybe that's *right.* Maybe a fair soul *should* carry an unfair one's name across, since the *system* won't. I'll carry *Tomas.* It's the least a lucky man can do.",
+          "effects": [
+            {
+              "key": "way.doget.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "way.doget_carries_tomas",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_content",
+          "speaker": "Goodman Doget",
+          "text": "*(He just smiles, easy and untroubled, and you realise your reach for the seam in him slid right off the bedrock of a genuinely contented soul.)* Happy? *(he chuckles)* Aye, well — *dead*, and *happy*, which I'll grant is a queer pairing, but there it is. *(he turns his hat)* I'm not a *deep* man, traveler. Never claimed to be. I planted turnips, I loved my wife, I prayed my prayers, and I'm being *weighed* fair at the end of it. *(he shrugs)* If there's a *sorrow* hid under that, it's hid too *deep* for an old farmer to *dig* to, and I've not got the *spade* for it anymore. *(kindly)* You're welcome to *look* for the *crack* in me, friend. But I think you'll find I'm just — *content.* It happens, now and again. Even to the *dead.* *Especially*, maybe.",
+          "auto": "END"
+        },
+        {
+          "id": "doget_life",
+          "speaker": "Goodman Doget",
+          "text": "*(His face goes soft and far away, and the dusk seems to warm a half-degree around him.)* …Ordinary. *(he says it like the finest word there is)* That's the whole of it, traveler. *Ordinary.* I planted turnips and they mostly came up. I married a girl who laughed at my *terrible* jokes for fifty-three years and never once *stopped*, gods know why. *(he smiles)* I lost a child young — that's the one stone in it, and it never *did* stop aching, you don't *want* it to. And I held *grandchildren*, and I taught the eldest to *whistle*, and I sat on *this* very road a *hundred* times hauling turnips to market and never *once* thought it was anything but *Tuesday.* *(he looks at you)* And now I'm *dead*, and I'd give the *far shore* and my *wife* and the *whole reunion* for *one* more *ordinary Tuesday* hauling turnips in the rain. *(a gentle laugh)* That's what a fair life *weighs*, friend. Not the *grand* parts. The *Tuesdays.* You spend the whole thing waiting for *something to happen*, and the *Tuesdays* were the thing, the *entire* time. *(he pats your hand)* Mind your *Tuesdays*, cold one. Whatever *grand* road you're on — and you've the look of a *grand* road — mind the *Tuesdays.* They're the part you'll *want* back.",
+          "effects": [
+            {
+              "key": "way.doget.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "way.doget_wisdom",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.stoic",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_returned",
+          "speaker": "Goodman Doget",
+          "text": "*(He listens, and his eyes go bright and wet, and he grips your cold hand in both his warm-seeming ones without the slightest flinch.)* …You've *been.* *(softly)* And you came back to tell an old farmer the *wait's* worth it. *(he laughs, thick)* Gods, that's — that's a *kindness*, friend, from a thing the *songs* would have me *fear.* *(he wipes his eye with the back of his hand)* 'Shorter than the love makes it feel.' *(he nods)* Aye. That's *her*, all over — Maeve never *could* abide me being *late*, she'll be *tapping her foot* on the far bank this *very minute*, giving the *ferryman* an *earful.* *(a wet, joyful chuckle)* You've made the *waiting* sweet, cold one, and that's no small thing — the waiting's the *hardest* part of *any* good thing. *(he settles back, at peace)* Go on to your grand road. And if your *travels* ever take you *past* the far shore proper — *(a twinkle)* — you tell *Maeve* her Doget's *coming*, he's just *gabbing* with a *stranger* on the *road*, same as he *always* did, and he'll be along *directly*, and to *keep* the *kettle* on. She'll know it's true. Nobody *else* would think to *gab* on the way to *heaven.*",
+          "effects": [
+            {
+              "key": "way.doget.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "way.doget_comforted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "doget_leave",
+          "speaker": "Goodman Doget",
+          "text": "*(He nods, serene, and settles his hat back on his knee.)* Aye, rest easy *yourself*, traveler. *(he closes his eyes, returning to his patient vigil)* I'll just — *wait* here. It's *pleasant* enough, the waiting, now I've *company* on the road, even *passing* company. *(a soft smile)* Mind that grey one, though, on your way. *(without opening his eyes)* I can't *see* it proper — it's like looking at the *space* where a thing *should* be — but I can *feel* it *looking* at *you*, friend. The way I'd *feel* the *sun* move. *(quietly)* Whatever it *wants* of you, it's been *waiting* on it longer than *I've* been waiting on the *ferry.* And *I* died this *morning.* Go careful.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "way.orin",
+      "title": "Justiciar Orin",
+      "npc": "Justiciar Orin",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Justiciar Orin",
+          "onEnter": [
+            {
+              "key": "way.met_orin",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "ald.alliance"
+                ]
+              },
+              "text": "*(Her hand closes on the longsword's grip the instant she places you, and her hard face goes harder.)* …I *know* your face now. *(flatly)* You've been to *Morn.* The herald's tracks led from his door, and they led *here*, to *you.* *(she does not draw — yet)* So. The broken Doomguide's found himself a *Returned* to finish what his *matches* couldn't. *(her jaw tightens)* I've spent three years hunting the *edges* of Aldric Morn's conspiracy, and tonight it walks up to a *wayshrine* wearing the *cold* of the *Wall* itself. *(coldly)* The grey one yonder may want to *weigh* you. *I* want to *arrest* you. We are going to have a *disagreement* about precedence, that thing and I, and you'd best hope it *wins* — because *my* verdict comes with *irons*, not *philosophy.*"
+            },
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(She marks the grey balance at your throat and her hostility checks itself — not gone, but reholstered, a soldier recognizing a uniform on a suspect.)* …One of the *order.* *(grudgingly)* Or you *wear* its sigil, at least, which these days is not the same thing. *(she keeps her hand near the hilt)* I'm Justiciar Orin. Doomguard. I hunt the ones who'd *harm* the Judge's work — heretics, Crown-chasers, the *Morn* sort. *(her eyes narrow)* And you walk up to a wayshrine carrying a *cold* no living servant of Kelemvor should have. *(flatly)* So convince me you're a *brother* of the order and not its *enemy* in its *colors*, Returned. The grey one's *curious* about you. *I* am *suspicious.* Curiosity gets souls *killed.* Suspicion keeps the rest *alive.*"
+            },
+            {
+              "text": "*(She steps to put herself between you and the shrine before you've gone three paces, and her voice is iron.)* Far enough. *(hard)* I don't *know* you, and the *grey one* does, and that's *two* reasons to keep my hand where it is. *(she looks you over, professional and cold)* Justiciar Orin, of the Doomguard — the Judge's *sword*, where the Doomguides are his *shepherds.* I hunt what *threatens* the order of the dead. *(she nods at the robed shape without taking her eyes off you)* That thing hasn't *moved* in an hour, and now *you* arrive, with the *Wall* on you like *frost*, and it *turns.* *(flatly)* In my experience, friend, when a *god's aspect* takes a *personal* interest in a *single mortal*, that mortal is about to become either a *saint* or a *catastrophe*, and I am *paid* to assume the *second.* State your business. *Slowly.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Justiciar Orin",
+          "text": "*(She stands square, between you and the shrine, the longsword undrawn but her whole body a readiness — a woman who has learned that the polite ones and the dangerous ones look exactly alike until the last second.)* Speak, then. *(flatly)* And know that I weigh *every* word against three years of hunting souls who *smiled* at me and meant the Judge's *ruin.* I am *hard* to lie to and *harder* to charm. Try *neither*, and we'll get on.",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You hate that thing at the shrine. You serve the same god it speaks for, and you can't look at it without your hand finding your sword. That's not a Justiciar guarding a god's aspect. That's a soldier who's seen what the god's *aspects* decide, and doesn't trust the *thing* any more than she trusts *me.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "orin_doubt",
+              "fail": "orin_guard"
+            },
+            {
+              "text": "[RELIGION] \"You hunt heretics for the Judge — but you've read the doctrine closer than your superiors like, haven't you? The Wall isn't *in* the Judge's law. It's a *compromise* the gods struck, older than Kelemvor's tenure, that he *inherited* and won't overturn. You're not defending his *justice*, Orin. You're enforcing his *inconvenient peace.*\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 12
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 16
+              },
+              "next": "orin_doctrine_truth",
+              "fail": "orin_doctrine_fail"
+            },
+            {
+              "text": "[INTIMIDATION] \"I've walked out of the Wall, Justiciar. I've cracked a Canon, frightened a god's machine, and had tea with the man you've hunted for three years. Your irons are for *souls that can still be held.* Step aside, or find out which kind I am.\"",
+              "check": {
+                "skill": "Intimidation",
+                "ability": "Charisma",
+                "dc": 16
+              },
+              "next": "orin_backed",
+              "fail": "orin_unmoved",
+              "crit": "orin_intim_crit",
+              "fumble": "orin_intim_fumble",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(let the Doomguard's sword meet the thing it's truly for)* \"You hunt threats to the order of the dead. Justiciar — look at me. *Really* look. I am the *single greatest* threat to the order of the dead that has ever walked up to your shrine, because I am *proof the order is wrong.* The Wall isn't final. I'm the living refutation. Your sword can't cut a *counterexample.* So the question isn't whether to arrest me. It's whose *side* you're on when the order *breaks.*\"",
+              "tag": "returned",
+              "next": "orin_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I'll take my business to the grey one, Justiciar, since it's the one that's been waiting for me. Stand or don't.\"",
+              "next": "orin_leave"
+            }
+          ]
+        },
+        {
+          "id": "orin_doubt",
+          "speaker": "Justiciar Orin",
+          "text": "*(Her eyes flick to you, sharp and startled, and her hand actually *leaves* the hilt — the surest sign yet that you've struck something true.)* …You see *clear.* *(low, guarded)* Too clear for a *heretic.* *(she glances at the robed shape, and her voice drops so it cannot carry)* I have served the Doomguard *eleven years.* I *believe* in the order — in a *fair* weighing, in a *kind* death, in the work. *(her jaw tightens)* But the *aspects* — the things the Judge sends when a soul is *unusual* — I have *escorted* three of them, and *each* time, the soul they came to *weigh* was *gone* by morning, and no one would tell me *where*, and the *ledger* simply *closed.* *(she meets your eyes)* I do not know if that thing is here to *judge* you, *recruit* you, or *unmake* you, Returned. And the part that *galls* me — the part that has my hand on my *sword* against my *own god's* messenger — is that I have come to suspect *it doesn't matter which*, to *them.* That to the *aspects*, a *soul* is a *problem to be resolved*, and 'resolved' wears a *great many faces.* *(quietly)* So. We may yet be on the *same side*, you and I. I am *suspicious* of *you.* But I am *afraid* of *that.* And an honest soldier tells the difference *out loud.*",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "way.orin_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_guard",
+          "speaker": "Justiciar Orin",
+          "text": "*(Her hand stays on the hilt, and her face shuts like a visor.)* *Cute.* *(flatly)* You reach for a wedge between me and the thing I'm *posted* beside. *Heretics* always do — 'you don't *really* serve them, do you, you're *better* than your *orders.*' *(she shakes her head)* I've heard it from *every* Crown-chaser I've put in irons. *(she squares up)* I serve the Judge. I guard his aspect. And I am *not* so *clever* a soul that a *stranger's flattery* turns my *sword* in an *evening.* *(coldly)* Bring me something *truer* than *'you secretly agree with me.'* I *don't* secretly agree with *anyone.* That's the *whole* of why I'm *trusted* with the *post.*",
+          "auto": "END"
+        },
+        {
+          "id": "orin_doctrine_truth",
+          "speaker": "Justiciar Orin",
+          "text": "*(She is silent a long moment, and when she answers her voice has lost all its hard edge and found something wearier and far more dangerous: agreement.)* …'His inconvenient peace.' *(quietly)* You've read the *Sundered Concord.* Almost no one *living* has. *(she glances at the shrine, lowers her voice)* You're *right.* The Wall predates Kelemvor's *tenure.* It was struck in the *Dawn* — a *treaty*, between the gods who *wanted* worship and the *powers* that wanted *nothing*, drawn so that souls who served *no* god would not *flow* to the *enemy* of *all* of them. The Faithless are not *punished*, in the deep doctrine. They are *interned.* *Prisoners of a war* most of the realms forgot was *fought.* *(her jaw works)* Kelemvor *inherited* the Wall. He *hates* it — the doctrine is *clear* on that, in the parts they don't *read* aloud — but to *overturn* it is to *break the Concord*, and breaking the Concord *unleashes* the thing the Wall was built to *starve.* *(she meets your eyes)* So I enforce a peace I *despise*, because my god enforces a peace *he* despises, because the *alternative* is *worse.* *(grimly)* Now you know why I drink. Bring *that* clarity to the *grey one*, Returned. It already *knows.* I want to *see* what it *does* when a *mortal* says it *aloud.*",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "way.orin_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.concord_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_doctrine_fail",
+          "speaker": "Justiciar Orin",
+          "text": "*(She snorts.)* The *compromise of the gods.* *(dryly)* You've half a heresy and a *confident* voice, friend. *(she folds her arms)* The Wall is the Judge's *law*, struck by his *authority*, and that is *all* a Justiciar needs to *know* and *more* than a *Crown-chaser* deserves to *debate.* *(coldly)* Bring me *scripture* or bring me *silence.* Half-read doctrine in a *clever* mouth is how *heresy* gets *started*, and I am *posted* here precisely to see that it *stops.* Try the *theology* on the *grey one.* It has *patience* for it. *I* have *irons.*",
+          "auto": "END"
+        },
+        {
+          "id": "orin_backed",
+          "speaker": "Justiciar Orin",
+          "text": "*(She does not step aside — but she does not draw, either, and something recalculates behind her hard eyes.)* …Tea. With *Morn.* *(flatly)* You say it like a *boast*, and it *should* be a *confession* — and yet. *(she studies you)* A soul that cracked a *Canon* and walked out of the *Wall* is not a soul my *irons* were *forged* for, and I am not *fool* enough to *pretend* otherwise. *(her jaw tightens)* I *could* die on this road tonight, trying to hold a thing that *cannot* be *held.* My *order* would call it *duty.* *(coldly)* But I did not survive *eleven years* of this work by *dying* for *postures.* *(she steps, fractionally, aside)* So. I will *not* arrest what I *cannot* hold. But understand, Returned — I am *standing down*, not *standing with.* I will *watch* what the grey one makes of you. And if you walk away from this shrine a *catastrophe* instead of a *saint*, I will be the *first* sword on the *road* behind you, and I will have *learned* your *measure* tonight to *use* it. *(flatly)* Threats *spend* a soldier's *fear*, friend. Mind you don't *spend* it all at *once.* I've a *long* memory for the ones who *made* me *flinch.*",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "way.orin_stood_down",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_unmoved",
+          "speaker": "Justiciar Orin",
+          "text": "*(She does not move, and her hard eyes do not waver, and your threat seems only to *settle* her.)* No. *(flatly)* You've cracked a Canon and frightened a *machine* — I *heard.* But a *machine* fears what *disorders* it, and I am not a *machine*, I am a *Justiciar*, and I have stood *between* worse than *you* and the thing I *guard* and *not moved.* *(she sets her feet)* You mistake *what I am.* The Choir's people *fear* for their *order.* I do not fear for the *order.* I fear for the *souls the order keeps* — and *those*, I will *die* on a *road* to *protect*, from *Morn*, from *you*, from a *god's own aspect* if it comes to it. *(coldly)* So *threaten* me again, Returned, and find out that the *one* soul on this road you *cannot* frighten is the one who *already decided* she was *expendable* the day she took the *oath.* *Now.* The shrine, or the *road.* Choose, before I choose *for* you.",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": -2
+            },
+            {
+              "key": "way.orin_hostile",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_intim_crit",
+          "speaker": "Justiciar Orin",
+          "text": "*(✦ You don't threaten her body — you show her, in one unhurried beat, the precise and total futility of *iron* against a soul that has already been *unmade* and *remade*, and the Justiciar who decided eleven years ago that she was expendable meets, for the first time, a thing that makes *expendability* look like a *child's* shield. Her hand comes off the hilt. Slowly.)* *(She lets out a long breath.)* …I have been *ready to die* for this post since the day I *took* it. *(quietly, shaken)* And you've just shown me that *dying* is not even — that you could *unmake* me in a way that *death* doesn't *touch*, that the *Wall* is *right there* in your *eyes* and it has a *space* for *anyone* who *stands* in your *way.* *(she steps aside, and it is not surrender, it is *recalibration* at speed)* I *withdraw* the arrest. *(flatly, fast)* Not from *fear* of *death* — I'm *immune* to that, it's my *one* qualification — but because I have just learned there are *worse* things than death on this road, and *you* are *holding* them, and a *sword* against *that* is not *courage*, it's *waste.* *(she meets your eyes, hard and clear)* But hear me, Returned: a soul that can frighten a soul that *can't be frightened* is a soul that *needs watching* more than *any* I've hunted. I stand *down.* I do *not* stand *away.* I will be *exactly* one *road* behind you for the *rest* of this. *Be a saint.* For *both* our sakes. I should *hate* to be *right* about the *catastrophe.*",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "way.orin_stood_down",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.orin_shaken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_intim_fumble",
+          "speaker": "Justiciar Orin",
+          "text": "*(💀 You draw yourself up to deliver the bone-deep threat, and you step forward onto the loose wayshrine gravel to loom, and your boot finds the one round stone, and you go down on one knee before the Justiciar of the Doomguard like a knight begging a boon — hard — with an *oof* that rather undercuts the menace.)* *(Orin looks down at you, kneeling in the gravel, and her hard face does something it has not done on duty in eleven years: it *almost* smiles.)* …Are you — *(she offers you a mailed hand up, deadpan)* — are you *surrendering*, or *proposing?* Because the *posture's* the same, and I've had *neither* in some *while.* *(she hauls you up)* Sit *down*, Returned, before you *menace* yourself into the *cairn.* *(she steps back, the threat thoroughly defused, almost cordial now)* I'll *tell* you what — a soul that *frightens* me kneeling in the *gravel* is a soul I can *afford* to let talk to the *grey one* without *irons.* You've a *great* deal of *menace* and a *catastrophic* relationship with *level ground.* *(dryly)* Go on. Mind the *stone.* It's *beaten* better *Justiciars* than your *threats* did.",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_returned",
+          "speaker": "Justiciar Orin",
+          "text": "*(For a long moment she actually *looks* — not the guard's once-over, but a real, searching look, the kind that costs something — and what she finds in you drains the readiness out of her shoulders and replaces it with something far heavier.)* …'Whose side you're on when the order breaks.' *(quietly)* You don't ask a soldier *that.* It's the one question the *oath* is *built* to keep us from ever *having* to answer. *(she lets her hand fall from the hilt entirely)* Eleven years I've told myself the order is *fair*, that the *weighing* is *just*, that the *Wall* is a *grim* necessity I *guard* so that *good* deaths like the *farmer's* yonder can *happen.* *(she looks at Doget, peaceful on his stone, then back at you)* And you're telling me — *standing* there, *cold* and *back* from the dead — that the order is *wrong* at the *root.* Not *unfair* in its *details.* *Wrong* in its *foundation.* *(her voice is very low)* If you're *right*, Returned — if the Wall *isn't* final, if a soul *can* come back — then *everything* I've *enforced* is *built on a lie I'd have died defending.* *(she closes her eyes briefly)* I *cannot* arrest a *counterexample.* You're *right* about that. A *sword* can't cut a *fact.* *(she opens them, and there is a terrible new resolve)* So I will do the thing my *oath* never planned for. I will *come with you.* Not to *guard* the order — to *find out if it deserves guarding.* And if it *doesn't* — *(her jaw sets)* — then the Doomguard will have trained the *sword* that *helps you break it.* Gods help me. I came here to *arrest* a heretic. I think I just *enlisted* with one.",
+          "effects": [
+            {
+              "key": "way.orin.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "way.orin_questioning",
+              "op": "SetTrue"
+            },
+            {
+              "key": "party.orin_may_join",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "orin_leave",
+          "speaker": "Justiciar Orin",
+          "text": "*(She lets you pass toward the shrine, turning to keep you in view, hand resting — not gripping — on the hilt.)* Aye. Go and let it *weigh* you. *(flatly)* That's what it *came* for, and I'll not pretend my *irons* outrank a *god's* curiosity. *(quietly, as you go)* But I'll be *here*, Returned, when it's *done* with you. *(she watches the robed shape)* And I'll be *reading* what *walks back* from that shrine *very* carefully — because in *eleven years* I have *never* seen one of those things take an *hour* to *decide* about a soul, and *hour-long* decisions, in my experience, go *one* of *two* ways. *(her hand settles on the sword)* I do *hope* it's the *good* one. I've *grown* almost *fond* of not having to *use* this on something I can't *beat.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "way.harbinger",
+      "title": "The Grey Harbinger",
+      "npc": "the Grey Harbinger",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Grey Harbinger",
+          "onEnter": [
+            {
+              "key": "way.met_harbinger",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "ald.path_crown"
+                ]
+              },
+              "text": "*(The robed nothing turns fully toward you, and when it speaks the voice does not come from a mouth — it arrives in the marrow of you, in the cold the Wall left, grey and vast and almost gentle.)* …*There* you are. *(a sound like a ledger closing very softly)* The soul that means to *take the Crown.* *(the balance-sigil face regards you)* I am an aspect of the Judge of the Dead, and I have been sent to *weigh* a thing my Lord's ledger has *no column* for: a *living* soul that intends to walk *into* His realm and *take His brother's old throne.* *(the cold deepens)* Do not mistake me for the *Choir*, little Returned. They *condemn.* I do not. I *weigh.* And what I have been sent to weigh is not your *sins* — it is your *fitness.* For *power.* The kind that *ends* gods. *(a pause like an indrawn breath)* So. Stand on the scale of your *own* free will, and let us *both* learn what you would *become* with the *key to every lock in death* in your *cold* little *hand.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "ald.path_appeal"
+                ]
+              },
+              "text": "*(The robed nothing turns toward you, and the voice arrives not through the air but through the cold in your bones, grey and immense and — unexpectedly — *interested.*)* …The one who would not *take* the throne. *(a sound like a held breath)* I have weighed *thousands* who *wanted* the Crown, little Returned — the *grasping*, the *grieving*, the *good* ones *certain* they would wield it *kindly.* You are the first in an *age* who has looked at the *key to every lock in death* and proposed, instead, to *file an appeal.* *(the balance-sigil tilts, the aspect's version of a tilted head)* My Lord finds this *fascinating.* A soul that would *force* His court to *hear* the backlog rather than *seize* His authority to *empty* it. *(the cold gentles)* I am sent to *weigh* you — but I confess, the *weighing* has become a *curiosity.* You may be the only soul in *centuries* the Judge would *thank* rather than *fear.* Stand on the scale. Let us see if the *humility* is *real*, or merely the *patient* shape *ambition* takes."
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The robed nothing turns toward you, and the cold of it reaches for the cold in you, kin recognizing kin across an impossible distance, and the voice arrives grey and vast in your marrow.)* …Godless. *(a sound like a page turning)* And *Returned.* *(the balance-sigil face regards you with what might, in a thing so far from human, be *tenderness*)* Do you know, little soul, that by the *letter* of the *Concord* you should be *in the Wall* — that you are, by every rule my Lord *inherited*, a thing that *escaped* its *cell?* *(the cold deepens, almost mournful)* And yet here you stand, and the ledger *cannot* close on you, and my Lord — who *hates* the Wall He is *bound* to keep — has sent *me* not to *return* you to it, but to *ask* you something He cannot ask *aloud* without *breaking* the Concord that *binds* Him. *(a pause)* Stand on the scale, unbought one. The Judge of the Dead has a *question* for the one soul that proved His prison *leaks.* And it is *not* the question you *fear.*"
+            },
+            {
+              "text": "*(The robed shape turns toward you — the dusk pouring into a form it never quite fills — and the voice does not travel through the air but arrives directly in the cold the Wall left behind your sternum, grey and patient and older than the road.)* …Approach. *(a sound like a great scale finding its balance)* I am a *Harbinger* — an *aspect* of Kelemvor, Judge of the Dead, sent where a soul is *too unusual* for the ordinary weighing. *(the balance-sigil face fixes on you)* And you, little Returned, are the most *unusual* soul to walk a road in *three hundred years.* A thing that went *into* death and came *out* — that the *ledger* cannot *hold*, that the *Wall* could not *keep*, that a *broken Doomguide* would make a *key* and a *frightened Choir* would make a *corpse.* *(the cold settles over you, weighing, not unkind)* My Lord does not yet know what to *do* with you. *Neither do I.* That is why I have *waited* at this shrine through a *sunset* — to *weigh* a soul whose *weight* keeps *changing.* *(a pause)* Speak, then. Every word *moves* the *scale.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The aspect waits with the absolute patience of a thing for which time is a *medium*, not a *constraint*, and the grey balance that serves it for a face hangs perfectly, terribly level.)* Ask, little Returned. Or answer. The scale does not care which — it weighs the *shape* of a soul, and a soul shows its shape as clearly in its *questions* as its *deeds.* *(the cold pulses, once, like a slow heart.)* I have weighed *kings* who asked only after their *enemies*, and *beggars* who asked after the *kings.* You would be *surprised* which ones weighed *heavier.*",
+          "choices": [
+            {
+              "text": "[RELIGION] \"You serve a god who *hates* the Wall he keeps. So tell me the thing the Choir won't and Aldric can't: if Kelemvor despises the Wall, and the Wall isn't even his law but an inherited *treaty* — the Concord — then why doesn't the Judge of the Dead simply *refuse* to enforce it? What holds a *god* to a bargain he loathes?\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 13
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 17
+              },
+              "next": "harb_concord",
+              "fail": "harb_doctrine"
+            },
+            {
+              "text": "\"You said the Judge has a question for me that *isn't* the one I fear. I've spent this whole road being weighed by people who want to condemn me, recruit me, or crown me. So ask it, Harbinger. What does the *god of the dead* want to know from the one soul that proved his prison leaks?\"",
+              "next": "harb_question"
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying 'my Lord does not know what to do with me.' But you're an *aspect* — a piece of him, sent out. If *you* don't know, then *he* doesn't, which means the Judge of the Dead is, for the first time in an age, *uncertain.* I didn't just escape the Wall, did I. I cracked the *certainty* of the god who keeps it. That's why you waited a whole sunset. You're not weighing me. You're *hoping* I have an answer *he* doesn't.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 17
+              },
+              "next": "harb_uncertain",
+              "fail": "harb_opaque"
+            },
+            {
+              "text": "*(stand on the scale, and let the Judge's own aspect feel what came back)* \"You want to weigh me? Then weigh *all* of it, Harbinger — not the soul I was, the thing I *am.* I've been in the Wall. I carry every name it tried to erase. And I am going back for the rest of them, with the Crown or an appeal or my own two cold hands. Put *that* on your scale. Tell your Lord the ledger doesn't just *leak.* It's about to be *rewritten* — and he can help, or get out of the way.\"",
+              "tag": "returned",
+              "next": "harb_weighed",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"What happens if I fail your weighing, Harbinger? Be plain. Do I go in the Wall? Does your sword-saint over there get her arrest after all? What's on the other pan?\"",
+              "next": "harb_stakes"
+            }
+          ]
+        },
+        {
+          "id": "harb_concord",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance trembles — the first motion you have seen it make — and the cold in your marrow goes very still, the way a vast room goes still when a forbidden word is spoken in it.)* …You ask the question my Lord *cannot.* *(a sound like a held breath across an abyss)* *That* is why the scale *moved.* *(the voice drops, conspiratorial on a cosmic scale)* The Concord is not a *law*, little Returned. It is a *peace treaty*, struck in the Dawn between the gods who *feed* on worship and the *Hunger* that feeds on *its absence* — the *Unmade*, the accreted *nothing* of every soul the cosmos ever *threw away.* *(the cold deepens)* The Wall is not a *prison* for the *Faithless.* It is a *seawall.* The unclaimed souls are *mortar*, packed into the breach to keep the *Hunger* on the *other* side from *pouring through* into creation. *(a terrible pause)* My Lord *hates* it. He inherited a *seawall* built of *living grief* and he is *bound* by the Concord to *maintain* it, because the *day* he refuses, the Wall *fails*, and the *Unmade* comes *in*, and there is no *court*, no *weighing*, no *Tuesdays* — only the *nothing*, for *everyone*, god and farmer alike. *(the balance steadies)* *That* is what holds a god to a bargain he loathes, little soul. Not *honor.* *Terror.* The same terror that holds the *Choir*, and *Orin*, and *me.* *(the cold turns toward you, almost pleading)* …And then *you* walked out of the seawall *intact.* Do you understand now why my Lord cannot decide what you *are?* You are either the *crack* that *drowns* the world — or the *first evidence* that the seawall could be built of something *other* than the *damned.* He does not know *which.* *Neither do I.* *Neither*, I suspect, *do you.*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "way.concord_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.unmade_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.heresy_learned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_doctrine",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The balance does not move, and the voice arrives flat and grey and final.)* …You *grope* toward it. *(a sound like a page not yet turned)* But you have not the *scripture* to *hold* what you are reaching for, and there are *truths*, little Returned, that *unmake* the soul that grasps them *unprepared* — that is not a *threat*, it is *mercy*, it is *why* the deep Concord is *kept* from the *living.* *(the cold settles)* Ask me a question your *soul* can *survive* the *answer* to. Or *stand on the scale* and let me weigh what you *are*, rather than what you have not yet the *learning* to *ask.* The *weighing* needs no *doctrine.* Only *truth*, and you have *that* in you whether you can *cite* it or not.",
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_question",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance holds level, and the aspect is silent for a long moment — and when the question comes, it is not vast, or cosmic, or terrible. It is simple, and that is what makes the cold in you *flinch.*)* …Very well. *(a sound like a great hall going quiet)* Here is what the Judge of the Dead wishes to know from the one soul that proved His prison leaks. *(the balance-sigil regards you)* Not *how* you escaped. He *knows* how — a thread of love, a crack in the harvest, the *usual* small miracles. *(a pause)* He wishes to know *this*: *(the voice gentles to something almost frightened)* …when you were *in* the Wall — *unmade*, *unjudged*, *dissolving* — and you found you could *come back* — *(the cold holds its breath)* — *why did you?* *(the balance trembles)* Every soul He has ever weighed *wanted* to live, *clung*, *bargained.* But you had already *let go.* You were *already* in the cold. *Coming back hurt more than staying.* And you did it *anyway.* *(the aspect leans in, and the whole grey weight of the god behind it leans with it)* My Lord has kept the seawall for *three hundred years* on the belief that the souls in it are *gone past wanting anything.* And you are *proof* that even *unmade*, a soul can *want* — can *choose* — can *come back.* *(barely)* So He must know, little Returned, before He decides what you are: *what did you come back for?* Answer *true.* The *whole* scale hangs on it.",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "way.the_question_asked",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_uncertain",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance *shivers*, both pans trembling, and for an instant the robed nothing seems *less* — as though you have seen through the aspect to the vast uncertain thing that sent it, and it *knows* you have.)* …*Yes.* *(the admission costs it something; you feel the cold *recoil*)* You see *truly*, and seeing *truly* is itself a *weight.* *(the voice drops)* I am a *piece* of my Lord, sent to *decide.* And I *cannot.* Which means *He* cannot. *(the balance steadies with visible effort)* For *three hundred years* the Judge of the Dead has been the one *fixed* certainty in a *shifting* cosmos — the *fair* weigher, the *kept* peace, the *known* end. And a *single* soul walked out of His *unbreakable* Wall, and now there is a *crack* in the *Judge's own certainty*, and an *uncertain god* is the most *dangerous* thing in *creation*, little Returned, because *everything else* is *built* on Him being *sure.* *(the cold turns to you, and it is, unmistakably, *hope* now)* So yes. I am not *only* weighing you. I am *hoping* — a thing aspects are *not built* to do — that you carry an *answer* my Lord *lacks.* That you are not the *crack* that *drowns* us, but the *door* He has *prayed*, in His *bound* and *hating* way, for *someone* to *find.* *(barely)* *Do* you have it? An answer? Or are you, like *Him*, like *me*, like *all* of us — simply *making it up* as the *scale* swings, and *praying* it *balances?*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "way.judge_uncertain",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_opaque",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The balance holds, perfectly level, and gives you nothing.)* …You reach for the *thing behind* the *aspect.* *(grey and flat)* Wiser souls than you have reached so, and found only *more grey.* *(the cold neither deepens nor lifts)* I am what I am *sent* to be: a *scale*, and a *patience.* What *sent* me is not for a *living* soul to *read*, however *cold* its bones. *(a pause)* Stand on the scale, little Returned, and let the *weighing* speak where your *insight* has *overreached.* The scale is *honest* even when the *god* is *opaque.* *Especially* then.",
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_weighed",
+          "speaker": "the Grey Harbinger",
+          "text": "*(You do not so much step onto a scale as *let it have you* — and the cold of the aspect pours into the cold of you, and for one vertiginous instant the Judge of the Dead *looks out through the Harbinger's grey face at the names you carry*, all of them, Wren and Wick and Esuele and Maerin and ten thousand more, every soul the Wall tried to erase, held in a dead thing that *refused* to forget them.)* *(The balance does not tip. It *breaks* — both pans swinging wide and *staying* there, unable to find a level, because you cannot be weighed against a world you are *rewriting.*)* …*Oh.* *(the voice is very quiet, and very old, and shaken)* You are not a *soul* to be *weighed.* You are a *second scale.* *(the cold reels)* My Lord weighs the dead *one at a time*, *fairly*, as the Concord allows — and you have walked up carrying *ten thousand at once* and *declared them already judged*, by an authority that is *not* His, that is *older* than His, that is simply *I remember you, and I will not let you be nothing.* *(the broken balance hangs wide)* That is not *heresy*, little Returned. *Heresy* argues with the *law.* You have done something the law has *no answer* for: you have *witnessed*, and a *witness* the law cannot *silence* is a *witness* the law must eventually *seat.* *(the cold gathers, and resolves, and what it resolves into is not judgment but *alliance*)* I will carry this to my Lord *whole.* And I will carry *with* it the *aspect's* own *verdict*, which He may *heed* or *not*: that the thing that walked out of the seawall is not its *crack* — it is its *conscience*, come back to *testify.* *(the balance, slowly, *rights* itself — and tips, deliberately, *toward* you.)* Go, Returned. Take your Crown, or your appeal, or your two cold hands. The Judge of the Dead will not *send* against you. He will *wait* — as I have waited — to see if the *conscience* of the dead can do what the *god* of the dead, *bound* and *hating*, *cannot.* *Free* them *well.* And *mind* the *Hunger* on the *far* side of the *wall* you mean to *open.* It has *waited* longer than *any* of us.",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "way.harbinger_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.judge_will_wait",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.unmade_revealed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "harb_stakes",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance holds, and the answer comes plainly, without menace, which is somehow worse than menace.)* …Plainly, then. *(a sound like a ledger considered)* If I weigh you and find a *crack* — a soul that means to *open* the seawall in *recklessness* or *grief* or *ambition*, with no thought for the *Hunger* behind it — then I do *not* send you to the Wall. *(the cold is matter-of-fact)* The Wall could not *hold* you; we both *know* this. *(a pause)* No. If I find you a *danger* to *creation*, little Returned, I do the thing my Lord does to threats the Wall cannot *keep*: I *unmake* you. *Cleanly.* Not *death* — you are *past* death. *Erasure.* The same *nothing* the Wall *administers slowly*, delivered *all at once*, so that you were *never*, and the *names* you carry scatter *unwitnessed*, and the *crack* you might have been *closes* before it can *drown* us. *(the balance steadies)* *That* is the other pan, little soul. Not *prison.* *Oblivion*, for *you* and every *name* in you. *(the cold gentles, terribly)* I tell you this *not* to *frighten* you — fear *fouls* the *weighing* — but because you *asked*, and because a soul deserves to know what it stands to *lose* when it stands on a *god's* scale. *(a pause)* So *weigh* well, Returned. *Show* me the *conscience*, not the *crack.* I have *no* wish to *unmake* the first *interesting* thing to walk this road in *three hundred years.* But I *will*, if you *are* the *flood.* The *Tuesdays* of *everyone* depend on my *not* flinching. Even *yours.* *Especially* yours.",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "way.stakes_named",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "harb_crux"
+        },
+        {
+          "id": "harb_crux",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance hangs between you, and the dusk has gone full dark around the shrine, and the candle-flames bend toward the cold of the aspect as though even fire wishes to be weighed and found warm.)* The scale has your *measure*, little Returned — your questions, your deeds, the *names* you carry like a second pulse. *(a pause)* But a scale weighs what *is*, and you are a soul that is *still becoming*, and so I will do what I am *not* built to do, and *ask*, rather than *weigh.* *(the balance-sigil fixes on you)* You will go from this shrine to a *Crown*, or an *appeal*, or a *war* — the roads all run to the same *door*, the one you have *already* walked *once.* So tell me, and tell the *god* behind me, the thing that will set this scale at last: *when you open the Wall — and you will — what do you mean to do about the Hunger on the other side?* *(the cold waits)* *That* is the question under *all* the others. *Answer* it, and I will know whether to bless you, or stop you, or simply — *at last* — *step aside.*",
+          "choices": [
+            {
+              "text": "\"I don't open it to the Hunger — I open it like a *door*, not a *breach.* The souls come *out*; the nothing stays *behind*, because a door has a *keeper*, and I'll either be it or appoint one. You don't tear down a seawall, Harbinger. You build it a *gate*, and you post a *watch.* The Faithless were never the mortar the wall *needed* — they were just the mortar it was *cheapest* to use.\"",
+              "next": "harb_gate",
+              "effects": [
+                {
+                  "key": "way.harbinger.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "way.answer_gate",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.devout",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if the Judge's own aspect asked what you came back for)* \"You asked what I came back *for.* *This.* Exactly this. I came back because in the cold I could still *want* one thing: for it to *matter* that I had been real. The Hunger is what happens to souls *no one witnessed.* So I starve it the only way there is — not with a *wall*, but by *witnessing.* Every name remembered is one the nothing can't have. I don't fight the Hunger, Harbinger. I make it *obsolete.*\"",
+              "when": {
+                "flags": [
+                  "way.the_question_asked"
+                ]
+              },
+              "next": "harb_witness",
+              "effects": [
+                {
+                  "key": "way.harbinger.regard",
+                  "op": "AddInt",
+                  "amount": 4
+                },
+                {
+                  "key": "way.answer_witness",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Honestly? I don't know yet. And I think a soul that *claimed* to know would be exactly the crack you're afraid of — because only someone who hasn't *understood* the Hunger would be *sure.* What I know is that I won't open it *blind*, I won't open it *alone*, and I'll carry people who'll *stop* me if I start lying to myself. That's not an answer. It's the only honest *shape* of one.\"",
+              "next": "harb_honest",
+              "effects": [
+                {
+                  "key": "way.harbinger.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "way.answer_honest",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(coldly)* \"The Hunger isn't my problem, Harbinger. Ten thousand souls dissolving *now* is. I'll open the Wall and let the gods who *built* the seawall worry about what they penned behind it. They had three hundred years to find a better mortar than the *innocent.* Their bill comes due, not mine.\"",
+              "next": "harb_reckless",
+              "effects": [
+                {
+                  "key": "way.harbinger.regard",
+                  "op": "AddInt",
+                  "amount": -2
+                },
+                {
+                  "key": "way.answer_reckless",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "harb_gate",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance goes utterly still — and then, slowly, *deliberately*, both pans rise to perfect level and *lock* there, a thing you sense it has not done for a mortal in a very long time: not a verdict of *light* or *heavy*, but of *sound.*)* …*A gate. And a watch.* *(the cold of the aspect warms by an impossible degree)* In *three hundred years*, little Returned, every soul who proposed to *open* the Wall proposed to *tear it down* — and my Lord refused them *all*, not from *cruelty*, but because they would have *drowned* creation to *empty* a *prison.* *(the voice is almost reverent)* You are the *first* to understand that the *seawall* must *stand* — and that the *crime* was never the *wall*, but the *mortar.* That you can keep the *Hunger* out *and* let the *witnessed* through, *if* there is a *keeper.* *(the balance glows faintly)* My Lord has been *bound* to a *seawall* He could not *gate* because no *god* may keep a *door* in the Concord without *breaking* it — but a *soul*, little Returned? A soul that is *neither living nor dead*, that the *ledger* cannot *hold*, that walked *both ways* through the *only door there is?* *(the cold turns toward you, and it is *benediction*)* Such a soul could keep a *gate* no *god* is *permitted* to. *(the Harbinger inclines its robed nothing — a *bow*)* Go and take your Crown, *Keeper.* Build the *gate.* Post the *watch.* And know that the *Judge of the Dead*, who has *hated* his seawall for *three hundred years*, will — for the *first* time — *hope.* I came to *weigh* a *crack.* I have found a *hinge.* *Go.*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "way.harbinger_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.judge_will_wait",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.named_keeper",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.devout",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "harb_witness",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance trembles, and then the impossible happens: the aspect *closes its eyes* — the balance-sigil simply *dims*, the way a face does when it is *moved* past bearing — and when the cold voice returns it is thick with something no aspect of a death-god should be able to feel.)* …*You make it obsolete.* *(barely)* You do not *fight* the Hunger. You *starve* it — by *witnessing.* *(the cold *shivers*)* Do you know what the *Hunger* is, little Returned? *Truly?* It is not a *beast.* It is the sum of every soul that died *unwitnessed* — *unmourned*, *unremembered*, *un-named* — and *curdled*, in the dark, into an *appetite* for the *same.* The Wall *feeds* it the *Faithless* to keep it *sated* and *penned.* *(the voice breaks)* And you have proposed to *end* it not by *walls* or *wars* but by the *one* thing it *cannot survive*: a soul that *refuses to let anyone be nothing.* *Every name you carry* is a *bite the Hunger does not get.* *(the balance rights itself, and *blazes*)* That is the answer my Lord could not *find* in *three hundred years* of *grief*, because a *god* cannot *witness* — He can only *weigh.* It took a *dead thing that came back loving* to see it. *(the aspect bows, low, the whole grey weight of Kelemvor bowing through it)* Go, *Witness.* I will tell my Lord that the *seawall* has an *ending* at last, and it is not a *flood* and it is not a *prison* — it is *memory*, walking on two cold legs, *refusing.* *(the cold lifts from you entirely, for the first time, like a *blessing* or a *thaw*)* You came back to *matter.* You will matter *more* than any soul that ever wore *or refused* a Crown. *Now go and remember them all.*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 6
+            },
+            {
+              "key": "way.harbinger_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.judge_will_wait",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.named_witness",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "harb_honest",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance hangs, and the aspect considers you for a long, cold moment — and then, slowly, the pans settle to level, and the voice that comes is something close to *relief.*)* …'Only someone who hasn't understood the Hunger would be *sure.*' *(a sound like a held breath released)* *That*, little Returned, is the *truest* thing a soul has *ever* said on this scale. *(the cold gentles)* I have weighed a *thousand* souls *certain* of their *righteousness*, and *certainty*, in a matter this *large*, is the *very signature* of the *crack* — for the Hunger was *made* by gods and souls *certain* they were doing the *necessary* thing. *(the balance steadies)* You have given me no *plan.* You have given me something my Lord trusts *more* than a plan: a soul that *knows the size of what it doesn't know*, that will not open the Wall *blind*, *alone*, or *unchecked.* *(a pause)* That is not *enough* to *bless.* But it is *more* than enough to *not stop.* *(the aspect inclines its head)* Go, little Returned. *Assemble* your answer the way you assembled your *allies* — *honestly*, *piece by piece*, with souls beside you brave enough to *uncrown* you. And when you stand at the *Wall* with the *Crown* in your hand and the *Hunger* on the *far* side — *(the cold settles on you, grave)* — *send* for me. I will *come.* Not to *weigh* you. To *witness*, so that *you* are not the *only* one who *carries* it. Even a *Judge's* aspect can *hold* a *corner* of so *heavy* a *door.* *Go.*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "way.harbinger_allied",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.judge_will_wait",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "harb_reckless",
+          "speaker": "the Grey Harbinger",
+          "text": "*(The grey balance does not waver — but the cold of the aspect changes, going from *patient* to *glacial*, the temperature of a thing that has just finished deciding.)* …'Their bill comes due, not mine.' *(grey and final)* I see. *(a long, terrible pause)* You are *not* wrong that the gods who built the seawall of the *innocent* have a *reckoning* owed. You are not wrong that ten thousand dissolve *now.* *(the cold deepens)* But you have answered the question *under* all the questions, little Returned, and the answer is: *you would open the Wall without a keeper, and let the Hunger fall where it falls, and call the drowning someone else's debt.* *(the balance, at last, *tips* — away from you, heavy)* That is the *crack.* That is the *exact* shape of it. Not *malice* — *grief*, *impatient* and *certain*, which is how *every* flood that ever *drowned* a world *began.* *(the cold gathers, and it is *sorrow*, and it is *resolve*)* I will *not* unmake you *here* — you have done *too much good* on this road for the scale to read you *only* as *flood*, and a soul can *change* its *shape* up until the *last* step. *(the balance hangs, heavy and grave)* But hear the *aspect's* verdict, and carry it like the *cold* you already carry: *if you walk to that Wall still believing the Hunger is someone else's bill, you will meet me there, and I will not be weighing.* *(the cold withdraws, leaving you colder)* *Prove* me *wrong*, little Returned. *Find* the *keeper* in you before the *door.* I have *unmade* floods before. I take *no* joy in it. And I have *never* taken less than I would in *unmaking* *you.* …*Go.* And *think* on the *Tuesdays.* The farmer had the *right* of it. So, *nearly*, do *you.* Do not lose it at the *threshold.*",
+          "effects": [
+            {
+              "key": "way.harbinger.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "way.harbinger_warned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "way.judge_watches",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}

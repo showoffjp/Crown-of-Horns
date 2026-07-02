@@ -121,6 +121,98 @@ test("NgPlus_AddsTheLoopSlide", () => {
   F().SetBool("ng.plus", true);
   T(any(EndingResolver.Epilogue(Ending.MortalMeasure), "reaches, already, for the first chapter"));
 });
+test("SideQuests_LongRoad_DriveTheirOwnSlides", () => {
+  // None set: no side-quest slide leaks in.
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Graves That Waited"), "no graves slide unset");
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Hand in the Margins"), "no margins slide unset");
+  // Set one resolution per quest; each contributes its slide.
+  F().SetBool("sq.field_of_the_rested", true);
+  F().SetBool("sq.wrote_back_to_the_loop", true);
+  F().SetBool("sq.roen_forgives_sabira", true);
+  F().SetBool("sq.naeve_grieves_at_last", true);
+  F().SetBool("sq.harvest_exposed_public", true);
+  F().SetBool("sq.fortyone_reaper_rests", true);
+  F().SetBool("sq.forbidden_name_spoken", true);
+  F().SetBool("sq.dirge_sung_at_court", true);
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(s.every(x => typeof x === "string" && x.length > 0), "no empty side-quest slides");
+  T(any(s, "the oldest song in the world sang the Faithless home"));
+  T(any(s, "the field of the rested was the thing the crown was always for"));
+  T(any(s, "You were the first who could write back"));
+  T(any(s, "forgiveness is a weight you release for your own sake"));
+  T(any(s, "started mourning him — beautiful and guilty and gone"));
+  T(any(s, "the ordinary people who fed the Wall began to step out of their places"));
+  T(any(s, "the ferryman of endings learned he was owed a shore too"));
+  T(any(s, "a name carried in love is a soul the Wall can never quite finish erasing"));
+});
+test("Chronicle_SideQuestTally_CountsResolvedQuests", () => {
+  Fa(any(EndingResolver.Chronicle(), "Side quests of the long road"), "no tally when none resolved");
+  F().SetBool("sq.roen_forgives_sabira", true);          // quest 3
+  F().SetBool("sq.field_of_the_rested", true);           // quest 1
+  F().SetBool("sq.fortyone_reaper_rests", true);         // quest 6
+  F().SetBool("sq.fortyone_victory", true);              // same quest 6 — must not double-count
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 3/21 brought home"));
+});
+test("LanternFeast_JoyAsDefiance_DrivesItsSlide", () => {
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Last Lantern-Feast"), "no feast slide unset");
+  // Court resolution outranks the alternates and fires the joy-vs-doctrine slide.
+  F().SetBool("sq.feast_to_the_court", true);
+  F().SetBool("sq.feast_held_open", true); // lower branch — must be suppressed
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "never armored it against a party"), "court slide fires");
+  Fa(any(s, "most unforgivable night Steelshanks ever threw"), "only the primary feast slide shows");
+  // It counts toward the long-road tally as the 21st quest.
+  T(any(EndingResolver.Chronicle(), "Side quests of the long road: 1/21 brought home"));
+});
+test("Chronicle_MovementsCoalesced_MirrorsEpilogueClusters", () => {
+  Fa(any(EndingResolver.Chronicle(), "Movements coalesced"), "no movements line when none coalesce");
+  // Two rescue quests: still below the cluster threshold, no movement.
+  F().SetBool("sq.harvest_to_the_court", true);
+  F().SetBool("sq.silences_filled", true);
+  Fa(any(EndingResolver.Chronicle(), "Movements coalesced"), "no movement at two");
+  // A third distinct rescue quest coalesces the Counter-Machine, named, 1/3.
+  F().SetBool("sq.crossing_fleet", true);
+  T(any(EndingResolver.Chronicle(), "🎖️ Movements coalesced: 1/3 — ⚙️ The Counter-Machine"), "counter-machine named");
+  // Add three record + three remembrance quests: all three movements, in order.
+  ["sq.naeve_grieves_at_last", "sq.objection_read_aloud", "sq.threnn_shared"].forEach(k => F().SetBool(k, true));
+  ["sq.field_of_the_rested", "sq.dirge_decoded", "sq.wall_read_aloud"].forEach(k => F().SetBool(k, true));
+  T(any(EndingResolver.Chronicle(), "🎖️ Movements coalesced: 3/3 — ⚙️ The Counter-Machine, 📚 The Case Was Complete, 🕯️ Every Name Kept"), "all three named in order");
+});
+test("SideQuests_PrimaryResolutionOutranksAlternate", () => {
+  // For a single quest, the highest-priority resolution wins (one slide, not two).
+  F().SetBool("sq.field_of_the_rested", true);
+  F().SetBool("sq.every_soul_expected", true); // lower branch — must be suppressed
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "you did the unglamorous part"));
+  Fa(any(s, "The open holes said otherwise"), "only the primary graves slide shows");
+});
+test("Convergence_ClusterSlides_FireOnBreadth_NotOnePlusOne", () => {
+  // One quest from a cluster: no convergence slide.
+  F().SetBool("sq.mercy_route_toller", true);
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "no convergence on one");
+  // Two from the rescue cluster: still below threshold.
+  F().SetBool("sq.crossing_fleet", true);
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "no convergence on two");
+  // Three distinct rescue quests: the Counter-Machine recognizes the movement.
+  F().SetBool("sq.delancie_endowment", true);
+  T(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "convergence on three");
+  // A second resolution of an already-counted quest must not push it over for free.
+  GameFlags.Replace(new GameFlags());
+  F().SetBool("sq.mercy_route_toller", true);
+  F().SetBool("sq.mercy_route_outlives_her", true); // same quest — no double count
+  Fa(any(EndingResolver.Epilogue(Ending.MortalMeasure), "The Counter-Machine"), "cluster counts quests, not resolutions");
+});
+test("Convergence_AllThreeMovements_AddTheCapstone", () => {
+  // Three rescue + three record + three remembrance quests, all distinct.
+  ["sq.harvest_to_the_court", "sq.silences_filled", "sq.crossing_fleet"].forEach(k => F().SetBool(k, true));
+  ["sq.naeve_grieves_at_last", "sq.objection_read_aloud", "sq.threnn_shared"].forEach(k => F().SetBool(k, true));
+  ["sq.field_of_the_rested", "sq.dirge_decoded", "sq.wall_read_aloud"].forEach(k => F().SetBool(k, true));
+  const s = EndingResolver.Epilogue(Ending.MortalMeasure);
+  T(any(s, "The Counter-Machine"), "rescue movement");
+  T(any(s, "The Case Was Complete"), "record movement");
+  T(any(s, "Every Name Kept"), "remembrance movement");
+  T(any(s, "The Long Road"), "capstone fires when all three movements present");
+});
 test("Chronicle_BaselineLines", () => {
   const l = EndingResolver.Chronicle();
   T(any(l, "Eras walked: none yet"));

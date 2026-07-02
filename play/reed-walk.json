@@ -1,0 +1,1650 @@
+{
+  "scene": {
+    "id": "reedwalk",
+    "name": "The Reed-Walk",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "boat",
+        "x": 8,
+        "y": 7
+      },
+      {
+        "type": "piling",
+        "x": 7,
+        "y": 8
+      },
+      {
+        "type": "piling",
+        "x": 9,
+        "y": 8
+      },
+      {
+        "type": "shrine",
+        "x": 5,
+        "y": 3
+      },
+      {
+        "type": "reeds",
+        "x": 1,
+        "y": 4
+      },
+      {
+        "type": "reeds",
+        "x": 0,
+        "y": 6
+      },
+      {
+        "type": "reeds",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "reeds",
+        "x": 10,
+        "y": 4
+      },
+      {
+        "type": "reeds",
+        "x": 10,
+        "y": 6
+      },
+      {
+        "type": "reeds",
+        "x": 2,
+        "y": 8
+      },
+      {
+        "type": "crate",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "barrel",
+        "x": 7,
+        "y": 5
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "market",
+        "dest": {
+          "x": 5,
+          "y": 6
+        },
+        "label": "◂ back to the market square"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "to": "lasttorch",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "up the causeway, into the mist ▸ (past the last torch)"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "wake",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ firelight and singing upriver — a wake, of all things"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "memory",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a soul reliving one night — step into the locked room"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "lazaret",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ past the herb-garden gate — a lazaret for the souls who can't stop dying"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "cassian",
+        "name": "Old Cassian",
+        "title": "the Boatman of the Last Mile",
+        "x": 8,
+        "y": 6,
+        "hue": 200,
+        "sigil": "C",
+        "conv": "reed.cassian",
+        "hail": "*(a gaunt old man sits in a flat-bottomed boat, oar across his knees, watching the grey water as if it owed him money)*"
+      },
+      {
+        "id": "vharn",
+        "name": "Sister Vharn",
+        "title": "a Measurer of the Choir",
+        "x": 5,
+        "y": 1,
+        "hue": 48,
+        "sigil": "V",
+        "conv": "reed.vharn",
+        "hail": "*(a tall woman in pale vestments stands at the head of the causeway, a brass scale-pendant at her breast, and weighs the souls of passersby with her eyes)*"
+      },
+      {
+        "id": "wren",
+        "name": "Wren",
+        "title": "at the water's edge",
+        "x": 2,
+        "y": 5,
+        "hue": 340,
+        "sigil": "W",
+        "conv": "reed.wren",
+        "hail": "*(a young woman stands ankle-deep in the cold shallows, facing the far shore, an unbitten winter apple in one hand)*"
+      },
+      {
+        "id": "reedwife",
+        "name": "the Reed-Wife",
+        "title": "something the river kept",
+        "x": 9,
+        "y": 3,
+        "hue": 168,
+        "sigil": "R",
+        "conv": "reed.reedwife",
+        "hail": "*(the reeds part where there is no wind, and a pale, patient face lifts just above the waterline to consider you)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "reed.cassian",
+      "title": "Old Cassian's Boat",
+      "npc": "Old Cassian",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Old Cassian",
+          "onEnter": [
+            {
+              "key": "reed.met_cassian",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(He marks the grey balance at your throat and lifts his oar a hand's-breadth in something between a salute and a tired wave.)* A Judge's man. *(his voice is river-gravel)* Well. We're the same trade, you and I — I move 'em across the water, your Lord weighs 'em on the far bank. *(he spits over the side)* Difference is, He gets the clean work and the choir, and I get the *rowing* and the *cold.* Ride free, colleague. Professional courtesy. I'll not charge a man who'll be filing my paperwork on the other side."
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(His pale eyes find you, and something in them goes flat and sorry — the look of a man pricing a coffin he'd rather not.)* …Ah. *(he doesn't reach for the oar)* No god's hand on you, friend. *(quietly)* Then I've bad news about the fare, and worse about the destination. The boat's for the bought and the blessed — them as have a coin and a god to vouch the coin's good. *(he nods at the long grey causeway)* The godless *walk.* Out there. On the stone. All the way to the Wall, on foot, with no one rowing. *(gentler)* I'm sorry. I don't make the rules of the river. I just got *stuck* with the oar."
+            },
+            {
+              "when": {
+                "deity": "Myrkul"
+              },
+              "text": "*(His grip tightens on the oar the instant he clocks the Bone Lord's mark, and the boat drifts a careful arm's length further out.)* …You keep your distance from my boat, Lord's-man. *(wary)* I've ferried for forty years and I know the difference between a passenger and a *low tide.* Myrkul's sort don't want passage. They want to know the *route.* *(flatly)* And I'll be dead in my own boat before I draw a map to the Wall for the likes of *that.*"
+            },
+            {
+              "when": {
+                "race": [
+                  "Tiefling",
+                  "Drow"
+                ]
+              },
+              "text": "*(He looks at your horns, your skin, with the supreme indifference of a man who has rowed every kind of soul there is across this water.)* Hells-blood, deep-elf, doesn't matter to me, friend. *(he pats the boat's wet bench)* The river don't check your *complexion*, it checks your *coin*, and the far shore weighs your *deeds*, not your *hide.* Sit if you're paying. Walk if you're not. You're the *politest* thing that's wanted this boat all week, and that includes the heron."
+            },
+            {
+              "text": "*(The gaunt old boatman doesn't look up from the water.)* If you're for the far shore, the fare's a coin and a god's good word. *(he taps the gunwale)* If you're just here to gawp at the causeway like the rest of the market's day-trippers — gawp, then. It's free. *(a dry almost-smile)* Everything else out here costs more than you've got. Always does."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Old Cassian",
+          "text": "*(He shifts the oar across his knees and finally meets your eyes, patient as the tide.)* So. What's your business at my boat, traveler? Passage, or *questions?* I've an endless supply of the second and damn-all use for either.",
+          "choices": [
+            {
+              "text": "[RELIGION] \"This isn't a ferry rite I know. A coin for the boatman is Kelemvor's custom — but you take a *god's word* as fare. That's older. That's the *causeway's* toll, not the Judge's. What are you really ferrying people to?\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 12
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 14
+              },
+              "next": "cassian_truth",
+              "fail": "cassian_deflect"
+            },
+            {
+              "text": "[INSIGHT] \"You don't charge a coin because you *want* the coin. You charge it so you can tell yourself the ones who *can't* pay chose to walk. How many have you watched start down that stone on foot, Cassian?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "cassian_truth",
+              "fail": "cassian_deflect"
+            },
+            {
+              "text": "[PERSUASION] \"Row me across for nothing, old man, and I'll do something out there none of your paying fares ever will: I'll come *back*, and tell you what's on the other side. Forty years rowing and no one's ever told you, have they?\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "cassian_free",
+              "fail": "cassian_no",
+              "crit": "cassian_crit",
+              "fumble": "cassian_fumble",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(she's somewhere behind you in the reeds, and you came down here for her)* \"There's an apple-girl on this bank — Wren. Marked. Did she come past your boat? Did she ask you to row her across?\"",
+              "when": {
+                "flag": "market.met_wren"
+              },
+              "next": "cassian_wren"
+            },
+            {
+              "text": "*(let the river hear what you are)* \"I've been across already, Cassian. Not in your boat — through the *stone.* And I came back with the far shore still in my teeth. Ask me what's over there. You've earned the answer, forty years on.\"",
+              "tag": "returned",
+              "next": "cassian_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Just looking, boatman. The water's got a pull to it.\" *(watch the grey current a while)*",
+              "next": "cassian_leave"
+            }
+          ]
+        },
+        {
+          "id": "cassian_truth",
+          "speaker": "Old Cassian",
+          "text": "*(The oar goes still. For a long moment there's only the water, slapping the hull.)* …Forty years and *two* people have worked that out. *(low)* You're right. It's not the Judge's ferry. The coin's a *kindness* — a story I let 'em tell, that they *bought* their passage fair. *(he nods at the causeway, vanishing into mist)* The truth's uglier. The Choir runs this crossing now. They let me row the *bought and the blessed* — the ones with a god to speak for 'em — because those souls are *spoken for*, see, accounted, filed. *(his jaw works)* The godless they make *walk.* On foot. So that when the Wall takes 'em, no boat-log says I carried 'em, no god says they were owed. They just… *walked off into the mist of their own free will.* *(he looks at his own hands)* Clean. Deniable. I row the saved and I *watch* the rest go under, and I call it a *fare.* That's the whole holy arithmetic of the Reed-Walk, friend. Now you know it too. Lucky us.",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.causeway_truth",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_deflect",
+          "speaker": "Old Cassian",
+          "text": "*(He picks at a splinter on the oar, unbothered.)* Big questions for a bank this cold. *(dry)* I ferry souls across a river, friend. To the *far shore.* What's a far shore *for*, you ask philosophical-like? *(he shrugs)* For being *far.* For being the *other* one. *(he flicks the splinter into the water)* You want riddles, the mad one back in the market does 'em cheaper. You want *across*, it's a coin and a god. You want to *stand here looking ominous*, well — *(a thin smile)* — you'll have to take a number. The Choir's woman up the causeway got here first, and she's *better* at it.",
+          "auto": "END"
+        },
+        {
+          "id": "cassian_free",
+          "speaker": "Old Cassian",
+          "text": "*(He stares at you. Then — slowly, like a hinge that's rusted in one position for decades — the old face *cracks*, and he laughs, a single astonished bark that startles a heron out of the reeds.)* …*Come back.* *(he wipes his eye with a knuckle)* Forty years, friend. Forty years I've rowed 'em one way, watched the mist take 'em, rowed the empty boat home. And not *one* — not the priests, not the soldiers, not the brave fools — not *one* ever offered to come back and tell old Cassian what he's been *rowing toward* his whole damned life. *(he shifts the oar, decision made)* Get in. No coin. *(quietly, as you board)* But you *come back*, hear? You promised. I'll keep the boat on this bank till the river freezes if I have to. *(he digs the oar in)* A man can row forty years on a *question.* You've no idea what you've just done for me — given me a reason the trip *ends* somewhere I'll hear about. Sit down, Returned-to-be. Mind the wet bench.",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "reed.cassian_waits",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_no",
+          "speaker": "Old Cassian",
+          "text": "*(He shakes his head slow, not unkind.)* Smooth. *(he taps the gunwale)* But I've rowed smoother tongues than yours to the far bank and *none* of 'em came back to gossip, and you won't be the first. *(he settles the oar)* The fare's a coin and a god's word, friend, and 'I'll *tell* you about it' isn't currency on this river. *(a beat, gentler)* Find a coin. Find a god. Or find the *stone*, and walk it like the rest of the unbought. The boat'll be here. The boat's *always* here. That's the curse of the thing.",
+          "auto": "END"
+        },
+        {
+          "id": "cassian_crit",
+          "speaker": "Old Cassian",
+          "text": "*(✦ You make the offer — and something in the *way* you say it, the unbearable gentleness of it, undoes forty years of riverbank stoicism in the space of a held breath. The old man's chin trembles. He sets the oar down with enormous care, as though it might break, and presses both knotted hands flat over his face.)* …I've not — *(his voice goes to gravel and water)* — nobody ever offered to *come back.* You understand? They *go.* That's the job. They go and the mist eats 'em and I row the empty boat and I tell myself it's *passage*, not *drowning*, and I have done that *thirteen thousand times*, friend, I *counted* — *(he scrubs his face, laughing and weeping at once)* — and you, you *animal*, you walk up to my boat and you offer me the one thing I quit hoping for before your grandmother was *born.* *(he grabs your wrist with a grip like wet rope.)* Free passage forever. You hear me? *Forever.* You, your friends, your dog, your dog's *opinions.* And when you come back — *when*, not if, you'll come *back* — you sit in this boat and you tell old Cassian *everything*, and then by every cold god I will finally, *finally* know what I've been rowing toward, and I can *stop.* *(he beams through the tears, ten years younger.)* Get *in*, you magnificent bastard. The river's *yours.*",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "reed.cassian_waits",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.cassian_devoted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_fumble",
+          "speaker": "Old Cassian",
+          "text": "*(💀 You lean in for the soulful, world-weary delivery — 'forty years and no one's ever told you' — and at the critical instant you misjudge the wet gunwale, your boot skids, and you finish the most profound offer of your life while pinwheeling one arm and making a noise like a startled goose, before sitting down *hard* in eight inches of frigid river mud.)* *(Cassian regards you over the side of the boat with the serene patience of moving water.)* …Mm. *(he pulls a long, dripping reed from his hat and offers it to you, handle-first, like a lifeline)* The far shore'll keep, friend. *(perfectly deadpan)* You appear to have already found a *closer* bottom. *(as you flounder)* Forty years I've watched souls go to the deep with *dignity.* You've gone to the *shallows* with *flair.* That's new. I'll give you *that.* *(he will not stop almost-smiling)* Coin's still a coin when you've dried off. And maybe stand on the *land* part next time, eh? It's free, and it's *load-bearing.*",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_wren",
+          "speaker": "Old Cassian",
+          "text": "*(His face shutters, and he glances — quick, involuntary — toward the reeds at the west end of the bank, where the shallows are.)* …The apple-girl. *(quietly)* Aye. She came past at first light. Asked me to row her across. *(he grips the oar)* Had no coin and no god to speak for her — one of the *unbought* — so by the Choir's rule she'd have to *walk* the stone. *(his jaw tightens)* I told her no. Told her to go home and eat her apple and let an old man not have *that* on his oar today. *(he nods west)* She didn't go home. She's still down there in the cold water, friend, *facing the far shore*, working up the nerve to walk a road that doesn't *need* her to walk it yet. *(he looks at you, hard)* If you're the sort she should *talk* to before she does something the river can't undo — go. *Now.* I've buried my quota of the gentle ones this week.",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "reed.knows_wren_here",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_returned",
+          "speaker": "Old Cassian",
+          "text": "*(The oar slips from his hands and clatters in the hull. He half-rises, the boat rocking, and stares at you with forty years of dammed-up dread breaking all at once across his face.)* …Through the *stone.* *(a whisper)* You're not — you've been *across*, and you've come *back*, on your *own legs*, with it still — *(he reaches out, stops short of touching you, the way you'd stop short of a stove.)* I've waited my whole life to ask and never had a soul to ask it *of.* *(he wets his lips.)* What's *over there*, Returned? At the end of my river? Is it — is it the Judge's hall, like the coin-buyers hope? Is it the *nothing* the godless are so afraid of? *(his voice drops to almost nothing.)* …Or is it just *more cold water* and another *poor bastard with an oar*, rowing souls to a *third* shore, and a *fourth*, all the way down? *(he searches your dead-still face.)* Tell me true. I'll keep your secret and I'll keep your boat. Just — forty years, friend. *Tell me where I've been rowing them.* I'm so tired of not knowing what I am.",
+          "effects": [
+            {
+              "key": "reed.cassian.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "reed.cassian_knows_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cassian_leave",
+          "speaker": "Old Cassian",
+          "text": "*(He grunts, already looking back to the grey water.)* It does. *(he resettles the oar across his knees)* Got a pull to it, this stretch — more'n it ought. *(half to himself)* Folk think a river *carries* you somewhere. This one mostly just *waits.* *(he doesn't look up as you go)* Mind the bank, traveler. It's softer than it reads, the place between the market and the mist. Lot of folk have found that out the *hard* way, with the *wet* feet.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "reed.vharn",
+      "title": "The Measurer at the Causeway",
+      "npc": "Sister Vharn",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Sister Vharn",
+          "onEnter": [
+            {
+              "key": "reed.met_vharn",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flag": "market.betrayed_wren"
+              },
+              "text": "*(Her pale eyes light with a warmth more frightening than any scowl, and she inclines her head as to a colleague.)* Ahh. *You.* *(the brass scale at her breast catches the grey light)* Goodman Tallow sent word ahead — said a *helpful* soul gave up the apple-girl to the Choir's care this morning. *(she smiles)* You did the *accounts* a kindness, friend. An unmeasured soul wandering loose is a *debt* the ledger can't close. You closed it. *(she gestures up the misty causeway, fond)* She's already on the stone. Walked it *quiet*, once she understood there was no one left who'd hide her. Was that you, too? The *understanding?* The Choir notices its friends. *(softly)* Tell me — what else have you noticed, that we should know?"
+            },
+            {
+              "when": {
+                "flag": "market.protected_wren"
+              },
+              "text": "*(She goes still the way a heron goes still, and the warmth drains out of her face into something patient and cold.)* …You. *(the scale-pendant turns slowly in her fingers)* Goodman Tallow named you. Said you stood between his kindness and the apple-girl in the market square and made her *brave.* *(she steps closer, blocking the head of the causeway)* I have come down to the water for her *personally*, then — a marked soul, gone to ground, *encouraged* by a meddler. *(her voice is gentle and terrible)* So. Meddler. *(she looks past you, toward the reeds)* Where is she? Spare us both the long afternoon. *Where is the girl?*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The instant her eyes touch you they go *avid*, and her hand drifts to the scale at her breast as though it had twitched.)* …Oh, *now.* *(almost hungry)* No god's light on you at *all.* Do you know how *rare* that is, this close to the Wall? An *unmeasured* soul, walked right up to the Measurer of its own accord. *(she lifts the brass scale; one pan dips, untouched by any hand)* Hold *still*, godless one. This won't take but a — *(she catches herself, smooths her vestments, the professional mask sliding back over the appetite)* — forgive me. *Occupational reflex.* You're not on the ledger *yet.* But you *will* be. Everyone unbought finds their way to my scale in the end. Shall we get acquainted *early?*"
+            },
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(She marks the grey balance at your throat and her smile thins to a blade.)* A servant of the *Judge.* *(coolly)* Then we are *almost* colleagues, you and I — both in the trade of weighing souls. *(she lifts her own scale)* The difference, Judge's-man, is that your Lord weighs them when they're *dead* and *honest about it.* The Choir weighs them *now*, while they can still be *corrected.* *(she tilts her head)* Your Kelemvor calls us *cruel.* We call him *late.* By the time a soul reaches *his* scale, you see, the *interesting* choices are all behind it. *(softly)* We prefer to be there for the *choices.*"
+            },
+            {
+              "text": "*(She does not greet you so much as *appraise* you, her gaze travelling from your soul to your shoes and back, totting a sum.)* Hm. *(the scale-pendant gleams)* Measured, vouched-for, accounted. *(a cool nod)* You'll do. You may use the causeway, traveler — the *boat*, if you've a coin and a god, the *stone* if you're brave. *(she steps half-aside, then pauses)* Unless you've come down to the water on *someone else's* business. *(her eyes sharpen)* People do, this week. It's becoming a *theme.* Have you?"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Sister Vharn",
+          "text": "*(She folds her hands over the brass scale, serene as a closed ledger, and waits. The mist curls off the causeway behind her like something breathing.)* Speak plainly, then. I've souls to measure and a tide that won't be kept. What do you want of the Choir?",
+          "choices": [
+            {
+              "text": "[DECEPTION] \"The apple-girl? She's long gone — paid Cassian a coin she stole and he rowed her downriver an hour past. You're standing at the wrong end of the causeway, Sister. She's halfway to the next town.\"",
+              "when": {
+                "flag": "market.protected_wren"
+              },
+              "check": {
+                "skill": "Deception",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "vharn_fooled",
+              "fail": "vharn_sees",
+              "crit": "vharn_decept_crit",
+              "fumble": "vharn_decept_fumble",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[RELIGION] \"The Choir has no writ to measure the living, Sister. 'Judgement is Kelemvor's, and Kelemvor's alone, and it comes when the breath stops — not before.' That's *canon.* You're not harvesting souls. You're *poaching* them, ahead of the Judge.\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 12
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 15
+              },
+              "next": "vharn_doctrine",
+              "fail": "vharn_doctrine_fail"
+            },
+            {
+              "text": "[INSIGHT] \"You *flinched* when you reached for that scale just now. You've measured one soul too many that didn't deserve the Wall, and it's started to *cost* you. How many of the unbought do you have to file before you stop sleeping, Sister?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 16
+              },
+              "next": "vharn_doubt",
+              "fail": "vharn_doubt_fail"
+            },
+            {
+              "text": "[INTIMIDATION] \"Walk back up your causeway, Measurer, and forget the apple-girl's face. I've sent harder things than you into that mist, and I can spare an afternoon to send one more.\"",
+              "check": {
+                "skill": "Intimidation",
+                "ability": "Charisma",
+                "dc": 16
+              },
+              "next": "vharn_backed",
+              "fail": "vharn_unmoved",
+              "crit": "vharn_intim_crit",
+              "fumble": "vharn_intim_fumble",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(let the cold off the Wall answer the cold in her scale)* \"Your brass toy weighs souls, Sister. Mine *is* one — weighed already, on the realest scale there is, and sent *back.* Reach for me with that pendant and find out what the Wall does to a Measurer who measures *it.*\"",
+              "tag": "returned",
+              "next": "vharn_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if you gave the girl up, finish the kindness)* \"Nothing's owed me, Sister. I only came to be sure the ledger closed clean. The apple-girl — is she accounted for?\"",
+              "when": {
+                "flag": "market.betrayed_wren"
+              },
+              "next": "vharn_thanks"
+            },
+            {
+              "text": "\"Nothing, Sister. The Choir's business isn't mine.\" *(step around her)*",
+              "next": "vharn_leave"
+            }
+          ]
+        },
+        {
+          "id": "vharn_fooled",
+          "speaker": "Sister Vharn",
+          "text": "*(She turns sharply toward the downriver mist, the scale swinging, and for the first time her composure shows a crack of pure annoyance.)* …*Downriver.* *(coldly furious — at the river, at Cassian, at everyone but you)* That insolent old *oar.* I *told* the boatman the unbought were to *walk*, not be *ferried* off my ledger like contraband apples. *(she's already gathering her pale skirts)* If she's loose past the next bend she's a *month's* paperwork and a black mark on my measure. *(she fixes you with a last, distracted look)* You've been *no* help, traveler, but at least you've been *honest* about it. *(she strides off down the bank, the wrong way, into the wrong mist)* Boatman! *BOATMAN!* You and I are going to have *words* about *chain of custody—*",
+          "effects": [
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.fooled_vharn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_sees",
+          "speaker": "Sister Vharn",
+          "text": "*(She lets you finish. Then she smiles, slow and awful, and does not so much as glance downriver.)* …No. *(softly)* No, the boatman rowed *no one* this morning — I'd have heard the oar. *(she steps closer)* You're *lying* to a woman whose whole vocation is the weighing of *worth*, friend, and you've just put a thumb on your *own* scale. *(she looks past you, toward the western reeds, and her certainty is worse than any search.)* She's still on this bank. *Close.* And now I know the meddler Tallow named will *lie* to keep her. *(she turns toward the shallows)* That's all the measure of *you* I need. Stand aside, or be filed *beside* her.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": -2
+            },
+            {
+              "key": "reed.vharn_hunting",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_decept_crit",
+          "speaker": "Sister Vharn",
+          "text": "*(✦ The lie leaves you so *clean*, so garnished with exactly the right exasperated detail — the *stolen* coin, the *specific* bend in the river, the little put-upon sigh at the boatman's softness — that the Measurer of the Choir, who has caught ten thousand frightened souls in ten thousand smaller lies, simply *believes* you. You watch it land. You watch a lifetime of suspicion lose, for once, to sheer craft.)* …That *fool.* *(she's already turning downriver, scale swinging, utterly taken in)* I *knew* that boatman was soft on the unbought — *ferrying* them, against express writ — oh, he'll *answer* for this. *(she pauses only to press something cold into your hand: a small brass token stamped with the scale)* You've the *bearing* of a measured soul and the *courtesy* to report a breach. Take a Choir-token, friend — it'll spare you the scale at any crossing from here to the Wall. *(she sweeps off into the wrong mist, righteous and wrong)* A *month's* paperwork. I'll have his *oar.* — and the girl is, as far as the Choir's ledger will *ever* record, *gone west by water.* You've not just hidden her. You've *filed* her into a story no one will ever check.",
+          "effects": [
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.fooled_vharn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.choir_token",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_decept_fumble",
+          "speaker": "Sister Vharn",
+          "text": "*(💀 You commit to the lie — and then, fatally, you *embellish.* You give the stolen coin a *denomination.* You give the boat a *name.* You mention, for no reason any god could explain, that Cassian was 'whistling.' Cassian has not whistled since the reign of the last queen, and Sister Vharn knows it, and she watches your beautiful overbuilt lie collapse under the weight of its own *whistling.*)* …He was *whistling.* *(flat as the brass on her chest)* The boatman. Who has not made a *sound* of joy in my four years on this crossing. *(she does not raise her voice; it's so much worse than that)* You've told me three true things without meaning to, traveler: that she's *here*, that you'd *lie* to keep her, and that you are *not nearly* as clever as your last roll of the dice. *(she steps past you toward the reeds)* I'll find her myself. And I'll remember the *whistling.* I always remember the detail that *breaks.*",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": -3
+            },
+            {
+              "key": "reed.vharn_hunting",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_doctrine",
+          "speaker": "Sister Vharn",
+          "text": "*(For the first time she is not serene. The scale-pendant stops turning. She looks at you the way a magistrate looks at a clerk who has cited the *one* statute that undoes the afternoon.)* …'Judgement comes when the breath stops, not before.' *(quietly)* The Liturgy of the Grey, third recension. *(her jaw tightens)* You quote canon at me on a *riverbank.* *(a long breath)* You're not wrong. That's the *galling* part. The Choir's writ to measure the *living* is — *thin.* A reading. A *convenience.* We tell ourselves we only *mark* the unbought, only *guide* them to the stone a little *early*, and that the Judge would want His ledger kept *tidy.* *(she looks at the mist)* But you're right that He never *asked* us to. We *volunteered.* *(her voice drops)* Say this to no one up the causeway, Judge's-man, or I'll deny it on the scale itself — but a doctrine you have to *strain* this hard to read is a doctrine that's already *broken*, and some mornings I can *feel* the strain in my own two hands. *(she does not move aside. But she does not move toward the reeds, either.)*",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.vharn_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_doctrine_fail",
+          "speaker": "Sister Vharn",
+          "text": "*(She lets you reach the end of your theology and then smiles the smile of a woman who has won this argument in seven languages.)* Mm. *Almost.* *(smoothly)* But the Liturgy's *fourth* recension grants the Choir 'the measuring of those *bound for* judgement' — and the unbought, friend, are bound for nothing *but.* *(she spreads her hands)* We don't *poach* the Judge's souls. We *expedite* the inevitable. *(coolly)* Bring me a *cleaner* citation, or stand aside and let a professional keep the ledger. Half-remembered canon is worse than none — it just tells me you've *read* enough to *meddle*, and not enough to *win.*",
+          "auto": "END"
+        },
+        {
+          "id": "vharn_doubt",
+          "speaker": "Sister Vharn",
+          "text": "*(Her hand — the one that had drifted toward the scale — closes slowly into a fist at her side, and she looks at it as though it belonged to someone else.)* …You *watched* that. *(barely audible)* The flinch. *(she does not deny it; that's the most frightening thing she could have done, and she doesn't do it.)* Three hundred and eleven. *(she meets your eyes)* That's the count. Of the unbought I've measured and sent to the stone with my own reading of the scale. *(her composure is a wall with the mortar gone)* The first hundred, I slept fine — they were *debts*, they were *tidy.* Somewhere after the second hundred I started… *adding faces.* And there is an apple-girl down those reeds, traveler, who I *measured* in the market a week ago, and I have walked down to this cold water to finish it, and my own *hand won't lift the scale.* *(a terrible, quiet honesty)* So. You see clear. *Now what.* Tell me to stop, and watch me find out whether I still *can.* Or walk on, and let me go back to *not counting.* The Choir made me very, very good at *not counting.*",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.vharn_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "vharn_doubt_choice"
+        },
+        {
+          "id": "vharn_doubt_choice",
+          "speaker": "Sister Vharn",
+          "text": "*(She stands with the scale slack in her grip, waiting for a stranger to tell her which woman she gets to be.)*",
+          "choices": [
+            {
+              "text": "[PERSUASION] \"Then stop *counting*, and start *choosing.* Three hundred and eleven you didn't choose. Choose *this* one, Vharn. Let the apple-girl be the first soul you measured and set *down.* You'll sleep on that.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "vharn_turns",
+              "fail": "vharn_cant",
+              "crit": "vharn_intim_crit",
+              "fumble": "vharn_cant",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Walk back up the causeway, Sister. Today you measured no one. Let that be the whole of it.\"",
+              "next": "vharn_turns",
+              "effects": [
+                {
+                  "key": "reed.vharn.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(say nothing; let her finish what she started)* \"That's between you and your scale.\" *(walk on)*",
+              "next": "vharn_leave"
+            }
+          ]
+        },
+        {
+          "id": "vharn_doubt_fail",
+          "speaker": "Sister Vharn",
+          "text": "*(She arches one pale brow, and the scale resumes its slow, untroubled turning.)* A *flinch.* *(coolly amused)* The wind off the river is *cold*, traveler, and even a Measurer's hands feel it. You reached for a crack in me and found *weather.* *(she folds her hands)* I have measured three hundred souls without losing a night's sleep, and I'll not lose one to an *amateur diagnosis* on a mudbank. Now — the apple-girl, or the road. Choose something I can *file.*",
+          "auto": "END"
+        },
+        {
+          "id": "vharn_turns",
+          "speaker": "Sister Vharn",
+          "text": "*(For a long moment nothing happens. Then, with enormous and visible effort — the effort of a hand unlearning four years of one motion — she lifts the brass scale over her head and lets it hang *behind* her, out of sight, against her spine.)* …There. *(unsteady)* Three hundred and eleven, and a *gap.* *(she breathes like she's surfaced from deep water)* I measured *no one* today. The apple-girl walked west by water — that's what the ledger will say, because that's what I'll *write*, and I am still, gods help me, the one who *writes it.* *(she looks at you, wrecked and upright)* I don't know if I can do this *twice*, traveler. I don't know what I am if I'm not the scale. But you've made me *curious* to find out, and that's the first thing I've been curious about in a hundred faces. *(she turns toward the causeway — and walks up it alone, the way she came, and does not look at the reeds at all.)*",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.vharn_turned",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_cant",
+          "speaker": "Sister Vharn",
+          "text": "*(She tries. You watch her *try* — the scale rises an inch, two — and then four years of liturgy close her hand again, and it sinks back to her breast like a stone finding the bottom.)* …I *can't.* *(thin)* Not on a *stranger's* say-so, in *one* afternoon. The grooves are too deep, traveler. *(she steps back, reassembling the mask piece by piece)* But you've cost me my *certainty*, and that's not *nothing* — a Measurer who hesitates measures *slower*, and slow is *time*, and time is a head start for a girl who's quick. *(coldly, but it's a tell)* Go on. I'll be a *while* finding my nerve. Don't make me *find* it while you're still standing here to watch.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "reed.vharn_slowed",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_backed",
+          "speaker": "Sister Vharn",
+          "text": "*(You let her feel the whole weight of what you are, and to her credit she does not run — but the scale-pendant goes still in her fingers, and she takes one measured step back up onto the causeway's first stone.)* …I see. *(carefully)* You're one of the ones it's *cheaper* to let walk past. *(she lifts her chin, salvaging dignity)* The Choir does not spend its Measurers on *brawls* by the water. There are easier souls, and quieter mornings, and the apple-girl is — *(a pause, recalculating)* — not worth *you.* *(she steps back again)* Take the bank. Take the boatman. Take the *afternoon.* I'll measure elsewhere. *(a last cold look)* But understand, traveler — I am *moved*, not *changed.* The scale is patient. It outlasts brave strangers. It always has.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.cowed_vharn",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_unmoved",
+          "speaker": "Sister Vharn",
+          "text": "*(She does not so much as blink. If anything, your threat seems to *settle* her, the way a familiar weight settles a scale.)* Threats. *(almost bored)* On a riverbank. To the woman who stands between the living and the Wall every single morning. *(she tilts her head)* Traveler, I have been *menaced* by the genuinely *damned* — souls with nothing left to lose and the strength of it. You have the bearing of someone with a great deal left to lose and a loud way of pretending otherwise. *(she steps forward, not back)* The scale does not fear you. *Neither do I.* Now — stand aside before I measure what your bluster's actually *worth*, and find it light.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": -2
+            },
+            {
+              "key": "reed.vharn_hunting",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_intim_crit",
+          "speaker": "Sister Vharn",
+          "text": "*(✦ You don't shout. You simply let her see — for one unhurried heartbeat — the precise and personal future in which she does not walk back up that causeway. Whatever crosses your face is so specific, so *itemized*, that the Measurer of the Choir, who weighs the dread of others for a living, feels her own scale tip for the first time in four years, and the pan that drops is *hers.*)* *(The brass pendant slips from her fingers and swings wild.)* …I withdraw the measure. *(very fast, very even)* The apple-girl is reassigned to — to *natural causes*, pending — pending *review*, indefinite, *closed.* *(she is already backing up the stone, vestments gathered, dignity in full and orderly retreat)* The Choir thanks you for bringing an *irregularity* to its attention and will be *reviewing its presence* on this crossing. *(she gets the scale under control, knuckles white)* I have measured three hundred and eleven souls, traveler, and I have just learned, at *speed*, the weight of *one* I should never have reached for. *(she turns and goes, quickly, and does not look back at the reeds or at you)* …Good *day.*",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.cowed_vharn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_intim_fumble",
+          "speaker": "Sister Vharn",
+          "text": "*(💀 You draw yourself up to deliver the line that sends Measurers screaming — and a frog, dislodged from the reeds by your dramatic step, chooses that exact instant to leap onto the toe of your boot and emit a single, enormous, contemptuous *crooooak.* You flinch. Visibly. At a *frog.* Sister Vharn watches the entire transaction with the serene attention of a woman updating a ledger.)* …Mm. *(she makes a small note on an actual brass-cornered tablet)* The Wall, I'm told, is patient. *(dryly)* It is *not*, however, troubled by *amphibians*, and I begin to suspect neither am I, where *you're* concerned. *(she steps past you with perfect composure)* Threaten me again when you've made your *peace* with the local wildlife, traveler. The apple-girl and I have an appointment, and you have — *(a glance at the frog, now sitting on your boot like a small smug judge)* — a *companion*, it seems. *Charming.* Mind he doesn't measure you first.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "reed.vharn_hunting",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_returned",
+          "speaker": "Sister Vharn",
+          "text": "*(Her hand, drifting always toward the scale, *touches* it — and recoils as though the brass had turned to ice. Because it has. Frost blooms across the pendant in the shape of her own fingerprints, and the pan that should weigh *you* swings down, down, *past* its stop, and *keeps going*, measuring a depth that has no bottom.)* …*Oh.* *(the first wholly human sound she's made)* You're not a *soul.* You're a *reading the scale can't take.* *(she lets go of the pendant; it hangs frozen, the wrong way, ruined)* I have measured the dying and the doomed and the merely *unlucky*, traveler, and the scale always, *always* finds a bottom — and yours just told me there *isn't* one, that you've been *under* it, that you came *back up.* *(she steps off the causeway stone entirely, onto the mud, away from you)* The Choir doesn't measure the *Returned.* *(a whisper)* The Choir is *afraid* of the Returned. We mark the Faithless because they go *quiet* into the Wall. You came *back loud.* *(she gathers her skirts, her certainty in ruins)* Take whatever you came for. Take the *girl.* I'll write that the bank was — *unmeasurable* today. *(she flees up her own causeway)* It's the truest thing I'll file all year.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "reed.wren_safe",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.vharn_fled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_thanks",
+          "speaker": "Sister Vharn",
+          "text": "*(She inclines her head, and the warmth in it is the worst thing on the whole grey bank.)* Closed clean. *(softly)* The apple-girl is on the stone. She didn't fight it, at the end — they rarely do, once they understand no one's coming. *(she touches the scale, fond)* You should know your kindness will be *recorded*, friend. The Choir keeps a ledger of its *friends* as carefully as its debts. *(she studies you)* There aren't many who'll hand us a soul and ask only that the *books balance.* Most need a *reason*, or a *coin*, or a *grudge.* You just wanted it *tidy.* *(a slow nod)* We could use more of that. The Wall is *always* hiring the tidy. *(she steps aside to let you pass up the causeway)* Go in peace, accountant. You and the Choir will speak again. I'll see to it personally.",
+          "effects": [
+            {
+              "key": "reed.vharn.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.choir_friend",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "vharn_leave",
+          "speaker": "Sister Vharn",
+          "text": "*(She steps aside with a measurer's economy, already looking past you to the next soul on the bank.)* The Choir's business is *everyone's*, traveler — that's rather the *point* of it. *(coolly)* But go, if your conscience is so *light* it floats. *(the scale turns)* Mind the causeway. The mist makes the stone slick, and the river below it is *patient*, and I am *always* at the top of it, weighing what comes back down. *(a thin smile)* Some things do.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "reed.wren",
+      "title": "Wren at the Water",
+      "npc": "Wren",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Wren",
+          "onEnter": [
+            {
+              "key": "reed.met_wren_river",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "market.protected_wren"
+                ]
+              },
+              "text": "*(She turns at the sound of you on the shingle — and her whole face *breaks open* with a relief so fierce it's almost grief.)* …It's *you.* *(she comes a step out of the cold water toward you)* The one who stood between me and the smiling man in the market. *(her voice cracks)* I didn't — after you did that, I didn't know *what* to do with myself. A whole morning where the smiling man *didn't* come, because *you* were there. *(she looks down at the apple in her hand, then out at the far shore)* So I came *here.* To the water. To do it *myself*, before they could do it *to* me — walk the stone on my *own* two feet, while it's still my *own* choice and not their *ledger.* *(she meets your eyes, trembling)* But then I heard you on the bank, and I — I *stopped.* Why did you stop me? You shouldn't have come. Now I have to decide all over again, and I was *almost brave.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "market.betrayed_wren"
+                ]
+              },
+              "text": "*(She goes rigid the instant she sees you, and the apple drops from her hand into the shallows, bobbing away unheeded.)* …*You.* *(she backs into the deeper cold, away from you, water to her knees)* You *smiled* at me. In the market. You smiled at me and asked me my *name* and then you walked *straight* to the smiling man and you *gave it to him.* *(her voice is raw, disbelieving)* I *watched* you do it. I watched your *mouth* make the shape of *Wren* to *Goodman Tallow*, and his smile got *wider*, and that's — that's how I *knew* it was over, that's why I *ran* here— *(she's shaking)* —and now you've *followed* me to the *last bit of bank I had left.* What *for?* To *watch?* Haven't you *measured* enough of me? *(she's crying, furious)* Say it. Say whatever you came to say, and then let me have the *water* in peace, you — you *Judas* with a *kind face.*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(She studies you a moment, and something in your bearing — the same unheld lightness she feels in herself — makes her shoulders come down an inch.)* …You've no god either. *(quietly, not a question)* I can always tell now. We *unbought* ones, we *recognise* each other, like — like two people in the same queue. *(a wet, bitter laugh)* The queue for the Wall. *(she looks out at the causeway)* Did *you* come down here to walk it too? Get it over, on your own legs, before the Choir's woman makes it her *paperwork?* *(she lifts the apple)* I keep meaning to. I keep — *(her voice fails)* — I keep stopping to eat the *apple.* Because the apple's *sweet*, and the apple's *now*, and the Wall is *cold* and *forever*, and I'm not — I'm not as *brave* as I was this morning. Are you? Are any of us, really, at the *water?*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "market.met_wren"
+                ]
+              },
+              "text": "*(She recognises you from the market and tenses, unsure which kind of stranger you turned out to be.)* …Oh. You. From the apples. *(warily, water lapping at her shins)* You followed me down to the river. *(she searches your face for the smiling man's shadow on it)* I can't tell yet if that's a *kindness* or the *worst* thing that's happened to me today, and the day's had some *competition.* *(she lifts her chin, trying for brave)* Well? Which are you? Come to *help*, or come to *finish what the market started?*"
+            },
+            {
+              "text": "*(She doesn't turn from the water as you approach, only speaks to the far grey shore.)* You're not the smiling man. *(quietly)* I can tell by the *walk.* He walks like he's already *won.* *(she finally glances at you)* So you're a *stranger*, then. Good. I'm *out* of people who know my name, and that turns out to be the safest thing a marked girl can be. *(she looks back at the causeway, the apple forgotten in her hand)* …Did you come down here to walk it? The stone? Everyone who stands at *this* water is deciding the *same* thing. I can see you deciding it too."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wren",
+          "text": "*(She stands ankle-deep in the cold river, the far shore at her back, the whole of her balanced on whatever happens next.)* So. *(a breath that shakes)* You've found me at the edge of everything. What do you *say* to a girl with a god-shaped hole and a wall with her name on it? Go on. People have been *trying* all week. None of it *fit.*",
+          "choices": [
+            {
+              "text": "[PERSUASION] \"Don't walk it, Wren. Not because it isn't brave — it *is* — but because brave's the *wrong* coin to spend here. The Choir *wants* you to do their work for them. The bravest thing you own right now is *refusing to be tidy.* Come out of the water.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "wren_lives",
+              "fail": "wren_unsure",
+              "crit": "wren_persuade_crit",
+              "fumble": "wren_persuade_fumble",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[RELIGION] \"You think the Faithless go to nothing. The doctrine's *crueler* and *kinder* than that, Wren — listen — the Wall is what gods *do* with souls no one *claimed.* It's a *filing error*, not a *verdict.* And errors can be *appealed.* Kelemvor's court will hear a soul that *asks.* Don't go *unclaimed.* Let me *claim* you — as a *witness.*\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 11
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 14
+              },
+              "next": "wren_claimed",
+              "fail": "wren_unsure"
+            },
+            {
+              "text": "[INSIGHT] \"You keep eating the apple. You've been *about* to walk that stone for *hours*, and every time, you stop, for the *apple.* That's not cowardice, Wren. That's your whole self *screaming* that it isn't *time.* Listen to the part of you that wants the apple. It's *right.*\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "wren_lives",
+              "fail": "wren_unsure",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if you carry the old woman's stone)* *(you press Sable's grey holding-stone into her wet hand)* \"A charm-seller in the market gave me this. It only does one thing: it means *someone holds it and remembers you were here.* Take it. *I'll* be the someone. Now you're not unwitnessed, and the nothing can't have what's *remembered.*\"",
+              "when": {
+                "flag": "market.holding_stone"
+              },
+              "next": "wren_witnessed",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(speak as one who's already been where she's going)* \"I've walked your causeway, Wren. All the way to the stone. I know what's out there in the mist, and I came *back* to tell exactly *one* person before it was too late, and the river picked *you.* Sit down on the cold bank with me. Let me tell you what the Wall *actually* is. It isn't what they told you. It's *worse*, and it's *survivable*, and you have *time.*\"",
+              "tag": "returned",
+              "next": "wren_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"It's your water, Wren, and your choice. If you've truly weighed it and the stone is what you want, I'll stand here so you don't walk it *alone* and *unseen.* That much I can give. Only that.\"",
+              "next": "wren_walks",
+              "effects": [
+                {
+                  "key": "disp.stoic",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"…I'm sorry. I don't have the words for this. I shouldn't have come.\" *(step back up the bank)*",
+              "next": "wren_leave"
+            }
+          ]
+        },
+        {
+          "id": "wren_lives",
+          "speaker": "Wren",
+          "text": "*(She looks down at the cold water around her ankles as though noticing it for the first time — and then, slowly, she walks *out* of it, up onto the shingle, and stands dripping and alive beside you.)* …*Refusing to be tidy.* *(a cracked, astonished laugh)* Gods. *Nobody* said it like that. Everybody else said *don't, it's a sin* or *don't, think of* — and it all just *bounced.* But *that.* *(she wipes her face)* *That* fit. *(she looks back at the causeway, and for the first time it's with *defiance* instead of *longing*)* I'm not going to do their *paperwork* for them. If the Wall wants me it can come *fetch* me, off a bank where I'm *eating an apple*, where someone *saw* me, where it was *never my idea.* *(she takes a huge, shaking bite of the winter apple, and laughs around it, and cries at the same time)* That's the most *spiteful* thing I've ever done and it tastes *incredible.* *(she grips your sleeve)* I don't know how long I've got. The mark's still on me. But I've got *today*, and the apple, and a stranger who told me my fear was *right.* That's — that's *enough* to turn around for. Thank you. *Thank you.* I'm going to go be *inconvenient* for as long as I possibly can.",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_claimed",
+          "speaker": "Wren",
+          "text": "*(She goes very still, the water forgotten, hanging on the word.)* …A *filing error.* *(slowly)* Not a *verdict.* Not — not *you were nothing, so you get nothing.* Just… *nobody wrote my name in the right book.* *(her breath catches)* And you can — you'd *claim* me? As a *witness?* That's — is that *allowed?* *(a desperate, hopeful laugh)* Of course it's not *allowed*, the Choir would *hate* it, which is how I know it might be *true.* *(she comes out of the water, gripping your arm)* Then claim me. *Write me down.* Wren of the market, who bought winter apples, who was *seen* by — by what's your *name?* I want it in the same book as mine. If I'm going to be *claimed* I want to know *who* by. *(she's crying and grinning)* Tell me your name, and I'll stop being *unfiled*, and the Wall can *choke* on its empty ledger.",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.wren_claimed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.devout",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_witnessed",
+          "speaker": "Wren",
+          "text": "*(She closes her fingers around the grey stone, and the simple weight of it in her palm seems to undo something knotted in her chest.)* …It's just a *river-stone.* *(wondering)* It's just a *stone*, and you've made it the most important thing I've ever *held*, because you *meant* it. *(she presses it to her breastbone)* Someone holds it and remembers I was here. *(she looks at you, fierce and wet-eyed)* Then I can't go in the water. Don't you *see?* If I walk the stone now, you'd be left holding *this*, remembering a girl who threw herself away *while you were trying to save her.* I won't do that to the *someone who remembers.* *(a wild laugh)* You've *trapped* me into *living*, you clever, *cruel* kind thing. *(she steps up onto the bank, clutching the stone)* Fine. *Fine.* I'll carry your stone and be *carried* by it. We'll remember each other into being *real*, and the nothing can starve. Deal?",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.wren_witnessed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_returned",
+          "speaker": "Wren",
+          "text": "*(She comes out of the water without being asked and sits down hard on the cold shingle, eyes huge, because she felt it the moment you spoke — the cold off you that matches the cold off her.)* …You're *marked* too. *(barely a whisper)* No. Not marked. *Worse.* You've been — you've been *through* it, and you're *here*, dripping causeway-mist, *talking* to me. *(she grabs your cold hand in both of hers and doesn't flinch)* Then you're the only person in the *world* who can't *lie* to me about this. Everyone else is *guessing.* *You* know. *(she searches your face, terrified, desperate)* So tell me true, Returned. Not kind — *true.* Is it nothing out there? The thing I'm so afraid of — is it *nothing?* *(when you tell her it isn't nothing, that it's cold and patient and *survivable*, that there is *time* and there are *ways*, she makes a sound that is half sob and half the first clean breath she's drawn in a week.)* …*Time.* *(she clings to it)* You said *time.* You came *back.* Then I don't have to walk it *today*, do I. I don't have to do it *scared and alone and now.* *(she stands, unsteady, alive)* Stay near me a while, would you, cold one? You're the most *frightening* and the most *comforting* thing on this whole bank, and I find I'd rather not let go of either. Show me how you did it. Show me how a soul comes *back.*",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.wren_returned_bond",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_persuade_crit",
+          "speaker": "Wren",
+          "text": "*(✦ You find the *exact* words — the ones that have been waiting under all the others all week — and they land in her like a key in a lock she didn't know she had. You watch a week of cold terror simply *let go* of a girl all at once, the way ice lets go of a branch in a thaw.)* *(She walks out of the water laughing, openly, gloriously, scrubbing tears with the back of the hand that holds the apple.)* — *refusing to be TIDY!* *(she shouts it at the causeway, at the mist, at the whole grey institution of her own death)* You hear that, you — you *filing cabinet* of a *wall?!* I'm Wren! I bought *apples!* I am going to be the most *INCONVENIENT* marked soul you have *ever* failed to *process*, and I'm going to do it on *full* nights of *sleep!* *(she rounds on you, incandescent, alive in every inch)* I've never — I have *never* felt like this. An hour ago I was measuring the *depth*, and now I want to go *cause problems* until I'm *ninety.* *(she throws her arms around you, cold and fierce and entirely here)* Whatever you *are*, wherever you *go* — I'm *with* you. You didn't just talk me off a riverbank. You *gave me back the apple.* You gave me back *all of it.* I will *never* forget the shape of your *name.*",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 6
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.wren_devoted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_persuade_fumble",
+          "speaker": "Wren",
+          "text": "*(💀 You reach for the perfect, life-saving thing to say — and what comes out, in the most earnest voice you own, is: 'Don't kill yourself, because, um… the apple.' There is a pause. A *long* pause. The river makes its little sounds. A duck judges you.)* *(Wren stares.)* …*The apple.* *(flatly)* I am standing in the *cold water* at the edge of my *whole life*, deciding whether to *walk into death*, and your great intervention is *'the apple.'* *(and then — gods help you — she snorts. Then she laughs. Then she's bent double in the shallows, *howling*, the awful gallows-laugh of someone who has been wound too tight for a week.)* — *the APPLE!* *(she wheezes)* Oh, that's — that is the *stupidest* — *(she wipes her eyes)* — you absolute *turnip*, that's the worst pep talk in the *history* of the riverbank, and it — *(she stops, surprised)* — it sort of *worked?* I can't walk into a tragic death right after *that.* It'd be *embarrassing.* The mood's *ruined.* *(she sloshes up onto the bank, still giggling helplessly)* Fine. *FINE.* I'll live, you — you *foot.* But only because you've made dying *undignified*, and that's apparently my whole brand now. *Ugh.* …Thank you. I think. *The apple.* Honestly.",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "reed.wren_lives",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_unsure",
+          "speaker": "Wren",
+          "text": "*(She listens, and you can see the words *almost* reach her — and then slide off the hard, cold certainty a week of terror has built.)* …Maybe. *(she hugs herself, water lapping)* Maybe you're right. People keep being *right* at me. *(she looks at the causeway, then the apple, then you)* But *right* doesn't reach all the way down to where I'm *standing*, and I'm so *tired*, and the stone is *quiet*, and quiet sounds *good* right now. *(she doesn't go in deeper. But she doesn't come out, either.)* …Don't go far, though. If I'm going to keep *not* doing it, I think I need someone to keep *being here* while I don't. Is that — is that allowed? Just *staying?*",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "reed.wren_wavering",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "wavering_choice"
+        },
+        {
+          "id": "wavering_choice",
+          "speaker": "Wren",
+          "text": "*(She stands at the waterline, not in and not out, waiting to be given a reason either way.)*",
+          "choices": [
+            {
+              "text": "\"It's allowed. I'll stay as long as it takes — all day, all week. You don't have to decide anything except to let me keep standing here.\"",
+              "next": "wren_lives",
+              "effects": [
+                {
+                  "key": "reed.wren.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(simply sit down on the cold shingle and wait, saying nothing at all)*",
+              "next": "wren_lives",
+              "effects": [
+                {
+                  "key": "reed.wren.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.stoic",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I can't stay forever, Wren. But I can stay *now.* Let's start with now.\"",
+              "next": "wren_lives",
+              "effects": [
+                {
+                  "key": "reed.wren.regard",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wren_walks",
+          "speaker": "Wren",
+          "text": "*(She looks at you for a long, long moment — and what's in her face isn't despair anymore. It's something quieter, and older, and entirely her own.)* …You're the first one who didn't try to *stop* me. *(softly)* Everyone else made it about *them* — their sin to prevent, their conscience to clear. You made it *mine.* *(she turns toward the far shore, and the apple, half-eaten, she sets down gently on a flat stone, like an offering)* I *have* weighed it. For a week, I've weighed nothing else. And I'd rather walk it *now*, on my own legs, *seen*, with someone on the bank who *let* it be my choice — than be *fetched* later, screaming, by the smiling man's friends. *(she meets your eyes, and almost smiles)* Stand here. Watch. Remember it was *Wren*, and that she walked it *brave*, and *chosen*, and *not alone* — because you stayed. *(she steps into the deeper water, toward the causeway, and the mist begins to take her — but at the edge of it she turns back, just once.)* …It isn't nothing out there. I can feel that now. It's *cold*, but it isn't *nothing.* Thank you for not lying to me about the *one* thing. *(and she walks into the grey, upright, and the river keeps her gently.)*",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.wren_walks",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.honored_her_choice",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.stoic",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "wren_leave",
+          "speaker": "Wren",
+          "text": "*(She watches you start to go, and something in her face closes like a door in winter.)* …Right. *(quietly)* Of course. *(she turns back to the water)* That's the thing about a girl at the edge of everything, isn't it — everyone *finds* her, and nobody knows what to *do* with her, and so they *leave*, and tell themselves they were *respecting her space.* *(she lifts the apple, doesn't bite it)* Go on, then, stranger. Mind the bank. *(she doesn't look at you again)* It's softer than it reads.",
+          "effects": [
+            {
+              "key": "reed.wren.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "reed.reedwife",
+      "title": "The Reed-Wife",
+      "npc": "the Reed-Wife",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Reed-Wife",
+          "onEnter": [
+            {
+              "key": "reed.met_reedwife",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(The pale face lifts a little higher out of the green water, and the drowned mouth curves into something almost tender.)* …*Ohh.* No god on you. *(a voice like water moving under ice)* You poor, *free* thing. *(she drifts closer through the reeds, leaving no wake)* Come *down* to the nice cold water with the Reed-Wife, unbought one. We're the *same* make, you and I — nobody's, *nobody's*, and isn't it *quiet*, being nobody's? *(a wet giggle)* They told you the unheld go to *nothing.* *(she taps the side of her dripping nose)* They *lie.* The unheld go to the *river.* I should *know.* I've been *here* the whole time. Mind the *step.*"
+            },
+            {
+              "when": {
+                "race": [
+                  "Tiefling",
+                  "Drow"
+                ]
+              },
+              "text": "*(She surveys your horns, your skin, with the delight of a collector finding a rare specimen.)* Oooh, a *fancy* one. *(she props a pale chin on a pale, waterlogged hand)* The river gets all *sorts*, but it's been an *age* since it got one as *decorative* as you. *(a confiding whisper)* Down here it doesn't *matter* what you were on the bank — horns, hide, halo — the green takes us all the same colour. *(she beams, gappily)* Which is *this* colour. *(she gestures at her own drowned-pondweed pallor)* Very *forgiving*, the river. Very *democratic.* Come *closer.*"
+            },
+            {
+              "text": "*(The reeds part where no wind moves them, and a face the colour of pond-bottom regards you with enormous, patient, water-logged eyes.)* …*Hello.* *(the voice bubbles up wrong, charming and dreadful)* Don't *run.* Everybody *runs*, and then I'm just *talking to the reeds again*, and the reeds are *terrible* conversation — all *whispering*, no *listening.* *(the face tilts)* You can *see* me. Most can't, you know. Most just feel a *cold spot* and walk *faster.* But *you* — *(she squints up at you)* — *you've* got the *sight* on you, haven't you. The grave-grey kind. *(delighted)* Oh, we are going to be *friends.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Reed-Wife",
+          "text": "*(She folds her dripping arms on a flat stone at the waterline and settles in, the very picture of a neighbour over a fence, if the fence were the boundary of death.)* So. *(a pondwater smile)* You've come to the *quiet* end of the bank, where the *boatman* won't and the *Choir's woman* daren't. *(she blinks, slow as a frog)* That means you *want* something the *living* haven't got. *Ask*, grave-eyes. The Reed-Wife knows *all* the bank's old secrets. She's had *nothing* to do but *learn* them.",
+          "choices": [
+            {
+              "text": "[RELIGION] \"You're not a ghost — not exactly. You don't *haunt*, you *abide.* You're what happens to one of the Faithless who *refused* the Wall and the river *kept* instead. You found a third door. Tell me where it is.\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 12
+                }
+              },
+              "check": {
+                "skill": "Religion",
+                "ability": "Intelligence",
+                "dc": 15
+              },
+              "next": "reedwife_thirddoor",
+              "fail": "reedwife_coy"
+            },
+            {
+              "text": "[ARCANA] \"There's a *working* on this whole stretch of water — old, and deliberate. Someone *built* this crossing to feed the Wall. The reeds, the toll, the boatman who can't leave — it's a *machine.* What powers it, and where's the *seam* I could cut?\"",
+              "when": {
+                "ability": {
+                  "Intelligence": 13
+                }
+              },
+              "check": {
+                "skill": "Arcana",
+                "ability": "Intelligence",
+                "dc": 16
+              },
+              "next": "reedwife_machine",
+              "fail": "reedwife_coy",
+              "crit": "reedwife_arcana_crit",
+              "fumble": "reedwife_arcana_fumble"
+            },
+            {
+              "text": "[INSIGHT] \"You keep saying 'come closer.' You're *lonely*, not *hungry.* You don't want to drown me. You want someone to *stay* and *talk* who won't walk faster. How long have you been down here with only the reeds, Reed-Wife?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "reedwife_lonely",
+              "fail": "reedwife_coy"
+            },
+            {
+              "text": "*(let her see her own condition mirrored in you)* \"You found the third door before me, didn't you. Refused the Wall, took the water instead. I went *further* — I went *in* and came *out.* We're the only two on this bank who've cheated the same cold thing. Trade me secrets, Reed-Wife. Cold to cold.\"",
+              "tag": "returned",
+              "next": "reedwife_kin",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"How did you die, Reed-Wife?\" *(you're not sure you want the answer)*",
+              "next": "reedwife_died"
+            },
+            {
+              "text": "\"…I think I'll keep to the *bank*, thanks.\" *(step back from the waterline)*",
+              "next": "reedwife_leave"
+            }
+          ]
+        },
+        {
+          "id": "reedwife_thirddoor",
+          "speaker": "the Reed-Wife",
+          "text": "*(Her delighted grin falters into something far older and sadder, and for a moment the charming horror drops entirely.)* …*Clever* grave-eyes. *(softly, the bubble gone from her voice)* Yes. There's a *third* door. They give you *two* — the *boat*, if you're bought; the *Wall*, if you're not. Nobody *tells* you there's a third, because the third is *this.* *(she lifts a pale hand from the water and lets it stream)* You *refuse.* Both. You walk into the *river* of your own will, before the Choir can *file* you and before the Wall can *take* you, and you say: *I'll be no one's — not even nothing's.* *(she smiles, terribly)* And the river *keeps* you. Not *alive.* Not *dead.* Not *judged.* Just… *abiding*, in the cold green, *unmeasured*, forever. *(a whisper)* It's *freedom*, grave-eyes. The only kind the unbought get. It's *also* this — *(she gestures at her drowned self)* — *forever.* So. Now you know the third door is *here.* Most who learn it *take* it. *(she watches you, ancient and hopeful)* …Will *you?* It does get *ever* so lonely, being the only one who *chose.*",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.third_door",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_machine",
+          "speaker": "the Reed-Wife",
+          "text": "*(Both pale brows climb, and she claps her waterlogged hands once, soundlessly, scattering droplets.)* *A seam!* *(gleeful)* Oh, you *are* a sharp one. Yes — it's a *machine*, the whole crossing, and *no one* asks how it *runs*, they only argue about who gets the *boat.* *(she leans in, conspiratorial)* Listen, grave-eyes. The toll isn't *coins.* The coins are *theatre.* What feeds the Wall is *consent* — every soul that walks the stone *believing* it's owed, *believing* it has no claim, *believing* it's *nothing.* That belief is the *fuel.* *(her eyes glitter)* The *boatman* keeps it running by selling the *story* that passage can be *bought.* The *Choir's woman* keeps it running by *measuring*, so the unbought *believe* the measure is *true.* And the *Wall* runs on every soul too *tired* to *argue.* *(she taps the stone)* The *seam*, you ask? *(a whisper)* It's *belief.* Teach *one* marked soul on this bank that the measure is a *lie* and the Wall is a *filing error* — and you've cut a thread the whole loom *needs.* *(she settles back, smug)* You've maybe *cut one already*, haven't you. I felt the water go *strange* an hour past. *Apple-sweet.*",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.crossing_machine",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_arcana_crit",
+          "speaker": "the Reed-Wife",
+          "text": "*(✦ You don't just *read* the working — you read it *all the way down*, past the reeds and the toll and the consent, to the cold knot of intent at the very bottom of the river, and the Reed-Wife watches you do it with an expression of pure, drowned *rapture.*)* *(She rises further out of the water than you've yet seen, to the waist, streaming green.)* …You *saw* it. The *knot.* *(reverent)* Four hundred years I've abided in this water *circling* that knot and never once seen the *whole* of it, and you've *read* it in a *breath.* *(she presses both dripping hands to her mouth)* Then I can tell you the thing I've *never* had anyone clever enough to tell: the knot has a *name* woven through it, grave-eyes, the name of the one who *tied* the crossing to the Wall in the first place — and it is *not* a god's name. *(a whisper like a current)* It's a *bureaucrat's.* A *living* hand built this, long ago, to make grief *efficient*, and called it holy so no one would *audit* it. *(she sinks back, eyes shining)* Cut the knot at the *name*, and the boat floats free, and the Choir's scale weighs *true*, and I — *(her voice catches)* — *I* get to stop *circling.* You're the first soul in four centuries who could even *find* the thread. *Please*, grave-eyes. When you go up that causeway. *Remember the knot has a name.*",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "reed.crossing_machine",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.knot_has_a_name",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_arcana_fumble",
+          "speaker": "the Reed-Wife",
+          "text": "*(💀 You reach into the working with great confidence and immediately grasp entirely the *wrong* thread — you announce, with the ringing certainty of the truly mistaken, that the crossing is powered by 'the *moon*, probably,' and possibly 'fish.' The Reed-Wife regards you with the infinite patience of standing water.)* …*Fish.* *(she blinks, slow)* Four hundred years of careful abiding, and a *grave-eyes* leans over my reeds to inform me that the *holy machine* that *feeds the Wall of the Faithless* runs on, and I want to be *certain* I have this, *fish.* *(a single bubble rises and pops)* No, dear. *(kindly, as to a child)* It's not the fish. The fish are *furious* about the whole arrangement, actually, but they are not *load-bearing.* *(she pats the stone)* You've a *grand* confidence and *not* the sight to back it, which is a *dangerous* mix on a soft bank. *(she sinks until only her eyes show)* Come back when you can tell a *working* from a *wading bird.* And do mind the *step*, confident one. The river's not fussy about *who* it keeps. Even the *wrong* ones. *Especially* the wrong ones.",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_lonely",
+          "speaker": "the Reed-Wife",
+          "text": "*(The pondwater grin trembles and then, slowly, *falls*, and what's underneath is just a face — a tired, lonely, four-hundred-year-old face that used to belong to a person.)* …*Lonely.* *(the word costs her)* You *heard* it. *(she sinks until the water's at her chin, shy)* Nobody *hears* it. They hear *come closer* and they think *monster*, *drowner*, *hungry thing.* But I don't want to *take* you under, grave-eyes. *(small)* I want you to *sit on the stone* a while and *tell me what the market's like now*, and whether they still sell the *winter apples*, and if anyone still sings the *bridge-song*, and — and just *talk*, the way I haven't since I *chose* the water and the water *kept its half of the bargain* and *everyone else's voice went away.* *(a wet, hopeful look)* Four hundred years of *reeds.* They *whisper* but they don't *answer.* *(she manages a small smile)* You don't have to come closer. Just — don't walk *faster.* That's all. That's the whole of what I want. Isn't that a *small* thing to haunt a river for?",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "reed.reedwife_heard",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_kin",
+          "speaker": "the Reed-Wife",
+          "text": "*(She goes utterly still in the green water — and then surges up to meet you, both cold hands reaching to hover an inch from your cold face, not touching, *recognising.*)* …*Kin.* *(a sob of pondwater)* You went *in.* And *out.* I only ever managed the *threshold* — I refused the Wall and let the river catch me at the *door*, and I've abided in the *doorway* four hundred years, never *in*, never *back.* But *you* — *(her huge eyes search yours)* — you walked *all the way through* the cold and *turned around* and *came home wearing it.* *(reverent, devastated)* I didn't know that was *possible.* I thought the door only opened *one* way. *(her voice drops to the barest current)* Then trade me, cold-kin, as you asked. *I'll* give you the bank's secret — *(she whispers it: the third door, the machine, the knot with a name, all of it, fast and trusting)* — and *you*… you tell me the *one* thing I've wanted to know since the water took me. *(she trembles)* When you came *back* — did it *hurt* less, being cold among the living? Or *more?* I have to know if the *door home* is worth four hundred years of *trying.* Tell me true. You're the only one who *can.*",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "reed.third_door",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.crossing_machine",
+              "op": "SetTrue"
+            },
+            {
+              "key": "reed.reedwife_kin",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_died",
+          "speaker": "the Reed-Wife",
+          "text": "*(She considers the question with her head tipped at an angle no living neck would hold, and answers without any horror at all — which is, somehow, the most horrifying part.)* *How.* *(mildly)* Oh, the usual, dear. *(she counts on dripping fingers)* I was *unbought.* No coin, no god — a *weaver*, if you want to know, four hundred years gone, with clever hands and *no one* to vouch my soul. *(a little shrug, water sloshing)* So the Choir-of-the-day measured me *light* and pointed me at the stone, same as your apple-girl. *(her eyes glint)* But I'd *woven* the bridge-banners my whole life, see — I knew that crossing the way you know your *own kitchen* — and I thought: *I'll not walk where they* point *me.* *(a small fierce smile)* So I stepped *off* the causeway, into the *river*, on a path of my *own* choosing, and I drowned myself *spiteful*, *unmeasured*, *un-filed*, with my chin *up.* *(she beams)* Worst paperwork the Choir had all *century*, I'm told. *(then, quieter)* I don't *regret* it, grave-eyes. I'd do it *again.* I only wish I'd known about the *coming back.* *(she looks at you)* You might be the first proof I made the *wrong* kind of escape. But oh, it was a *grand* spite while it lasted.",
+          "effects": [
+            {
+              "key": "reed.reedwife.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "reed.reedwife_story",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_coy",
+          "speaker": "the Reed-Wife",
+          "text": "*(She sinks until only her eyes and the top of her pale head show above the green, and there's a definite glint of mischief in the look.)* *Mmmnope.* *(bubbling)* You *guessed*, grave-eyes, and the river doesn't pay out on a *guess.* *(her voice gurgles up through the reeds)* Secrets cost *seeing*, not *supposing.* Come back when you can tell me something *true* about the water — then I'll trade you something *truer.* *(a wet little laugh)* Until then I'll just be *here*, being *cryptic* and *moist*, which are, between us, the only two hobbies the drowned have got. Mind the *step*, supposing-one. It's *closer* than it looks.",
+          "auto": "END"
+        },
+        {
+          "id": "reedwife_leave",
+          "speaker": "the Reed-Wife",
+          "text": "*(She doesn't seem hurt — only settles back into the green like a kettle going off the boil, watching you go with those huge patient eyes.)* *(softly)* Course you will, dear. The bank's the *sensible* place. *(a ripple)* But you came down to the *quiet* end, grave-eyes — to *me* — and the sensible don't *do* that. So you'll be *back.* *(a wet smile sinking under the water)* They always come *back* to the quiet end, in the end. *(barely a whisper from the reeds)* Everyone's *unbought*, eventually. Mind the step.",
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}

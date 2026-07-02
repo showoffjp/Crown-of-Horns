@@ -1,0 +1,1347 @@
+{
+  "scene": {
+    "id": "lamplit",
+    "name": "The Lamplit Quarter",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "tavern",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "type": "lamppost",
+        "x": 3,
+        "y": 3
+      },
+      {
+        "type": "lamppost",
+        "x": 7,
+        "y": 6
+      },
+      {
+        "type": "noticeboard",
+        "x": 1,
+        "y": 4
+      },
+      {
+        "type": "table",
+        "x": 6,
+        "y": 4
+      },
+      {
+        "type": "table",
+        "x": 3,
+        "y": 6
+      },
+      {
+        "type": "barrel",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "crate",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "hangings",
+        "x": 0,
+        "y": 1,
+        "hue": 40
+      },
+      {
+        "type": "hangings",
+        "x": 5,
+        "y": 1,
+        "hue": 40
+      },
+      {
+        "type": "barrel",
+        "x": 2,
+        "y": 2
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "market",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "◂ down to the Market of the Causeway"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "to": "counthouse",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▴ deeper in — the Counting-House (the Choir's seat)"
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "to": "aldric",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ the Doomguide's table (a summons)"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "weeping",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ a townhouse with weeping behind the shutters (the Weeping House)"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "siege",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ fists on a barred door — the almshouse is under siege"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "custody",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ two souls fighting over a third — a custody of the small"
+      },
+      {
+        "x": 4,
+        "y": 8,
+        "to": "lanternfeast",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ forbidden lantern-light and the smell of fresh bread — the Last Lantern-Feast"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "seconddeath",
+        "dest": {
+          "x": 5,
+          "y": 1
+        },
+        "label": "▸ grey robes over a patch of un-light — a death that should be impossible"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "wedding",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ a grey canopy and candles — two Unclaimed souls mean to wed, and a first husband watches"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "dace",
+        "name": "Dace Iron",
+        "title": "a Faithless blade-for-hire",
+        "x": 6,
+        "y": 5,
+        "hue": 20,
+        "sigil": "DI",
+        "conv": "city.dace",
+        "hail": "*(a lean, scarred swordswoman sits tipped back at a table with her boots up and a whetstone in hand, and watches you cross the square with the flat professional interest of someone pricing a fight)*"
+      },
+      {
+        "id": "pell",
+        "name": "Pell",
+        "title": "a man with a small ledger",
+        "x": 3,
+        "y": 4,
+        "hue": 50,
+        "sigil": "Pe",
+        "conv": "city.pell",
+        "hail": "*(a neat, forgettable man stands beneath a lamppost making small notes in a small book, and his eyes tick to you, and to your deeds, and back to the page)*"
+      },
+      {
+        "id": "mab",
+        "name": "Mab",
+        "title": "keep of the Sotted Saint",
+        "x": 8,
+        "y": 3,
+        "hue": 330,
+        "sigil": "M",
+        "conv": "city.mab",
+        "hail": "*(a broad, brass-ringed woman leans in the tavern door polishing a cup that's already clean, and grins like she's heard three things about you already and is deciding which to mention first)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "city.mab",
+      "title": "Mab and the Rumour-Mill",
+      "npc": "Mab",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Mab",
+          "onEnter": [
+            {
+              "key": "city.met_mab",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "int": {
+                  "disp.haunted": 6
+                }
+              },
+              "text": "*(Mab's got a greeting half-loaded — she always does — but it dies on her lips when you cross her threshold, and her hand finds the bar-rail, and the warm gossip's eyes go careful and round.)* …*Oh.* *(she swallows)* It's — it's *you*, love. *Course* it is. *(she doesn't come round the bar like she used to)* You'll — you'll forgive an old woman, only — *(she rubs her arms)* — only it's gone *cold* in here, sudden, the way it does when you walk in *now.* Used to be you'd come in and I'd have *six* bits of news for you before you sat. *(quieter)* Now I get this — this *draught*, off you, like the door's open onto somewhere with *no* *summer* in it, and the *regulars* feel it too, they go *quiet*, they *find* somewhere *else* to *look.* *(she makes herself meet your eyes, kind even now, but it costs her)* I'll *still* pour for you, mind. I'll *always* pour for you. *(barely)* But you're — you're going *somewhere*, love, the *cold* way, and the *living* can *feel* you *leaving* before you've *gone.* …*Are* you still *in* there? The one who *helped* my marked girl at the river? *Or* is it mostly *grave* that walks in my *door* these days? *(she tries to smile, and doesn't quite)* …*Tell* me there's still a *bit* of *warm* left in you. I'd *sleep* better.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lt.wall_stirs"
+                ]
+              },
+              "text": "*(She stops polishing the cup the instant she sees you, and her grin goes wide and a little frightened around the edges.)* …*Well.* *(she breathes it)* Here's the soul the whole *Quarter's* whispering about and didn't half believe in. *(she leans in, brass rings clicking)* They say the *Wall moved*, love. Out past the last torch. They say a body walked up to the *Wall of the Faithless* and it *flinched*, like a dog that's met a *bigger* dog. *(she searches your face)* Half my regulars call it a *drunk's* tale. The *other* half stopped *coming in*, on account of *not wanting to be in the room* when the soul that *spooked the Wall* walks through the *door.* *(she sets the cup down)* …And here you *are.* So. *Drink?* On the *house*, if you'll tell me which half was *right.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.wren_lives"
+                ]
+              },
+              "text": "*(Her grin is warm and conspiratorial as she waves you to the bar.)* There she — there *they* *are.* *(she beams)* The apple-girl's *saviour.* Oh, don't look *surprised*, love, the Quarter *runs* on talk and *yours* is the *good* kind for once. *(she lowers her voice, fond)* Word came up from the *river* — a marked girl named Wren, the Choir had *measured* her, and somebody *stood* in the way and *talked* her off the cold water. *(she thunks a cup down for you)* That's *rarer* than a sober Doomguide, that is — a stranger who *spends* their afternoon making the world *one* soul *less* tidy. *Drink's* on me. I like to *bank* goodwill with the sort of person the *songs* end up about."
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.choir_friend"
+                ]
+              },
+              "text": "*(Her polishing slows, and the grin she gives you is professionally warm and reaches *nothing* above the mouth.)* …Evening. *(carefully)* You'll be the *helpful* one. *(she sets the cup down a touch too precisely)* Word came up from the river that the Choir's got a new *friend* — somebody who *handed* them the apple-girl, neat as you like, and asked only that the *books balance.* *(her eyes flick to the corner where Pell stands with his little ledger)* We get *all* sorts in the Sotted Saint, love, and your coin's as *good* as anyone's. *(quietly)* But I'll tell you for *nothing*, since you're new: the folk in *this* Quarter have *long* memories and *short* tempers about them as *help the Choir*, so you keep that particular *good deed* off your *tongue* in here, and we'll get on *fine.*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(She clocks the godless quiet on you and her grin turns genuinely fond, one of her own.)* Ahh, one of the *unbought.* *(she pats the bar)* Sit *here*, love, this end — it's where the *Faithless* sit, on account of the *light's* better and the *company's* honester. *(she winks)* No god watching your *tab*, no priest counting your *sins* into a *little book* — just you, and the cup, and old Mab who serves *everyone* the same because the *Wall* takes us all the same in the *end*, so why put on *airs* in the *middle?* *(she leans in)* What'll it be? And what's the *news* from wherever you've *been?* You've the look of someone who's been somewhere with a *story* on it."
+            },
+            {
+              "text": "*(The brass-ringed woman straightens off the doorframe and gives you the once-over that forty years of tending bar makes into an art.)* New face. *(she grins)* Good. New faces *pay* for their drinks and *tip* on the *gossip*, where the regulars just *nurse* one ale and *complain* about the *Choir* till close. *(she steps aside, waving you toward the warm light of the tavern)* I'm Mab. This is the *Sotted Saint* — best and *only* honest house in the Lamplit Quarter. *(she lowers her voice, delighted)* I know *everything* that happens from the *causeway* to the *Gate*, love, and I *trade* it fair: a *rumour* for a *rumour*, a *drink* for a *tale.* So. What've you *got* for old Mab, and what d'you want to *know?*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Mab",
+          "text": "*(She plants her elbows on the bar, rings clicking on the wood, and fixes you with the bright, greedy, friendly attention of a woman who deals in talk the way Sable dealt in charms.)* Go on, then. *(she tilts her head)* The Quarter's an *open book* to them as knows how to *read* old Mab — and old Mab reads *back.* What're you after?",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You already know who I am, Mab. You knew before I crossed the square. So let's skip the fishing — what's the Quarter *actually* saying about me, the parts you'd only tell a face you'd decided to like?\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "mab_realtalk",
+              "fail": "mab_coy"
+            },
+            {
+              "text": "\"Tell me about the swordswoman with her boots on your table. The one pricing me like a side of beef.\"",
+              "next": "mab_dace"
+            },
+            {
+              "text": "\"Tell me about the neat little man with the ledger, under the lamp. He's been writing since I walked in.\"",
+              "next": "mab_pell"
+            },
+            {
+              "text": "*(if the Quarter's already buzzing about the Wall)* \"They're saying the Wall *moved.* You want to know if it's true. I'll trade you: the truth of the Wall, for everything you know about who *runs* the Choir's measuring this side of the river.\"",
+              "when": {
+                "flag": "lt.wall_stirs"
+              },
+              "next": "mab_wall_trade",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(let the bar feel the cold come in with you)* \"You serve everyone the same because the Wall takes us all the same, you said. I've *been* in the Wall, Mab. All the way. Pour me whatever you pour the dead, and let's talk about what's *really* coming up that causeway.\"",
+              "tag": "returned",
+              "next": "mab_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Just an ale, Mab, and a warm corner. I've had a long walk on a cold causeway.\"",
+              "next": "mab_drink"
+            },
+            {
+              "text": "\"Another time, keep.\" *(move on)*",
+              "next": "mab_leave"
+            }
+          ]
+        },
+        {
+          "id": "mab_realtalk",
+          "speaker": "Mab",
+          "text": "*(She barks a laugh and pours two cups without being asked, sliding one to you.)* *Ha!* No flies on *you.* *(she drinks)* All right, love, the *real* talk. *(she leans close)* They're *scared* of you. The *good* kind of scared and the *bad* kind, all mixed. *(she ticks it off on ringed fingers)* The *Faithless* in this Quarter — and there's *more* of us than the Choir likes — they're saying a *Returned* walked out of the harvest and started *unpicking* things. Talking marked girls off the water. Fetching *cures* from past the *last torch.* Making the *Choir's* little measurers *nervous.* *(her grin fades to something earnest)* We don't get *saviours* down here, love. We get *Doomguides* who pity us and *Choir-men* who *file* us. So when a story comes up the causeway about somebody who's neither — somebody *doing* something — the Quarter doesn't know whether to *follow* you or *hide* from you. *(quietly)* Me, I've decided to *feed* you and *watch.* Old Mab's bets *long.* Now — you've *earned* a real answer. Ask me something that *matters.*",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "city.mab_trusts",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_coy",
+          "speaker": "Mab",
+          "text": "*(She just grins and keeps polishing.)* Oh, *this* and *that*, love. *(airily)* A face like yours, fresh off the causeway — could be *anybody.* Pilgrim, cutpurse, *tax man.* *(she winks)* The Quarter talks, but it doesn't talk to a cup it hasn't *drunk* from yet. *(she nudges an ale toward you)* Buy a round, tip a *tale*, give old Mab a *reason*, and maybe the *book* falls open. *Maybe.* Or sit there looking *mysterious* and learn *nothing* — that works too, but it's *slower*, and the *Choir's* faster than you'd *like* in this Quarter.",
+          "auto": "END"
+        },
+        {
+          "id": "mab_dace",
+          "speaker": "Mab",
+          "text": "*(She glances at the swordswoman and her voice warms.)* *Dace Iron.* *(fondly)* Best blade in the Quarter and the *worst* at keeping coin — drinks it, *gambles* it, *gives* it to the bridge-kids when she thinks no one's *looking.* *(she lowers her voice)* She's *Faithless*, like half my regulars — no god, no *coin* for one, and *furious* about the whole arrangement in a way that's made her *very* good with that sword and *very* bad at *bosses.* *(she eyes you)* She's been turning down *Choir* work for a *month* — they pay *triple*, and she keeps telling their man to *stuff* it, which is *brave* and *stupid* and *exactly* why she's broke. *(a sly look)* She's looking for something *worth* her steel, love. A *cause*, not a *contract.* And she's been watching *you* cross that square like she's already *decided* something. *(she grins)* If you've a *fight* worth fighting and the *nerve* to ask — *that's* the one to ask.",
+          "effects": [
+            {
+              "key": "city.heard_of_dace",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_pell",
+          "speaker": "Mab",
+          "text": "*(The warmth drops clean out of her, and she sets the cup down.)* …*Pell.* *(flatly)* Goodman Tallow's man. *(she wipes the bar that doesn't need wiping)* You'll have met *Tallow*, maybe — pleasant fellow, market square, *likes to watch.* Well, *Pell's* what Tallow's *watching* turns *into.* A *name*, a *ledger*, a *quiet word* to the Choir, and some marked soul who was *buying apples* last week is *past the last torch* this one. *(her jaw tightens)* He stands under *my* lamp because I can't *legally* throw him out, and he *writes* in that little book, and what he writes *kills* people, *politely.* *(she meets your eyes)* I'd take it as a *kindness*, love — a *personal* one — if somebody were to make Master Pell's work a good deal *harder.* I'd take it as the kind of kindness that *drinks free* in the Sotted Saint *forever.* *(quietly)* But mind him. The *forgettable* ones are *always* the most *dangerous.* That's *why* they're forgettable.",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.heard_of_pell",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_wall_trade",
+          "speaker": "Mab",
+          "text": "*(She goes very still, then nods slowly, and pours two cups of something darker than ale.)* …A *fair* trade. *(quietly)* All right. *Me* first, to show *faith.* *(she leans in)* The Choir's measuring this side of the river runs through *Tallow* — the smiling man in the market — and his man *Pell*, there, who keeps the *list.* Above *them* there's a *Measurer*, Sister Vharn, works the *causeway* — *(she watches your face flicker)* — ah, you've *met* her. And above *her*… nobody in this Quarter knows. The Choir's like the *Wall*, love: you only ever meet the *face* of it. *(she sets down the cup)* *Now.* The *Wall.* Tell me true. Did it *move?*",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "city.knows_choir_chain",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "mab_wall_answer"
+        },
+        {
+          "id": "mab_wall_answer",
+          "speaker": "Mab",
+          "text": "*(She waits, both hands flat on the bar, and for once the brassy grin is nowhere to be found.)*",
+          "choices": [
+            {
+              "text": "\"It moved, Mab. I walked up to it and it got out of my way. The Wall is not forever — and the Quarter should know that, quietly, from someone they trust. Spread *that* rumour.\"",
+              "when": {
+                "flag": "lt.wall_stirs"
+              },
+              "next": "mab_hope",
+              "effects": [
+                {
+                  "key": "city.mab.regard",
+                  "op": "AddInt",
+                  "amount": 3
+                },
+                {
+                  "key": "city.wall_rumour_spread",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Keep it to yourself for now. A rumour like that gets people *hopeful*, and hopeful people do *reckless* things the Choir punishes. Sit on it until I've made it *safe* to say out loud.\"",
+              "next": "mab_keeps",
+              "effects": [
+                {
+                  "key": "city.mab.regard",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mab_hope",
+          "speaker": "Mab",
+          "text": "*(She sits down. Old Mab, who has stood behind this bar through four decades of bad news, *sits down* on her own stool, and presses her ringed knuckles to her mouth.)* …It *moved.* *(a whisper)* I've poured drinks for the *Faithless* of this Quarter for *forty years*, love. Watched 'em go up that causeway one by one and *never* come down. Told 'em the *kind* lie — that the Wall's a *rest*, that the nothing doesn't *hurt.* *(her eyes shine)* And you're telling me I can pour 'em a *truer* one. That the Wall *flinched.* That it's *not* the *floor.* *(she stands, fierce, brassy again, but wet-eyed)* Then I'll spread it *careful*, love, cup by cup, to the ones who can *hold* it — a little *hope*, slipped to the *hopeless*, like a *coin* under the table. *(she grips your hand)* You've given the Sotted Saint the *best* gossip it's ever *carried.* Not a *scandal.* A *crack in the dark.* *(quietly)* Drink free here *forever*, Returned. And when you go to *finish* what you started at that Wall — this Quarter's *full* of the unbought, and they'll *remember* who told them to *hope.*",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "city.quarter_hopes",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_keeps",
+          "speaker": "Mab",
+          "text": "*(She nods slowly, respect in it.)* …*Wise.* *(she tucks the dark cups away)* You're right, damn you. I've *seen* what *hope* does to the *hopeless* when it comes too *early* — they get *brave*, and *brave* gets *measured*, and then there's a new face past the last torch and it's *my* fault for *pouring* it. *(she taps her nose)* So old Mab sits on it. *Tight.* Till you say the word. *(she eyes you, newly serious)* But you *will* say the word, won't you. You're not *hoarding* it — you're *timing* it. *(a slow grin)* That's the difference between a *schemer* and a *leader*, love, and I've *served* enough of both to know which I'm *looking* at. *(she slides you a cup)* On the house. For *patience.* It's the rarest thing that ever walks through that door.",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "city.wall_secret_kept",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_returned",
+          "speaker": "Mab",
+          "text": "*(The cup stops in her hand. She looks at you — really looks — and slowly, deliberately, reaches under the bar and brings up a dusty bottle with no label, and pours a measure of something that smells of cold river-water and pennies.)* …I *wondered.* *(quietly)* Forty years tending this bar, love, you learn to feel it when the *cold* walks in — most folk just shiver and blame the *door.* *(she pushes the cup to you)* That's *grave-wine.* I pour it *once* a year, on the *longest* night, for the *Faithless* who didn't make it back down the causeway — a cup left on the *bar* for the *unremembered.* *(her voice roughens)* I've *never* poured it for someone who could *drink* it. *(she watches you take it)* So. The dead walk into my house and ask what's *coming* up the causeway. *(she leans in, deadly serious under the brass)* Then *you* tell *me*, Returned — because if one of *you* is walking *down* instead of *up*, then something in the *order of things* has come *loose*, and old Mab would *dearly* like to know whether to *bar the door* or *throw it wide.* *(quietly)* Which is it? Do I *hide* my regulars from what's coming — or *gather* them for it?",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "city.mab_knows_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_drink",
+          "speaker": "Mab",
+          "text": "*(She pulls a cup with practiced ease and slides it across, foam riding the rim.)* *There* you go, love. *(she leans on the bar while you drink)* Warm corner's by the *fire*, mind the swordswoman's *boots.* *(she watches the square through the open door)* …Long walk on a cold causeway, you said. *(quietly, not really a question)* They're *all* long, the walks that end up in *my* house. Nobody comes to the Lamplit Quarter because the *day* went *well.* *(she straightens, grin returning)* But that's what the *Saint's* for, eh? A *cup*, a *fire*, and old Mab, who'll *listen* to anything and *judge* none of it. *Drink up.* First one's the *welcome.* The *gossip* you pay for *after.*",
+          "effects": [
+            {
+              "key": "city.mab.regard",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "mab_leave",
+          "speaker": "Mab",
+          "text": "*(She waves the polishing-cloth at you, unbothered.)* Suit yourself, love. *(she goes back to the cup that's already clean)* The Saint doesn't *close* and old Mab doesn't *forget.* Come back when your *throat's* dry or your *business* turns *interesting* — *(a knowing grin)* — and with a face like *yours*, fresh off *that* causeway, it'll turn interesting *quick.* They *always* do, the *quiet* ones. *(she calls after you)* Mind Pell under the lamp. He's *counting* you already.",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "city.dace",
+      "title": "Dace Iron, For Hire",
+      "npc": "Dace Iron",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Dace Iron",
+          "onEnter": [
+            {
+              "key": "city.met_dace",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "lt.wall_stirs"
+                ]
+              },
+              "text": "*(The swordswoman's boots come *off* the table the moment she gets a clear look at you, and she sits up slow, the whetstone going still in her hand.)* …Huh. *(she looks you up and down, and something sharpens in her scarred face)* So the *story's* got a *body* on it after all. *(she sets the whetstone down)* They're saying you walked up to the *Wall* and it *blinked* first. *(a short, hard laugh)* I called it *barracks-talk* — souls love a tale where the *Wall* loses, we *tell* it to each other to *sleep.* *(she leans forward, elbows on knees, all the lazy gone out of her)* But here's the *body*, walking my *square*, with the *cold* still on it. *(her eyes are bright and dangerous)* I'm *Faithless*, friend. That Wall's got my *name* on a *list* somewhere, same as every other godless soul in this Quarter. *(quietly)* So if you're the one *making it nervous* — you've got my *whole* attention, and I am *very* hard to get the attention *of.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "reed.choir_friend"
+                ]
+              },
+              "text": "*(She doesn't take her boots off the table. If anything she settles back further, and the whetstone keeps moving, slow and pointed.)* *(rasp of steel)* …I know your *face* now. *(flatly)* Word came up from the river this morning, friend. The Choir's got a *new* helper — somebody who *handed* them a marked girl, neat as you please, and walked off *whistling.* *(the whetstone stops)* I'm *Faithless.* You understand what that *means*, where I'm sitting? It means the *list* that girl was *on* is the *same* list *I'm* on. *(her voice is very quiet and very level)* So you'll forgive me if I *don't* take my boots off for the *causeway's* newest *errand-runner.* *(she picks up the whetstone again, dismissive)* Say your piece if you've *got* one. But choose your words like there's an *edge* near 'em. Because there *is.*"
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(Her gaze sharpens with recognition — one of the unbought knows another on sight — and she nudges a chair out from the table with her boot.)* *(she almost smiles)* Well, now. *Godless*, aren't you. *(she nods at the empty chair)* I can always tell. We *sit* different — like we're not *expecting* anyone to catch us if we *fall*, because we *aren't.* *(she sets the whetstone down)* No god, no *coin* for one, and that *Wall* out past the causeway with a *space* in it shaped like *both* of us. *(her scarred face is frank)* So I'll talk to you *straight*, kin to kin, which I don't do for the *bought* — they always want me to *pretend* the Wall's not *coming* for the likes of us, and I'm *bad* at pretending. *(she eyes you)* What's a *Faithless* blade like *you* want with a *Faithless* blade like *me?*"
+            },
+            {
+              "text": "*(She watches you approach without moving, whetstone sliding along steel, and when you're close enough she speaks without looking up.)* That's far enough to *talk* and close enough I can *reach* you, which is exactly where I like a *stranger.* *(she finally glances up, flat and professional)* You've the look of someone *shopping.* For *steel*, maybe. *(rasp)* I'm Dace Iron. I'm *good*, I'm *expensive*, and I'm *choosy* — which between us means *broke*, because I keep turning down the only work that *pays.* *(she sets the stone down)* So. You *buying*, or just *crossing* my square? Make it worth taking my *boots* off the *table*, either way."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Dace Iron",
+          "text": "*(She tips the chair back on two legs, sword across her knees, and gives you the level, weighing look of someone who has been disappointed by employers her whole life and is bracing to be disappointed again.)* Go on. *(rasp of stone on steel)* Pitch me. And mind — I've heard *every* version of 'honest work, good coin, noble cause,' and they *all* ended with me holding a *sword* over someone who didn't *deserve* it. So pitch me something *else.*",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You're not broke because you're choosy. You're broke because you keep turning down Choir coin — triple pay, Mab says — and you'd rather starve than put your sword between a marked soul and that Wall. That's not choosy, Dace. That's a *principle.* I've got work that *fits* it.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "dace_seen",
+              "fail": "dace_guard",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[PERSUASION] \"Here's the pitch you haven't heard: I'm not hiring a sword. I'm asking a Faithless blade to help me make that Wall give back what it's taken — starting with the souls on this side of the river. No coin worth a damn. Just the one fight you've been saving yourself for.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "dace_cause",
+              "fail": "dace_unsold",
+              "crit": "dace_persuade_crit",
+              "fumble": "dace_persuade_fumble",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if word of the river's reached the Quarter)* \"You already know what I did at the river — talked a marked girl named Wren off the cold water, out from under the Choir's measure. That's the work, Dace. There's a whole causeway of Wrens. I could use a sword that gives a damn which way they go.\"",
+              "when": {
+                "flag": "reed.wren_lives"
+              },
+              "next": "dace_cause",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "text": "*(let her see the cold, kin to kin)* \"You said that Wall's got a space in it shaped like both of us. It had a space shaped like *me* too, Dace — and I *climbed out of it.* I'm Returned. I'm going back to that Wall to take the *rest* of us out. I'd rather not do it alone, and you're the first soul in this Quarter who looked at me like a *comrade* instead of a *ghost.*\"",
+              "tag": "returned",
+              "next": "dace_returned",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 2
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[INTIMIDATION] \"I'll be plain, sellsword. I'm the most dangerous thing that's walked this Quarter in a generation, and I'd sooner have that blade *beside* me than wonder where it is. Throw in, or stay out of my way.\"",
+              "check": {
+                "skill": "Intimidation",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "dace_bristle",
+              "fail": "dace_bristle",
+              "crit": "dace_intim_crit",
+              "fumble": "dace_intim_fumble",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": -1
+                },
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Just taking the measure of the Quarter, Dace. Keep your boots up. We'll talk again.\" *(move on)*",
+              "next": "dace_leave"
+            }
+          ]
+        },
+        {
+          "id": "dace_seen",
+          "speaker": "Dace Iron",
+          "text": "*(The chair comes down onto four legs with a crack, and for a second the professional flatness drops clean off her face, caught.)* …*Huh.* *(she studies you, recalibrating)* Nobody's ever called it a *principle.* *(rough)* Mab calls it *stubborn.* The Choir's man calls it *bad for business.* My *last* employer called it *unprofessional*, right before I broke his *nose* for asking me to *collect* off a widow. *(she sets the sword aside)* But you — you looked at a broke sellsword turning down *triple pay* and saw a *principle.* *(slowly)* That's either the *cleverest* recruiting I've ever heard or the most *honest*, and I'm usually *good* at telling those apart, and right now I *can't.* *(she leans forward)* So. You've got my *interest*, which is *more* than the Choir's *gold* managed. *Tell* me this work that *fits.* And don't *oversell* it — I just *decided* I might *like* you, and you *lying* to me now would *cost* you that, and it's worth *more* than it looks.",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "city.dace_intrigued",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "dace_offer"
+        },
+        {
+          "id": "dace_guard",
+          "speaker": "Dace Iron",
+          "text": "*(She snorts and the whetstone resumes.)* *Principle.* *(dryly)* Big word for *can't hold a job.* *(but something flickers, and she doesn't quite meet your eye)* I turn down work 'cause the work's *rubbish*, friend, not 'cause I'm a *saint.* Saints *starve.* I'm just *picky* and *unlucky*, and you reading *nobility* into an empty *purse* says more about *what you're shopping for* than *what I'm selling.* *(she waves the stone at you)* Pitch the *job*, if there is one. Keep the *character* study. I get *enough* of that from *Mab*, and she does it *cheaper* — for the price of *listening* to her do it *back.*",
+          "auto": "dace_offer"
+        },
+        {
+          "id": "dace_cause",
+          "speaker": "Dace Iron",
+          "text": "*(She's quiet for a long moment, whetstone still, looking at you like she's checking the footing on a ledge.)* …The one fight I've been *saving* myself for. *(quietly)* You don't *know* what you just said, do you. Or maybe you *do*, which is *worse.* *(she stands, finally, and she's taller than she looked sitting — a real blade, scarred and certain)* I've spent *ten years* taking *coin* to point this sword at whoever *paid*, and *hating* it, and telling myself I was *saving up* — not *coin*, I'm *rubbish* with coin — saving up the *yes.* The *one yes.* For the *one* fight that was *mine*, that was *worth* the only thing I've got worth *spending*, which is *this.* *(she lifts the sword, then lowers it, and looks at you straight)* A Wall full of the *unbought*, and a soul who means to *empty* it. *(a slow breath)* …Yeah. That's the *one.* That's the fight I was *saving* the yes *for.* *(she sheathes the blade with a sound like a decision)* I'm *in*, Returned. No coin. *Comrade's* rate, which is *free*, and *priceless*, and *don't* you *waste* it. *Where* do we *start?*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "party.dace_recruited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.dace_committed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_returned",
+          "speaker": "Dace Iron",
+          "text": "*(She goes very still. The whole lazy-dangerous performance drops away, and what's left is a Faithless soul looking at the one thing she was raised to believe was impossible.)* …You *climbed out.* *(barely)* Out of the *Wall.* *(she's on her feet without deciding to be)* I have spent my *whole life*, friend, with that stone at the *back* of every *thought* — the *certainty* that when this sword finally *fails* me, there's a *space* in the *Wall* with my *name* on it and *nothing* after, *forever*, and *no* god to so much as *notice* I'm *gone.* *(her voice shakes; she lets it)* It's the *fear* under *every* godless soul in this Quarter, the one we *drink* to *drown* and *fight* to *forget.* And you're standing here telling me you *went in* — and *came back* — and you're going *back* to get the *rest* of us *out.* *(she grips your forearm, hard, a soldier's grip)* Then I don't *care* about coin, or causes, or the *one fight* I was saving up for. *This* is it. *This* is *bigger* than it. *(fierce, wet-eyed, grinning)* You're not getting a *sword*, Returned. You're getting a *believer* — the *most* dangerous kind, the kind that *stopped* being *afraid* the *second* you spoke. *Lead.* I'll be at your *shoulder* the *whole* way to that *Wall*, and *gods* help whatever's *standing* on it.",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 4
+            },
+            {
+              "key": "party.dace_recruited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.dace_believer",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_offer",
+          "speaker": "Dace Iron",
+          "text": "*(She waits, arms crossed, the interest real now under the wariness — a blade deciding whether to be *spent* or *sheathed.*)*",
+          "choices": [
+            {
+              "text": "\"A Wall full of the unbought, and someone who means to bring it down. That's the work, Dace. No coin worth the name — just the only fight that was ever actually *yours.*\"",
+              "next": "dace_cause",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Start small: there's a Choir man counting souls under a lamppost not thirty feet from here. Help me make his ledger a lot less accurate, and we'll see if we suit.\"",
+              "when": {
+                "flag": "city.heard_of_pell"
+              },
+              "next": "dace_pell_job",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "text": "\"Honestly? I don't have it all worked out yet. But it's against the Choir, it's for the marked, and it's going to need a sword that won't flinch. Will you walk a while and find out with me?\"",
+              "next": "dace_cause",
+              "effects": [
+                {
+                  "key": "city.dace.approval",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dace_pell_job",
+          "speaker": "Dace Iron",
+          "text": "*(A slow, wolfish grin spreads across her scarred face, and she finally takes her boots properly off the table.)* …*Pell.* *(she savours it)* Oh, you had me at *Pell.* *(she stands, rolling her shoulders)* That neat little *murderer* with his neat little *book* has stood under Mab's lamp for a *year*, *counting* my *friends* onto the Choir's *list*, and *smiling* about it, and there's not a *thing* anyone's been able to *do*, because he never *breaks* a law you can *name.* *(she cracks her knuckles)* But a *ledger's* just *paper*, friend, and *paper* has a *lot* of *enemies* — *fire*, *rain*, *clumsy sellswords who trip into lampposts.* *(she's delighted)* You want to make Master Pell's arithmetic *very* hard? *I* am *exactly* the wrong person for him to have *standing this close to.* *(she falls into step beside you, alight)* *Comrade's* rate. Which is *free.* *Lead* on — and let's go *audit* the bastard. *Hard.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 3
+            },
+            {
+              "key": "party.dace_recruited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.dace_pell_ally",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_unsold",
+          "speaker": "Dace Iron",
+          "text": "*(She hears you out, and slowly shakes her head, not unkind.)* …Nice *words.* *(she resumes the whetstone)* 'The one fight you've been saving yourself for.' *(rasp)* Trouble is, friend, I've *heard* nice words before, from *every* boss who ever wanted me to *believe* in the thing so I'd take *less* coin to *die* for it. *(she eyes you)* Maybe you *mean* it. You've got the *look* of someone who means it, which is *exactly* what worries me — *true* believers get *more* people killed than *liars*, 'cause you can't *bargain* with 'em. *(she shrugs)* Come back when there's a *plan* under the *poetry.* I'll *throw in* for a *cause* — I'm *Faithless*, not *heartless* — but I want to see the *shape* of it *first.* I've got *one* sword and *one* life and I've *wasted* enough of *both* on *pretty speeches.*",
+          "effects": [
+            {
+              "key": "city.dace_wavering",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_persuade_crit",
+          "speaker": "Dace Iron",
+          "text": "*(✦ You don't sell her a job. You hold up a mirror — name the *one yes* she's been hoarding for ten bitter years, the fight worth the only thing she owns — and you do it so *true* that the scarred sellsword's eyes go wide, then wet, then *furious* with a decade of saved-up *purpose* finding its target all at once.)* *(She stands so fast the chair clatters over.)* —*the one fight I've been SAVING myself for.* *(her voice cracks like a whip)* You — how *DARE* you, you *don't* even — *(she's laughing, and there's tears in it, and she doesn't care)* — I have sat in this *square* for *ten years* taking *blood-money* to point this sword at *whoever paid*, telling myself I was *saving up the YES*, and *every* employer who ever pitched me *knew* the words but *none* of them knew what the words were *FOR* — and you walk up *cold* off that causeway and you *say it back to me like you've read my whole rotten LIFE.* *(she snatches up the sword and *slams* it point-down into the table between you, a vow)* *There.* That's my *yes.* Ten years *saved up* and it's *YOURS*, Returned, *free* and *whole* and *no take-backs* — point me at the *Wall*, point me at the *Choir*, point me at *whatever you're walking toward* and I will be the *last thing* between *you* and *anyone* who tries to *stop* it. *(fierce, radiant, undone)* You didn't *recruit* me. You *RANG* me, like a *bell*, and I'm going to be *ringing* all the way to that *Wall.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 5
+            },
+            {
+              "key": "party.dace_recruited",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.dace_committed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.dace_devoted",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_persuade_fumble",
+          "speaker": "Dace Iron",
+          "text": "*(💀 You reach for stirring and land on *salesman* — you actually say the words 'limited-time opportunity' to a woman holding a whetstone, and follow it, fatally, with finger-guns.)* *(Dace stares at the finger-guns. The whetstone stops.)* …Did you just — *(she looks at your hands, then your face, then your hands again)* — *finger-guns.* *(flatly)* At a *sellsword.* While saying *limited-time opportunity.* *(she sets the whetstone down very gently, as one does around the dangerously unwell)* Friend, I have been pitched by *barons*, *priests*, *infernal brokers*, and a man who was *legally a goat*, and *not one* of them ever — *(she pinches the bridge of her nose)* — you know what, the *sheer* secondhand *embarrassment* has actually *sobered* me up. *(she waves you off)* Go *practice.* In a *mirror.* Come back when you can ask a soul to *die* for you without doing — *(she gestures at all of you)* — *whatever that was.* *(under her breath, picking the whetstone back up)* …*finger-guns.* At the *Wall's* own *nightmare.* *Gods.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_bristle",
+          "speaker": "Dace Iron",
+          "text": "*(She doesn't flinch. She *smiles*, slow and cold, and very deliberately puts her boots back *up* on the table.)* *(rasp of stone on steel)* …The *most dangerous thing* in the Quarter. *(amused, unimpressed)* Mm. Maybe you *are*, friend. The *cold* on you says *maybe.* *(she keeps sharpening)* But here's a thing the *dangerous* always forget: a sword *threatened* into your service points the *wrong* way the *second* you *blink.* You don't *want* me *beside* you on a *threat* — you want me *behind* you, and a Faithless blade who's been *bullied* into a job has a *very* good *memory* and a *very* sharp *opinion* about *bullies.* *(she nods at the square)* So *menace* someone *else* into it. Me, I throw in for *causes* and *comrades*, not for *whoever's loudest.* *(flatly)* Come back when you've got something better to offer than *fear.* I've got a *bellyful* of that already. It's called *being Faithless.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.dace_wary",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_intim_crit",
+          "speaker": "Dace Iron",
+          "text": "*(✦ You let her see — for one unhurried second — *exactly* what the cold off the causeway means, the precise weight of the thing that walked out of the Wall, and the lazy-dangerous sellsword feels, for the first time in a decade, the small animal at the base of her own spine go *very still and very respectful.*)* *(Her boots come down. Slowly.)* …All *right.* *(carefully, with genuine and unwilling regard)* All right. I take it *back* — the *barracks-talk*, the *errand-runner* — *(she rolls her shoulders, shaking off a chill)* — I've *fought* a lot of *dangerous* things, friend, and learned to tell the ones who *talk* it from the ones who *are* it, and you just *moved* from one column to the *other* without *raising your voice.* *(she eyes you, recalculating everything)* That's not a *threat*, what you just did. That's a *weather report.* *(grudging, impressed)* …I *still* won't be *bullied.* But I'll *grant* you've earned a *hearing* the *honest* way most can't. *(she nudges the chair out)* So *sit*, dangerous thing, and tell me what you *want* — *civil*, now, both of us — because I find I'd *much* rather know what you're *planning* than be *surprised* by it. *That's* respect. Don't *spend* it like a *threat.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.dace_wary_respect",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "dace_offer"
+        },
+        {
+          "id": "dace_intim_fumble",
+          "speaker": "Dace Iron",
+          "text": "*(💀 You loom, you lower your voice to the bone-chilling register, you deliver the line — and your elbow, mid-loom, catches the swordswoman's ale and dumps the entire cup directly into her lap. The menace evaporates. She looks down at her soaked breeches. She looks up at you.)* *(rasp of stone on steel, very slow.)* …*Throw in*, you said. *Or stay out of your way.* *(she flicks ale off her fingers)* I'm going to be honest with you, friend, in the *spirit* of the *threat:* I am no longer *afraid* of you. I *was*, for about *half* a sentence. And then you *christened* me with a *pint.* *(she stands, dripping, with enormous dignity)* The most dangerous thing in the Quarter just bought me a *drink* by *wearing* it. *(she points at the door)* *Out.* Go *intimidate* a *coat-rack* — you're better *matched.* And send Mab over; *you're* paying for the *ale*, the *dignity*, and the *laundry.* *(as you go, almost fond)* …'Stay out of my way.' I'm going to *dine* on that for a *week.*",
+          "effects": [
+            {
+              "key": "city.dace.approval",
+              "op": "AddInt",
+              "amount": -1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "dace_leave",
+          "speaker": "Dace Iron",
+          "text": "*(She nods, and her boots stay exactly where they are.)* *(rasp of stone on steel)* Fair enough. *(she goes back to her blade)* Take your *measure*, friend. It's *smart* — most don't, and most *regret* it. *(she doesn't look up)* I'll be *here.* I'm *always* here. Broke blades don't *travel.* *(a dry almost-smile)* And when you've worked out what you're *actually* doing on this causeway — and you've got that *look*, the *working-it-out* look — come *find* me. *(she tests the edge against her thumb)* I've a *feeling* you're going to need a sword that *gives a damn.* And I'm the *only* one in this Quarter that's *for sale* and *can't be bought.* Funny *combination.* *Rare.* Like *you.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "city.pell",
+      "title": "Pell and the Ledger",
+      "npc": "Pell",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Pell",
+          "onEnter": [
+            {
+              "key": "city.met_pell",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "reed.choir_friend"
+                ]
+              },
+              "text": "*(The neat man's eyes flick up from his ledger, and a small, dry, approving smile touches his mouth.)* Ah. *(he makes a tidy little mark)* The *helpful* one. *(his voice is soft, pleasant, entirely without warmth)* Goodman Tallow sent your name *up.* You did the *causeway* a service at the river — closed an *open account.* *(he turns the ledger a fraction toward you, conspiratorial)* It's so *rare*, you know, to find a soul who *understands* what we *do.* Most flinch. Most *moralize.* You simply saw an *untidy* ledger and helped us *balance* it. *(the pen hovers)* The Choir *notices* its friends, and *files* them somewhere *very* different from its… *projects.* *(softly)* Tell me — are you in the market for more such *understanding*? There's always *another* open account, and so *few* with the *stomach* to help us close them *quietly.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "lt.wall_stirs"
+                ]
+              },
+              "text": "*(The pen stops. The neat man looks up at you, and for the first time the forgettable calm has something brittle under it, and he closes the ledger over one finger as if to keep his place — or to keep it *shut.*)* …*You.* *(quietly, carefully)* There's a — a *rumour* attached to your name now. From past the last torch. *(he wets his lips)* I *file* rumours, you understand. It's my *work.* And I do *not* know where to *file* one that says the *Wall* — *(he stops, recalibrates, the smile returning thin and false)* — superstition, of course. Marsh-gas and *frightened* pilgrims. *(but his pen-hand isn't quite steady)* Still. The Choir likes its accounts *closed*, and an *open* rumour is an *untidy* thing. *(his eyes are sharp on you now, no longer ticking past)* So I find I should *like* to know *exactly* what you *are*, before I decide which *column* you go in."
+            },
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(His pen pauses, and his eyes travel over you with a slow, clerical interest that is somehow far more frightening than any glare — the interest of a man reading an *entry.*)* …No god. *(softly, almost to himself, already writing)* Unbought. *Unvouched.* *(the pen scratches)* Forgive me — *habit.* One *notes* these things. *(he doesn't stop writing)* You understand, it's nothing *personal.* I simply keep a *fair* and *accurate* record, and an *unbought* soul wandering the Quarter is — well. It's an *account*, isn't it. *Open.* *Unreconciled.* *(he finally looks up, pleasant and terrible)* Don't mind the *book.* The book minds *itself.* I only *hold* the pen. *(a small smile)* Was there something you *wanted*, friend? Or shall I simply… *finish your entry?*"
+            },
+            {
+              "text": "*(The neat, unremarkable man beneath the lamppost makes one final mark, blots it, and only then raises his eyes to you, with the mild courtesy of a clerk at a counter.)* Good evening. *(his voice is soft and even)* You'll pardon the book — I find if I don't write a thing down the *moment* I see it, the world gets *disorderly*, and a disorderly world is how *mistakes* happen. To *people.* *(he tucks the pen behind his ear)* Pell. I keep *accounts*, for interested parties. *(a small, bloodless smile)* You're new to the Quarter, which means I haven't a *page* on you *yet.* *(the smile doesn't change)* Shall we *fix* that? I do *so* prefer a *complete* ledger. Tell me about *yourself.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Pell",
+          "text": "*(He stands with the patient stillness of a man who has all night and a great deal of paper, pen poised, waiting to *record* you.)* Now. *(pleasantly)* What *brings* a soul to the Lamplit Quarter? *Pilgrimage*, *trade*, *trouble?* *(the pen waits)* You needn't be *shy.* Everything goes in the *book* eventually. *Everything* does. It's only a question of whether you'd like a *say* in the *wording.*",
+          "choices": [
+            {
+              "text": "[INSIGHT] \"You're not a clerk. You're a *finger.* Tallow watches in the market, you write the names up here, and somewhere a Measurer reads your book and walks people past the last torch. You're the quiet middle of a machine that eats the poor. I see the *whole* of you, Pell.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "pell_seen",
+              "fail": "pell_demur"
+            },
+            {
+              "text": "[INTIMIDATION] \"Close the book, Pell. Right now. And the page with my name on it — tear it out, eat it, I don't care. Because I am the one entry in that ledger that writes *back*, and you do *not* want to know in which ink.\"",
+              "check": {
+                "skill": "Intimidation",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "pell_cowed",
+              "fail": "pell_unruffled",
+              "crit": "pell_intim_crit",
+              "fumble": "pell_intim_fumble",
+              "effects": [
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "[DECEPTION] \"Page on me? Friend, you *have* one — I'm Choir myself, two rivers over, doing exactly your work in a colder parish. We're *colleagues.* Now: show me your list, professional courtesy, and I'll tell you which names my office wants left *off.*\"",
+              "check": {
+                "skill": "Deception",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "pell_fooled",
+              "fail": "pell_suspicious",
+              "crit": "pell_decept_crit",
+              "fumble": "pell_decept_fumble",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(if a certain sellsword has thrown in with you)* *(Dace steps up at your shoulder, cracking her knuckles, and Pell's pen goes still)* \"Pell, meet my associate. She has opinions about your bookkeeping. Strong ones. Now — the ledger. Hand it over, or she *audits* it.\"",
+              "when": {
+                "flag": "party.dace_recruited"
+              },
+              "next": "pell_dace",
+              "effects": [
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(let the clerk try to file a thing his book has no column for)* \"Put me in your ledger, then. Go on. Name: unknown. Status: *Returned.* Account: the Wall *opened* one for me, Pell, and I *closed* it myself, from the *inside.* What *column* does a soul that *cancelled its own death* go in?\"",
+              "tag": "returned",
+              "next": "pell_returned",
+              "effects": [
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Nothing for your book today, Pell.\" *(walk on, and feel his eyes on your back)*",
+              "next": "pell_leave"
+            }
+          ]
+        },
+        {
+          "id": "pell_seen",
+          "speaker": "Pell",
+          "text": "*(For the first time the pen comes *down*, and he regards you with a flat, recalculating attention that has lost all its pleasant softness.)* …You see a great deal. *(quietly)* Most don't. Most see a *clerk*, and clerks are *furniture.* *(he taps the closed ledger)* You're not *wrong*, of course. I *am* the quiet middle. Tallow *watches*; I *write*; Sister Vharn *reads*; the Wall *collects.* A tidy little *engine*, and I am its *least* memorable *part*, which is precisely what makes it *run.* *(a thin smile)* But here is what *seeing the whole of me* hasn't told you, friend: I am also *protected.* By *names* in *higher* books than mine. *(he picks the pen back up)* So you may *see* me *clearly* — bully for you — and it changes *nothing*, because *seeing* a thing and being *able to stop it* are *different accounts entirely*, and I keep them *both.* *(softly)* Now. Knowing what I *am* — do you still want to be a *line* in my book? Or shall we discuss what it might *cost* to be *left out* of it?",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.pell_unmasked",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.knows_choir_chain",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_demur",
+          "speaker": "Pell",
+          "text": "*(He lets a flicker of something cross his face — patience, perhaps, or pity — and makes a small, neat mark.)* A *finger*, a *machine*, a *quiet middle.* *(mildly)* Such *vivid* language, friend. You've been reading too many *broadsheets.* *(the pen scratches)* I'm a *clerk.* I keep a *fair* record for *interested* parties, the same as the man who tallies the *grain* tax or the *harbour* dues. *(a thin smile)* You *want* me to be sinister — it's *tidier*, isn't it, to have a *villain* under the lamp than to admit the machine that *frightens* you is just *ordinary men* doing *ordinary* paperwork, and that *you'd* hold the pen too, if the alternative were the *Wall.* *(he blots the note)* Come back when you can tell the *difference* between a *monster* and a *functionary.* It matters *enormously*, and almost *no one* gets it right. *(softly)* Least of all the *functionaries.*",
+          "effects": [
+            {
+              "key": "city.pell_demurred",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_cowed",
+          "speaker": "Pell",
+          "text": "*(The pleasant mask doesn't *break* so much as *recede*, and underneath is a small, frightened, bureaucratic man who has always known this day might come.)* …I — *(he fumbles the ledger)* — there's no *call* for — I only *write* what I'm *told* to *write*, I don't — *(he sees something final in your face and goes pale)* — the page. *Yes.* The page. *(his hands shake as he leafs to it)* Here. *(he tears it out)* It's — there's not *much*, you only just *arrived*, it's mostly *question-marks* — *(he holds it out, then, in a small spasm of self-preservation)* — but you should *know*, it does me no good to *destroy* it, the *names* go *up* in *copies*, I'm a *node*, not a *vault* — *(he catches himself, terrified of having said too much)* — please. I've a *family.* I *file* people because the alternative is *being* filed. *(he swallows)* Take your page. And — *mercy* — don't make me *explain* the *gap* to the ones *above* me. They're *worse* than you. *(quietly)* They're *worse* than *anything* on that causeway. They're just *further* from the *torch.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.pell_cowed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.pell_page_destroyed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.choir_copies_warning",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_unruffled",
+          "speaker": "Pell",
+          "text": "*(He waits out your threat with the mild patience of a man who has been threatened by far hungrier souls than you and filed them all.)* …Mm. *(he makes a small note)* 'Writes back.' *Colourful.* *(he doesn't close the book)* I'll tell you a secret of the trade, friend, free of charge: the ones who *threaten* the ledger are the *easiest* to file, because a *threat* is a *confession* of how much the book *frightens* you. *(the pen scratches)* The *dangerous* ones *smile* and *cooperate* and give me a *false* name and *vanish.* You've just told me the book *matters* to you, which tells me *exactly* where the *pressure* goes. *(he looks up, bland and immovable)* So. *Menace* noted. *Filed.* Was there anything *else*, or shall I add *'volatile'* and let you get *on?* I've a *great* many entries tonight, and *yours* is becoming *interesting*, which — *(a thin smile)* — between us, is the *worst* thing an entry can *become.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.pell_flagged_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_intim_crit",
+          "speaker": "Pell",
+          "text": "*(✦ You don't raise your voice. You simply lean in and describe — softly, specifically, in the clerical register he *lives* in — the precise entry the *universe* is keeping on *him*, and the date its account comes *due*, and the *forgettable* man's pen slips from his fingers and rolls into the gutter and he does not reach for it.)* *(He has gone the colour of his own paper.)* …I'll — *(a whisper)* — I'll close the book. *(he closes the book)* I'll close *all* the books. *(he is stuffing the ledger into his coat with shaking hands)* You — you said the *date.* How do you *know* the — no. *No*, I don't — I *withdraw* the question, I *withdraw* the *entry*, I withdraw — *(he backs away from the lamppost)* — there's no *page* on you. There was *never* a page on you. I'll tell the ones *above* me the Quarter was *quiet*, the Quarter was *empty*, the Quarter was *nothing to file* — *(he's at the edge of the lamplight now)* — and I'll *transfer.* Tonight. To a *parish* with *no* causeway and *no* — *no* *Returned* doing *sums* in the *dark.* *(he flees, clutching his coat, and his voice drifts back, unravelled)* …I only *held* the *pen.* I want it *known* I only ever *held* the *pen.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.pell_routed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.pell_page_destroyed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.ruthless",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_intim_fumble",
+          "speaker": "Pell",
+          "text": "*(💀 You go for quietly menacing and misjudge the lamplight — you step forward into the most dramatic possible shadow to deliver your line, and the lamppost, which you have not accounted for, meets your forehead with a deep and resonant *BONG* that rings across the entire square.)* *(Pell blinks. Somewhere, Dace is already laughing.)* …Mm. *(he picks the pen back up, and makes a small, satisfied note)* 'Threatened the ledger. Defeated by the *lamp.*' *(the bland smile returns, restored, almost *grateful*)* Do you know, friend, I was *briefly* concerned by you. The *cold* on you, the *rumour.* But a soul who *announces* his *menace* by *headbutting municipal lighting* is a soul I know *exactly* how to *file.* *(he blots the entry)* Under *'no further action required.'* *(he gestures you off, serene)* Do mind the post on your way. It's *load-bearing*, which is *more*, I'm afraid, than tonight's *intimidation* proved to be. *Good* evening.",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.pell_flagged_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_fooled",
+          "speaker": "Pell",
+          "text": "*(He brightens — actually *brightens*, a clerk meeting a colleague — and angles the ledger toward you with professional eagerness.)* A *colleague!* Oh, *thank* the tidy gods, I so *rarely* — *(he lowers his voice)* — the *parish* work is *lonely*, isn't it, nobody *understands* the *pressures.* *(he shows you the page, columns of cramped names)* Two rivers over, you said. *Colder* parish. *(sympathetically)* Then you'll *know* the *worst* of it — the *copies*, the *quotas*, the way the ones *above* dock your *pay* for a *short* list. *(he taps the names)* Here's *tonight's.* Now, which does your office want *struck?* I can mark them *'relocated'* — it's the *kindest* fiction the book *allows*, it buys a soul a *month* before anyone *checks.* *(he hands you the pen, trusting, dreadful, *relieved* to be understood)* Go on, *colleague.* Strike whom you *like.* It's *good*, frankly, to have *help.* The work *eats* you, doing it *alone.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.pell_fooled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.names_struck",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_suspicious",
+          "speaker": "Pell",
+          "text": "*(His pen pauses, and the pleasant mask thins, and his eyes go over you again — slower, colder, *re-reading.*)* …*Two rivers over.* *(softly)* Which *office* would that be, *colleague?* Because the parishes *upriver* report to *Brother Aune*, and Brother Aune has not *hired* in a *year* — he's been *cutting* — and a *new* face doing *my* work in a *colder* parish would have crossed *my* ledger *before* it crossed *my* lamp. *(he closes the book, deliberately)* You've the *patter*, I'll grant. But the *trade's* a small one, friend, and I know *every* hand that holds a pen from here to the *sea*, and I don't know *yours.* *(the smile is gone)* So. Either you're a *liar* — which I'll *file* — or you're something the trade *doesn't* have a *page* for *yet*, which I'll file *harder.* *(he steps back)* Try the *colleague* story on someone who *travels.* I *don't.* I *stay*, and I *watch*, and I *know* my *neighbours.* That's the *whole job.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.pell_suspicious",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_decept_crit",
+          "speaker": "Pell",
+          "text": "*(✦ You build the lie so *complete* — the parish, the quota, the name of a superior, the small *weary* complaints only a real Choir clerk would *make* — that Pell doesn't merely *believe* you, he *relaxes* in a way you suspect he hasn't in *years*, the bone-deep relief of a lonely functionary who thinks he has finally met *one of his own.*)* *(He all but presses the ledger into your hands.)* Oh, you're the *real* article — nobody *fakes* the *quota* complaint, the *fakers* always think the work is *sinister*, they never know it's just *tedious* and *underpaid.* *(he beams, wretched and warm)* Take the *whole* book a moment, colleague. *Please.* Strike whom you *like* — I'll swear the page got *water-damaged*, happens *constantly* by the *lamp.* *(he leans in, confiding, *unburdening*)* And — between *clerks* — if your *colder* parish has an *opening*, I should *dearly* like a *transfer.* This causeway's gone *strange* lately. *Rumours.* The *Wall.* A *cold* something doing *sums* in the dark. *(he shudders)* I'd *sleep* better two rivers over. *(he watches you strike names, grateful, *helping*)* …You've *no* idea what it means, to be *understood* in this *work.* *No* idea.",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": 2
+            },
+            {
+              "key": "city.pell_fooled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.names_struck",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.pell_whole_ledger",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_decept_fumble",
+          "speaker": "Pell",
+          "text": "*(💀 You commit to the colleague story and, reaching for a convincing detail, confidently name your home parish as *'Saint Tallow's.'* There is a small silence. Goodman Tallow, you belatedly recall, is a *living man* you met *this week*, and there is no *Saint* of him, and Pell — who files for Tallow *personally* — watches your lie die on its feet.)* *(He makes a note without breaking eye contact.)* …*Saint* Tallow's. *(mildly)* I'll be *sure* to tell Goodman Tallow he's been *canonised.* He'll be *thrilled.* He's *just* down the causeway — *living*, *breathing*, *un-sainted* — and *my* employer, which you'd *know*, *colleague*, if you weren't *inventing* a *diocese* at me in *real time.* *(the pen scratches, final)* 'Attempted impersonation. Poorly.' *(he looks up, cold)* You're not a *clerk*, friend. You're a *clumsy* liar with a *cold* on you, and now you're a *clumsy* liar I've *written down.* *(he steps back)* The *real* trade lesson, gratis: never *forge* a *parish* to the man who keeps its *books.* *Good* evening. *(softly)* Mind how you *go.* You're *interesting* now. I *told* you that was the *worst* thing to be.",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -2
+            },
+            {
+              "key": "city.pell_flagged_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_dace",
+          "speaker": "Pell",
+          "text": "*(He takes in the scarred swordswoman at your shoulder, and the cracking knuckles, and his pen goes very still, and the pleasant calm becomes a thin and careful thing.)* …Mistress *Iron.* *(stiffly)* You've thrown in with — *(he recalculates rapidly)* — I *see.* *(he does not hand over the ledger)* You'll appreciate, Mistress, that *violence* against a *clerk* is *precisely* the sort of *untidy* event that gets a Quarter *noticed* — *more* lamps, *more* Fist, *more* of *exactly* the attention your *Faithless* friends can least *afford.* *(but his eyes flick between you and Dace, and the sweat shows)* …However. *(carefully)* I am also a *practical* man, and I *can* count, and there are *two* of you and *one* lamppost and *no* witnesses who'd *weep* for me. *(he holds the ledger out, slowly, with the air of a man choosing the cheapest of several bad invoices)* So. Let us call it a *negotiation*, and not a *robbery*, and I'll thank you to remember, when the ones *above* me ask, that I *resisted* — *(quietly, to Dace)* — convincingly. Please. You *know* what they do to a *node* that gives up its *book.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": -1
+            },
+            {
+              "key": "city.pell_cowed",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.ledger_taken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.names_struck",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_returned",
+          "speaker": "Pell",
+          "text": "*(He starts to write it — *Status: Returned* — and the pen-nib catches the paper, and stops, and for a long moment the only sound is the lamp hissing. When he looks up, the forgettable calm has cracked clean across, and what shows through is the specific terror of a man whose entire life is a *system* meeting a thing the system *cannot hold.*)* …There's no *column.* *(faintly)* I've — in *thirty years*, I have a column for *everything.* Bought, unbought, marked, fled, *deceased*, *relocated*, *appealed.* *(his hand trembles)* There is *no column* for *cancelled its own death.* *(he stares at the page)* If I *write* you down, the *book* is *wrong* — a soul that's *out* of an account that's supposed to be *closed forever* — and a *wrong* book is — *(he swallows)* — do you understand, a *wrong* book means the *whole engine's* wrong, the *measuring*, the *Wall*, the *four hundred years* of *tidy* — *(he closes the ledger like shutting a door on a fire)* — I can't *file* you. *(a whisper)* And a thing I *can't file* is a thing the Choir *can't control*, and I have spent my *whole* small *life* believing the Choir controls *everything* because that belief is the only thing that makes the *filing* bearable. *(he backs away, clutching the book)* …*Please* go. I don't want to *know* what you are. If I don't *write* it, it isn't *real*, and I *need* — I *need* the book to be *complete*, and you're the *gap* that proves it never *was.*",
+          "effects": [
+            {
+              "key": "city.pell.regard",
+              "op": "AddInt",
+              "amount": 1
+            },
+            {
+              "key": "city.pell_broken",
+              "op": "SetTrue"
+            },
+            {
+              "key": "city.pell_doubt",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "pell_leave",
+          "speaker": "Pell",
+          "text": "*(He inclines his head, pen already returning to paper.)* As you wish. *(mildly)* But you'll forgive me — *(scratch of the pen)* — 'Declined to give an account.' *(he blots it)* It's not *nothing*, you understand, the *declining.* It goes in the *book* too. *Everything* does. *(he doesn't look up)* The ones who've *nothing* to *hide* tend to *chatter*; it's the *quiet* ones I *underline.* *(a small, bloodless smile at the page)* Enjoy the Quarter, friend. *Mind* the lamps — they're the only *honest* light down here. *Everything* else is *me*, and the *book*, and the *long* patient arithmetic that *always*, *always* balances. *(softly, as you go)* …Eventually.",
+          "effects": [
+            {
+              "key": "city.pell_underlined_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}

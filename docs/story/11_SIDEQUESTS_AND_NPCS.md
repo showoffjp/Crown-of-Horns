@@ -8,6 +8,18 @@
 > **Theming rule:** every side quest is the central question — *what is a soul worth that no god
 > claimed?* — asked in a smaller key. The city *rhymes* with the cosmos.
 
+> **🗂️ Now a LIVE tracked catalog.** This doc is the design bible; the playable build now has a real,
+> structured **Side-Quest Catalog** — [`../../play/sidequests.json`](../../play/sidequests.json) — that
+> runs on the game's `QuestManager` engine: **20 tracked, multi-objective, branching quests** (incl. the murder-mystery *Second Death*) with
+> givers, premises, themes, rewards, and optional/hidden objectives. **Every objective/completion/failure
+> flag is set by real walkable content** (cross-checked in [`../../play/sidequests.test.js`](../../play/sidequests.test.js)
+> — no dead quests), so the rich zones already built (the Wake, the Last Lantern-Feast, the Last Word,
+> the After, the One Left, the Lidless Eye, the Honest Devil + the Knife You Carry, the Intake Queue, the
+> Sigil doors — Reunion / Last Job / Long Truce / the Song / the Unseen Hands / the Forbidden Loves — the
+> Custody, the Siege, the Wayward Mile's caprices, and the meta **Ledger of Small Mercies**) are now
+> first-class, named, completable side quests in a quest log, not just walkable encounters. The catalog
+> grows as content does — each new quest is one entry wired to flags the content sets.
+
 ---
 
 ## I. Baldur's Gate — Side Quests

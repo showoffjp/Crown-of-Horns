@@ -1,0 +1,226 @@
+{
+  "_note": "Reactive party banter catalog. Runs on banter.js (mirrors C# CampfireBanter/PartyBanter). Each banter fires when its companions are present and its flags/flagsNot/int gates pass; `once` (default true) means it won't repeat. Companion ids: garrow, roen, varra, naeve, ilfaeril, maerin, dot. Surfaced on the road / at camp.",
+  "banters": [
+    {
+      "id": "bant.dot_garrow_owed", "category": "philosophy",
+      "requires": { "companions": ["dot", "garrow"] },
+      "lines": [
+        { "speaker": "Dot Marigold", "text": "*(nudging the grave-cleric)* …you've that *look* again, Sister. the *'a funeral should be quiet'* look." },
+        { "speaker": "Sister Garrow", "text": "The dead are owed *solemnity*, Dot. Dignity. Not… *streamers.*" },
+        { "speaker": "Dot Marigold", "text": "*(grinning)* …the dead are owed a *party*, love, because they don't get *another* one. you mourn 'em *quiet*. i mourn 'em *loud.* …reckon they can hear *both*, and pick." },
+        { "speaker": "Sister Garrow", "text": "*(a long pause; then, almost a smile)* …Kelemvor keep me. You may have a *point*, baker. Don't tell the order." }
+      ], "once": true
+    },
+    {
+      "id": "bant.varra_ilfaeril_penance", "category": "philosophy",
+      "requires": { "companions": ["varra", "ilfaeril"] },
+      "lines": [
+        { "speaker": "Varra", "text": "Still flagellating yourself over a vote you cast ten *thousand* years ago, elf? Gods, the *stamina.*" },
+        { "speaker": "Ilfaeril", "text": "It is not flagellation. It is *remembering.* There is a difference." },
+        { "speaker": "Varra", "text": "*(snorts)* …there really isn't. Look — I sold my *soul* to a devil at nineteen and I do not lie awake *composing odes* about it. You did one terrible thing. So did everyone. *Stop paying interest on it.*" },
+        { "speaker": "Ilfaeril", "text": "*(quietly)* …you say that as though you do not also lie awake, Varra. I have *heard* you." }
+      ], "once": true
+    },
+    {
+      "id": "bant.naeve_maerin_specimen", "category": "friction",
+      "requires": { "companions": ["naeve", "maerin"] },
+      "lines": [
+        { "speaker": "Naeve", "text": "Maerin — the dissolution at your fingertips. It propagates at a *constant* rate, not exponential. Fascinating. May I take measurements?" },
+        { "speaker": "Maerin", "text": "*(flat)* …no." },
+        { "speaker": "Naeve", "text": "Purely academic. Understanding the mechanism could, theoretically—" },
+        { "speaker": "Maerin", "text": "I'm *dying*, Naeve. I am not a *theorem.* My father turned me into a symbol and the Wall turned me into a *cause* and I am *not* about to let the wizard turn me into a *footnote.* …ask me about the *cats* I had, if you want to know me. Not the *rate.*" },
+        { "speaker": "Naeve", "text": "*(a beat; then, smaller)* …I'm sorry. …What were the cats' names?" }
+      ], "once": true
+    },
+    {
+      "id": "bant.roen_varra_survivors", "category": "warmth",
+      "requires": { "companions": ["roen", "varra"] },
+      "lines": [
+        { "speaker": "Roen", "text": "You know what your problem is, Varra?" },
+        { "speaker": "Varra", "text": "I have a *list*, bard, but go on, add yours." },
+        { "speaker": "Roen", "text": "*(grinning)* …you're *kind*, and it *kills* you. You'd rather everyone think you're a venomous little nightmare than catch you giving the Pip kid your rations again." },
+        { "speaker": "Varra", "text": "*(icy)* …I gave the child *nothing.*" },
+        { "speaker": "Roen", "text": "*(softly)* …I know. That's why I didn't say anything when I saw. Takes one to know one, partner." }
+      ], "once": true
+    },
+    {
+      "id": "bant.ilfaeril_maerin_walls", "category": "warmth",
+      "requires": { "companions": ["ilfaeril", "maerin"] },
+      "lines": [
+        { "speaker": "Maerin", "text": "*(quiet)* …you helped build it. The Wall. The thing that ate me." },
+        { "speaker": "Ilfaeril", "text": "…I raised my hand in a council, child, ten thousand years before you were born. I have never stopped being sorry for it." },
+        { "speaker": "Maerin", "text": "*(a long pause)* …I'm not going to forgive you on behalf of everyone it killed. That's not mine to give." },
+        { "speaker": "Ilfaeril", "text": "I would not accept it if it were." },
+        { "speaker": "Maerin", "text": "*(almost a smile)* …but I'll sit by *you* at the fire. The wall-builder and the wall-swallowed. Nobody else gets it. …just us." }
+      ], "once": true
+    },
+    {
+      "id": "bant.roen_dot_performers", "category": "warmth",
+      "requires": { "companions": ["roen", "dot"] },
+      "lines": [
+        { "speaker": "Dot Marigold", "text": "*(elbowing the bard)* …you played that whole sad room back there like a *fiddle*, Roen love. had 'em laughing through the tears." },
+        { "speaker": "Roen", "text": "Takes one to spot one, baker. You feed a grief, I *sing* one. Same trade — make the unbearable thing bearable for one more night." },
+        { "speaker": "Dot Marigold", "text": "*(warm)* …reckon that's the whole job, in the end. yours and mine. …here, have a bun, performer to performer." },
+        { "speaker": "Roen", "text": "*(mouth full)* …gods, that's good. I'm switching careers." }
+      ], "once": true
+    },
+    {
+      "id": "bant.naeve_ilfaeril_ancients", "category": "philosophy",
+      "requires": { "companions": ["naeve", "ilfaeril"] },
+      "lines": [
+        { "speaker": "Naeve", "text": "You and I are the oldest things in this party, elf. Netheril and the Crown Wars. Two dead empires, walking." },
+        { "speaker": "Ilfaeril", "text": "Mine fell to *spite*, Naeve. Yours fell to *hubris* — one man reaching for a god's chair." },
+        { "speaker": "Naeve", "text": "*(quietly)* …I *carry* that man's last theorem, Ilfaeril. In my head. The one that ended the world. …some nights I want to *use* it. To fix things. The way he wanted to." },
+        { "speaker": "Ilfaeril", "text": "*(gravely)* …then I will sit with you on those nights. An old soul who knows exactly what it is to hold a thing that should never be used. …we will hold them together, and use neither." }
+      ], "once": true
+    },
+    {
+      "id": "bant.dot_varra_feeding", "category": "warmth",
+      "requires": { "companions": ["dot", "varra"] },
+      "lines": [
+        { "speaker": "Dot Marigold", "text": "*(holding out bread)* …you've not eaten, Varra. don't argue, i *counted.*" },
+        { "speaker": "Varra", "text": "I don't *need*—" },
+        { "speaker": "Dot Marigold", "text": "*(firm, warm)* …i didn't ask what you *need*, love. i made too much, like always, because the people i made it for are mostly *dead*, and you're *here*, and you're *thin.* …*eat.*" },
+        { "speaker": "Varra", "text": "*(takes it; a long silence; then, very low)* …my mother used to say that. …the *'i made too much.'* …*(eats)* …thank you, Dot. …don't make it *weird.*" }
+      ], "once": true
+    },
+    {
+      "id": "bant.roen_maerin_names", "category": "warmth",
+      "requires": { "companions": ["roen", "maerin"] },
+      "lines": [
+        { "speaker": "Roen", "text": "You and me, kid — we got the same problem from opposite ends. I *chose* my name off a tavern sign because I never had one. You're trying to *give yours back* because everyone keeps making it mean something." },
+        { "speaker": "Maerin", "text": "…I just want to be a *person*, Roen. Not a symbol. Not a reason. Not my father's *war-cry.*" },
+        { "speaker": "Roen", "text": "*(gently)* …then here's the deal. Out here, with us? You're just Maerin. The girl who's bad at cards and good with a bow and steals the warm spot by the fire. No symbol. No cause. Just *you.* …that's the only name I'll ever call you." },
+        { "speaker": "Maerin", "text": "*(quiet, fierce, grateful)* …deal." }
+      ], "once": true
+    },
+    {
+      "id": "bant.garrow_ilfaeril_faith", "category": "philosophy",
+      "requires": { "companions": ["garrow", "ilfaeril"] },
+      "lines": [
+        { "speaker": "Sister Garrow", "text": "You broke your oath, paladin. Renounced your house, your order. How does a soul *carry* that and still pray?" },
+        { "speaker": "Ilfaeril", "text": "I do not pray for *forgiveness*, Sister. I pray to *remember.* …and you? You keep an order's law you have begun to doubt. How do *you* carry *that?*" },
+        { "speaker": "Sister Garrow", "text": "*(a long pause)* …badly. Lately. …Kelemvor's law was supposed to be *mercy* — a fair death for all. And then I met the Wall. …and I don't know whose side my god is on anymore." },
+        { "speaker": "Ilfaeril", "text": "*(kindly)* …then we are the same, you and I. Two faithful souls, doubting. …it is, I have found, the most honest place a believer can stand." }
+      ], "once": true
+    },
+    {
+      "id": "bant.calloway_varra_admires", "category": "reaction",
+      "requires": { "companions": ["varra"], "flags": ["cal.met"] },
+      "lines": [
+        { "speaker": "Varra", "text": "*(grinning)* …that gambler. Calloway. The one with the coat." },
+        { "speaker": "Varra", "text": "I have *bargained* with devils, Returned. Real ones. Quill's whole infernal *firm.* …and that *human* was scarier than all of them, because he never once *lied*, and I still walked out owing him something. *(admiring)* …gods, I want to *be* him when I grow up. Which I won't. On account of being dead." }
+      ], "once": true
+    },
+    {
+      "id": "bant.calloway_garrow_disapproves", "category": "reaction",
+      "requires": { "companions": ["garrow"], "flags": ["cal.met"] },
+      "lines": [
+        { "speaker": "Sister Garrow", "text": "*(grimly)* …the man at the Long Odds. He sells the discarded their own dignity back, at interest. He is the Wall with a smile." },
+        { "speaker": "Sister Garrow", "text": "And the worst of it, Returned? …I could not *hate* him either. …I begin to think that is the most dangerous thing in the dead lands. A cruelty you *like.*" }
+      ], "once": true
+    },
+    {
+      "id": "bant.calloway_ruined_roen", "category": "reaction",
+      "requires": { "companions": ["roen"], "flags": ["cal.calloway_ruined"] },
+      "lines": [
+        { "speaker": "Roen", "text": "*(quietly)* …so you ruined Calloway. Freed his hundred debtors. …good. It was *right.*" },
+        { "speaker": "Roen", "text": "*(a pause)* …and also a little sad, partner, if I'm honest. One con artist to another. …the dead lands were *brighter* with one soul in them who wasn't afraid of anything. …pour one out for the Honest Devil. He'd have *hated* that we did." }
+      ], "once": true
+    },
+    {
+      "id": "bant.wake_garrow", "category": "reaction",
+      "requires": { "companions": ["garrow"], "flags": ["tw.corliss_affirmed"] },
+      "lines": [
+        { "speaker": "Sister Garrow", "text": "*(moved)* …that sexton. Corliss. Lighting candles over the unmourned, forever, for no reward. …I have spent my whole death *administering* the dead, Returned. Filing them. *Processing* them." },
+        { "speaker": "Sister Garrow", "text": "…she *grieves* them. One name at a time. …I think she is a better Doomguide than I have ever been. …and she never took a single oath." }
+      ], "once": true
+    },
+    {
+      "id": "bant.sevrin_warned_ilfaeril", "category": "reaction",
+      "requires": { "companions": ["ilfaeril"], "flags": ["sv.warned"] },
+      "lines": [
+        { "speaker": "Ilfaeril", "text": "*(watching you)* …the duelist. The Last Word. You warned him the loop hunts the bright. …he did not listen. They never do." },
+        { "speaker": "Ilfaeril", "text": "*(gravely)* …I have walked ten thousand years, Returned. I have watched a hundred magnificent souls burn out certain they were too good to fall. …the trick is not to be unbeatable. …the trick is to stay *afraid* — afraid enough to watch the small things. …I hope, for your sake, *you* were listening, even if he was not." }
+      ], "once": true
+    },
+    {
+      "id": "bant.after_party", "category": "reaction",
+      "requires": { "companions": ["dot", "garrow"], "flags": ["af.coll_honored"] },
+      "lines": [
+        { "speaker": "Dot Marigold", "text": "*(subdued, for once)* …you couldn't have saved him. The whistler. You did *everything* right and he died anyway." },
+        { "speaker": "Sister Garrow", "text": "…that is the cruelest lesson the grave teaches. That *correct* and *kind* and *enough* are three different words, and you can have all three and still lose." },
+        { "speaker": "Dot Marigold", "text": "*(a breath; then, gathering herself)* …well. then we light a lantern for him tonight, Sister, and we eat something warm, and we go on. …because the *going on* — that's the only argument we've got against a world that does *that.* …come on. i'll bake." }
+      ], "once": true
+    },
+    {
+      "id": "bant.seconddeath_garrow_varra", "category": "reaction",
+      "requires": { "companions": ["garrow", "varra"], "flags": ["sx.case_closed"] },
+      "lines": [
+        { "speaker": "Sister Garrow", "text": "*(troubled)* …a soul un-made. The one crime my order has no name for. …and the more I learned, the less I knew what *justice* even was." },
+        { "speaker": "Varra", "text": "Eleven years in her worst minute, no door, no exit, screaming. And her friend opened it. …that's not murder, cleric. That's the only *mercy* the gods left on the table." },
+        { "speaker": "Sister Garrow", "text": "…my law says no soul may be ended." },
+        { "speaker": "Varra", "text": "*(quietly, not unkind)* …then your law has never spent eleven years inside its own worst minute. …mine has, near enough. …burn the law, Garrow. *Keep* the soul." }
+      ], "once": true
+    },
+    {
+      "id": "bant.reveal_naeve", "category": "reaction",
+      "requires": { "companions": ["naeve"], "flags": ["le.narrator_revealed"] },
+      "lines": [
+        { "speaker": "Naeve", "text": "*(unsettled, which is rare for her)* …the dead-sense. The reading. …it was never *yours*, was it. It was the *Unmade*, looking through you. Every soul you ever read — *it* showed you." },
+        { "speaker": "Naeve", "text": "*(precise, alarmed)* …do you understand what that *means*, Returned? Every act of compassion you've performed — it was *cultivating* you. Toward its ending. …and the terrifying part, the part I keep *turning over* — …it worked, and you *still* chose mercy over its atrocity. …you took the enemy's eye and built a *kindness* with it. …I have no theorem for that. None. …it might be the only un-precedented thing I've ever seen a soul do." }
+      ], "once": true
+    },
+    {
+      "id": "bant.cold_ilfaeril_warns", "category": "disposition",
+      "requires": { "companions": ["ilfaeril"], "int": { "disp.haunted": 14 } },
+      "lines": [
+        { "speaker": "Ilfaeril", "text": "*(stopping you, gently, a hand on your arm)* …Returned. …I have to say a thing, and you will not want to hear it." },
+        { "speaker": "Ilfaeril", "text": "…you are going *cold.* I can feel it — the warm world thinning in you, choice by choice. I have watched souls walk this exact road, reaching past the living into the grave one too many times… and become the thing they were fighting. *By attrition.* Not through cruelty. Through *care*, frozen." },
+        { "speaker": "Ilfaeril", "text": "*(quietly, fiercely kind)* …I am ten thousand years old and I am *still warm*, child, and I will tell you the only secret of it: do not carry the grief *alone.* Set it down. Here. With us. …that is what a party is *for.*" }
+      ], "once": true
+    },
+    {
+      "id": "bant.cold_dot_worries", "category": "disposition",
+      "requires": { "companions": ["dot"], "int": { "disp.haunted": 18 } },
+      "lines": [
+        { "speaker": "Dot Marigold", "text": "*(taking your cold hands in her floured ones)* …gods, you're *freezing*, love. and not the weather kind." },
+        { "speaker": "Dot Marigold", "text": "…i've buried more people than i can count, and i'll tell you what i learned: the ones who go cold aren't the ones who *felt too little.* they're the ones who felt *too much* and had nowhere to *put* it. …so put it *here.* eat something. sit by my fire. let me *fuss.* …i didn't survive burying everyone i loved by going *cold*, Returned. i survived it by staying *warm on purpose*, every single day, out of *spite.* …let me teach you how." }
+      ], "once": true
+    },
+    {
+      "id": "bant.mercy_garrow_proud", "category": "disposition",
+      "requires": { "companions": ["garrow"], "int": { "disp.merciful": 20 } },
+      "lines": [
+        { "speaker": "Sister Garrow", "text": "*(watching you, quiet pride in it)* …I have served Kelemvor my whole death, Returned. The god of the *fair* death, the *just* one. …and I joined the order believing justice and mercy were the same word." },
+        { "speaker": "Sister Garrow", "text": "…they're not. I know that now. …but watching you — soul after soul, the discarded ones, the ones no one would weigh — *witnessed*, named, pulled out of the nothing… *(a breath)* …you've shown me the thing my order forgot. That mercy isn't the *soft* option. …it's the *bravest* one. …I'd follow you into the Wall itself. I think you know that." }
+      ], "once": true
+    },
+    {
+      "id": "bant.ruthless_varra_roen", "category": "disposition",
+      "requires": { "companions": ["varra", "roen"], "int": { "disp.ruthless": 12 } },
+      "lines": [
+        { "speaker": "Varra", "text": "*(approving)* …you've got *hard*, Returned. I like it. You spend the souls that need spending and you don't flinch. Refreshing." },
+        { "speaker": "Roen", "text": "*(uneasy)* …Varra." },
+        { "speaker": "Varra", "text": "What? It's a *compliment.*" },
+        { "speaker": "Roen", "text": "*(quietly, to you)* …it is. And that's exactly why I'd watch it, partner. When *Varra* starts admiring how cold you've gotten… that's the moment to ask yourself whose face you're starting to wear. …just — keep one warm thing. For me. That's all I'm asking." }
+      ], "once": true
+    },
+    {
+      "id": "bant.cunning_roen_delighted", "category": "disposition",
+      "requires": { "companions": ["roen"], "int": { "disp.cunning": 12 } },
+      "lines": [
+        { "speaker": "Roen", "text": "*(delighted)* …you played *every* angle back there. Read the room, found the lever, pulled it before anyone knew there *was* a lever. …Returned, I say this with my whole grifter's heart: you'd have made a *magnificent* con artist." },
+        { "speaker": "Roen", "text": "*(then, fondly)* …which is why it slays me that you keep using it to *help* people. All that talent for the angles… spent on *mercy.* …it's the most beautiful waste I've ever seen. Don't you dare stop." }
+      ], "once": true
+    },
+    {
+      "id": "bant.camp_quiet_ilfaeril", "category": "camp",
+      "requires": { "companions": ["ilfaeril"] },
+      "lines": [
+        { "speaker": "Ilfaeril", "text": "*(tending the fire, unhurried)* …sit a while, Returned. The road will keep." },
+        { "speaker": "Ilfaeril", "text": "…ten thousand years, I have done this. Tended a fire at the edge of the dark, for whoever was near. It is the oldest work there is. Older than the Wall. Older than the gods who built it. …*someone sits up. someone keeps the light. someone is glad you are here.* …that is the whole of it, in the end. …the rest is just the long walk between fires." }
+      ], "once": false
+    }
+  ]
+}

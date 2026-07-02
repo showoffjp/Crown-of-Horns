@@ -1,0 +1,206 @@
+# DENIZENS OF THE GILDED GATE — Wave III
+# The absurd, the menacing, and the docks. Brindle the inventor, the false twins, the cowardly
+# doctor, the church's true believer, the glassblower's widow, and the men who ferry the dead.
+class: GateDenizensThreeContent
+
+# ─── 19 ─── Brindle Quillfeather — gnome inventor of beautiful useless things ───
+conversation: npc.gate.brindle | Brindle Quillfeather
+node: 0 | Brindle Quillfeather
+  *(A gnome buried to the eyebrows in brass, springs, and a device that is gently, pointlessly chiming.)* Don't touch the Melancholy Engine, it's calibrated! *(beat)* Well. It's not calibrated *for* anything. It plays a chord that makes you remember a summer you never had. That's its whole function. Took me six years. *(he beams.)* People say, Brindle, why not invent something *useful*, a better lock, a self-stirring pot — and I say, the world's *full* of useful things and *empty* of summers you never had, so who's the fool, eh? Eh? *(he deflates slightly.)* They never answer. They just buy the self-stirring pots from the gnome two stalls down. He's very smug about it.
+  enter: SET npc.brindle_met
+  auto: 1
+node: 1 | Brindle Quillfeather
+  *(He gestures at a far stranger device — a cage of tuning forks that have all, eerily, gone silent.)* But *this* one's misbehaving, and I can't think why. The Sympathetic Resonator — it hums when there's grief nearby, see, it's an *empathy detector*, completely useless, my masterpiece. *(he taps it; nothing.)* And lately, in certain spots about the city, it doesn't hum — it goes *dead.* Silent. As if there's a place where grief *itself* can't reach, a *hole* where feeling should be. *(he frowns, genuinely troubled for the first time.)* I built a machine to find sorrow, and it keeps finding... an *absence* of sorrow. Which sounds lovely and is, I think, *the most frightening thing I have ever measured.* Would you — would you carry it a while? You've an interesting silence about you yourself.
+  * [ARCANA 14] "Your resonator's not broken. It's detecting the unmade — the nothing the harvest leaves. Grief can't exist where souls are filed to zero." -> unmade ?? puzzle
+  * "I'll carry it. Show me where the silences are." -> carry | fx SET sq.brindle_resonator, appr.naeve +2
+  * "An empathy detector. Brindle, that's not useless. That's the most useful thing in this city." -> useful | fx appr.garrow +2
+  * "Why build a machine to find grief? There's enough of it without a finder." -> whygrief
+node: unmade | Brindle Quillfeather
+  *(He goes very still, and the perpetual cheer drains into a scholar's dread.)* The *unmade.* *(quietly.)* Souls filed to *zero.* Of course — the Resonator measures the *resonance* of feeling, and you can't resonate a *nothing*, there's no string left to pluck. *(he clutches the device.)* I built a frivolous thing, a toy, a summer-you-never-had — and it turns out to be the only instrument in Baldur's Gate that can *map the harvest.* *(he looks at you with wild hope and horror.)* Take it. Take it and walk the city. Everywhere it goes silent, the harvest's been, or will be. My useless masterpiece is a *harvest-compass.* *(a slightly hysterical laugh.)* Six years of being called a fool, and I've gone and built the resistance a *map*, entirely by accident, while trying to bottle nostalgia. That's gnomish engineering for you. Useful by *mistake.*
+  enter: SET npc.brindle_resonator_explained, SET sq.brindle_resonator, SET sq.harvest_map_obtained, appr.naeve +4
+  auto: close
+node: carry | Brindle Quillfeather
+  *(He presses it into your hands with the tenderness of a parent.)* Mind the forks, they bruise. *(quietly.)* When it hums, there's grief — that's the city being *alive*, even in its sorrow, and that's *good*, that's a string still vibrating. But when it goes *silent* — *(he swallows.)* — that's where something's eaten the feeling out of the world. Mark those places. Bring me the map of the silences. *(he wrings his hands.)* I don't know what it means. I only know I built a thing to find the heart of the city and it keeps finding the *holes* in it, and a gnome who finds holes ought to tell *somebody* who can fill them. You've the look of a filler of holes. Go fill them.
+  enter: SET npc.brindle_resonator, SET sq.brindle_resonator
+  auto: close
+node: useful | Brindle Quillfeather
+  *(He clasps his hands to his chest, overcome.)* Useful. *(his eyes well.)* In thirty years of invention, no one — *no one* — has called my empathy detector *useful.* *(he sniffs.)* The summer-chord, the melancholy engine, the device that translates a cat's indifference into common — all *useless*, all *mocked*, all *mine.* And you look at the silliest one and say *that's* the thing the city needs. *(fiercely.)* You're *right*, you know. A city that can't *feel* its own grief is a city the harvest's already half-won. My machine doesn't *fix* that. But it *names* it, and naming's the first repair. *(he beams through tears.)* Take it, friend. Go and make my useless thing matter. It's all any of us — invention or person — ever wanted.
+  enter: SET npc.brindle_validated, SET sq.brindle_resonator, appr.garrow +2
+  auto: close
+node: whygrief | Brindle Quillfeather
+  *(He pauses, and the answer is softer than his patter.)* Why find grief. *(quietly.)* Because grief's the proof, isn't it. The proof that something was *loved.* *(he touches the silent forks.)* You only grieve what mattered. A city full of grief is a city full of things that *mattered* — and that's a *beautiful* measurement, even when it aches. *(he looks at the dead device.)* I built it to celebrate that. To find all the love hiding inside all the sorrow and go, *look, look how much this city cared.* *(his face falls.)* And instead it keeps finding places where the caring's been *removed.* Where the harvest's made it so nothing's grieved because nothing's *remembered* to have mattered. *(he meets your eyes.)* That's why I need you to carry it. To find the places that forgot how to ache — and remind them.
+  enter: SET npc.brindle_philosophy, SET sq.brindle_resonator
+  auto: close
+node: puzzle | Brindle Quillfeather
+  *(He scratches his head, your failed insight leaving him merely baffled.)* Hmm. No, that's not — well, perhaps. I confess the theory's beyond me; I only build the things, I don't always know what they *mean.* *(he taps the silent forks fondly.)* Carry it anyway, eh? Maybe you'll work out what it's so frightened of. I never could.
+  auto: close
+node: close | Brindle Quillfeather
+  *(He returns to the Melancholy Engine, which chimes its chord of a summer you never had, and for a moment — standing in the brass and the springs and the gentle pointless music — you understand that the useless gnome may be the only person in the Gilded Gate who built a tool to measure exactly the right catastrophe.)*
+
+# ─── 20 ─── The Twins Who Aren't — two unrelated beggars running a con ───
+conversation: npc.gate.twins | The Twins Who Aren't
+node: 0 | Marl
+  *(Two men of wildly different height, build, and complexion clutch each other's shoulders with theatrical devotion. The tall one speaks first.)* Spare a coin for two brothers, separated at birth, REUNITED by fate not one week past! *(he gestures at his "twin," a short red-haired man who looks nothing like him.)* Look upon us! The resemblance! The same EYES! *(the short one nods frantically. They do not have the same eyes. They do not have the same anything.)* Twenty years apart, and we found each other by the matching birthmarks, and now we beg as ONE, that we might raise the passage to our dear old mother's grave in—
+  enter: SET npc.twins_met
+  auto: 1
+node: 1 | Bink
+  *(The short one cuts in, anxious.)* —in Waterdeep. *(the tall one glares; that was clearly not the agreed city.)* It was Waterdeep last week, Marl, I'm keeping it CONSISTENT— *(the tall one hisses "it was *Neverwinter*") *(Bink turns back to you, sweating.)* It was. It was Neverwinter. Our mother's grave. In Neverwinter. *(he is visibly drowning.)* The point is, sir or madam, we are TWINS, undeniable twins, fraternal twins, the MOST fraternal twins, and your generosity reunites a—
+  * "You're not twins. You're not even from the same continent. But that's the most committed con I've seen all week." -> committed | fx appr.varra +3
+  * [INSIGHT 14] "You met a month ago and neither of you has anywhere else to be. The 'brother' is the only family either of you has left. That part's real." -> realfamily ?? bluster
+  * "Here's a coin. For the *performance*, not the story. Workshop the city, though." -> coin
+  * "I should report a fraud to the Fist." -> report | fx faction.fist +1
+node: committed | Marl
+  *(The tall one drops the act with the relief of a man setting down a heavy crate.)* Oh, thank the gods, a *connoisseur.* *(he claps the short one's shoulder, genuinely now.)* Bink here keeps fumbling the city — he's no head for geography, bless him — but the *birthmarks*, that was my idea, we drew them on with boot-blacking, see — *(he shows you matching smudges)* — and the matching-eyes line, that's pure theater, nobody checks, grief makes people *want* the reunion to be real. *(he grins.)* We clear more as reunited twins than we ever did as two separate sad men. Turns out the city won't pay for *one* tragedy but it'll pay handsome for a *happy ending.* We just supply the ending. The coin's the applause.
+  enter: SET npc.twins_confess, appr.varra +2
+  auto: close
+node: realfamily | Bink
+  *(The short one freezes; the tall one's grin falters. A long pause.)* ...That's not — *(quietly.)* That part wasn't supposed to be in the bit. *(he looks at Marl, who has gone uncharacteristically still.)* We met a month ago. Outside the harvest-house. Both of us'd just — both of us lost everyone, see, to the harvest, all at once, the way it takes whole households. *(his voice wavers.)* And Marl says to me, "You've no one and I've no one, so what if we had *each other* — what if we just *decided* to be brothers?" And the con came after. *(he wipes his eyes, embarrassed.)* The birthmarks are boot-blacking. But the *brother* part — *(he grips Marl's shoulder, and this time it's not for the act)* — we made that part *true*, sir. You can't catch us in it. It's the one thing in the whole story we didn't fake. We just... started with the lie and grew the truth inside it.
+  enter: SET npc.twins_chosen_family, appr.garrow +4
+  auto: close
+node: coin | Marl
+  *(He catches it, bites it, pockets it.)* For the performance! *(delighted.)* Finally, a patron who appreciates the *craft.* *(he leans in.)* Workshop the city, you say — you're right, you're *right*, Bink can't keep it straight. We'll pick one and drill it. "Mother's grave in [BLANK]." *(to Bink)* Baldur's Gate. The grave's HERE. Then you can't get it wrong, it's where we're standing. *(Bink looks immensely relieved.)* See, that's *direction*, that is. You should manage acts. Off you go, generous one — and if anyone asks, we were *devastatingly* convincing.
+  auto: close
+node: report | Marl
+  *(Both men go rigid; Bink actually whimpers.)* Now, now, let's not be *hasty* — *(Marl's patter deserts him)* — it's a *victimless* — well, it's a *low-value* — *(he sags.)* Look. Report us if you must. The Fist'll move us on, we'll set up two streets over as cousins, or war-widowers, or — Bink's been wanting to try "cursed sailors." *(quietly, the act gone.)* We're not hurting anyone but the gullible's purse, friend, and the gullible in this city are mostly *patriars* who can spare it. But you do what your conscience says. Just — *(he glances at Bink)* — wherever they move us, move us *together*, eh? That's the only part we'd mind.
+  enter: SET npc.twins_reported, faction.fist +1
+  auto: close
+node: bluster | Marl
+  *(The tall one rallies, talking over your read.)* Met a month ago! HA! Slander! We are TWINS, sir, twins of the most fraternal — Bink, the birthmark, show the — *(Bink shows the boot-blacking smudge, which is smearing)* — the, ah, the WATERPROOF birthmark — *(it is very obviously not waterproof)* — good day! Good day to you! *(they shuffle off, still clutching each other, still insisting.)*
+  auto: close
+node: close | Bink
+  *(Whatever you decided, the two mismatched men move off together, the tall one already inventing their next tragedy, the short one anxiously trying to keep the city straight — two strangers who started with a lie and grew a brother inside it, which is, you reflect, more family than most blood ever manages.)*
+
+# ─── 21 ─── Doctor Sallow — a cowardly plague-doctor ───
+conversation: npc.gate.sallow | Doctor Sallow
+node: 0 | Doctor Sallow
+  *(A man in a beaked plague-mask, standing as far from everyone as the street allows, gesturing instructions from a great distance.)* Don't come closer! For your safety! And — and mine, but mainly yours! *(he consults a pomander of herbs pressed to the mask.)* I am Doctor Sallow, physician to the harvest-quarters, and my professional advice, free of charge, is: leave. Leave the city. Leave the *region.* Whatever's coming, the cure is *distance*, and I am living proof — *(he gestures at his own healthy, cowardly self)* — that the doctor who flees fastest, *practices* longest.
+  enter: SET npc.sallow_met
+  auto: 1
+node: 1 | Doctor Sallow
+  *(He edges sideways, maintaining his exclusion zone.)* People call me a coward. *(defensively, from six feet away.)* They say, Sallow, a *real* doctor tends the sick! And I say — yes, and a real doctor *catches what the sick have* and *dies*, and then there's *no* doctor, and how is *that* the moral high ground? *(he waggles a gloved finger.)* I have outlived four "brave" physicians this season. FOUR. They tended the harvest-fever hands-on, nobly, and now they're nobly *dead*, and the quarter has *me*, shouting cures from across the road, *alive.* *(quietly, the bluster wavering.)* ...It doesn't feel like winning, though. Standing across the road. Watching them cough. Knowing the brave thing and doing the *living* thing. It doesn't feel like winning at all.
+  * [INSIGHT 15] "You're not afraid of the fever. You're afraid that if you get close enough to help, you'll fail — and a coward who fled is easier to live with than a healer who couldn't save them." -> fail ?? deflect
+  * "Then teach. You can't touch them, but you can train the ones who will. A coward who makes ten brave healers beats one dead hero." -> teach | fx appr.garrow +3
+  * "The harvest-fever isn't a plague, Sallow. It's the soul thinning. You can't catch it and you can't cure it — so stop hiding and start *comforting*." -> notplague | fx appr.naeve +2
+  * "Stay across the road, then. Some people are just cowards." -> coward | fx appr.varra -1
+node: fail | Doctor Sallow
+  *(He stops edging away. For a long moment the beaked mask just stares.)* ...Oh. *(very quietly.)* You've — that's not the fever I'm afraid of, is it. *(he lowers the pomander.)* It's the *failing.* If I stay across the road, then when they die, it's the *fever's* fault, the *harvest's* fault, *anyone's* fault but mine. But if I *go to them*, if I *try* — and they die anyway, the way the harvest-marked always die — then I'll have *failed them, personally, with my hands.* *(his voice cracks behind the beak.)* And I'm not — I became a doctor to *win*, and you can't win against the harvest, and I'd rather be a live coward than a healer who held a dying child and *couldn't.* *(a shaking breath.)* You've named it. Gods. The mask was never for the fever. It was so I wouldn't have to see their faces when I lost. ...I don't know if I'm brave enough to take it off. But you've made me ashamed enough to consider it. That's a start. That's more than four brave dead men managed to give me.
+  enter: SET npc.sallow_unmasked, SET sq.sallow_courage
+  auto: close
+node: teach | Doctor Sallow
+  *(He brightens, then brightens *more*, an idea taking him.)* Teach. *(he taps the beak.)* I can't touch the sick — but I *know* things, I know more medicine than the four dead heroes combined, that's *why* I'm not dead, I'm not just a coward, I'm a *well-informed* coward! *(he's pacing now, in his little exclusion zone.)* I could train the brave ones! The ones who *will* go close — give them the cures, the precautions, the things the dead doctors learned too late — *(he stops.)* — and then their courage and my cowardice make *one whole physician*, and the quarter gets tended by people who *won't* die of it because I taught them how not to! *(he laughs, giddy.)* A coward who makes ten brave healers! That's — that's a way to be *useful* and *alive*, which I'd given up hoping were the same direction. You've just reconciled my two strongest instincts. Do you know how rare that is? Off you go. I've a school to start, from a safe distance.
+  enter: SET npc.sallow_teaches, SET sq.sallow_courage, appr.garrow +2
+  auto: close
+node: notplague | Doctor Sallow
+  *(He freezes.)* Not a plague. *(slowly, the doctor in him overriding the coward.)* I — that would explain — *(he flips through mental symptoms)* — the *fever* that doesn't transmit by contact, the *wasting* that no purge touches, the way the marked just... *thin*, like a candle guttering, no contagion-pattern at *all.* *(he stares at you.)* I've been treating a *plague* that isn't one. Maintaining an exclusion zone against a thing that *can't cross it.* *(his shoulders drop.)* All this distance. All this hiding. From something that was never *catching.* *(quietly.)* Then there's no medical reason for the mask. No reason at all but my own — *(he can't finish.)* If I can't catch it and I can't cure it... then the only thing left to *do* for the harvest-marked is *be with them.* Sit with them. Comfort the un-comfortable. *(a terrified, dawning resolve.)* That's not medicine. That's just... courage. The one thing I trained my whole life to never need. Damn you. Damn you for being right.
+  enter: SET npc.sallow_no_exclusion, SET sq.sallow_courage, appr.naeve +3
+  auto: close
+node: coward | Doctor Sallow
+  *(He flinches, then — sadly — accepts it.)* Some people are just cowards. *(quietly, from across the road.)* Aye. Perhaps that's all I am. *(he raises the pomander again, retreating into routine.)* But a live coward's tended more harvest-quarters than four dead heroes, and I'll cling to that arithmetic, even if it doesn't warm me at night. *(he edges away.)* Mind the distance, on your way. For your safety. Mainly yours.
+  auto: close
+node: deflect | Doctor Sallow
+  *(He retreats behind the beak, the cowardly bravado snapping back up like a shield.)* A bold theory, from someone standing far too close for *my* comfort. *(he edges away, brandishing the pomander.)* No, no — it's the *fever* I fear, plain and sensible, nothing so *dramatic* as failure. I'm simply a prudent man in an imprudent city. *(but his voice is a half-step too loud.)* Mind the distance. For your safety. Mainly yours.
+  auto: close
+node: close | Doctor Sallow
+  *(He resumes shouting cures from his careful exclusion zone — but you notice, as you leave, that he glances at the road between himself and a coughing child, and measures it, and does not, for the first time in a long time, look away.)*
+
+# ─── 22 ─── Justiciar Veld — the church's true believer ───
+conversation: npc.gate.veld | Justiciar Veld
+node: 0 | Justiciar Veld
+  *(A tall Kelemvorite magistrate in black-and-grey, with the serene, unbending posture of a man who has never once lost a night's sleep over a hard decision, because to him none of them are hard.)* The Returned. *(he regards you the way a mathematician regards a proof that contradicts an axiom.)* I have read the reports. I do not believe them, and yet here you stand, warm, contradicting forty centuries of settled doctrine. *(coolly.)* Understand: I am not frightened of you, as the deacons are. I am *offended* by you. You are a clerical error wearing a face, and I am the man whose office it is to correct clerical errors. So. Shall we discuss your correction?
+  enter: SET npc.veld_met
+  auto: 1
+node: 1 | Justiciar Veld
+  *(He folds gloved hands.)* The doctrine is not cruel, whatever the weak-stomached say. It is *fair.* The faithful are kept; the faithless are sorted to the nothing they chose by their doubt. A clean ledger. A just scale. *(his certainty is total, and somehow more chilling than any zealot's heat.)* And then *you* — a soul that simply *walked out*, unsorted, un-filed, *unaccountable.* Do you understand what you threaten? Not the church's power. The church's *correctness.* If the law of the dead can be *escaped*, then it was never *law*, only custom — and a man who has sent ten thousand doubters to the Wall on the strength of that law would have to consider that he was not a *justiciar* at all. He was a *murderer with good penmanship.* I will not consider that. So you, error, must be the thing in error. Not me. Never me.
+  * [INSIGHT 18] "You're the most frightened man I've ever met. You can't allow the Wall to be wrong, because then everything you've done becomes murder — so you'll burn the whole world to keep your conscience clean." -> frightened ?? unmoved
+  * "Sister Garrow served forty years and decided the doctrine was incomplete. Was she a murderer with good penmanship too?" -> garrow | if prologue.garrow_doubt
+  * "I'm not an error, Veld. I'm the audit. And the books don't balance." -> audit
+  * "Correct me, then. I'll be fascinated to watch a clean ledger try to file a hole." -> defiant | fx faction.kelemvor -3
+node: frightened | Justiciar Veld
+  *(For one instant — one — the serene certainty *cracks*, and underneath it is a terror so vast it has needed forty years of doctrine to contain it. Then it seals over, harder than before.)* ...You will not say that to me again. *(very quietly, and it is the quiet of a man holding a door shut against a flood.)* You think you've found my *fear.* You've found my *load-bearing wall.* Pull it, and yes — ten thousand souls become ten thousand murders, and the just justiciar becomes the worst mass-murderer in the history of the Sword Coast, and I cannot — I *will* not — *(his gloved hands have begun to shake; he stills them by force.)* So I will keep the Wall *correct*, error, by whatever means, not because I am cruel, but because the alternative is a truth no mind can survive holding. *(coldly.)* You imagine that makes me weak. It makes me the most *dangerous* man you will meet before the Court of the Dead. A frightened man defending his soul will do what a cruel man never dares.
+  enter: SET npc.veld_loadbearing_wall, SET act1.veld_dangerous
+  auto: close
+node: garrow | Justiciar Veld
+  *(His jaw tightens at the name.)* Garrow. *(coldly.)* Garrow was *weak.* She held a sorting in her hands, felt a moment's womanish doubt, and chose her *comfort* over the *law.* *(but something flickers.)* ...She was also, I will grant, the finest grave-warden the order produced in a generation, and she buried more Faithless with reverence than any priest who agreed with the doctrine. *(the flicker hardens back to ice.)* Which makes her *worse*, not better. A fool who doubts the law is merely a fool. A *saint* who doubts it is a *contagion* — she makes the doubt look *holy.* *(he fixes you.)* That is why I'd sooner correct her than you. You're an error. She's a *heresy with clean hands*, and clean hands spread it. Tell your priest the Justiciar remembers her. Tell her I pray she's wrong. *(quietly.)* I pray very hard. It does not help.
+  enter: SET npc.veld_fears_garrow, SET sq.garrow_quest_hinted
+  auto: close
+node: audit | Justiciar Veld
+  *(The word lands precisely where it's aimed — on a man who lives by ledgers.)* An *audit.* *(he goes still.)* You choose your metaphor well, error. An audit cannot be *argued* with — only *passed* or *failed.* *(coldly.)* And you stand there implying the church's books, forty centuries closed, do not *balance.* *(a long, dangerous pause.)* Here is the difficulty with your metaphor: an auditor who finds a ten-thousand-soul discrepancy does not get *thanked.* The institution does not *correct itself.* It *discredits the auditor.* *(he turns to go.)* You will find, Returned, that a clean ledger does not fear the truth — it fears the *witness.* And institutions have buried more witnesses than the Wall has doubters. *(at the door.)* Pass your audit if you can. But know that the books were never meant to balance. They were meant to *close.* And I am the man who closes them.
+  enter: SET npc.veld_the_auditor_warning, SET act1.veld_dangerous
+  auto: close
+node: defiant | Justiciar Veld
+  *(A thin, cold smile — the first expression he's allowed himself.)* File a hole. *(quietly.)* Yes. That is precisely the problem you represent, stated with vulgar accuracy. The ledger has no column for you. *(he inclines his head.)* So I will not try to file you, error. I will try to *erase* you — which, you'll note, is the one operation the Wall was built to perform. *(he steps back.)* Run along. Gather your heretic priest and your thieves and your damned tiefling. Build your little discrepancy. *(the cold smile widens by a hair.)* And when you reach the end, you will find me there, with my clean ledger and my clean hands and my forty centuries of *correctness*, waiting to close the books on you the way I have closed them on ten thousand doubters who also thought they were the *audit.* They were all just *errors* in the end. So are you.
+  enter: SET npc.veld_enemy, faction.kelemvor -2, SET act1.veld_dangerous
+  auto: close
+node: unmoved | Justiciar Veld
+  *(Your read glances off the armor of his certainty entirely.)* A clumsy attempt at the alienist's trade. *(coolly.)* I am not *frightened*, error. I am *correct.* The two are easily confused by those who have never had the courage of a settled conviction. *(he turns away.)* Come back when you've a sharper instrument than amateur psychology. The doctrine has withstood subtler attacks than yours for forty centuries. It will withstand a warm corpse with opinions.
+  auto: close
+node: close | Justiciar Veld
+  *(He departs without hurry, serene and unbending — and you understand that of all the powers arrayed in this city, the most dangerous is not the heretic who weeps, nor the devil who hopes, but the just man who *cannot afford to be wrong*, and will unmake the world before he'll examine his own clean hands.)*
+
+# ─── 23 ─── The Glassblower's Widow — a memorial the church keeps shattering ───
+conversation: npc.gate.glasswidow | Senna the Glassblower
+node: 0 | Senna the Glassblower
+  *(A woman amid the wreckage of colored glass, patiently sorting shards by hue, a half-built window of impossible beauty leaning against the wall behind her — a window full of small, ordinary faces.)* Mind the glass, love, it gets everywhere when they smash it. *(she holds a shard to the light — a fragment of a child's painted face.)* Third time now. I build the window, the church sends men to break it, I sweep up, I build it again. *(she says it without heat, the way you describe weather.)* It's a memorial, see. For the harvest-dead. The *Faithless* ones — the forgotten ones. I put their faces in glass so the light comes through them of a morning. The church calls it heresy. I call it a window. We've agreed to disagree, them with hammers, me with patience.
+  enter: SET npc.glasswidow_met
+  auto: 1
+node: 1 | Senna the Glassblower
+  *(She fits a shard back into the lead.)* My husband was a glassblower. Faithful as the dawn, prayed twice daily, and *still* — *(she shrugs)* — still sorted to the Wall, because the harvest doesn't check your devotion, love, it just takes who's *near.* *(her hands don't stop working.)* So the church can't even claim he *doubted.* He believed every word, and they walled him anyway, and then they send men to smash the window where I painted his face. *(she finally looks at you.)* That's the part I can't make my peace with. Not the smashing. The *contradiction.* They say the Wall's for doubters. My Edmun never doubted a day. So either the Wall lies — or the church does — and either way, somebody owes me a window that *stays whole.*
+  * "I'll guard the window. Let the church send their men. They'll find me first." -> guard | fx SET sq.glasswidow_window, appr.garrow +5
+  * [INSIGHT 16] "You don't rebuild it for Edmun. You rebuild it because each time they smash it and you build it again, *you're* the proof their forgetting doesn't work." -> proof ?? patient
+  * "Your husband's a contradiction the church can't survive. Let me take his story to people who can use it." -> contradiction | fx faction.kelemvor -2
+  * "Maybe stop rebuilding, Senna. Grief shouldn't be a war of attrition with hammers." -> stop
+node: guard | Senna the Glassblower
+  *(She sets down her work, and for the first time her composure wavers.)* You'd — guard it. *(quietly.)* Three times I've swept up alone, love. Three times. And the worst of it isn't the smashing, it's the *next morning*, the light coming through the *empty frame* where the faces should be. *(she wipes her hands.)* If you stood watch — if the window got to *stay*, just once, just long enough for the morning light to come through Edmun's face the way I built it to — *(her voice catches)* — I think I could finally stop. Not stop *remembering.* Stop *fighting.* Let it just be a window, and a morning, and a face in the light, the way a memorial's meant to be. *(fiercely grateful.)* Guard it. And come at dawn. You should see it at dawn. Everyone should. That's the whole point of glass — it only works when the light's allowed through.
+  enter: SET npc.glasswidow_guarded, SET sq.glasswidow_window, SET act1.mercy_remembered, appr.garrow +4
+  auto: close
+node: proof | Senna the Glassblower
+  *(Her hands go still.)* ...You see it. *(quietly.)* Aye. Edmun's gone; a window won't bring him back; I'm not a fool, love, I know glass from a husband. *(she looks at the half-built faces.)* But every time they smash it and I build it *again* — that's me saying *no.* That's me being the thing their forgetting can't finish. They've got hammers and a god and forty centuries; I've got patience and sand and fire. *(a small, fierce smile.)* And do you know what, love? *I'm winning.* Because they have to send men *every time*, and I only have to be *stubborn*, and stubbornness is cheaper than hammers in the long run. *(she resumes working.)* The window's not a memorial to Edmun. It's a memorial to *not stopping.* Every shard I set back is a little war won against the nothing. Let them smash it. I've sand enough to outlast their arms.
+  enter: SET npc.glasswidow_defiance, appr.garrow +3
+  auto: close
+node: contradiction | Senna the Glassblower
+  *(She considers, then nods slowly.)* Edmun's story. *(quietly.)* A faithful man, walled like a doubter. *(she hands you a shard — his painted eye, catching the light.)* Take it. Show it about. Let the Justiciar explain how a man who prayed twice daily ended in the nothing reserved for *unbelievers.* *(her jaw sets.)* Either the Wall takes the faithful too — in which case their whole *doctrine's* a lie — or the harvest doesn't *care* about faith at all, just *proximity* — in which case the church is sorting people by *bad luck* and calling it *justice.* *(fiercely.)* Both truths are fatal to them, love. My Edmun's quiet death is a *bomb*, and they know it, which is why they smash his face before the morning light can ask the question. *(she meets your eyes.)* Go ask it. Loudly. In daylight. Where the glass would have.
+  enter: SET npc.glasswidow_edmun_proof, SET sq.glasswidow_window, faction.kelemvor -1
+  auto: close
+node: stop | Senna the Glassblower
+  *(She shakes her head, gently, fitting another shard.)* Stop. *(quietly.)* Love, the day I stop is the day they *win* — not the day my grief ends. *(she holds a fragment to the light.)* Grief that gives up isn't peace. It's just a quieter kind of forgetting, and forgetting's the whole weapon they're using. *(she almost smiles.)* You're kind to worry about my arms. But a memorial that *survives* is worth a hundred hours of sweeping. And besides — *(she nods at the half-built faces)* — Edmun blew glass for thirty years. He'd be *appalled* if I let a few men with hammers out-stubborn me. It'd be an insult to the craft. No. I'll build it till it stays. That's not a war of attrition, love. That's just *love*, with a longer timeline than the church expected.
+  enter: SET npc.glasswidow_persists
+  auto: close
+node: patient | Senna the Glassblower
+  *(She just smiles, fitting shards.)* You're sweet to theorize, love. But it's simpler than all that. It's a window. It's my husband's face. The light should come through it of a morning. *(she shrugs.)* Everything else is the church's complication, not mine. Mind the glass on your way.
+  auto: close
+node: close | Senna the Glassblower
+  *(She fits another painted face back into the lead — patient, unhurried, unbeatable — and you carry away the certainty that the church can send a thousand men with hammers and still lose to one widow with sand, fire, and a longer timeline than any institution ever reckons on.)*
+
+# ─── 24 ─── The Ferryman of Chionthar — a Charon with a conscience ───
+conversation: npc.gate.ferryman | The Ferryman
+node: 0 | The Ferryman
+  *(An old man at a black skiff where the docks meet the dark water, a pole in his hands and a tin cup at his feet with a single coin in it.)* Passage? *(he doesn't look up.)* The toll's a coin. Always been a coin. Across the Chionthar in the daylight — that's the *honest* crossing, copper'll do. *(now he looks at you, and his eyes are very tired.)* But you're not here for the daylight crossing, are you. You've the look of the *other* fare. The ones who come at dusk with no breath and no coin, because the harvest doesn't leave you time to fetch your purse. *(he taps the tin cup.)* One coin in there. One. In a season of the breathless dead. You do the arithmetic.
+  enter: SET npc.ferryman_met
+  auto: 1
+node: 1 | The Ferryman
+  *(He poles the skiff a little against the current, holding station.)* I've ferried this river sixty years. Used to be a clean trade — coin in the cup, soul on the far bank, no questions, Kelemvor's own arrangement. *(quietly.)* Then the harvest came, and now the dead arrive *poor*, arrive *robbed of the moment to prepare*, arrive with no coin because they died mid-sentence, mid-meal, mid-laugh. *(he looks at the cup.)* And the rule's the rule: no coin, no crossing. They have to *wait* on the near bank. And the near bank, lately — *(he swallows)* — the near bank is where the harvesters come to *finish* them. Sort them to the Wall before they ever reach the far shore. *(he meets your eyes.)* So I've a choice every dusk, friend. Keep the rule and let them be taken. Or break it, and ferry the coinless free — and answer to a god for the tolls I never collected.
+  * "Ferry them free. I'll answer to the god with you, if it comes to that." -> free | fx SET sq.ferryman_free, appr.garrow +5
+  * [INSIGHT 15] "You've already been ferrying them free. The single coin in the cup is the last honest toll you took — you keep it there to remember when the rule still made sense." -> lastcoin ?? rule
+  * "Whose rule is it, that the poor wait on the bank to be harvested? Kelemvor's — or the church's?" -> whoserule
+  * "Keep the rule, old man. A ferryman who breaks his toll is just a thief with a boat." -> keep | fx appr.garrow -2
+node: free | The Ferryman
+  *(The pole stills in the dark water. For a long moment the old man just breathes.)* You'd stand on the far bank and answer for it. *(quietly.)* Sixty years I've waited for someone to say that. Sixty years I've told myself the rule was *Kelemvor's*, that breaking it damned me, that the coinless *had* to wait — *(his voice roughens)* — and every dusk I've watched the harvesters take the ones who couldn't pay, and called my cowardice *piety.* *(he plants the pole, decision made.)* No more. From tonight the skiff runs free at dusk. Coin or no coin. Let the god dock me my tolls; I'll cross every breathless pauper on this river before I'll watch one more sorted on my own near bank. *(fiercely.)* And if Kelemvor asks me why — I'll say a dead thing with no coin of its own offered to share my damnation, and I was *ashamed* to have feared it so long. Get aboard, friend. We've a river of the unpaid waiting, and a long night to ferry them.
+  enter: SET npc.ferryman_runs_free, SET sq.ferryman_free, appr.garrow +4
+  auto: close
+node: lastcoin | The Ferryman
+  *(His hand goes to the tin cup, protective.)* ...You see it. The one coin. *(quietly.)* Aye. I've been crossing the coinless free for two months. Couldn't not. *(he touches the single copper.)* This is the last *honest* toll I took — from an old woman who *had* a coin, who pressed it on me with both hands and said "for the ones who can't," and died across the river at peace. *(his voice cracks.)* I keep it in the cup so I remember there was a time the rule and the *right* were the same thing. Before the harvest made the toll a *trap.* *(he looks at the dark water.)* You're the first to notice it's only the one. Everyone else sees an empty trade and a tired old man. You saw the *coin.* *(quietly.)* Then you understand. The rule's not gone — it's just become a thing the kind have to break to *keep.* Ride free, friend. You've already paid, in the only currency left: you *looked.*
+  enter: SET npc.ferryman_already_free, SET sq.ferryman_free, appr.naeve +2
+  auto: close
+node: whoserule | The Ferryman
+  *(He frowns at the water, an old question surfacing.)* Whose rule. *(slowly.)* I always said Kelemvor's. "A coin for the crossing" — it's old, it's *holy*, it's in the oldest rites. *(he scratches his chin.)* But the *waiting* — the bit where the coinless have to *linger* on the near bank, where the harvesters can reach them — *(his eyes narrow)* — that's *new.* That came in with the harvest. With the *church's* new orders, not the god's old rite. *(quietly, a realization dawning.)* Kelemvor's rule was *a coin for the crossing.* The *church* added *and the coinless wait* — and put the harvesters where the waiting happens. *(he grips the pole.)* So it was never the god damning the poor. It was the *church*, using the god's old toll as a *snare.* *(fiercely.)* Sixty years I feared the wrong master. The god never said let them be taken. The *church* did. ...That changes everything about which rule I'm breaking, friend. Thank you. I'll break the church's gladly. The god's, I'll keep. And I suspect the god will thank me for telling them apart.
+  enter: SET npc.ferryman_sees_the_snare, SET sq.ferryman_free, SET act1.choir_doubt_seeded
+  auto: close
+node: keep | The Ferryman
+  *(He nods, slowly, and something in him dims.)* A thief with a boat. *(quietly.)* Aye. Perhaps that's all a ferryman who breaks his toll becomes. *(he looks at the near bank, where dusk is gathering.)* So I'll keep the rule, and the coinless will wait, and the harvesters will come, and I'll tell myself it's *piety* and not *fear*, same as I've told myself for two months. *(he poles the skiff.)* You're not wrong, friend. A rule's a rule. *(but he won't look at the near bank now.)* ...Mind the step. The honest crossing's a copper. The other one — the other one I'm apparently still letting the dark water decide.
+  enter: SET npc.ferryman_keeps_rule
+  auto: close
+node: rule | The Ferryman
+  *(He shakes his head, your read missing the mark.)* No, friend, the rule's the rule, simple as that — coin for the crossing, sixty years. *(but his hand rests on the tin cup a beat too long.)* ...The single coin's just slow business. Nothing more. *(he poles away from the question.)* Copper for the daylight crossing, if that's what you're after. The dusk fare's between me and the river.
+  auto: close
+node: close | The Ferryman
+  *(He poles the black skiff out toward the failing light, an old man at the exact seam between the god's mercy and the church's snare — and whether he runs free tonight or keeps his lonely rule, you carry away the image of one copper in a tin cup, kept against the memory of a time when the toll and the kindness were the same coin.)*

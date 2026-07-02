@@ -1,0 +1,587 @@
+{
+  "scene": {
+    "id": "mortar",
+    "name": "The Mortar",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
+    "props": [
+      {
+        "type": "cairn",
+        "x": 2,
+        "y": 5
+      },
+      {
+        "type": "cairn",
+        "x": 9,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 8,
+        "y": 6
+      },
+      {
+        "type": "deadtree",
+        "x": 6,
+        "y": 7
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 2,
+        "hue": 265
+      },
+      {
+        "type": "lamppost",
+        "x": 5,
+        "y": 3
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "lasttorch",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ back along the Wall to the Last Torch"
+      },
+      {
+        "x": 9,
+        "y": 1,
+        "to": "dawnhouse",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ where the grey Wall thins to a crack of warm gold — the road to the dawn, for a soul who can walk it"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "to": "penitent",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ further along the seawall, where a big man is set in the stone to the throat — and climbing in deeper"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "wessel",
+        "name": "Wessel",
+        "title": "the mother who claimed a heresy that was never hers",
+        "x": 3,
+        "y": 4,
+        "hue": 265,
+        "sigil": "❣",
+        "conv": "mt.wessel",
+        "hail": "*(A woman stands half into the Wall, the grey stone risen to her ribs the way frost climbs a pane — not crushing her, just *keeping* her, patient as a debt. She is not screaming. Most of them, here, are past screaming; she looks like someone waiting on a stoop for a knock that is years late. She turns her head as your cold reaches her, and her eyes do a thing you have learned to dread: they *hope*, fast and helpless, and then make themselves stop.)* …you're the *cold* one. the one who *walks* it *both* *ways.* *(she wets her lips)* …i'm not going to *ask* you to *pull* me *out*, so you can *stop* bracing for it. …i *put* myself *here.* on *purpose.* with both *eyes* *open.* …i only want *one* thing, cold one, and it isn't *rescue.* …it's *news.*"
+      },
+      {
+        "id": "coram",
+        "name": "Coram",
+        "title": "the clerk who filed the lie he knew was a lie",
+        "x": 8,
+        "y": 5,
+        "hue": 35,
+        "sigil": "❖",
+        "conv": "mt.coram",
+        "hail": "*(Further along, a soft round soul is set into the Wall to the chest, and unlike the others he has company: a satchel of grey ledgers, walled in with him, their pages still somehow turnable. He was Choir, once — the cut of the robe survives even here — and he has the particular hunted look of a man who spent his life filing other people into this stone and is now filing himself, over and over, trying to find the line where the arithmetic went wrong.)* …don't. *(he says it before you've spoken, not unkindly)* …don't *tell* me she didn't *deserve* it, or that *I* didn't. i've *audited* it, cold one. *both* of us. …*nine* *hundred* *times.* …the *numbers* *balance.* …*(his hands tighten on a ledger)* …that's the *horror* of it. the numbers *balance.* and a *child* is still *wrong* about her *mother*, *forever*, because of a *signature* i *made.*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "mt.wessel",
+      "title": "Wessel — the heresy she borrowed",
+      "npc": "wessel",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.met_wessel",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "deity": "None"
+              },
+              "text": "*(Her eyes find the place where a god's mark would sit on you and find it bare, same as hers, and something in her unlatches — not relief, exactly, but the ease of not having to translate.)* …*ah.* …you're *Faithless* too. *(a tired, kindred almost-smile)* …then i won't *dress* it up for you. you *know* the *arithmetic* of this *place* without my *teaching* it. …a *name* the gods didn't *claim* goes into the *Wall*, and that's the *end* of the *ledger*, and *no* one *comes.* …i *knew* that *going* in, cold one. i *counted* on it. …*sit* a moment with someone the same *kind* of *forsaken*, and let me *tell* you what i *bought* with it."
+            },
+            {
+              "when": {
+                "deity": "Kelemvor"
+              },
+              "text": "*(She marks the grey sigil of the Doomguide on you and her face goes carefully, deliberately still — the look of someone deciding not to spend her last strength on anger.)* …*Kelemvor's.* …*huh.* *(a long breath)* …i'll *not* hold your *god* against you, cold one. a *Returned* who *walks* it *both* ways is *more* than the *coat* they *wear.* …but you should *know* whose *Wall* you're *standing* in. …*his.* the *Judge's.* the one who looked at what i *did* — and i'll *tell* you what i did — and had his *clerks* file it as *heresy* and *mortar* me into the *seawall* for it. …*hear* me anyway. *please.* …even his."
+            },
+            {
+              "text": "*(She studies you — the cold coming off you, the way you stand half in two worlds — and decides you'll do, because the alternative is the silence, and she has had enough of the silence to last whatever's left of her.)* …you'll *do.* you're *real*, and you *listen*, and you go *places* the rest of us *can't.* …that's *all* i need, cold one. …*(she steadies herself against the stone that holds her)* …let me *tell* you why a *living* woman would *climb* into a *Wall* and *pull* it up over herself like a *blanket.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wessel",
+          "text": "*(She tells it plainly, the way you tell a thing you've made peace with the shape of, if not the weight.)* …my *man* had a *doubt.* said it *out* *loud*, in the *wrong* *room*, to the *wrong* *Choir* *ear* — that maybe a *god* who *sorts* the *dead* like *grain* isn't *owed* the *love* he *demands.* …*heresy.* and the *Choir* doesn't *take* the *one.* it takes the *household.* the *taint* *spreads* on the *rolls*, they *said* — *him*, *me*, and *Anwen.* my *girl.* *fourteen* and *devout* as a *dawn* *bell*, *Lathander's* own, never *doubted* a *thing* in her *life.* …so i *stood* up in that *grey* *room* and i *said*: the *doubt* was *mine.* *all* mine. i *taught* it to *him.* …a *lie*, cold one. start to *finish.* …but a lie that moved the *taint* onto *one* *name* — *mine* — and *cleaned* the *other* *two.*",
+          "choices": [
+            {
+              "text": "*(read the woman who climbed into a wall on purpose — past the peace she's made, to whether there's a wound still open under it)* \"Hold still, Wessel. Let me look at you — at the part you didn't make peace with.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "mt_w_read",
+              "effects": [
+                {
+                  "key": "mt.read_wessel",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the uncanny thing that walks both ways)* \"I am not a priest and I am not a judge, Wessel. I am the one soul in the grey that the Wall let back out. Whatever I carry from here, I can carry *anywhere* — even to a dawn you'll never reach. Tell me what to carry.\"",
+              "tag": "returned",
+              "next": "mt_w_returned",
+              "effects": [
+                {
+                  "key": "mt.wessel_knows_returned",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Did it work? The lie — did it clean their names? Are your husband and Anwen somewhere better than this?\"",
+              "next": "mt_w_work",
+              "effects": [
+                {
+                  "key": "mt.asked_outcome",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(she has earned the truth — go and get it)* \"I'll get your news, Wessel. There's a clerk further along the Wall who keeps the records. If anyone knows where Anwen landed, it's him. Wait here.\"",
+              "next": "mt_w_send",
+              "effects": [
+                {
+                  "key": "mt.went_for_record",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the kind word, and the whole of it — you have the record, and she is warm)* \"Wessel. I found the clerk. I found Anwen's line in the book. Listen — she made it. She's in Lathander's dawn, warm, whole, exactly where your lie sent her. Rest now. You won.\"",
+              "when": {
+                "flags": [
+                  "mt.knows_anwen_warm"
+                ]
+              },
+              "next": "mt_w_mercy",
+              "effects": [
+                {
+                  "key": "mt.wessel_answered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "mt.wessel_rested",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the whole truth, the hard half with the kind one — she is warm, and she does not know what it cost, and she resents you for a heresy you never held)* \"Wessel — the truth, all of it, because you climbed into a Wall for it and you can carry one more thing. Anwen is warm. Lathander's dawn, safe, whole. And she believes you were a heretic who shamed your house and threw away the family's faith. She doesn't know you lied. She grieves you angry. That is what your mercy bought — her safety, and her resentment, both.\"",
+              "when": {
+                "flags": [
+                  "mt.knows_anwen_resents"
+                ]
+              },
+              "next": "mt_w_truth",
+              "effects": [
+                {
+                  "key": "mt.wessel_answered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "mt.told_whole_truth",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.haunted",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the third road — not closure but a door)* \"Here is what I can do that no priest can, Wessel. I walk out of here. I can find Anwen — in the dawn, past every wall — and I can tell her, in my own mouth, exactly what her mother did and why. I can't promise you'll be here when I get back. But I can carry the truth *across*. Let me carry it.\"",
+              "when": {
+                "flags": [
+                  "mt.knows_anwen_resents"
+                ]
+              },
+              "next": "mt_w_carry",
+              "effects": [
+                {
+                  "key": "mt.wessel_answered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "mt.carries_word",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(you came back — across the whole grey, with her daughter's answer in your mouth)* \"Wessel. I went to the dawn. I found Anwen. I told her everything — the lie, the coat, the cold you wore so she could stay warm. And she lit the candle, Wessel. The remembrance flame. For you. She told me to carry you this, before the stone takes the rest of you: *Anwen knows. Anwen lit the Dawn for you. You are not unmourned. You go lit.*\"",
+              "when": {
+                "flags": [
+                  "dh.word_for_wessel"
+                ]
+              },
+              "next": "mt_w_word",
+              "effects": [
+                {
+                  "key": "mt.loop_closed",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"I'm not ready to answer you yet, Wessel. Let me keep walking the Wall.\"",
+              "next": "mt_w_leave"
+            }
+          ]
+        },
+        {
+          "id": "mt_w_read",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.read_wessel",
+              "op": "SetTrue"
+            },
+            {
+              "key": "mt.knows_wessel_wound",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She holds still, and you move past the made peace to the thing it was built over.)* *(And your sense finds no regret — she would do it again tonight, a hundred times, the arithmetic is sound and she knows it. But under the soundness there is one unguarded place, and it is not fear of the Wall and not grief for herself. It is this: that the price of saving Anwen was that Anwen can never be *told.* To clear the girl's name, the lie had to be perfect — and a perfect lie means the daughter grows up, and dies, and crosses over believing her mother was exactly what the Choir said: a heretic, a shame, a woman who threw the family's god away. Wessel bought her child a warm eternity and paid for it with the child's good opinion of her, forever, and could never even tell her it was a purchase. And your sense reads the shape of the want she will not say aloud, the one thing she climbed into a Wall still secretly hoping for, against all her own cold arithmetic: not to be saved, not to be thanked — only, somehow, for Anwen to *know.* Just once. That she was loved past damnation. That the heresy was a coat her mother put on in the cold so the girl could stay warm.)*"
+        },
+        {
+          "id": "mt_w_returned",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.wessel_knows_returned",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She looks at you the way the drowning look at a rope they don't yet dare believe in.)* …*anywhere.* …you can carry a thing *anywhere.* *(her composure, the thing she's held the whole conversation, thins to a thread)* …then *hear* the only errand i have left, cold one, and don't *answer* it yet — *learn* the *truth* of it first, because i'd not have you carry a *kindness* that's a *lie*, i've *done* enough of *those.* …go to the *clerk.* find where my *Anwen* *landed.* …and then come *back* and *tell* me *straight* …whether the lie *worked* …and what it *cost* her to be *saved* by it. …*all* of it. …i can *hold* *all* of it. i held *this.*",
+          "auto": "END"
+        },
+        {
+          "id": "mt_w_work",
+          "speaker": "Wessel",
+          "text": "*(Her certainty wavers for the first time — this is the seam in her peace.)* …i don't *know.* *(barely)* …that's the *cruelty* the *Choir* never *intended* and *built* anyway. i *did* the thing, i *paid* the price, and then they *walled* me where *no* *news* *comes.* …i've been here — i don't *know* how long, time's *wrong* in the stone — *not* *knowing* if it even *worked.* if Anwen's in a *dawn* or in a *Wall* of her *own* three lengths *down* from mine and i *can't* *hear* her. …*(she steadies)* …*that's* why i *hoped* when i saw you, and made myself *stop.* …a soul that walks *both* ways could *find* *out.* …could *end* the *not*-*knowing.* …one way …or the *other.*",
+          "auto": "END"
+        },
+        {
+          "id": "mt_w_send",
+          "speaker": "Wessel",
+          "text": "*(She nods, and the nod costs her — letting you go to look is letting the answer become real, whichever it is.)* …*go.* …his name's *Coram*, if he'll *give* it; he *filed* half this *stretch*, *me* among them, before they *filed* *him.* …he *kept* the *book.* if Anwen's *anywhere* on a *roll*, he'll have the *line.* …*(she grips the stone)* …and cold one — *whatever* it *says* …come *back.* don't *spare* me by *staying* *gone.* …the *not*-*knowing* is the *only* torture this *Wall* added to the one i *chose.*",
+          "auto": "END"
+        },
+        {
+          "id": "mt_w_mercy",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.wessel_rested",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You give her the warm half and keep the cold half folded in your hand, and you watch the arithmetic she's carried for an age finally, finally close.)* …*warm.* …*Lathander's* *dawn.* …*(the breath goes out of her like a knot untying)* …then it *worked.* …*it* *worked.* …*(she is crying without any of the fear that usually comes with it)* …she's in the *light*, and she's *whole*, and she *doesn't* — *(she stops, and you see her decide not to ask the rest, decide that warm-and-whole is enough, that she will not spend her ending hunting the one shadow you so carefully didn't show her)* …no. …*no*, that's *enough.* that's *everything.* …*(the grey stone is already loosening around her, the way it does for a soul with nothing left to wait for)* …i can *go* now, cold one. …you gave me the *one* coin this place *kept* from me. …*she's* *warm.* …tell no one i *wept* — i *climbed* in here *dry*-*eyed* and *proud* and i'd *do* it *again* …*(softer, going)* …but oh, i'm *glad.* …i'm so *glad* she's *warm.*"
+        },
+        {
+          "id": "mt_w_truth",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.told_whole_truth",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You give her all of it, and you watch her take the cold half the way she took the Wall — standing, eyes open, refusing to let it crush more of her than it must.)* …*resents* me. *(she says it slowly, learning the weight of it)* …my Anwen grieves me *angry.* …thinks i *threw* the god away and *shamed* her into the bargain. …*(a long, terrible silence, and then, impossibly, the ghost of the proud woman who climbed in here)* …*good.* …*no* — not *good*, never *good*, it's a *wound* i'll carry till the stone takes the *rest* of me — but cold one, *hear* me: i would *rather* she be *warm* and *wrong* about me …than *cold* and *right.* …a *thousand* times. …*(her voice cracks and holds)* …a mother's *last* luxury is being *misunderstood* by a *living* child instead of *mourned* by a *dead* one. …i *chose* this. i *keep* choosing it. …thank you for not *lying* to me. …i've had *enough* of the *kindness* that's a *lie.* …i did *that* to *her.*"
+        },
+        {
+          "id": "mt_w_carry",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.carries_word",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You offer her the door instead of the closure, and the thing that crosses her face is the most dangerous thing in the grey: hope with its eyes open.)* …you'd *find* her. …*you'd* *tell* her. …in your *own* *mouth.* …*(she presses both hands flat to the stone that holds her, steadying against a feeling too big for what's left of her)* …i may not be *here*, cold one. the stone's *patient* but it's not *kind*; i could be *gone* to dust before you *find* a dawn that *far.* …*(and then, fierce)* …*go* anyway. …*don't* come *back* for *me.* …spend *nothing* more on the *woman* in the *Wall.* spend it *all* on the *girl* in the *light.* …find Anwen, and tell her — not that i'm *here*, she's not to *carry* that — only that the *heresy* was a *coat.* that her mother put it on in the *cold* …so the *girl* could stay *warm.* …*(she is weeping and smiling at once, and the stone has stopped climbing)* …that's not *closure*, is it. …it's *better* than closure. it's *unfinished* in the one *direction* that was *ever* worth *anything.* …*go*, cold one. *carry* it *across.*"
+        },
+        {
+          "id": "mt_w_leave",
+          "speaker": "Wessel",
+          "text": "*(She accepts it, and goes back to the patience she's perfected, the stoop-sitting wait for the late knock.)* …*walk*, then. …i'm not going *anywhere* — that's the one *joke* the Wall and i *share.* …*(a faint, dry tilt)* …come *back* when you've something to *carry*, cold one. or *don't.* …i've *waited* a *long* *time* already. …i can *wait* the *length* of *you.*"
+        },
+        {
+          "id": "mt_w_word",
+          "speaker": "Wessel",
+          "onEnter": [
+            {
+              "key": "mt.loop_closed",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You carry it back across the whole grey distance — the candle, the knowing, the daughter's answer — and you watch a woman who climbed into a Wall dry-eyed and proud and certain receive the one thing her cold arithmetic never dared to put in the ledger: that the price she paid was *seen.*)* …she *lit* it. …*(the words come apart in her)* …my Anwen *lit* the *candle.* …she *knows.* …*(she presses both hands to the stone that holds her, and she is weeping, and there is no fear anywhere in it, none, for the first time since she climbed in)* …i told myself i didn't *need* this. i told myself the *deed* was *enough*, that a thing done for *love* doesn't *require* the *loved* one to *know* it, that *needing* to be *known* was a *vanity* i'd *put* down with everything *else* i put down. …*(she laughs, wet and broken and free)* …*liar.* …i *needed* it. i needed it like *air* i don't *breathe* anymore. …*(the grey stone is loosening, sloughing, releasing her at last — not the slow dissolve of the forgotten but the clean letting-go of a soul with nothing left unfinished)* …you *carried* it *both* ways, cold one. you took my *coat* to the *dawn* and brought her *candle* to the *dark.* …*(going now, light, unafraid)* …there's a *word* for what you are, and it isn't *Returned*, and it isn't *cold.* …*(softer, almost gone)* …it's the *one* the *Wall* was *built* to *make* *impossible.* …a soul that *crosses.* …that *carries* *love* across a thing meant to *stop* it. …*tell* the next *mother* in the *next* *stone* …that it *can* be *crossed.* …*tell* them *all.* …*(and she is gone, into the light her daughter lit, and the stone where she stood is, for once, warm)*"
+        }
+      ]
+    },
+    {
+      "id": "mt.coram",
+      "title": "Coram — the clerk who filed the lie",
+      "npc": "coram",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.met_coram",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He doesn't look up from the ledger at first — and then your cold reaches him and he goes still, and *does* look up, and his round soft face is a ruin of a particular kind: not the ruin of a cruel man caught, but of a careful one who followed every rule and arrived, by the rules, in hell.)* …a *Returned.* …*(he laughs, a small cracked sound)* …of *course.* the one *audit* i never ran — *what happens when the figure you filed gets up and walks back to ask about its neighbor.* …*(he sets the ledger down)* …you've been *talking* to *her*, haven't you. *Wessel.* three *cairns* back. …i *know* the *cold* of *that* end of the *Wall.* …*ask*, cold one. i'll not *pretend* i don't *know* what you've *come* about. i've *known* for *nine* *hundred* *audits.*",
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Coram",
+          "text": "*(He folds his hands on the walled-in satchel, the gesture of a clerk at a counter, the only posture his soul remembers how to hold.)* …i *filed* her. *Wessel.* 'household *taint*, *self*-*attested*, *primary* heretic.' her own *confession*, *signed.* …*(his jaw works)* …and i *knew* it was a *lie.* knew it *cold.* you *learn* the *sound* of a *true* confession and the *sound* of a *bought* one, and hers was a *mother* *buying* something, every *word.* …but the *law* doesn't *take* *true* or *false*, cold one. it takes *signed.* …so i *signed* it *under* hers. and i *cleaned* the *girl's* *name*, and the *husband's*, off the *roll*, just like the lie *asked* — because the *lie*, you see, was *useful* to the *law.* a *tidy* *household*, *one* name *forfeit* instead of *three.* …the *Choir* *loves* a *tidy* *ledger.* …i *gave* them one. …with a *child's* *whole* *understanding* of her *mother* as the *ink.*",
+          "choices": [
+            {
+              "text": "*(read the clerk who audited himself nine hundred times — past the arithmetic, to what he's really looking for in the book)* \"Hold still, Coram. Let me see what you keep auditing for. It isn't the error, is it.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "mt_c_read",
+              "effects": [
+                {
+                  "key": "mt.read_coram",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the soul that walks both ways)* \"I am the one figure in your ledger that got up, Coram. Whatever Anwen's line says, I can carry it past the Wall — to her, in the dawn, if it comes to that. So the record in your book isn't dead arithmetic anymore. It's a message with somewhere to go. Show me.\"",
+              "tag": "returned",
+              "next": "mt_c_returned",
+              "effects": [
+                {
+                  "key": "mt.coram_sees_purpose",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(he is afraid to open the book — push, gently but past the fear)* \"Coram. Open the ledger. Find Anwen's line. You've hidden behind 'the numbers balance' for nine hundred audits because opening it means *feeling* it. I'm asking you to feel it once, with a witness, so it can finally do some good.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "mt_c_record",
+              "fail": "mt_c_fail",
+              "crit": "mt_c_crit",
+              "fumble": "mt_c_fumble",
+              "effects": [
+                {
+                  "key": "mt.pressed_coram",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Why keep the book at all, Coram? You're walled in. Let it rot. Why audit a thing you can't change?\"",
+              "next": "mt_c_why",
+              "effects": [
+                {
+                  "key": "mt.asked_coram_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Later, Coram. I need to think before I open anything.\"",
+              "next": "mt_c_leave"
+            }
+          ]
+        },
+        {
+          "id": "mt_c_read",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.read_coram",
+              "op": "SetTrue"
+            },
+            {
+              "key": "mt.knows_coram_hope",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He lets you look, and your sense goes past the endless audit to the thing the audit is a prayer for.)* *(And you find a man who is not, in fact, checking whether the numbers balance — he knows they balance, that is the horror he stated up front. He is running the same audit nine hundred times for a different reason, the way a grieving soul rereads a last letter: he is looking, every single time, for a *line he is allowed to have signed.* A clerk's version of penance — if the arithmetic is sound then he committed no error, broke no rule, and yet a child is wrong about her mother forever because of his pen, and those two facts cannot both be true and both are, and his whole soul has snagged on the contradiction like wool on a nail. And under that, the thing he wants and believes he is forbidden: not forgiveness, he'd refuse it, he signed it knowing. He wants the record to *matter.* He has spent nine hundred audits guarding a book that proves a mother lied for love, and there has never once been a single soul who could carry that proof anywhere it would do a particle of good — until a cold thing walked up that goes *both ways.* He is terrified to open the ledger because for nine hundred audits it was a tombstone, and you have just made it, unbearably, a *door*, and hope is the one entry his careful soul never learned how to file.)*"
+        },
+        {
+          "id": "mt_c_returned",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.coram_sees_purpose",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He stares at you, and the clerk's flat despair cracks and something worse and better leaks through.)* …*somewhere* to *go.* …*(he picks the ledger back up, and his hands are shaking now in a way they weren't when he was only damned)* …i have *guarded* this *book* …against *nothing.* against *no* one. there was no *one* who could *use* it. a *proof* with no *court* to *hear* it is just a *weight* you carry. …and you're telling me there's a *court.* …a *girl*, in a *dawn*, who could *hear* it. …*(he swallows)* …*ask* me *straight*, cold one, and i'll *open* it. …i've *wanted* — gods help a clerk who *wanted* — for *someone* to *make* me *open* it.",
+          "auto": "END"
+        },
+        {
+          "id": "mt_c_record",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.knows_anwen_warm",
+              "op": "SetTrue"
+            },
+            {
+              "key": "mt.knows_anwen_resents",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He opens the ledger. It takes him a long moment to find the page; it takes him longer to make himself read it aloud.)* …here. …*'Anwen, of the household —* *cleared.* *taint* *struck* on the *mother's* *attestation.* *judged* *clean*, *commended* …to the *House* of the *Dawn.'* …*(his voice thickens)* …she's in *Lathander's* *light*, cold one. *warm.* *whole.* the *lie* *worked*, *perfectly*, exactly as Wessel *built* it. …*(and then, because he is an honest accountant of dishonest things, he turns the page he most dreads)* …and *here.* the *dawn-house* keeps *its* own *rolls*, and they *cross* to *ours*, and *this* …*this* is the *line* that *broke* me. …*'subject* *grieves* the *mother*: *named* *heretic; expresses* *shame; declines* the *annual* *rite* of *remembrance.'* …she *won't* *light* a *candle* for *Wessel*, cold one. …because she *believes* …what i *filed.* …the *daughter* is *warm* …and *ashamed* of the *woman* who *bought* her the *warmth.* …*both* *true.* …*signed.*"
+        },
+        {
+          "id": "mt_c_crit",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.knows_anwen_warm",
+              "op": "SetTrue"
+            },
+            {
+              "key": "mt.knows_anwen_resents",
+              "op": "SetTrue"
+            },
+            {
+              "key": "mt.coram_unburdened",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "text": "*(Something in the way you say it — not commanding, not pitying, just *with* him — undoes the knot nine hundred audits couldn't. He opens the book and he does not stop at the line. He reads you the *whole* of it, and as he reads, the shaking leaves his hands.)* …*'Anwen — cleared — commended to the House of the Dawn.'* …*warm*, cold one. *whole.* the lie *worked.* …and the *dawn-roll* *cross*-*entry*: she *grieves* the *mother* as a *heretic*, *declines* the *rite*, carries the *shame.* …*both* *true.* …*(and then he does a thing a clerk does not do — he closes the book, gently, like settling a child)* …*nine* *hundred* *audits*, and i never once read it *to* anyone. …i thought the *reading* was the *punishment.* …*(he looks at you, lighter by something with weight)* …it *wasn't.* the reading *alone* was the punishment. read *to* a soul who can *carry* it — that's the first *useful* thing this book has *done* since i *signed* it. …*take* it to her, cold one. to *Wessel.* …and if your road *ever* finds a *dawn* …*(his composure finally, cleanly breaks)* …tell the *girl* …her mother's *heresy* …was a *coat.* …i *filed* the *coat* as a *sin.* …*correct* my *ledger.* …*please.*"
+        },
+        {
+          "id": "mt_c_fail",
+          "speaker": "Coram",
+          "text": "*(He flinches from the book like it's hot, and the clerk's armor slams back down.)* …*no.* …not — not *yet.* not on a *day's* *acquaintance.* *(he presses the ledger to his chest)* …you don't *understand* what's *in* here, cold one. opening it *to* someone makes it *real* in a way *re*-reading it *alone* never — *(he catches himself, breathes)* …*ask* me the *small* things. the *outcome*, the *roll.* …i can *tell* you she was *cleared*, that much i can *say* without — *(his hand stays clamped on the cover)* …the *rest* …give me a *reason* that isn't just *standing* there *being* *gentle* at me. …*gentle's* what i *can't* *afford.*",
+          "auto": "mt_c_partial"
+        },
+        {
+          "id": "mt_c_partial",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.knows_anwen_warm",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He gives you the half he can bear to give, the page-corner of it.)* …*cleared.* *commended* to the *Dawn.* …*Anwen's* in *Lathander's* *light*, *warm*, *whole.* the lie *worked.* …*(his hand never leaves the cover)* …*that* much you can *carry* to *Wessel* and it's *true* and it's *kind.* …the *other* page — the *dawn-roll*, what the *girl* *thinks* of her *mother* now — …*(he shakes his head)* …*come* *back* for it, cold one, when you've a *reason* worth the *opening.* or *don't*, and let *Wessel* have the *warm* half *clean.* …that might be the *mercy* anyway. …*i'd* not *blame* you."
+        },
+        {
+          "id": "mt_c_fumble",
+          "speaker": "Coram",
+          "onEnter": [
+            {
+              "key": "mt.coram_spooked",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(You push too hard, name the feeling too bluntly, and the careful soul does what careful souls do under pressure — it retreats entirely into procedure.)* …*'feel* it *once.'* …*(his face closes like a ledger)* …you *presume*, cold one. you walk up *cold* off the *road* and tell a *man* what he's *hiding* *behind.* …*(stiff, formal, wounded)* …i am *not* *hiding.* i am *auditing.* there is a *difference* and you have just *proven* you can't *see* it. …the *outcome* is a *matter* of *record* and i'll *give* it you *plainly*: the *girl* was *cleared.* …*beyond* that the *ledger* is *closed*, and so am *I.* …come *back* when you've *learned* the *difference* between *reading* a *soul* …and *robbing* one.",
+          "auto": "mt_c_partial"
+        },
+        {
+          "id": "mt_c_why",
+          "speaker": "Coram",
+          "text": "*(The question seems to genuinely stop him, as though no one, himself included, has ever asked it plainly.)* …*why* keep it. …*(he turns the ledger over in his hands)* …because if i *let* it *rot* …then the *only* *record* anywhere in *creation* that *Wessel* *lied* for *love* …*rots* with it. …and then she's *just* what the *roll* *says.* a *heretic.* *signed*, *self*-*attested*, *forfeit.* …*(quietly)* …the *Choir* filed her as a *sinner.* this *book* is the *one* place she's filed as a *mother.* …i can't *fix* what i *signed*, cold one. but i can *refuse* to let the *true* thing *disappear.* …i thought that was *all* the *good* a *walled* clerk could *do.* …*hold* the *true* line and *audit* it so it doesn't *fade.* …*(he looks at you)* …*you're* the *first* to *suggest* it could do *more* than be *held.*",
+          "auto": "END"
+        },
+        {
+          "id": "mt_c_leave",
+          "speaker": "Coram",
+          "text": "*(He nods, almost relieved, and opens the ledger back to wherever he was, the audit resuming like a held breath let out.)* …*think.* *yes.* …*think* *hard*, cold one. …whatever you *carry* to *Wessel* from *here* …carry it *deliberately.* …i *signed* something *quick* and *useful* *once* …and a *child* has been *wrong* about her *mother* *ever* *since.* …*(he wets a fingertip, turns a page)* …*measure* *twice.* …the *dead* …have *nothing* *but* *time* …to *live* in what you *file.*"
+        }
+      ]
+    }
+  ]
+}
