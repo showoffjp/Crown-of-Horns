@@ -800,6 +800,29 @@
       ],
       "completionFlag": "co.vesper_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_bench",
+      "title": "Your Turn",
+      "region": "The Last Bench — at the road's edge, off the Grey Wayshrine",
+      "giver": "Oona, a soul who finished — done, at peace, ready to go",
+      "premise": "The one soul in the grey who needs nothing. She lived a plain long life, closed every account, said every sorry, and came to the dead lands with nothing unfinished — the rarest thing there is. She's ready to dissolve, gladly. And instead of asking you for anything, she looks at the cold, grief-laden Returned who came up the road and decides to spend her last peaceful hour tending you. Let her — or keep walking, the way you always do.",
+      "theme": "The cold isn't the Wall taking you; it's what happens to a soul that pours out warmth forever and never lets any back in. Not mercy given. Mercy taken. Finish well means close your accounts — and the first one you owe is to yourself.",
+      "reward": "Sit down, let the one soul who wants nothing tend you, and be witnessed whole and tired and worth sitting down — the first warmth put back into a fading Returned. rd.tended, and a warmth on the bench that doesn't fade for a long while.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet the soul who finished, and doesn't need you",
+          "completionFlag": "rd.met_oona"
+        },
+        {
+          "objectiveId": "sit",
+          "desc": "Let it be your turn — let Oona tend the one who tends everyone",
+          "completionFlag": "rd.tended"
+        }
+      ],
+      "completionFlag": "rd.tended",
+      "failureFlag": ""
     }
   ]
 }

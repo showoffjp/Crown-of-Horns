@@ -11,6 +11,35 @@
 
 ---
 
+## ❈ v6.83.0 — *"Your Turn"* — the soul who tends you (content · inversion)
+
+> The freshest thing possible after this run: **invert the pattern itself.** Every soul so far has needed
+> something from the player. This is the one who needs *nothing* — and turns the tables. A single, deep,
+> intimate soul (a change of scale, too), and it speaks straight to the game's core arc: the Returned
+> slowly going cold.
+- ❈ **Oona** — *a soul who finished — done, at peace, and ready to go.* She lived a plain long life, closed
+  every account, said every sorry, heard every thank-you, and came to the grey with *nothing unfinished* —
+  the rarest thing there is. She isn't brave about dissolving or resigned to it; she's *finished*, the way a
+  good day is finished when the light goes. And instead of asking the Returned for anything, she looks at
+  the cold, grief-laden soul who came up the road and decides to spend her last peaceful hour **tending
+  you.** Read her (the one soul with no wound to find) and your sense reaches in and finds, for the first
+  time in all your walking, *none of the usual ache* — only one last fire kept lit, and it's for you.
+- 🔥 **The inversion, reactive to your own state:** to a **cold/haunted** player (`disp.haunted ≥ 12`) she
+  sees the frost climbing your arms and won't let you brace to be useful; to a **Faithless** player she is
+  the living proof that *the Unclaimed can finish whole* — *"no god claimed me and it did not matter,
+  because I claimed myself."* You can do the reflex (try to help her — she deflects, takes your cold hand,
+  and asks the heaviest thing you've never put down); or finally **let it be your turn** and sit, and be
+  seen — *whole, tired, good, and worth sitting down* — the first warmth ever put back into a fading
+  Returned. *The cold isn't the Wall taking you. It's what happens to a soul that pours out warmth forever
+  and never lets any back in. Not mercy given. Mercy taken.*
+- 🪑 Sets `rd.tended` — a soul with nothing to gain sat the Returned down at last, and where she dissolved
+  there's a warmth on the bench that doesn't fade for a long while.
+- 🔌 Wired through the generator (load + `NPC_SENSE` + merges + scene dict + a Grey Wayshrine→Last Bench
+  exit). Tracked side-quest **"Your Turn"** (now 29). Rebuilt `town_market.html` (**85 zones, 266 souls**)
+  and the bundle. **Gate 801/0; full suite green;** reskin + C# bridge auto-cover the soul.
+
+---
+
 ## 🔗 v6.82.0 — *"The Road Remembers the Rest"* — the campfire reflects this whole run (content · cohesion)
 
 > Not a ninth isolated zone — the **connective tissue** that turns this run's zones from scattered rooms
