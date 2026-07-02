@@ -11,6 +11,34 @@
 
 ---
 
+## ☖ v6.85.0 — *"Keep the Lap Warm"* — a warmth reset, and a cat (content)
+
+> After the intensity of menace and rage, a deliberate **warmth reset** — but fresh: not the Same Dog (that
+> through-line is rich enough), a **cat**, which is an entirely different register of love. Gently funny,
+> and devastating underneath. A single deep soul again.
+- ☖ **Odell** — *an old soul waiting, with great confidence, for a cat.* Seventeen years, Marmalade — the
+  furious orange cat he pulled half-drowned from a woodpile, who never once thanked him and simply *decided
+  he was hers* and ruled him accordingly. He died first. Now he sits at the grey water, palm up, keeping a
+  lap warm, certain she'll come — *"a dog comes for anyone with a kind voice; a cat that comes for you chose
+  you, specifically, out of spite for every other option."* Under the bravado: the one fear his sense
+  reveals — not that she won't come, but that he'll *fade before she does*, and she'll arrive to a warm lap
+  that isn't there. *He isn't waiting for a pet. He's waiting for the proof that he mattered.*
+- 🐈 **The reunion (the warm payoff):** the beasts of the grey favor the Returned, so you can go find her — a
+  **Perception crit/fumble**, but *a cat isn't found, a cat arrives*, so every outcome is warm: on a hit you
+  say his name once and she follows three steps behind pretending it's coincidence; on a **crit** she was
+  already coming, always was, and you just walked the last hundred yards of a journey seventeen years in the
+  making; on a **fumble** you fail utterly and she strolls out from behind the chair anyway, because cats.
+  Either way: a warm orange weight in the lap that kept itself warm for her, and an old man weeping into the
+  fur of the one thing that chose him.
+- 🐕 Reacts to the **Same Dog** (if you've named it, Odell and your dog silently negotiate and decline an
+  ancient truce) and to a **cold/haunted** player (*"warmth isn't a thing you find; it's a thing you wait
+  for and keep a lap ready for"* — a quiet echo of Oona's lesson).
+- 🔌 Wired through the generator (load + `NPC_SENSE` + merges + scene dict + a Reed-Walk→Waiting exit).
+  Tracked side-quest **"Keep the Lap Warm"** (now 31). Rebuilt `town_market.html` (**87 zones, 268 souls**)
+  and the bundle. **Gate 801/0; full suite green;** reskin + C# bridge auto-cover the soul.
+
+---
+
 ## ✺ v6.84.0 — *"The Firebrand"* — rage, and where it burns (content)
 
 > A register this run hadn't hit — **rage / defiance** — with an energy opposite to the tender "Your Turn,"

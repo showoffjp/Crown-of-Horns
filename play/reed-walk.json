@@ -120,6 +120,16 @@
           "y": 7
         },
         "label": "▸ past the herb-garden gate — a lazaret for the souls who can't stop dying"
+      },
+      {
+        "x": 4,
+        "y": 8,
+        "to": "waiting",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ an old soul in a chair at the water, keeping a lap warm for a cat that hasnt come"
       }
     ],
     "npcs": [

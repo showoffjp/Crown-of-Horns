@@ -852,6 +852,29 @@
       ],
       "completionFlag": "fb.rook_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_waiting",
+      "title": "Keep the Lap Warm",
+      "region": "The Waiting — a chair at the water's edge, off the Reed-Walk",
+      "giver": "Odell, an old soul waiting with great confidence for a cat",
+      "premise": "An old man sits at the grey water with his palm up, keeping a lap warm for Marmalade — the furious orange cat who chose him, out of seventeen years of options, out of spite for the whole world. He died first. He's been waiting ever since, certain she'll come, because a cat that's yours always comes — on her own insulting time. Under the pride is the one fear: that he'll fade before she arrives, and she'll come at last to a warm lap that isn't there. The animals of the grey favor the Returned. You could find her.",
+      "theme": "A dog comes for anyone with a kind voice; a cat that comes for you chose you, specifically. He's not waiting for a pet — he's waiting for the proof that he mattered, and can't bear for it to arrive and find him gone.",
+      "reward": "Go find Marmalade in the wide grey (a Perception check — but a cat isn't found, a cat arrives, so even a fumble is warm) and reunite them: a warm orange weight in the lap that kept itself warm for her, and an old man weeping into the fur of the one thing that chose him. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet Odell, and the lap he's kept warm",
+          "completionFlag": "wc.met_odell"
+        },
+        {
+          "objectiveId": "reunite",
+          "desc": "Bring Marmalade home to the waiting lap",
+          "completionFlag": "wc.brought_cat"
+        }
+      ],
+      "completionFlag": "wc.odell_answered",
+      "failureFlag": ""
     }
   ]
 }
