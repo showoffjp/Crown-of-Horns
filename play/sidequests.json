@@ -875,6 +875,29 @@
       ],
       "completionFlag": "wc.odell_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_singing",
+      "title": "Louder Than the Wall",
+      "region": "The Singing — at the Wall's very edge, past the Unspooling",
+      "giver": "Rue, a soul hearing the Wall sing their name",
+      "premise": "A soul stands too close to the Wall, swaying to a song only they can hear — the Wall singing their name, soft, like a lullaby, like something that loves them. And the trap of it is that it doesn't promise oblivion; it promises REST — permission to set down every grief and never carry anything again. It's seductive precisely to the exhausted, and to a Returned going cold. Find the anchor before the song takes them — and know that this is one of the few roads where a half-beat too slow means you lose the soul for real.",
+      "theme": "The song blurs 'I can't carry this pain' into 'I don't want to be here' — opposites. You can set the weight down without setting down your self. The counter-song is just someone's name, said loud, by someone who stayed.",
+      "reward": "Anchor Rue to the living person they still matter to (Persuasion crit/fumble — fumble and they walk into the Wall, gone); or walk into the song yourself and drag them back, at the cost of hearing it too. disp.merciful, or disp.haunted for the price of the crossing.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Reach Rue at the Wall's edge, before the song does",
+          "completionFlag": "sg.met_rue"
+        },
+        {
+          "objectiveId": "anchor",
+          "desc": "Find the anchor and pull Rue back from the singing",
+          "completionFlag": "sg.rue_saved"
+        }
+      ],
+      "completionFlag": "sg.rue_saved",
+      "failureFlag": "sg.lost_rue"
     }
   ]
 }

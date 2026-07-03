@@ -11,6 +11,34 @@
 
 ---
 
+## ♪ v6.86.0 — *"The Singing"* — the horror register, and a soul you can lose (content)
+
+> The one major register this run hadn't hit: **horror** — not shock or gore, but dread earned by the
+> game's own cosmology, and *kinetic* (a race, not a conversation). And a rarity in this game: a soul with a
+> **real failure state.** A half-beat too slow and Rue is *gone* — walked into the Wall, and it doesn't come
+> back. Most zones are safe; this one has teeth, which gives it weight.
+- ♪ **Rue** — *a soul at the Wall's edge, hearing it sing their name.* They came close just to look, and the
+  Wall began to sing — soft, a lullaby, knowing their name — and the horror is what it *offers:* not
+  oblivion but **rest.** *You're so tired; walk in and set it ALL down and never carry anything again.* It's
+  seductive precisely because it's a good lie you can see the hook in and want anyway. To a **cold/haunted**
+  player, Rue sees you hear it *too* — *"you're further than me"* — because it's the same song that takes the
+  Last Returned. The dread implicates the player.
+- 🪢 **The rescue, with stakes:** read Rue (the song is a rising tide — no slow careful read, you have
+  *moments*) to find the anchor — a small, living, specific thing the lullaby is singing over — then **anchor
+  them** (Persuasion crit/fumble): shout the name of the person they still matter to, louder than the Wall.
+  **Crit:** they don't just come back, they learn the *counter-song* and go to stand between the Wall and the
+  next swaying soul. **Fumble:** the name comes uncertain, the song pours into the gap, and *Rue walks in* —
+  radiant, unhurried, gone — and the song brushes you once on the way out: *"you hear me too, cold one. there
+  is no rush. I will still be here when you are tired enough."* You carry that out with you.
+- 🎭 **The [RETURNED] path:** walk *into* the song yourself and drag them back — always succeeds, but you
+  hear it too and it follows you down the road (`disp.haunted +2`). Mercy at a real cost.
+- 🔌 Wired through the generator (load + `NPC_SENSE` + merges + scene dict + an Unspooling→Singing exit, one
+  step closer to the Wall). Tracked side-quest **"Louder Than the Wall"** (now 32) — one of the few with a
+  genuine **failureFlag** (`sg.lost_rue`, failure beating completion on the live QuestManager). Rebuilt
+  `town_market.html` (**88 zones, 269 souls**) and the bundle. **Gate 801/0; full suite green.**
+
+---
+
 ## ☖ v6.85.0 — *"Keep the Lap Warm"* — a warmth reset, and a cat (content)
 
 > After the intensity of menace and rage, a deliberate **warmth reset** — but fresh: not the Same Dog (that
