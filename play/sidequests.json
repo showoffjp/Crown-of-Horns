@@ -898,6 +898,29 @@
       ],
       "completionFlag": "sg.rue_saved",
       "failureFlag": "sg.lost_rue"
+    },
+    {
+      "questId": "sq.the_remembering",
+      "title": "Say It Back",
+      "region": "The Remembering — a fire that gives real warmth, off the Lamplit Quarter",
+      "giver": "Wynn, keeper of the Remembering",
+      "premise": "A circle of the dead who have found the one weapon the Wall has no answer for: witnessing. Each learns another's name and one good story and says it back, and a soul held in mind fades slower — proof, not hope. It is the game's whole thesis made into a practice, and it reacts to the souls you saved along the road (the firebrand who learned to aim his fire is here; the soul you shouted back from the singing stands guard at its edge). Learn a nobody's good story and be his tenth — or give the circle your own cold name — or carry the whole Remembering out past the fire's reach, where only the Returned can go.",
+      "theme": "Not rage, not surrender — the third thing. The Wall wins by isolation; every soul fading alone. Carry the good story, not the sad one: it's how you remember a soul instead of just its suffering.",
+      "reward": "Become the tenth mind holding Ansel's good story; or let the circle hold YOUR name and feel the climbing cold, for the first time, stop; or become the Remembering's road, carrying names to the Wall's edge, the far grey, and the living world. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Find the Remembering and hear how the fire fights the Wall",
+          "completionFlag": "rm.met_wynn"
+        },
+        {
+          "objectiveId": "witness",
+          "desc": "Learn a soul's good story and hold it — or give your own",
+          "completionFlag": "rm.learned_story"
+        }
+      ],
+      "completionFlag": "rm.wynn_answered",
+      "failureFlag": ""
     }
   ]
 }

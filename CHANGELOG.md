@@ -11,6 +11,40 @@
 
 ---
 
+## ❂ v6.87.0 — *"The Remembering"* — the thesis, working (content · hope · payoff)
+
+> The register this run had circled but never landed: **hope at scale — the game's whole thesis actually
+> *working.*** And it isn't a fresh idea dropped in; it's the **payoff** of threads the recent zones have
+> been seeding — the Firebrand's crit ("teach the dead to remember each other"), the Singing's crit ("the
+> counter-song is just someone's name, said loud"), Corliss's wake, Sparrow's step. This weaves the run
+> together and reacts to the souls you saved to get here.
+- ❂ **Wynn** — *keeper of the Remembering, where the dead hold each other's names.* A circle around a fire
+  that gives real warmth, the first honest heat since the grey took you. The price of the warmth: learn
+  someone's name, and let someone learn yours. She watched a loved one fade unwitnessed and got *practical* —
+  asked what the Wall actually needs to take a soul (answer: for it to be **unheld**), and proved that the
+  absence can be filled on purpose. Her sense reveals it isn't faith, it's a *result*: she ran the
+  experiment. *"It's not rage, and it's not surrender. It's the third thing. Witnessing — the one weapon the
+  Wall has no answer for."*
+- ✦ **Ansel** — *a soul being remembered, and glad of it for the first time in death.* A plain man, sure
+  he'd go out unremarked — until someone asked for his *good* story (never the sad one — carry the joy, not
+  the wound) and nine souls learned it, and he stopped fading. His whole ambition, which costs nothing and
+  gives everything: to be made *ten.*
+- 🔁 **The weave (reactive to your road):** if you turned the **Firebrand** (`fb.rook_transformed`), Rook is
+  here — the loudest soul in the grey become the most patient rememberer, *"your counter-song built half of
+  this."* If you saved **Rue** from the singing (`sg.rue_freed`), Rue stands guard at the fire's edge, walking
+  the Wall daily to shout the swaying ones back. The zone *shows you what the souls you saved built when you
+  weren't looking.*
+- 🕯️ **Three ways in:** become the **tenth** to hold Ansel's good story (learn it, say it back whole); the
+  hardest and most personal — **give the circle your own cold name and story**, and feel the climbing frost,
+  for the first time since you came back, *stop* (a soul held in mind doesn't slip, even the Returned); or
+  become the **Remembering's road** — the one who crosses, carrying names past the fire's reach to the Wall's
+  edge, the far grey, and the living world, making the practice as wide as the dead lands.
+- 🔌 Wired through the generator (load + `NPC_SENSE` for both souls + merges + scene dict + a Lamplit→
+  Remembering exit). Tracked side-quest **"Say It Back"** (now **33**). Rebuilt `town_market.html` (**89
+  zones, 271 souls**) and the bundle. **Gate 801/0; full suite green.**
+
+---
+
 ## ♪ v6.86.0 — *"The Singing"* — the horror register, and a soul you can lose (content)
 
 > The one major register this run hadn't hit: **horror** — not shock or gore, but dread earned by the

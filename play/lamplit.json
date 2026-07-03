@@ -157,6 +157,16 @@
           "y": 2
         },
         "label": "▸ a grey canopy and candles — two Unclaimed souls mean to wed, and a first husband watches"
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "to": "remember",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ a fire that gives real warmth, and a circle of the dead who hold each other names against the Wall"
       }
     ],
     "npcs": [
