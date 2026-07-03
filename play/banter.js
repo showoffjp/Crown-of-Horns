@@ -17,7 +17,7 @@ const PRESENT_FLAG = {
   ilfaeril: "companion.ilfaeril.recruited",
   maerin: "companion.maerin.recruited",
   dot: "lf.dot_joined",
-  mournlight: "companion.mournlight.recruited",
+  mournlight: "sq.carry_the_mournlight",
 };
 
 function companionPresent(state, id) {

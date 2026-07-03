@@ -531,6 +531,51 @@
               "next": "fire_road_collector"
             },
             {
+              "text": "*(the bench that held two)* \"…Oona. The one who was finished. The hour she spent on me.\"",
+              "when": {
+                "flags": [
+                  "rd.met_oona"
+                ]
+              },
+              "next": "fire_road_oona"
+            },
+            {
+              "text": "*(the fire on the milestone)* \"…Rook. The rage, and what it was hiding. Where I left that fire.\"",
+              "when": {
+                "flags": [
+                  "fb.met_rook"
+                ]
+              },
+              "next": "fire_road_rook"
+            },
+            {
+              "text": "*(the warm orange weight)* \"…Odell and Marmalade. The lap that kept itself warm.\"",
+              "when": {
+                "flags": [
+                  "wc.met_odell"
+                ]
+              },
+              "next": "fire_road_cat"
+            },
+            {
+              "text": "*(the song at the Wall's lip)* \"…Rue. The singing. How close it came.\"",
+              "when": {
+                "flags": [
+                  "sg.met_rue"
+                ]
+              },
+              "next": "fire_road_song"
+            },
+            {
+              "text": "*(the fire that holds names)* \"…Wynn's circle. The Remembering. What they've built out there.\"",
+              "when": {
+                "flags": [
+                  "rm.met_wynn"
+                ]
+              },
+              "next": "fire_road_circle"
+            },
+            {
               "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
               "next": "1"
             }
@@ -916,6 +961,152 @@
             },
             {
               "text": "*(The one vivid thing in all the grey. Vesper, the Collector, wearing a hundred stolen lives, generous and magnetic and predatory, keeping a court of the half-faded who gave her their best days gladly. You saw what she was and left her to her hoard, undecided. *'Which of us,'* she asked, *'is really the Wall?'* …you didn't answer. You're still not sure you have one.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_oona",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "rd.tended"
+                ]
+              },
+              "text": "*(Oona. The soul who finished — accounts closed, sorrys said, nothing left for the grey to grab — who looked at the coldest soul on the road and spent her last hour on it. On you. You sat. You actually sat, weight down, guard down, and let a dying grandmother hold your cold hand between her two warm ones and say the simple thing no one had ever said: you are doing enough; you are allowed to be tired; the griefs you carry are not yours to keep warm forever. *(the fire is very soft)* …and where she dissolved there was a warmth on the bench that didn't fade for a long while. You checked. You went back once, weeks later, and put your hand on the wood. …still warm. Some hours outlast the souls that spend them. Hers is stacked in you now with all the winters — the one warm layer in the cold — and on the worst nights it is, you've noticed, the layer everything else rests on.)*"
+            },
+            {
+              "text": "*(The old woman on the bench. Oona. Finished, content, ready — and offering the one thing no soul in the grey had ever offered you: an hour with no need in it. And you said the thing you always say. There are others. There's always someone who needs. …and you walked, and you felt her unhurt, unsurprised smile follow you up the road. 'The day will come when you need to finish too,' she said. 'You'll wish you'd learned how to let a soul sit you down.' *(the fire pops, quietly)* …the bench is probably empty by now. She didn't have long, and she wasn't afraid, and she wanted nothing — except, for one hour, to give. You couldn't take it. That's the entry in your ledger you keep not reading: every soul in the grey has learned to receive from you. …you have never once let it run the other way. …the bench held two. It always did.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_rook",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "fb.rook_transformed"
+                ]
+              },
+              "text": "*(Rook. The firebrand who screamed at the Wall for years so they'd never have to feel one beloved face going gentle into it — and you found the exact seam. Not calm down. Aim. They said the name at last, the one at the bottom of the whole inferno, and mourned it in front of you, and the wild scattered heat hammered itself into a single edge. 'You didn't put my fire out. You gave it EYES.' *(the fire burns steady)* …word travels up the road, even here. The shouting has stopped on the milestone. In its place, something quieter and far more dangerous: a soul teaching the drifting dead to remember each other — the one fuel the Wall can't digest, the one fire that warms instead of spends. You did that with a sentence. It's worth remembering, on the nights you feel useless, exactly how much a well-aimed sentence weighs.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "fb.aimed"
+                ]
+              },
+              "text": "*(Rook. You told them the truth nobody else would carry up that road: that the rage was real and just and aimed at the wrong thing — that they weren't raging at the Wall, they were raging so they'd never have to stop and grieve. And they stopped. In front of you, for the first time in years, the firebrand stood still — and the grief came, huge and specific and overdue, and the fire didn't go out. It changed. It found its center. 'Thank you for letting me keep it and mourn.' *(the fire settles)* …you keep thinking about that construction. Keep it AND mourn. Not either. Not choose. Both, in one breath, the grief aiming the flame. …you have a fire of your own, cold one, and a grief or two under it. …you know what you told them. …the fire is patient about when you'll tell yourself.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "fb.fanned"
+                ]
+              },
+              "text": "*(Rook. They asked if the rage was madness or the calm was, and you stood on the milestone and shouted with them, and it felt — you can admit it here, to the fire, at night — magnificent. Souls lifting their heads. The drift arrested. Rage doing what rage does best, which is feel like power in the exact hour powerlessness is unbearable. *(the fire flickers)* …and down that same road sits a grey hollow named Cinder who shouted just as magnificently for a century, and burned through the anger, and then the memory, and then the beloved face itself — kindling, all of it — until she couldn't recall the name she'd spent a hundred years being furious for. You've met the ash. You fanned the flame anyway. …maybe Rook is different. Maybe rage with a witness burns cleaner. …you tell yourself that, some nights, and some nights the fire doesn't answer.)*"
+            },
+            {
+              "text": "*(The firebrand on the milestone, roaring at the drifting dead; the grey ash of a woman down the road who was them, a century early. You walked the length between those two fires and didn't choose. Rook is still shouting. Cinder is still sitting. And somewhere under the roar is a name Rook hasn't said aloud in years, because saying it means standing still, and standing still means feeling it. *(the fire is quiet)* …'don't leave a man half-sentenced,' the witch-finder told you once, in another stone. A soul half-met is its own kind of half-sentence. …the milestone's still there. The fire's still up. …it won't be forever. Fires that burn to avoid a grief run out of everything eventually — anger first, then memory, then the name. …ask Cinder.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_cat",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "wc.brought_cat"
+                ]
+              },
+              "text": "*(Odell, and the cat. You went out into the wide grey where the animal-souls drift and you found her — or you didn't, and she strolled out from behind the chair anyway, because a cat is not found, a cat arrives — and either way there is now, at the water's edge, an old man with a warm orange weight in his lap and one hand buried in the fur of the only creature in creation that chose him. *(the fire warms a degree)* …'took your time,' he said to her. That was all. Seventeen years and one death of waiting, and the whole reunion fit in three words, because the important part wasn't sayable — it never is — the important part was the weight, and the purr like a small furious engine, and an old man closing his eyes. …you will save greater souls than Odell. You will unmake laws and turn witch-finders and carry names across the Wall itself. …and on the last night, when the road runs out, it is entirely possible the thing you remember is the cat, arriving, pretending it was a coincidence. …some warmths are just that stubborn.)*"
+            },
+            {
+              "text": "*(The old man in the chair at the water's edge, palm up, keeping a lap warm for a cat that hasn't come. Odell. You heard the whole seventeen years of it — the woodpile, the fury, the never-once-thanking — and you heard the fear under the pride too: not that she won't come, but that he'll fade before she does, and she'll arrive at last to a warm lap that isn't there. And you walked on. *(the fire is gentle about it, which is somehow worse)* …he's still there. That's the thing about Odell — he's the one soul in the grey you never have to wonder about. Same chair. Same palm. 'It's always any minute now.' …somewhere out in the wide grey there is, or is not, an orange cat with a torn left ear, on her own insulting schedule. …you could still go look. The animals of the grey favor you. …the lap is warm, cold one. …but laps don't keep forever, and neither, despite the bravado, does he.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_song",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "sg.rue_freed"
+                ]
+              },
+              "text": "*(Rue, at the Wall's lip, swaying to a song that knew their name — and you didn't just pull them back, you handed them the counter-song whole: the name of the person they still matter to, said loud, by someone who stayed. And they didn't just come back. They turned. 'The Wall sings one soul at a time because it has to isolate them to win. So we stop standing at the edge ALONE.' *(the fire crackles, almost fierce)* …Rue walks the Wall's edge every day now. Finds the ones who sway. Shouts them back by the names of what they love, and brings them to the fire, and teaches the trick onward. You didn't save a soul that day, cold one — you seeded a patrol. The Wall has sung unopposed for eleven thousand years. …as of one shouted name, it has competition.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sg.walked_the_song"
+                ]
+              },
+              "text": "*(Rue. The singing. You couldn't find the anchor fast enough, so you did the thing only you can do: you turned toward the Wall and walked into the song yourself — and it was warm, and it was a hand smoothing your hair, and it said you can stop now, and you understood, completely, why souls walk in. And you took one more step and got your arm around Rue and turned around, against the sweetest pull there is, and dragged you both back out. *(the fire dims, just slightly, in honesty)* …it followed you. You knew it would. There's a low note under everything now — under the banter, under the bread, under this fire — patient, unhurried, sure of you. 'Don't let it turn out you left something IN there,' Rue begged. …you didn't. You're almost sure you didn't. …but you paid a toll on that crossing, cold one, and the fire won't insult you by pretending otherwise. …some mercies cost exactly what they look like they cost. …you'd pay it again. That's not the comfort it should be. …it's something better: it's true.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sg.lost_rue"
+                ]
+              },
+              "text": "*(Rue. …the fire holds this one carefully, because you do. The name came a half-beat late, or a shade uncertain, and the song poured into the gap, and their grip on your arm went slack, and they turned toward the Wall with the ease of a sleeper turning over — radiant, unhurried, relieved — and walked in, and did not look back, because the song does not permit looking back. That is part of its mercy. That is part of its horror. And your hand closed on cold air where a sleeve had been. *(the fire does not flicker; it holds absolutely still)* …the song brushed you on its way out. You remember exactly what it said. 'There is no rush. I will still be here when you are tired enough.' …hear the fire now, cold one, and hear it every night after: you were a half-beat slow ONCE, on ground where the Wall had been rehearsing for eleven thousand years. Every other name you have ever shouted got there on the beat. The empty place where Rue stood is real, and it is yours to carry, and it is not the measure of you. …the measure of you is that tomorrow, at some other edge, you will reach again. …the Wall knows that. …it's why it bothered to say goodbye.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sg.rue_saved"
+                ]
+              },
+              "text": "*(Rue, at the Wall's lip, half a step from walking into a song that promised rest — and you grabbed them by both shoulders and roared a name into the half-inch between you until it got through. Not clever. Not gentle. A blunt instrument against a beautiful lullaby, and it worked, because at the very edge that's the only thing that does. 'Thank you for not reasoning with a drowning soul.' *(the fire settles)* …you keep turning that over. All your careful reads, all your surgical mercies — and what saved Rue was volume and a grip. …worth remembering, cold one: sometimes the work is a scalpel. …and sometimes the work is just refusing, at the top of your lungs, to let go.)*"
+            },
+            {
+              "text": "*(The soul at the Wall's lip, swaying, eyes half-shut, telling you how sweet the song is. Rue. You made yourself let go of their arm — there are always others, there are always others — and the last thing you heard as you walked away wasn't for you. 'Coming. I'm coming. Just let me watch them go first.' *(the fire is very low)* …you don't know. That's the weight of it: you will never know whether they meant you, leaving — or whether they had already turned. The road bent, and the grey closed, and the not-knowing walks with you now, a half-step behind, patient as the song itself. …you should not have let go of the arm. …the fire won't soften that, because you didn't ask it to. …but the Wall's edge is still there, cold one. And souls still sway on it, every hour. …the next arm you take hold of — …don't let go until it's over. …either way. …just don't let go.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_circle",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "rm.gave_own"
+                ]
+              },
+              "text": "*(Wynn's fire. The circle where the dead hold each other's names against the Wall — and you, the witness of a hundred souls who was never once the witnessed, sat down in it and did the hardest thing of your whole cold road: you told them your name. Not the Returned. Not the cold one. The name from before. And one good story, warm, from a life a hundred years gone. And they said it back to you — all of them, together, once. *(the fire burns very steady, as if minding something precious)* …and the frost stopped climbing. You've checked every morning since, the way you'd check a wound: it hasn't retreated — nothing so simple — but it has not gained an inch since the circle spoke. Nine souls hold your name now. A soul held in mind does not slip, and that law does not exempt the one who crosses. …'nobody holds the whole grey alone.' …you are held, cold one. It is still strange. Let it stay strange. …strange is how new warmth feels to a soul that forgot the temperature.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rm.carries_names"
+                ]
+              },
+              "text": "*(Wynn's fire — and the commission she laid on you, the first soul in the grey to ever look at the Returned and see not a service but a road. You carry the circle's names now. All of them. You say them at the Wall's edge where the song sings; you say them in the far grey where souls dissolve alone; you will say them, someday, on the living side, where a name the Wall meant to erase gets spoken in the warm world one more time. *(the fire brightens toward its edges)* …the Remembering was a campfire's reach of rebellion until you sat down at it. Now it travels at the speed of your cold feet, which have never once stopped. …'a soul held in a mind can't be forgotten — and you can put our souls in minds the fire will never touch.' …you always wondered what the crossing was FOR, cold one. Why the Wall let one soul back out. …maybe it didn't. …maybe something older than the Wall needed a courier.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "rm.learned_story"
+                ]
+              },
+              "text": "*(Wynn's fire, and Ansel — the plain man made ten. You sat on the far log and learned a nobody's one good story: the summer evening, the small made thing, the child's face when it worked. You hold it now, whole, the way you hold the heavy griefs — except this one weighs nothing and warms like a coal. And you said it back to him, every detail, in your own cold voice, and watched a man who expected to go out unremarked crumple with joy at the sound of his own life coming home out of a stranger's mouth. *(the fire glows)* …'that's the kindest thing anyone's done for me, in life or death. You decided I wouldn't be forgotten. While you last.' …while you last. You keep that phrase next to the cold, deliberately, where they can argue. …you are the tenth mind holding Ansel of the summer evening. …it costs you nothing. …it is, by the only arithmetic that matters in the dead lands, the single most efficient mercy you have ever performed. …carry the good, cold one. …the sad carries itself.)*"
+            },
+            {
+              "text": "*(A fire that gives real warmth, off the Lamplit Quarter, ringed with the only souls in the grey who are not fading — because they decided, ordinary and unarmed, to stop forgetting each other. Wynn's Remembering. You stood at its edge and watched the one weapon the Wall has no answer for being passed from hand to hand like bread. …and you didn't sit down. *(the fire neither accuses nor excuses; it just burns)* …'when you tire of carrying the whole grey on your own cold shoulders — the fire's here. The room is always here.' …that's what she said to your back. Not a rebuke. A door, left open, the way you leave a door for someone you expect. …the circle goes on holding, out there, nightly, whether you come or not. Names said back. Edges holding firm. The thesis, working, without you. …that last part is the strange one, isn't it, cold one. …something good in the grey …that doesn't need you. …you could just go and be WARM at it. …the fire will keep saying that …until you hear it.)*"
             }
           ]
         }

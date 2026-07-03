@@ -837,7 +837,7 @@ function pickDraw(node, state, rnd){
   return pool[Math.floor(rnd()*pool.length)].to;
 }
 // --- party banter (reactive companion cross-talk; mirrors banter.js) ---
-const BANTER_PRESENT = {garrow:null, roen:"companion.roen.recruited", varra:"companion.varra.recruited", naeve:"companion.naeve.recruited", ilfaeril:"companion.ilfaeril.recruited", maerin:"companion.maerin.recruited", dot:"lf.dot_joined", mournlight:"companion.mournlight.recruited"};
+const BANTER_PRESENT = {garrow:null, roen:"companion.roen.recruited", varra:"companion.varra.recruited", naeve:"companion.naeve.recruited", ilfaeril:"companion.ilfaeril.recruited", maerin:"companion.maerin.recruited", dot:"lf.dot_joined", mournlight:"sq.carry_the_mournlight"};
 function banterPresent(state,id){ if(!(id in BANTER_PRESENT)) return false; const f=BANTER_PRESENT[id]; if(f===null) return id==="garrow"; return state.bools[f]===true; }
 function banterReqMet(state,req){ req=req||{}; for(const c of (req.companions||[])){ if(!banterPresent(state,c)) return false; } for(const f of (req.flags||[])){ if(state.bools[f]!==true) return false; } for(const f of (req.flagsNot||[])){ if(state.bools[f]===true) return false; } for(const k in (req.int||{})){ if((state.ints[k]||0)<req.int[k]) return false; } return true; }
 function banterEligible(state,b){ if(b.once!==false && state.bools["banter.seen."+b.id]===true) return false; return banterReqMet(state,b); }

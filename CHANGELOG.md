@@ -11,6 +11,37 @@
 
 ---
 
+## 🧶 v6.88.0 — *"The Party Catches Up"* — 18 new banters + 5 campfire threads for the whole run (content · cohesion)
+
+> The biggest cohesion debt of the run, paid: the party banter catalog knew *nothing* about the 13 zones
+> built since v6.66.0 — the companions had never once reacted to Wessel, Vidkun, Voss, Sefa, the wedding,
+> Sparrow, Vesper, Oona, Rook, the cat, Rue, or the Remembering. Now they do — **24 → 42 banters** — and
+> the Hearth's road-reckoning covers every zone (**22 reflection threads**). Built with a fan-out of
+> parallel writers + adversarial verifiers where capacity allowed, hand-finished where it didn't, and
+> everything re-verified by the live gates (every flag cross-checked against real content).
+- 🔥 **Highlights of the 18:** Varra learning that Wessel signed *"the same damned ink"* as her own soul-sale
+  and bought a daughter the dawn with it (*"how does SHE get to make it holy"*); Naeve trying to *weigh* a
+  mother's love after the double crossing (*"to the cargo"*); the Mournlight, one grief heavier, making you
+  feel the condemned path (*"a forgiveness carried a hundred years and never once received — that is the
+  exact substance I am made of"*); Varra sobbing at the wedding (*"something in the grey got in my eye…
+  there's PAPERWORK"*); Roen recognizing his own alley in Sparrow's queue; Ilfaeril's midnight hand after
+  you tasted Vesper's hoard (*"given warmth is the only kind that doesn't turn to more cold"*); Garrow's
+  doctrine of the half-beat if you lost Rue; the cat tribunal (*"the cat has seen the paperwork of the
+  universe and declined to sign"*); and Naeve finally admitting her graphs of Maerin's fading were love she
+  was allowed to say out loud — *"keep measuring me, then. loudly. it's working."*
+- 🪞 **5 new "the fire" threads** — Oona (tended / walked on), Rook (transformed / aimed / fanned / left
+  half-met), the cat, the Singing (freed / walked-the-song / **lost Rue** — the heaviest entry at the fire —
+  / saved / left swaying), and the Remembering (gave your own name / became the road / made ten / didn't
+  sit). The hub now reckons **22 threads**, one for every major arc in the game.
+- 🐛 **Real bug found by the new content:** the banter engine's `PRESENT_FLAG` map carried a dead entry —
+  `mournlight → companion.mournlight.recruited`, a flag no content ever sets (the Mournlight joins via
+  `sq.carry_the_mournlight`). Latent since the system shipped; exposed the moment a banter actually used the
+  Mournlight; fixed in both engine copies. *The live cross-check works.*
+- ✅ Rebuilt `town_market.html` + the bundle. **Banter gate 13/0 (42 banters, no dead entries); gate 801/0;
+  full suite green.**
+
+---
+
 ## ❂ v6.87.0 — *"The Remembering"* — the thesis, working (content · hope · payoff)
 
 > The register this run had circled but never landed: **hope at scale — the game's whole thesis actually
