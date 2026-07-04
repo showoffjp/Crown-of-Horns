@@ -181,6 +181,48 @@
           "flag": "party.orin_may_join"
         },
         "hail": "*(a woman who was once a Justiciar of the Choir stands without the grey of the order, without a writ, without the certainty she came in with — and wears instead the harder-won calm of a soul that followed a counterexample to the end of the world and chose, with no doctrine to hide behind, what to guard)*"
+      },
+      {
+        "id": "eli2",
+        "name": "Eli",
+        "title": "keeper of the threshold step — the chain, unbroken",
+        "x": 9,
+        "y": 6,
+        "hue": 55,
+        "sigil": "✲",
+        "when": {
+          "flag": "gr.sparrow_answered"
+        },
+        "conv": "epi.eli",
+        "hail": "*(A soul waits near the square's edge, grown now — grown the way the dead grow, which is not in height but in steadiness — and something about the way he sits, patient, watchful, keeping half an eye on the road for anyone standing frozen at its edge, is instantly familiar. He was small once, and very newly dead, and very afraid, and he clutched a nightshirt hem and asked you if he'd be alone forever. He sees your cold and stands, and his face does something between a salute and a smile.)* …you *looked* at my *face.* …*(he says it like a password, decades old)* …*first* one who ever did. i've told the story so many times the little ones think i made you *up.* …*(he gestures back down the road, toward the intake queue, the step, the whole apparatus of arrival)* …i *kept* it, cold one. …the *step.* …i want you to know it before you hear it from anyone else: …*i* *kept* the *step.*"
+      },
+      {
+        "id": "ansel2",
+        "name": "Ansel",
+        "title": "the plain man, unfaded — famous for a swing",
+        "x": 1,
+        "y": 3,
+        "hue": 200,
+        "sigil": "✦",
+        "when": {
+          "flag": "rm.learned_story"
+        },
+        "conv": "epi.ansel",
+        "hail": "*(A plain soul sits by the trees, and the remarkable thing about him — the thing that stops you cold — is that there is nothing remarkable about him at all: no fading, no smudge, no soft edges. Years on, and Ansel is exactly as solid as the day you learned his one good story. He spots you and lights up like a hearth.)* …*ten!* …*(he points at you, delighted, an old joke resumed mid-sentence)* …you were *ten*, cold one! do you know what the count is *now?* …*(he leans in, a plain man confiding an impossible fortune)* …i've *stopped* *counting.* the circles *spread* — there's *fires* now from the *queue* to the *far* *grey* — and at *every* *one* of them, *somebody* knows about the *swing.* …*(he shakes his head, wondering)* …a *nobody*, cold one. …*outlasting* the *grey* …on *one* *good* *summer* *evening.*"
+      },
+      {
+        "id": "voss2",
+        "name": "Voss",
+        "title": "the honest guide — forty years of fraud, decades of the truth",
+        "x": 9,
+        "y": 3,
+        "hue": 290,
+        "sigil": "❧",
+        "when": {
+          "flag": "pd.voss_redeemed"
+        },
+        "conv": "epi.voss",
+        "hail": "*(A familiar velvet coat, brushed clean now, and the quickest hands in the dead lands — folded, for once, behind his back, in the posture of a man off-shift. Voss. The pardoner. He clocks you across the square and his grin arrives before he does.)* …*there's* my *first* *honest* *customer!* …*(he sweeps a bow that is only half theater now)* …*look* at you. still *cold*, still *walking*, still — *(softer, and the patter drops away entirely)* …still the one who *checked* the *merchandise.* …*(he straightens, and there is something in his face that was never there behind the old stall: rest)* …i'm *between* *shifts*, cold one. …*shifts.* …*me.* …*forty* years i sold the *dying* a *fake* *road* *home* …and you would not *believe* what the *honest* version *pays.* …*(a wink)* …*nothing.* it pays absolutely *nothing.* …i've never been *richer* in my *death.*"
       }
     ]
   },
@@ -2134,6 +2176,344 @@
             }
           ],
           "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "epi.eli",
+      "title": "Eli — the keeper, years after",
+      "npc": "eli2",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Eli",
+          "onEnter": [
+            {
+              "key": "epi.met_eli",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "gr.promised_successor"
+                ]
+              },
+              "text": "*(He sits back down on the square's low wall the way he sits on the step — a habit gone all the way to the bone — and pats the stone beside him.)* …you *promised* her, they tell me. Sparrow. …*'the* *step* *won't* be *empty. the* *chain* *won't* *break.'* …*(quietly)* …i was the *scared* *little* *one* she was greeting *while* you *said* it. i didn't know i was *standing* *inside* a *promise.* …*(he spreads his hands — steady hands now, hands kids grab onto)* …well. *look* at it, cold one. …*kept.* …i sat the step when she went soft. and when the queue got *long* i taught the rules to another grown-one, and *she* keeps a step at the *east* *arrival* now, and there's a boy learning for the *far* *gate* — …*(he counts on his fingers, proud as a kid, steady as a keeper)* …*four* *steps*, cold one. four, where there was *one*, where before *her* there was *none.* …your *promise* has *branches* now. …i thought the *one* who *made* it …should get to *see* the *tree.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "gr.greeted_sparrow"
+                ]
+              },
+              "text": "*(He studies you a long moment, and there is something old and warm working behind his grown face.)* …she *told* me, you know. Sparrow. before she went *all*-the-way *soft.* …the *last* *clear* thing she ever said to me: *'a* *cold* one came, *Eli. and* they *sat* *down* on the *step* …and said the *rules* *back* to me. …*somebody* *greeted* the *greeter.'* …*(his voice thickens, decades late)* …she went down *held*, cold one. the kid who held a *thousand* shaking hands — she got *hers* held, at the *end*, because of *you.* …and i watched it, small and scared and *learning* — and what i *learned* was: the *job* *includes* the *keeper.* …*(he taps the low wall, the way she used to tap the step)* …so every keeper *since* gets *greeted.* rule *six*, we call it. …the *newest* rule. …*yours.*"
+            },
+            {
+              "text": "*(He settles onto the square's low wall, patient as stone — a posture learned from a small fierce girl a long time ago.)* …you *knew* her. Sparrow. the *first* keeper. …*(he nods slowly)* …then you *know* what the *step* *is.* …i was the *newest* *scared* *one*, once — you *carried* me the ten steps to her, or *near* *enough* — and the *rules* got me *through*, and when she went *soft* …*someone* had to *sit* *down.* …*(simply)* …so i *sat.* …*(a small grin, still a little bit the kid in the nightshirt)* …turns out you *do* get to *keep* being *you* here, cold one. …you were the *first* to *promise* me that. …*ask* whatever you *like.* …the *keeper* of the *step* …has *all* the *time* the *rules* *bought* him."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Eli",
+          "text": "*(He talks the way keepers talk — one eye always on the road's edge, the way she always had one eye on the queue.)* …the *little* ones still come up *shaking*, cold one. that *never* stops. the grey makes *new* *dead* every hour, and the smallest of them still stand at the edge *calling* for people who can't *come.* …*(steady)* …but they don't stand *long* anymore. that's the *difference.* that's the *whole* *empire* of it: …a kid at the worst arrival in creation waits *minutes* now …instead of *forever.* …*(he looks at you, and the grown steadiness cracks just enough to show the boy who was looked at, once, by the first pair of eyes that didn't want anything)* …*rule* *five* still does the *most* *work.* …i say it *exactly* like she said it. …i say it and i *think* of her, *every* time, which means she hasn't faded a *hair* — …*(softly)* …the Wall never *got* her, cold one. …she's in the *rules.* …she's in *every* *kid* who *stops* *shaking.*",
+          "choices": [
+            {
+              "text": "*(read the keeper — the scared child, grown into the thing that stopped)* \"Let me look at you a moment, Eli. At what the step made of the boy in the nightshirt.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "epi_e_read",
+              "effects": [
+                {
+                  "key": "epi.read_eli",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses, come to see the tree)* \"I'm still the one who walks both ways, Eli — and I still carry things. So give me the thing to carry: what should the grey know about the steps? I'll say it everywhere I go.\"",
+              "tag": "returned",
+              "next": "epi_e_carry",
+              "effects": [
+                {
+                  "key": "epi.eli_word_carried",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Say it for me, Eli. Rule five. I want to hear it in the keeper's voice.\"",
+              "next": "epi_e_rule"
+            },
+            {
+              "text": "\"Keep the step, Eli. That's all I came to see.\"",
+              "next": "epi_e_leave"
+            }
+          ]
+        },
+        {
+          "id": "epi_e_read",
+          "speaker": "Eli",
+          "onEnter": [
+            {
+              "key": "epi.read_eli",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He holds still for you, unafraid — he learned very young that being looked at, properly, is the opposite of danger — and your sense goes into the grown keeper and finds the architecture of him.)* *(And you find the boy is still there — Eli-bean, the kitchen, the mother's voice, the nightshirt, all of it kept, none of it faded, because a soul with a purpose holds its shape the way a sail holds wind. But it is what got built around the boy that stops your breath: a whole structure of steadiness, laid course by course over years, every stone of it quarried from one afternoon — the day a cold stranger looked at his face instead of his hands, and a small fierce girl said you can always sit on the step. Your sense reads that he does not keep the step out of debt, or grief, or even gratitude, though all three are in him. He keeps it because it is, simply, the best thing he knows to be — because the first true thing he learned in death was that the worst place in creation is survivable if one person stops, and he has never once found a better use for a soul than being the person who stops. And your sense reads the quiet, enormous thing at the bottom: he is not afraid. Not of the grey, not of the fading, not of the Wall. A boy who arrived more frightened than any soul you have ever read has become, by way of one greeting and ten thousand repetitions of it, the least frightened soul in the dead lands — because fear, he learned on the step, is just love with nowhere to go, and he has spent his whole death giving it somewhere to go.)*"
+        },
+        {
+          "id": "epi_e_carry",
+          "speaker": "Eli",
+          "onEnter": [
+            {
+              "key": "epi.eli_word_carried",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He thinks about it with the seriousness of a keeper asked for the keys, and when he answers, it is not a message — it is a recruitment.)* …then carry *this*, cold one, to every corner the grey has: …*the* *step* *is* *not* a *place.* …*(he taps the low wall)* …that's what they get *wrong*, the ones who hear about us. they think the step is a *stone* by the *queue* and four odd souls who *sit* on it. …it *isn't.* the step is a *decision*, and *anyone* can make it, *anywhere*, *tonight:* …*see* the *scared* one. *stop.* *sit* *down* on *their* *level.* *tell* them the *rules* — and if you don't *know* the rules, *make* *some* *up*, that's all *she* ever did. …*(he grips your shoulder, keeper to courier)* …tell the *whole* *grey*, cold one: …*you* *don't* *need* *permission* to *be* the *thing* *that* *stops.* …*that's* the *message.* …*Sparrow* *wrote* it. …i just *kept* it *lit.*"
+        },
+        {
+          "id": "epi_e_rule",
+          "speaker": "Eli",
+          "text": "*(He straightens, and clears his throat, and says it — and you can hear both of them in it, the grown keeper's steadiness and, underneath, preserved like a fly in amber, a small fierce girl's exact cadence.)* …*'it's* *okay* that you're *scared.* …*being* *scared* means you *had* something *good* enough to be *scared* of *losing.'* …*(he lets it sit, the way she used to)* …*(then, quietly)* …i've said it *four* *thousand* times if i've said it *once*, cold one. to kids, to grown ones, to a *soldier* twice my death-age who was *ashamed* of *shaking.* …and it has *never* *once* *failed*, and you want to know *why?* …*(the keeper's whole heart, plainly)* …because it isn't *comfort.* …it's *reframing.* it takes the *worst* feeling in the *world* and hands it *back* to you as *proof* *you* *loved* *your* *life.* …*(he smiles, and it is her smile, kept)* …the *first* one's *free.* …she *always* gave the *first* one *free.*"
+        },
+        {
+          "id": "epi_e_leave",
+          "speaker": "Eli",
+          "text": "*(He nods, and turns back toward the road's edge, the watch resuming as naturally as breath.)* …*aye.* …*(and then, as you go, in the voice of the boy in the nightshirt, just once, deliberately)* …hey — cold one. …*you* *came* *back.* …*(a beat, and you can hear the whole of it in the small words)* …*people* *say* that, you know. …*'i'm* *coming* *back.'* …the *nurse* said it. *everyone* says it. …*(the keeper's smile, wide open)* …you're one of the *ones* *who* *does.* …i *told* the little ones you were *real.* …*now* they'll *believe* me."
+        }
+      ]
+    },
+    {
+      "id": "epi.ansel",
+      "title": "Ansel — unfaded, years after",
+      "npc": "ansel2",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "epi.met_ansel",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "rm.gave_own"
+                ]
+              },
+              "text": "*(He shuffles over to make room he doesn't need to make — some things never change — and then he does the thing that undoes you: he says your name. Your real one. The one from before. Easily, warmly, the way you say a thing you've kept polished with use.)* …*(off your face, gently)* …*'course* i still have it. …you gave the circle your *name*, cold one, and your *one* *good* *story* — and a *held* thing *stays* *held*, that's the *entire* *law* of us. …*(he leans in, glowing)* …and it *spread.* your name's said at *fires* you've never *sat* at. souls you'll never *meet* know the *warm* *story* — souls hold *YOU*, cold one, in the *far* grey, at the *queue*, all the way out at the *Wall's* *edge.* …*(he taps his own chest, then points at yours)* …*frost* *stopped* *climbing* *yet?* …*(a knowing, plain-man grin)* …*thought* so. …*forty* *minds* and *counting*, last i heard. …you are the *most* *held* *soul* in the *dead* *lands* …and you *earned* it *one* *name* at a *time.*"
+            },
+            {
+              "text": "*(He beams, and pats the ground beside him, and you notice again what years in the grey have not done to him: nothing. No smudge, no thinning, no soft edges. A plain man, entire.)* …*sit*, *sit* — the *tenth* mind gets a *seat*, that's *protocol* now, i *invented* it just this *minute.* …*(then, warm and wondering, the marvel never having worn off)* …it *worked*, cold one. …it *kept* *working.* …you learned a *nobody's* *good* *story* and said it *back*, and then Wynn's fire made *more* *fires*, and the *more* *fires* made *more* — …*(he spreads his plain hands at the whole held world of it)* …*empires* fell in the time i've been *sitting* *here* *not* *fading.* …i did the *arithmetic* — well, *Naeve's* kind of soul did it *for* me, a *measurer* who comes by — …*(he grins)* …i have now *outlasted* *three* *kings* i once paid *taxes* to. …on *one* *swing* …built on *one* *summer* *evening* …*held* by souls who *never* *saw* it."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Ansel",
+          "text": "*(He tells you the years the way he told you the story — plainly, and with the shine of a man who still can't quite believe his luck.)* …the *circles* *spread*, cold one. that's the *headline.* Wynn always *said* the fire's reach was the fire's *limit* — so the fire *stopped* *having* *one*. souls *carry* the practice now. …a *rememberer* at the *queue* greets the new dead with *'tell* me your *name* and *one* *good* *story'* — and the poor things *arrive* *held*, before the grey can *touch* them. …*(he shakes his head, delighted)* …and here's the part i *save* for people who were *there* at the *start:* …*Wynn* *faded.* …*(gently, before you can grieve it)* …*no* — *hear* the *whole* thing. she faded the way she always *said* she would: *witnessed.* *held.* a *hundred* souls saying her name in the same *breath.* and her *name* *didn't* *go* — it's *said* at *every* fire, *every* night, *first*, before *any* other. *'Wynn*, who *asked.'* …*(he looks at you, plain and shining)* …*that's* not a *death*, cold one. …*that's* a *promotion.*",
+          "choices": [
+            {
+              "text": "*(read the plain man the grey couldn't take)* \"Let me look at you, Ansel. Years on. I want to see what being held that long builds in a soul.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "epi_a_read",
+              "effects": [
+                {
+                  "key": "epi.read_ansel",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses — the Remembering's first courier, reporting in)* \"I carried the names, Ansel — every road I walked, I said them. The Wall's edge. The far grey. Yours most of all; it's a good story, it travels light. So tell me the count true: did the carrying matter?\"",
+              "tag": "returned",
+              "next": "epi_a_courier",
+              "effects": [
+                {
+                  "key": "epi.ansel_count",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Tell me the swing story, Ansel. One more time. I want to make sure I still have it right.\"",
+              "next": "epi_a_story"
+            },
+            {
+              "text": "\"Stay solid, Ansel. That's all I came to check.\"",
+              "next": "epi_a_leave"
+            }
+          ]
+        },
+        {
+          "id": "epi_a_read",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "epi.read_ansel",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He lets you look, open as ever, and your sense goes in expecting the same simple joy you read at Wynn's fire — and finds it grown into something with foundations.)* *(The healed scar of the plain man's ache is still healed — but where there was once the fresh wonder of being asked, there is now the settled, load-bearing certainty of a soul that has tested its own held-ness against years, and found it holds. Your sense reads what the time built: he is not merely remembered now; he has become a rememberer, one of the best in the grey, precisely because he knows from inside what the holding is worth — a man who was starving once makes the most careful baker. He has learned four hundred names. He has learned four hundred good stories, and holds them the way you hold the heavy griefs, except they weigh nothing and warm like coals, and when a soul at any fire goes thin, it is Ansel, more often than not, who notices first and says their story back first, because the plain man who expected to go out unremarked has appointed himself the watchman of everyone else's mattering. And your sense reads the deepest change, the one he would never claim aloud: he no longer needs the count. Ten, forty, four hundred — the number stopped being the point years ago. The point is the practice, the nightly ordinary radical act of it, and somewhere in the practicing, the man who wanted only to be made ten quietly became the thing he most admired: a keeper of the fire that keeps everyone. He was never nobody. Now he knows it so thoroughly he has stopped needing to know it, which is the only kind of knowing that lasts.)*"
+        },
+        {
+          "id": "epi_a_courier",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "epi.ansel_count",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The question — did the carrying matter — makes him laugh, and then makes him stop laughing, because the true answer deserves a plain face.)* …*did* it *matter.* …*(he counts it off, a plain man's ledger, kept exactly)* …a soul at the *Wall's* *edge* heard you say a *stranger's* *good* *story* out loud — and *stepped* *back* from the *singing*, because if a *nobody's* *swing* was worth *carrying*, maybe *their* *something* was too. …*that* one's at the *fires* *now*, cold one. *told* me *herself.* …a *rememberer* at the *queue* uses *your* *route* — the roads *you* said the names on — as the *map* for the *carrying*-*circuit.* they call it — *(he grins, and delivers it deadpan)* …*'the* *cold* *road.'* *capital* letters. you're *infrastructure* now. …*(then, softly, the whole answer)* …you asked *once*, at Wynn's fire, what the *crossing* was *for.* why the Wall let *one* soul back *out.* …*(he takes your cold hand in his two plain warm ones, the way an old woman on a bench once did)* …*this*, cold one. …it was for *this.* …*every* name you *carried* is a soul the grey *couldn't* *finish.* …the *carrying* didn't just *matter.* …the carrying is the *reason* …the *count* …*keeps* *going* *up.*"
+        },
+        {
+          "id": "epi_a_story",
+          "speaker": "Ansel",
+          "text": "*(His whole face opens — nobody new ever asks, and the tenth mind asking twice is riches — and he tells it, and it has not changed by one word, because a held story keeps its shape.)* …*(the summer evening. the little boat — or the swing, or the shelf; it is all three now in your keeping and exactly one thing in his — built with his own plain hands for a child he loved. the child's face when it worked. the plain shining pride of a plain man who made one small good thing that outlasted him.)* …*(and when he finishes, he watches you check it against your keeping, and nods, satisfied, a craftsman inspecting a joint that held)* …*still* *got* it. …*word* for *word.* …*(quietly, with everything in it)* …do you know what that *is*, cold one? *years*, and a *hundred* *souls* between, and the *tenth* *mind* still has it *true?* …*(he touches his own solid, unfaded chest)* …*that's* what this is *made* of *now.* …not *luck.* not *magic.* …*craftsmanship.* …*yours.* …*(a plain man's benediction, worth more than a god's)* …you *keep* a *story* the way i *built* that *swing.* …*to* *last.*"
+        },
+        {
+          "id": "epi_a_leave",
+          "speaker": "Ansel",
+          "text": "*(He waves you off cheerfully, settling back against the tree, solid as the tree.)* …*go* *on*, then. …*(and calls after you, the old joke, still warm)* …*eleventh* mind's *out* *there* *somewhere*, cold one! *no* *hurry!* …*(then, just before you're out of earshot, plainly, the way he says everything)* …hey. …*thank* you for *stopping.* …*then* *and* *now.* …*most* never stop *once.* …*you* made it *twice.* …*(he grins, and holds up ten fingers, and folds one down at a time as you walk away, counting you, keeping you, the way the held keep the holder.)*"
+        }
+      ]
+    },
+    {
+      "id": "epi.voss",
+      "title": "Voss — the honest guide, years after",
+      "npc": "voss2",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Voss",
+          "onEnter": [
+            {
+              "key": "epi.met_voss2",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "pd.voss_guide"
+                ]
+              },
+              "text": "*(He falls into step beside you, and the years have polished the showman into something you'd never have predicted at the old cobweb stall: an institution.)* …the *gates* *operation*, cold one — you'll want the *report*, you're the *investor.* …*(he ticks it off with the old quick hands)* …*six* guides now. *four* of them *ex*-*frauds* — i *recruit* from the *competition*, it's the only *labor* *pool* that already knows the *patter* — retrained on the *one* pitch none of them could *beat.* …the *truth.* …*(he shakes his head, still half-disbelieving his own books)* …we meet *every* *arrival* *queue.* '*welcome* to the *dead* lands, the *grey* is *real*, the *Wall* is *real* — and so is the *warm*, and here is the *actual* *road*, and it costs you *nothing*, and you may *keep* your *name*.' …*(the grin, luminous)* …attendance at the *fraud* *stalls* is *down* *ninety* percent. …i didn't *expose* them, cold one. i *underpriced* them. …at *FREE.* …*forty* years a *grifter* — and my *masterpiece* …is *honest.*"
+            },
+            {
+              "text": "*(He falls into step beside you, coat brushed, hands quick as ever but folded now — a working man between shifts, which is still the strangest sentence in the grey.)* …i *walk* them *home* now, cold one. the *scared* *new* ones. …*every* *day.* …*(he says it like he's still checking the words for a catch)* …the *pitch* is the same as it ever was — a *warm* *place*, a *road*, a *guide* who *knows* the *way* — every *line* of it *word* for *word* what i *sold* for *forty* *years.* …*(softly)* …except now when they *take* my *hand* …the *road's* *really* *there.* …*(he flexes the quick fingers, wondering at them)* …you did this, you know. *one* *true* *fact*, handed to a *fraud* at the *right* *moment.* …*'the* *warm* *place* is *real. i've* *stood* in it.'* …*(a beat, and the old grin, but changed)* …*best* *con* anyone ever ran on *me.* …you made me *believe* my *own* *pitch.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Voss",
+          "text": "*(He walks you toward the square's center, talking shop, and the shop is souls.)* …you want to know the *strange* part? the *skills* *transfer.* …*all* of them. …*(the old showman's inventory, re-priced)* …*reading* the *mark* — that's *triage* now: one *look* at a new arrival and i know if they need the *warm* *voice* or the *plain* one or just *quiet* and a *hand.* …the *perfect* *comforting* *story*, pitched to the *exact* soul in front of me — turns out that's not a *weapon*, cold one, it never *was* — it was a *gift* i spent *forty* years *pointing* the *wrong* *way.* …*(he stops at the shrine, and the patter goes quiet)* …the *girl* asks after you, by the way. …*Renn.* …*(gently)* …*kept* her *name.* *keeps* it *still.* she's a *rememberer* at the *queue* now — greets the *new* dead, learns their *stories.* …the soul who nearly *paid* her *name* for a *comfort* …spends her *death* making sure *no* one *else* *ever* has to. …*(he looks at you, the whole ledger of it in his quick eyes)* …*ask* your *questions*, cold one. …the *honest* trade's got *nothing* to *hide* …and i am *still* getting *used* to how *good* that *feels.*",
+          "choices": [
+            {
+              "text": "*(read the fraud, years into the truth)* \"Hold still, Voss. Let me look at what decades of the honest trade built where the hollow used to be.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "epi_v_read",
+              "effects": [
+                {
+                  "key": "epi.read_voss2",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses — and who once handed him the true fact)* \"I've been to the dawn again since, Voss. It's still there. Still warm. Still taking the Unclaimed the church swears it won't. Keep that in your pitch — from the one soul who can keep checking the merchandise.\"",
+              "tag": "returned",
+              "next": "epi_v_stock",
+              "effects": [
+                {
+                  "key": "epi.voss_restocked",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Do you miss it, Voss? The con. Honestly — you're the one soul down here who'd tell me true.\"",
+              "next": "epi_v_miss"
+            },
+            {
+              "text": "\"Back to your shift, pardoner. The queue never stops.\"",
+              "next": "epi_v_leave"
+            }
+          ]
+        },
+        {
+          "id": "epi_v_read",
+          "speaker": "Voss",
+          "onEnter": [
+            {
+              "key": "epi.read_voss2",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He spreads his arms — the old be-my-guest — but there is no performance under it now, and your sense goes in and finds what the years of honest work built on the spot where you once read a man wanting permission to have meant it.)* *(Permission granted. That is the first thing you find: the lie he could never stop telling — that the kindness was larceny, that the comfort was theft — is simply gone, retired, worn out from disuse. Your sense reads a man who has said the true thing to forty thousand frightened arrivals and in the saying, night after night, finally said it to himself: he was always in the mercy business; he just spent forty years embezzling from his own stock. And it reads what the honest trade does that the fraud never could: it compounds. A con man's take is spent by morning; a guide's take walks off into the grey and greets someone else, and now the grey is threaded through with souls he walked home who walk others home, a pyramid scheme — he would love the phrase, you decide to give it to him — where the commodity is arrival and everyone up-line gets paid in the same coin: nobody stands at the edge alone. And your sense reads, at the bottom, the thing that has replaced the hollow entirely: not pride, though there is pride, and not absolution, which he never asked for. Rest. The specific rest of a man whose inside and outside finally say the same sentence. Forty years he was the best liar in the Realm and slept badly. Now he tells the plain truth to strangers for nothing, and sleeps — he would tell you, grinning — like the honest dead.)*"
+        },
+        {
+          "id": "epi_v_stock",
+          "speaker": "Voss",
+          "onEnter": [
+            {
+              "key": "epi.voss_restocked",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He goes still, and then he does something you have never seen him do in all the years of the acquaintance: he takes out a little grey ledger and writes it down.)* …*'dawn* *confirmed.* *still* *warm.* *still* *taking* the *Unclaimed.'* …*(he dates it, and his hand is not quite steady, and he doesn't hide it)* …you know what that *is*, cold one? that's a *stock* *verification.* …*forty* years i sold merchandise *no* one could *check* — that was the *whole* *architecture*, the *unfalsifiable* *pitch* — and now i run the *one* operation in the *dead* *lands* with a *supplier* who *walks* the *warehouse* *personally.* …*(he pockets the ledger, and the grin comes up slow and real)* …the new guides ask me sometimes how i can *promise* it. the *warm* *place.* how i *know.* …and i tell them the *truest* sentence of my *whole* *death:* …*'because* the *coldest* soul i ever met …*goes* and *checks.'* …*(he grips your hand, quick and hard)* …*keep* *checking*, cold one. …*every* *guide* at *every* *gate* …is *selling* on *your* *word.* …*best* *supplier* …a *reformed* *fraud* *ever* *had.*"
+        },
+        {
+          "id": "epi_v_miss",
+          "speaker": "Voss",
+          "text": "*(The question delights him — nobody asks the reformed anything real — and he gives it the honest weighing it deserves, because that's the trade now.)* …do i *miss* it. …*(he turns the question in the light like the old fake vials)* …i miss the *game.* i'll say that *plainly.* the *read*, the *hook*, the moment the *mark* *leans* *in* — there is no *feeling* in *creation* like a *pitch* *landing*, and the honest trade *has* it too, but the *stakes* ran *hotter* when it was *theft.* …*(a beat, and then the rest of it, unvarnished)* …and *that's* *all* i miss, cold one. the *voltage.* …because here's what i *don't* miss, and *never* will: …the *hour* *after.* …*(quietly)* …every con ends the *same* way — the *mark* walks off *happy* and *you* stand there *knowing.* forty *years* of the hour after. forty years of being the only soul in the *room* who *knew* the *candle* was *fake.* …*(he shakes his head slowly)* …now the mark walks off happy …and i stand there …and the candle's *real* …and i get to be *happy* *too.* …*(the grin, entire)* …*miss* it? cold one …i got *out* of the *loneliest* *business* in the *world.* …*grief* was *never* the con's *product.* …*mine* was. …i was *selling* *myself* the *idea* i didn't *care.* …*worst* *merchandise* i ever *moved.*"
+        },
+        {
+          "id": "epi_v_leave",
+          "speaker": "Voss",
+          "text": "*(He sketches the old bow — half theater, wholly warm — and turns back toward the road to the gates.)* …*aye.* the *queue* *never* *stops.* …*(and then, over his shoulder, the showman's exit line, and for once every word of it is inventory)* …*tell* the *road* the *pardoner* *sends* his *regards*, cold one! *tell* the *frauds* their *days* are *numbered!* and *tell* the *scared* ones — …*(he stops, and turns, and gives it to you straight, the pitch of his life)* …tell the scared ones there's a man at the *gates* who *knows* *exactly* what they're *afraid* of …because he *sold* that *fear* for *forty* *years* …and *now* he *buys* it *back.* …*every* *day.* …*at* the *door.* …*for* *free.*"
         }
       ]
     }

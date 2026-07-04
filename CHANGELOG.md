@@ -11,6 +11,39 @@
 
 ---
 
+## 🌅 v6.89.0 — *"What the Mercies Became"* — the epilogue learns this run (content · payoff)
+
+> The last unpaid cohesion debt: **"Some Years After"** — the ending, where the world-remembers payoff
+> matters most — predated this entire run. Now three of its marquee arcs echo into the epilogue as
+> world-state-gated souls, in the game's most beloved pattern: *the people you saved, years later, telling
+> you themselves what your small mercies became.*
+- ✲ **Eli, keeper of the threshold step** (appears if you answered Sparrow). The scared kid in the
+  nightshirt, grown into the thing that stops — and the payoff branches by *how* you answered: if you
+  **promised a successor**, he was the scared little one standing inside the promise while you made it, and
+  now there are *four steps where there was one* (*"your promise has branches now; I thought the one who
+  made it should get to see the tree"*). If you **greeted the greeter**, Sparrow's last clear words were
+  about you — and every keeper since gets greeted: *rule six. The newest rule. Yours.* His sense: the least
+  frightened soul in the dead lands, because *fear is just love with nowhere to go, and he has spent his
+  whole death giving it somewhere to go.*
+- ✦ **Ansel, unfaded** (appears if you learned his story). Years on: no smudge, no soft edges — a plain man
+  who has *outlasted three kings he once paid taxes to* on one good summer evening. The circles spread;
+  Wynn faded *witnessed*, a hundred souls saying her name in one breath (*"that's not a death — that's a
+  promotion"*). If you **gave the circle your own name**, he says it — your real one — easily, warmly:
+  *forty minds and counting; you are the most held soul in the dead lands.* And if you carried the names,
+  the routes you walked are infrastructure now: *"the Cold Road. Capital letters."*
+- ❧ **Voss, the honest guide** (appears if you redeemed him). Six guides at the gates, four of them
+  ex-frauds, retrained on the one pitch none of them could beat — attendance at the fraud stalls down
+  ninety percent: *"I didn't expose them. I underpriced them. At FREE."* Renn kept her name and greets the
+  new dead. Asked if he misses the con, he gives the honest weighing: he misses the voltage — and not the
+  *hour after*, forty years of being the only soul in the room who knew the candle was fake. His sense
+  finds what replaced the hollow: **rest** — *"now he tells the plain truth to strangers for nothing, and
+  sleeps like the honest dead."*
+- 🔌 All three gated via the epilogue's `npcVisible` world-state mechanism (same pattern as Wren/Pip),
+  each with a `[RETURNED]` beat, Returned-sense, and sub-outcome variants; autoPlay-safe. Rebuilt
+  `town_market.html` (**89 zones, 274 souls**) and the bundle. **Gate 801/0; full suite green.**
+
+---
+
 ## 🧶 v6.88.0 — *"The Party Catches Up"* — 18 new banters + 5 campfire threads for the whole run (content · cohesion)
 
 > The biggest cohesion debt of the run, paid: the party banter catalog knew *nothing* about the 13 zones
