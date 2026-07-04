@@ -61,6 +61,16 @@
           "y": 7
         },
         "label": "◂ back out to the Lamplit Quarter"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "dotfeast",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "▸ the old bakehouse behind the feast — Marisa waits with a shielded candle and a conspiracy"
       }
     ],
     "npcs": [

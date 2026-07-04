@@ -921,6 +921,34 @@
       ],
       "completionFlag": "rm.wynn_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_feast_for_dot",
+      "title": "The Feast for Dot",
+      "region": "The Gathered — an old bakehouse behind the Lantern-Feast",
+      "giver": "Marisa, co-conspirator (requires Dot recruited)",
+      "premise": "Dot Marigold has thrown ten thousand feasts and never once walked into one. Her wound, in her own midnight words: 'just once, before the grey gets me, I'd have liked to walk into a warm room and find it already lit.' Conspire with Marisa to throw the one feast Dot never had — and the guest list is the road you walked: the sister you thawed, the sexton you affirmed, the girl who kept her name, gathered by the one soul who traveled every mile her warmth ever reached.",
+      "theme": "Her need is to be allowed, once, to be the one who is gathered instead of the one who gathers. The gatherer, gathered. She is not the oven; she is also the bread.",
+      "reward": "Dot walks into the first room in two lifetimes that was warm before she got there — and if Oona tended you, the pact: mercy taken, on both sides, enforced by flue-jamming. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "conspire",
+          "desc": "Hear Marisa's plan in the old bakehouse",
+          "completionFlag": "df.met_marisa"
+        },
+        {
+          "objectiveId": "gather",
+          "desc": "Light the room and gather the guests your road earned",
+          "completionFlag": "df.feast_ready"
+        },
+        {
+          "objectiveId": "feast",
+          "desc": "Watch the gatherer walk into a room that is already warm",
+          "completionFlag": "df.feast_lit"
+        }
+      ],
+      "completionFlag": "df.feast_lit",
+      "failureFlag": ""
     }
   ]
 }

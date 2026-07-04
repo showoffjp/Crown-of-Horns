@@ -11,6 +11,38 @@
 
 ---
 
+## ✹ v6.90.0 — *"The Feast for Dot"* — the hidden companion gets her personal quest (content · 90 zones)
+
+> The biggest gap left in the content itself: **Dot Marigold had no personal quest.** The hidden eighth
+> companion, the JOY answer, the living refutation of the Deathless Garden — and her story stopped at
+> recruitment. Her dossier hands the quest over on a plate: her wound is that she's bone-tired of being the
+> one who gathers, and *no one has ever once thrown the feast for Dot.* So that's the quest: **the player
+> conspires to throw it** — and the guest list is gated on the souls you actually saved.
+- ❀ **Marisa, co-conspirator** (zone gated on `lf.dot_joined`) — the woman who danced the last of it,
+  carrying Dot's own midnight confession: *"just once, before the grey gets me, I'd have liked to walk into
+  a warm room and find it already lit."* Her sense: the teacher of receiving joy cannot do the thing she
+  teaches — *a blind spot the size and shape of herself.* The pretext is perfect Dot-bait: a jammed
+  oven-flue (*"some doors only open for bread or mischief"*).
+- 🕯️ **The guest list is your road:** Sister Onora appears if you thawed her (lighting a lantern *for the
+  teacher* — *"don't save the eulogy for the wake"*); Corliss the sexton if you affirmed the Wake (her
+  first-ever gathering for a soul *everyone* came for, drafting the revolutionary new ledger rule: **"where
+  possible, mark them living"**); Renn if she kept her name (*"secondhand gratitude — showing up for someone
+  who warmed you without knowing it"*). The `[RETURNED]` path gathers them all — the one soul who walked
+  every mile Dot's warmth ever traveled, sending *proof* instead of invitations.
+- ✹ **The payoff** — Dot walks in sleeves-rolled to fix a flue and stops dead in the first room in two
+  lifetimes that was warm before she got there. The hostess reflex wars with the gift and loses (*"she sits
+  at a table she did not lay, and it costs her more than any battle you have watched her fight, and it is
+  the bravest you have ever seen her"*). Then the hearth talk: the ache she never understood at the height
+  of every feast (*"I was aching to be IN it"*); the funeral nobody threw because the guest of honor was
+  catering it (*"to Dot Marigold — she was lovely, you know; I never let anyone say so"*); joy as yeast, not
+  loaf. And if **Oona tended you** (`rd.tended`), the run's threads tie in a bow — **the pact**: *"you take
+  yours, I take mine — and whoever catches the other pouring with an empty cup gets to jam their flue."*
+- 🔌 Full pipeline (load + 5 `NPC_SENSE` reads + merges + scene dict + a Lantern-Feast→Bakehouse exit +
+  tracked quest **"The Feast for Dot"**, now 34). Rebuilt `town_market.html` (**90 zones, 279 souls**) and
+  the bundle. **Gate 801/0; full suite green;** reskin + C# bridge auto-cover all five souls.
+
+---
+
 ## 🌅 v6.89.0 — *"What the Mercies Became"* — the epilogue learns this run (content · payoff)
 
 > The last unpaid cohesion debt: **"Some Years After"** — the ending, where the world-remembers payoff
