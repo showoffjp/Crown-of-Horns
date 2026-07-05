@@ -949,6 +949,34 @@
       ],
       "completionFlag": "df.feast_lit",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_naming",
+      "title": "The Ten Thousand Names",
+      "region": "A clearing of candles off the camp road at the Hearth",
+      "giver": "Dot Marigold, keeping a promise (requires The Feast for Dot)",
+      "premise": "At Dot's own feast you watched the elf stand in the doorway and fail to come in, and heard the promise she made him: 'when it's your turn — and it IS a when, elf, I've decided — I do the candles, and nobody runs.' She has decided. Ilfaeril has agreed, on one condition: witnessed, not celebrated. He carries a cloth-wrapped ledger — nine thousand four hundred and twelve recovered names of the people his one raised hand voted into the Wall ten thousand years ago — and he has never once said one aloud, because a name spoken is a name shared, and sharing the weight felt like asking to set down a debt he had no right to stop paying. Be the witness. Hold who he is while his hands are full.",
+      "theme": "Hoarded, the names are his punishment; spoken, they become theirs — a resting place, the very thing his vote once denied them. Atonement was never the carrying. It was the giving-back. The last soul at the fire learns to set something down.",
+      "reward": "Ilfaeril reads his dead into the light, and for the first time in ten thousand years has an 'until' — a done. He sits down beside Dot and rests. If steadied, the ledger goes to Wynn's Remembering so the whole grey holds the names. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "witness",
+          "desc": "Cross to the clearing and hear Dot the candle-keeper",
+          "completionFlag": "tn.met_dot"
+        },
+        {
+          "objectiveId": "unwrap",
+          "desc": "Stand as witness while Ilfaeril unwraps the ledger",
+          "completionFlag": "tn.met_ilfaeril"
+        },
+        {
+          "objectiveId": "name",
+          "desc": "Give him the first name back — and the rest follow",
+          "completionFlag": "tn.ilfaeril_answered"
+        }
+      ],
+      "completionFlag": "tn.ilfaeril_answered",
+      "failureFlag": ""
     }
   ]
 }

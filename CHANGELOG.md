@@ -11,6 +11,38 @@
 
 ---
 
+## 🕯️ v6.92.0 — *"The Ten Thousand Names"* — the gun fires (content · zone · payoff)
+
+> Last release planted a gun in a banter: Dot's promise to Ilfaeril — *"when it's your turn — and it IS a
+> when, elf, I've decided — I do the candles, and nobody runs."* This release fires it. A new walkable zone,
+> gated behind the Feast for Dot, where the oldest grief at the fire finally sets something down — not by
+> being celebrated, but by being **witnessed.**
+- 🕯️ **The Naming, not a feast** — Ilfaeril's gathering could not be another party; he is ten thousand years
+  of carried dead. His shape is a *Naming.* Dot keeps her word — no bread, no toasts, no song, just
+  **candles**, more than any feast ever needed, because he asked for *witnessed, not celebrated,* and the
+  graduate form of her whole art is hospitality that serves the guest's need instead of the host's love.
+- 📜 **The ledger** — Ilfaeril unwraps a cloth he has never once opened in front of anyone in a hundred
+  centuries: leaves of bark, hide, vellum, slate, bound and rebound as each binding failed across ten
+  thousand years, every inch covered in names. **Nine thousand, four hundred and twelve** recovered names of
+  the people his one raised hand voted into the Wall — gathered from ruins, from songs half-remembered by
+  their enemies, from the mouths of the last souls who knew them. He has hoarded them as penance, because a
+  *name spoken is a name shared,* and sharing felt like asking to set down a weight he had no right to drop.
+- ⚖️ **The turn under the turn** — the deep beat: hoarded, the names are *his* punishment; spoken, they
+  become *theirs* — a resting place, the very thing his vote once denied them. Atonement was never the
+  carrying. It was the **giving-back.** The wound under the wound: *"I do not know who I am when I am not
+  carrying this."* A Charisma (Persuasion) DC 14 to steady him — *hold who you are while your hands are full*
+  — with a crit that turns the reading into a **census / re-trial** (the ledger goes to Wynn's Remembering so
+  the whole grey holds the names), a fail that gets the door **ajar** (a name, a candle, a name — *"I will be
+  done in less than a year; I have not had a done in ten thousand"*), and a fumble that reads *let it go* as
+  absolution and welds the door shut again — *"come back, with smaller words; the right ones fit through
+  narrower gaps."* A mercy path (*"they've waited longer"*) needs no roll — the one argument with no
+  absolution in it anywhere.
+- 🔗 **Cohesion** — closes the "learn to be gathered / set-down" arc that ran through the whole cast: the
+  gambler's secret, the baker's apron, and now the last and oldest debt at the fire. Dot the candle-keeper is
+  world-state-gated (`df.feast_lit`), so the Naming only exists for a road that first threw the feast for her.
+  New tracked quest `sq.the_naming`; Ilfaeril pronoun consistency fixed in four feast banters. Gate
+  **801/0**; full suite green. **91 zones, 281 souls, 35 quests.**
+
 ## 🍞 v6.91.0 — *"Practicing"* — the world reacts to Dot's feast (content · cohesion)
 
 > The established rhythm, kept: after a marquee event, the world must *react.* Three banters + a campfire

@@ -105,6 +105,16 @@
           "y": 7
         },
         "label": "▸ where the dead come to say the unsayable — the Unburdening"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "to": "naming",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ the clearing of candles — the Naming"
       }
     ],
     "npcs": [
