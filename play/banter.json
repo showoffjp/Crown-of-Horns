@@ -1224,6 +1224,101 @@
           "text": "*(she leans over and puts her translucent hand flat on the slate, covering the figures)* …I know, Naeve. …I always knew what the graphs were. …*(a crooked smile, and her edges, in the firelight, hold)* …keep measuring me, then. …loudly. …it's working."
         }
       ]
+    },
+    {
+      "id": "bant.feast_dot_practicing",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "dot"
+        ],
+        "flags": [
+          "df.feast_lit"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(she comes round the fire with the bread-board, same as every night — and stops. stands there a moment, board in hand, visibly arguing with two lifetimes of reflex. then she sets the board down, in the middle, where anyone can reach it, and comes and sits beside you with empty hands.)* …*(off your look, gruffly)* …don't make a *thing* of it. …i'm *practicing.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(a long comfortable silence; the fire pops; somebody else — somebody ELSE — passes the bread around)* …*(quietly)* …you know what i keep *thinking* about? not the *candles.* not even the *lanterns.* …*Renn* did the *cups.* …*(she shakes her head slowly)* …that little scrap of a soul stood at my table for an *hour* setting *cups* *straight*, like it was *holy.* …and it *was*, love. that's the *thing.* it *was.* …i'd been doing the *forty* *jobs* so long i forgot the *feast* isn't the *doing.* …it's the *forty* *souls* who'd *each* take *one.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(she leans her shoulder against yours — taking warmth, on purpose, the new discipline — and watches her own bread go round without her)* …*(barely, into the fire)* …*thank* you. for *walking* the *roads.* for *jamming* my *flue.* …*(a beat, and the grin comes up sideways)* …and if you *ever* tell a *soul* i sat at a fire with *empty* *hands* and *liked* it — …*(she bumps your shoulder)* …i'll bake your *boots* into a *pie.* …*(softer)* …*practicing*, love. …*we're* *both* just *practicing.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.feast_garrow_varra_sacrament",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "garrow",
+          "varra"
+        ],
+        "flags": [
+          "df.feast_lit"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(watching Dot across the camp, laughing at something with her hands empty, and speaking low, to Varra, in the voice she saves for actual theology)* …I have stood at ten thousand rites, tiefling. Consecrations. Last offices. The whole grey liturgy of my order, performed to *specification.* …*(a slow breath)* …and the first *sacrament* I have ever personally witnessed *work* — visibly, on a soul, in real time — was a jammed oven-flue and a room full of amateurs with the candles at the wrong height."
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(not looking up from her nails)* …the candle-height was *fine.* I *adjusted* the candle-height. …*(a beat; the trap of it lands and she closes her eyes)* …damn it."
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(dry as scripture)* …you *decorated.*"
+        },
+        {
+          "speaker": "Varra",
+          "text": "I *audited* the *ambiance.* There were *deficiencies.* Someone had to — *(she gives up; low, fast, like paying a debt)* …she fed me the first week I joined this road and never once asked what I was. Do you know what that costs, where I'm from? Nothing. It cost *nothing.* Nobody had ever handed me anything that cost nothing. …*(the nails come back up)* …so yes, nun. I fixed the candles. File it under *deficiencies.* …and if you put me in a *sermon* I will *sue.*"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(turning back to the fire, the ghost of a smile)* …no sermon. Just the finding, for the record my church will never read: …grace is *real*, and it is *transmissible*, and it travels — as far as I can determine — *(she watches the bread go round)* …by *flour.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.feast_ilfaeril_next",
+      "category": "grief",
+      "once": true,
+      "requires": {
+        "companions": [
+          "ilfaeril",
+          "dot"
+        ],
+        "flags": [
+          "df.feast_lit"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(very quietly, to Dot, when the fire has gone low and the others are asleep)* …I stood in the doorway. At your feast. I did not come all the way in. …*(her long fingers work at nothing)* …ten thousand years, hearth-keeper. I have carried my dead so long that being *handed* something — I watched a room point its whole warmth at you, and I saw what it cost you to sit still and take it …and I could not have done it. I would have *run.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(not gently — Dot is never gentle about the true things, that's her kindness)* …i *know*, love. i *saw* you in the doorway. …*(she pokes the fire)* …i also *ran*, you know. for *two* *lifetimes.* i just ran *busy* instead of *away* — same *cowardice*, better *catering.* …*(she lets that sit)* …*ten* *thousand* *years* is a *long* *time* to hold the door for *everyone* *else*, elf."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(a silence with ten thousand years in it)* …what did it *feel* like. …when you finally sat. …*(barely)* …I am not asking for the *poetry.* I am asking …*practically.* …as one …who may someday …need the *instructions.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(she considers it with the seriousness the question deserves — a recipe requested, and Dot has never once refused anyone a recipe)* …like *thaw*, love. *exactly* like thaw. it *hurts* — that's the part nobody warns you — the warmth coming into a cold thing *hurts*, and your whole body says *run*, and you *don't*, and then …*(she opens her empty hands to the low fire)* …then it's just *warm.* and you're *in* it. and it was *never* the *enemy.* …*(she looks at the elf, direct)* …*that's* the instructions. *hurt.* *stay.* *warm.* in *that* order. …*(and then, the promise, plain as bread)* …and *when* it's your *turn* — and it *is* a *when*, elf, i've *decided* — …*i* *do* the *candles.* …and *nobody* *runs.*"
+        }
+      ]
     }
   ]
 }

@@ -576,6 +576,15 @@
               "next": "fire_road_circle"
             },
             {
+              "text": "*(the feast you threw the feast-thrower)* \"…Dot's night. The room that was warm before she got there.\"",
+              "when": {
+                "flags": [
+                  "df.met_marisa"
+                ]
+              },
+              "next": "fire_road_feast"
+            },
+            {
               "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
               "next": "1"
             }
@@ -1107,6 +1116,32 @@
             },
             {
               "text": "*(A fire that gives real warmth, off the Lamplit Quarter, ringed with the only souls in the grey who are not fading — because they decided, ordinary and unarmed, to stop forgetting each other. Wynn's Remembering. You stood at its edge and watched the one weapon the Wall has no answer for being passed from hand to hand like bread. …and you didn't sit down. *(the fire neither accuses nor excuses; it just burns)* …'when you tire of carrying the whole grey on your own cold shoulders — the fire's here. The room is always here.' …that's what she said to your back. Not a rebuke. A door, left open, the way you leave a door for someone you expect. …the circle goes on holding, out there, nightly, whether you come or not. Names said back. Edges holding firm. The thesis, working, without you. …that last part is the strange one, isn't it, cold one. …something good in the grey …that doesn't need you. …you could just go and be WARM at it. …the fire will keep saying that …until you hear it.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_feast",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "df.the_pact"
+                ]
+              },
+              "text": "*(The feast for Dot. Marisa's conspiracy, the guests your road gathered, the jammed flue — and the gatherer, standing in the doorway with flour-white knuckles, understanding by inches that nobody in the room needed a single thing from her. She sat. It cost her more than any battle you've watched her fight. And by the hearth, after, the two of you made the pact — you take yours, I take mine, and whoever catches the other pouring with an empty cup gets to jam their flue. *(the fire burns warm and even)* …you notice it working, is the strange part. On the long cold marches she catches your eye and points, wordlessly, at a rock: sit. And twice now — twice — you have caught HER at the edge of a warm moment, hosting it instead of having it, and pointed at the ground beside you, and watched two lifetimes of reflex lose the argument again. …an old woman on a bench taught you the words. A baker taught you they could be a treaty. …mercy taken, cold one. Enforced. …it turns out that's what friendship is, in a place like this: two souls who won't let each other freeze politely.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "df.feast_lit"
+                ]
+              },
+              "text": "*(The feast for Dot. The old bakehouse, the amateur candles, the guests your road earned — the thawed sister with her lantern, the sexton marking a soul living for the first time in her office, the girl who kept her name doing the cups like liturgy — and Dot Marigold walking in sleeves-rolled to fix a flue and stopping dead in the first room in two lifetimes that was warm before she got there. *(the fire glows)* …you keep the toast she made. The one to herself, that she'd never let anyone say: 'to Dot Marigold. She was lovely, you know. I never let anyone say so.' …a woman grieving, at last, the funeral nobody threw because the guest of honor was catering it. …you have unmade laws and turned witch-finders and carried names across the Wall itself, cold one. And it is entirely possible that the finest thing you have done on this whole grey road …is a party. …she'd say that's the point. She'd say that was ALWAYS the point. …warm rooms, while you still can. …everything else is commentary.)*"
+            },
+            {
+              "text": "*(The conspiracy in the old bakehouse. Marisa, and the shielded candle, and the plan: the one feast Dot never had, waiting on you to gather it. *(the fire flickers, pointed)* …it isn't lit yet. The table stands laid in the dark, the guests half-summoned, the pretext ready — and somewhere across the Quarter the woman who has thrown ten thousand feasts is rolling her sleeves down after another night of being the only warmth in the room, not knowing there's a door with her name on the other side of it. …Marisa said it plainest: nobody should have to be that brave on an empty table. …finish it, cold one. Of all the roads you've left half-walked, this is the one with bread at the end of it. …go jam a flue.)*"
             }
           ]
         }

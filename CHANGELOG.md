@@ -11,6 +11,37 @@
 
 ---
 
+## 🍞 v6.91.0 — *"Practicing"* — the world reacts to Dot's feast (content · cohesion)
+
+> The established rhythm, kept: after a marquee event, the world must *react.* Three banters + a campfire
+> thread for the Feast for Dot — including the rarest kind of banter in the catalog: one where the
+> companion herself is the one **changed.**
+- 🍞 **Dot, practicing** (`bant.feast_dot_practicing`) — she comes round the fire with the bread-board,
+  same as every night — and stops. Sets it down in the middle where anyone can reach it, and sits beside
+  you with empty hands. *"Don't make a thing of it. I'm practicing."* Renn's cups as the revelation (*"the
+  feast isn't the doing — it's the forty souls who'd each take one"*), warmth taken on purpose, and the
+  threat of boots baked into a pie if you tell anyone she liked it.
+- ⛪ **Garrow & Varra, the sacrament** — Garrow, in the voice she saves for actual theology: ten thousand
+  rites performed to specification, and *the first sacrament she has ever personally witnessed work* was a
+  jammed oven-flue. And Varra walks into the trap: *"the candle-height was fine. I* adjusted *the
+  candle-height. …damn it."* Her confession: Dot fed her the first week and never asked what she was —
+  *"nobody had ever handed me anything that cost nothing."* Garrow's finding, for the record her church will
+  never read: *grace is real, transmissible, and travels — as far as she can determine — by flour.*
+- 🕯️ **Ilfaeril & Dot, the instructions** — the two eldest griefs, after the fire goes low. Ilfaeril
+  confesses she stood in the doorway at the feast and couldn't come all the way in — then asks, *practically,
+  as one who may someday need the instructions*, what it felt like to finally sit. Dot gives her the recipe:
+  *"like thaw. It hurts — that's the part nobody warns you — and you don't run, and then it's just warm, and
+  it was never the enemy. Hurt. Stay. Warm. In that order."* And the promise: *"when it's your turn — and it
+  IS a when, elf, I've decided — I do the candles. And nobody runs."*
+- 🔥 **`fire_road_feast`** — the reckoning covers the feast (pact / feast-lit / *conspiracy-unfinished*
+  variants), including the pact working on the road: *"two souls who won't let each other freeze politely."*
+  The unfinished default is the warmest indictment at the fire: *"of all the roads you've left half-walked,
+  this is the one with bread at the end of it. Go jam a flue."*
+- ✅ Catalog now **45 banters / 23 reflection threads.** Rebuilt build + bundle. **Gate 801/0; banter gate
+  green; full suite green.**
+
+---
+
 ## ✹ v6.90.0 — *"The Feast for Dot"* — the hidden companion gets her personal quest (content · 90 zones)
 
 > The biggest gap left in the content itself: **Dot Marigold had no personal quest.** The hidden eighth
