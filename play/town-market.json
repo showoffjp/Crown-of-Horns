@@ -156,6 +156,16 @@
           "y": 1
         },
         "label": "▸ a path that wasn't there a moment ago… (the Wayward Mile)"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "toll",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ down the causeway to the toll-post"
       }
     ],
     "npcs": [

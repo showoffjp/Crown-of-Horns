@@ -1005,6 +1005,34 @@
       ],
       "completionFlag": "un.carried_name",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_padded_roll",
+      "title": "The Toll of Small Coins",
+      "region": "A collection-post down the causeway from the Market",
+      "giver": "a man with too many names (unclaimed, unwalled, not on anyone's books)",
+      "premise": "You walk into the middle of a con already in progress. A causeway Collector, the Sifter, is padding her quota by walling the easy dead, the quiet godless nobody shouts for, and third from the bottom of her roll is Orla, a midwife who caught half a town's children across forty years and never asked whose god watched. A man in a very good coat is running a con to strike her name, and he wants the one soul the Wall gave back to play the auditor. He has no name your sense can find, only a burned void where one should be, and a compass that points at whoever most needs saving, which he insists is broken. Free the midwife. Meet the freest, most haunted soul in the grey.",
+      "theme": "The banal machinery of the Wall: not monsters, but tired functionaries filing quiet names into categories so no one ever feels they personally damned anyone. And the wildcard who fights it with a trick instead of a sword, because he was once the smiling instrument of exactly this, and every soul he springs is the one he couldn't. He made himself un-nameable to make himself un-ownable, and paid for it in the one coin he can't con: a soul with no name can never be held.",
+      "reward": "Orla struck from the roll and freed (six names, on a crit). A clipped coin token, pressed into your hand, that summons a door where none exists, and a favor owed by a soul who owes no one. Seeds a recurring wildcard ally. disp.merciful, disp.cunning.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Walk into the con at the toll-post",
+          "completionFlag": "clip.met"
+        },
+        {
+          "objectiveId": "free",
+          "desc": "Strike the midwife's name off the padded roll",
+          "completionFlag": "clip.soul_freed"
+        },
+        {
+          "objectiveId": "token",
+          "desc": "Take the clipped coin, and the favor owed",
+          "completionFlag": "clip.left_token"
+        }
+      ],
+      "completionFlag": "clip.soul_freed",
+      "failureFlag": ""
     }
   ]
 }

@@ -11,6 +11,39 @@
 
 ---
 
+## 🎭 v6.95.0 — *"The Toll of Small Coins"* — a magnificent bastard, introduced (content · zone · new ally)
+
+> A new kind of character the roster was missing: the **chaotic-neutral wildcard** — Jarlaxle's *beholden to
+> no house* crossed with Jack Sparrow's *you'll always remember this as the day you almost caught me* — an
+> ally who detests evil but answers to no cause and no name. This is his **introduction** (phase one of
+> three: intro → the crew names him → recruitment climax). You catch him mid-con.
+- ❖ **A man with too many names** — the one soul the Wall can't file. Everyone in the grey is *claimed* or
+  *damned;* he found a third door and **burned his own true name** so no power could ever summon, collect, or
+  wall a debt that isn't on the books. Your dead-sense reaches for his name and finds a clean, deliberate
+  **void** — impossible, and the hook of his whole arc. Theatrical, slippery, sheds aliases like a snake
+  (*"this season it's Duke Sabellian V'ross of the Argent Nothing…"*) and flips a **clipped coin** he swears
+  he isn't worth. Under it: he was a death-power's favorite once, its smiling instrument, until it sent him
+  to collect someone he loved — so his chaos is *aimed*, and every soul he springs is the one he couldn't.
+- 🧭 **The compass that points at whoever most needs saving** — his conscience, externalized; the one part of
+  himself he couldn't burn. *"It's broken,"* he insists, every time it swings to the victim. It has never
+  once been wrong. The price of never being caught, your Insight read finds, is never being *kept*: a soul
+  with no name can't be summoned — and can't be **held**, remembered, or loved by anything that would need to
+  call it something. Free the way a coin thrown in the sea is free.
+- ⚖ **The con** — a Collector, the **Sifter**, is padding her quota by walling the easy dead; third from the
+  bottom of her roll is **Orla**, a midwife who caught half a town's children across forty years and never
+  asked whose god watched. He casts you as *the Auditor* (the Wall gave one back — clearly the rolls are
+  being reviewed). Deception DC 14 with full swings: **crit** strikes *six* names and breaks a clerk who'd
+  waited ninety years to be stopped; **fumble** collapses the con and he *abandons* it mid-sentence for a
+  bigger, stupider, better one that works anyway; a no-roll path where you just *loom* as the soul the Wall
+  spat back. Decline and he does it **alone, for free**, and pretends he didn't — the most revealing thing he
+  does. The banal machinery of the Wall, indicted: not monsters, just tired functionaries filing quiet names
+  into categories so no one ever feels they personally damned a midwife.
+- 🎟️ Leaves a **clipped-coin token** (summons a door where none exists — seeds his recurring cameos) and a
+  favor owed by a soul who owes no one. New quest `sq.the_padded_roll`; three NPC_SENSE reads; market→toll
+  causeway exit. **Next:** the crew argues over what to call the nameless man and christens him *"Clip"*
+  against his grandest protests. Gate **801/0**; full suite green; all NPC trees complete for all 5 builds.
+  **93 zones, 287 souls, 37 quests.**
+
 ## 🧮 v6.94.0 — *"Past the Ledger's Reach"* — the thirty thousand, made specific (content · zone · tonal-range)
 
 > The Naming recovered 9,412 names; thirty thousand more went past any finding — past even Ilfaeril's
