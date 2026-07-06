@@ -223,6 +223,20 @@
         },
         "conv": "epi.voss",
         "hail": "*(A familiar velvet coat, brushed clean now, and the quickest hands in the dead lands — folded, for once, behind his back, in the posture of a man off-shift. Voss. The pardoner. He clocks you across the square and his grin arrives before he does.)* …*there's* my *first* *honest* *customer!* …*(he sweeps a bow that is only half theater now)* …*look* at you. still *cold*, still *walking*, still — *(softer, and the patter drops away entirely)* …still the one who *checked* the *merchandise.* …*(he straightens, and there is something in his face that was never there behind the old stall: rest)* …i'm *between* *shifts*, cold one. …*shifts.* …*me.* …*forty* years i sold the *dying* a *fake* *road* *home* …and you would not *believe* what the *honest* version *pays.* …*(a wink)* …*nothing.* it pays absolutely *nothing.* …i've never been *richer* in my *death.*"
+      },
+      {
+        "id": "ysoreth2",
+        "name": "Ysoreth",
+        "title": "the first name he said — un-erased, and now a finder of the lost",
+        "x": 6,
+        "y": 6,
+        "hue": 255,
+        "sigil": "✶",
+        "when": {
+          "flag": "tn.ilfaeril_answered"
+        },
+        "conv": "epi.ysoreth",
+        "hail": "*(they are kneeling at a low fire when you come, feeding it small and steady; they do not startle — they turn the way one turns to expected weather)* Stop there a moment — let me *look* at you. You're the one the Wall let out: the cold one, the door that opens both ways. *(a slow breath)* And I am the one a *voice* let back in. We are the same wrong, you and I — the thing the Law swore could never be, standing up and being it anyway. Sit. I have wanted, for *years*, to see the face of someone else who was not supposed to be here."
       }
     ]
   },
@@ -2514,6 +2528,116 @@
           "id": "epi_v_leave",
           "speaker": "Voss",
           "text": "*(He sketches the old bow — half theater, wholly warm — and turns back toward the road to the gates.)* …*aye.* the *queue* *never* *stops.* …*(and then, over his shoulder, the showman's exit line, and for once every word of it is inventory)* …*tell* the *road* the *pardoner* *sends* his *regards*, cold one! *tell* the *frauds* their *days* are *numbered!* and *tell* the *scared* ones — …*(he stops, and turns, and gives it to you straight, the pitch of his life)* …tell the scared ones there's a man at the *gates* who *knows* *exactly* what they're *afraid* of …because he *sold* that *fear* for *forty* *years* …and *now* he *buys* it *back.* …*every* *day.* …*at* the *door.* …*for* *free.*"
+        }
+      ]
+    },
+    {
+      "id": "epi.ysoreth",
+      "title": "Ysoreth — the first name, years on",
+      "npc": "ysoreth2",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Ysoreth",
+          "onEnter": [
+            {
+              "key": "epi.met_ysoreth",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tn.named_all"
+                ]
+              },
+              "text": "You will have heard it coming in — my name, at the first fire, and the next, and the next. *(something between wonder and vertigo)* The whole grey holds me now, cold one — the way they hold Wynn in the Remembering, the way a name gets kept by firelight so the dark can't pick it back off. They say it *first*, at every fire from here to the grey's far edge — before the toasts, before the loved and the lately-dead — they say *Ysoreth*, because I was the first he said, and a first should stay a first. Ten thousand years I was a scratch under a scratch under a burned-out word. Now I am the sound that *opens the night.* I have not decided whether I have earned it. I have decided to let it be said."
+            },
+            {
+              "text": "You will not have heard my name coming in — it is not shouted, not yet. It lives two places only: on one line of a ledger ten thousand years long, in a hand that once voted me out of the world; and on the stub of a baker's candle, long since burned down to nothing. *(a small, fierce smile)* That is all — and that is *everything.* The Law swore I would never again be a thing that could be pointed at and *named*; and here — *(they touch their chest, once)* — here is the thing, and here is the name on it. *Small* is not the same as *not-real*, cold one. I have learned the difference better than anyone living."
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Ysoreth",
+          "text": "You want to know what came of it — the night with the candles. *(they feed the fire)* He *finished*, cold one: the elf read them all, nine thousand and some, every name he ever clawed back, into the light one at a time at his own slow pace — until one morning there was no next name, and he did not know what to do with his hands. Some of us could come back; not all — a name is a door, but a soul must still hold a shape to walk through it, and after ten thousand years most did not. I did; I was said *first*, so I had the longest to re-cohere, and slowly I became *this* — whole. And then I did the only thing that made sense of being found: *(they meet your eyes)* I went looking for the rest. Thirty thousand he never reached — I carry their tongue in my mouth, likely the last who does, and I am learning to say names in it that no one has spoken in an age. The one who was found first finds the others now; that is what your night became, cold one. Not an ending — a *shift change.*",
+          "choices": [
+            {
+              "text": "*(read the first name, years on — what surviving the Law twice, un-erased by the vote's own author, builds in a soul)* \"Before anything else, Ysoreth — let me look at you. All the way down. I want to see what being given back makes of a soul the Wall unmade.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "epi_y_read",
+              "effects": [
+                {
+                  "key": "epi.read_ysoreth",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the witness who crosses — the Remembering's courier, reporting in)* \"I carried your name too, Ysoreth. Every road I walked after that night, I said the names — yours among them, out at the Wall's edge, in the far grey. So tell me true: did the carrying matter?\"",
+              "tag": "returned",
+              "next": "epi_y_courier",
+              "effects": [
+                {
+                  "key": "epi.ysoreth_carried",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Say it for me, Ysoreth. Your name — the real one, in your own tongue — and one true thing about the life the Law tried to take.\"",
+              "next": "epi_y_ask"
+            },
+            {
+              "text": "\"Keep hunting, Ysoreth. Twenty-nine thousand, nine hundred and ninety-nine to go. I'll watch the dark for the ones that open both ways.\"",
+              "next": "epi_y_leave"
+            }
+          ]
+        },
+        {
+          "id": "epi_y_read",
+          "speaker": "Ysoreth",
+          "onEnter": [
+            {
+              "key": "epi.read_ysoreth",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(Insight.)* Watch how they never once call it *forgiveness* — they have had years to find that word and they have set it down, on purpose, unused. What they hold instead is stranger and harder: the *vote* and the *naming* in one hand, the same hand, the same elf, and they refuse to let either cancel the other — because to forgive the naming would shrink the vote to something *forgivable*, and they will not lie about what was done to their people. So they did the crueler, cleaner thing: they took the debt no one asked them to carry and turned it *outward* — not back at him, not at the Law, but *forward*, into the dark where the thirty thousand still are. Gratitude would have kept them staring at Ilfaeril forever; this looks straight *past* him. They were given a self, and they spend that self finding selves. It is not peace, cold one. It is *better* than peace — it is *use.*"
+        },
+        {
+          "id": "epi_y_courier",
+          "speaker": "Ysoreth",
+          "onEnter": [
+            {
+              "key": "epi.ysoreth_carried",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(they go very still)* You carried it too. *(a long breath, let out slow)* Then hear the thing under your question, cold one, because I can — *did it matter.* Look at me: I *am* the answer, and the answer is *standing up.* You want to know why the Wall gave one soul, of all its dead, back out — I have thought of little else, and here is what I believe: not to spare you. To make you a *witness* — because a name held in no one's mind dies twice, and the Wall needed one creature who could stand on both its sides and *carry.* He spoke me; you carried me; the erasure *lost.* That is not nothing you did, Returned — that is the only thing that has ever *beaten* the Wall."
+        },
+        {
+          "id": "epi_y_ask",
+          "speaker": "Ysoreth",
+          "text": "*(you ask; and they brace, the way a person braces before lifting the heaviest, most familiar thing)* My name. *(and then they say it — not the courtly rendering but the real one, in the tongue with no more speakers: three notes and a breath, older than the Wall itself, and for four seconds a dead language is alive in the air between you)* ...*Ysoreth.* It meant the grey light at the edge of the dark — the last of the night, just before anyone can see the sun; my mother called it up the hour I was born, because I came at that hour. And the one true thing? *(quieter)* I *baked.* I kept the ovens for a house of forty, I knew good dough in the dark by its smell alone, and it is my *hands* I remember first — before my own face, before my mother's. Ten thousand years unmade, and what surfaced first was the *bread.* Tell Dot Marigold that — tell your baker the first name she ever lit a candle for was a baker too, and she'll know what that's worth."
+        },
+        {
+          "id": "epi_y_leave",
+          "speaker": "Ysoreth",
+          "text": "Go on, cold one. You have a garden full of the saved to walk, and every one of them is a name that got somewhere to be. I have a name I'm hunting tonight — thirty thousand, and I have found *one*, so: twenty-nine thousand, nine hundred and ninety-nine to go. *(the ghost of a laugh, then not)* If your road ever crosses one of mine out there in the dark — one of the un-named, one still scratched under a scratch — you will know it. It will feel like a door that opens both ways. Say what you are; carry it home. *(they feed the fire one last small handful)* That is the whole of the office, yours and mine both — we *witness*, we *carry.* And the Wall, for once, does not get to keep them."
         }
       ]
     }

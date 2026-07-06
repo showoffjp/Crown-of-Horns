@@ -11,6 +11,50 @@
 
 ---
 
+## 🔥 v6.93.0 — *"The World Holds the Names"* — the Naming reverberates (content · cohesion · reaction)
+
+> The established rhythm, kept: after a marquee zone, the world must *react.* Six party banters, a hearth
+> reflection thread, and an epilogue payoff soul — every layer of "the world remembers" now knows the
+> Naming happened. Authored as a fanned-out workflow: six writers, six adversarial verifiers (Ilfaeril
+> **male**/pronoun, canon, flag-validity, PC-gender neutrality, non-repetition), a thread pass and an
+> epilogue pass — 16 agents, then merged through the live-flag validator and the 801-assertion gate.
+- 🧾 **Varra × Ilfaeril — the receipt** — she was *sold at six* and has seen her own price ruled and columned
+  in a broker's book; she counted his nine thousand names because she *can't not.* The turn: *"his book says
+  what we're worth; yours says who we were — and you did the one fucking thing he never will. You read us out
+  loud."* (gate: `tn.named`)
+- 🕯️ **Maerin × Ilfaeril — the girl who was almost a name** — she's godless, walled-out, *exactly* the dead
+  his vote damned; in another century she's a line he never found. She refuses to be his absolution (*"that
+  belongs to the named"*) — and then, luminous and furious: *"I watched the man who built the Wall spend
+  himself reading the walled-out dead into a place to rest. That's the opposite of the goddamn vote. Do it
+  again tomorrow."* (gate: `tn.witnessed`)
+- 🃏 **Roen × Ilfaeril — two who kept things close** — the gambler reads the con because he ran it too: *"you
+  don't keep it close 'cause it's heavy; you keep it close 'cause the second you hand somebody a piece, it
+  stops being only yours — and a thing that's not only yours, somebody might make lighter, and you don't
+  reckon you get to be lighter."* Set his own marker down in a season; the ten-thousand-year-old asks the
+  gambler for lessons. (gate: `tn.ilfaeril_answered`)
+- ⚰️ **Garrow × Ilfaeril — a wake for the perpetrator** — the Doomguide of the death-god whose Law he built:
+  *"no church wrote the wake where the mourner is the hand that dug the grave."* The mirror that keeps her
+  awake — his vote *felt like justice*, her cowardice *felt like faith* — two terrible things wearing a
+  virtue's face. She won't absolve him; she names what she saw: a name said over a lit flame is the first
+  sacrament, older than her god, *and tonight you performed it for the dead his Law forgot.* (gate: `tn.named`)
+- ➗ **Naeve × Ilfaeril — two who did the math clean** — the arcanist who watched every flying city fall
+  holds the cruel shape of 9,412: large only because the thirty thousand behind it is larger. Two loops:
+  *"you cannot make it not-have-happened; you can only make it smaller than the next true thing you do —
+  nine thousand four hundred and twelve times, you just did."* (gate: `tn.knows_the_ledger`)
+- 🍞 **Dot × Ilfaeril — the promise kept** — the payoff of last release's planted line. It's *done*; the elf
+  sat down and let her put a cup in his hands. Callback to *hurt, stay, warm, in that order.* (gate:
+  `tn.ilfaeril_answered`)
+- 🔥 **`fire_road_naming`** — a hearth reflection thread, four outcome variants (crit census → the ledger to
+  Wynn's Remembering; the full witnessed reading; the door ajar; the not-yet default).
+- ✶ **Ysoreth — the first name he said, met years on** — the epilogue payoff. The *first name* Ilfaeril
+  spoke is a whole soul now, un-erased: it climbed back up the four-second rope of its own name, and the
+  first thing that re-cohered out of ten thousand years of deletion was its *hands* — because Ysoreth was a
+  **baker** (the first name Dot ever lit a candle for was itself a baker). It refuses easy forgiveness and
+  does the harder thing — turns the debt *outward*, becoming a finder of the thirty thousand Ilfaeril never
+  reached: *"the one who was found first finds the others now — not an ending, a shift change."* World-state
+  gated (`tn.ilfaeril_answered`; the crit `tn.named_all` gives it the whole grey saying its name first).
+- Gate **801/0**; full suite green; banter catalog **51**, threads **24**. **91 zones, 282 souls, 35 quests.**
+
 ## 🕯️ v6.92.0 — *"The Ten Thousand Names"* — the gun fires (content · zone · payoff)
 
 > Last release planted a gun in a banter: Dot's promise to Ilfaeril — *"when it's your turn — and it IS a

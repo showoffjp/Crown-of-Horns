@@ -595,6 +595,15 @@
               "next": "fire_road_feast"
             },
             {
+              "text": "*(the elf who read his dead into the light)* \"…Ilfaeril. The ten thousand names. The night he set them down.\"",
+              "when": {
+                "flags": [
+                  "tn.ilfaeril_answered"
+                ]
+              },
+              "next": "fire_road_naming"
+            },
+            {
               "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
               "next": "1"
             }
@@ -1152,6 +1161,40 @@
             },
             {
               "text": "*(The conspiracy in the old bakehouse. Marisa, and the shielded candle, and the plan: the one feast Dot never had, waiting on you to gather it. *(the fire flickers, pointed)* …it isn't lit yet. The table stands laid in the dark, the guests half-summoned, the pretext ready — and somewhere across the Quarter the woman who has thrown ten thousand feasts is rolling her sleeves down after another night of being the only warmth in the room, not knowing there's a door with her name on the other side of it. …Marisa said it plainest: nobody should have to be that brave on an empty table. …finish it, cold one. Of all the roads you've left half-walked, this is the one with bread at the end of it. …go jam a flue.)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_naming",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "tn.named_all"
+                ]
+              },
+              "text": "*(The Naming, and what you made of it. He came to a wake to read; you turned it into a *reckoning.* Name by name — not a mourner's murmur but a census, a re-trial, ten thousand years overdue — and you stood at the clerk's shoulder and argued each soul back into the record his own raised hand once struck out of it, and *won,* nine thousand four hundred and twelve times, one candle at a time. No verdict overturned but the one that ever mattered: that they were nothing. And when the last wick caught he did the thing he had sworn a hundred centuries he never could — unwound the cloth for the final time and laid the ledger into Wynn's fire, so the *whole grey* holds the names now, not one bowed elf carrying them alone. 'They were never mine to hoard,' he said. 'Only mine to find.' *(the fire burns very steady, the way it does over something it means to keep)* …then he sat down beside Dot and let her fold a cup into his hands, and for the first time since the world was young the hands had nothing left to carry. …the vote is still his, cold one. It always will be. …but you watched him make it the *smallest* true thing about him. …you handed a ten-thousand-year grief a *done.* …not many souls, warm or cold, living or dead, can say they did that.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "tn.named"
+                ]
+              },
+              "text": "*(The Naming. Not a feast — a wake, exactly the way he asked it: witnessed, not celebrated. Dot lit the candles and kept every one of them burning — no bread, no toast, no song, just fire and a voice — and across the whole of that long night he read them. All of them. Nine thousand four hundred and twelve. Every recovered name of the people his lifted hand voted into nothing, spoken aloud at last, one by one, into the light that his own Law had denied them. No wick went dark. And you — you did not flinch, and you did not leave. You stood the entire night and let the weight of each one land, because *that was the whole office:* that someone be *there,* awake, unlooking-away, while the dead were finally allowed to lie down. *(the fire glows low and impossibly full, a room after a hard true thing)* …'a name spoken is a name shared,' he used to say, like a wound he had no right to let close. …and somewhere near the last of them you understood the turn of it, cold one — the carrying was never the atonement. The carrying was the *delay.* …*this* was the atonement. …ten thousand years, to learn that setting a thing down, out loud, in front of one witness who will not flinch …is the very same act as giving it back.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "tn.door_ajar"
+                ]
+              },
+              "text": "*(The Naming, and the honest limit of it. You brought what words you had, and they were not enough — the weight too old, the shame too deep-set in him, and he faltered at the lip of the very first name the way a soul falters at the foot of a Wall. …and then Dot Marigold got up off the bench, and crossed the dark clearing, and stood at his shoulder, and the impossible thing broke apart into its smallest possible unit: a name. A candle. A name. A candle. …not the whole ledger. Not tonight, not near it. The door is *ajar,* cold one — not open, never pretend it's open — but ajar is a whole country from shut. *(the fire flickers, gentle, minding him)* …he has an *until* now, is the thing that undoes you. A man who carried a bottomless thing for a hundred centuries stood up from that fire knowing, for the first time, that at his pace the reading *ends* — under a year, name by name, candle by candle, down to the last recovered soul. …you didn't finish it for him. …you weren't meant to. …you got the *first one* out of his mouth. …the rest is only nights, now. …and nights, at last, he has.)*"
+            },
+            {
+              "text": "*(The ancient elf, and the cloth-wrapped ledger. You've stood at the edge of the candle-clearing and seen the rings of light he lays — ring inside ring inside ring — and the old grief crouched at the centre of them, holding a bundle he has not unwound in a hundred centuries. Bark under hide under vellum under slate, rebound as each binding failed across the ages, every inch of it *names* — the people a lifted hand of his voted into nothing, back when the world was young and he was a lord who thought a vote was a small clean thing. *(the fire watches with you, unhurried, patient as he is)* …you know what's inside. You know what it would cost him to open it — and you're beginning to guess what it's already cost him not to. …the thing has *begun,* mind: Dot lights the candles every night, witnessed and not celebrated, the way he asked, whether or not the reading follows. …but you have not yet put the first name back in his mouth. It waits. …nine thousand four hundred and twelve of them wait, cold one, patient the way only the dead learn to be. …some night, by some fire, he unwinds that cloth. …and you would do well to be the one standing there when he does. …that's the whole of your office, isn't it. …not to fix it. …to be *there.*)*"
             }
           ]
         }

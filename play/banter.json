@@ -1319,6 +1319,218 @@
           "text": "*(she considers it with the seriousness the question deserves — a recipe requested, and Dot has never once refused anyone a recipe)* …like *thaw*, love. *exactly* like thaw. it *hurts* — that's the part nobody warns you — the warmth coming into a cold thing *hurts*, and your whole body says *run*, and you *don't*, and then …*(she opens her empty hands to the low fire)* …then it's just *warm.* and you're *in* it. and it was *never* the *enemy.* …*(she looks at the elf, direct)* …*that's* the instructions. *hurt.* *stay.* *warm.* in *that* order. …*(and then, the promise, plain as bread)* …and *when* it's your *turn* — and it *is* a *when*, elf, i've *decided* — …*i* *do* the *candles.* …and *nobody* *runs.*"
         }
       ]
+    },
+    {
+      "id": "bant.naming_varra_receipt",
+      "category": "aftermath",
+      "once": true,
+      "requires": {
+        "companions": [
+          "varra",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.named"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Varra",
+          "text": "*(quiet a long while — for her, that's a tell)* Nine thousand names. I counted while you read them. Couldn't *not.* *(a coin walking her knuckles, fast)* I count everything, elf. Occupational hazard of having once been *inventory.*"
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(he turns to her, careful as a man moving near a wound)* ...Varra. I did not know."
+        },
+        {
+          "speaker": "Varra",
+          "text": "'Course you didn't. *(too light — then the knife)* There's a broker back home keeps a book like yours. Every soul he ever *moved* — ruled and columned, what they cost, what they cleared. I'm *in* it. Line item. Six years old, ink still wet. I have *seen* my own receipt. *(and now fast, like paying off a debt she resents)* But here's the thing I *hate* that I clocked tonight — his book says what we're *worth.* Yours says who we *were.* And you did the one fucking thing he never will. You read us *out loud.* Said the names like they had *mouths.*"
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(his voice does not hold)* ...ten thousand years I have called this ledger my *sentence.* You have just called it a *kindness.* I do not — *(his hands, useless)* — I do not know what a man does with a gift, Varra."
+        },
+        {
+          "speaker": "Varra",
+          "text": "Then don't *do* anything with it. *(looking away, jaw set)* Maybe the book was never the curse. Maybe it's *whose* — and whether the bastard keeping it ever says you back into the light. *(a beat, low, furious that she means it)* So say them slow, elf. The ones that are left. Like they can hear you. *(the coin snaps flat in her fist)* And if you *ever* tell a living soul I got this soft, I'll appraise you myself. Copper. At *best.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.naming_maerin_almost",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "maerin",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.witnessed"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Maerin",
+          "text": "*(she doesn't sit — she never sits; she stands over him where the fire's gone low)* You want to know what I was before they hauled me out? A *gap*, elf. A hole in the mortar cut exactly my size. *(fierce)* Do the arithmetic — the Pox took me godless at sixteen, ten thousand years after your hand went up. Give it another hundred and I'm just a line you never found. One of your thirty thousand."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(he cannot look at her — then makes himself)* ...I know. I have known since I first heard your name spoken. You are the very thing my vote was *for.* And you got *out.* *(his hands are open and useless on his knees)* Child — I have no word for what it is to sit under the eyes of one my Wall was built to keep... and could not."
+        },
+        {
+          "speaker": "Maerin",
+          "text": "Then *don't reach for one.* Don't you *dare* make me your absolution — I am not your reason, I'm not anybody's war-cry, and it is *not mine to forgive you.* That belongs to the named. *(a beat — and now the luminous thing comes up furious)* But I *watched* you tonight, elf."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(barely)* ...Maerin—"
+        },
+        {
+          "speaker": "Maerin",
+          "text": "I watched the man who *built the Wall* spend himself down to the bone reading the walled-out dead into a place to *rest.* That's not the vote. *(closer, flame guttering at her edges)* That's the *opposite* of the goddamn vote. So you don't get to be only the hand that went up — not tonight, not in front of *me.* *(turning, half out of the world already)* Do it again tomorrow. And the day after. Until it's *done.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.naming_roen_close",
+      "category": "aftermath",
+      "once": true,
+      "requires": {
+        "companions": [
+          "roen",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.ilfaeril_answered"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Roen",
+          "text": "*(turns a card face-up on the stone between them, doesn't play it)* That was a *beautiful* con, my lord. Ten thousand years running and the mark never once made the dealer. *(a grin with nothing behind it)* Trust a working professional — sweetest lie in the whole trade's the one where *you're* the only name on the marker."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(quietly, to the low fire, not to him)* ...You describe it as a man reading his own hand."
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(the grin goes out)* 'Course I am. You don't keep it close 'cause it's *heavy*, elf. You keep it close 'cause the *second* you hand somebody a piece — it stops being *only yours.* And a thing that's not only yours, somebody might come along and make it *lighter.* *(a breath)* And you don't reckon you *get* to be lighter. *(low, and then the true thing, fast, like paying it off)* ...Set my own marker down, not long back. Told the family that thought they had me read cover to cover. World stayed standing. Turns out *lighter* isn't the same as *gone* — you still carry the bastard. You just quit carrying it *alone.*"
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(he looks at Roen a long moment; something that is almost the ghost of a smile)* Ten thousand years I have sat at fires and watched souls learn to set a thing down. *(softly)* You did it in a season. *(the smallest incline of his head)* I find I do not know whether to be humbled — or to ask the gambler for lessons."
+        }
+      ]
+    },
+    {
+      "id": "bant.naming_garrow_wake",
+      "category": "penance",
+      "once": true,
+      "requires": {
+        "companions": [
+          "garrow",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.named"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(watching the last candle, in the flat grave voice she keeps for actual doctrine)* I have stood ten thousand rites to specification, my lord. Kelemvor's every word, in its every order. And I have no liturgy for *this.* No church in creation wrote the wake where the mourner is the *hand that dug the grave.* A penitent who was also the *judge.* We never imagined you. We never dared."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(not looking up)* Then say it plainly, Doomguide. You serve the god whose Law I *built.* Your Wall stands in the mortar I mixed. If any throat in this world has the right to refuse me the fire tonight — it is *yours.*"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(a long breath)* I will tell you the thing that keeps me from sleep, since we are trading debts. Your vote — in that hall, ten thousand years gone — it *felt like justice.* Did it not. *(quieter)* When I obeyed the order to *forget* my dead teacher — to strike his name from my own mouth — that felt like *faith.* Two of us. A terrible thing, each time, wearing a *virtue's* face. So do not ask me for absolution, elf. I am the last hand in this grey clean enough to *give* it."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(finally, the ledger closed under his palm)* ...I did not ask for absolution. I do not think I know its shape anymore. I only wanted to be *witnessed.*"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(and here the theology goes soft, gravedigger's-daughter under the grey)* Then hear a finding older than my order, older than the Wall you raised. A *name,* said over a *lit flame* — that is the first true sacrament. Before temples. Before *my god.* And tonight you performed it, whole and clean, for the exact dead his Law forgot. *(she inclines her head)* I cannot loose your debt, my lord. But I can *name what I saw.* And what I saw was a *rite.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.naming_naeve_math",
+      "category": "penance",
+      "once": true,
+      "requires": {
+        "companions": [
+          "naeve",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.knows_the_ledger"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Naeve",
+          "text": "*(she has been silent the whole wake; when she finally speaks it is flat, a woman reading an instrument)* Nine thousand four hundred and twelve. I have been holding that number all night, elf. It is a cruel shape. It is only *large* because the number standing behind it — the thirty thousand past any finding — is larger still. Your arm reached into the dark, and it was exactly *this* long. No longer."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(he does not look away; he has done this sum every night for ten thousand years)* You are the only soul at this fire who counts the way I count. Then you already know — the number is not a mercy. It is only a measure of the dark on *both* sides of my hand."
+        },
+        {
+          "speaker": "Naeve",
+          "text": "I spent an entire afterlife trying to *un*-derive my own elegance. To draw the theorem back up through my hands until the cities never left the sky. *(the clinician's voice thins, cracks)* It cannot be done, elf. You cannot un-prove a proof. You cannot un-raise a hand."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(very low, the question under all the others)* ...Then what remains, to one who cannot unmake what he has made?"
+        },
+        {
+          "speaker": "Naeve",
+          "text": "*This.* *(a small precise gesture — the guttered candles, the open ledger)* You cannot make it *not-have-happened*; I have *tried*, longer than most civilizations last. You can only make it *smaller than the next true thing you do.* Name by name. Tonight you did that nine thousand four hundred and twelve times. *(almost to herself, wondering)* ...That is the proof. Two world-enders at one fire — and *you* found the proof I never could."
+        }
+      ]
+    },
+    {
+      "id": "bant.naming_dot_kept",
+      "category": "aftermath",
+      "once": true,
+      "requires": {
+        "companions": [
+          "dot",
+          "ilfaeril"
+        ],
+        "flags": [
+          "tn.ilfaeril_answered"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(morning-rough, scrubbing flour off hands that made no bread last night)* I watched you the *whole* time, elf. A man who's never once been *handed* a thing in ten thousand years — and somebody put a warm cup in those hands and you didn't *bolt.* You *sat down.* *(a wet, fierce grin)* You've got no idea what that did to me."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(quiet — the ledger set on the bench beside him, for once not clutched)* The lights did not go out, hearth-keeper. You swore they would not, and they *did not.* I kept waiting for the moment I would have to run. *(a slow breath)* It never came. You had already gone and stood in the doorway of it before I could. ...Thank you. For not being gentle. For not letting me do it alone in the dark like I *meant* to."
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "Gentle's for people who don't *matter,* love. *(sniffs hard)* You mattered. That's the whole damn recipe."
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(and here — the thing he has never once been able to ask another living soul)* ...Then teach me the *other* recipe. Your real trade. I have watched you a year and I think — I think an *until* is a thing you *build.* Measured, proofed, a *done* waiting at the end of it. I have my next one now, Dot, and I do not know the measures. Show me how the bread rises. I want to learn the shape of a morning that *finishes.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(has to look away — then makes herself not)* ...Aye. Well. First lesson's the one I gave you *already,* you great ancient fool. *Hurt, stay, warm — in that order.* You did the first two last night, right there in that chair. *(shoves a cloth into his hands)* Tomorrow we do *warm.* Be here at dawn, wear an apron, and don't you *dare* apologize to the dough."
+        }
+      ]
     }
   ]
 }
