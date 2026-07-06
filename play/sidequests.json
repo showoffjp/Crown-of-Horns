@@ -977,6 +977,34 @@
       ],
       "completionFlag": "tn.ilfaeril_answered",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.past_the_ledger",
+      "title": "Past the Ledger's Reach",
+      "region": "A thin seam in the grey off the camp road at the Hearth",
+      "giver": "discovered — a scratch that keeps arguing (one of the thirty thousand)",
+      "premise": "Ilfaeril's ledger recovered nine thousand four hundred and twelve names; thirty thousand more went past any finding, past even his ten-thousand-year arm. But you are the one soul the Wall gave back, the door that opens both ways, and you can stand where he could not. Out past the ledger's reach, two of the thirty thousand still flicker: a tithe-assessor held together for an age by nothing but the refusal to concede its own erasure was done correctly, and a soul so far gone there is nothing left of it but the sound of rain on a roof. Reach the one you can. Witness the one you can't.",
+      "theme": "A person, not a symbol; a number, not a statistic. The clerk's fury is a form of love the Law forgot to erase, and its name is filed next to its one hidden mercy. The fading one teaches the limit the whole Naming is built around: witness has an edge, not everything erased can be un-erased, and the last thing you can do for the very last of the lost is make sure they go in front of a friend.",
+      "reward": "If you coax the name up gently (through the shame, not the grievance): Debene, the assessor who cooked a widow's column and called it the only honest sum she ever kept — a name you carry to whatever fire holds names. If you witness the fading one: a soul the cosmos tried to erase completely does not, in the end, go completely unseen. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "reach",
+          "desc": "Cross the seam and hear the scratch that keeps arguing",
+          "completionFlag": "un.met_clerk"
+        },
+        {
+          "objectiveId": "name",
+          "desc": "Coax the name up through the shame, not the grievance",
+          "completionFlag": "un.carried_name"
+        },
+        {
+          "objectiveId": "witness",
+          "desc": "Sit with the one who cannot be named, and do not look away",
+          "completionFlag": "un.witnessed_fading"
+        }
+      ],
+      "completionFlag": "un.carried_name",
+      "failureFlag": ""
     }
   ]
 }

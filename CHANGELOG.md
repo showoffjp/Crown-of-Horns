@@ -11,6 +11,35 @@
 
 ---
 
+## 🧮 v6.94.0 — *"Past the Ledger's Reach"* — the thirty thousand, made specific (content · zone · tonal-range)
+
+> The Naming recovered 9,412 names; thirty thousand more went past any finding — past even Ilfaeril's
+> ten-thousand-year arm. But *you* are the one soul the Wall gave back, the door that opens both ways, and
+> you can stand where he could not. A new walkable zone that makes that abstract number **specific**, and
+> deliberately breaks the recent grief-register streak with a hard **tonal pivot**: dark comedy, then the
+> gut-punch — because these were *people*, not a statistic.
+- 🧾 **The scratch that keeps arguing** — one of the thirty thousand, so thoroughly unmade that all that's
+  left is a soul's leftovers… which have spent ten thousand years trying to *file a grievance with
+  absolutely no one.* A tithe-assessor who counted the grain of three cantons and was erased *without a
+  receipt* — and who held itself together across an age on nothing but the professional refusal to concede
+  the paperwork was done *correctly.* The read: the fury isn't a symptom, it's the load-bearing wall; the
+  objection was always, underneath, a form of love. Insight DC 14 to coax the name up — but *through the
+  shame, not the grievance* (the name is filed next to the one entry it's ashamed of): a widow's tithe it
+  undercounted on purpose, the only false-and-honest column it ever kept. The name that surfaces: **Debene**,
+  *who cooked the widow's column and called it the only honest sum she ever kept.* Crit recovers a whole
+  vivid life; fail gets a fragment; **fumble** — reaching for the name like a debt to collect — nearly tears
+  the worn thing back toward erasure (*"come back, and come back slower; the worn ones tear"*). Reactive
+  Ilfaeril-gated line if he's in your party.
+- 🌧️ **The soul with the sound worn off** — the honest counterweight, and the hard truth the whole Naming was
+  built around the edge of: **witness has a limit.** This one is too far gone to name — no grievance, no
+  face, nothing to glue it — only a single grey thread the erasure didn't finish taking: *the sound of rain
+  on a roof, someone once warm and dry and small and wordlessly glad.* You cannot save it. You can only let
+  that last gladness be **heard**, once, by a mind that crosses, so it goes *erased-and-witnessed* instead of
+  *erased-and-alone.* Not a rescue — a hand held at the very end — and more than the Law ever meant to allow.
+- 🔗 New tracked quest `sq.past_the_ledger`; two NPC_SENSE passive reads; hearth→reach seam exit. Sets up the
+  epilogue thread (Ysoreth hunts the thirty thousand; now *you've* met the far edge of them yourself). Gate
+  **801/0**; full suite green; all NPC trees complete for all 5 builds. **92 zones, 284 souls, 36 quests.**
+
 ## 🔥 v6.93.0 — *"The World Holds the Names"* — the Naming reverberates (content · cohesion · reaction)
 
 > The established rhythm, kept: after a marquee zone, the world must *react.* Six party banters, a hearth
