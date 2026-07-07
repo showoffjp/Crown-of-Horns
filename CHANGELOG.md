@@ -11,6 +11,40 @@
 
 ---
 
+## 🕯️ v6.97.0 — *"The Name He Burned"* — Clip's recruitment climax (content · zone · payoff)
+
+> Phase three, the payoff: the freest soul in the grey gets caught, and the whole arc's thesis lands as a
+> playable choice. A new walkable zone (`play/lastcon.json`) where the man with no name has to let himself be
+> **named, called, and kept** — or be reeled home to be owned again. Recruits him. Registers "clip" as a
+> companion for future party content.
+- 🪝 **The trap** — the clipped-coin token you took at the toll goes *cold, then cold enough to burn,* and
+  when you press it, it doesn't open a door for you: it drags you *to him.* He's on his knees at a threshold
+  with a **hook** in him — the death-power that owned him has sifted an age for the *ash* of his burned name
+  and found enough to reel him home. His whole freedom (unnameable = unsummonable) has exactly one crack, and
+  it found it.
+- 💔 **What the name costs** — the Insight read (and the reveal) is the gut-punch: the hand that owned him
+  didn't employ him, it *made* him — honed a bright loved boy into the perfect soft collector — and the
+  afternoon at the bottom is that it sent him to collect **his own faithless sister**, *because she'd go easy
+  for him,* and she looked at her brother come to wall her and wasn't afraid and said his true name like a
+  rope she was sure would save her, and he walled her anyway. He burned the name so he'd never hear her say
+  it again. To give it now is *"the wound with the knife still in it."* Its name: **Tam.**
+- 🕯️ **The counter, and the best path** — a name given freely and held in love *outbids* a name taken in
+  ownership (the whole game's thesis, made personal). The direct path: he gives you *Tam* and you call him
+  home. But the deepest path never takes his true name at all — the Returned realizes the crew **already**
+  named him in love (*"Clip"*), and that's claim enough, *because the counter was never about which name — it
+  was about being loved enough to be called anything at all.* You let him keep his sister's word; he gives it
+  to you afterward anyway, freely, as a gift. Persuasion DC 15 to out-pull the hand, with a **crit** that
+  *shatters* the hook, a **fail** where the coin goes hot and the whole crew pours down the loophole he built
+  and pretended was only an escape route, a no-roll *refuse-to-let-go* path, and a **fumble** where he slips
+  the hand alone one last time and stays a free wildcard you can call again (`clip.let_go`).
+- ☙ **The Owner** — a second soul: the cold entitled *reach* of the power that owned him, confrontable and
+  readable. The exact evil the grey runs on, named: *not hatred — **inventory.** The conviction that a soul
+  is a thing that can be had.* It cannot model "he ran," and that single unbalanced line in its ledger is the
+  only leverage in the room. A `flagsNot`-gated dormant door covers arrival before you've earned the coin.
+- New quest `sq.the_last_con` (completes on `clip.recruited`, fails to `clip.let_go`); three NPC_SENSE reads;
+  hearth→lastcon threshold exit. **Clip's three-phase arc complete: intro → named → kept.** Gate **801/0**;
+  full suite green; all NPC trees complete for all 5 builds. **94 zones, 290 souls, 38 quests.**
+
 ## 🎟️ v6.96.0 — *"Clip"* — the crew names the nameless man (content · cohesion · phase two)
 
 > Phase two of the wildcard's arc: after a marquee introduction, the world reacts — and the running gag pays

@@ -125,6 +125,16 @@
           "y": 2
         },
         "label": "◂ a seam in the grey where the ledger's reach runs out"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "to": "lastcon",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ a threshold the clipped coin opens when it goes cold"
       }
     ],
     "npcs": [

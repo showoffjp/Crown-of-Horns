@@ -1033,6 +1033,34 @@
       ],
       "completionFlag": "clip.soul_freed",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_con",
+      "title": "The Name He Burned",
+      "region": "A threshold the clipped coin opens, off the camp road at the Hearth",
+      "giver": "the clipped coin, gone cold (requires The Toll of Small Coins)",
+      "premise": "The coin he pressed into your hand goes cold in the night, then cold enough to burn, and when you press it it does not open a door for you, it drags you to him. The freest soul in the grey is on his knees at a threshold with a hook in him: the death-power that owned him, that made a loved boy into a smiling knife and sent him to collect his own faithless sister, has sifted an age for the ash of his burned name and found enough to reel him home. There is one counter, and it is the whole game's thesis made personal: a name given freely and held in love outbids a name taken in ownership. He has to let himself be named, and called, and kept, by the one soul who came when a coin went cold.",
+      "theme": "Being held beats being owned. He made himself un-nameable to make himself un-ownable, and the price was never being able to be kept; the loophole he built to save his skin (a way to be reached that isn't a way to be caught) turns out, without his meaning it, to be a way to be loved from a distance. The best path never takes his true name at all: the nickname the crew gave him in love, 'Clip,' is claim enough, because the counter was never about which name, it was about being loved enough to be called anything at all.",
+      "reward": "Clip anchored, un-owned, kept: the recurring wildcard becomes a true ally (clip.recruited). On the deepest path he keeps his sister's word and gives it to you freely afterward anyway: Tam. On a fumble he slips the hand alone, one last time, and stays a free wildcard you can call again. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "answer",
+          "desc": "Press the cold coin and answer the door",
+          "completionFlag": "clip.climax_met"
+        },
+        {
+          "objectiveId": "anchor",
+          "desc": "Call him home — out-bid the hand that owned him",
+          "completionFlag": "clip.anchored"
+        },
+        {
+          "objectiveId": "keep",
+          "desc": "Hold the line: name given in love beats name taken in ownership",
+          "completionFlag": "clip.recruited"
+        }
+      ],
+      "completionFlag": "clip.recruited",
+      "failureFlag": "clip.let_go"
     }
   ]
 }
