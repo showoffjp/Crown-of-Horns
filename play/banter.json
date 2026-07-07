@@ -1531,6 +1531,178 @@
           "text": "*(has to look away — then makes herself not)* ...Aye. Well. First lesson's the one I gave you *already,* you great ancient fool. *Hurt, stay, warm — in that order.* You did the first two last night, right there in that chair. *(shoves a cloth into his hands)* Tomorrow we do *warm.* Be here at dawn, wear an apron, and don't you *dare* apologize to the dough."
         }
       ]
+    },
+    {
+      "id": "bant.clip_naming",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "roen",
+          "varra"
+        ],
+        "flags": [
+          "clip.met"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Roen",
+          "text": "*(delighted, pacing the fire)* …we have got to call him *something.* A man that good doesn't get to stay *'the fellow in the coat.'* It's an *insult* to the *craft.* …*(he tries them on)* …the Ghost of the Causeway. the Unclaimed. *Duke* *Nobody.* …*(to Varra)* …come on, you've a *mouth* on you, give me a *legend.*"
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(not looking up)* …*Clip.*"
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(appalled)* …*Clip.* …the man burned his *name* off the *skin* of the *cosmos* to walk *free* of *death* itself, and you want to call him — *Clip.* …after a *shaved* *copper.*"
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(finally looking up, and there's a blade of something real under it)* …he *told* us what he's worth, gambler. Flipped it at us the whole time — *a clipped coin, wouldn't buy a candle.* Gave us *forty* grand names and *one* true small one, and *hoped* we'd be dazzled enough to keep a *fake.* …*(she shrugs, exact)* …I don't keep the fakes. I've *been* the fake. …we keep the *clipped* *coin.* …*(a beat, quieter)* …besides. A man that determined not to be *held* by a name …*(the ghost of a smirk)* …should have to answer to a *stupid* one. It's the only way he'll ever let it *stick.*"
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(a slow grin, the professional conceding to the better con)* …*(shaking his head)* …*Clip.* …*(he tastes it, and it's already stuck)* …*gods* help him. …the one name he *didn't* choose. …*(softer, the orphan who chose his own)* …that's the only kind that ever *means* anything, you know. the one somebody *else* gives you. …*(then, bright, calling it into the dark past the fire)* …you hear that, *Clip?* …*you're* *filed.* …*welcome* to being on *somebody's* *books.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_ilfaeril_garrow",
+      "category": "grief",
+      "once": true,
+      "requires": {
+        "companions": [
+          "ilfaeril",
+          "garrow"
+        ],
+        "flags": [
+          "clip.met"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(very quietly, watching the dark where the man went)* …I have spent ten thousand years, Doomguide, recovering names. Clawing them from ruins one syllable at a time, because a name is the last handhold a soul has on having *been.* …and tonight I met a man who *burned* his. *On* *purpose.* …*(his long fingers still)* …I do not have a word for what I felt. It was close to *blasphemy.* …and closer, I think, to *envy.*"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(grave, troubled)* …my order would not call it either. My order would call it *impossible*, and then *file* it. A soul without a name is Faithless by definition — it belongs in the Wall, in the mortar, in the *category.* …*(a slow breath)* …and he walks the causeway *free*, and every step of it is a *heresy* against the ledger I have served my whole death. …I should find that *appalling*, Ilfaeril. …*(quiet)* …why do I find it *hopeful.*"
+        },
+        {
+          "speaker": "Ilfaeril",
+          "text": "*(the ghost of understanding)* …because a name is a *home*, Edda. …and it is also a *leash.* I know this better than any soul at this fire — my name was the handle they *swung* me by, in the high courts, before the vote. …he understood the leash and cut it, and paid a price I can only *guess* at, and he is *free* the way the *dead* are almost never *free.* …*(a beat)* …I could not have done it. I *love* the names too much — mine, theirs, all of them. …but I understand, tonight, that loving the name and being *strangled* by it are not always so far apart."
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(the theology settling into something new)* …then here is a finding for the ledger my church will never read: …the Wall damns the nameless. …and a nameless man just walked into a collection-post and *saved* one it meant to take. …*(she looks at the elf)* …perhaps the *category* was never the *sin*, my lord. …perhaps the sin was ever believing a soul could be *filed* at all."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_dot_maerin",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "dot",
+          "maerin"
+        ],
+        "flags": [
+          "clip.met"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(fretting at the fire, in the particular way she frets)* …that *man.* …*(she pokes the flames)* …i keep *thinking* about him, love, and it's not the *coat* and it's not the *coin.* it's that i *offered* him *bread* — *reflex*, i offer *everyone* bread — and he *took* it, and he *thanked* me in *three* *languages*, and he *ate* it walking *backward* out a *door* that wasn't *there.* …*(quietly)* …a man who *can't* be *named* …has never once been *kept.* nobody's ever *set* a *place* for him and *known* it'd be *filled.* …*(fierce)* …that's not *freedom*, that's a *draught* under a *door* nobody shut."
+        },
+        {
+          "speaker": "Maerin",
+          "text": "*(sharp, immediate, luminous)* …*leave* him his *no*, Dot."
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(startled)* …love—"
+        },
+        {
+          "speaker": "Maerin",
+          "text": "*(fierce, but not unkind — the fierceness of the girl who refused to be a symbol)* …I *know* what it is to have someone warm and *good* decide they know the *shape* you *ought* to be. My whole *family* did it — died a *symbol*, got pulled back a *symbol*, everyone so *sure* what would *save* me. …*(steadier)* …he *burned* his *name* so no power could ever tell him what he *was* again. That's not a draught under a door, Dot. That's a man who *chose* the *cold* over the *leash*, and he gets to *keep* choosing it, and it is *not* *ours* to *thaw* him out of it because it makes *us* feel *better.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(a long quiet, and then the baker concedes the true half and holds the other)* …*(softly)* …you're *right*, love. …it *isn't* ours to *force.* …*(a beat, and the warmth won't quit)* …but you *mind* one thing for me, fierce girl, because *you* of all souls should *hear* it: …*refusing* the name they'd *cage* you with …and never *once* being *held* by *anyone* …*(she looks into the fire)* …those *start* the *same.* …and only *one* of them …*stays* *warm.* …i'm not going to *catch* him, Maerin. …*(quiet, certain)* …i'm just going to keep the *place* *set.* …*that* much …is *always* *mine* to *do.*"
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_naeve_roen_compass",
+      "category": "reaction",
+      "once": true,
+      "requires": {
+        "companions": [
+          "naeve",
+          "roen"
+        ],
+        "flags": [
+          "clip.saw_compass"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Naeve",
+          "text": "*(precise, turning it over like a proof)* …his compass. I watched it the entire time. It does not point north; it points at whichever soul in a given space is in the *greatest* need. …*(a small frown)* …that is not *broken*, whatever he claims. That is a *deterministic* *instrument.* Given a room, it resolves to a maximum. I could *write* the *function.*"
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(not unkindly, the con-man's gentleness)* …you could write the function, professor, and you'd have the *maths* dead *right* and the *thing* dead *wrong.* …*(he leans in)* …that's not an *instrument.* I've *run* every grift there is, and I know *exactly* one tell that *never* fails: a man who *denies* the *same* *thing* every *single* *time*, *fast*, before you've even *asked.* …*(quiet)* …he doesn't say *'it's broken'* because it *malfunctions.* he says it because it *works* — perfectly — and it points at the *one* soul he'd have *collected*, back when he was the *other* kind of man. …it's not a *compass*, Naeve. it's a *conscience.* …and he's *ashamed* of it, which is how you *know* it's *real.*"
+        },
+        {
+          "speaker": "Naeve",
+          "text": "*(the recalculation, and she is honest enough to make it out loud)* …*(a pause)* …then I had the *category* wrong. I filed it as *navigation.* …*(slowly)* …it is *confession.* …*(quieter, and this from the woman who ended a world with clean maths)* …the most *honest* thing the man *owns* …and he has spent an *age* insisting it is *defective.* …*(a breath)* …I *understand* that better than I would *like*, gambler. I have called my own *conscience* a *miscalculation* …more than *once* …so I would not have to *feel* it *working.*"
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(gently, to them both, to the fire)* …aye. …*(a crooked smile with no joke in it)* …so do we *all*, the *ones* who *did* the *soft* *collections.* …*call* it *broken.* …*call* it *maths.* …*call* it *anything* …*but* the *thing* it *is.* …*(he flicks a card into the fire)* …*Clip's* just the only one of us *carrying* his *around* …where he has to *look* at it."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_token_dot_varra",
+      "category": "grief",
+      "once": true,
+      "requires": {
+        "companions": [
+          "dot",
+          "varra"
+        ],
+        "flags": [
+          "clip.left_token"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Varra",
+          "text": "*(nodding at the clipped coin you carry)* …you know what that *is*, don't you. The coin. …*(and this is Varra who was sold, who has seen every kind of receipt)* …a man who owns *nothing* — *deliberately*, *nothing*, so *nothing* can be *taken* — just handed you a piece of the *nothing* and told you to *press* it when you're *trapped.* …*(flat, but not flat under it)* …that's not a *gift*, baker. A gift you can *walk* *away* from. …*that's* a *tether.* he *tied* a *string* to *himself* and put the *other* end in a *stranger's* *hand.*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(very softly, understanding all at once)* …*oh.* …*oh*, the *poor* *clever* *man.* …*(she presses her floury hand to her chest)* …*Varra.* …do you *see* what he *did?* …he's spent an *age* making himself so *no* *one* can *hold* him …and then he *found* a *loophole* in his *own* *rule* …and *he* *doesn't* even *know* he *found* it."
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(wary)* …don't *romance* it, Dot—"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(not romancing it — seeing it, plain and merciless-kind)* …i'm *not*, love. i'm *reading* the *recipe.* …a coin you can't be *summoned* by, because it hasn't got his *name* on it — but that he'll *feel* if you *press* it, from *anywhere*, and *come.* …*(quiet)* …he built himself a way to be *reached* …that *isn't* a way to be *caught.* …*(she looks at the coin in your hand)* …*that's* a soul, Varra, that *wants* to be *held* so *badly* …it *invented* a *kind* of *holding* …it could *survive.* …*(and the baker's whole heart in it)* …*don't* you *dare* *lose* that *coin.* …it's the *bravest* *thing* i've *seen* a *frightened* *man* *do.*"
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(a long silence; and then, because she of all of them knows what it costs to let one string stay tied)* …*(low)* …*…damn* it. …*(she looks away)* …*fine.* …*keep* the *coin.* …*(quieter, to herself, the girl who was currency)* …someone should get to be *reached* …*without* being *owned.* …*someone* should get to be the *one* …who *proves* it can be *done.*"
+        }
+      ]
     }
   ]
 }

@@ -614,6 +614,15 @@
               "next": "fire_road_naming"
             },
             {
+              "text": "*(the man with too many names — the con at the toll-post, the coin, the compass he swears is broken)* \"…the one soul the Wall couldn't file. The man who burned his own name to walk free — and paid for it in a currency I'm only starting to understand.\"",
+              "when": {
+                "flags": [
+                  "clip.met"
+                ]
+              },
+              "next": "fire_road_toll"
+            },
+            {
               "text": "\"…Enough looking back. The road ahead won't walk itself.\"",
               "next": "1"
             }
@@ -1205,6 +1214,40 @@
             },
             {
               "text": "*(The ancient elf, and the cloth-wrapped ledger. You've stood at the edge of the candle-clearing and seen the rings of light he lays — ring inside ring inside ring — and the old grief crouched at the centre of them, holding a bundle he has not unwound in a hundred centuries. Bark under hide under vellum under slate, rebound as each binding failed across the ages, every inch of it *names* — the people a lifted hand of his voted into nothing, back when the world was young and he was a lord who thought a vote was a small clean thing. *(the fire watches with you, unhurried, patient as he is)* …you know what's inside. You know what it would cost him to open it — and you're beginning to guess what it's already cost him not to. …the thing has *begun,* mind: Dot lights the candles every night, witnessed and not celebrated, the way he asked, whether or not the reading follows. …but you have not yet put the first name back in his mouth. It waits. …nine thousand four hundred and twelve of them wait, cold one, patient the way only the dead learn to be. …some night, by some fire, he unwinds that cloth. …and you would do well to be the one standing there when he does. …that's the whole of your office, isn't it. …not to fix it. …to be *there.*)*"
+            }
+          ]
+        },
+        {
+          "id": "fire_road_toll",
+          "speaker": "the fire",
+          "auto": "fire_road",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.con_crit"
+                ]
+              },
+              "text": "*(The toll-post on the causeway. The Sifter with her padded roll, the midwife third from the bottom, and the man in the coat who cast you as the Auditor of the whole grey. You didn't strike one name. You struck six — the entire margin of a clerk's quota — and broke a functionary who'd waited ninety years to be stopped. *(the fire burns high and clean)* …you keep the strangest part: not the con, but the half-second afterward, when the man who never stops performing forgot to. Six names off the roll, and he looked at you like you'd done something he'd stopped believing was possible — made the mercy BIGGER instead of smaller. Then he called sentiment a tell and vanished out a door that wasn't there. …you have his coin now. Clipped, worthless, a way to summon a door in a dead end — and, you understand slowly, the only kind of tether a nameless man could bear to tie: a way to be reached that isn't a way to be caught. …he burned his name so no power could hold him, cold one. And then he handed you the one loophole in his own rule, and doesn't know he did it. …the freest soul in the grey. …and the most carefully, secretly, unbearably reachable.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "clip.declined"
+                ]
+              },
+              "text": "*(The toll-post on the causeway. You told him it wasn't your con — that you don't perform on command — and he took it with a grace that told you more than any con could. And then he did it *alone*: freed the midwife with no auditor to sell, burned a real alias, spent a favor he'll bleed for, all for a stranger who'd never repay it and a soul who'd never know. *(the fire burns steady)* …you watched a man save a life for free and then beg you not to make it *mean* anything. 'A man does one free one now and then. Keeps the compass from nagging.' …and he flipped you the coin anyway — unearned, insisting — because a soul that has made itself unkeepable still, underneath, could not stop himself from tying one string to one hand. …you didn't run his con, cold one. You did something he wasn't braced for: you refused to be his instrument, and he freed her anyway, and in refusing you saw the truth the con would have hidden — he doesn't do it for the audience. He does it because the compass points, and he can't, quite, ignore it. …however hard he insists it's broken.)*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "clip.soul_freed"
+                ]
+              },
+              "text": "*(The toll-post on the causeway, and the padded roll one name shorter. Orla the midwife — who caught half a town's children and never asked whose god watched — struck free by a con and a soul the Wall gave back. *(the fire glows)* …you keep the compass. Not the object — his — but the fact of it: a needle that points at whoever most needs saving, and a man who calls it broken every time it swings, because it's the last working piece of who he was before he learned the safest soul is the one no one can hold. …he has no name your sense can find. Burned it, spent it, bought his freedom with the one thing a soul is summoned and walled and owned by. …and it worked. He's free. And free, you're beginning to see, turns out to be its own kind of Wall — because a soul with no name can't be caught, and can't be kept, remembered, or loved by anything that would need to call it something. …you have his coin. Don't lose it. It's the bravest thing you've watched a frightened man do.)*"
+            },
+            {
+              "text": "*(The man with too many names. Duke Sabellian of the Argent Nothing; the Baron of the Brine; the incident, three causeways over. A coat with doors sewn into it, a clipped coin he swears he isn't worth, a compass he swears is broken — and, where every other soul in the grey carries a name like a spine, a clean deliberate *void.* *(the fire flickers, curious)* …you felt it when your sense reached for him: nothing. Not hidden. Burned. Which should feed him to the Wall, and instead he walks the causeway free, unclaimed and unwalled, the one soul the ledger can't hold. …you don't have the whole of him yet, cold one — how he burned it, what it bought, who he was collecting when he ran. But you have the shape of the wound, and it is this: he made himself un-nameable to make himself un-ownable, and the price was never being able to be *held.* …a soul like that doesn't need saving. …but it might, someday, if you're very patient and never once try to catch it, let itself be *kept.* …that's a longer con than any he's run. …and you suspect you might be the mark.)*"
             }
           ]
         }

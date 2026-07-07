@@ -11,6 +11,36 @@
 
 ---
 
+## 🎟️ v6.96.0 — *"Clip"* — the crew names the nameless man (content · cohesion · phase two)
+
+> Phase two of the wildcard's arc: after a marquee introduction, the world reacts — and the running gag pays
+> off. Five party banters and a hearth thread on the man with too many names, ending with the crew doing the
+> one thing he can't stop and never asked for: **giving him a name.**
+- 🎟️ **The christening** (`bant.clip_naming`, Roen × Varra) — Roen wants a *legend* (the Ghost of the
+  Causeway, Duke Nobody); Varra flattens it with one word: **"Clip."** After the shaved copper he flipped at
+  them the whole time. *"He told us what he's worth… gave us forty grand names and one true small one, and
+  hoped we'd keep a fake. I don't keep the fakes. We keep the clipped coin."* And the turn, from the orphan
+  who chose his own name: *"the one name he didn't choose — that's the only kind that ever means anything."*
+- 📜 **The name-burner and the name-keepers** (`bant.clip_ilfaeril_garrow`) — Ilfaeril, who spent ten
+  thousand years *recovering* names, met a man who *burned* his: *"it was close to blasphemy — and closer, I
+  think, to envy. A name is a home, Edda. It is also a leash."* Garrow's Doomguide unease resolving into
+  heresy: *perhaps the sin was ever believing a soul could be filed at all.*
+- 🔥 **Kept vs free** (`bant.clip_dot_maerin`) — Dot wants to *feed* him (*"a man who can't be named has never
+  been kept"*); Maerin, who refused to be a symbol, defends his *no* (*"he chose the cold over the leash —
+  it's not ours to thaw him out of it because it makes us feel better"*). Both right; Dot keeps the place set
+  without catching him.
+- 🧭 **The tell** (`bant.clip_naeve_roen_compass`) — Naeve calls the compass a *deterministic instrument* she
+  could write the function for; Roen, who ran every grift there is, corrects her: *"it's not a compass, it's
+  a conscience — and he's ashamed of it, which is how you know it's real."* Naeve, who ended a world with
+  clean maths, concedes she's called her own conscience a miscalculation too.
+- 🪙 **The loophole** (`bant.clip_token_dot_varra`) — Varra (who was *sold*, who's seen every receipt) reads
+  the clipped-coin token as a *tether*; Dot reads deeper: a soul that made itself unkeepable *found a
+  loophole in its own rule* — a way to be reached that isn't a way to be caught — *and doesn't know it did.*
+  *"Don't you dare lose that coin. It's the bravest thing I've seen a frightened man do."*
+- 🔥 `fire_road_toll` reflection thread, four outcome variants (six-name crit / freed-it-alone decline /
+  freed / the void-where-a-name-should-be default). Banter catalog **56**; full suite green. Phase three
+  ahead: the recruitment climax — the day the freest soul in the grey risks telling one person his true name.
+
 ## 🎭 v6.95.0 — *"The Toll of Small Coins"* — a magnificent bastard, introduced (content · zone · new ally)
 
 > A new kind of character the roster was missing: the **chaotic-neutral wildcard** — Jarlaxle's *beholden to
