@@ -1551,55 +1551,64 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/SFX/hit_poison.wav",sfx,wav,13KB,13274,no
 "Assets/Resources/SFX/levelup.wav",sfx,wav,23KB,22972,no
 "Assets/Resources/SFX/miss.wav",sfx,wav,9.6KB,9746,no
-"Assets/Resources/Sprites/A Sorrow of the Unmade.png",battle-token,png,6.0KB,6053,no
-"Assets/Resources/Sprites/Ally.png",battle-token,png,3.5KB,3563,no
-"Assets/Resources/Sprites/Arcane Sentinel.png",battle-token,png,5.6KB,5691,no
-"Assets/Resources/Sprites/Arcanist Revenant.png",battle-token,png,5.7KB,5738,no
-"Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",battle-token,png,5.9KB,5958,no
-"Assets/Resources/Sprites/Choir Herald.png",battle-token,png,5.4KB,5522,no
-"Assets/Resources/Sprites/Cinder-Hound.png",battle-token,png,5.3KB,5338,no
-"Assets/Resources/Sprites/Contract-Devil.png",battle-token,png,6.6KB,6683,no
-"Assets/Resources/Sprites/Crown-War Revenant.png",battle-token,png,6.2KB,6302,no
-"Assets/Resources/Sprites/Damned Shade.png",battle-token,png,6.3KB,6380,no
-"Assets/Resources/Sprites/Doomguide Enforcer.png",battle-token,png,5.2KB,5315,no
-"Assets/Resources/Sprites/Doomguide Interrogator.png",battle-token,png,5.0KB,5096,no
-"Assets/Resources/Sprites/Doomguide Knight.png",battle-token,png,5.6KB,5665,no
-"Assets/Resources/Sprites/Echo of the Verdict.png",battle-token,png,5.0KB,5072,no
-"Assets/Resources/Sprites/Enemy.png",battle-token,png,4.1KB,4157,no
-"Assets/Resources/Sprites/Garrow.png",battle-token,png,5.1KB,5194,no
-"Assets/Resources/Sprites/God-Touched Horror.png",battle-token,png,5.1KB,5166,no
-"Assets/Resources/Sprites/Ilfaeril.png",battle-token,png,3.1KB,3140,no
-"Assets/Resources/Sprites/Imp of the Fine Print.png",battle-token,png,4.1KB,4136,no
-"Assets/Resources/Sprites/Justiciar Veld.png",battle-token,png,6.1KB,6155,no
-"Assets/Resources/Sprites/Kelemvorite Zealot.png",battle-token,png,5.3KB,5425,no
-"Assets/Resources/Sprites/Maerin.png",battle-token,png,4.6KB,4612,no
-"Assets/Resources/Sprites/Mhaere.png",battle-token,png,4.2KB,4296,no
-"Assets/Resources/Sprites/Mythallar Ward.png",battle-token,png,6.2KB,6314,no
-"Assets/Resources/Sprites/Naeve.png",battle-token,png,4.4KB,4455,no
-"Assets/Resources/Sprites/Netherese War-Construct.png",battle-token,png,6.1KB,6160,no
-"Assets/Resources/Sprites/Neutral.png",battle-token,png,4.5KB,4565,no
-"Assets/Resources/Sprites/Player.png",battle-token,png,3.9KB,3986,no
-"Assets/Resources/Sprites/Quill, the Broker.png",battle-token,png,4.8KB,4912,no
-"Assets/Resources/Sprites/Quill.png",battle-token,png,4.2KB,4230,no
-"Assets/Resources/Sprites/Roen Alleywind.png",battle-token,png,8.8KB,8991,no
-"Assets/Resources/Sprites/Sable.png",battle-token,png,5.0KB,5046,no
-"Assets/Resources/Sprites/Shadow-Bound Sentinel.png",battle-token,png,5.5KB,5630,no
-"Assets/Resources/Sprites/Sister Garrow.png",battle-token,png,5.1KB,5194,no
-"Assets/Resources/Sprites/Sorrow-wraith.png",battle-token,png,6.1KB,6239,no
-"Assets/Resources/Sprites/Spellplague Aberration.png",battle-token,png,6.1KB,6236,no
-"Assets/Resources/Sprites/Tamsin.png",battle-token,png,4.0KB,4020,no
-"Assets/Resources/Sprites/Templar Inquisitor.png",battle-token,png,4.6KB,4704,no
-"Assets/Resources/Sprites/The Avatar of Bone.png",battle-token,png,5.7KB,5741,no
-"Assets/Resources/Sprites/The First Unmade.png",battle-token,png,4.7KB,4761,no
-"Assets/Resources/Sprites/The Herald of the Unmade.png",battle-token,png,4.7KB,4748,no
-"Assets/Resources/Sprites/The Hollow Cantor.png",battle-token,png,5.1KB,5196,no
-"Assets/Resources/Sprites/The Mythallar Colossus.png",battle-token,png,6.0KB,6090,no
-"Assets/Resources/Sprites/The Pale Cantor.png",battle-token,png,5.2KB,5251,no
-"Assets/Resources/Sprites/The Unbound Maw.png",battle-token,png,5.4KB,5493,no
-"Assets/Resources/Sprites/The Unbound.png",battle-token,png,5.2KB,5278,no
-"Assets/Resources/Sprites/Unmade Aberration.png",battle-token,png,5.5KB,5604,no
-"Assets/Resources/Sprites/Unmaking Acolyte.png",battle-token,png,5.9KB,5966,no
-"Assets/Resources/Sprites/Unmaking Zealot.png",battle-token,png,5.2KB,5255,no
-"Assets/Resources/Sprites/Varra.png",battle-token,png,4.3KB,4323,no
-"Assets/Resources/Sprites/Vengeful Shade.png",battle-token,png,6.8KB,6962,no
-"Assets/Resources/Sprites/Weave-wraith.png",battle-token,png,6.5KB,6645,no
+"Assets/Resources/Sprites/A Sorrow of the Unmade.png",battle-token,png,9.8KB,10027,no
+"Assets/Resources/Sprites/Ally.png",battle-token,png,5.3KB,5346,no
+"Assets/Resources/Sprites/Arcane Sentinel.png",battle-token,png,9.1KB,9275,no
+"Assets/Resources/Sprites/Arcanist Revenant.png",battle-token,png,9.1KB,9233,no
+"Assets/Resources/Sprites/Ashfiend A.png",battle-token,png,9.4KB,9596,no
+"Assets/Resources/Sprites/Ashfiend B.png",battle-token,png,9.4KB,9540,no
+"Assets/Resources/Sprites/Avatar-Touched Horror.png",battle-token,png,11KB,10742,no
+"Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",battle-token,png,11KB,11252,no
+"Assets/Resources/Sprites/Brother Oke.png",battle-token,png,8.4KB,8572,no
+"Assets/Resources/Sprites/Choir Herald.png",battle-token,png,8.2KB,8316,no
+"Assets/Resources/Sprites/Cinder-Hound.png",battle-token,png,8.7KB,8856,no
+"Assets/Resources/Sprites/Contract-Devil.png",battle-token,png,11KB,10591,no
+"Assets/Resources/Sprites/Crown-War Revenant.png",battle-token,png,9.8KB,10017,no
+"Assets/Resources/Sprites/Damned Shade.png",battle-token,png,11KB,10358,no
+"Assets/Resources/Sprites/Doomguide Acolyte.png",battle-token,png,11KB,10497,no
+"Assets/Resources/Sprites/Doomguide Enforcer.png",battle-token,png,9.2KB,9355,no
+"Assets/Resources/Sprites/Doomguide Interrogator.png",battle-token,png,8.3KB,8447,no
+"Assets/Resources/Sprites/Doomguide Knight.png",battle-token,png,11KB,10539,no
+"Assets/Resources/Sprites/Echo of the Verdict.png",battle-token,png,8.8KB,8964,no
+"Assets/Resources/Sprites/Echo.png",battle-token,png,7.6KB,7750,no
+"Assets/Resources/Sprites/Enemy.png",battle-token,png,5.8KB,5891,no
+"Assets/Resources/Sprites/Garrow.png",battle-token,png,7.8KB,7941,no
+"Assets/Resources/Sprites/God-Touched Horror.png",battle-token,png,11KB,10932,no
+"Assets/Resources/Sprites/Ilfaeril.png",battle-token,png,5.2KB,5287,no
+"Assets/Resources/Sprites/Imp of the Fine Print.png",battle-token,png,8.0KB,8135,no
+"Assets/Resources/Sprites/Justiciar Veld.png",battle-token,png,11KB,10395,no
+"Assets/Resources/Sprites/Kelemvorite Zealot.png",battle-token,png,9.2KB,9367,no
+"Assets/Resources/Sprites/Lyra.png",battle-token,png,6.5KB,6628,no
+"Assets/Resources/Sprites/Maerin.png",battle-token,png,7.3KB,7413,no
+"Assets/Resources/Sprites/Mhaere.png",battle-token,png,6.9KB,7057,no
+"Assets/Resources/Sprites/Mythallar Ward.png",battle-token,png,9.4KB,9537,no
+"Assets/Resources/Sprites/Naeve.png",battle-token,png,7.9KB,8019,no
+"Assets/Resources/Sprites/Netherese War-Construct.png",battle-token,png,8.7KB,8869,no
+"Assets/Resources/Sprites/Neutral.png",battle-token,png,6.0KB,6066,no
+"Assets/Resources/Sprites/Player.png",battle-token,png,5.6KB,5713,no
+"Assets/Resources/Sprites/Quill, the Broker.png",battle-token,png,7.6KB,7768,no
+"Assets/Resources/Sprites/Quill.png",battle-token,png,7.2KB,7369,no
+"Assets/Resources/Sprites/Roen Alleywind.png",battle-token,png,10KB,10211,no
+"Assets/Resources/Sprites/Sable.png",battle-token,png,7.8KB,7904,no
+"Assets/Resources/Sprites/Shadow-Bound Sentinel.png",battle-token,png,9.8KB,9991,no
+"Assets/Resources/Sprites/Sister Garrow.png",battle-token,png,9.0KB,9170,no
+"Assets/Resources/Sprites/Sorrow-wraith.png",battle-token,png,10KB,10150,no
+"Assets/Resources/Sprites/Spellplague Aberration.png",battle-token,png,8.8KB,8915,no
+"Assets/Resources/Sprites/Tamsin.png",battle-token,png,6.9KB,6966,no
+"Assets/Resources/Sprites/Templar Inquisitor.png",battle-token,png,9.5KB,9668,no
+"Assets/Resources/Sprites/The Avatar of Bone.png",battle-token,png,11KB,11252,no
+"Assets/Resources/Sprites/The First Unmade.png",battle-token,png,9.7KB,9890,no
+"Assets/Resources/Sprites/The Herald of the Unmade.png",battle-token,png,8.9KB,9082,no
+"Assets/Resources/Sprites/The Hollow Cantor.png",battle-token,png,8.2KB,8350,no
+"Assets/Resources/Sprites/The Last Returned.png",battle-token,png,8.9KB,9058,no
+"Assets/Resources/Sprites/The Mythallar Colossus.png",battle-token,png,9.2KB,9355,no
+"Assets/Resources/Sprites/The Pale Cantor.png",battle-token,png,8.4KB,8575,no
+"Assets/Resources/Sprites/The Returned.png",battle-token,png,9.8KB,9957,no
+"Assets/Resources/Sprites/The Unbound Maw.png",battle-token,png,11KB,10549,no
+"Assets/Resources/Sprites/The Unbound.png",battle-token,png,9.7KB,9850,no
+"Assets/Resources/Sprites/Unmade Aberration.png",battle-token,png,11KB,10393,no
+"Assets/Resources/Sprites/Unmaking Acolyte.png",battle-token,png,11KB,11205,no
+"Assets/Resources/Sprites/Unmaking Zealot.png",battle-token,png,11KB,10459,no
+"Assets/Resources/Sprites/Varra.png",battle-token,png,6.5KB,6633,no
+"Assets/Resources/Sprites/Vengeful Shade.png",battle-token,png,11KB,10694,no
+"Assets/Resources/Sprites/Weave-wraith.png",battle-token,png,9.8KB,9959,no

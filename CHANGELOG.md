@@ -11,6 +11,36 @@
 
 ---
 
+## ⚔️ v6.99.0 — *"War Paint & Candlelight"* — battle tokens v2 + painted zone floors (art · combat · world)
+
+> Two facelifts in one: every unit the engine can put on a battle grid gets an identity-true token, and
+> every walkable zone gets a painted floor. **Asset coverage 49/49 — 100% — for the first time.**
+- ⚔️ **`tools/gen-tokens-v2.py`** — all **61** battle tokens repainted with the portraits' identity system,
+  sourced from the game's own data: the web combat roster's authored `col`+`glyph` (Garrow's gold ✛, the
+  Returned's blood ☠, the Last Returned's crowned violet ♛), the **25 `Combatant.color` tints authored
+  inline in the encounter builders**, Ilfaeril's zone hue/sigil, era palettes for the rest. Radial-shaded
+  discs with a bevel arc, rim-lit bust silhouettes, a big low-alpha **sigil watermark** + a badge at the
+  disc's foot, boss crowns, the v1 red threat rim and name plate kept (labels now shrink until they fit —
+  v1 clipped *Netherese War-Construct*).
+- 🎯 **The roster gaps are closed** — the two names the asset gate has been yellow about forever were **the
+  protagonist and the final boss** ("The Returned", "The Last Returned"). Painted, plus Avatar-Touched
+  Horror, Doomguide Acolyte, Ashfiend A/B, Lyra, Brother Oke, exact-name companion tokens (superseding the
+  alias copies), and an **`Echo.png`** that catches every dynamic *"Echo of ⟨name⟩"* mirror-clone via the
+  resolver's first-word fallback.
+- 🕯️ **`tools/gen-zone-backdrops.py`** — the first realized slice of the area-art pipeline doc: a painted
+  floor for **all 94 zones** (785 KB total), rendered in *exactly* the web renderer's projection so every
+  prop and token sits pixel-perfect. Each zone's floor is tinted by the circular mean of its **own cast's
+  hues**; warm light pools bloom around every authored candle, torch, brazier, campfire, hearthfire and
+  lamppost (112 candles across the grey); greyshrines and fountains pool cold; exits breathe causeway blue
+  under the JS pulse; per-tile jitter, depth falloff, vignette, grain.
+- 🖥️ **The backdrop hook, implemented** — the walkable game (`town_market.html` and the all-in-one) now
+  blits `maps/⟨zone⟩.jpg` under the live layer; blocked/hover become translucent overlays; flat shading
+  remains as graceful fallback when a map is absent. Verified end-to-end in Chromium: the hearth's painted
+  warm pool sits exactly under the JS campfire, market exits glow under their pulses, zero page errors.
+- ✅ Full suite green (42/42); all 94 backdrops pass brightness-band QA; manifest recatalogued (1,613
+  assets); cast gallery rebuilt (331 cards — v2 tokens embedded); adversarially reviewed by a 5-agent
+  verification pass before ship.
+
 ## 🖼️ v6.98.0 — *"Every Face in the Grey"* — the whole cast, painted (art · sfx · vfx · gallery)
 
 > The art release: the game had 290 souls and **37 faces** — everyone from thirty releases of new cast,

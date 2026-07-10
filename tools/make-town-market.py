@@ -991,6 +991,11 @@ Object.values(SCENES).forEach(normScene); normScene(SCENE);   // every zone auth
 const TW=64, TH=32, OX=cv.width/2, OY=64;
 function iso(tx,ty){ return { x: OX+(tx-ty)*TW/2, y: OY+(tx+ty)*TH/2 }; }
 function unIso(sx,sy){ const a=(sx-OX)/(TW/2), b=(sy-OY)/(TH/2); return { tx:(a+b)/2, ty:(b-a)/2 }; }
+// painted zone floors (tools/gen-zone-backdrops.py) — loaded opportunistically; flat shading until then / if absent
+const BACKDROPS={};
+function ensureBackdrop(id){ if(!id||BACKDROPS[id]!==undefined) return; BACKDROPS[id]=null;
+  const im=new Image(); im.onload=()=>{ BACKDROPS[id]=im; }; im.onerror=()=>{}; im.src="maps/"+id+".jpg"; }
+ensureBackdrop(SCENE.id);
 const player={ tx:SCENE.playerStart.x, ty:SCENE.playerStart.y, path:null, pathIdx:0, facing:1 };
 // conditionally-present souls: an NPC with a `when` only appears when the world-state matches (e.g. those you saved)
 function npcVisible(n){ return !n.when || matchesWhen(char, st, n.when); }
@@ -1000,7 +1005,7 @@ let BLOCKED=blockedNow();
 let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, traveling=false, fade=0, lastT=0;
 function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
 // ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
-function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow();
+function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow(); ensureBackdrop(id);
   const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
   hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
   const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
@@ -1132,11 +1137,20 @@ function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); dra
 }
 function render(){
   ctx.clearRect(0,0,cv.width,cv.height);
-  // floor (blocked tiles read darker; the hovered tile lights unless it's blocked)
+  // floor — painted backdrop when the zone has one (blocked/hover become overlays),
+  // else the classic flat shading (blocked tiles read darker; hover lights unless blocked)
+  const bg=BACKDROPS[SCENE.id];
+  if(bg){ ctx.drawImage(bg,0,0,cv.width,cv.height);
+    for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){ const bl=BLOCKED[tileKey(tx,ty)];
+      const hov=hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty;
+      if(!bl&&!hov) continue; const s=iso(tx,ty);
+      if(bl) drawDiamond(s.x,s.y,"rgba(6,4,10,.40)",null);
+      if(hov) drawDiamond(s.x,s.y, bl?"rgba(150,60,80,.30)":"rgba(130,120,200,.26)", bl?"#2a1620":"#4a4470"); }
+  } else {
   for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){ const s=iso(tx,ty), bl=BLOCKED[tileKey(tx,ty)];
     let shade=((tx+ty)%2)?"#181620":"#1c1a26"; if(bl) shade=((tx+ty)%2)?"#141019":"#16121f";
     if(hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty) shade=bl?"#2a1620":"#2a2740";
-    drawDiamond(s.x,s.y, shade, "#13111a"); }
+    drawDiamond(s.x,s.y, shade, "#13111a"); } }
   // zone exits — a glowing causeway tile you can walk onto to cross to the next scene
   (SCENE.exits||[]).forEach(x=>{ const s=iso(x.tx,x.ty), pulse=0.5+0.32*Math.sin(lastT/380);
     drawDiamond(s.x,s.y,`rgba(110,168,200,${0.12+0.10*pulse})`,`rgba(150,200,230,${0.5+0.4*pulse})`);
