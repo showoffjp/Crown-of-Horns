@@ -8,7 +8,8 @@ from PIL import Image
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 COMPANIONS = ["Sister Garrow","Roen Alleywind","Varra","Naeve","Ilfaeril","Maerin"]
 PRINCIPALS = ["The Returned","Aldric Morn","Mhaere","Sable","Tamsin","Quill","Wrenna Alleywind","Mother Cass",
-              "High Lord Aelryth","Justiciar Veld","The Pale Cantor"]
+              "High Lord Aelryth","Justiciar Veld","The Pale Cantor",
+              "a man with too many names","the reach of the one who owned him","Kelemvor"]
 
 # ------------------------------------------------------------------ profiles
 # Authored from the game's content (class/race/stats from the build functions;
@@ -101,6 +102,27 @@ PROFILES = {
   "bio":["In the Lower City, Mother Cass tends the dead nobody will claim — the exact souls the Wall is built to swallow. She can send you to the Court of the Dead carrying the poor's token, scales turned inward, so that for once the unclaimed have someone in the room who promised to say they were real.",
    "Carry her token to the end and it matters that you said it."],
   "quest":"The Almshouse token.","romance":"No.","bonds":"Speaks for everyone the story would otherwise forget."},
+
+ "a man with too many names": {"role":"Clip — the wildcard (recruitable)","tag":"The freest soul in the grey — free because no one can name him.",
+  "stats":[("Called","Clip — the crew's name for him, given in love"),("True name","Tam — burned, and why is the whole story"),("Sigil","❖"),("Joins","sq.the_last_con — if you hold on")],
+  "bio":["At the toll causeway he is unclaimed, unwalled, and not on anyone's books — a con man of the dead who long ago burned his own name so that nothing, god or ledger or death-power, could ever summon him again. Unnameable is unsummonable. It is the best trick in the grey, and it has exactly one crack.",
+   "The power that owned him in life did not employ him; it MADE him — honed a bright, loved boy into the perfect soft collector, and then sent him to collect his own faithless sister, because she would go easy for him. She looked at her brother come to wall her and was not afraid, and said his true name like a rope she was sure would save her. He walled her anyway. He burned the name so he would never hear her say it again.",
+   "The clipped coin he leaves you goes cold the night the hook finds him — the Owner has sifted an age of ash for what was left of that name, and found enough to reel him home. The counter is the game's whole thesis made personal: a name given freely and held in love outbids a name taken in ownership. The deepest path never takes his true name at all — the crew already named him, and being loved enough to be called anything at all was always the point."],
+  "quest":"The Last Con — kept, or let go free one last time.","romance":"He flirts with everything and trusts exactly one thing.",
+  "bonds":"A sister he walled with his own hands. A crew that named him. You, holding the coin."},
+
+ "the reach of the one who owned him": {"role":"Villain · the Owner","tag":"Not hatred — inventory. The conviction that a soul is a thing that can be had.",
+  "stats":[("Is","The cold reach of a death-power"),("Wants","Its property returned"),("Cannot model","That he ran")],
+  "bio":["The exact evil the grey runs on, named plainly. It does not rage and it does not gloat; it forecloses. It made a collector out of a boy the way a smith makes a hook out of iron, and when the hook walked off, it spent an age sifting ash for the residue of a burned name — because in its ledger nothing is ever lost, only mislaid.",
+   "It has one unbalanced line in that ledger — HE RAN — and no column to put it in. That single failure of imagination is the only leverage in the room, and the whole recruitment climax turns on whether you can out-pull a claim of ownership with a claim of love."],
+  "quest":"The Last Con — the hand on the other end of the hook.","romance":"It does not love. That is the entire point.",
+  "bonds":"Everything it touched, it owned. Everything it owned, it lost one of."},
+
+ "Kelemvor": {"role":"The Judge of the Dead","tag":"A god bound to the Wall his office inherited.",
+  "stats":[("Office","Judge of the Dead"),("Keeps","The Doom, the Ledger, the Wall"),("Once","A mortal man")],
+  "bio":["The god at the top of the machinery — a man once, which is the tragedy of him. He inherited the Wall with the office and keeps it because the alternative he can see is worse, and he is honest enough to hate the arithmetic he administers.",
+   "What the Returned is — a soul the Wall failed to erase — is the question his whole court convenes on. Whether he meets you as Judge or as the man he used to be depends on everything you did on the way up."],
+  "quest":"The Court of the Dead — the final judgement.","romance":"No.","bonds":"Jergal's ledger. The Doomguides. Every soul ever filed."},
 }
 
 def thumb_b64(p, size=(176,220)):
@@ -127,7 +149,7 @@ def main():
     for p in sorted(glob.glob(os.path.join(ROOT, "Assets/Resources/Portraits/*.png"))):
         n = os.path.basename(p)[:-4]
         if n not in shown and n not in ("NPC", "Roen", "Garrow"): npcs.append(card(n, p))
-    sections.append(("Faces of the Gate & the Eras", npcs))
+    sections.append(("Every Named Soul — the full roster, all 94 zones", npcs))
     foes = []; skip = shown | {"Player","Ally","Neutral","Enemy","Garrow","Quill, the Broker"}
     for p in sorted(glob.glob(os.path.join(ROOT, "Assets/Resources/Sprites/*.png"))):
         n = os.path.basename(p)[:-4]
@@ -165,9 +187,12 @@ border:1px solid #3a3550;border-radius:12px;padding:22px;box-shadow:0 20px 80px 
 .field{margin-top:12px;font-size:13px}.field .k{color:#c9a24b;letter-spacing:1px;text-transform:uppercase;font-size:11px}
 .x{position:fixed;top:18px;right:24px;font-size:30px;color:#8a8198;cursor:pointer}.x:hover{color:#e7c873}
 .hint{color:#c9a24b}.foot{margin-top:26px;color:#6e6680;font-size:11.5px}
+#q{margin:14px 0 2px;width:100%;max-width:420px;background:#14121b;border:1px solid #2a2636;border-radius:7px;
+padding:9px 12px;color:#d8d2c2;font:14px Georgia,serif;outline:none}#q:focus{border-color:#c9a24b}
 @media(max-width:640px){.sheet{flex-direction:column}.sheet img{width:160px;align-self:center}}</style></head><body>
 <h1>Crown of Horns - Cast Gallery</h1>
-<div class="subt">Every face in the game - """ + str(total) + """ era-tinted portraits &amp; battle tokens. <b class="hint">Click any companion or principal (&#9656; profile) for a full character sheet.</b> Portraits are honest placeholders - the exact files the engine loads by name.</div>
+<div class="subt">Every face in the game - """ + str(total) + """ era-tinted portraits &amp; battle tokens. <b class="hint">Click any companion or principal (&#9656; profile) for a full character sheet.</b> Portraits are honest placeholders - the exact files the engine loads by name. Every soul's palette is their zone-authored hue; the medallion is their sigil.</div>
+<input id="q" type="search" placeholder="Search the dead&hellip; (name)" autocomplete="off">
 """ + body + """
 <div class="modal" id="modal"><div class="x" id="x">&times;</div><div class="sheet" id="sheet"></div></div>
 <div class="foot">Profiles authored from the game's content (class/stats from the build functions; arcs from EndingResolver &amp; the era scripts). Generated by tools/make-cast-gallery.py.</div>
@@ -195,6 +220,18 @@ function close_(){document.getElementById("modal").style.display="none";}
 document.getElementById("x").onclick=close_;
 document.getElementById("modal").onclick=function(e){if(e.target.id==="modal")close_();};
 document.addEventListener("keydown",function(e){if(e.key==="Escape")close_();});
+var q=document.getElementById("q");
+q.addEventListener("input",function(){
+  var v=q.value.trim().toLowerCase();
+  document.querySelectorAll(".card").forEach(function(c){
+    var nm=c.querySelector(".nm").textContent.toLowerCase();
+    c.style.display=(!v||nm.indexOf(v)>=0)?"":"none";
+  });
+  document.querySelectorAll("h2").forEach(function(h){
+    var g=h.nextElementSibling,vis=g?g.querySelectorAll('.card:not([style*="none"])').length:0;
+    h.style.display=(!v||vis)?"":"none";
+  });
+});
 </script></body></html>"""
     open(os.path.join(ROOT, "play", "cast_gallery.html"), "w").write(out)
     print(f"wrote play/cast_gallery.html ({len(out)//1024} KB, {total} cards, {len(PROFILES)} clickable profiles)")

@@ -11,6 +11,34 @@
 
 ---
 
+## 🖼️ v6.98.0 — *"Every Face in the Grey"* — the whole cast, painted (art · sfx · vfx · gallery)
+
+> The art release: the game had 290 souls and **37 faces** — everyone from thirty releases of new cast,
+> Clip and the Owner included, was faceless. Now **every named soul in all 94 zones has a portrait**, painted
+> from the game's own data.
+- 🎨 **`tools/gen-portraits-v3.py`** — reads every zone in `play/*.json` and paints all **258** named souls
+  (257 zone souls + engine-expected Doomguide Vayle), keyed by the exact in-scene name the engine loads
+  (`Resources/Portraits/<speaker>`), so every face auto-wires into DialogueScreen and the gallery. What makes
+  it honest to the game's own data: each soul's **zone-authored hue drives their palette** (portraits match
+  their in-game token color) and their **sigil is stamped on a chest medallion**; archetypes
+  (priest/rogue/mage/warrior/noble/elf/spirit/commoner) read from name+title keywords — spirits unravel into
+  wisps, warriors get brow-band helms with a nasal bar, nobles a circlet and fur collar.
+- ☠️ **The menace treatment** — villainous presences (owners, accusers, collectors, advocates of the Nine,
+  Myrkul in the Crown) paint underlit with a hard vignette and narrowed glints.
+- 🕯️ **Emblem icons for non-person souls** — the fire, waiting doors, the Great Tally, the Crown of Horns
+  itself: painted as their sigil held in a ring of their own light, not a fake face. (The Crown gets both:
+  icon *and* menace — a patient gold ring in the dark, wanting to be worn.)
+- 🧠 **A classifier that knows the Fugue** — in this game *everyone* is "a soul", so "soul" can't mean
+  ghost: professions classify first, only genuine dissolution reads as spirit — which is how Kelemvor stays
+  a judge, Wulfgar a barbarian, Raistlin a mage, and the Sparrow a thief.
+- 🔊 **Placeholder SFX/VFX/Music actualized & verified** — 14 synthesized combat SFX, 9 VFX effects
+  (54 frames), 7 seamless music loops, all deterministic, engine-named, `.meta`'d. Asset coverage **95%**
+  (Portraits 9/9, SFX 14/14, FX 9/9, Music 7/7).
+- 🖼️ **Cast gallery rebuilt** — 323 cards with a *Search the dead…* filter, plus three new clickable
+  profiles: **Clip** (the wildcard, his whole named/kept arc), **the Owner** (*"not hatred — inventory"*),
+  and **Kelemvor** (the Judge, once a man). Contact sheet regenerated (291 portraits); all-in-one build
+  rebundled (12.4 MB, 11 tabs). Full suite green — 42/42.
+
 ## 🕯️ v6.97.0 — *"The Name He Burned"* — Clip's recruitment climax (content · zone · payoff)
 
 > Phase three, the payoff: the freest soul in the grey gets caught, and the whole arc's thesis lands as a
