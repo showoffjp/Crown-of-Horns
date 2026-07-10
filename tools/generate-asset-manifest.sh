@@ -36,6 +36,12 @@ categorize() {
     */Models/*)             echo "model" ;;
     */Animations/*)         echo "animation" ;;
     */_Source/*)            echo "source" ;;
+    */Resources/Portraits/*) echo "portrait" ;;
+    */Resources/Sprites/*)  echo "battle-token" ;;
+    */Resources/SFX/*)      echo "sfx" ;;
+    */Resources/Music/*)    echo "music" ;;
+    */Resources/FX/*)       echo "fx" ;;
+    */Resources/Art/*)      echo "area-art" ;;
     *)                      echo "uncategorized" ;;
   esac
 }
