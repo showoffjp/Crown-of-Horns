@@ -133,16 +133,31 @@ def rgl(img, cx, cy, r, color, alpha):
 def shade(c, f):
     return tuple(max(0, min(255, int(v * f))) for v in c)
 
+# A missing glyph renders as DejaVu's .notdef box, whose bbox is NONZERO — so a
+# bbox check passes tofu. Compare rendered bytes against guaranteed-missing
+# U+E000 instead, and substitute covered cousins for the two zone sigils
+# DejaVu lacks (⏳ U+23F3, ⟁ U+27C1).
+SIGIL_SUBSTITUTES = {"⏳": "∞", "⟁": "△"}
+_NOTDEF_CACHE = {}
 def glyph_ok(font, ch):
     try:
-        m = font.getmask(ch)
-        return m.getbbox() is not None
+        def render(c):
+            img = Image.new("L", (96, 96), 0)
+            ImageDraw.Draw(img).text((4, 4), c, font=font, fill=255)
+            return img.tobytes()
+        key = id(font)
+        if key not in _NOTDEF_CACHE:
+            _NOTDEF_CACHE[key] = render("")
+        r = render(ch)
+        return any(r) and r != _NOTDEF_CACHE[key]
     except Exception:
         return False
 
 def draw_sigil(d, cx, cy, sigil, size, ink, halo=None):
     """sigil text centered at (cx,cy); diamond fallback if the font lacks the glyph"""
     font = load_font(size)
+    if sigil:
+        sigil = "".join(SIGIL_SUBSTITUTES.get(ch, ch) for ch in sigil)
     if sigil and all(glyph_ok(font, ch) for ch in sigil):
         bb = d.textbbox((0, 0), sigil, font=font)
         tx, ty = cx - (bb[0] + bb[2]) / 2, cy - (bb[1] + bb[3]) / 2

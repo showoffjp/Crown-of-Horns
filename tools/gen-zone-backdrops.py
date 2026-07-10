@@ -118,10 +118,14 @@ def paint(scene):
         cx, cy = iso(x.get("x", 0), x.get("y", 0))
         glow(img, cx, cy, 46 * SS, (110, 168, 200), 70)
 
-    # painterly finish
+    # painterly finish. Grain is seeded per zone id — PIL's effect_noise pulls
+    # from an unseeded process-global rand(), which makes output depend on
+    # paint order and libc; md5-seeded randbytes is stable everywhere.
     img = img.resize((W, H), Image.LANCZOS)
     img = Image.blend(img, img.filter(ImageFilter.GaussianBlur(1.4)), 0.30)
-    noise = Image.effect_noise((W, H), 13).convert("L").point(lambda v: 255 - (255 - v) // 8)
+    import random
+    rnd = random.Random(int(hashlib.md5(zid.encode()).hexdigest(), 16))
+    noise = Image.frombytes("L", (W, H), rnd.randbytes(W * H)).point(lambda v: 255 - (255 - v) // 16)
     img = Image.composite(img, Image.new("RGB", (W, H), (0, 0, 0)), noise)
     vmask = Image.new("L", (W, H), 0)
     ImageDraw.Draw(vmask).ellipse([-W * 0.30, -H * 0.35, W * 1.30, H * 1.35], fill=255)

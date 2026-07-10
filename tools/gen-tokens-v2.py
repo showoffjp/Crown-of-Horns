@@ -50,26 +50,34 @@ WEB = {
     "The Last Returned": (hexrgb("#b06fd0"), "♛"),   # ♛
 }
 
-# 2) zone-authored identity (play/naming.json)
+# 2) zone-authored identity (play/naming.json). S/V follow gen-portraits-v3's
+#    glow formula so the one zone-authored token matches its portrait palette.
 def hsv255(h, s, v):
     r, g, b = colorsys.hsv_to_rgb((h % 360) / 360.0, s, v)
     return (int(r * 255), int(g * 255), int(b * 255))
 
-ZONE = {"Ilfaeril": (hsv255(265, 0.45, 0.72), "†")}  # †
+ZONE = {"Ilfaeril": (hsv255(265, 0.52, 0.62), "†")}  # †
 
-# 3) Combatant.color tints authored in the encounter builders (Core/*.cs)
+# 3) tints authored at Enemy() call sites through VARIABLES, invisible to the
+#    regex below — read from the source by hand (cite the exact lines)
+AUTHORED = {
+    # CampaignBootstrap.cs:934-939 — Time of Troubles branch, new Color(0.7f,0.6f,0.3f)
+    "Avatar-Touched Horror": (178, 153, 76),
+}
+
+# 4) Combatant.color tints authored in the encounter builders (Core/*.cs)
 def campaign_tints():
-    tints = {}
+    tints = dict(AUTHORED)
     import glob
-    for p in glob.glob(os.path.join(ROOT, "Assets", "Scripts", "Core", "*.cs")):
-        src = open(p).read()
+    for p in sorted(glob.glob(os.path.join(ROOT, "Assets", "Scripts", "Core", "*.cs"))):
+        src = open(p, encoding="utf-8").read()
         for m in re.finditer(
                 r'Enemy\(\s*"([^"]+)"[^;]*?new Color\(([\d.f]+),\s*([\d.f]+),\s*([\d.f]+)', src):
             rgb = tuple(round(float(x.rstrip("f")) * 255) for x in m.groups()[1:4])
             tints.setdefault(m.group(1), rgb)
     return tints
 
-# 4) keyword-derived sigils for enemies with no authored glyph
+# 5) keyword-derived sigils for enemies with no authored glyph
 SIGIL_KEYS = [
     ("⚖", ["doomguide", "justiciar", "templar", "kelemvorite"]),      # ⚖
     ("✶", ["arcanist", "arcane", "weave", "mythallar", "netherese"]), # ✶
@@ -89,6 +97,38 @@ def sigil_for(name):
             return g
     return "◆"                                                        # ◆
 
+# ---- glyph coverage: DejaVu renders missing glyphs as a .notdef box whose
+# bbox is nonzero, so bbox checks can't catch tofu — compare rendered bytes
+# against the guaranteed-missing U+E000 instead. Authored glyphs outside
+# DejaVu (Varra's ⛏, U+26CF) substitute to a covered cousin.
+SUBSTITUTES = {"⛏": "✸", "⏳": "∞", "⟁": "△"}
+_COV_FONT = None
+_NOTDEF = None
+def _render_glyph(ch):
+    img = Image.new("L", (72, 72), 0)
+    ImageDraw.Draw(img).text((4, 4), ch, font=_COV_FONT, fill=255)
+    return img.tobytes()
+
+def covered(ch):
+    global _COV_FONT, _NOTDEF
+    if _COV_FONT is None:
+        _COV_FONT = v1.font(40)
+        try:
+            _NOTDEF = _render_glyph("")
+        except Exception:
+            _NOTDEF = b""
+    try:
+        r = _render_glyph(ch)
+    except Exception:
+        return False
+    return any(r) and r != _NOTDEF
+
+def safe_glyph(g, name):
+    for cand in (g, SUBSTITUTES.get(g), sigil_for(name), "◆"):
+        if cand and covered(cand):
+            return cand
+    return None
+
 # ---- roster ------------------------------------------------------------------
 # Every static name the spawners use (CampaignBootstrap / Prologue / Demo /
 # Mirror / Netheril / Spellplague bootstraps), plus v1's short names (firstWord
@@ -96,10 +136,16 @@ def sigil_for(name):
 NEW_UNITS = ["The Returned", "The Last Returned", "Avatar-Touched Horror",
              "Doomguide Acolyte", "Ashfiend A", "Ashfiend B", "Lyra",
              "Brother Oke", "Echo", "Sister Garrow", "Roen Alleywind"]
+# NOTE: "Echo" is NOT a hero — Echo.png exists to catch the dynamic
+# "Echo of <name>" mirror-clones, and every one of those spawns Faction.Enemy
+# (MirrorEncounterDemo.cs:64), so the fallback token keeps the threat rim.
 HEROES = {"The Returned", "Sister Garrow", "Roen Alleywind", "Varra", "Naeve",
-          "Ilfaeril", "Maerin", "Sable", "Lyra", "Brother Oke", "Echo",
+          "Ilfaeril", "Maerin", "Sable", "Lyra", "Brother Oke",
           *v1.COMPANIONS}
-BOSSES = set(v1.BOSSES) | {"The Last Returned"}
+# v1 crowned two trash adds: God-Touched Horror (180-HP adds in the Avatar
+# fight, CampaignBootstrap.cs:957) and The Unbound (50-HP adds; the dungeon's
+# real boss is The Unbound Maw). Crowns belong to bosses only.
+BOSSES = (set(v1.BOSSES) | {"The Last Returned"}) - {"God-Touched Horror", "The Unbound"}
 
 def all_units():
     names = list(dict.fromkeys(v1.ENEMIES + v1.COMPANIONS + NEW_UNITS))
@@ -139,16 +185,21 @@ def make_token_v2(name, base, hostile, boss, glyph):
     d.arc([cx - 17, cy - 38, cx + 17, cy - 4], 150, 300, fill=lite, width=3)
 
     # big sigil watermark behind the initials, low alpha — identity at a glance
+    # (try/except: a bitmap fallback font raises UnicodeEncodeError on non-latin
+    # glyphs before any bbox guard can run — degrade to no watermark, not a crash)
     if glyph:
-        overlay = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-        od = ImageDraw.Draw(overlay)
-        gf = v1.font(band := 88)
-        bb = od.textbbox((0, 0), glyph, font=gf)
-        if bb[2] - bb[0] > 0:
-            od.text((cx - (bb[0] + bb[2]) / 2, cy - (bb[1] + bb[3]) / 2 - 2),
-                    glyph, font=gf, fill=(*lite, 64))
-            img = Image.alpha_composite(img, overlay)
-            d = ImageDraw.Draw(img)
+        try:
+            overlay = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+            od = ImageDraw.Draw(overlay)
+            gf = v1.font(88)
+            bb = od.textbbox((0, 0), glyph, font=gf)
+            if bb[2] - bb[0] > 0:
+                od.text((cx - (bb[0] + bb[2]) / 2, cy - (bb[1] + bb[3]) / 2 - 2),
+                        glyph, font=gf, fill=(*lite, 64))
+                img = Image.alpha_composite(img, overlay)
+                d = ImageDraw.Draw(img)
+        except UnicodeEncodeError:
+            pass
 
     v1.text_centered(d, cx, cy - 12, v1.initials(name), v1.font(33), (255, 255, 255, 240))
 
@@ -158,11 +209,14 @@ def make_token_v2(name, base, hostile, boss, glyph):
         bx, by = cx, cy + r - 18
         d.ellipse([bx - br, by - br, bx + br, by + br], fill=shade(dark, 0.8),
                   outline=lite, width=2)
-        gf = v1.font(18)
-        bb = d.textbbox((0, 0), glyph, font=gf)
-        if bb[2] - bb[0] > 0:
-            d.text((bx - (bb[0] + bb[2]) / 2, by - (bb[1] + bb[3]) / 2 - 1),
-                   glyph, font=gf, fill=lite)
+        try:
+            gf = v1.font(18)
+            bb = d.textbbox((0, 0), glyph, font=gf)
+            if bb[2] - bb[0] > 0:
+                d.text((bx - (bb[0] + bb[2]) / 2, by - (bb[1] + bb[3]) / 2 - 1),
+                       glyph, font=gf, fill=lite)
+        except UnicodeEncodeError:
+            pass
 
     if boss:
         v1.crown(d, cx, cy - r - 2, 22, lite)
@@ -189,9 +243,9 @@ def base_color(name, tints):
     return b
 
 def glyph_of(name):
-    if name in WEB: return WEB[name][1]
-    if name in ZONE: return ZONE[name][1]
-    return sigil_for(name)
+    if name in WEB: return safe_glyph(WEB[name][1], name)
+    if name in ZONE: return safe_glyph(ZONE[name][1], name)
+    return safe_glyph(sigil_for(name), name)
 
 def main():
     tints = campaign_tints()

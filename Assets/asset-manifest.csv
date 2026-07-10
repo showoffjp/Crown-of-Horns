@@ -1471,7 +1471,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Portraits/Wren the Younger.png",portrait,png,51KB,51228,no
 "Assets/Resources/Portraits/Wren.png",portrait,png,45KB,45443,no
 "Assets/Resources/Portraits/Wrenna Alleywind.png",portrait,png,80KB,81286,no
-"Assets/Resources/Portraits/Wulfgar.png",portrait,png,45KB,45568,no
+"Assets/Resources/Portraits/Wulfgar.png",portrait,png,45KB,45315,no
 "Assets/Resources/Portraits/Wynn.png",portrait,png,45KB,45508,no
 "Assets/Resources/Portraits/Yorrel.png",portrait,png,47KB,47863,no
 "Assets/Resources/Portraits/Ysoreth.png",portrait,png,47KB,47118,no
@@ -1510,7 +1510,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Portraits/the Lost-and-Found.png",portrait,png,43KB,43661,no
 "Assets/Resources/Portraits/the Mortgaged Man.png",portrait,png,48KB,49045,no
 "Assets/Resources/Portraits/the One Who Left.png",portrait,png,45KB,45648,no
-"Assets/Resources/Portraits/the Pawn of Hours.png",portrait,png,43KB,43896,no
+"Assets/Resources/Portraits/the Pawn of Hours.png",portrait,png,44KB,44074,no
 "Assets/Resources/Portraits/the Penitent Baker.png",portrait,png,47KB,48091,no
 "Assets/Resources/Portraits/the Petrified Pedant.png",portrait,png,47KB,47300,no
 "Assets/Resources/Portraits/the Quiet Neighbor.png",portrait,png,48KB,48610,no
@@ -1557,7 +1557,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Sprites/Arcanist Revenant.png",battle-token,png,9.1KB,9233,no
 "Assets/Resources/Sprites/Ashfiend A.png",battle-token,png,9.4KB,9596,no
 "Assets/Resources/Sprites/Ashfiend B.png",battle-token,png,9.4KB,9540,no
-"Assets/Resources/Sprites/Avatar-Touched Horror.png",battle-token,png,11KB,10742,no
+"Assets/Resources/Sprites/Avatar-Touched Horror.png",battle-token,png,11KB,10771,no
 "Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",battle-token,png,11KB,11252,no
 "Assets/Resources/Sprites/Brother Oke.png",battle-token,png,8.4KB,8572,no
 "Assets/Resources/Sprites/Choir Herald.png",battle-token,png,8.2KB,8316,no
@@ -1570,11 +1570,11 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Sprites/Doomguide Interrogator.png",battle-token,png,8.3KB,8447,no
 "Assets/Resources/Sprites/Doomguide Knight.png",battle-token,png,11KB,10539,no
 "Assets/Resources/Sprites/Echo of the Verdict.png",battle-token,png,8.8KB,8964,no
-"Assets/Resources/Sprites/Echo.png",battle-token,png,7.6KB,7750,no
+"Assets/Resources/Sprites/Echo.png",battle-token,png,8.0KB,8120,no
 "Assets/Resources/Sprites/Enemy.png",battle-token,png,5.8KB,5891,no
 "Assets/Resources/Sprites/Garrow.png",battle-token,png,7.8KB,7941,no
-"Assets/Resources/Sprites/God-Touched Horror.png",battle-token,png,11KB,10932,no
-"Assets/Resources/Sprites/Ilfaeril.png",battle-token,png,5.2KB,5287,no
+"Assets/Resources/Sprites/God-Touched Horror.png",battle-token,png,11KB,10865,no
+"Assets/Resources/Sprites/Ilfaeril.png",battle-token,png,5.3KB,5375,no
 "Assets/Resources/Sprites/Imp of the Fine Print.png",battle-token,png,8.0KB,8135,no
 "Assets/Resources/Sprites/Justiciar Veld.png",battle-token,png,11KB,10395,no
 "Assets/Resources/Sprites/Kelemvorite Zealot.png",battle-token,png,9.2KB,9367,no
@@ -1605,10 +1605,10 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Sprites/The Pale Cantor.png",battle-token,png,8.4KB,8575,no
 "Assets/Resources/Sprites/The Returned.png",battle-token,png,9.8KB,9957,no
 "Assets/Resources/Sprites/The Unbound Maw.png",battle-token,png,11KB,10549,no
-"Assets/Resources/Sprites/The Unbound.png",battle-token,png,9.7KB,9850,no
+"Assets/Resources/Sprites/The Unbound.png",battle-token,png,9.6KB,9783,no
 "Assets/Resources/Sprites/Unmade Aberration.png",battle-token,png,11KB,10393,no
 "Assets/Resources/Sprites/Unmaking Acolyte.png",battle-token,png,11KB,11205,no
 "Assets/Resources/Sprites/Unmaking Zealot.png",battle-token,png,11KB,10459,no
-"Assets/Resources/Sprites/Varra.png",battle-token,png,6.5KB,6633,no
+"Assets/Resources/Sprites/Varra.png",battle-token,png,7.8KB,7959,no
 "Assets/Resources/Sprites/Vengeful Shade.png",battle-token,png,11KB,10694,no
 "Assets/Resources/Sprites/Weave-wraith.png",battle-token,png,9.8KB,9959,no

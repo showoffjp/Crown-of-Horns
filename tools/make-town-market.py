@@ -992,7 +992,8 @@ const TW=64, TH=32, OX=cv.width/2, OY=64;
 function iso(tx,ty){ return { x: OX+(tx-ty)*TW/2, y: OY+(tx+ty)*TH/2 }; }
 function unIso(sx,sy){ const a=(sx-OX)/(TW/2), b=(sy-OY)/(TH/2); return { tx:(a+b)/2, ty:(b-a)/2 }; }
 // painted zone floors (tools/gen-zone-backdrops.py) — loaded opportunistically; flat shading until then / if absent
-const BACKDROPS={};
+// (null-prototype: a zone id like "constructor" must not collide with Object.prototype)
+const BACKDROPS=Object.create(null);
 function ensureBackdrop(id){ if(!id||BACKDROPS[id]!==undefined) return; BACKDROPS[id]=null;
   const im=new Image(); im.onload=()=>{ BACKDROPS[id]=im; }; im.onerror=()=>{}; im.src="maps/"+id+".jpg"; }
 ensureBackdrop(SCENE.id);
