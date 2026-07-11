@@ -11,6 +11,26 @@
 
 ---
 
+## 🪙 v6.100.0 — *"Keep the Change"* — Clip at the fire (content · banter · payoff)
+
+> The promise of v6.97 collected: the crew's newest member starts *living* with them. **Seven party
+> banters** with Clip as a speaker — the first content where the man they named talks back.
+- 🪙 **Six pairings, each built on real history** — **Garrow** (the Doomguide keeps the clerical error:
+  *"I find I am keeping the error. The canon may come and argue."*); **Varra** (two souls that were on
+  someone's books — she read her fine print at twelve, he *was* his: *"And they call ME dramatic."*);
+  **Maerin** (the two erasures, hers by neglect and his on purpose: *"Matched set, us… wearing names the
+  crew made us."*); **Naeve** (the arcanist who kept every variable vs. the man who solved himself for
+  zero — she asks if the erasing *holds*; his honest *no* is "the datum I was missing"); **Dot** (she beats
+  the untouchable pickpocket on the dip — *"grief, love. everyone's hands go slow around a wake but
+  mine"* — and sentences him to dough duty); **Roen** (rogue-to-rogue: he asks for the coin trick and gets
+  the true price list — *"That IS the coin trick, Harper. Everything else is juggling."*).
+- 🌙 **The kept-name aftermath** — gated on the deepest path (`clip.kept_as_clip`): a solo night-watch
+  beat where he realizes nobody ever *asked* for the name — cheapest leverage in the grey, and not one of
+  them reached for it. He tries "Clip" on like a coat: *"…yeah. Keep the change."* The sister's word stays
+  unspoken in every banter, on every path.
+- Banter gate green: **63 banters**, all fire on real party + flag state, no dead banter; append-only diff;
+  both web builds rebundled; 42/42 suites.
+
 ## 🎲 v6.99.2 — *"One Language"* — the combat sim speaks the identity system (art · combat · cohesion)
 
 > The last surface still wearing borrowed art: the web combat sim's units were CC0 roguelike tiles while

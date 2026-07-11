@@ -1703,6 +1703,244 @@
           "text": "*(a long silence; and then, because she of all of them knows what it costs to let one string stay tied)* …*(low)* …*…damn* it. …*(she looks away)* …*fine.* …*keep* the *coin.* …*(quieter, to herself, the girl who was currency)* …someone should get to be *reached* …*without* being *owned.* …*someone* should get to be the *one* …who *proves* it can be *done.*"
         }
       ]
+    },
+    {
+      "id": "bant.clip_garrow_ledger",
+      "category": "friction",
+      "requires": {
+        "companions": [
+          "clip",
+          "garrow"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(not looking up from her grave-ledger)* Sit anywhere but on the ledger."
+        },
+        {
+          "speaker": "Clip",
+          "text": "Sister, I would *never* — *(sitting fractionally closer to the ledger)* — what does it say about me, out of *professional* curiosity?"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "Nothing. That is what you *are*, by every canon I keep: an unfiled soul. A walking clerical error with *excellent* teeth."
+        },
+        {
+          "speaker": "Clip",
+          "text": "…and yet. You haven't filed me."
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(finally looking up)* No. I find I am *keeping* the error. The canon may come and argue, if it dares the walk."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_varra_fineprint",
+      "category": "disposition",
+      "requires": {
+        "companions": [
+          "clip",
+          "varra"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Varra",
+          "text": "So. *Owned.* *(flat, not looking at him)* Whose books?"
+        },
+        {
+          "speaker": "Clip",
+          "text": "…someone's. Old. Cold. *Thorough.* — yours?"
+        },
+        {
+          "speaker": "Varra",
+          "text": "A Hell's. Signed at six. I finally read the fine print when I was twelve. Took me a *week*."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(low whistle)* I never read mine. I *was* the fine print. …what did you do? When you finished reading?"
+        },
+        {
+          "speaker": "Varra",
+          "text": "*(shrug; violet flame walks her knuckles)* Kept living anyway. Out of *spite*. You?"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(beat)* …unwrote my own name, so the book had nothing left to point at."
+        },
+        {
+          "speaker": "Varra",
+          "text": "…huh. *(something dangerously close to respect)* And they call *me* dramatic."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_maerin_witnessed",
+      "category": "grief",
+      "requires": {
+        "companions": [
+          "clip",
+          "maerin"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Maerin",
+          "text": "*(quiet, at the fire's edge)* The Wall unmade me by *inches*, because no one was looking. You did it to yourself in one night. …you *chose* it?"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(all the patter gone, just this once)* …choosing was the only thing they couldn't repossess."
+        },
+        {
+          "speaker": "Maerin",
+          "text": "I spent so long screaming to be *seen*. And you burned the one word that would let anyone find you."
+        },
+        {
+          "speaker": "Clip",
+          "text": "…yeah. *(beat)* Matched set, us. You, erased against your will. Me, erased *by* it. And both of us sat down anyway. At a fire. Wearing names the crew made us."
+        },
+        {
+          "speaker": "Maerin",
+          "text": "*(watching the flames a while)* …Clip suits you."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(flipping the coin; catching it)* It does, doesn't it. Best thing I never stole."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_naeve_proof",
+      "category": "philosophy",
+      "requires": {
+        "companions": [
+          "clip",
+          "naeve"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Naeve",
+          "text": "You are a fascinating inversion, you know. I have spent ten thousand years re-deriving what I lost. You spent one night deleting what you had."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(mock-wounded)* 'Fascinating inversion.' Bet you say that to *all* the boys—"
+        },
+        {
+          "speaker": "Naeve",
+          "text": "I kept every variable of a dead world, because losing the *proof* felt like losing them twice. You solved yourself for zero. On *purpose*. So I am asking — *(too precisely)* — did it work? Does the erasing… hold?"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(a long pause; then, honestly)* …no. There's a remainder. It walks around wearing your face, and it answers to whatever the nearest kind person shouts at it."
+        },
+        {
+          "speaker": "Naeve",
+          "text": "*(writing nothing down; remembering it anyway)* …thank you. That was the datum I was missing."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_dot_payment",
+      "category": "comedy",
+      "requires": {
+        "companions": [
+          "clip",
+          "dot"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(handing him a honey-knot, still warm)* eat. you've the look of a man whose last meal was *professional*."
+        },
+        {
+          "speaker": "Clip",
+          "text": "Madam, I *pay* my debts — *(a coin appears, walks his knuckles, vanishes in the direction of her apron)*"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(beatific)* …check your left boot, love."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(checks. the coin is in his left boot. a slow, reverent silence)* …I have run the grey for an *age*. Nobody — NOBODY — touches me on the dip. Who *taught* you—"
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "grief, love. everyone's hands go slow around a wake but mine. *(patting his cheek)* eat your bread. it's paid for. you'll work it off *honest* — you're on dough duty at dawn."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(muffled, mouth full, appalled)* …*honest?*"
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_roen_trick",
+      "category": "camp",
+      "requires": {
+        "companions": [
+          "clip",
+          "roen"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Roen",
+          "text": "Teach me the coin thing. The cold-toss. Harper's honor — strictly for *diplomatic* purposes."
+        },
+        {
+          "speaker": "Clip",
+          "text": "Absolutely. *(demonstrating with terrible slowness)* First: be unnameable for an age. Second: burn everything you—"
+        },
+        {
+          "speaker": "Roen",
+          "text": "—the *coin trick*, con man."
+        },
+        {
+          "speaker": "Clip",
+          "text": "That IS the coin trick, Harper. Everything else is *juggling*. …fine. Watch the thumb. No, the *other* thumb. — you dropped it."
+        },
+        {
+          "speaker": "Roen",
+          "text": "You *moved* it!"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(delighted)* I would *never*. …again?"
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(picking the coin back up)* Again."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_kept_name",
+      "category": "aftermath",
+      "requires": {
+        "companions": [
+          "clip"
+        ],
+        "flags": [
+          "clip.kept_as_clip"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Clip",
+          "text": "*(night watch; to the fire, to nobody)* …they didn't ask. Whole crew. Hook in my ribs, the name sitting *right there* — cheapest leverage in the grey — and not one of them asked for it."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(flipping the clipped coin; catching it)* …'Clip.' *(trying it on like a coat)* …yeah. *(quieter, to the dark)* Yeah. Keep the change."
+        }
+      ]
     }
   ]
 }
