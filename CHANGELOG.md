@@ -11,6 +11,25 @@
 
 ---
 
+## 🎲 v6.99.2 — *"One Language"* — the combat sim speaks the identity system (art · combat · cohesion)
+
+> The last surface still wearing borrowed art: the web combat sim's units were CC0 roguelike tiles while
+> everything else — portraits, walkable zones, Unity's battle grid — spoke the hue/sigil identity language.
+> Now combat does too.
+- 🎲 **Identity tokens on the combat board** — the 8 unit sprites in `crown_combat.html` are now **compact
+  disc tokens** from the v2 generator: Garrow's gold, Roen's green, Varra's blue, Naeve's violet, the
+  Returned's blood-red ☠, the Last Returned's crowned ♛. Compact form drops the initials (the sim
+  mirror-flips sprites for facing — text would mirror; the horizontally-symmetric sigil watermark + bust +
+  palette carry identity) and the name plate (a smear at 46px; the sim draws its own HP bars).
+- 🧟 **Variant variety kept honestly** — DCSS gave the Returned three distinct looks (wight/ghoul/zombie);
+  the tokens keep that via deterministic palette shifts of the same blood-red identity, seeded per variant.
+- 🏛️ **Environment stays pixel art** — floors, walls, altar, statues, door remain CC0 Dungeon Crawl tiles;
+  only the *units* switched language. Smooth tokens over crisp pixel props, verified live in Chromium:
+  zero page errors, rings/HP bars/torch lighting compose correctly. `combat_preview.png` re-rendered
+  faithful to the new board.
+- Compact mode + `compact_token()` added to `gen-tokens-v2.py`; `make-combat-demo.py` now sources unit
+  sprites from the generator (env tiles unchanged). All-in-one rebundled. Gate 49/49 (100%); 42/42 suites.
+
 ## ⚔️ v6.99.0 — *"War Paint & Candlelight"* — battle tokens v2 + painted zone floors (art · combat · world)
 
 > Two facelifts in one: every unit the engine can put on a battle grid gets an identity-true token, and

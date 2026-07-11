@@ -24,7 +24,7 @@ with a committed .meta (deterministic guid, textureType 8), hostile red threat
 rim, boss crown, name plate. Deterministic per name. Honest placeholders.
 Re-run: python3 tools/gen-tokens-v2.py
 """
-import colorsys, importlib.util, os, re
+import colorsys, hashlib, importlib.util, os, re
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = os.path.join(ROOT, "Assets", "Resources", "Sprites")
@@ -155,7 +155,11 @@ def all_units():
 def shade(c, f):
     return tuple(max(0, min(255, int(v * f))) for v in c)
 
-def make_token_v2(name, base, hostile, boss, glyph):
+def make_token_v2(name, base, hostile, boss, glyph, compact=False):
+    """compact=True: disc only — no initials (the combat sim mirror-flips
+    sprites for facing, and text would mirror) and no name plate (a smear at
+    46px); the symmetric sigil watermark + bust + palette carry identity.
+    Returns the disc cropped square, for billboard drawing."""
     S = 192
     img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -201,7 +205,8 @@ def make_token_v2(name, base, hostile, boss, glyph):
         except UnicodeEncodeError:
             pass
 
-    v1.text_centered(d, cx, cy - 12, v1.initials(name), v1.font(33), (255, 255, 255, 240))
+    if not compact:
+        v1.text_centered(d, cx, cy - 12, v1.initials(name), v1.font(33), (255, 255, 255, 240))
 
     # sigil badge at the disc's foot (portrait-medallion language)
     if glyph:
@@ -221,6 +226,10 @@ def make_token_v2(name, base, hostile, boss, glyph):
     if boss:
         v1.crown(d, cx, cy - r - 2, 22, lite)
 
+    if compact:  # crop to the disc (+ rim/crown headroom) — square for billboards
+        pad = 18
+        return img.crop((cx - r - pad, cy - r - pad, cx + r + pad, cy + r + pad))
+
     # name plate (v1 contract; shrink until it fits — v1 clipped at 15pt)
     label = v1.display_name(name)
     for size in (20, 17, 15, 13, 11):
@@ -233,6 +242,23 @@ def make_token_v2(name, base, hostile, boss, glyph):
                         radius=6, fill=(18, 18, 22, 215))
     v1.text_centered(d, cx, S - 27, label, fnt, (240, 240, 245))
     return img
+
+
+def compact_token(name, variant=None):
+    """Disc-only token for the web combat sim's billboards. `variant` seeds a
+    small deterministic palette shift so foe types that share a name (the
+    Returned's ghoul/zombie art variants) stay visually distinct."""
+    tints = campaign_tints()
+    base = base_color(name, tints)
+    if variant:
+        seed = int(hashlib.md5(variant.encode()).hexdigest(), 16)
+        rot = (seed % 25) - 12                     # hue rotate -12..+12 deg
+        val = 0.85 + ((seed >> 8) % 31) / 100.0    # value 0.85..1.15
+        h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in base))
+        base = hsv255(h * 360 + rot, s, min(1.0, v * val))
+    hostile = name not in HEROES and name not in v1.FACTIONS
+    return make_token_v2(name, base, hostile, name in BOSSES, glyph_of(name),
+                         compact=True)
 
 def base_color(name, tints):
     if name in WEB: return WEB[name][0]
