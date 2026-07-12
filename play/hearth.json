@@ -135,6 +135,16 @@
           "y": 2
         },
         "label": "◂ a threshold the clipped coin opens when it goes cold"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "to": "bench",
+        "dest": {
+          "x": 6,
+          "y": 7
+        },
+        "label": "▸ a writ served in triplicate on a campfire — the Bench of Small Property"
       }
     ],
     "npcs": [

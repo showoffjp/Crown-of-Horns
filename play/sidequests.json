@@ -1061,6 +1061,34 @@
       ],
       "completionFlag": "clip.recruited",
       "failureFlag": "clip.let_go"
+    },
+    {
+      "questId": "sq.the_counting_of_one",
+      "title": "The Counting of One",
+      "region": "The Bench of Small Property — a small court off the camp road at the Hearth",
+      "giver": "a writ, served in triplicate on a campfire (requires The Name He Burned)",
+      "premise": "The hook failed, so the Owner does the one thing a power of inventory does when force is refused: it files. A claim lands at the small court that handles lost buttons, strayed geese, and — the docket says it without blinking — mislaid souls: recovery of property, one (1) soul, unregistered, answering to no lawful name. Maître Crede, Advocate of the Nine, appears for the claimant, holding a vial of ash — the burned name, offered as title. Clip is forbidden standing in his own case, because property does not get a seat at the table. If nobody answers the writ, the default judgment makes the hook LAWFUL. The Returned must stand up in a court eleven thousand years old and argue the game's thesis as law: what the crew holds by daily loving use against what the Owner holds by ash.",
+      "theme": "Love, entered into the record. The climax proved a name given in love outbids a name taken in ownership; this proves it holds up in COURT — that witness is title, that use in love is possession, and that the Owner's one unbalanced ledger line (HE RAN) is not an error but a verdict: property cannot flee, so either its books are false or he was never property. The fairest judge in the grey is also the most dangerous, because it is bound by its own precedent — and that binding is the keel you steer by. And underneath the law, the quiet human floor: Clip letting someone else hold the wheel of the room, in the room where it costs him most.",
+      "reward": "The claim struck and entered in the great ledger: ONE (1) SOUL, SELF-POSSESSED — clip.owner_settled, the Owner's reach withdrawn to a balanced column at zero (depreciation: inventory's grief). Crit: costs awarded, one clipped coin, already legal tender between friends. On the kept-name path the ash itself is voided — title to nothing at all. disp.honest; disp.merciful on the witness-chorus path. Failure (walk out, or let him sell himself — the Bench refuses coerced surrender but enters a lien): clip.owner_lien, the hook lawful and patient, a future hearing nobody has asked for yet.",
+      "objectives": [
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the writ at the Bench of Small Property",
+          "completionFlag": "clip.writ_answered"
+        },
+        {
+          "objectiveId": "argue",
+          "desc": "Answer for him — produce a better instrument than ash",
+          "completionFlag": "clip.claim_argued"
+        },
+        {
+          "objectiveId": "settle",
+          "desc": "Have it entered in the record: one soul, self-possessed",
+          "completionFlag": "clip.owner_settled"
+        }
+      ],
+      "completionFlag": "clip.owner_settled",
+      "failureFlag": "clip.owner_lien"
     }
   ]
 }

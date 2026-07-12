@@ -11,6 +11,40 @@
 
 ---
 
+## ⚖️ v6.101.0 — *"The Counting of One"* — the Owner comes back with paperwork (content · zone · villain)
+
+> The hook failed, so the power of inventory does what inventory does: **it files.** A new walkable zone
+> (`play/bench.json`) and quest where the Owner's claim on Clip is heard in court — and the game's thesis
+> gets argued as *law*.
+- ⚖️ **The Bench of Small Property** — the court that handles lost buttons, strayed geese, and (the docket
+  says it without blinking) *mislaid souls*. Clip's case is docketed between a kettle and three geese.
+  The magistrate is eleven thousand years of small claims heard properly — it cannot be bribed, scared, or
+  flattered, but it is **bound by its own books**, and that keel is the only thing you can steer by. The
+  horror and the hope are the same fact: it is *genuinely fair*.
+- 📜 **Maître Crede, for the claimant** — the Advocate of the Nine (returning from the advocate zone,
+  reactive if you found clause nine) holds a vial of **the ash of the burned name**, offered as title. He
+  collects impossible losses and took the brief hoping to lose it beautifully. Sevenpence serves the writ —
+  *on a campfire* ("the fire kept accepting them") — freed-clerk variant if you freed him.
+- 🪙 **Clip, forbidden standing** — property does not get a seat at the table. The man whose whole survival
+  was steering the room must sit silent in the gallery and let you hold the wheel — the Insight read finds
+  it's the largest thing he has ever handed anyone, disguised as sitting still.
+- 🎯 **Four ways to answer the writ** — *title by use* (Persuasion DC 15: a name in daily loving use is
+  possession in the only sense the grey enforces; crit awards **costs of one clipped coin**, "already legal
+  tender between friends"); *the unbalanced line* (Investigation: make the Owner prove its own ledger false
+  to win — Crede withdraws, delighted); the no-roll path: **ask the court to call him and see if he
+  answers** — *property does not answer; people do; dismissed for want of a THING to award*; or walk out /
+  let him sell himself back (the Bench REFUSES coerced surrender — but enters a **lien**, and the hook is
+  lawful now: `clip.owner_lien`, a future hearing nobody has asked for). On a Persuasion fail, the crew
+  arrives as witnesses — Dot enters a honey-knot as *"exhibit: breakfast, recurring."*
+- 🧊 **Depreciation** — the deepest read in the zone: the Owner has been *moving* its unbalanced line for
+  an age — reclassified, re-aged, re-filed — which is what mourning looks like in double-entry: a loss
+  never allowed to close, visited on schedule, **inventory's grief**. After the verdict it re-files him at
+  zero, and the column finally balances, and it is quieter, and there is no entry for why that should
+  matter. Kept-name path: the ash itself is voided — *title to nothing at all*.
+- New quest `sq.the_counting_of_one` (completes `clip.owner_settled`, fails to `clip.owner_lien`); six
+  conversations, six sense-reads, six [RETURNED] lines; hearth→bench exit; dormant docket-door before the
+  writ exists. **Gate 801/0**; 42/42 suites; **95 zones, 296 souls, 39 quests, 63 banters.**
+
 ## 🪙 v6.100.0 — *"Keep the Change"* — Clip at the fire (content · banter · payoff)
 
 > The promise of v6.97 collected: the crew's newest member starts *living* with them. **Seven party
