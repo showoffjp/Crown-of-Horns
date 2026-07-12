@@ -11,6 +11,15 @@
 
 ---
 
+## 🫖 v6.106.0 — *"Kettle, Whereabouts Of"* — the appeal is still pending (content · banter · payoff)
+
+> One banter (70 total), gated on both the verdict and the finished atlas, tying three releases into one
+> four-line bow: Clip finally asks the mapmaker where a kettle GOES when it appeals its verdict and
+> vanishes. Sennet traced it — for completeness. Causeway. Toll road. Wagon track. *Then the trail goes off
+> the map.* **The kettle is in the Blank Quarter** — the one place in the grey where its appeal is still
+> PENDING. Where everything is. *"I told you it knew something. It read the legend before I wrote it."*
+> Resolved, never explained, exactly as the kettle would want. Gate **801/0**; 42/42 suites.
+
 ## 🍞 v6.105.0 — *"The Dead Arithmetic"* — Tibb forgives you (content · reactivity · warmth)
 
 > The reactivity beat v6.104 earned: the apprentice who ground ink and **counted their master's remaining

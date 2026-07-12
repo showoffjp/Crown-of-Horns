@@ -2132,6 +2132,38 @@
           "text": "*(to the camp at large, misty)* …he's mapping the bread. the man mapped the whole country of the dead and he's finishing with my BREAD. *(pressing a second loaf on him)* for the archive, love. for the archive."
         }
       ]
+    },
+    {
+      "id": "bant.clip_sennet_kettle",
+      "category": "comedy",
+      "requires": {
+        "companions": [
+          "clip",
+          "sennet"
+        ],
+        "flags": [
+          "clip.owner_settled",
+          "bq.atlas_finished"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Clip",
+          "text": "Mapmaker. Professional question. The kettle — MY kettle, docket-neighbor, appealed its verdict and vanished. You've surveyed every inch of the grey now. …where does a kettle GO?"
+        },
+        {
+          "speaker": "Sennet",
+          "text": "*(going very still over the atlas)* …I wondered when someone would ask. I traced it, you know. For completeness. Last confirmed sighting, the causeway. Then the toll road. Then the wagon track. Then — *(he opens the atlas to the center quarter and taps, once, the legend)* — the trail goes off the map."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(a long silence)* …the kettle is in the BLANK QUARTER."
+        },
+        {
+          "speaker": "Sennet",
+          "text": "The kettle is in the one place in the grey where its appeal is still PENDING, friend. Where everything is. *(closing the atlas with enormous respect)* I told you it knew something. It read the legend before I wrote it."
+        }
+      ]
     }
   ]
 }
