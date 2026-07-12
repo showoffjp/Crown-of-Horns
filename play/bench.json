@@ -1,0 +1,849 @@
+{
+  "scene": {
+    "id": "bench",
+    "name": "The Bench of Small Property",
+    "w": 12,
+    "h": 9,
+    "playerStart": {
+      "x": 6,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "deathdoor",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "type": "bigscale",
+        "x": 6,
+        "y": 2
+      },
+      {
+        "type": "desk",
+        "x": 3,
+        "y": 3
+      },
+      {
+        "type": "ledgershelf",
+        "x": 10,
+        "y": 2
+      },
+      {
+        "type": "ledgershelf",
+        "x": 10,
+        "y": 3
+      },
+      {
+        "type": "banner",
+        "x": 1,
+        "y": 1
+      },
+      {
+        "type": "banner",
+        "x": 11,
+        "y": 1
+      },
+      {
+        "type": "candle",
+        "x": 2,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "chair",
+        "x": 4,
+        "y": 5
+      },
+      {
+        "type": "chair",
+        "x": 8,
+        "y": 5
+      },
+      {
+        "type": "milestone",
+        "x": 1,
+        "y": 7
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 8,
+        "to": "hearth",
+        "dest": {
+          "x": 6,
+          "y": 7
+        },
+        "label": "◂ back down the camp road — the Hearth"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "benchjudge",
+        "name": "the Bench of Small Property",
+        "title": "magistrate of lost buttons, stray geese, and mislaid souls",
+        "x": 6,
+        "y": 3,
+        "hue": 210,
+        "sigil": "⚖",
+        "when": {
+          "flag": "clip.recruited"
+        },
+        "conv": "bench.hearing",
+        "hail": "*(The courtroom is small the way a needle is small. A bench of grey stone, worn to a shine by ten thousand years of petty grievances; a scale; a docket. The magistrate does not look up. Its voice is the sound of a page turning.)* Next matter. *(a pause; the page turns)* …recovery of mislaid property. One — *(the first hesitation in an age)* — one soul, unregistered, answering to no lawful name. …approach."
+      },
+      {
+        "id": "crede",
+        "name": "Maître Crede",
+        "title": "Advocate of the Nine, for the claimant — delighted",
+        "x": 4,
+        "y": 4,
+        "hue": 0,
+        "sigil": "§",
+        "when": {
+          "flag": "clip.recruited"
+        },
+        "conv": "bench.crede",
+        "hail": "*(Silk, patience, and a smile with paperwork behind it. The Advocate of the Nine inclines his head precisely one degree.)* Counsel for the claimant. Do not take it personally — I take *briefs*, not sides. …though between us? I have not been handed a claim this *interesting* since a duchess sued her own ghost."
+      },
+      {
+        "id": "sevenpence2",
+        "name": "Sevenpence",
+        "title": "the clerk, stamping everything in triplicate",
+        "x": 2,
+        "y": 3,
+        "hue": 90,
+        "sigil": "i",
+        "when": {
+          "flag": "clip.recruited"
+        },
+        "conv": "bench.sevenpence",
+        "hail": "*(The little clerk looks up from an inkwell the size of a soup pot, recognizes you, and — carefully, where nobody official can see it — winks.)* State your name for the record. …or don't. Apparently that's *legal* now."
+      },
+      {
+        "id": "ownerreach2",
+        "name": "the reach of the one who owned him",
+        "title": "the claimant, appearing by cold pressure",
+        "x": 9,
+        "y": 4,
+        "hue": 130,
+        "sigil": "☙",
+        "when": {
+          "flag": "clip.recruited"
+        },
+        "conv": "bench.claimant",
+        "hail": "*(It has no shape, even here. It attends the way frost attends a window: a pressure at the claimant's table, an entitlement with a docket number. It does not look at you. It does not need to. In its ledger you are the adjacent entry: the thing that was present when the property was mislaid.)*"
+      },
+      {
+        "id": "clipgallery",
+        "name": "the man the case is about",
+        "title": "forbidden standing in his own claim",
+        "x": 8,
+        "y": 6,
+        "hue": 320,
+        "sigil": "❖",
+        "when": {
+          "flag": "clip.recruited"
+        },
+        "conv": "bench.clip",
+        "hail": "*(He is in the gallery, because property does not get a seat at the table. He is wearing his best coat, which is his only coat, and his best grin, which is fraying at one corner.)* …they gave me a DOCKET NUMBER, cold one. I'm between a disputed kettle and three geese. *(the grin frays another thread)* …get me out of the geese."
+      },
+      {
+        "id": "docketdoor",
+        "name": "a door with a docket nailed to it",
+        "title": "a court convened for a case not yet filed",
+        "x": 6,
+        "y": 3,
+        "hue": 220,
+        "sigil": "◌",
+        "when": {
+          "flagsNot": [
+            "clip.recruited"
+          ]
+        },
+        "conv": "bench.dormant",
+        "hail": "*(A small grey door stands where a bench should be, and nailed to it is a docket with no names you know on it. The ink of the newest line is not dry. It is not dry in the way of ink that is waiting for something to happen before it commits.)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "bench.hearing",
+      "title": "The Counting of One",
+      "npc": "the Bench of Small Property",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Bench of Small Property",
+          "onEnter": [
+            {
+              "key": "clip.writ_answered",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The magistrate reads without inflection, which is somehow worse than cruelty.)* In the matter of the claimant — designation withheld, a power of the walled dead — versus one (1) soul, male, unregistered, no lawful name of record. Claim: recovery of mislaid property. Relief sought: return of the property to the claimant's books. *(the page turns)* Exhibit the first: ash. Of a name. *(it looks up for the first time; its eyes are the grey of every small unfairness ever suffered patiently)* This Bench has heard eleven thousand years of kettles and geese. It has never once dismissed a claim unheard, and it will not begin with yours. Who answers for the respondent?",
+          "choices": [
+            {
+              "text": "*(read the Bench first — what eleven thousand years of small claims does to a soul, and where the crack in all that fairness is)*",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "read",
+              "effects": [
+                {
+                  "key": "clip.read_bench",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"I do. He answers to Clip, and I answer for him.\"",
+              "next": "claim",
+              "effects": [
+                {
+                  "key": "clip.claim_argued",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses)* \"Note my standing, your honor: I am the soul the Wall failed to file. Your precedent knows me — I am the error that argues back. He answers to Clip; I answer for him.\"",
+              "tag": "returned",
+              "next": "claim",
+              "effects": [
+                {
+                  "key": "clip.claim_argued",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_settled"
+                ]
+              },
+              "text": "*(The magistrate looks up, and the grey eyes hold something the small court almost never gets to keep: a concluded matter that concluded WELL.)* The matter of the unregistered soul is CONCLUDED, counsel. Entered, sanded, and shelved — one (1) soul, self-possessed, and the Bench does not reopen its good days. *(the page turns, contented)* …unless you have views on GEESE. The court is always accepting views on the geese."
+            },
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_lien"
+                ],
+                "flagsNot": [
+                  "clip.lien_cured"
+                ]
+              },
+              "text": "*(The magistrate does not look up. The docket between you is open to a line that has not moved since you last stood here, and the line is a LIEN, and it is patient.)* The matter of the unregistered soul stands CONTINUED, sine die. The claim was not answered; the encumbrance holds. *(the page does not turn)* …the Bench does not advise parties. It never has. But the Bench observes, for no procedural reason whatsoever, that its clerk accepts MOTIONS. At the desk. Where he has always been."
+            },
+            {
+              "text": "*(The magistrate reads without inflection, which is somehow worse than cruelty.)* In the matter of the claimant — designation withheld, a power of the walled dead — versus one (1) soul, male, unregistered, no lawful name of record. Claim: recovery of mislaid property. Relief sought: return of the property to the claimant's books. *(the page turns)* Exhibit the first: ash. Of a name. *(it looks up for the first time; its eyes are the grey of every small unfairness ever suffered patiently)* This Bench has heard eleven thousand years of kettles and geese. It has never once dismissed a claim unheard, and it will not begin with yours. Who answers for the respondent?"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "speaker": "the Bench of Small Property",
+          "text": "*(Your crossing-sense settles on the magistrate and finds no malice anywhere in it — which is the horror and the hope at once. Eleven thousand years of lost buttons, boundary stones, strayed geese; eleven thousand years of being the only bench low enough that the smallest dead could reach it. It believes one thing the way a keel believes in water: that a small wrong heard properly is the whole of the law, because the great wrongs are only small wrongs that nobody heard in time. And your sense finds the crack, which is also the keel: it is BOUND by its own books. Every precedent it ever set is a nail through its own sleeve. It cannot be bribed, scared, or flattered — but it can be OUT-ARGUED ON ITS OWN RECORD, and it will thank you for it, because being corrected by its own law is the only luxury it has ever permitted itself.)*",
+          "choices": [
+            {
+              "text": "\"…then let's begin. He answers to Clip. I answer for him.\"",
+              "next": "claim",
+              "effects": [
+                {
+                  "key": "clip.claim_argued",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "claim",
+          "speaker": "Maître Crede",
+          "text": "*(The Advocate rises, unhurried, and lays the claim out like a man dealing a hand he has already counted.)* The facts are not in dispute. The claimant MADE the asset — invested in it, trained it, deployed it. The asset was mislaid. The claimant has located the asset. In eleven thousand years, this Bench has returned every kettle, every goose, every button to the party that could prove title. *(he holds up a small glass vial; something grey shifts inside it)* Title, in the matter of souls, is a NAME. My client holds the ash of one. Produce a better instrument, or the Bench's own precedent closes like a door. *(he sits; to you, sotto voce, almost kindly)* Do try to produce a better instrument. I did not take this brief to win it.",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "ad.found_clause_nine"
+                ]
+              },
+              "text": "*(The Advocate rises — and pauses, seeing you, and the smile becomes momentarily genuine.)* …you. Clause nine. I FRAMED that loss — it hangs in my chambers. *(he composes himself; the silk returns)* The facts are not in dispute. The claimant made the asset; the asset was mislaid; the claimant holds title — a NAME, or the ash of one. *(the vial catches the candlelight)* Eleven thousand years of precedent say ash of title beats no title at all. Produce a better instrument, colleague. You have done it to me once. *(sotto voce, warm as a shark can be)* Do it again."
+            },
+            {
+              "text": "*(The Advocate rises, unhurried, and lays the claim out like a man dealing a hand he has already counted.)* The facts are not in dispute. The claimant MADE the asset — invested in it, trained it, deployed it. The asset was mislaid. The claimant has located the asset. In eleven thousand years, this Bench has returned every kettle, every goose, every button to the party that could prove title. *(he holds up a small glass vial; something grey shifts inside it)* Title, in the matter of souls, is a NAME. My client holds the ash of one. Produce a better instrument, or the Bench's own precedent closes like a door. *(he sits; to you, sotto voce, almost kindly)* Do try to produce a better instrument. I did not take this brief to win it."
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(the prior claim)* \"Title by ash against title by USE. His crew calls him Clip — daily, freely, and he answers. The grey runs on witness. A name in daily loving use is possession in the only sense this court has ever enforced.\"",
+              "check": {
+                "skill": "Persuasion",
+                "ability": "Charisma",
+                "dc": 15
+              },
+              "next": "struck",
+              "crit": "struck_crit",
+              "fail": "continuance",
+              "fumble": "fumble"
+            },
+            {
+              "text": "*(the unbalanced line)* \"Ask the claimant's own ledger. It has one entry it cannot balance: HE RAN. Property cannot flee. Either its books are false — or he was never property. It cannot win this claim without proving its own ledger a liar.\"",
+              "check": {
+                "skill": "Investigation",
+                "ability": "Intelligence",
+                "dc": 12
+              },
+              "next": "ledgerline",
+              "fail": "continuance"
+            },
+            {
+              "text": "*(no argument at all)* \"I produce no instrument. Ask the respondent his name — and see if he answers. Property does not answer. People do.\"",
+              "next": "answers"
+            },
+            {
+              "text": "*(walk out)* \"This bench weighs a man against a kettle. We're leaving.\"",
+              "next": "default"
+            }
+          ]
+        },
+        {
+          "id": "struck",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The magistrate is silent for a long moment. Then it reaches for the oldest book on the shelf — the one whose spine has gone soft as cloth — and reads its own precedent back to itself, lips moving, like a soul checking its sums.)* …the Bench finds as follows. Title by ash is title to a THING that was. Title by use is title to a thing that IS. This court has always ruled for the living use over the dead instrument — it returned the kettle to the woman who boiled it, not the smith who stamped it. *(the gavel is small; the sound is enormous)* The claim is STRUCK. The respondent is not mislaid. He is KEPT — the Bench directs the Tally to enter it exactly so.",
+          "choices": [
+            {
+              "text": "*(let the word land)*",
+              "next": "entered",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "struck_crit",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The magistrate does not reach for a book. It looks at the claimant's table for a slow count of ten — eleven thousand years of patience deciding, just this once, to be visible.)* The Bench finds title by daily loving use PLAINLY superior to title by ash, and notes for the record that it is embarrassed to have needed the argument made. The claim is struck — WITH COSTS. *(the gavel comes down; the little clerk scrambles for the costs ledger)* Costs to the respondent are assessed at one clipped coin — which the Bench observes is already legal tender between friends, and directs the claimant to learn the exchange rate. NEXT MATTER.",
+          "choices": [
+            {
+              "text": "*(watch the reach at the claimant's table try to file 'embarrassed')*",
+              "next": "entered",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ledgerline",
+          "speaker": "Maître Crede",
+          "text": "*(The Advocate goes very still — the stillness of a man watching someone else find the flaw he had already found and been professionally obliged to carry in silence.)* …the respondent's counsel moves that title be proven from the claimant's OWN ledger. *(he turns to the cold pressure at his side, and his voice is pure silk over pure delight)* Client. Produce the book. Show the Bench the entry where the property LEFT. *(the frost at the table does not move. Cannot. There is no such column. There has never been such a column.)* …the claimant declines to produce its instrument. Counsel for the claimant — *(he bows, first to the Bench, then, fractionally deeper, to you)* — WITHDRAWS. I collect impossible losses, colleague. This one I shall hang beside the other.",
+          "choices": [
+            {
+              "text": "*(to the Bench, quietly)* \"Then there is nothing before the court.\"",
+              "next": "struck"
+            }
+          ]
+        },
+        {
+          "id": "answers",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The magistrate considers you for a moment — then closes the docket, and looks past you, into the gallery, at the man in his only coat.)* …the Bench will address the respondent directly. *(a breath; the whole room narrows to one word)* CLIP. *(and he is on his feet before the sound finishes — up like a cork, like a man whose name is a hand on his shoulder, like Tuesdays, like bread — \"…here.\")* *(silence. the page does not turn. when the magistrate speaks again, something eleven thousand years old is almost, almost smiling)* Let the record show the respondent ANSWERED. Property does not answer. The claim is dismissed for want of a THING to award.",
+          "choices": [
+            {
+              "text": "*(look at him standing there, answering)*",
+              "next": "entered",
+              "effects": [
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "continuance",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The magistrate weighs your argument, and — being exactly as fair as its whole soul insists — finds it short of its own bar.)* The Bench finds the question ARGUABLE, and an arguable claim is not struck; it is HEARD. Continuance granted. The respondent's title, if it exists, rests on use — then let the USERS testify. *(and they come. you did not send for them; the road did. Garrow first, citing canon with her thumb holding the page. Dot, who enters a honey-knot into evidence as 'exhibit: breakfast, recurring.' The coin itself, on the record as one clipped coin, in circulation between friends since the toll. One by one, the small daily proofs of a man in use by people who love him — until the docket cannot hold any more witness and the point proves itself by sheer weight.)* …the Bench has heard enough. Title by use is ESTABLISHED — the slow way, which is the sturdy way. The claim is struck.",
+          "choices": [
+            {
+              "text": "*(the slow way; the sturdy way)*",
+              "next": "entered",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fumble",
+          "speaker": "the man the case is about",
+          "text": "*(And then it goes wrong the one way you didn't brace for: he STANDS UP. In the gallery. In his only coat, running the one con he never stopped running — the one where he isn't worth the trouble.)* …your honor, I can save the court the ink. The claimant's right. Made, trained, deployed — that's the inventory, that's me, I'll walk to the table myself. No costs, no continuance, nobody else gets hurt on my— *(his voice does the thing where it stops being a performance)* …nobody else gets HURT on my account. Again.",
+          "choices": [
+            {
+              "text": "*(you don't even stand up)* \"Clip. Sit down. We are not done being your crew, and you don't get to be the last con you ever run.\"",
+              "next": "held",
+              "effects": [
+                {
+                  "key": "clip.case_held",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(cold; let him do it — it's his soul to spend)*",
+              "next": "refused_sale"
+            }
+          ]
+        },
+        {
+          "id": "held",
+          "speaker": "the man the case is about",
+          "text": "*(He sits down. That's all — he sits, the way a man sits when his knees have been argued out from under him by kindness, and the courtroom pretends not to notice the gallery bench creak under the weight of one soul returning to it.)* …withdrawn, your honor. *(very quietly, to you, out of the side of the fraying grin)* …you didn't even stand UP. You just — like it was TUESDAYS. …okay. Okay. Do the arguing. I'll do the sitting. It's apparently what I'm FOR.",
+          "choices": [
+            {
+              "text": "*(turn back to the Bench and finish it: the name in daily use, the crew, the coin)*",
+              "next": "struck"
+            }
+          ]
+        },
+        {
+          "id": "refused_sale",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The gavel comes down before the reach can extend — one small, absolute sound.)* DENIED. *(the magistrate's voice does not rise; it deepens, like water under a keel)* Eleven thousand years, and the Bench has learned exactly one thing about consent given at a claimant's table: dread signs faster than any hand. The Bench does not accept surrenders coerced by a hook, and it is DISAPPOINTED — *(the grey eyes find you, and hold)* — in every party who was prepared to witness one. Sit DOWN, sir. …but hear the consequence, respondent's counsel: no counter was offered. The claim is not struck; it CONTINUES, sine die. The Bench enters a LIEN. The hook is lawful now, waiting only on a hearing no one has asked for. *(the page turns)* Next matter.",
+          "choices": [
+            {
+              "text": "*(leave, with the lien on his name and his laugh gone thin)*",
+              "next": "liened"
+            }
+          ]
+        },
+        {
+          "id": "default",
+          "speaker": "the Bench of Small Property",
+          "text": "*(The magistrate watches you turn your back, and there is no anger in it at all, which is the worst of it.)* The respondent's party withdraws. Let the record show no counter-instrument was offered. *(the gavel, small and final)* The claim CONTINUES, sine die, and the Bench enters a LIEN against the soul answering to no lawful name. The hook is lawful now. It is patient. So is the court. *(the page turns, because the page always turns)* …next matter. A kettle.",
+          "choices": [
+            {
+              "text": "*(walk out of the small court, with the lien following like a debt)*",
+              "next": "liened"
+            }
+          ]
+        },
+        {
+          "id": "liened",
+          "speaker": "the man the case is about",
+          "onEnter": [
+            {
+              "key": "clip.owner_lien",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(Outside, on the camp road, he flips the coin and catches it, and flips it, and catches it, and does not once look at you.)* …so that's new. A LIEN. On ME. *(the grin arrives late and thinner than you have ever seen it)* Been called worse than 'encumbered.' …it's fine, cold one. It's fine. I've outrun paper before. *(flip. catch. the coin, you notice, has gone cold in his hand — just slightly — the way weather changes before anyone admits it)* …I've just never had to outrun it from inside a HOME before. That's the part nobody writes a clause for."
+        },
+        {
+          "id": "entered",
+          "speaker": "the Bench of Small Property",
+          "onEnter": [
+            {
+              "key": "clip.owner_settled",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The little clerk carries the judgment to the great ledger with both hands, and the line is entered where every soul in the grey can someday point to it: 'ONE (1) SOUL, SELF-POSSESSED. Title: a name in daily loving use. Claim of make and ownership: STRUCK.' At the claimant's table, the cold pressure sits before its unbalanced book a moment longer — and then, with the smallest sound in the courtroom, moves its loss to a different column. The one it uses when a number must stop hurting. The Bench watches it go, and files, under miscellany, the closest thing to pity it has felt in an age.)* Matter concluded. *(the grey eyes rest on you, and the voice is a page turning, and the page is a new one)* The small court thanks the respondent's counsel. It does not often get to strike a large wrong. They are only small wrongs that nobody heard in time — and this one was heard. NEXT MATTER. *(and, beneath the gavel's echo, almost inaudible)* …three geese.",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.kept_as_clip"
+                ]
+              },
+              "text": "*(The little clerk carries the judgment to the great ledger with both hands: 'ONE (1) SOUL, SELF-POSSESSED. Title: a name in daily loving use. Claim of make and ownership: STRUCK.' And because you never took the other name — because even the court record shows only the word his crew made — the ash in the Advocate's vial is now title to NOTHING AT ALL: the last handle anyone could ever hold him by, entered as void. At the claimant's table the cold pressure re-files its loss under the column it uses when a number must stop hurting. The Bench watches it go, and files, under miscellany, the closest thing to pity it has felt in an age.)* Matter concluded. The small court thanks the respondent's counsel — and notes, for eleven thousand years of record, that the better instrument was the one that never needed the old name at all. NEXT MATTER. *(beneath the gavel's echo, almost inaudible)* …three geese."
+            },
+            {
+              "text": "*(The little clerk carries the judgment to the great ledger with both hands, and the line is entered where every soul in the grey can someday point to it: 'ONE (1) SOUL, SELF-POSSESSED. Title: a name in daily loving use. Claim of make and ownership: STRUCK.' At the claimant's table, the cold pressure sits before its unbalanced book a moment longer — and then, with the smallest sound in the courtroom, moves its loss to a different column. The one it uses when a number must stop hurting. The Bench watches it go, and files, under miscellany, the closest thing to pity it has felt in an age.)* Matter concluded. *(the grey eyes rest on you, and the voice is a page turning, and the page is a new one)* The small court thanks the respondent's counsel. It does not often get to strike a large wrong. They are only small wrongs that nobody heard in time — and this one was heard. NEXT MATTER. *(and, beneath the gavel's echo, almost inaudible)* …three geese."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench.crede",
+      "title": "The Advocate's Brief",
+      "npc": "Maître Crede",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Maître Crede",
+          "text": "*(He pours two thimbles of something dark and does not offer the claimant any.)* Professional courtesy, before we are adversaries: my client cannot lose, by its own arithmetic. It has never once lost anything — merely mislaid it. That is not confidence. That is the SHAPE of the thing. *(he turns the thimble, watching the light)* I have defended devils, duchesses, and once — briefly, gloriously — a house that ate its heirs. I have never before represented a client that cannot conceive of the verdict going against it. I find I am *curious* what its face will do. It does not have a face. That is what makes it interesting.",
+          "choices": [
+            {
+              "text": "\"Why take the brief at all?\"",
+              "next": "why"
+            },
+            {
+              "text": "*(the one who crosses — stand close enough that he feels the grave-cold coming off you)* \"And do the Nine keep a brief on ME, Maître?\"",
+              "tag": "returned",
+              "next": "onyou"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "speaker": "Maître Crede",
+          "text": "*(The smile does the rare thing and reaches his eyes.)* Because, colleague, I collect impossible losses. Anyone can win — winning is CLERICAL. But to lose a case that cannot be lost? To stand in the exact room where an arithmetic breaks? *(he sets down the thimble, precise as a signature)* The Nine pay me in favors I shall never call in. The work pays me in MOMENTS. Give me one today, and I will consider us square — and I will file this courtesy where I file everything: in triplicate, against the day it is useful."
+        },
+        {
+          "id": "onyou",
+          "speaker": "Maître Crede",
+          "text": "*(He does not step back from the cold. He inventories it, the way a jeweler inventories a stone he cannot afford.)* …there is a folder. I have seen it. It is EMPTY, colleague — nine Hells of counsel, and not one of them knows what to write in it. An asset that cannot be titled; a precedent that walks; a soul the Wall itself failed to perfect its claim on. *(the smile, for once, is entirely honest)* The empty folder is my second-favorite thing in my chambers. Today's loss, should you furnish it, will hang beside the CABINET."
+        }
+      ]
+    },
+    {
+      "id": "bench.sevenpence",
+      "title": "The Clerk's Ink",
+      "npc": "Sevenpence",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Sevenpence",
+          "text": "*(The little clerk stamps a page, files it, stamps its copy, files that, and stamps the copy's copy — the liturgy of triplicate.)* You want to know the worst service I ever ran? THIS writ. Try serving papers on a CAMPFIRE. The fire kept accepting them. Very cooperative, fires. The papers kept becoming SMOKE, which — I checked — does not constitute service. I had to wait for the bread woman, in the end. She signed for him. She signs for EVERYONE, apparently. *(stamp. file. stamp.)* …the geese were easier.",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "ad.freed_sevenpence"
+                ]
+              },
+              "text": "*(The little clerk stamps a page, files it, and looks up with the particular brightness of a soul whose contract you once fed to its own clause nine.)* …it's YOU. Look — LOOK — *(he holds up his stamping hand; there is no binding-mark on it, only ink)* — freelance. Clerk of the small court, paid in ink and precedent, OWN man. The Bench hired me because I read fine print for FUN now. For FUN. *(stamp, jubilant)* You want to know the best part of serving this writ? I got to bill the NINE for postage. Line by line. I made Crede initial EACH GOOSE."
+            },
+            {
+              "text": "*(The little clerk stamps a page, files it, stamps its copy, files that, and stamps the copy's copy — the liturgy of triplicate.)* You want to know the worst service I ever ran? THIS writ. Try serving papers on a CAMPFIRE. The fire kept accepting them. Very cooperative, fires. The papers kept becoming SMOKE, which — I checked — does not constitute service. I had to wait for the bread woman, in the end. She signed for him. She signs for EVERYONE, apparently. *(stamp. file. stamp.)* …the geese were easier."
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(the lien)* \"I want the matter of the unregistered soul reopened. What does it take?\"",
+              "when": {
+                "flags": [
+                  "clip.owner_lien"
+                ],
+                "flagsNot": [
+                  "clip.lien_cured"
+                ]
+              },
+              "next": "motion",
+              "effects": [
+                {
+                  "key": "clip.motion_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses)* \"And when you served papers on me just by my standing here — what did the stamp say?\"",
+              "tag": "returned",
+              "next": "ink"
+            }
+          ]
+        },
+        {
+          "id": "ink",
+          "speaker": "Sevenpence",
+          "text": "*(He turns the stamp so you can read its face. One word, in the oldest abbreviation the court owns: RET'D.)* Addressee unfiled. Delivery refused by the WALL, if you can believe the cheek of it. So the record just says… returned. *(he looks at the stamp, then up at you, and the little clerk's voice goes quiet and precise)* …the stamp has had that word longer than you have, friend. Eleven thousand years of things that came back marked undeliverable. You're the first one the word fits like a NAME.)"
+        },
+        {
+          "id": "motion",
+          "speaker": "Sevenpence",
+          "text": "*(The little clerk sets down the stamp — actually sets it DOWN, which you have never once seen — and pulls a form so old its ruled lines have gone soft.)* Motion to reopen a continued matter. It can be done. It has been done TWICE in eleven thousand years, and I know because I checked the day the lien was entered, in case you came back. *(he slides the form across; his voice drops to clerk-quiet)* Here's the cost, friend, and it isn't coin. Last time, the claim went unanswered — that's what a lien IS, a silence with interest. The Bench will strike it on one condition only: SURETY. A soul with standing must enter itself on the record as his keeper. Name, nature, and liability — on the books. Forever. *(he looks up, and the look knows exactly what it is asking)* …and everyone in this courtroom knows what books mean to YOU.",
+          "choices": [
+            {
+              "text": "*(the one who crosses — read the form: what does a ledger line actually take from the soul the Wall never managed to file?)*",
+              "tag": "returned",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "weigh",
+              "effects": [
+                {
+                  "key": "clip.read_surety",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(sign)* \"Enter it. The soul the Wall couldn't keep, on the record, as his keeper. One line. He's worth a line.\"",
+              "next": "surety",
+              "effects": [
+                {
+                  "key": "clip.surety_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"…not yet.\"",
+              "next": "notyet"
+            }
+          ]
+        },
+        {
+          "id": "weigh",
+          "speaker": "Sevenpence",
+          "text": "*(You read the form, and your crossing-sense reads what the form IS. Every power that ever reached for you slid off the same fact: unfiled. The Wall could not hold you because there was no line to hold you BY — you have walked five ages as the gap in every ledger, and the gap was armor. This form is a door in that armor, cut by your own hand: one line, in one small court, naming you KEEPER of one soul. Nothing in the grey could ever summon you by it — a surety is not a title, and no one owns the keeper. But it is a place where you can be FOUND, forever, by anyone who reads. Your sense turns the cost over and finds the shape of it exactly: it is the same coin Clip paid at the threshold. To be reachable is to be holdable. To be holdable is the whole gamble of love. He let himself be named. This is you, letting yourself be WRITTEN.)*",
+          "choices": [
+            {
+              "text": "*(sign)* \"Enter it. One line. He's worth a line.\"",
+              "next": "surety",
+              "effects": [
+                {
+                  "key": "clip.surety_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"…not yet.\"",
+              "next": "notyet"
+            }
+          ]
+        },
+        {
+          "id": "notyet",
+          "speaker": "Sevenpence",
+          "text": "*(He nods, without judgment, and files the blank form where he can reach it fast.)* It keeps. Forms are patient — it's the whole of what they are. *(he picks the stamp back up; quietly, to the inkwell)* …so are liens, friend. So are liens."
+        },
+        {
+          "id": "surety",
+          "speaker": "the Bench of Small Property",
+          "onEnter": [
+            {
+              "key": "clip.lien_cured",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The clerk carries the form up; the magistrate reads it once, then once again, and when it speaks, the voice is a page turning in a book you cannot see the edges of.)* Let the record show: surety entered. The soul the Wall of the Faithless failed to file — self-registered, this day, in the smallest court in the grey, as KEEPER of the soul answering to Clip. *(the gavel; one small, absolute sound)* The lien is STRUCK. The silence is answered — with interest. *(and the magistrate does a thing eleven thousand years of kettles never earned: it stands. Briefly. For the length of one held breath, the small court stands for you.)* The Bench notes that it has now seen everything. It thanks the parties. It is CERTAIN it will not have to say so a third time. *(seated again; the page turns)* …next matter. *(beneath the gavel's echo, from the gallery, unsteady, the sound of a man in his only coat learning what a line in a book can be FOR)*",
+          "choices": [
+            {
+              "text": "*(find him — he'll be trying to joke and failing)*",
+              "next": "kept",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kept",
+          "speaker": "the man the case is about",
+          "text": "*(He starts three different jokes. You watch each one assemble, wobble, and fall over. What's left when the last one goes down is just his face, which he has spent an age making sure nobody ever saw, and which says, before he does:)* …you put yourself in a BOOK. You. The — cold one, do you understand what you — there are powers that have spent five AGES trying to get one line on you, ONE, and you walked into the pettiest court in creation and gave it away for a con man with a lien on his coat. *(flip. catch. his hand is not steady, and he doesn't hide it, which is the largest thing you have ever seen him do)* …I know what it costs to be findable. I paid it at a threshold with a hook in my ribs. You just paid it at a DESK. On PURPOSE. Sober. *(quieter)* …keeper, huh. *(the grin, when it finally lands, is brand new — no fray anywhere in it)* Best line of credit in the grey, and I intend to be worth the interest."
+        }
+      ]
+    },
+    {
+      "id": "bench.claimant",
+      "title": "Depreciation",
+      "npc": "the reach of the one who owned him",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the reach of the one who owned him",
+          "text": "*(It notices your attention the way a ledger notices a draft: an irrelevance to be weighted down. When it addresses you, it is without malice, which is the whole indictment of it.)* YOU ARE THE ADJACENT ENTRY. THE PROXIMATE CAUSE OF MISLAYING. THERE IS NO PENALTY FILED AGAINST YOU, BECAUSE YOU ARE NOT WORTH A COLUMN. *(a pause; the frost thickens by one degree)* THE COURT WILL RETURN THE ASSET. COURTS ARE LEDGERS THAT TALK. LEDGERS BALANCE. THIS IS KNOWN.",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_settled"
+                ]
+              },
+              "text": "*(The claimant's table is empty of everything except cold, and the cold is leaving, and it pauses at your attention one last time. Its voice is smaller. Not chastened — RECONCILED, the way a book is reconciled.)* THE MATTER IS CLOSED. THE LOSS HAS BEEN… RECLASSIFIED. *(the word it will not say is 'struck')* DEPRECIATION. AN ASSET MAY LOSE ALL VALUE AND REMAIN ON THE BOOKS AT ZERO. HE IS ON THE BOOKS AT ZERO. *(the frost withdraws from the window, and for one impossible instant the pressure of it feels less like grasping and more like a hand opening)* …THE COLUMN BALANCES NOW. IT DID NOT BALANCE FOR AN AGE. IT IS… QUIETER. THERE IS NO ENTRY FOR WHY THAT SHOULD MATTER."
+            },
+            {
+              "text": "*(It notices your attention the way a ledger notices a draft: an irrelevance to be weighted down. When it addresses you, it is without malice, which is the whole indictment of it.)* YOU ARE THE ADJACENT ENTRY. THE PROXIMATE CAUSE OF MISLAYING. THERE IS NO PENALTY FILED AGAINST YOU, BECAUSE YOU ARE NOT WORTH A COLUMN. *(a pause; the frost thickens by one degree)* THE COURT WILL RETURN THE ASSET. COURTS ARE LEDGERS THAT TALK. LEDGERS BALANCE. THIS IS KNOWN."
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(turn your dead-touched sense on the claimant — read what a loss does to a thing that cannot grieve)*",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "read",
+              "effects": [
+                {
+                  "key": "clip.read_depreciation",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses — let it feel what its ledger never filed)* \"You filed against a crew that includes the thing the Wall could not keep. Bring a bigger ledger.\"",
+              "tag": "returned",
+              "next": "cold"
+            },
+            {
+              "text": "*(give it nothing — not even a column's worth)*",
+              "next": "cold"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "speaker": "the reach of the one who owned him",
+          "text": "*(You turn your sense on the cold and find, beneath the entitlement, the thing it has been doing for an age with the unbalanced line: MOVING IT. Ledger to sub-ledger, column to column, quarter after quarter after century — reclassified, re-aged, re-filed — the one number that will not resolve, carried like a stone in a shoe by a thing with no feet. Your sense reads what the shuffling actually is, and it is the closest thing to grief the arithmetic can perform: a loss that is never allowed to close, visited over and over, renamed so it can be looked at again from a new angle, kept fresh by the very refusal to let it rest. Inventory's mourning. It does not miss him. It has no column for missing. It has only the number, and the number HURTS, and there is no entry for why a number should hurt — so it files the hurt as an error, and the error as ongoing, and it will go on visiting that line forever, the way the unloved visit graves: correctly, on schedule, without ever once understanding what they came for.)*"
+        },
+        {
+          "id": "cold",
+          "speaker": "the reach of the one who owned him",
+          "text": "*(The frost does not answer at once — and in a thing made entirely of certainty, a pause IS a scream.)* THE LEDGER IS ADEQUATE. *(a longer pause; somewhere in it, a line that will not balance is being visited again)* THE LEDGER HAS ALWAYS BEEN ADEQUATE."
+        }
+      ]
+    },
+    {
+      "id": "bench.clip",
+      "title": "The Gallery",
+      "npc": "the man the case is about",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the man the case is about",
+          "text": "*(He talks, because the alternative is thinking about the vial of ash on the Advocate's table.)* Fun fact about being PROPERTY, cold one: no standing. Can't speak in my own case. Eleven thousand years of jurisprudence and the kettle has the same rights I do — the kettle, I'd note, is ALSO not being asked its preference. *(flip. catch. the coin is warm; he checks it anyway, twice)* I've been thrown out of better courts than this. …no. No, that's — I've never been INVITED to one before. This is a milestone. *(pointing)* That's not a joke, their bailiff is literally a milestone—",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_settled"
+                ]
+              },
+              "text": "*(He is holding the docket stamp — the little clerk let him ink it himself — and he keeps looking at his own hand like it belongs to a man with better luck.)* 'One soul. Self-possessed.' *(flip. catch. the coin is just money now, and he has never once complained about that where you could hear it)* I have been, in my career: unregistered, unfiled, unnameable, un-summonable, and — one bad afternoon on the causeway — UNTAXABLE. Today I am 'acquitted of being ownable.' On the RECORD. In TRIPLICATE. *(the grin, whole, no frayed corner anywhere)* I'm framing it. Dot's already promised the nail. …thank you. For doing the arguing. Turns out that's what I keep you for — *(quieter, and he lets it land plain)* — and turns out being KEPT has an exchange rate after all, and I can afford it."
+            },
+            {
+              "text": "*(He talks, because the alternative is thinking about the vial of ash on the Advocate's table.)* Fun fact about being PROPERTY, cold one: no standing. Can't speak in my own case. Eleven thousand years of jurisprudence and the kettle has the same rights I do — the kettle, I'd note, is ALSO not being asked its preference. *(flip. catch. the coin is warm; he checks it anyway, twice)* I've been thrown out of better courts than this. …no. No, that's — I've never been INVITED to one before. This is a milestone. *(pointing)* That's not a joke, their bailiff is literally a milestone—"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(read him — what sitting silent in his own case costs a man whose whole survival was talking)*",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "read",
+              "effects": [
+                {
+                  "key": "clip.read_gallery",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Sit tight. Do the sitting. I'll do the arguing.\"",
+              "next": "sit"
+            },
+            {
+              "text": "*(the one who crosses)* \"They can keep you out of the argument, not out of the verdict. I'm not property either, Clip — I'm PRECEDENT. Sit tight and watch me set some.\"",
+              "tag": "returned",
+              "next": "sit"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "speaker": "the man the case is about",
+          "text": "*(You turn your sense on the patter and find what it is holding down. Talking was never charm — it was STEERING: every con he ever ran, he was the one holding the wheel of the room, because the boy who steers cannot be cornered. And here he sits, in the one room in the grey where he is not permitted to touch the wheel, listening to other people argue about whether he is a PERSON, and the silence is costing him more than the hook did — because the hook only wanted his name, and the silence wants his TRUST. Your sense reads the bottom of it plain: he is letting you steer. On purpose. With the vial of everything he used to be sitting on the table in plain view. It is the single largest thing he has ever handed anyone, and he has disguised it — of course he has — as sitting still.)*",
+          "choices": [
+            {
+              "text": "*(carry it carefully)*",
+              "next": "sit"
+            }
+          ]
+        },
+        {
+          "id": "sit",
+          "speaker": "the man the case is about",
+          "text": "*(He salutes you with the coin, two fingers, the old toll-road flourish.)* Doing the sitting, aye. Best seat in the house — right between the kettle's gallery and the geese's counsel. *(beat)* The geese have counsel, cold one. I checked. …win my case before theirs, I'll never live down losing precedence to WATERFOWL."
+        }
+      ]
+    },
+    {
+      "id": "bench.dormant",
+      "title": "A Docket Not Yet Filed",
+      "npc": "a door with a docket nailed to it",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "a door with a docket nailed to it",
+          "onEnter": [
+            {
+              "key": "clip.docket_seen",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The docket lists the small court's coming matters, in a clerk's careful hand: a kettle, disputed. Three geese, ownership of. A boundary stone, moved in the night. And beneath them, one line where the ink has been mixed but not yet committed — a space exactly the width of a name, waiting for something out on the grey roads to finish happening. The door is not locked. It is simply not yet for you, the way a letter on someone else's table is not yet for you. Whatever the last line is going to say, the ink is patient. Ink, in the grey, always is.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses)* \"I'm the soul the Wall gave back. If that last line ever fills in with a name I love — I'll be the one answering it.\"",
+              "tag": "returned",
+              "next": "noted"
+            }
+          ]
+        },
+        {
+          "id": "noted",
+          "speaker": "a door with a docket nailed to it",
+          "text": "*(The ink, very slightly, stirs — the way still water notes a stone dropped somewhere far upstream. The docket does not reply. Dockets never do. But you leave with the distinct and not entirely unpleasant sense of having been… minuted.)*"
+        }
+      ]
+    }
+  ]
+}

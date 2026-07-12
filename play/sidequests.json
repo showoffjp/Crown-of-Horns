@@ -1,0 +1,1162 @@
+{
+  "_note": "The Side-Quest Catalog. Each quest runs on the QuestManager engine (quests.js / C# QuestManager). Every objective/completion/failure flag is set by real walkable content (verified by sidequests.test.js), so these are LIVE tracked quests, not dead data. Design fields (region/giver/premise/theme/reward) are ignored by the engine and drive the quest log + bible.",
+  "sidequests": [
+    {
+      "questId": "sq.the_wake",
+      "title": "The Wake the World Withheld",
+      "region": "Realm-side — off the Night Market",
+      "giver": "Corliss, the sexton who marks the unmarked",
+      "premise": "A brisk woman in a mended black dress holds funerals for the souls no one ever mourned. Sit, if you'll help — there's a funeral starting, and the guest of honor has never once had anyone come.",
+      "theme": "To name the discarded is to defeat the Wall. A wake is an act of war: the grief is the guard.",
+      "reward": "act1.mercy_remembered; Corliss keeps the line, one small funeral at a time.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Learn what Corliss does for the unmourned",
+          "completionFlag": "tw.met_corliss"
+        },
+        {
+          "objectiveId": "eulogy",
+          "desc": "Give Tatters the eulogy he waited sixty years for",
+          "completionFlag": "tw.eulogy_given",
+          "optional": true
+        },
+        {
+          "objectiveId": "brenn",
+          "desc": "Reach Brenn, who believes he deserves the silence",
+          "completionFlag": "tw.brenn_takes_the_candle",
+          "optional": true
+        }
+      ],
+      "completionFlag": "tw.corliss_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.last_lantern_feast",
+      "title": "The Last Lantern-Feast",
+      "region": "Realm-side — off the Lamplit Quarter",
+      "giver": "Dot Marigold, the hearth-keeper",
+      "premise": "A Baldur's Gate baker throws a forbidden party for the doomed, and the church is coming to put it out. Help her keep the lanterns lit.",
+      "theme": "Joy because it ends — the living refutation of the Deathless Garden.",
+      "reward": "Recruits the hidden eighth companion, Dot Marigold.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Find the feast and meet Dot",
+          "completionFlag": "lf.met_dot"
+        },
+        {
+          "objectiveId": "marisa",
+          "desc": "Dance the last of it with Marisa",
+          "completionFlag": "lf.marisa_affirmed",
+          "optional": true
+        },
+        {
+          "objectiveId": "onora",
+          "desc": "Thaw Sister Onora's frozen grief",
+          "completionFlag": "lf.onora_thawed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "lf.dot_joined",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_word",
+      "title": "The Last Word",
+      "region": "Realm-side — off the Night Market",
+      "giver": "Sevrin Vael, the Last Word",
+      "premise": "An unbeatable Returned of nine lifetimes holds court over a field he cleared without a scratch. Warn him before the loop takes him through the one small thing he won't watch.",
+      "theme": "The loop hunts the bright. You cannot save him — only change how he falls.",
+      "reward": "Warned/promised flags reshape the later set-piece of his death; his cracked grief can feed the Mournlight.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet Sevrin and his little court",
+          "completionFlag": "sv.met_sevrin"
+        },
+        {
+          "objectiveId": "promise",
+          "desc": "Make the unbeatable man promise to watch the small ones",
+          "completionFlag": "sv.watches_the_small",
+          "optional": true
+        }
+      ],
+      "completionFlag": "sv.warned",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_after",
+      "title": "The After",
+      "region": "Realm-side — the same lot, later",
+      "giver": "Coll, the one left standing",
+      "premise": "The whistling has stopped. Return to the Last Word's lot to find who is left in the wreckage — and what your warnings bought.",
+      "theme": "You did everything right and he still died. The scar — and who survives it.",
+      "reward": "Sela can learn to carry her own fear; Tamsin can grieve honest; Coll is named the keeper of the dead's names.",
+      "objectives": [
+        {
+          "objectiveId": "sela",
+          "desc": "Steady Sela, who got her whole fear back at once",
+          "completionFlag": "af.sela_stands",
+          "optional": true
+        },
+        {
+          "objectiveId": "tamsin",
+          "desc": "Take Tamsin down off the ceiling — death vs. unmaking",
+          "completionFlag": "af.tamsin_grieves",
+          "optional": true
+        }
+      ],
+      "completionFlag": "af.coll_honored",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_one_left",
+      "title": "The One Left",
+      "region": "Realm-side — the western corner of the lot",
+      "giver": "Sift, the dissolving one",
+      "premise": "Past the last cairn, where the overlooked wash up: the souls a legend steps over. One of them is dissolving into the weapon that kills legends, and begging not to become a murder un-witnessed.",
+      "theme": "A soul who looks finds people where greatness found noise. The weapon is the victim.",
+      "reward": "Eases the Wall's truest victim; the read seeds the Lidless Eye's blank-page reproach.",
+      "objectives": [
+        {
+          "objectiveId": "sift",
+          "desc": "Witness Sift — the knife made of a person",
+          "completionFlag": "ol.sift_witnessed"
+        },
+        {
+          "objectiveId": "bryn",
+          "desc": "Give Brynalla Coorne back her name",
+          "completionFlag": "ol.bryn_seen",
+          "optional": true
+        },
+        {
+          "objectiveId": "tace",
+          "desc": "Stir the banked coal of the soul who chose to be nothing",
+          "completionFlag": "ol.tace_seen",
+          "optional": true
+        }
+      ],
+      "completionFlag": "ol.sift_witnessed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_lidless_eye",
+      "title": "The Lidless Eye",
+      "region": "Behind your own eyes — off the Counting-House",
+      "giver": "the Unmade, the voice behind your eyes",
+      "premise": "A door with no other side. Here the three truths converge: the eye you were given was the enemy's, the cost of using it was becoming the monster, and the book you kept was the cure.",
+      "theme": "Witnessing as weapon and as ruin. You never had to tear the Wall down — only out-write it.",
+      "reward": "Reframes every dead-sense read; the full Niche-Book read aloud is the saga's true weapon.",
+      "objectives": [
+        {
+          "objectiveId": "reveal",
+          "desc": "Face the narrator who was the Unmade all along",
+          "completionFlag": "le.narrator_revealed"
+        },
+        {
+          "objectiveId": "reclaim",
+          "desc": "Reclaim the sight as your own",
+          "completionFlag": "le.sight_reclaimed",
+          "optional": true
+        },
+        {
+          "objectiveId": "aloud",
+          "desc": "Read the full Niche-Book aloud — the refutation complete",
+          "completionFlag": "le.refutation_complete",
+          "optional": true,
+          "hidden": true
+        }
+      ],
+      "completionFlag": "le.book_is_the_cure",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_honest_devil",
+      "title": "The Honest Devil",
+      "region": "Realm-side — the Long Odds, off the Night Market",
+      "giver": "Calloway, the Honest Devil",
+      "premise": "The only warm, loud, well-lit room in the land of the dead — and the magnificent con-man who runs it has been waiting for a Returned to walk through his door.",
+      "theme": "The capitalist of grief. You cannot beat him with force — only out-deal, out-wager, name, or walk away clean.",
+      "reward": "A marker that opens a locked door later; the markers (owe / owed / walked) drive his recurrences.",
+      "objectives": [
+        {
+          "objectiveId": "deal",
+          "desc": "Strike a deal at his table",
+          "completionFlag": "cal.struck_deal",
+          "optional": true
+        },
+        {
+          "objectiveId": "wager",
+          "desc": "Cut the cards against the house",
+          "completionFlag": "cal.wagered",
+          "optional": true
+        },
+        {
+          "objectiveId": "walk",
+          "desc": "Leave money on the table — walk clean",
+          "completionFlag": "cal.walked_clean",
+          "optional": true
+        },
+        {
+          "objectiveId": "secret",
+          "desc": "Learn the one secret that could ruin him",
+          "completionFlag": "cap.calloways_secret",
+          "optional": true,
+          "hidden": true
+        }
+      ],
+      "completionFlag": "cal.met",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_knife_you_carry",
+      "title": "The Knife You Carry",
+      "region": "The Long Odds & the Wayward Mile",
+      "giver": "Calloway (the favor comes due)",
+      "premise": "You hold the one thing that can destroy the Honest Devil — the truth that he secretly forgives debts for nothing. His whole house runs on the fear that a marker is iron. Decide.",
+      "theme": "The loaded gun. The villain you can't hate hands you his own throat.",
+      "reward": "Ruin him and free his hundred debtors — or protect the secret and keep a friend who knows the worst of him.",
+      "objectives": [
+        {
+          "objectiveId": "learn",
+          "desc": "Learn that Calloway laundered a mercy through you",
+          "completionFlag": "cap.calloways_secret"
+        },
+        {
+          "objectiveId": "ruin",
+          "desc": "Hand the Auditor the lever — ruin him, free the debtors",
+          "completionFlag": "cal.calloway_ruined",
+          "optional": true
+        },
+        {
+          "objectiveId": "protect",
+          "desc": "Keep the knife sheathed — protect his one decency",
+          "completionFlag": "cal.protected_secret",
+          "optional": true
+        }
+      ],
+      "completionFlag": "cap.calloway2_done",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.what_the_road_throws",
+      "title": "What the Road Throws",
+      "region": "The Wayward Mile — a path that wasn't there a moment ago",
+      "giver": "the road itself",
+      "premise": "A milestone at a bend you were sure was straight. Step close, and the road shows you a caprice — the kind of something that happens to a soul exactly once, and never the same something twice.",
+      "theme": "The strange visits a soul only so many times in one passage. Each one is unforgettable, and you'll only ever see a handful.",
+      "reward": "Keepsakes that ripple: the edge-coin, a name on a bone, a stranger's last word, an apocalypse in a case.",
+      "objectives": [
+        {
+          "objectiveId": "dog",
+          "desc": "Follow the Same Dog to the edge of the dissolving",
+          "completionFlag": "cap.dog_followed",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "word",
+          "desc": "Carry a stranger's last word out of the auction",
+          "completionFlag": "cap.heard_last_word",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "beggar",
+          "desc": "Make the recursive beggar whole — with refusal",
+          "completionFlag": "cap.beggar_made_whole",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "jester",
+          "desc": "Free the comedian who died mid-joke",
+          "completionFlag": "cap.jester_freed",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "complaint",
+          "desc": "File a formal grievance against the Wall at the dead returns desk",
+          "completionFlag": "cap.filed_complaint",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "war",
+          "desc": "Broker an end to the Two-Minute War that has lasted three centuries",
+          "completionFlag": "cap.ended_the_war",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "orchard",
+          "desc": "Walk the Orchard of Hands and hold a letting-go you know",
+          "completionFlag": "cap.orchard_seen",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "memory",
+          "desc": "Return a stranger's mis-filed life, or share it",
+          "completionFlag": "cap.returned_memory",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "dog_friend",
+          "desc": "The Same Dog adopts you — name it, or let it anchor you against the cold",
+          "completionFlag": "cap.named_the_dog",
+          "optional": true,
+          "hidden": true
+        }
+      ],
+      "completionFlag": "cap.met",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_intake_queue",
+      "title": "The Intake Queue",
+      "region": "Realm-side — off the Counting-House",
+      "giver": "the rule-bound clerk",
+      "premise": "An endless waiting-line for the newly dead, run by a clerk mortally afraid of being wrong. The Wall is the biggest clerk there is, hiding its cruelty in procedure so no one is ever to blame.",
+      "theme": "Bureaucracy as atrocity with no author; the souls who hide in the waiting.",
+      "reward": "Each soul in the queue seen past its procedure.",
+      "objectives": [
+        {
+          "objectiveId": "grindle",
+          "desc": "See past the furious man's noise to his dread of the desk",
+          "completionFlag": "qu.grindle_seen",
+          "optional": true
+        },
+        {
+          "objectiveId": "posset",
+          "desc": "See the kind one who made a home in the waiting",
+          "completionFlag": "qu.posset_seen",
+          "optional": true
+        }
+      ],
+      "completionFlag": "qu.clerk_seen",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.a_custody_of_the_small",
+      "title": "A Custody of the Small",
+      "region": "Realm-side — off the Lamplit Quarter",
+      "giver": "two souls fighting over a third",
+      "premise": "Two souls fight over the keeping of a child who is not theirs to keep. A custody battle in the land of the dead, where what's being fought over has its own small say.",
+      "theme": "Who does a soul belong to? The answer is: itself.",
+      "reward": "The child freed to choose.",
+      "objectives": [],
+      "completionFlag": "cu.child_freed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.a_reunion_across_an_age",
+      "title": "A Reunion Across an Age",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Halia, who waited",
+      "premise": "Two souls separated by an age of death, a door, and the slow forgetting — and the third who kept the place between them. Some reunions take longer than a life.",
+      "theme": "Love that outlasts memory; the grief of arriving too late, or just in time.",
+      "reward": "A reunion completed; the keeper of the gap released.",
+      "objectives": [
+        {
+          "objectiveId": "edran",
+          "desc": "Witness Edran, who came the long way",
+          "completionFlag": "rn.edran_witnessed",
+          "optional": true
+        },
+        {
+          "objectiveId": "mirren",
+          "desc": "Witness Mirren, who kept the place",
+          "completionFlag": "rn.mirren_witnessed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "rn.halia_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_job",
+      "title": "The Last Job",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Greaves, who plans the impossible heist",
+      "premise": "A dead crew planning one last impossible job — to steal a soul back out of the nothing. The greatest heist there is, and the mark is the Wall itself.",
+      "theme": "Loyalty, the long con, and the one score you can't put down.",
+      "reward": "The crew witnessed; Rook freed; the score named for what it is.",
+      "objectives": [
+        {
+          "objectiveId": "rook",
+          "desc": "Free Rook from the debt that holds the crew",
+          "completionFlag": "lj.rook_freed",
+          "optional": true
+        },
+        {
+          "objectiveId": "vesper",
+          "desc": "See Vesper, the one who never wanted the score",
+          "completionFlag": "lj.vesper_affirmed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "lj.greaves_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_long_truce",
+      "title": "The Long Truce",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Wenna, between the lines",
+      "premise": "The war dead of a forgotten front, still holding their ground centuries on, because no one ever came to tell them it was over. A truce that only the living could call, called at last by the dead.",
+      "theme": "The wars that outlive their reasons; the courage it takes to be the first to lay down arms.",
+      "reward": "The line stood down; the soldiers witnessed on both sides.",
+      "objectives": [
+        {
+          "objectiveId": "ander",
+          "desc": "Witness Ander, who would not be the first to fall back",
+          "completionFlag": "wd.ander_witnessed",
+          "optional": true
+        },
+        {
+          "objectiveId": "marek",
+          "desc": "Witness Marek, on the other side of the same fear",
+          "completionFlag": "wd.marek_witnessed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "wd.wenna_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_song_that_remembers",
+      "title": "The Song That Remembers",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Cale, who can't finish the song",
+      "premise": "A door of music, where a song half-remembered is the only thing keeping a soul from dissolving — and the only way to free it is to help it finish the verse.",
+      "theme": "Memory as anchor; the things we sing to keep the dead from sliding into the nothing.",
+      "reward": "The song finished; Cale freed; the harmony restored.",
+      "objectives": [
+        {
+          "objectiveId": "pae",
+          "desc": "See Pae, who carries the melody",
+          "completionFlag": "sg.pae_affirmed",
+          "optional": true
+        },
+        {
+          "objectiveId": "wisp",
+          "desc": "See Wisp, who is fading into the rest",
+          "completionFlag": "sg.wisp_affirmed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "sg.cale_freed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_unseen_hands",
+      "title": "The Unseen Hands",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Wennick, who held the world up",
+      "premise": "The souls of the invisible labor — the ones who held the world up and were never once thanked or named. They built everything and are remembered by no one.",
+      "theme": "The dignity the world withholds from the hands that hold it up.",
+      "reward": "The unseen, finally seen and named.",
+      "objectives": [
+        {
+          "objectiveId": "garrick",
+          "desc": "Witness Garrick, who carried more than his share",
+          "completionFlag": "uw.garrick_witnessed",
+          "optional": true
+        },
+        {
+          "objectiveId": "tilda",
+          "desc": "Witness Tilda, who kept the lamps lit for everyone else",
+          "completionFlag": "uw.tilda_witnessed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "uw.wennick_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_forbidden_loves",
+      "title": "The Forbidden Loves",
+      "region": "Sigil — the omniverse doors",
+      "giver": "Mirae, who loved against the rule",
+      "premise": "Souls who loved where they were forbidden to, in life — and carry, in death, the question of whether a love the world condemned was a sin or the truest thing they ever did.",
+      "theme": "Love as defiance; the worth of a thing the world refused to allow.",
+      "reward": "The forbidden loves witnessed and affirmed; the condemnation answered.",
+      "objectives": [
+        {
+          "objectiveId": "rell",
+          "desc": "Witness Rell, who paid for it",
+          "completionFlag": "lv.rell_witnessed",
+          "optional": true
+        },
+        {
+          "objectiveId": "wynn",
+          "desc": "Witness Wynn, who never regretted it",
+          "completionFlag": "lv.wynn_witnessed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "lv.mirae_affirmed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.a_refugee_named",
+      "title": "A Refugee Named",
+      "region": "Realm-side — the almshouse under siege",
+      "giver": "a soul at the barred door",
+      "premise": "An almshouse of the dead under siege, and a refugee inside it the besiegers refuse to call by name — because a thing with no name is easier to turn away.",
+      "theme": "To name a refugee is to make them a person the door cannot refuse.",
+      "reward": "The refugee named, and made un-turn-away-able.",
+      "objectives": [],
+      "completionFlag": "si.refugee_named",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_mercy_ledger",
+      "title": "The Ledger of Small Mercies",
+      "region": "Everywhere — the whole road",
+      "giver": "no one; it keeps itself",
+      "premise": "A journal that writes itself from your every kindness. You never see it being kept — but every soul you witness, every discarded name you bother to learn, is going down in a book that will matter more than any sword at the end.",
+      "theme": "The inverted deus ex machina: the kindness you spend is the only weapon that wins. Mercy, accumulated, is the cure.",
+      "reward": "The Niche-Book, full enough to out-write the Wall; the way back from the cold.",
+      "objectives": [],
+      "completionFlag": "act1.mercy_remembered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_second_death",
+      "title": "The Second Death",
+      "region": "Realm-side — off the Lamplit Quarter",
+      "giver": "Inquisitor Sahl, Kelemvor's order",
+      "premise": "A soul has been un-made — truly ended, not dissolved — which should be impossible. An Inquisitor wants a culprit. Investigate the one crime her order never wrote a punishment for, and deliver the verdict yourself.",
+      "theme": "The right to a true end. A soul trapped in the Wall's eternal torment-loop, a friend who loved her enough to open the door, and a law that lost the words 'against its will.' Is it murder, mercy, or the Wall's crime wearing the wrong name?",
+      "reward": "Your verdict: answer a murder by the statute, protect the friend with an honest lie, or argue the law itself overturned — and a soul out of eleven years of agony either freed or avenged.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear the impossible case from Inquisitor Sahl",
+          "completionFlag": "sx.met_sahl"
+        },
+        {
+          "objectiveId": "loop",
+          "desc": "Learn from Liss what the Wall's torment-loop does to a soul",
+          "completionFlag": "sx.knows_torment",
+          "optional": true
+        },
+        {
+          "objectiveId": "begged",
+          "desc": "Learn that Edda begged for the door, every day, for eleven years",
+          "completionFlag": "sx.knows_she_begged",
+          "optional": true,
+          "hidden": true
+        },
+        {
+          "objectiveId": "hand",
+          "desc": "Learn whose hand opened it",
+          "completionFlag": "sx.knows_corwin_did_it",
+          "optional": true,
+          "hidden": true
+        }
+      ],
+      "completionFlag": "sx.case_closed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_mortar",
+      "title": "What the Wall Kept",
+      "region": "The Wall of the Faithless — along the seawall from the Last Torch",
+      "giver": "Wessel, a mother set in the stone by her own hand",
+      "premise": "A Faithless woman claimed a heresy that was never hers, to clear her devout daughter from the Choir's rolls and buy the girl a warm afterlife. She climbed into the Wall on purpose. She wants only one thing: to know the lie worked — and the clerk who filed it kept the record.",
+      "theme": "Love as forfeiture. The cruelest mercy is the one the saved can never be told. To the Returned alone, the truth has somewhere to go.",
+      "reward": "Wessel rests, or holds the whole truth, or sends you across with a word for the daughter who never knew.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear why Wessel walled herself in",
+          "completionFlag": "mt.met_wessel"
+        },
+        {
+          "objectiveId": "record",
+          "desc": "Reach Coram and learn where Anwen landed",
+          "completionFlag": "mt.knows_anwen_warm",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Bring Wessel her news — however you choose to tell it",
+          "completionFlag": "mt.wessel_answered"
+        }
+      ],
+      "completionFlag": "mt.wessel_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.candle_in_the_dawn",
+      "title": "A Candle in the Dawn",
+      "region": "The House of the Dawn — through the thinning Wall, into Lathander's light",
+      "giver": "A promise carried from Wessel, in the Mortar",
+      "premise": "You told a mother in the Wall you would cross to the dawn and tell her devout daughter the truth: that the heresy was a coat, worn in the cold so the girl could stay warm. Now keep it. Find Anwen in the light, and decide how to hand a warm child the cold, true thing that will break her peace and mend her grief.",
+      "theme": "The Returned is the one soul who can carry love across a Wall built to stop it. Closure runs both ways, or not at all.",
+      "reward": "Anwen lights the remembrance candle and gives you her answer to carry back — and Wessel, if she is still there to receive it, goes lit, not unmourned.",
+      "objectives": [
+        {
+          "objectiveId": "cross",
+          "desc": "Reach the House of the Dawn and find Anwen",
+          "completionFlag": "dh.met_anwen"
+        },
+        {
+          "objectiveId": "tell",
+          "desc": "Tell Anwen the truth of her mother's lie",
+          "completionFlag": "dh.told_anwen"
+        },
+        {
+          "objectiveId": "carry_back",
+          "desc": "Carry Anwen's answer back to Wessel at the Wall",
+          "completionFlag": "mt.loop_closed",
+          "optional": true
+        }
+      ],
+      "completionFlag": "dh.told_anwen",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_penitent",
+      "title": "What He Earned",
+      "region": "The Penitent's Length — deeper along the Wall, past the Mortar",
+      "giver": "Vidkun Holt, a witch-finder set in his own Wall by his own hand",
+      "premise": "A witch-finder who dragged scores of the Faithless to the Wall, then walked into it himself as penance and refuses to leave — he wants your condemnation, because being condemned is the one thing that keeps his guilt feeling like justice. Ten feet away is Marenka, the last soul he condemned, who put down her hate a century ago and cannot get him to turn his head and take her forgiveness.",
+      "theme": "The hardest test of mercy: does the Wall's indictment hold even for the guilty? Suffering-as-apology is the inquisitor's own creed — pain as justice — turned inward. The wronged, not the judge, hold the key.",
+      "reward": "Condemn him (he stays, the book balanced, the Wall winning again); argue him free to un-build the thing he served; or make him finally listen to Marenka, ten feet away. disp.ruthless / merciful / cunning by your answer.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear why Vidkun walled himself",
+          "completionFlag": "pn.met_vidkun"
+        },
+        {
+          "objectiveId": "marenka",
+          "desc": "Cross the last ten feet to the woman he condemned",
+          "completionFlag": "pn.knows_marenka_forgives",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the penitent — condemn, free, or make him listen",
+          "completionFlag": "pn.vidkun_answered"
+        }
+      ],
+      "completionFlag": "pn.vidkun_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_pardoner",
+      "title": "A Kinder Lie",
+      "region": "The Pardoner's Stall — a velvet stall off the Night Market",
+      "giver": "Pardoner Voss, a charlatan who sold the dying a warmer afterlife than the real one",
+      "premise": "A fast-talking fraud sells the new dead a comforting story — a warm place, a reunion — for the price of their name. It's all invented. But the Wall proved his lies kinder than the truth, and now a terrified new soul named Renn is about to pay her name for the comfort. Decide: expose the fraud, let the kind lie stand, or — if you've stood in a real warm place — make the lie true.",
+      "theme": "Is a kind lie better than a cruel truth? The cruelest joke is that the charlatan's invented heaven was gentler than the real god's. A name is not loose change; it is the last of a soul.",
+      "reward": "Expose Voss (Renn keeps her name and her grief, both); let it ride (she walks off light and empty); or hand the fraud a true fact and watch him become the honest guide he only ever played. disp.honest / merciful / cunning by your answer.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Learn what Voss is really selling",
+          "completionFlag": "pd.saw_the_patter"
+        },
+        {
+          "objectiveId": "renn",
+          "desc": "Reach Renn before she pays her name",
+          "completionFlag": "pd.met_renn",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Decide the pardoner's con — expose, allow, or make it real",
+          "completionFlag": "pd.voss_answered"
+        }
+      ],
+      "completionFlag": "pd.voss_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_unspooling",
+      "title": "The Last Thread",
+      "region": "The Unspooling — where the Wall runs thinnest, past the Last Torch",
+      "giver": "Sefa, a story-teller dissolving thread by thread",
+      "premise": "A soul is coming apart in the Wall's slow forgetting — gentle, untroubled, nearly gone. In her brief lucid windows she has worked out one last freedom the Wall usually takes: she gets to keep a single thread as the rest unspools, and she cannot decide which. Help her choose what to be when there is only room to be one thing. Beside her sits Edrin, who has stayed to be forgotten a thousand times.",
+      "theme": "The ending is for the teller, not the tale. The hardest love is the one that gives the dying back to themselves instead of keeping them for you.",
+      "reward": "Sefa goes down holding the thread you help her choose — the love that held her, the self that made her, or a small warmth that doesn't ache. disp.merciful / honest by what you give her.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Catch Sefa in a lucid window and hear what she's choosing",
+          "completionFlag": "us.met_sefa"
+        },
+        {
+          "objectiveId": "edrin",
+          "desc": "Speak with Edrin, the one who stays",
+          "completionFlag": "us.knows_edrin_stays",
+          "optional": true
+        },
+        {
+          "objectiveId": "choose",
+          "desc": "Help Sefa choose her last thread",
+          "completionFlag": "us.sefa_answered"
+        }
+      ],
+      "completionFlag": "us.sefa_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_vow",
+      "title": "The Vow",
+      "region": "The Vow — a grey canopy off the Lamplit Quarter",
+      "giver": "Neven, a widow of death who would marry again",
+      "premise": "Two Unclaimed souls found each other in the grey and mean to wed — but the Unclaimed get no priest, no god, no rite the world would count. And the bride's first husband, Ord, is here, watching, doing the hardest arithmetic a soul can do. Move among the three of them — the widow, her new love Verah, and the husband who cannot look away — and, as the one soul the Wall gave back, decide whether to stand up as the witness the Unclaimed are denied.",
+      "theme": "To be witnessed is the opposite of the Wall. A blessing given through tears is not a lesser blessing. Love that arrives second does not have to apologize for existing.",
+      "reward": "You officiate the godless wedding — radiant, with Ord crossing the ten feet to give her away, if you helped him find the grace; brave and quiet, grief unhidden at the candlelight's edge, if he could not. disp.merciful / honest by how you tend the three.",
+      "objectives": [
+        {
+          "objectiveId": "neven",
+          "desc": "Hear Neven's fear that a second love is a betrayal",
+          "completionFlag": "wd.met_neven"
+        },
+        {
+          "objectiveId": "ord",
+          "desc": "Reach Ord, the first husband, watching",
+          "completionFlag": "wd.met_ord"
+        },
+        {
+          "objectiveId": "verah",
+          "desc": "See Verah, the one who came late and loved anyway",
+          "completionFlag": "wd.met_verah",
+          "optional": true
+        },
+        {
+          "objectiveId": "wed",
+          "desc": "Stand up as the witness and marry them — however it lands",
+          "completionFlag": "wd.neven_answered"
+        }
+      ],
+      "completionFlag": "wd.neven_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_greeter",
+      "title": "Nobody Sits Alone",
+      "region": "The Threshold Step — off the intake queue, where the new dead arrive",
+      "giver": "Sparrow, a child who greets the frightened dead",
+      "premise": "A child who died small has appointed herself to meet every scared dead kid at the step, teaching them a rulebook she invented so the worst place there is feels smaller. She's going soft at the edges now, and terrified of only one thing: that when she's gone, the next little one will come up the queue and stand there shaking with no one to catch them — exactly the way no one caught her. Help her greet the newest arrival, and answer the fear she's carried alone.",
+      "theme": "She holds every shaking hand and no one has ever held hers. The greatest kindness is not to answer a need yourself, but to make sure it keeps being answered after you.",
+      "reward": "Promise her the step won't be empty and she goes lighter, not the last; or do the thing no one ever did — sit down and greet the greeter — and she finally gets to set the Job down, held. disp.merciful / honest.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Learn what Sparrow does at the step",
+          "completionFlag": "gr.met_sparrow"
+        },
+        {
+          "objectiveId": "greet",
+          "desc": "Help Sparrow greet the newest scared arrival",
+          "completionFlag": "gr.helped_greet",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the fear Sparrow has carried alone",
+          "completionFlag": "gr.sparrow_answered"
+        }
+      ],
+      "completionFlag": "gr.sparrow_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_collector",
+      "title": "The Hoard",
+      "region": "The Hoard — a chair that shouldn't exist, off the Night Market",
+      "giver": "Vesper, the Collector — the one vivid soul in the grey",
+      "premise": "The only soul in the grey who isn't fading — because she stopped fading by wearing other people's best days. Magnetic, generous-seeming, and utterly predatory, she keeps a court of half-smudged souls who gave her their brightest pieces gladly, and she will offer you a taste of warmth (harder, the colder you've become). Read her, and you find there's nothing under the hundred stolen coats — she spent her own self first. The one thing that could break her is being made to feel a single stolen grief as hers to hold.",
+      "theme": "A private Wall, erasing people for her own brilliance. The robbed, unlike the erased, can be repaid. The coldest soul in the grey is the one at the center of the bonfire.",
+      "reward": "Crack her (a Persuasion crit/fumble): she gives the stolen selves back and fades, at last, as one cold nobody who is finally herself — and her court flickers back toward personhood. Or take a taste and become complicit. disp.honest / cunning / merciful, or ruthless if you feed on the hoard.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet the Collector and see what she's made of",
+          "completionFlag": "co.met_vesper"
+        },
+        {
+          "objectiveId": "toller",
+          "desc": "Find Toller, who gave her his daughter's face",
+          "completionFlag": "co.met_toller",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Make her feel what she's spent an age refusing to",
+          "completionFlag": "co.vesper_answered"
+        }
+      ],
+      "completionFlag": "co.vesper_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_bench",
+      "title": "Your Turn",
+      "region": "The Last Bench — at the road's edge, off the Grey Wayshrine",
+      "giver": "Oona, a soul who finished — done, at peace, ready to go",
+      "premise": "The one soul in the grey who needs nothing. She lived a plain long life, closed every account, said every sorry, and came to the dead lands with nothing unfinished — the rarest thing there is. She's ready to dissolve, gladly. And instead of asking you for anything, she looks at the cold, grief-laden Returned who came up the road and decides to spend her last peaceful hour tending you. Let her — or keep walking, the way you always do.",
+      "theme": "The cold isn't the Wall taking you; it's what happens to a soul that pours out warmth forever and never lets any back in. Not mercy given. Mercy taken. Finish well means close your accounts — and the first one you owe is to yourself.",
+      "reward": "Sit down, let the one soul who wants nothing tend you, and be witnessed whole and tired and worth sitting down — the first warmth put back into a fading Returned. rd.tended, and a warmth on the bench that doesn't fade for a long while.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet the soul who finished, and doesn't need you",
+          "completionFlag": "rd.met_oona"
+        },
+        {
+          "objectiveId": "sit",
+          "desc": "Let it be your turn — let Oona tend the one who tends everyone",
+          "completionFlag": "rd.tended"
+        }
+      ],
+      "completionFlag": "rd.tended",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_standing_fire",
+      "title": "Don't Go Gentle",
+      "region": "The Standing Fire — a milestone off the Grey Wayshrine",
+      "giver": "Rook, a firebrand raging against the quiet dead's slow surrender",
+      "premise": "A soul blazes on a milestone, shouting at the drifting dead not to fade quiet — because every soul that goes gentle into the Wall hands it a win, and anger is the one fuel the Wall can't digest. The rage is real and the cause is just. But under the fire is a single grief Rook has been screaming to avoid feeling. And a little way down the road sits Cinder, who raged exactly like this for a century and burned out into grey ash, and is the living warning of where the fire goes when it's lit to not-feel instead of to fight.",
+      "theme": "Is righteous fury hope, or grief in armor? A fire fed on grief you've let yourself feel warms you forever; a fire fed on grief refused eats the very thing you lit it for. Don't calm down — aim it.",
+      "reward": "Fan the flames (a rebellion, or a hundred souls taught a louder way to never heal); or reach the grief under the rage and aim it — the fire doesn't go out, it gets eyes. disp.heretical / merciful / honest by how you meet the fire.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Hear Rook's rage against the drifting dead",
+          "completionFlag": "fb.met_rook"
+        },
+        {
+          "objectiveId": "cinder",
+          "desc": "Meet Cinder, where the fire's road ends",
+          "completionFlag": "fb.met_cinder",
+          "optional": true
+        },
+        {
+          "objectiveId": "answer",
+          "desc": "Meet the fire — fan it, or aim it at the grief underneath",
+          "completionFlag": "fb.rook_answered"
+        }
+      ],
+      "completionFlag": "fb.rook_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_waiting",
+      "title": "Keep the Lap Warm",
+      "region": "The Waiting — a chair at the water's edge, off the Reed-Walk",
+      "giver": "Odell, an old soul waiting with great confidence for a cat",
+      "premise": "An old man sits at the grey water with his palm up, keeping a lap warm for Marmalade — the furious orange cat who chose him, out of seventeen years of options, out of spite for the whole world. He died first. He's been waiting ever since, certain she'll come, because a cat that's yours always comes — on her own insulting time. Under the pride is the one fear: that he'll fade before she arrives, and she'll come at last to a warm lap that isn't there. The animals of the grey favor the Returned. You could find her.",
+      "theme": "A dog comes for anyone with a kind voice; a cat that comes for you chose you, specifically. He's not waiting for a pet — he's waiting for the proof that he mattered, and can't bear for it to arrive and find him gone.",
+      "reward": "Go find Marmalade in the wide grey (a Perception check — but a cat isn't found, a cat arrives, so even a fumble is warm) and reunite them: a warm orange weight in the lap that kept itself warm for her, and an old man weeping into the fur of the one thing that chose him. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Meet Odell, and the lap he's kept warm",
+          "completionFlag": "wc.met_odell"
+        },
+        {
+          "objectiveId": "reunite",
+          "desc": "Bring Marmalade home to the waiting lap",
+          "completionFlag": "wc.brought_cat"
+        }
+      ],
+      "completionFlag": "wc.odell_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_singing",
+      "title": "Louder Than the Wall",
+      "region": "The Singing — at the Wall's very edge, past the Unspooling",
+      "giver": "Rue, a soul hearing the Wall sing their name",
+      "premise": "A soul stands too close to the Wall, swaying to a song only they can hear — the Wall singing their name, soft, like a lullaby, like something that loves them. And the trap of it is that it doesn't promise oblivion; it promises REST — permission to set down every grief and never carry anything again. It's seductive precisely to the exhausted, and to a Returned going cold. Find the anchor before the song takes them — and know that this is one of the few roads where a half-beat too slow means you lose the soul for real.",
+      "theme": "The song blurs 'I can't carry this pain' into 'I don't want to be here' — opposites. You can set the weight down without setting down your self. The counter-song is just someone's name, said loud, by someone who stayed.",
+      "reward": "Anchor Rue to the living person they still matter to (Persuasion crit/fumble — fumble and they walk into the Wall, gone); or walk into the song yourself and drag them back, at the cost of hearing it too. disp.merciful, or disp.haunted for the price of the crossing.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Reach Rue at the Wall's edge, before the song does",
+          "completionFlag": "sg.met_rue"
+        },
+        {
+          "objectiveId": "anchor",
+          "desc": "Find the anchor and pull Rue back from the singing",
+          "completionFlag": "sg.rue_saved"
+        }
+      ],
+      "completionFlag": "sg.rue_saved",
+      "failureFlag": "sg.lost_rue"
+    },
+    {
+      "questId": "sq.the_remembering",
+      "title": "Say It Back",
+      "region": "The Remembering — a fire that gives real warmth, off the Lamplit Quarter",
+      "giver": "Wynn, keeper of the Remembering",
+      "premise": "A circle of the dead who have found the one weapon the Wall has no answer for: witnessing. Each learns another's name and one good story and says it back, and a soul held in mind fades slower — proof, not hope. It is the game's whole thesis made into a practice, and it reacts to the souls you saved along the road (the firebrand who learned to aim his fire is here; the soul you shouted back from the singing stands guard at its edge). Learn a nobody's good story and be his tenth — or give the circle your own cold name — or carry the whole Remembering out past the fire's reach, where only the Returned can go.",
+      "theme": "Not rage, not surrender — the third thing. The Wall wins by isolation; every soul fading alone. Carry the good story, not the sad one: it's how you remember a soul instead of just its suffering.",
+      "reward": "Become the tenth mind holding Ansel's good story; or let the circle hold YOUR name and feel the climbing cold, for the first time, stop; or become the Remembering's road, carrying names to the Wall's edge, the far grey, and the living world. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Find the Remembering and hear how the fire fights the Wall",
+          "completionFlag": "rm.met_wynn"
+        },
+        {
+          "objectiveId": "witness",
+          "desc": "Learn a soul's good story and hold it — or give your own",
+          "completionFlag": "rm.learned_story"
+        }
+      ],
+      "completionFlag": "rm.wynn_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_feast_for_dot",
+      "title": "The Feast for Dot",
+      "region": "The Gathered — an old bakehouse behind the Lantern-Feast",
+      "giver": "Marisa, co-conspirator (requires Dot recruited)",
+      "premise": "Dot Marigold has thrown ten thousand feasts and never once walked into one. Her wound, in her own midnight words: 'just once, before the grey gets me, I'd have liked to walk into a warm room and find it already lit.' Conspire with Marisa to throw the one feast Dot never had — and the guest list is the road you walked: the sister you thawed, the sexton you affirmed, the girl who kept her name, gathered by the one soul who traveled every mile her warmth ever reached.",
+      "theme": "Her need is to be allowed, once, to be the one who is gathered instead of the one who gathers. The gatherer, gathered. She is not the oven; she is also the bread.",
+      "reward": "Dot walks into the first room in two lifetimes that was warm before she got there — and if Oona tended you, the pact: mercy taken, on both sides, enforced by flue-jamming. disp.merciful.",
+      "objectives": [
+        {
+          "objectiveId": "conspire",
+          "desc": "Hear Marisa's plan in the old bakehouse",
+          "completionFlag": "df.met_marisa"
+        },
+        {
+          "objectiveId": "gather",
+          "desc": "Light the room and gather the guests your road earned",
+          "completionFlag": "df.feast_ready"
+        },
+        {
+          "objectiveId": "feast",
+          "desc": "Watch the gatherer walk into a room that is already warm",
+          "completionFlag": "df.feast_lit"
+        }
+      ],
+      "completionFlag": "df.feast_lit",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_naming",
+      "title": "The Ten Thousand Names",
+      "region": "A clearing of candles off the camp road at the Hearth",
+      "giver": "Dot Marigold, keeping a promise (requires The Feast for Dot)",
+      "premise": "At Dot's own feast you watched the elf stand in the doorway and fail to come in, and heard the promise she made him: 'when it's your turn — and it IS a when, elf, I've decided — I do the candles, and nobody runs.' She has decided. Ilfaeril has agreed, on one condition: witnessed, not celebrated. He carries a cloth-wrapped ledger — nine thousand four hundred and twelve recovered names of the people his one raised hand voted into the Wall ten thousand years ago — and he has never once said one aloud, because a name spoken is a name shared, and sharing the weight felt like asking to set down a debt he had no right to stop paying. Be the witness. Hold who he is while his hands are full.",
+      "theme": "Hoarded, the names are his punishment; spoken, they become theirs — a resting place, the very thing his vote once denied them. Atonement was never the carrying. It was the giving-back. The last soul at the fire learns to set something down.",
+      "reward": "Ilfaeril reads his dead into the light, and for the first time in ten thousand years has an 'until' — a done. He sits down beside Dot and rests. If steadied, the ledger goes to Wynn's Remembering so the whole grey holds the names. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "witness",
+          "desc": "Cross to the clearing and hear Dot the candle-keeper",
+          "completionFlag": "tn.met_dot"
+        },
+        {
+          "objectiveId": "unwrap",
+          "desc": "Stand as witness while Ilfaeril unwraps the ledger",
+          "completionFlag": "tn.met_ilfaeril"
+        },
+        {
+          "objectiveId": "name",
+          "desc": "Give him the first name back — and the rest follow",
+          "completionFlag": "tn.ilfaeril_answered"
+        }
+      ],
+      "completionFlag": "tn.ilfaeril_answered",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.past_the_ledger",
+      "title": "Past the Ledger's Reach",
+      "region": "A thin seam in the grey off the camp road at the Hearth",
+      "giver": "discovered — a scratch that keeps arguing (one of the thirty thousand)",
+      "premise": "Ilfaeril's ledger recovered nine thousand four hundred and twelve names; thirty thousand more went past any finding, past even his ten-thousand-year arm. But you are the one soul the Wall gave back, the door that opens both ways, and you can stand where he could not. Out past the ledger's reach, two of the thirty thousand still flicker: a tithe-assessor held together for an age by nothing but the refusal to concede its own erasure was done correctly, and a soul so far gone there is nothing left of it but the sound of rain on a roof. Reach the one you can. Witness the one you can't.",
+      "theme": "A person, not a symbol; a number, not a statistic. The clerk's fury is a form of love the Law forgot to erase, and its name is filed next to its one hidden mercy. The fading one teaches the limit the whole Naming is built around: witness has an edge, not everything erased can be un-erased, and the last thing you can do for the very last of the lost is make sure they go in front of a friend.",
+      "reward": "If you coax the name up gently (through the shame, not the grievance): Debene, the assessor who cooked a widow's column and called it the only honest sum she ever kept — a name you carry to whatever fire holds names. If you witness the fading one: a soul the cosmos tried to erase completely does not, in the end, go completely unseen. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "reach",
+          "desc": "Cross the seam and hear the scratch that keeps arguing",
+          "completionFlag": "un.met_clerk"
+        },
+        {
+          "objectiveId": "name",
+          "desc": "Coax the name up through the shame, not the grievance",
+          "completionFlag": "un.carried_name"
+        },
+        {
+          "objectiveId": "witness",
+          "desc": "Sit with the one who cannot be named, and do not look away",
+          "completionFlag": "un.witnessed_fading"
+        }
+      ],
+      "completionFlag": "un.carried_name",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_padded_roll",
+      "title": "The Toll of Small Coins",
+      "region": "A collection-post down the causeway from the Market",
+      "giver": "a man with too many names (unclaimed, unwalled, not on anyone's books)",
+      "premise": "You walk into the middle of a con already in progress. A causeway Collector, the Sifter, is padding her quota by walling the easy dead, the quiet godless nobody shouts for, and third from the bottom of her roll is Orla, a midwife who caught half a town's children across forty years and never asked whose god watched. A man in a very good coat is running a con to strike her name, and he wants the one soul the Wall gave back to play the auditor. He has no name your sense can find, only a burned void where one should be, and a compass that points at whoever most needs saving, which he insists is broken. Free the midwife. Meet the freest, most haunted soul in the grey.",
+      "theme": "The banal machinery of the Wall: not monsters, but tired functionaries filing quiet names into categories so no one ever feels they personally damned anyone. And the wildcard who fights it with a trick instead of a sword, because he was once the smiling instrument of exactly this, and every soul he springs is the one he couldn't. He made himself un-nameable to make himself un-ownable, and paid for it in the one coin he can't con: a soul with no name can never be held.",
+      "reward": "Orla struck from the roll and freed (six names, on a crit). A clipped coin token, pressed into your hand, that summons a door where none exists, and a favor owed by a soul who owes no one. Seeds a recurring wildcard ally. disp.merciful, disp.cunning.",
+      "objectives": [
+        {
+          "objectiveId": "meet",
+          "desc": "Walk into the con at the toll-post",
+          "completionFlag": "clip.met"
+        },
+        {
+          "objectiveId": "free",
+          "desc": "Strike the midwife's name off the padded roll",
+          "completionFlag": "clip.soul_freed"
+        },
+        {
+          "objectiveId": "token",
+          "desc": "Take the clipped coin, and the favor owed",
+          "completionFlag": "clip.left_token"
+        }
+      ],
+      "completionFlag": "clip.soul_freed",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_last_con",
+      "title": "The Name He Burned",
+      "region": "A threshold the clipped coin opens, off the camp road at the Hearth",
+      "giver": "the clipped coin, gone cold (requires The Toll of Small Coins)",
+      "premise": "The coin he pressed into your hand goes cold in the night, then cold enough to burn, and when you press it it does not open a door for you, it drags you to him. The freest soul in the grey is on his knees at a threshold with a hook in him: the death-power that owned him, that made a loved boy into a smiling knife and sent him to collect his own faithless sister, has sifted an age for the ash of his burned name and found enough to reel him home. There is one counter, and it is the whole game's thesis made personal: a name given freely and held in love outbids a name taken in ownership. He has to let himself be named, and called, and kept, by the one soul who came when a coin went cold.",
+      "theme": "Being held beats being owned. He made himself un-nameable to make himself un-ownable, and the price was never being able to be kept; the loophole he built to save his skin (a way to be reached that isn't a way to be caught) turns out, without his meaning it, to be a way to be loved from a distance. The best path never takes his true name at all: the nickname the crew gave him in love, 'Clip,' is claim enough, because the counter was never about which name, it was about being loved enough to be called anything at all.",
+      "reward": "Clip anchored, un-owned, kept: the recurring wildcard becomes a true ally (clip.recruited). On the deepest path he keeps his sister's word and gives it to you freely afterward anyway: Tam. On a fumble he slips the hand alone, one last time, and stays a free wildcard you can call again. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "answer",
+          "desc": "Press the cold coin and answer the door",
+          "completionFlag": "clip.climax_met"
+        },
+        {
+          "objectiveId": "anchor",
+          "desc": "Call him home — out-bid the hand that owned him",
+          "completionFlag": "clip.anchored"
+        },
+        {
+          "objectiveId": "keep",
+          "desc": "Hold the line: name given in love beats name taken in ownership",
+          "completionFlag": "clip.recruited"
+        }
+      ],
+      "completionFlag": "clip.recruited",
+      "failureFlag": "clip.let_go"
+    },
+    {
+      "questId": "sq.the_counting_of_one",
+      "title": "The Counting of One",
+      "region": "The Bench of Small Property — a small court off the camp road at the Hearth",
+      "giver": "a writ, served in triplicate on a campfire (requires The Name He Burned)",
+      "premise": "The hook failed, so the Owner does the one thing a power of inventory does when force is refused: it files. A claim lands at the small court that handles lost buttons, strayed geese, and — the docket says it without blinking — mislaid souls: recovery of property, one (1) soul, unregistered, answering to no lawful name. Maître Crede, Advocate of the Nine, appears for the claimant, holding a vial of ash — the burned name, offered as title. Clip is forbidden standing in his own case, because property does not get a seat at the table. If nobody answers the writ, the default judgment makes the hook LAWFUL. The Returned must stand up in a court eleven thousand years old and argue the game's thesis as law: what the crew holds by daily loving use against what the Owner holds by ash.",
+      "theme": "Love, entered into the record. The climax proved a name given in love outbids a name taken in ownership; this proves it holds up in COURT — that witness is title, that use in love is possession, and that the Owner's one unbalanced ledger line (HE RAN) is not an error but a verdict: property cannot flee, so either its books are false or he was never property. The fairest judge in the grey is also the most dangerous, because it is bound by its own precedent — and that binding is the keel you steer by. And underneath the law, the quiet human floor: Clip letting someone else hold the wheel of the room, in the room where it costs him most.",
+      "reward": "The claim struck and entered in the great ledger: ONE (1) SOUL, SELF-POSSESSED — clip.owner_settled, the Owner's reach withdrawn to a balanced column at zero (depreciation: inventory's grief). Crit: costs awarded, one clipped coin, already legal tender between friends. On the kept-name path the ash itself is voided — title to nothing at all. disp.honest; disp.merciful on the witness-chorus path. Failure (walk out, or let him sell himself — the Bench refuses coerced surrender but enters a lien): clip.owner_lien, the hook lawful and patient, a future hearing nobody has asked for yet.",
+      "objectives": [
+        {
+          "objectiveId": "answer",
+          "desc": "Answer the writ at the Bench of Small Property",
+          "completionFlag": "clip.writ_answered"
+        },
+        {
+          "objectiveId": "argue",
+          "desc": "Answer for him — produce a better instrument than ash",
+          "completionFlag": "clip.claim_argued"
+        },
+        {
+          "objectiveId": "settle",
+          "desc": "Have it entered in the record: one soul, self-possessed",
+          "completionFlag": "clip.owner_settled"
+        }
+      ],
+      "completionFlag": "clip.owner_settled",
+      "failureFlag": "clip.owner_lien"
+    },
+    {
+      "questId": "sq.the_matter_continued",
+      "title": "The Matter, Continued",
+      "region": "The Bench of Small Property — the same small court, the same patient docket",
+      "giver": "a lien that did not go away (requires a failed Counting of One)",
+      "premise": "You walked out of the small court — or watched him try to sell himself and offered no counter — and the Bench, being exactly as fair as it is, entered a lien: the claim continues, sine die, and the hook is lawful now, waiting on a hearing nobody has asked for. The coin has started going cold by degrees. The court does not advise parties; it never has. But it observes, for no procedural reason whatsoever, that its clerk accepts motions. The price of reopening a silence is answering it — with interest: SURETY. A soul with standing must enter itself on the record, name and nature and liability, as his keeper. And everyone in the courtroom knows what books mean to you.",
+      "theme": "The cure for an unanswered claim is not a better argument — it is standing. The Returned has walked five ages as the gap in every ledger, and the gap was armor: unfiled is unfindable, unfindable is untouchable. This quest asks the player to pay the exact coin Clip paid at the threshold — to be reachable is to be holdable, and to be holdable is the whole gamble of love. He let himself be named. You let yourself be WRITTEN. The original failure stays on the journal, because it happened; the grey does not erase, it amends.",
+      "reward": "The lien struck, the silence answered with interest: clip.lien_cured, clip.surety_filed — the soul the Wall couldn't file, self-registered in the smallest court in the grey as KEEPER. The magistrate stands for you, once, for the length of one held breath. Clip's newest grin has no fray in it anywhere. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "motion",
+          "desc": "Ask the clerk what reopening a continued matter takes",
+          "completionFlag": "clip.motion_filed"
+        },
+        {
+          "objectiveId": "surety",
+          "desc": "Enter yourself on the record — one line: keeper",
+          "completionFlag": "clip.surety_filed"
+        },
+        {
+          "objectiveId": "struck",
+          "desc": "Hear the lien struck and the silence answered",
+          "completionFlag": "clip.lien_cured"
+        }
+      ],
+      "completionFlag": "clip.lien_cured",
+      "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_blank_quarter",
+      "title": "The Blank Quarter",
+      "region": "Past the Mapmaker's Wagon, where the map runs out",
+      "giver": "Sennet, at the last true bearing (requires his recruitment at the wagon)",
+      "premise": "Thirty years of edges, and at the center of the Cartographer of the Dead's master atlas there is still a hole: the deep country no surveyor returns from. Sennet cannot cross — one step past the last milestone and the country starts unwriting a living map. But nothing in there knows how to erase the Returned; you've been erased by professionals. So the strangest survey in the history of the grey is commissioned: walk, look, come back, SAY TRUE — and a dying man will ink his life's work blind, from testimony, trusting your word the way sailors trust stars.",
+      "theme": "Witness as instrument. Three fixes want three different honesties: the Meridian settles only for a soul that admits it is lost; the unwitnessed mile wants to be complete in someone's keeping, even once, even only in the memory of feet; and the center of the map is not unknown country but UNWRITTEN country — the grey's own draft-space, where every unfinished ending is held soft and possible, kept blank not by failure but by mercy. The only true map of an undecided place is a legend: HERE, EVERYTHING IS STILL POSSIBLE. And closing a life's work well doesn't end the life — it frees the years left from being a countdown.",
+      "reward": "The master atlas of the dead, complete — bq.atlas_finished — with the finest line the Cartographer ever inked: a legend across the whole quarter. His hands steady for the first time; Tibb's arithmetic retired; a full cartographic survey of Dot's bread imminent (the crumb structure alone). disp.honest; disp.merciful with the deeper read.",
+      "objectives": [
+        {
+          "objectiveId": "cross",
+          "desc": "Stand with Sennet at the last true bearing",
+          "completionFlag": "bq.crossed"
+        },
+        {
+          "objectiveId": "meridian",
+          "desc": "Fix the Meridian — admit the one true bearing",
+          "completionFlag": "bq.fixed_meridian",
+          "optional": true
+        },
+        {
+          "objectiveId": "mile",
+          "desc": "Walk the unwitnessed mile, end to end, without looking back",
+          "completionFlag": "bq.walked_mile",
+          "optional": true
+        },
+        {
+          "objectiveId": "center",
+          "desc": "Listen to the center of the map",
+          "completionFlag": "bq.heard_blank"
+        },
+        {
+          "objectiveId": "saytrue",
+          "desc": "Come back and say true — the dictation",
+          "completionFlag": "bq.atlas_finished"
+        }
+      ],
+      "completionFlag": "bq.atlas_finished",
+      "failureFlag": ""
+    }
+  ]
+}

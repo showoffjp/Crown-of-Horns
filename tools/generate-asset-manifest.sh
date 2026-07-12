@@ -36,6 +36,12 @@ categorize() {
     */Models/*)             echo "model" ;;
     */Animations/*)         echo "animation" ;;
     */_Source/*)            echo "source" ;;
+    */Resources/Portraits/*) echo "portrait" ;;
+    */Resources/Sprites/*)  echo "battle-token" ;;
+    */Resources/SFX/*)      echo "sfx" ;;
+    */Resources/Music/*)    echo "music" ;;
+    */Resources/FX/*)       echo "fx" ;;
+    */Resources/Art/*)      echo "area-art" ;;
     *)                      echo "uncategorized" ;;
   esac
 }
@@ -43,9 +49,14 @@ categorize() {
 # Human-readable size.
 hsize() { numfmt --to=iec --suffix=B "$1" 2>/dev/null || echo "${1}B"; }
 
-# Is this path tracked by Git LFS?
-lfs_files="$(git -C "$ROOT" lfs ls-files -n 2>/dev/null || true)"
-is_lfs() { grep -qxF "$1" <<<"$lfs_files" && echo "yes" || echo "no"; }
+# Is this path tracked by Git LFS? Derived from .gitattributes via check-attr,
+# NOT the git-lfs CLI — so the answer is identical on machines without git-lfs
+# installed (this repo is generated from LFS-less environments) and on CI.
+declare -A LFS_MAP
+while IFS= read -r -d '' p && IFS= read -r -d '' _a && IFS= read -r -d '' v; do
+  [ "$v" = "lfs" ] && LFS_MAP["$p"]=yes
+done < <(git -C "$ROOT" ls-files -z -- Assets | git -C "$ROOT" check-attr --stdin -z filter)
+is_lfs() { [ "${LFS_MAP[$1]:-no}" = "yes" ] && echo "yes" || echo "no"; }
 
 echo "path,category,type,size,size_bytes,lfs" > "$OUT"
 

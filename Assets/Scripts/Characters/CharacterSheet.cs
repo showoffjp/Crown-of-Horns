@@ -88,6 +88,20 @@ namespace SunderedCrown.Characters
         /// reaction per round; 0 means none used yet. Compared against TurnManager.RoundNumber.</summary>
         [NonSerialized] public int lastReactionRound = 0;
 
+        // ---- Downed & death saves (5e/BG3) -------------------------------
+        /// <summary>At 0 HP, unconscious and dying — NOT dead. Rolls a death save each turn; an ally can
+        /// Help them up at 1 HP. Distinct from the older "knocked-out, stabilized after victory" path.</summary>
+        [NonSerialized] public bool IsDowned = false;
+        /// <summary>Permanently dead — failed three death saves (or a slain foe). Never gets a turn again.</summary>
+        [NonSerialized] public bool IsDead = false;
+        /// <summary>Three death-save successes: unconscious but no longer dying (stops rolling).</summary>
+        [NonSerialized] public bool IsStable = false;
+        [NonSerialized] public int deathSaveSuccesses = 0;
+        [NonSerialized] public int deathSaveFailures = 0;
+
+        /// <summary>True while this unit is down but still owes a death save (dying, not yet stable or dead).</summary>
+        public bool IsDying => IsDowned && !IsStable && !IsDead;
+
         public bool IsAlive => currentHitPoints > 0;
 
         // ---- Derived stats (5e math) -------------------------------------

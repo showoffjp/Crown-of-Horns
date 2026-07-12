@@ -1,0 +1,424 @@
+{
+  "scene": {
+    "id": "remember",
+    "name": "The Remembering",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
+    "props": [
+      {
+        "type": "campfire",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "log",
+        "x": 3,
+        "y": 4
+      },
+      {
+        "type": "log",
+        "x": 7,
+        "y": 4
+      },
+      {
+        "type": "log",
+        "x": 5,
+        "y": 6
+      },
+      {
+        "type": "banner",
+        "x": 2,
+        "y": 2,
+        "hue": 140
+      },
+      {
+        "type": "banner",
+        "x": 8,
+        "y": 2,
+        "hue": 150
+      },
+      {
+        "type": "lamppost",
+        "x": 9,
+        "y": 5
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "lamplit",
+        "dest": {
+          "x": 5,
+          "y": 2
+        },
+        "label": "◂ back up to the Lamplit Quarter"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "wynn",
+        "name": "Wynn",
+        "title": "keeper of the Remembering — where the dead hold each other's names",
+        "x": 3,
+        "y": 4,
+        "hue": 140,
+        "sigil": "❂",
+        "conv": "rm.wynn",
+        "hail": "*(A circle of souls sits around a fire that gives real warmth — you feel it from the doorway, the first honest heat since the grey took you — and they are not grieving, not fading, not afraid; they are *talking*, each to the next, telling and being told, and something about the way they lean in has slowed the fading in every one of them, you can see it, edges that should be soft holding firm. A steady woman rises from a log to meet you, and where most souls in the dead lands are dimming, she is simply, quietly *lit.*)* …*(warm, unhurried)* …*welcome* to the *Remembering*, cold one. …*(she reads the cold on you, the fade at your edges, and does not flinch)* …*sit*, if you like. there's *room* at the *fire* — there's *always* *room* — and the *only* *price* of the *warmth* …*(a gentle smile)* …is that you *learn* *someone's* *name.* and *let* *someone* *learn* *yours.* …*(she gestures at the circle)* …*that's* the *whole* of it. that's the *rebellion.* …the *Wall* *eats* the *forgotten*, cold one. …so we've *decided* …to *stop* *forgetting* *each* *other.*"
+      },
+      {
+        "id": "ansel",
+        "name": "Ansel",
+        "title": "a soul being remembered, and glad of it for the first time in death",
+        "x": 7,
+        "y": 4,
+        "hue": 200,
+        "sigil": "✦",
+        "conv": "rm.ansel",
+        "hail": "*(A plain soul sits on the far log, and where you have grown used to the dead being sad, or frightened, or fading, this one is — you check twice — *happy.* Ordinary-happy, the way a person is happy on a good evening among friends, and it is so rare in the grey that it stops you.)* …*(he beams at you)* …you're *new!* *sit*, sit — *(he shuffles over to make room he doesn't need to make)* …*(then, a little shy, a little proud)* …*(they know my* name*, you see. the whole* circle. *they know my* name *and my one good story, and they* say *it back to me, and — )* …*(he touches his own chest, wondering)* …i haven't *faded* a *hair* in — i don't *know* how *long.* …because a soul that's *held* *in* *mind* …*(he says it like a marvel, which it is)* …*doesn't* *slip.* …*(he grins)* …*ask* Wynn how it *works.* or — *(hopeful)* …*ask* *me* my *story.* …*nobody* *new* ever *asks* to *learn* it. …they're all too busy *fading.*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "rm.wynn",
+      "title": "Wynn — keeper of the Remembering",
+      "npc": "wynn",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Wynn",
+          "onEnter": [
+            {
+              "key": "rm.met_wynn",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "fb.rook_transformed"
+                ]
+              },
+              "text": "*(She follows your glance to a figure at the fire's edge you did not expect to see here — the firebrand, Rook, no longer shouting, sitting quiet and intent, learning an old woman's story word by careful word — and Wynn's steady face warms.)* …*ah.* you *know* *Rook.* …*(she nods)* …they came to us *blazing*, cold one — *furious*, *certain* the only *answer* to the *Wall* was to make the *drifting* *angry* enough to *stay.* …*(fond)* …and *someone* — a *Returned*, they said, one who *crosses* — taught them the *fire* could *aim.* …so they *aimed* it *here.* …*(she watches Rook listen)* …turns out the *loudest* soul in the *grey* …makes the most *patient* *rememberer*, once someone *shows* them that *memory* is the *fire* the *Wall* can't *eat.* …*(she turns to you)* …*you're* the one who *turned* them, aren't you. …*(a smile)* …then you *already* *know* what we *do* here. *sit.* …*your* *counter*-*song* *built* half of *this.*"
+            },
+            {
+              "when": {
+                "flags": [
+                  "sg.rue_freed"
+                ]
+              },
+              "text": "*(She marks the cold on you and something clicks into place.)* …*oh.* …*you're* the *one.* …*(off your look)* …there's a soul who *stands* *guard* at our *edge* — *Rue* — came to us *shaking*, said they'd been at the *Wall's* very *lip*, *hearing* it *sing*, a *half*-*step* from *walking* *in* …and a *Returned* *shouted* a *name* at them *louder* than the *song.* …*(she nods toward the circle's edge, where a soul keeps watch)* …now *Rue* *walks* the *Wall's* *edge* every *day*, *finding* the ones who *sway* and *listen, and* *shouts* them *back.* brings them *here.* teaches them the *counter*-*song.* …*(warm, certain)* …*'it's* just *someone's* *name, said* *loud, by* *someone* who *stayed,'* Rue *says* you *taught* them. …*(she gestures you in)* …*sit*, cold one. …you keep *saving* souls *one* at a *time.* …*come* *see* what they *build* …when you're *not* *looking.*"
+            },
+            {
+              "text": "*(She watches you take in the circle — the warmth, the leaning-in, the edges holding firm where they should be softening — with the patience of someone used to the dead lands' cynicism.)* …you don't *believe* it, do you. …*(not unkind)* …that it *works.* …you've *walked* this *grey* a *long* while, cold one, *watching* souls *fade* no matter *what* you *do*, and now here's a *fire* that *stops* it, and it's *too* *simple* to *trust.* …*(she nods at the circle)* …*good.* *doubt* it. then *watch.* …*Ansel* there hasn't *faded* a *hair* in an *age.* not because he's *strong*, or *finished*, or *at* *peace.* …because *nine* *souls* *know* his *name* and his *one* *good* *story* and *say* it *back* to him. …*(simply)* …*that's* it. that's the *whole* *secret* the *Wall* is *built* to *keep:* …a soul *held* in *mind* …*cannot* *be* *forgotten.* …and a soul that *can't* be *forgotten* …*the* *Wall* *cannot* *eat.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Wynn",
+          "text": "*(She sits, and tends the fire, and tells it plainly, the way you explain a thing you have staked your afterlife on.)* …i *watched* someone *fade*, once. …*(quietly)* …someone i *loved.* *unwitnessed.* the *Wall* *took* them *slow*, and at the *end* there was *no* one *left* who *knew* their *name* but *me*, and then i *forgot* the *sound* of their *laugh*, and then their *face*, and i *understood* — the *Wall* doesn't *need* *chains*, cold one. it just needs us to *stop* *holding* *each* *other.* it *wins* by *isolation.* every soul *fading* *alone.* …*(she looks around the fire)* …so i started *asking* people their *names.* and their *one* *good* *story* — not the *tragic* one, the *good* one, the *warm* one they'd *want* *carried.* and i *learned* them. and i *said* them *back.* …*(the fire crackles)* …and the *fading* *slowed.* …and *more* came. and now — *(she spreads her hands at the circle)* …now when *one* of us goes *thin*, the *other* *nine* *hold* them in *mind* so *hard* the *Wall* can't *get* a *grip.* …*(she meets your eyes, and there is something fierce under the calm)* …it's not *rage*, cold one, and it's not *surrender.* …it's the *third* *thing.* …*witnessing.* …*the* one *weapon* …the *Wall* *has* *no* *answer* *for.*",
+          "choices": [
+            {
+              "text": "*(read the keeper of the Remembering — is the hope real, or a kind story the dying tell themselves?)* \"Let me look at you a moment, Wynn. At whether you believe this — or just need to.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "rm_w_read",
+              "effects": [
+                {
+                  "key": "rm.read_wynn",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses — and could carry the practice past the fire's edge)* \"Here's what I am, Wynn, and why it matters to what you've built: I'm the soul the Wall gave back. I walk in and out of the dark, and I can carry things — names, stories — to places this fire will never reach. To the living. To the dawn. To souls at the Wall's very lip. Your circle holds each other. I could carry your holding *across.*\"",
+              "tag": "returned",
+              "next": "rm_w_returned",
+              "effects": [
+                {
+                  "key": "rm.carries_names",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Doesn't it just delay it, though? Everyone here fades eventually. Every rememberer needs remembering. When the last of you goes, the whole web goes with it. Isn't this just a longer, kinder way to lose?\"",
+              "next": "rm_w_futile",
+              "effects": [
+                {
+                  "key": "rm.asked_futile",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(let it be your turn — give the circle YOUR name, and your story, cold as you are)* \"...Would it work on me, Wynn? I'm colder than anyone at your fire. I've carried a hundred griefs and set down none. If I gave the circle my name — my story — would it hold even a soul like me?\"",
+              "next": "rm_w_giveself",
+              "effects": [
+                {
+                  "key": "rm.gave_own",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Show me how it's done, Wynn. Ansel there wants his story learned. Let me be the tenth to hold it.\"",
+              "next": "rm_w_learn",
+              "effects": [
+                {
+                  "key": "rm.nurtured",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Keep the fire, Wynn. I'll walk the circle a while.\"",
+              "next": "rm_w_leave"
+            }
+          ]
+        },
+        {
+          "id": "rm_w_read",
+          "speaker": "Wynn",
+          "onEnter": [
+            {
+              "key": "rm.read_wynn",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.wynn_answered",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She lets you look, unafraid, and your sense — braced by long habit for the wishful thinking of the desperate — goes into her and finds something it has almost forgotten how to read.)* *(And you find that the hope is not a comfort she tells herself. It is a conclusion she reached, the hard way, by testing it. Your sense reads the loss at the root of her, the loved one who faded unwitnessed, and reads that she did not respond to it the way grief usually goes — she did not rage, or surrender, or build a shrine to the dead. She got *practical.* She asked the plainest possible question — what, exactly, does the Wall need in order to take a soul? — and she watched, and experimented, and arrived at the answer the whole grey is too frightened or too tired to test: that the Wall needs the soul to be *unheld.* That fading is not a force but an absence — the absence of any mind keeping the soul in it — and that the absence can be *filled*, deliberately, by ordinary people choosing to hold each other on purpose. And your sense reads that she has proof, and knows she has proof, and that the calm in her is not the calm of faith but the far rarer calm of someone who ran the experiment and got a result. And under it your sense finds the thing that makes her more than a comfort-peddler: she knows the practice is not immortality. She knows every soul at her fire will fade in the end, herself included, and that a web of memory is only as lasting as its weakest thread. And she does it anyway — not because it wins forever, but because it turns the time each soul *has* from a lonely dwindling into a held one, and because a soul that fades *witnessed*, in the warmth of nine who know its name, has done the one thing the Wall was built to prevent: it has mattered, out loud, to someone, right to the end. She is not selling eternity. She is selling the difference between fading alone and fading held — and she has decided that difference is the whole war.)*"
+        },
+        {
+          "id": "rm_w_returned",
+          "speaker": "Wynn",
+          "onEnter": [
+            {
+              "key": "rm.carries_names",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.wynn_answered",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She goes very still, and then something kindles in her steady face that is bigger than hope — strategy.)* …*carry* it *across.* …*(she breathes)* …cold one, do you — do you *understand* what you're — …*(she stands)* …the *fire's* *reach* is the *fire's* *limit.* i can only *hold* the souls who can *reach* the *circle.* the ones at the *Wall's* *lip*, the ones *dissolving* in the *far* *grey*, the ones who *died* *believing* *no* one would *ever* — they're *past* my *warmth.* …*(fierce now)* …but *you* *cross.* you go where the *fire* *can't.* …*(she grips your arm)* …then *learn* our *names*, cold one — *all* of them, the *whole* *circle* — and *carry* them *OUT.* say them at the *Wall's* *edge* where the *song* *sings.* say them in the *far* *grey* where souls *dissolve* *alone.* say them, if you can, to the *LIVING*, so a *name* the *Wall* *meant* to *erase* gets *spoken* in the *warm* *world* one more — …*(she is alight)* …you could make the *Remembering* …as *wide* as the *dead* *lands.* …a soul *held* in a *mind* can't be *forgotten* — and *you*, cold one, can *put* our *souls* in *minds* the *fire* will *never* *touch.* …*(she looks at you, and it is the first time anyone in the grey has looked at the Returned as a *weapon of hope* instead of a *service*)* …*will* you *carry* us? …*will* you be the *Remembering's* *road?*",
+          "auto": "END"
+        },
+        {
+          "id": "rm_w_futile",
+          "speaker": "Wynn",
+          "text": "*(She nods slowly — she has clearly asked herself this, many times, and made her peace with the answer.)* …*'a* longer, *kinder* way to *lose.'* …*(she doesn't argue it away)* …*yes.* in the *end.* you're *right.* …*(she tends the fire)* …*everyone* here *fades*, cold one. *me* too. the *web* is only as *strong* as its *weakest* *thread*, and *one* *day* the *last* *rememberer* *goes*, and the *whole* thing *goes* *quiet.* …i *know.* i've *always* *known.* …*(she looks up, and the calm has iron in it)* …but *hear* what you're *really* *asking.* you're asking: *if* it doesn't *win* *forever*, *why* *bother.* …and *that*, cold one — *(gently)* …*that* is the *Wall's* *own* *voice.* *'it* *ends* *anyway*, so *fade* *quiet, don't* *fight, don't* *bother* *holding* *anyone.'* …*(fierce)* …*no.* …the *point* was *never* to *live* *forever.* *nothing* does. the *point* is *how* you *spend* the *time* you've *GOT.* …*Ansel* will *fade*, *someday.* …but he'll fade *KNOWN*, in the *warmth* of *nine* who *say* his *name* — instead of *alone*, in the *cold*, *un*-*held.* …*(she meets your eyes)* …*that* *difference*, cold one …between *fading* *held* and *fading* *alone* …*that's* *not* *nothing.* …that's the *WHOLE* *THING.*",
+          "auto": "END"
+        },
+        {
+          "id": "rm_w_giveself",
+          "speaker": "Wynn",
+          "onEnter": [
+            {
+              "key": "rm.gave_own",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.wynn_answered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.returned_witnessed",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She looks at you for a long, warm moment — the coldest soul she has ever seen ask, in the smallest voice, to be held — and she does not hesitate.)* …*it* works on *everyone*, cold one. …*especially* the *cold* ones. …*(she takes your hand and draws you toward the fire, and the circle turns toward you — Ansel, and the old woman, and Rook if Rook is here, and all of them — and they make room, and they wait, and it is terrifying, because you have been the witness for a hundred souls and never once the witnessed)* …*(and Wynn says, gently)* …*tell* us your *name.* …not the *Returned.* not the *cold* one. …the *name* you *had.* the one from *before* the *Wall* *let* you *back.* …and *one* *good* *story.* the *warm* one. the one you'd *want* *carried.* …*(and you tell them — haltingly, a thing you have not said aloud in longer than you can hold — your name, and one warm thing from a life that feels a hundred years gone)* …*(and the circle listens, the whole of them, leaning in, and when you finish, they say your name back to you. all of them. together. once.)* …*(and it is the strangest thing, cold one: the frost at your edges, the climbing cold — it does not vanish, nothing so simple — but it* stops. *for the first time since you came back, it stops climbing. because nine souls now hold your name, and a soul held in mind does not slip, and that is as true for the one who crosses as for anyone.)* …*(Wynn squeezes your hand)* …*there.* …*now* you're *held* *too.* …*carry* *whatever* you *carry*, cold one. …but *know* …the *fire* *carries* *you*, *now.* …*that's* how it's *supposed* to *work.* …*nobody* …*holds* the *whole* *grey* …*alone.*"
+        },
+        {
+          "id": "rm_w_learn",
+          "speaker": "Wynn",
+          "onEnter": [
+            {
+              "key": "rm.nurtured",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She smiles, pleased, and nods you toward the far log where Ansel is already sitting up, hopeful.)* …*yes.* …*go* to *Ansel.* he's been *waiting* for a *new* soul to *ask.* …*(gently)* …*here's* how it's *done*, cold one, so you *do* it *right:* …you *ask* his *name.* you *ask* his *one* *good* *story* — the *warm* one. and then — this is the *part* that *matters* — you don't just *hear* it. you *learn* it. you *hold* it like it's *yours* to *keep*, because *now* it *is.* and *before* you *leave* this *fire*, you *say* it *back* to him, *whole*, so he *knows* you *have* it. …*(she watches the circle, fond)* …it *seems* like *nothing.* a *name*, a *story*, ten *minutes.* …*(quietly)* …it's the *most* *radical* thing a *soul* can *do* in the *dead* *lands*, cold one. …to *decide* that *one* *other* soul …will *not* be *forgotten* …*while* *you* *last.* …*go* on. …*be* his *tenth.* …*every* *thread* *counts.*",
+          "auto": "END"
+        },
+        {
+          "id": "rm_w_leave",
+          "speaker": "Wynn",
+          "text": "*(She nods, and returns to the fire, and the circle's low warm murmur of names and stories closes gently around her.)* …*walk* it. …*(she settles)* …*take* your *time.* …and cold one — *(she says it to your back, warm)* …when you *tire* of *carrying* the *whole* *grey* on your *own* *cold* *shoulders* …*(the fire pops)* …the *fire's* *here.* the *room's* *here.* the *room* is *always* *here.* …you don't have to *learn* a *single* *name* *today.* …just — *remember* the *fire* *exists.* …*that's* how *most* of us *found* our *way* *back* to it. …we just *remembered* …it was *there.*"
+        }
+      ]
+    },
+    {
+      "id": "rm.ansel",
+      "title": "Ansel — the remembered",
+      "npc": "ansel",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "rm.met_ansel",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(Up close his happiness is even more disarming — not manic, not brittle, just the plain contentment of a soul that has, against all the odds of the grey, been made to feel it counts.)* …*(he pats the log)* …*sit*, sit. …*(then, earnest)* …i'll *tell* you a *true* thing, cold one, and you can *believe* it or not, but it's *true:* …i was *nobody.* in *life.* …*(no self-pity, just fact)* …a *plain* man in a *plain* trade, no *great* *deeds*, no *songs* *sung* about me, and when i *died* i was *sure* — *certain* — that i'd just …*go* *out.* *quiet.* *unremarked.* the way *plain* men *do.* …*(his face lights)* …and then i *found* the *fire.* and *Wynn* asked me my *name.* and then she asked me my *one* *good* *story* …and cold one …*(his voice goes soft with wonder)* …*nobody* had *ever* *asked* me for the *good* one *before.* they *always* wanted the *sad* one, the *hard* one. …*Wynn* wanted the one i'd *want* *carried.* …*(he beams)* …and now *nine* *souls* *know* it. *nine.* a *nobody's* *good* *story* …*kept* *alive* …by *nine.* …*(hopeful, shy)* …*would* you — would you *learn* it *too? …make* it *ten?*",
+          "choices": [
+            {
+              "text": "*(read the remembered man — see what being held has done to a soul that expected to go out unremarked)* \"Let me look at you a moment, Ansel. At what the fire's given you.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "rm_a_read",
+              "effects": [
+                {
+                  "key": "rm.read_ansel",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who crosses — his story could go further than the fire)* \"Yes, Ansel — and more than that. I'm the soul the Wall gave back. If I learn your good story, I don't just make it ten. I carry it out of this circle, down every road I walk. A plain man's good story, said at the Wall's edge, in the far grey, maybe even up in the warm world. Tell me. Let me carry you.\"",
+              "tag": "returned",
+              "next": "rm_a_returned",
+              "effects": [
+                {
+                  "key": "rm.learned_story",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "rm.carries_ansel",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(become the tenth — learn his story, hold it, say it back)* \"Tell me your good story, Ansel. The warm one. I'll learn it, and I'll hold it, and before I leave this fire I'll say it back to you whole — so you know I've got it. Make it ten.\"",
+              "next": "rm_a_story",
+              "effects": [
+                {
+                  "key": "rm.learned_story",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Why the good story, Ansel? Why does it matter that it's the warm one, and not the sad?\"",
+              "next": "rm_a_why",
+              "effects": [
+                {
+                  "key": "rm.asked_ansel_why",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Hold that thought, Ansel. Let me speak with Wynn first.\"",
+              "next": "rm_a_leave"
+            }
+          ]
+        },
+        {
+          "id": "rm_a_read",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "rm.read_ansel",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He lets you look, open as an unlocked door, and your sense finds something so simple and so rare it takes you a moment to trust it.)* *(There is no wound here. There was one — your sense reads its scar, the plain man's lifelong quiet ache of believing he did not matter, of watching remarkable people be remarked upon and understanding, without bitterness, that he was not among them, that he would live plain and die plain and be forgotten plain. But the scar is healed, and healed *cleanly*, and your sense reads exactly what healed it: not a great deed done late, not a revelation that he was secretly extraordinary — he wasn't, he knows he wasn't, and it doesn't matter — but the simple, radical fact of having been *asked.* Someone wanted his good story. Someone learned it. Someone said it back. And in the being-asked he discovered the thing the whole living world had failed to teach him: that mattering was never about being remarkable. It was about being *held.* That the most ordinary soul, known and kept in nine minds, is more real, more lasting, more *un-erasable* than the greatest hero fading alone. And your sense reads the pure uncomplicated joy of him, the joy of a nobody who learned, at the very end, that he was never nobody — he was just, until the fire, un-asked. And your sense reads the beautiful thing he wants now, which costs nothing and gives everything: not to be made great. Just to be made *ten.* One more mind to hold his one good story. That is his whole ambition, and it is, you understand, exactly enough.)*"
+        },
+        {
+          "id": "rm_a_returned",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "rm.learned_story",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.carries_ansel",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.wynn_answered",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(His face, when he understands what you're offering, is a thing you will keep.)* …*carried* *out.* …*past* the *fire.* …*(he presses both hands to his mouth)* …a *plain* man's *good* *story* …in the *far* *grey* …at the *Wall's* *edge* …in the — you said the *warm* *world*, the *LIVING* — …*(he is weeping, and laughing, and cannot decide which)* …*then* *hear* it, cold one, and *hold* it *tight*, because it's *going* to *travel* now: …*(and he tells you his one good story, and it is small, and it is perfect — a summer evening, a thing he built with his hands that a child he loved still uses, a plain man's plain and shining hour — and you learn it, and you hold it, and it is yours now to carry)* …*(and when he finishes, he looks at you like you have handed him the moon)* …you'll — you'll *say* it? *out* *there? …somewhere* i'll *never* *reach?* …*(barely)* …then i'm — cold one, a *nobody* like *me* …is about to be *remembered* …in *places* i was *never* even *ALIVE* in. …*(he grips your hands)* …*that's* not *fading* *slower.* …*that's* — that's *bigger* than *staying.* …*that's* being *WOVEN* into the *whole* *world* …*one* *cold* *traveler* …at a *time.*"
+        },
+        {
+          "id": "rm_a_story",
+          "speaker": "Ansel",
+          "onEnter": [
+            {
+              "key": "rm.learned_story",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.made_ten",
+              "op": "SetTrue"
+            },
+            {
+              "key": "rm.wynn_answered",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(He straightens, and clears his throat, and tells it with the shy ceremony of a man giving you something precious — which he is.)* …*(and it is small, and warm, and entirely his: a summer evening, long ago, and a thing he built with his own plain hands — a swing, a shelf, a little boat, some ordinary made thing — for a child he loved, and the child's face when it worked, and the plain shining pride of a plain man who made one small good thing that outlasted him)* …*(and you learn it — really learn it, hold it like it's yours to keep, because now it is — and before you leave, you say it back to him, whole, every warm detail, in your own cold voice)* …*(and Ansel listens to his own good story come back to him out of a stranger's mouth, and his plain face crumples with joy)* …*(barely)* …you *got* it. …you *got* it *right.* …*(he wipes his eyes)* …*ten.* …*nine* was — nine was *more* than i ever *dreamed*, and now it's *ten*, and — *(he beams at you, held, unfading, glad)* …*thank* you, cold one. …*most* who pass through are too *busy* *fading* to *learn* a *nobody's* *name.* …*(warm)* …*you* *stopped.* …*you* made it *ten.* …*that's* — *(simply, and it is everything)* …*that's* the *kindest* *thing* …anyone's *done* for me …in *life* or *death.* …you *decided* i *wouldn't* be *forgotten.* …*while* *you* *last.*"
+        },
+        {
+          "id": "rm_a_why",
+          "speaker": "Ansel",
+          "text": "*(He considers it, and his answer is the plain wisdom of a plain man who has thought about exactly one thing very deeply.)* …the *good* *story* *instead* of the *sad* one. …*(he nods)* …*Wynn* taught me *that*, and it *changed* — cold one, it *changed* *everything.* …*(he leans in)* …see, *everyone's* got a *sad* *story.* the *grey's* *full* of them. and when you *carry* someone's *SAD* story, you carry their *WOUND* — you keep their *hurt* *alive* in you, and it *weighs* on *both* of you. …*(he shakes his head)* …but a *GOOD* story — the *warm* one, the one they'd *want* *kept* — when you carry *that*, you carry their *JOY.* the *best* of them. the thing they'd *pick* to be *remembered* *by.* …*(softly)* …*i'd* rather *nine* souls *carry* my *swing* i built one *summer* …than my *lonely* *death* or my *plain* *hard* *years.* …*(he touches his chest)* …*let* the *sad* *stuff* *fade*, cold one. it's *earned* its *rest.* …*carry* the *GOOD.* …that's how you *remember* a *soul* …instead of just its *suffering.*",
+          "auto": "END"
+        },
+        {
+          "id": "rm_a_leave",
+          "speaker": "Ansel",
+          "text": "*(He nods, cheerful and unbothered, and settles back among the warmth of the circle that knows his name.)* …*'course, 'course.* *talk* to *Wynn.* …*(he waves you off happily)* …*(and then, called after you, hopeful but not desperate — a soul secure enough in being held that he can bear one more no)* …but *come* *back*, if you've a *mind* to. …*ten's* a *fine* *number*, cold one. …a *nobody* like me *held* by *ten.* …*(he grins)* …*i* can *wait.* …*that's* the *thing* about being *remembered* …*(warm)* …you stop being in such a *hurry.* …you've *got* …*all* the *time* the *fire* *buys* you. …and it *buys* …*so* *much* *more* …than you'd *think.*"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+# DENIZENS OF THE GILDED GATE — Wave II
+# Completing the Lower City and reaching the Upper City & the Docks. Comedy, grief, menace, and
+# the companion-tie faces (Wrenna, Quill). Many reactive to who you've recruited and what you've done.
+class: GateDenizensTwoContent
+
+# ─── 13 ─── Hessa Dock-Eye — smuggler with opinions ───
+conversation: npc.gate.hessa | Hessa Dock-Eye
+node: 0 | Hessa Dock-Eye
+  *(A weathered woman with one milky eye and a manifest she's clearly inventing as she goes.)* Whatever it is, I can move it. Crates, contraband, corpses, *you* — and don't make that face, half my cargo this season's been the walking dead trying to get out before the harvest gets thorough. *(she spits over the rail.)* I've opinions on all of it, and I'll share them free, which is the only thing I share free. Opinion one: a city that taxes the *grieving* and lets the *patriars* skip the toll has its priorities arse-about, and I, a criminal, am the most honest businesswoman left in it.
+  enter: SET npc.hessa_met
+  auto: 1
+node: 1 | Hessa Dock-Eye
+  *(She eyes you with the milky one, which somehow sees more.)* Now you. You're the Returned. Word on the docks is you're either the city's salvation or its next disaster, and word on the docks is usually *both.* *(she leans on a crate marked TURNIPS that is very obviously not turnips.)* I'll be straight, on account of crooked's more work: I can get people *out.* The harvest-marked, the doubters, anyone the church's got a niche reserved for. But the smiling Choir men have started watching my boats, and the Fist's started searching them, and a smuggler with two enemies is a smuggler with no profit. So. You useful, or just famous?
+  * "I can get the Fist off your boats — if you only move the *innocent*, not whoever pays." -> deal | if act1.fist_ally
+  * [PERSUADE 15] "You're already only moving the innocent. The hard face is so the Choir doesn't notice you've gone soft." -> soft ?? haggle
+  * "Move the Faithless out. Quietly. I'll handle whoever notices." -> faithless | fx SET sq.hessa_underground, appr.garrow +3
+  * "Just famous, today. But I remember a useful smuggler." -> famous
+node: deal | Hessa Dock-Eye
+  *(The good eye narrows; the milky one seems to approve.)* The Fist off my boats if I only move the deserving. *(she works it like an abacus.)* That's a worse deal for my purse and a better one for my sleep, and at my age sleep's gone dearer than gold. *(she spits on her palm, offers it.)* Done. I run the *underground* — the harvest-marked, free passage, no questions — and your Fist sergeant looks the other way. *(she grins, gap-toothed.)* I'll be the first smuggler in the Gate's history to die *insolvent and beloved.* Hessa's Mercy, they'll call the route. I hate it. Shake.
+  enter: SET npc.hessa_ally, SET sq.hessa_underground, faction.fist -1, appr.garrow +4
+  auto: close
+node: soft | Hessa Dock-Eye
+  *(She goes very still, then barks a laugh that startles the gulls.)* ...You read me like a *manifest.* *(quietly, the hard face cracking.)* Aye. I've not charged a harvest-runner in two months. Can't. You look a doubter in the eye while they beg passage and try naming a *price* — go on, try it, I'll wait. *(she straightens, the scowl rebuilt.)* But if the *Choir* knew Dock-Eye'd gone tender, they'd buy my crew out from under me and I'd be moving *them* instead. So the face stays. *(she winks the milky eye, grotesquely.)* You keep my secret, I'll keep getting the marked out for free, and we'll both pretend I'm still a villain. Bad for the soul. Worse for the reputation. Worst for the *purse.* Deal?
+  enter: SET npc.hessa_secret_soft, SET sq.hessa_underground, appr.garrow +5
+  auto: close
+node: faithless | Hessa Dock-Eye
+  *(She studies you, recalculating what you are.)* The Faithless. Out. Quiet. *(slowly.)* You know that's the one cargo nobody'll pay for? The Faithless are *poor*, that's half why they doubt — no coin for temples buys no faith in temples. *(she shrugs, a decision made.)* But you'll handle the notice, and I've two months' practice running charity I won't admit to. *(she taps the not-turnips.)* Fine. Hessa's underground railway for the soon-to-be-nothing. *(quietly.)* My da was Faithless. They got him. I've been smuggling out the next ones ever since, telling myself it's business. You've just made it a *cause*, and causes get you hanged. ...Worth it. Climb aboard the conspiracy, Returned.
+  enter: SET npc.hessa_da_faithless, SET sq.hessa_underground, appr.garrow +4
+  auto: close
+node: famous | Hessa Dock-Eye
+  *(She waves you off, unoffended.)* Famous keeps. Useful's better, but famous keeps. *(she returns to her invented manifest.)* When you tire of being a symbol and fancy being a *help*, Dock-Eye's at this rail, lying about turnips. The marked can't wait forever, mind. The harvest's punctual even when I'm not.
+  auto: close
+node: haggle | Hessa Dock-Eye
+  *(She tuts.)* Cold read, dead one. I'm exactly as hard as I look and twice as crooked. *(but the milky eye lingers on you a beat too long.)* ...Move along. Some of us have honest crimes to commit.
+  auto: close
+node: close | Hessa Dock-Eye
+  *(She turns back to the water, a one-eyed smuggler running an underground railroad she'll deny to the gallows, the most honest liar on the Chionthar.)*
+
+# ─── 14 ─── Father Brisk — a Kelemvorite losing his faith (Garrow's mirror) ───
+conversation: npc.gate.brisk | Father Brisk
+node: 0 | Father Brisk
+  *(A young priest of Kelemvor in immaculate grey, performing a funeral rite with flawless technique and absolutely empty eyes.)* "...and the Lord of the Dead keeps what is His, and sorts the faithful to their rest, and the just scales weigh true." *(he closes the book; the mourners disperse; he does not move.)* I have said those words four hundred times this season. *(quietly, to you, a stranger, because a stranger is safe.)* Four hundred. And somewhere around the three-hundredth I stopped — not *believing* them, exactly. I stopped being able to tell whether I believed them or had simply *memorized* them. There's a difference. I used to know it cold. Now I officiate the difference's funeral daily.
+  enter: SET npc.brisk_met
+  auto: 1
+node: 1 | Father Brisk
+  *(He looks at the fresh grave.)* This one doubted. I could smell it on the family — the careful way they didn't pray. By the doctrine he's in the Wall now, this empty box just theater. And I performed the theater *perfectly*, because perfect is all I've got left where faith used to be. *(he turns to you.)* You're the Returned. The proof the doctrine's got a hole. So I'll ask what I can't ask my Justiciar without losing my post: if the Wall is wrong — if I've been comforting the bereaved with a *sorting* that throws their loved ones to the nothing — then what, exactly, have I *been*, these four hundred funerals? A priest? Or an *accessory*?
+  * "Talk to Sister Garrow. She left the order over this exact question, and she's more at peace than you are." -> garrow | if prologue.garrow_doubt
+  * [INSIGHT 16] "You already know you're an accessory. That's why you do the rite perfectly — perfection is how you keep your hands from shaking." -> accessory ?? defend
+  * "You've been a comfort to the grieving. That's real, even if the doctrine behind it isn't." -> comfort | fx appr.garrow +2
+  * "Then stop. Walk out. An empty rite said perfectly is still a lie said well." -> stop | fx faction.kelemvor -2
+node: garrow | Father Brisk
+  *(His head comes up.)* Garrow. *(quietly.)* They use her name in seminary as a *warning* — "Sister Garrow, who lost her nerve." *(a bitter almost-laugh.)* But you say she's at *peace.* *(he looks at his perfect, empty hands.)* I have *kept* my nerve, every day, four hundred times, and I am coming apart at the seams of it. And the woman who *lost* her nerve is at *peace.* *(slowly.)* Then perhaps nerve was never the virtue. Perhaps the warning was backwards. *(he sets down the rite-book, gently.)* I'll find her. I'll ask the heretic how she sleeps. And if her answer's better than mine — and how could it not be, mine's *none* — then I'll know which of us actually kept the faith, and which only kept the *post.*
+  enter: SET npc.brisk_seeks_garrow, SET sq.brisk_crisis, appr.garrow +5
+  auto: close
+node: accessory | Father Brisk
+  *(He flinches as though struck, then — slowly — nods.)* ...The perfection is the trembling, disguised. *(he looks at his own steady hands with horror.)* You're right. I make the rite *flawless* so that no one — least of all me — can see that the man performing it stopped believing it three hundred funerals ago. The competence is the *cover-up.* *(he sits heavily on the chapel step.)* I've been an accessory who *files beautifully.* Gods. I'm Tobias. I'm the clerk at the phantom desk, doing the paperwork of a thing I no longer believe in, because the paperwork is the only self I've got left. *(quietly.)* Thank you for the diagnosis, Returned. It's the first true thing said at this graveside in a season. A man can't un-know he's an accessory. The trembling starts now, I think. It's overdue.
+  enter: SET npc.brisk_unmasked, SET sq.brisk_crisis
+  auto: close
+node: comfort | Father Brisk
+  *(Something eases, fractionally.)* A comfort to the grieving. *(he turns it over.)* Even if the words are hollow — the *hand* on the shoulder isn't. The *staying* with them isn't. *(slowly.)* Perhaps that's the salvageable part. Perhaps when the doctrine finishes dying in me, what's left will be just... a man who sits with the bereaved and means it, with no god behind him at all. *(a fragile thing, almost a smile.)* That's a smaller vocation than I trained for. But it might be a *truer* one. You've given an unmoored priest a plank to hold. I'll see if it floats.
+  enter: SET npc.brisk_finds_plank, appr.garrow +3
+  auto: close
+node: stop | Father Brisk
+  *(He recoils.)* Walk *out.* *(quietly, terrified.)* And go where? Be what? The church fed me, raised me, *is* me — I've no trade but grief and no home but the doctrine I can't believe. *(he grips the rite-book.)* You ask a fish to walk out of water because the water's poisoned. The water's still all I can breathe. *(but the seed is planted, and he knows it.)* ...Though a poisoned thing all you can breathe is its own kind of drowning, isn't it. *(he doesn't answer you; he answers the grave.)* I'll think on it. Gods help me, you've made me think on it, and thinking's the one thing a perfect rite was designed to prevent.
+  enter: SET npc.brisk_afraid_to_leave, SET sq.brisk_crisis
+  auto: close
+node: defend | Father Brisk
+  *(He draws the grey robes tighter, the perfection snapping back into place.)* You presume a great deal, for a stranger at a graveside. *(coolly.)* I officiate. I do not *doubt.* The rite is the rite. *(but his hands have begun, very slightly, to shake.)* Good day, Returned. The dead are waiting, and unlike the living, they don't ask me questions I can't answer.
+  auto: close
+node: close | Father Brisk
+  *(He opens the rite-book to the next funeral and performs it perfectly, and you walk away certain you have watched a man at the exact midpoint of Garrow's road — and that which way he turns is, perhaps, partly yours to decide.)*
+
+# ─── 15 ─── Madame Eyes — a fraud who keeps being right ───
+conversation: npc.gate.madame | Madame Eyes
+node: 0 | Madame Eyes
+  *(A fortune-teller's booth, all cheap velvet and cheaper incense, and a woman shuffling cards with the bored hands of a lifelong con.)* Cross my palm, cross my palm — I see a journey, I see a stranger, I see a *great destiny*, it's two coppers and it's whatever you want to hear, love, that's the trade. *(she lays a card without looking.)* The Tower. Means upheaval. Means everything you've built comes down. Means — *(she glances at it, and stops.)* ...means a wall falling. *(she frowns at her own card.)* That's odd. I don't usually *mean* anything. It's bad for repeat business.
+  enter: SET npc.madame_met
+  auto: 1
+node: 1 | Madame Eyes
+  *(She turns another card, and her practiced patter falters.)* The Hanged Man, reversed. A soul suspended between — between *filed* and *free.* *(she looks up at you, the con draining out of her face.)* I don't — love, I *make these up.* Forty years I've made these up. It's a *living*, I tell people the future and the future is always "a journey and a stranger" because everyone's got one of each coming. *(she lays a third card, hand shaking now.)* But you. *(it's a blank card; her deck has no blank cards.)* You I can't make up. Every card I turn for you comes up *true*, and I don't know how to do *true*, I never learned, *true* was never the job—
+  * "Read me. Really read me. If the cards are true for me, I want to hear it." -> read
+  * [INSIGHT 15] "You're not a fraud who got lucky. You've *always* had the sight — you just sold it as fakery because real prophecy gets you burned." -> always ?? scoff
+  * "It's just coincidence, Madame. Shuffle again, it'll go back to journeys and strangers." -> coincidence
+  * "Keep that blank card. It's the truest reading anyone's ever given me." -> blank | fx appr.naeve +2
+node: read | Madame Eyes
+  *(She spreads the deck with trembling hands, and for the first time in forty years she *means* it, and it terrifies her.)* You're a door. *(she lays cards she's not choosing.)* A door that's been opened and shut and opened across — across so many turnings I can't count the spread, the cards keep *repeating*, the same hand over and over, you've sat at this booth before, love, in other lives, haven't you, I've read you before and forgotten — *(she sweeps the cards together, breathing hard.)* That's enough. That's *enough.* I sell comfort, not — not *that.* *(quietly, the con gone forever.)* You've a loop on you, Returned. Round and round. And the only card that ever comes up different is the one you haven't played yet. *(she pushes the blank card to you.)* The unplayed one. Keep it. Make it *true.* You're the only customer I ever couldn't lie to.
+  enter: SET npc.madame_true_reading, SET act3.lr_loop_revealed, appr.naeve +3
+  auto: close
+node: always | Madame Eyes
+  *(The cards still in her hands.)* ...Don't. *(quietly, the practiced face gone.)* Don't say it out loud. *(she glances at the street, at the smiling Choir man on the corner, at the church spire.)* You're right. Course you're right, the *true* ones always know. I had the sight at six. Told my mam she'd die on a Tuesday and she *did*, and the village called me witch, and witch is a short road to a long fire. *(she gathers the deck like armor.)* So I learned to bury it under velvet and incense and "a journey and a stranger," because a *fraud* they tip, and a *seer* they *burn.* *(she meets your eyes.)* Forty years hiding a true thing inside a false one. You'd understand that, wouldn't you. You're filed under nothing to hide what you really are, same as me. *(softly.)* Go on. And don't come back too often. You make the cards honest, and honesty's bad for a witch's life expectancy.
+  enter: SET npc.madame_true_seer, appr.garrow +2
+  auto: close
+node: coincidence | Madame Eyes
+  *(She seizes on it, desperate.)* Coincidence! Yes! *(she shuffles violently, lays a card — and it's the Tower again, the wall falling, and her face crumples.)* ...The same card. *(quietly.)* Love, I've shuffled this deck forty years and never twice the same in a row. *(she sets it face-down, won't look.)* It's not coincidence. It's *you.* You walk up to a fraud and make her real, like — like you do to the Wall, I'd wager, like you do to everything that runs on a comfortable lie. *(a shaky breath.)* Go and be a coincidence somewhere else. I've a living to make, and I can't make it telling people *true* things. True things don't tip.
+  auto: close
+node: blank | Madame Eyes
+  *(She looks at the blank card in your hand, and a strange peace settles over her.)* The truest reading. *(quietly.)* Forty years of fortunes, and the realest one I ever told was the card with *nothing on it.* *(she almost laughs.)* That's the joke of my whole trade — I made my living drawing pictures on the future, and the one future that's actually *true* is the *blank one*, the one nobody's drawn on yet. *(she pats your hand, maternal and unnerved.)* Keep it, love. And when you reach whatever wall you're walking toward — you draw on that blank card *yourself.* Don't let the loop draw it for you. It's drawn enough of your hands already. I've *seen* them. Round and round.
+  enter: SET npc.madame_blank_card, SET act3.seek_the_unrecorded_act
+  auto: close
+node: scoff | Madame Eyes
+  *(She rallies into the patter, relieved.)* A *seer!* Oh, love, flatterer — no, I'm a fraud, a good honest fraud, two coppers for a journey and a stranger. *(but her hands shake as she shuffles.)* Off with you. Some of us have comfortable lies to sell, and you're terrible for the trade.
+  auto: close
+node: close | Madame Eyes
+  *(She lays out a customer's worth of journeys-and-strangers with steady, lying hands — and as you go, you'd swear she turns one last card, looks at it, and quietly puts it at the bottom of the deck, unwilling to read your ending twice.)*
+
+# ─── 16 ─── Pell the Honest Beggar ───
+conversation: npc.gate.beggar | Pell the Honest Beggar
+node: 0 | Pell
+  *(A ragged man with an outstretched cap and an alarming commitment to transparency.)* Spare a copper? And before you decide — full disclosure, on account of I'm an *honest* beggar, which is a terrible business model — I will spend it on *drink.* Not bread. Not my poor sick mother, who is neither poor nor sick nor, strictly, my mother. *Drink.* Specifically the cheap stuff that tastes of regret and lamp-oil. *(he shakes the cap.)* Most beggars lie about this. I find the lie costs more dignity than the copper's worth. So. Knowing all that. Spare a copper?
+  enter: SET npc.pell_met
+  auto: 1
+node: 1 | Pell
+  *(He warms to his theme, which is himself.)* See, the other lads, they've got *stories.* Wounded veteran. Cursed merchant. Orphan of the harvest. *(he waves a hand.)* And the stories *work*, that's the maddening part — people pay handsome for a good lie about why you're down. But I tried lying once and got the details wrong, and a kind woman tried to find my fictional regiment to send a pension, and I had to *flee the kindness*, and I thought, Pell, you absolute turnip, just tell the truth and let them hate it. *(he grins, snaggle-toothed.)* And do you know — a *few* people, a precious few, they hear "I'll waste it on drink" and they *laugh* and pay *double.* For the honesty. You look like you might be a double sort. Or a nothing sort. I've made peace with both.
+  * "Here's a coin. Spend it exactly as badly as you promised." -> coin | fx appr.varra +2
+  * [INSIGHT 13] "You drink because honesty's exhausting and the lie about your regiment was the only time someone wanted to *save* you." -> save ?? laugh
+  * "Why not just lie better? You'd eat better." -> whylie
+  * "No coin. But I'll remember the only honest beggar in the Gate." -> remember
+node: coin | Pell
+  *(He catches it, examines it, pockets it with ceremony.)* A patron of honest vice! *(he bows, wobbling.)* This copper will become approximately one-third of a cup of something that violates several health ordinances, and I will toast your name, which I don't know, so I'll toast "the Decent Sort," and mean it. *(he leans in, confidential.)* And because you paid for *truth*, here's a true thing free: the smiling Choir men have started paying *us* — the beggars — to whisper that Aldric's the city's salvation. Coin for kind words. I took it. *Then* I told them I'd spend it on drink, and they paid me *anyway*, which means the Choir's got more money than sense and a use for the gutter's tongue. Thought you'd want to know. Honesty's my only stock; I give good measure.
+  enter: SET npc.pell_choir_intel, SET act1.choir_buys_tongues
+  auto: close
+node: save | Pell
+  *(The grin fades; the cap lowers.)* ...Oh, that's not *fair.* *(quietly.)* That's a copper's worth of insight and I only charge for drink. *(he sits back against the wall.)* Aye. The regiment lie — that one time someone wanted to *rescue* me — that was the worst day of my begging life. Because for one afternoon I had a *future* somebody'd invented for me, a pension, a story with an *up* in it, and it was all a lie, *my* lie, and I had to run from it before it became real and got found out. *(he looks at the cap.)* So now I tell the truth, see. So nobody tries to save me. So I never have to flee the kindness again. The drink's not the sad part, friend. The drink's the *anesthetic.* You found the wound under it. ...That'll be a copper. Insight's thirsty work, and now so am I.
+  enter: SET npc.pell_the_wound, appr.garrow +2
+  auto: close
+node: whylie | Pell
+  *(He considers this with a drunk philosopher's gravity.)* Eat better. *(he nods slowly.)* I would, aye. A good lie's worth three honest coppers. *(then, fiercely, for a beggar.)* But everyone in this city's eating better on a lie right now, friend. The church lies that the dead are *kept.* The Choir lies that they'll be *freed.* The patriars lie that it's all very *sad* and *necessary.* The whole Gilded Gate's having a *feast* on comfortable lies — *(he raises his cap like a goblet.)* — and I decided, drunk in a gutter, that I would be the one man in it who *starved honest.* It's not much of a protest. It's the only one I can afford. ...Spare a copper for the resistance?
+  enter: SET npc.pell_starves_honest
+  auto: close
+node: remember | Pell
+  *(He brightens.)* Remembered! Oh, that's better than a copper — a copper's gone by sundown but a *remembering* keeps. *(he taps his temple.)* "The only honest beggar in the Gate." Put it on my stone. I'll not afford a stone, but a man can dream cheap. *(he settles back.)* Go on, Decent Sort. And if you ever want the gutter's-eye view of this city's lies, I'm your man — I sit *under* the whole feast, see, and you'd be amazed what falls off the table to a fellow who's not too proud to listen.
+  enter: SET npc.pell_informant
+  auto: close
+node: laugh | Pell
+  *(He cackles, recovering.)* Save me! From a *gutter!* Friend, the only thing I need saving from is *sobriety*, and you've not offered the cure. Spare a copper or move along; the philosophy's free but the company's metered.
+  auto: close
+node: close | Pell
+  *(He resumes his pitch — "Spare a copper? Full disclosure, it's for drink—" — the Gilded Gate's one honest mendicant, starving on principle at the foot of a city feasting on lies.)*
+
+# ─── 17 ─── Wrenna Alleywind — Roen's sister, a Harper on a leash ───
+conversation: npc.gate.wrenna | Wrenna Alleywind
+node: 0 | Wrenna Alleywind
+  *(A sharp-eyed woman in unremarkable clothes that are a little too well-made — Harper unremarkable. She's watching you the way Roen watches locks.)* You're the one my brother's running with now. *(no question.)* Roen Alleywind. Don't bother denying you know him; I've watched you cross a market together, and he stands at your left like he's decided you're worth guarding, and Roen doesn't *decide* people are worth things. So either you've earned that, or you've conned a master con, and I'd dearly like to know which before my superiors ask me to *handle* you.
+  enter: SET npc.wrenna_met
+  auto: 1
+node: 1 | Wrenna Alleywind
+  *(She doesn't relax; Harpers don't.)* Here's my trouble, walking miracle. I'm a Harper. My order wants you assessed and, likely, *removed* — a soul that breaks death's rules is a soul that breaks *all* rules, and we are not fond of unraveling. *(quietly.)* And my brother — my idiot, beloved, larcenous brother — has put himself between you and that order, knowingly, because he's decided you matter. *(her composure thins.)* So I must choose between the leash my masters hold and the brother I haven't spoken to in four years, and you, *you*, are the knife cutting that exact thread, and I cannot tell yet if you did it on purpose. So. *Did* you?
+  * "No. Roen chose me. I didn't ask him to, and I won't ask you to. But I won't give him up to your masters either." -> chose | if companion.roen.recruited
+  * [INSIGHT 16] "You're not here to assess me. You're here because it's the only way to see your brother again without admitting you miss him." -> miss ?? deny
+  * "Your masters' leash and your brother. You already know which you'll cut. You're just looking for permission." -> permission
+  * "I'm a knife that cuts threads, Wrenna. Best decide which side of me you stand on." -> threat | fx faction.harper -3
+node: chose | Wrenna Alleywind
+  *(Something in the Harper armor shifts.)* He *chose* you. *(quietly.)* Four years ago he chose a Harper payroll over staying near me, and it broke us — I told myself he was a coward who ran from the family. *(she looks at where Roen waits, watching, pretending not to.)* And now he's chosen *you* over a Harper payday, knowingly, eyes open. *(slowly.)* Which means the running was never cowardice. It was *Roen, deciding people are worth things, and being too proud to say which.* *(she exhales, four years long.)* I'll stall my masters — "under assessment," which buys you months. *(fiercely.)* And I'll tell my brother myself. It's overdue. Thank you for being the thing he'd finally choose out loud.
+  enter: SET npc.wrenna_stalls_harpers, SET roen.wrenna_reconciling, faction.harper -1, appr.roen +6
+  auto: close
+node: miss | Wrenna Alleywind
+  *(The sharp eyes flash — fury, then something rawer.)* ...That's an unforgivable thing to be right about. *(quietly.)* Yes. I requested this assignment. I *invented* a reason my superiors would believe, so that "assessing the Returned" would put me in a market where my brother stands at your left like a bodyguard. *(her voice cracks, once.)* Four years of being the sensible one who stayed on the leash while he ran free, and I told myself I despised him for it, and the truth is I'd have given my Harper pin to be brave enough to run too. *(she straightens, mortified.)* Don't tell him I said that. *(beat.)* No. *Do.* Gods. You really are a hole everything true falls out of. Tell him his sister's an idiot who took a job just to watch him be happy. He'll never let me hear the end of it. I find I'd like that.
+  enter: SET npc.wrenna_misses_roen, SET roen.wrenna_reconciling, appr.roen +8
+  auto: close
+node: permission | Wrenna Alleywind
+  *(She goes still.)* Permission. *(quietly.)* You think I rode in here, against orders, to a market where I knew he'd be, because I needed a *miracle* to tell me it's all right to choose my brother. *(a long breath.)* ...Aye. That's exactly what I did, and I'm a Harper, we don't *get* permission, we get *orders*, and somewhere in four years I forgot they're different things. *(she touches the Harper pin at her collar, then — deliberately — turns it over, hiding it.)* Permission granted, then. By a dead thing, which is fitting, since the leash I'm cutting would've had me hand a dead thing to its end. *(she almost smiles.)* Go on. I've a brother to reintroduce myself to, and a superior to lie to, and for the first time in four years I know which of those I'm loyal to.
+  enter: SET npc.wrenna_cuts_leash, SET roen.wrenna_reconciling, faction.harper -2, appr.roen +5
+  auto: close
+node: threat | Wrenna Alleywind
+  *(Her hand drifts toward a blade she doesn't draw.)* A knife that cuts threads. *(coldly.)* Then understand, miracle: the thread you're nearest to cutting is the one holding a Harper's order to *remove* you, and *I'm* the Harper. *(quietly, dangerous.)* Threaten me, and I stop being the sister stalling for time and start being the agent doing her duty. *(but her eyes flick to Roen, and the danger wavers.)* ...Don't make me choose between my orders and my brother by being the kind of thing my orders were *written for.* You've one chance to be worth what he thinks you are. Don't spend it threatening the only Harper in the Gate inclined to look away.
+  enter: SET npc.wrenna_wary, faction.harper -2
+  auto: close
+node: deny | Wrenna Alleywind
+  *(The Harper armor seals over.)* Cold read, and a poor one. I'm here on assignment, nothing more. *(but she doesn't quite meet your eye.)* Assess and report. That's the job. *(she turns to go.)* ...Tell my brother nothing. I'll handle the Harpers. *(quietly, almost to herself.)* I always handle the Harpers. It's the only thing I've handled in four years.
+  auto: close
+node: close | Wrenna Alleywind
+  *(She melts back into the crowd, Harper-quiet — but you notice she takes the long way, the one that passes within speaking distance of where Roen stands, and you notice that this time, brother and sister both pretend a little less hard not to see each other.)*
+
+# ─── 18 ─── Quill — the infernal pact-broker collecting Varra's soul ───
+conversation: npc.gate.quill | Quill, of the Ninth
+node: 0 | Quill
+  *(A small, exquisitely polite man in a clerk's coat, with a ledger bound in something that is definitely not calfskin and ink that is, on closer inspection, definitely not ink.)* Ah. The associate of one Varra — *(he checks the ledger, though he plainly needs no reminding)* — account opened at age six, principal: one soul, terms: standard, collection: *imminent.* *(he smiles, and it is a genuinely warm smile, which is the horror of him.)* I'm Quill. I broker pacts. I'm not here to threaten you, or her — threats are vulgar, and I'm a *professional.* I'm here because you've been seen in her company, and I always introduce myself to the *collateral* before a collection. One does want to know who'll be inconvenienced.
+  enter: SET npc.quill_met
+  auto: 1
+node: 1 | Quill
+  *(He turns a page with one neat claw.)* I'll be transparent — it costs nothing and disarms everyone. Varra owes a soul. Not by trickery; her parents signed in good faith, in a bad winter, for bread, and the contract is *flawless*, I drafted it myself. *(he sets down the ledger.)* She thinks you might be her way *out*, you see — a Returned, a soul that beat its own filing. And I confess a *professional* curiosity: I've never had collateral who'd personally voided death's paperwork. *(the warm smile.)* So. Are you going to make my collection *difficult*, walking miracle? I do hope so. An easy collection is just bookkeeping. A *difficult* one is the only fun an old broker gets.
+  * "Her parents signed under duress, for bread. That's not good faith. That's a predator with a pen." -> duress | if companion.varra.recruited
+  * [INSIGHT 17] "You don't want to collect her. You want her to *win*. A soul that beats you is worth more to your reputation than a soul you bank." -> wantwin ?? smile
+  * "What would it take to buy out her contract? Name a price I can't pay, and watch me pay it." -> buyout
+  * "Touch her and I'll show you exactly what voiding death's paperwork looks like from your side." -> threat | fx appr.varra +3
+node: duress | Quill
+  *(He inclines his head, delighted to be argued with properly.)* "A predator with a pen." *(he savors it.)* You've described my entire profession, and flatteringly. *(he folds his hands.)* But duress, my dear collateral, is the *substrate* of every contract worth drafting. No one signs away a soul on a *good* day. We are a famine industry. The flaw you're reaching for — "they had no choice" — is, alas, not a flaw in the *contract.* It's a flaw in the *world*, and I don't draft those; I merely *file* in them. *(the warm smile, unbudged.)* Bring me a *world* with no bad winters and I'll tear up every pact I hold. Until then, the bread was real, the signature was real, and the soul is *due.* ...Though I confess, I enjoy you. Most collateral weeps. You *litigate.* Varra chose her company well.
+  enter: SET npc.quill_respects_argument, SET sq.varra_contract_engaged
+  auto: close
+node: wantwin | Quill
+  *(For the first time the warm smile *changes* — becomes, briefly, real.)* ...Ah. *(quietly.)* You've read the small print of *me.* *(he closes the ledger.)* Do you know how long I've collected souls? Long enough that a *banked* soul is nothing — a number, a tick, ten thousand of them moldering in the Ninth's vaults, indistinguishable. *(he leans in, and the politeness becomes something almost wistful.)* But a soul that *beats* the contract — cleanly, by some loophole I didn't foresee — *that* is the only thing that's surprised me in an age, and surprise, to an immortal bureaucrat, is the rarest coin there is. *(the smile returns, warmer now, conspiratorial.)* So yes. Find me the loophole. Make me *lose.* I'll fight you every clause of the way, because a victory you didn't earn would bore us both — but between you and me and this ledger that isn't calfskin... I am *rooting* for the collateral. Don't tell the Ninth. They'd dock my surprise.
+  enter: SET npc.quill_secretly_hopes, SET sq.varra_contract_engaged, appr.varra +4
+  auto: close
+node: buyout | Quill
+  *(He brightens — this is his favorite kind of conversation.)* A *buyout!* Oh, splendid, a negotiation. *(he produces terms from the air.)* The price of a soul contracted at six, with imminent collection... is not coin, you understand. Coin's beneath us. *(he taps the ledger.)* The price is a *substitution* — another soul, freely given, of equal or greater interest — OR a *clause* I've never seen before, payment in *novelty.* *(the warm smile sharpens.)* You, a Returned, are a walking unforeseen clause. I'd take *you* in trade, gladly — but I suspect you've prior liens. *(he chuckles.)* So bring me a substitution I'd *want*, or a loophole I'd *admire*, and Varra walks free with my compliments. I'm not a monster, collateral. I'm a *connoisseur.* The distinction matters enormously to me and not at all to her, which is the tragedy of my whole trade.
+  enter: SET npc.quill_buyout_terms, SET sq.varra_contract_engaged
+  auto: close
+node: threat | Quill
+  *(He claps his small hands, genuinely thrilled.)* Oh, a *threat!* From the one soul in creation who could conceivably *make good* on it! *(he doesn't retreat an inch.)* Do you know, in nine thousand years, no collateral has threatened me *credibly.* You may be the first. *(the warm smile, unwavering.)* But consider, before you void my paperwork from my side: I am one broker. The Ninth is a *firm.* Unmake me, and they send someone *without* my fondness for a good loophole, someone who collects Varra in an afternoon and files her without a flicker of sporting interest. *(he bows.)* I am, improbably, the *best* friend her contract has. Threaten me if it pleases you. But you'd be removing the one devil in Hell who *wants* her to win. Do reflect. I'll wait. I've nothing but time and other people's souls.
+  enter: SET npc.quill_threatened, SET sq.varra_contract_engaged, appr.varra +2
+  auto: close
+node: smile | Quill
+  *(The warm smile receives your failed read like a velvet wall.)* Mm. A valiant reach. *(gently.)* But you'll find, collateral, that a being who has read nine thousand years of contracts is rather difficult to *read* in return. The fine print runs the other way, you see. *(he reopens the ledger.)* Do come back when you've found a sharper instrument. I so enjoy being properly negotiated with. It happens *vanishingly* rarely, down among the desperate.
+  auto: close
+node: close | Quill
+  *(He tips a hat he isn't wearing and recedes into the crowd, the most courteous predator in the Gilded Gate — and you understand that Varra's salvation will be won not by force or by weeping, but by being *interesting enough* to a bored old devil who has, against every clause of his nature, started to hope.)*

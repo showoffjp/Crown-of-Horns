@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash(python3 tools/make-town-market.py)",
+      "Bash(python3 tools/make-all-in-one.py)",
+      "Bash(python3:*)",
+      "Bash(node play/run-all.js)",
+      "Bash(node play/town_market.test.js)",
+      "Bash(node play/all_in_one.test.js)",
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git restore:*)",
+      "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(awk:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)"
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+# PROLOGUE — "What the Dead Owe"  (Baldur's Gate undercellars → the Cinderhaunt → the Fugue)
+# Tutorial by trauma: you die, see the Wall, are pulled back, cut your way out.
+class: PrologueContent
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: prologue.reservation | Prologue — The Reservation
+node: 0 | The Wall
+  *(There is no speaker. The voice is the architecture itself — a sound like a million held breaths.)* Here is the place kept for you. Read the niche. The name is half-formed; the mortar has not set. You were always going to be here. The only surprise is that you are reading it with eyes.
+  enter: SET prologue.wall_seen
+  auto: 1
+node: 1 | The Wall
+  *(Your own name is being spoken somewhere behind you, over a body that is yours — and one word in it you cannot hold. It slides off the mind like water off glass.)*
+  * "Whose name is that?" -> name
+  * [ARCANA 12] "This isn't a punishment. It's a filing system." -> filing ?? cold
+  * "I don't belong here." -> refuse | fx SET prologue.refused_wall
+node: name | The Wall
+  Yours. It has always been yours. The word you cannot keep is the one that makes you a person instead of a vacancy. Someone is saying it now. Someone will forget it. *(A long, patient silence.)* So will you.
+  auto: pull
+node: filing | The Wall
+  *(For the first time the voice seems almost to attend to you.)* ...A cold way to put it. A true one. We are the souls no ledger wanted. Filed under nothing. You read quickly, for the newly dead. *(beat)* You will need that.
+  enter: SET prologue.wall_insight
+  auto: pull
+node: cold | The Wall
+  Doubt is the crime, little vacancy. You will learn the punishment by living inside it. Read your niche. Wait your turn.
+  auto: pull
+node: refuse | The Wall
+  *(The held breath of a million almost laughs.)* No one belongs here. That is the entire point. Belonging was the thing you all lacked. *(The mortar at the edge of your name has not set.)* ...And yet yours is the one that did not take. Curious. Hold that thought. Something else has hold of it too.
+  enter: SET prologue.crack_seeded
+  auto: pull
+node: pull | The Wall
+  *(Far off, a hand on your true chest. A pull, like a hook behind the navel. The Wall recedes — unwilling, for the first time in its existence, to let one go.)*
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: prologue.waking | Prologue — Returned
+node: 0 | Sister Garrow
+  *(Grey robes, a grave-warden's lantern, a face that has buried more people than it has loved.)* Be still. You stopped breathing on this slab a quarter-hour past. I closed your eyes myself. And now they are open, and Kelemvor's seal on your soul is — *(she falters, a priest losing her certainty)* — torn. Cleanly. From the inside.
+  enter: SET prologue.garrow_met
+  auto: 1
+node: 1 | Sister Garrow
+  I have served the Lord of the Dead forty years. I have never once seen a thing come back. So I will ask plainly, and your answer decides whether I help you up or put you down: do you know what you are?
+  * "I saw the Wall. My name is in it." -> wall | fx appr.garrow +5, SET prologue.told_garrow_wall
+  * "I don't know. But something pulled me back." -> pulled | fx appr.garrow +3
+  * [INSIGHT 13] "You're not afraid of me. You're afraid you've been lied to for forty years." -> doubt ?? guard
+  * "Put me down, then. If you can." -> defiant | fx appr.garrow +2
+node: wall | Sister Garrow
+  *(She goes very still.)* The Wall of the Faithless. You saw it from the inside and walked out the wrong way. *(She helps you sit, and her hands are shaking, and she is ashamed of it.)* Then the doctrine I have preached over a thousand graves is at best incomplete. I would rather know that than be comfortable. Come. The Cinderhaunt is no place to be newly alive.
+  enter: SET prologue.garrow_shaken
+  auto: escape
+node: pulled | Sister Garrow
+  Something. *(dry)* In my experience, child, "something" with the strength to unmake Kelemvor's own seal is rarely benign. We will find out together what has its hand on you. On your feet. The harvesters will have heard your heart restart.
+  auto: escape
+node: doubt | Sister Garrow
+  *(The lantern trembles, just once.)* ...You read the living as easily as the dead read you. Yes. If you are real — and you are insultingly warm for a corpse — then someone has been wrong for a very long time, and I have helped them be wrong. I intend to make that right. Starting with getting you out of here. Move.
+  enter: SET prologue.garrow_doubt, appr.garrow +8
+  auto: escape
+node: defiant | Sister Garrow
+  *(A grim flicker that might, in better light, be respect.)* No. I don't think I can. And a thing I cannot put down is a thing I had best understand. Walk with me, Returned. The exit is through the harvest-floor, and the harvest is not finished.
+  auto: escape
+node: guard | Sister Garrow
+  Spare me the cold-reading, corpse. Better confessors than you have tried. *(She offers a hand anyway.)* Up. Questions later. Knives now.
+  auto: escape
+node: escape | Sister Garrow
+  Stay behind me until you remember how your own legs work. When the Returned come — and they will — strike for the joints, not the heart. They have no more use for hearts than you did, an hour ago.
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: prologue.choir_herald | Prologue — They Never Come Back
+node: 0 | Choir Herald
+  *(A masked acolyte of the Faithless Choir, frozen at the cellar mouth, staring at you like a sum that won't add.)* No. No, you're — I sealed that door. I read the rites. You were *filed.* They don't — *(his voice cracks behind the mask)* — they never come back. Not once. Not in all the years.
+  enter: SET prologue.herald_met
+  auto: 1
+node: 1 | Choir Herald
+  He'll want to know. Gods help me, he'll *want* you. *(He backs toward the stair, hands raised.)* I'm not your enemy. I'm not — we're trying to *end* the Wall, do you understand? The man who runs us watched it take his own daughter. If you are what you are, then you are the thing he has prayed twenty years to find.
+  * "Who is he?" -> name
+  * [PERSUADE 14] "Then take me to him. No tricks." -> escort ?? flee
+  * "I'm no one's miracle. Run." -> dismiss | fx appr.garrow +3
+  * "..." -> flee
+node: name | Choir Herald
+  Aldric Morn. *(He says it the way some say a saint's name and others say a curse — and isn't sure which he means.)* The Heretic of the Lower City. Forty years a Doomguide, until he stopped believing the dead were being kept and started believing they were being *thrown away.* Find a chandler's shop with a kettle always on. He'll be expecting you. He's been expecting you for twenty years.
+  enter: SET aldric.name_known, SET prologue.points_to_aldric
+  auto: gone
+node: escort | Choir Herald
+  *(He hesitates, then nods, fast.)* ...Yes. Yes, all right. But not like this, not bleeding, not with a Doomguide of Kelemvor at your shoulder — *(he glances at Garrow)* — she'll have us both in cells. Go up, go quiet, find the kettle. Tell him the herald sent you. Tell him... tell him it's true. After all this time, it's *true.*
+  enter: SET aldric.name_known, SET prologue.herald_ally, appr.garrow -2
+  auto: gone
+node: dismiss | Choir Herald
+  *(Something in him sags with relief and grief at once.)* ...Maybe you're right. Maybe a miracle should get to choose. *(He turns to flee, then stops.)* His name is Aldric Morn. If you ever want to know what you are — that's the man who's spent his life asking. For what it's worth. For whatever you are.
+  enter: SET aldric.name_known
+  auto: gone
+node: flee | Choir Herald
+  *(He's already gone up the stair, three steps at a time, shouting a name into the dark above — Aldric, Aldric, it's true — and the word follows you out of the Cinderhaunt like a hook already set.)*
+  auto: gone
+node: gone | Sister Garrow
+  *(quietly, beside you)* Aldric Morn. I knew him, Returned. Before. He was the best of us. *(She looks at the stair the herald fled up, and her grave-warden's face is, for once, simply afraid.)* Which is exactly why I want to reach him before he reaches you.
+  enter: SET prologue.complete

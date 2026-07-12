@@ -1,0 +1,142 @@
+# DENIZENS OF THE GILDED GATE — Wave IV
+# Finishing the Gate: the Upper City's idle cruelty, the Docks' practical mercy, and one corpse
+# who keeps cheating at dice. Satire, menace, pathos.
+class: GateDenizensFourContent
+
+# ─── 24 ─── Duke Aldwin the Absent — governs by committee so nothing is his fault ───
+conversation: npc.gate.aldwin | Duke Aldwin the Absent
+node: 0 | Duke Aldwin
+  *(A pleasant, vague nobleman behind a desk fortified with paperwork, flanked by two clerks who answer everything before he can.)* Ah, the — *(a clerk murmurs)* — the Returned, yes, thank you, Pell. You'll want to petition about the harvest, everyone does, and I want you to know that the matter is *under active review* by the Standing Committee on Irregular Mortality, which meets — *(a clerk murmurs)* — quarterly, and reports to the Subcommittee on Civic Calm, which I chair, in an advisory capacity, without a vote. *(he beams.)* So you see, it's *very* in hand. Whose hand exactly, I couldn't say. That's rather the system's strength.
+  enter: SET npc.aldwin_met
+  auto: 1
+node: 1 | Duke Aldwin
+  *(He gestures at the fortifications of paper.)* People call me *the Absent*, you know. They mean it unkindly. But consider — *(he leans forward, and for a moment there's a sharp little mind under the vagueness)* — a Duke who *decides* things is a Duke who can be *blamed* for them. A Duke who refers everything to committee can never have approved the harvest, never have denied the harvest, never be on *record* at all. *(he smiles.)* I have governed this city through its worst season by ensuring that no decision was ever, technically, *mine.* It is the safest possible leadership. It is also, I'm aware — *(the sharpness flickers and is gone)* — completely useless to a single dying soul. But it keeps *me* in the chair, and the chair is the thing, isn't it. The chair is always the thing.
+  * [INSIGHT 16] "You're not vague. You're a coward with excellent administrative instincts. You could stop the harvest with one signature and you won't, because a signature can be hanged." -> coward ?? committee
+  * "One decision, Duke. Just one. Order the Fist to protect the harvest-quarters. I'll take the blame if it costs you." -> onedecision
+  * "Refer the harvest to a committee that actually meets. With Mother Cass and Sergeant Bricka on it." -> committee2 | fx faction.fist +2
+  * "You're the most honest politician I've met. You've simply automated your own uselessness." -> honest
+node: coward | Duke Aldwin
+  *(The vagueness drops entirely. The man underneath is tired, and clever, and afraid.)* ...A coward with excellent administrative instincts. *(quietly.)* Do you know, no one's ever put it that precisely. They say "absent," "ineffectual," "weak." You say *coward with a system*, which is the truth, and the truth costs me nothing now that you've said it for me. *(he straightens a paper that doesn't need it.)* Yes. I could end the harvest with a stroke. And the Choir would have me dead by morning, and the church the morning after, and the patriars would simply *replace* me with someone who refers everything to committee, and the harvest would continue, and I'd be *dead and irrelevant* instead of *alive and irrelevant.* *(he meets your eyes.)* The system isn't cowardice protecting *power*, Returned. It's cowardice protecting the *illusion* that someone's in charge. Pull that illusion and you'll find no one is. No one at all. That's the real horror under the paperwork. Now — was there anything *else* I can refer to committee for you?
+  enter: SET npc.aldwin_unmasked, SET act1.duke_powerless
+  auto: close
+node: onedecision | Duke Aldwin
+  *(He goes very still, the quill trembling over the inkwell.)* One decision. With your name on the blame. *(a long pause; you can see him *want* it.)* You'd take the record. The Choir's knife. The church's wrath. All of it, so a Duke could sign one merciful order and survive it. *(slowly, he draws a fresh sheet.)* ...No. *(he sets down the quill.)* No, I can't let you. Not because I doubt you'd take it — because if a *dead foreigner* has to take the blame for a Duke doing his *job*, then the chair was never worth keeping, and I've been guarding an empty thing. *(he signs the order himself, hand shaking, the first decision in years.)* There. The Fist protects the harvest-quarters. By *my* authority. On *my* record. *(he looks ill and alive.)* Gods. Forty years of committees, undone by a corpse who offered to take the fall. Get out before I reconsider. And — thank you. For making the fall seem survivable enough to risk myself.
+  enter: SET npc.aldwin_acts, SET act1.duke_signs_order, faction.fist +5, appr.garrow +4
+  auto: close
+node: committee2 | Duke Aldwin
+  *(He brightens — this is a language he speaks.)* A committee that *meets!* With — *(a clerk starts to murmur; he waves him off, himself for once)* — with the almshouse woman and a Fist sergeant. *(he considers.)* Do you know, that's the cleverest thing anyone's proposed at this desk in a decade. I can't *act* — acting gets you killed — but I can *convene*, and if I convene the *right* people, with the *real* authority, and simply... *never disband them*... *(a sly little smile.)* ...then the decisions get made, and *they* take the record, and the harvest gets fought, and I remain technically, gloriously *absent.* *(he's already drafting.)* The Standing Committee on Mercy, with teeth and a budget. You've found the loophole in my own cowardice, Returned. I'll convene it by week's end. It's the bravest thing I'll never admit to doing.
+  enter: SET npc.aldwin_convenes, SET act1.mercy_committee, faction.fist +2
+  auto: close
+node: honest | Duke Aldwin
+  *(A dry, grateful laugh.)* "Automated my own uselessness." *(he savors it.)* I shall have that engraved somewhere private. *(he spreads his hands over the paperwork.)* You're kinder than I deserve. Most see a fool; you see a *machine* a frightened man built to survive a thing he couldn't fix. *(quietly.)* It's not a *defense*, mind. The harvest-dead don't care how elegant my abdication is. But it's *true*, and a politician hearing a true thing about himself is rare enough that I'll give you a true thing back: there's a Standing Committee key in this drawer that opens every locked office in the Upper City. Take it. Do the things I'm too automated to do. I'll refer my own complicity to committee, where it belongs.
+  enter: SET npc.aldwin_gives_key, SET sq.upper_city_access
+  auto: close
+node: committee | Duke Aldwin
+  *(The vagueness reasserts itself like a shield.)* Goodness, that's rather *pointed*, isn't it. *(he gestures vaguely.)* I'm sure the Committee on Civic Sentiment would be glad to *receive* your characterization — Pell, do minute that the Returned finds the Duke insufficiently decisive — and we'll review it in due course. *(he beams, fully absent again.)* Was there anything else? No? Splendid. The system thanks you for your input.
+  auto: close
+node: close | Duke Aldwin
+  *(Whatever you wrung from him, the Duke retreats behind his paper fortifications — though you notice, as you leave, that one of the clerks is quietly weeping with relief, and you suspect that clerk has been begging the Duke to *do something* for a very long time.)*
+
+# ─── 25 ─── The de Lancie Heir — a bored noble shopping for a soul ───
+conversation: npc.gate.delancie | Ysolde de Lancie
+node: 0 | Ysolde de Lancie
+  *(A young patrician draped across a chaise, examining you through a jeweled lorgnette with the precise enthusiasm of someone choosing wallpaper.)* So *you're* the thing everyone's frightened of. *(she yawns, delicately.)* I bought an archdevil last season — frightfully overrated, all paperwork and brooding, I returned it — and Mother says one mustn't collect the *occult* two seasons running, it looks *desperate.* But a *Returned.* A soul that beat the Wall. *(she sits up, the boredom flickering into something hungrier.)* Tell me, dead thing — what does it *cost*, to come back? Because I have *quite* a lot of money and an absolutely *crushing* amount of time, and I should very much like to never die. Name your price. I'm prepared to be vulgar about it.
+  enter: SET npc.delancie_met
+  auto: 1
+node: 1 | Ysolde de Lancie
+  *(She circles you, lorgnette raised.)* You think me a monster. *(unbothered.)* Everyone does, the *interesting* ones especially. But consider — I am *honest*, which the church and the Choir are not. They dress their death-trade in *doctrine* and *salvation.* I simply want what they're selling — *escape from the nothing* — and I'm willing to say so plainly and *pay.* *(she taps the lorgnette against her teeth.)* Is that worse than the smiling Choir man, who wants the same thing and calls it *crusade*? At least I don't pretend my survival is a *cause.* I want to live forever because dying is *common* and I am *not.* There. Cleaner than a priest, aren't I. Now — the price?
+  * [PERSUADE 16] "There's no price. But there IS a thing worth more than immortality to someone crushed by time: a *use*. Fund the resistance. Be the first patrician the harvest-poor remember kindly." -> use ?? bored
+  * "You can't buy what I am. But you can buy what I *do* — bankroll Hessa's underground, and your money saves more souls than your immortality ever would." -> bankroll | fx SET sq.delancie_patron
+  * [INSIGHT 15] "You're not afraid of dying. You're afraid you'll die having *done nothing* — and immortality just postpones the verdict." -> nothing ?? deny
+  * "You're exactly as common as everyone else, Ysolde. The Wall doesn't check your blood." -> common | fx appr.varra +2
+node: use | Ysolde de Lancie
+  *(The lorgnette lowers. For the first time the boredom cracks into genuine surprise.)* A *use.* *(slowly.)* You've offered me the one thing I've never been able to *buy.* *(she rises, restless.)* Do you know what it is to be a de Lancie? Everything is *provided.* I have never *needed* to be anything, and so I have never *become* anything, and the time stretches *(she shudders)* — endlessly, emptily — and I thought *more* time was the cure, when of course more empty time is the *disease.* *(she fixes you, hungry in a new direction.)* "The first patrician the harvest-poor remember kindly." That's — that's a thing money *can't* purchase, isn't it. It must be *earned.* *(a wild, delighted laugh.)* How *novel.* How *vulgar.* Mother will be appalled. Yes. Fund your resistance. Make me *useful*, dead thing. It's the most exotic thing I've ever collected: a *point.*
+  enter: SET npc.delancie_finds_purpose, SET sq.delancie_patron, appr.garrow +4
+  auto: close
+node: bankroll | Ysolde de Lancie
+  *(She considers the ledgers of her own boredom.)* Bankroll a smuggler. *(she taps the lorgnette.)* It's *deliciously* declassé. Mother would faint. *(she smiles, sharp.)* And it accomplishes what my archdevil never did — it makes me *consequential* without the tedious paperwork of immortality. *(she rings a small bell; a steward appears.)* Open a line of credit to — what's the one-eyed woman's name, the turnip-smuggler — and route it through three shells so the church can't trace it to the family. *(to you.)* There. Souls bought, by a bored noblewoman, out of pure *novelty.* Don't mistake it for virtue, dead thing. It's *appetite*, pointed somewhere new. But the harvest-poor won't care about my motives, and neither, I suspect, will you. Spend it well.
+  enter: SET npc.delancie_bankrolls, SET sq.delancie_patron, SET sq.hessa_underground
+  auto: close
+node: nothing | Ysolde de Lancie
+  *(The lorgnette drops to her lap. The languor drains out of her entirely.)* ...Oh, that's *cruel.* *(quietly.)* That's the cruelest thing anyone's said to me, and I've been *insulted* by professionals. *(she looks at her own jeweled hands.)* Die having done nothing. Yes. That's it, isn't it. Not the *dying.* The *ledger* at the end, the page that reads *Ysolde de Lancie: provided for, did nothing, took up space beautifully.* *(she shudders.)* And immortality just keeps the page *open*, blank, forever, which is *worse* — eternity to do nothing in. *(she meets your eyes, and the hunger has turned inward, terrified.)* You've just made immortality sound like *damnation.* Which — *(a hysterical little laugh)* — which is precisely what the Wall *is*, isn't it. Nothing, forever. I was *shopping* for the Wall. Gods. I need to *do* something. Quickly. Before the page sets. Tell me what.
+  enter: SET npc.delancie_terrified, SET sq.delancie_patron
+  auto: close
+node: common | Ysolde de Lancie
+  *(She bristles, then — to her own evident shock — laughs.)* As common as *everyone.* *(she touches her own face.)* The Wall doesn't check my *blood.* *(quietly.)* Do you know, that should horrify me, and instead it's the most *interesting* thing I've heard all season. *(she rises.)* All my life the lesson was that de Lancies are *different*, *better*, *exempt.* And you tell me the one democracy left in the Realms is the *nothing* — that the harvest takes patrician and pauper alike, sorts us all to the same grey. *(a strange smile.)* Then perhaps the only *un-common* thing left to do is to *fight* the thing that makes us all equal. How perverse. How *thrilling.* You've given a bored girl a reason, dead thing. I shan't thank you. But I shan't forget it either.
+  enter: SET npc.delancie_leveled
+  auto: close
+node: bored | Ysolde de Lancie
+  *(She yawns, the moment lost.)* Mm. A *cause.* How tiring. *(she waves the lorgnette.)* The harvest-poor remembering me kindly — darling, they can't even afford to remember me *expensively.* No. Run along. Send me something *immortal* when you've got it. I'll be here. I'm always here. That's rather the whole problem.
+  auto: close
+node: deny | Ysolde de Lancie
+  *(The lorgnette comes back up, a shield.)* Afraid of having done *nothing.* How *quaint.* I'm afraid of *dying*, dead thing, the ordinary way, like a *commoner.* *(but she doesn't quite meet your eye.)* Don't pretend to read me. Better-bred people have failed. Send me immortality or send me nothing. ...The second one I've already got, apparently. *(she frowns at that, and waves you off.)*
+  auto: close
+node: close | Ysolde de Lancie
+  *(She reclines back into her boredom — but you'd swear the lorgnette stays trained on you a moment too long, and that somewhere behind the languor, a girl who has never needed anything has just discovered the terror and the thrill of *wanting to matter.*)*
+
+# ─── 27 ─── Archivist Threnn — hoards the true death-tolls for property values ───
+conversation: npc.gate.threnn | Archivist Threnn
+node: 0 | Archivist Threnn
+  *(A precise woman in a counting-house surrounded by ledgers, who covers a page as you enter the way a gambler covers a hand.)* Whatever you've heard, the *official* harvest-toll is four hundred and twelve souls, district-wide, year to date, and that is the figure the property assessments are based on, and that is the figure that *stays.* *(she folds her hands over the hidden page.)* You're the Returned. You'll have seen more bodies than my ledger admits. I'd ask you, as a *professional* courtesy, to keep that arithmetic to yourself. The Upper City's land values rest on a comfortable number, and a great many *innocent* fortunes would crater if the *true* one got about.
+  enter: SET npc.threnn_met
+  auto: 1
+node: 1 | Archivist Threnn
+  *(She taps the covered page.)* You think me ghoulish. I'm an *archivist.* I record what is, and what *is*, Returned, is that a city which admits its true death-toll is a city whose patriars flee, whose rents collapse, whose *remaining* living lose the homes they have left. *(coldly reasonable.)* So I keep two ledgers. The *true* one — *(she touches it, and her composure flickers)* — and the *survivable* one. And I tell myself the lie keeps the living housed, which is *also* a mercy, of a colder kind. *(she meets your eyes.)* Tell me I'm wrong. Tell me the truth doesn't crater a fortune that shelters real families. Tell me an honest number wouldn't kill more of the living than my lie ever buried.
+  * [INSIGHT 17] "The true ledger isn't for property values. It's the only honest grave any of these people will ever get. You keep it because *someone* has to count them right — even if you can't say so." -> truegrave ?? defend
+  * "Show me the true ledger. The dead deserve an accurate count more than the patriars deserve cheap rent." -> truecount | fx SET sq.threnn_true_ledger
+  * "Both can be true, Threnn. Keep the lie public — but give the true count to Lula's list, where the names can rest right." -> lula | if sq.lulaslist_active
+  * "You've made forgetting into bookkeeping. That's the most respectable evil in this whole city." -> evil | fx appr.garrow -1
+node: truegrave | Archivist Threnn
+  *(Her hand stills on the covered page, and when she speaks the precision has gone soft.)* ...The only honest grave. *(quietly.)* You've seen it, then. What I couldn't say even to myself. *(she uncovers the page — column after column of names, in a hand far more careful than any property ledger requires.)* I tell the world it's for the assessments. The truth is I cannot *bear* for them to be a round number. Four hundred and twelve is a *figure.* But here — *(she touches a name)* — here is Hessel, who mended nets, and here is Asa, who sold winkles, and I have written each one *correctly*, in full, because if I am the only person in this city keeping the *true* count, then I am the only person treating them as *subtractions from something that mattered* rather than *adjustments to a land value.* *(she swallows.)* I am a coward who hides it behind arithmetic. But the arithmetic is *true*, Returned. It's the truest thing in the Upper City. And no one was ever meant to see it but the dead.
+  enter: SET npc.threnn_true_ledger_revealed, SET sq.threnn_true_ledger, appr.garrow +5
+  auto: close
+node: truecount | Archivist Threnn
+  *(She hesitates, the archivist warring with the accountant.)* The true count. *(slowly, she slides the page toward you.)* Take it. *(quietly.)* I have wanted, for a year, to be *forced* to surrender it — so that the cratering of fortunes would be *your* doing, not mine, and I could keep my comfortable lie and my comfortable conscience both. *(she stops you, hand on yours.)* But understand what you carry. This page, made public, *will* collapse rents, *will* drive patriars to flee, *will* make some of the living homeless to honor the dead. *(she lets go.)* I've kept the lie because I couldn't choose. You can. So choose with your eyes open, Returned — the dead's true grave, or the living's cheap shelter. I never found the courage to pick. Gods help you if you do.
+  enter: SET npc.threnn_surrenders_ledger, SET sq.threnn_true_ledger
+  auto: close
+node: lula | Archivist Threnn
+  *(She blinks, the accountant genuinely startled by an *elegant* solution.)* Both ledgers. *(slowly.)* The lie stays public — the rents hold, the living keep their homes — but the *true* count goes to the child's list, where it's a *memorial*, not an *assessment.* *(a long pause.)* That's... that's the first proposal I've heard that doesn't make me choose between the dead and the living. *(she copies the page with swift, practiced strokes — an archivist's true gift.)* The girl gets the names, exact and whole. The patriars keep their comfortable number. And I — *(her voice catches)* — I get to stop being the only one who knows the truth, which is a loneliness I'd not wish on a tax collector. Take it to her. Tell her an archivist says: *count them right, where it can't crater anything but the silence.* That, I can finally afford.
+  enter: SET npc.threnn_gives_to_lula, SET sq.threnn_true_ledger, SET sq.lulaslist_active, appr.garrow +4
+  auto: close
+node: evil | Archivist Threnn
+  *(She receives it without flinching, an accountant tallying a debt.)* The most respectable evil in the city. *(quietly.)* Yes. I've thought so myself, at the bottom of the true ledger, where no assessment goes. *(she covers the page again.)* But respectable evil keeps the living housed, Returned, and dramatic virtue would put grieving widows on the street to honor the grieving dead, and I have never been able to weigh one grief against the other and call it *solved.* *(coldly.)* You judge the bookkeeping. Fine. But before you do — find me the moral arithmetic that saves *both* the dead's honor and the living's roof, and I will adopt it gladly. I've been looking for it for a year. The ledger's the best I could manage. It's not enough. I *know* it's not enough. Knowing isn't the same as having a better column to write in.
+  enter: SET npc.threnn_judged
+  auto: close
+node: defend | Archivist Threnn
+  *(The precision snaps back into place.)* A sentimental theory. *(coolly.)* The ledger is for the assessments, nothing more. I am an archivist; I do not *grieve* in columns. *(but her hand has not left the covered page.)* Good day, Returned. The figure is four hundred and twelve. It will remain four hundred and twelve. Some numbers are load-bearing, whatever lies beneath them.
+  auto: close
+node: close | Archivist Threnn
+  *(She returns to her two ledgers — the survivable lie and the unbearable truth — and you carry away the understanding that even here, in the coldest counting-house in the Upper City, *someone* could not stop herself from writing the names of the forgotten down correctly, where only the dead would ever read them.)*
+
+# ─── 29 ─── Old Marrow — a corpse who keeps cheating at dice ───
+conversation: npc.gate.marrow | Old Marrow
+node: 0 | Old Marrow
+  *(Propped against a headstone in Grud's graveyard, grey and unmistakably deceased, a corpse rattles a dice cup with surprising dexterity.)* Grud not about? Good. *(the dead jaw works; the voice is dry as turned earth.)* Then I'll deal you in before the big lummox 'plants' me again. *(he is, you note, entirely a corpse, and entirely animate, and entirely cheating — you can see the loaded die from here.)* Name's Marrow. Been dead, oh, three months now. Grud keeps burying me; I keep coming up for the morning game. He thinks I don't notice the dirt. I think he doesn't notice I *win.* We're both being polite. It's the foundation of every good friendship — mutual, courteous denial.
+  enter: SET npc.marrow_met
+  auto: 1
+node: 1 | Old Marrow
+  *(He rattles the cup; the loaded die clicks.)* Now you're wondering — and don't deny it, the living always wonder — *why* a dead man's still rattling about a graveyard cheating at dice instead of off to his rest. *(he chuckles, a sound like gravel.)* Simple. I *owe* Grud thirty years of dice debts, see, from when we were both breathing, and a Tendir does *not* skip out on a debt by the cheap expedient of *dying.* *(he sets down the cup.)* So I stay. I lose on purpose at first — let him win back a copper here, a copper there — and then I cheat to even it, so we end each morning square, and neither of us ever has to say goodbye. *(quietly, for a corpse.)* That's the secret nobody tells you about the dead, friend. Some of us don't linger out of *unfinished business.* We linger out of *unfinished friendship.* The business I'd happily leave owing.
+  * [INSIGHT 14] "You're not paying off a debt. You're staying because Grud buried his whole family, and you're the one friend the harvest can't take from him — because you're already gone." -> friend ?? deny
+  * "Does Grud know you cheat? Does he know you *know* he knows you're dead?" -> know
+  * "Loaded die, third from the left. Rest, Marrow. The debt's paid — you stayed three months past dying to square it." -> rest
+  * "Deal me in, then. A dead man's game sounds like the only honest table left." -> deal | fx appr.varra +2
+node: friend | Old Marrow
+  *(The dice cup goes still in his grey hands. For a long moment the corpse just regards you.)* ...Well. *(quietly, the gravel softening.)* Aren't you the sharp one. *(he sets the cup down.)* Aye. The harvest took his whole family in the bad winter — eight of them, all at once, and Grud planted every one with a joke on his lips and his heart in pieces. *(the dead eyes are, impossibly, wet.)* And I thought: the harvest can take the *living* from that big daft fellow, but it can't take *me* — I'm already *gone*, see, already filed, nothing left for the nothing to *want.* *(he chuckles, wet.)* So I'm the one friend that can't be harvested out from under him. I stay to lose at dice of a morning so he's got *one* face that turns up every day, reliable as the dirt. *(quietly.)* Don't tell him I said so. He thinks it's the debt. Let him think it's the debt. A man who's buried eight can't bear to know he's being *pitied* by a corpse. Let it be dice. Dice he can stand.
+  enter: SET npc.marrow_truth, SET npc.grud_has_marrow, appr.garrow +4
+  auto: close
+node: know | Old Marrow
+  *(He wheezes a laugh.)* Does Grud *know.* *(he shakes his grey head, fond.)* 'Course he knows. He's a gravedigger, friend, not a fool — he knows a corpse when he plants one, and he's planted *me* a dozen times. *(he taps his temple, where the skin's gone to parchment.)* And I know he knows. And he knows I know he knows. *(he picks up the cup.)* But the *morning* he *says* it — the morning one of us admits I'm a dead man cheating a grieving friend at dice — that's the morning it has to *stop*, see. That's the morning I rest and he's alone again. *(quietly.)* So we don't say it. We just play. Some kindnesses can only survive in the *unsaid*, friend. Name them out loud and they die of the exposure. Now — you playing, or philosophizing? With me it's hard to do both; I've only the one expression left.
+  enter: SET npc.marrow_the_unsaid
+  auto: close
+node: rest | Old Marrow
+  *(He goes very still. The loaded die rolls from his slackening grey fingers and comes up, for once, an honest number.)* ...You'd send me off. *(quietly, without rancor.)* Aye. The debt's paid. Three months of squaring it, copper by copper. I *could* rest. *(he looks toward the graveyard gate, where the morning light is coming up gold.)* But here's the thing you've not weighed, sharp as you are: if I rest, Grud's alone of a morning. The harvest took his eight, and I'm the ninth face, the only one left that turns up reliable. *(he picks the honest die back up, and palms the loaded one again, deliberate.)* So no. Not yet. The debt's an excuse and we both know it. I'll stay till *Grud's* ready to lose his last friend — and that big daft grieving man is not ready, not near. *(he rattles the cup.)* Rest can wait. Friendship's the longer debt. Deal you in?
+  enter: SET npc.marrow_stays_for_grud, appr.garrow +3
+  auto: close
+node: deal | Old Marrow
+  *(He brightens, insofar as a corpse can.)* HA! A *living* one, sitting down to a dead man's game! *(he deals with grey, dextrous fingers.)* Now *this* is a morning. *(he leans in, conspiratorial.)* Fair warning, friend — I cheat. Shamelessly. It's the one vice the grave didn't cure. But I cheat *gentle*, just enough to keep things even, never enough to *win* — winning's rude, and besides, a corpse with money's got nowhere to spend it. *(he rolls; the loaded die obeys.)* See? Even. Always even. *(quietly, between rolls.)* That's the trick to staying, living or dead. Never get *ahead.* Get ahead and the game ends. Stay *even*, and it goes on forever, and forever's all a dead man's got to offer a grieving friend. Your roll.
+  auto: close
+node: deny | Old Marrow
+  *(He waves a grey hand, dismissive, the dice rattling.)* Pity from the living. Spare me. *(but the cup stills, just for a moment.)* It's the *debt*, friend, thirty years of dice debts, plain as the dirt under my nails. Nothing sentimental. *(he won't look at the graveyard gate.)* Now deal or shove off. The big fellow'll be back from his rounds soon, and he likes to think he's surprising me.
+  auto: close
+node: close | Old Marrow
+  *(He rattles the cup against the morning, a dead man cheating gently at the one honest table left, staying square with a grieving friend one copper at a time — and as you go, you hear Grud's cheerful boom approaching, and Marrow calls out "About time, you lummox, I've gone and *died* waiting," and the two of them laugh, the living and the dead, at the oldest joke either of them has.)*

@@ -98,6 +98,10 @@ Already competitive in depth; "superior" means **reactivity density**.
 
 - ✅ **6 companions** — approval → night-talks → personal quests → **4 romances** → epilogues
 - ✅ **34 fireside banters** reactive to choices, losses, bosses; rivalry/rupture arcs
+- ✅ **Dialogue at scale** *(v4.15.0)* — a `.dlg` → C# **dialogue compiler** (`tools/dlg-compile.py`) lets us
+  author BG3-volume branching dialogue in a readable DSL that compiles to the real runtime + validates
+  every reference headlessly. First flood: **8 on-voice companion banters / 44 nodes** (52 → 60 convos).
+  The force-multiplier for everything below. Verified.
 - ✅ **Combat barks** *(v3.93.0)* — companions react in-voice to crits, kills, an ally going down,
   a foe igniting, a wall-slam, and victory (present-aware, rate-limited). Verified.
 - ✅ **Story-flag-reactive barks** *(v3.98.0, Pillar 3 × 4)* — the line *changes with your run's flags*:
@@ -128,6 +132,10 @@ A genuinely novel premise (the **Wall of the Faithless**), 4 masks, 6 endings, t
 NG+ memory — arguably **already superior in concept**. "Superior" = wider consequence webs.
 
 - ✅ **167-flag reactivity graph**, six branching endings, personalized epilogues, NG+ memory
+- ✅ **Chapter dialogue spine** *(v4.16.0)* — a marquee branching conversation for **every chapter**
+  (Prologue → Act V): the Reservation, Tea's aftermath, the Sealed Stacks, the Audience, the Unmade's
+  Offer, the Last Returned, the Deathless Garden, the Convergence, the Name, the Ledger. **+30
+  conversations / +219 nodes** via the `.dlg` compiler; the game's dialogue more than doubled. Verified.
 - ✅ Browsable: Dialogue-tree viewer, Endings explorer, Flag-dependency graph, Saga map
 - 🔜 **Faction-outcome webs** — choices in one act visibly reshape later hubs
 - 🔜 **Deeper NG+** — the Lady *remembers specific* prior-run choices

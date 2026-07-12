@@ -6,8 +6,12 @@ UnitSpriteSkinner resolves a unit's sprite as Resources/Sprites/<displayName> ->
 <firstWord> -> <faction>. "Sister Garrow" and "Roen Alleywind" therefore never hit
 their own art (Garrow.png / their portrait) and fall back to a generic faction token.
 This copies the best available source art to the exact-name file (+ a fresh-GUID .meta
-cloned from the source's importer settings), so they show their own token. Idempotent;
-re-run after adding real art with the matching name to supersede these aliases.
+cloned from the source's importer settings), so they show their own token.
+
+SUPERSEDED for the default roster: tools/gen-tokens-v2.py now paints genuine
+distinct art at both exact names, so this script SKIPS any destination that
+already exists (copying over them would silently regress real art to a
+duplicate). Delete the destination first if you really want to re-alias.
 """
 import hashlib, os, re, shutil, sys
 
@@ -26,6 +30,8 @@ def main():
         dst = os.path.join(ROOT, dst_rel)
         if not os.path.exists(src):
             print(f"  skip {name}: source missing ({src_rel})"); continue
+        if os.path.exists(dst):
+            print(f"  skip {name}: real art already at {dst_rel} — not clobbering"); continue
         shutil.copyfile(src, dst)
         meta = open(src + ".meta").read()
         guid = hashlib.md5(dst_rel.encode()).hexdigest()

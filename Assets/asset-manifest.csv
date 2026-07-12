@@ -1070,281 +1070,554 @@ path,category,type,size,size_bytes,lfs
 "Assets/RPG Effect All Free/Free/Part 36/1782.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1783.png",uncategorized,png,131B,131,yes
 "Assets/RPG Effect All Free/Free/Part 36/1784.png",uncategorized,png,131B,131,yes
-"Assets/Resources/Art/DCSS/feat/altar_dark.png",uncategorized,png,20KB,19632,no
-"Assets/Resources/Art/DCSS/feat/altar_stone.png",uncategorized,png,1.2KB,1223,no
-"Assets/Resources/Art/DCSS/feat/door_closed.png",uncategorized,png,19KB,19266,no
-"Assets/Resources/Art/DCSS/feat/door_open.png",uncategorized,png,19KB,19008,no
-"Assets/Resources/Art/DCSS/feat/statue_archer.png",uncategorized,png,376B,376,no
-"Assets/Resources/Art/DCSS/feat/statue_dwarf.png",uncategorized,png,373B,373,no
-"Assets/Resources/Art/DCSS/feat/statue_metal.png",uncategorized,png,6.9KB,7024,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt0.png",uncategorized,png,672B,672,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt1.png",uncategorized,png,653B,653,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt2.png",uncategorized,png,623B,623,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt3.png",uncategorized,png,634B,634,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt4.png",uncategorized,png,676B,676,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt5.png",uncategorized,png,870B,870,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt6.png",uncategorized,png,913B,913,no
-"Assets/Resources/Art/DCSS/floor/grey_dirt7.png",uncategorized,png,772B,772,no
-"Assets/Resources/Art/DCSS/floor/infernal0.png",uncategorized,png,1.8KB,1771,no
-"Assets/Resources/Art/DCSS/floor/infernal1.png",uncategorized,png,1.8KB,1785,no
-"Assets/Resources/Art/DCSS/floor/infernal2.png",uncategorized,png,1.8KB,1799,no
-"Assets/Resources/Art/DCSS/floor/infernal3.png",uncategorized,png,1.4KB,1431,no
-"Assets/Resources/Art/DCSS/floor/marble1.png",uncategorized,png,434B,434,no
-"Assets/Resources/Art/DCSS/floor/marble2.png",uncategorized,png,437B,437,no
-"Assets/Resources/Art/DCSS/floor/marble3.png",uncategorized,png,833B,833,no
-"Assets/Resources/Art/DCSS/floor/marble4.png",uncategorized,png,440B,440,no
-"Assets/Resources/Art/DCSS/floor/pebble0.png",uncategorized,png,436B,436,no
-"Assets/Resources/Art/DCSS/floor/pebble1.png",uncategorized,png,447B,447,no
-"Assets/Resources/Art/DCSS/floor/pebble2.png",uncategorized,png,434B,434,no
-"Assets/Resources/Art/DCSS/floor/pebble3.png",uncategorized,png,435B,435,no
-"Assets/Resources/Art/DCSS/floor/sandstone0.png",uncategorized,png,1.2KB,1143,no
-"Assets/Resources/Art/DCSS/floor/sandstone1.png",uncategorized,png,1.2KB,1141,no
-"Assets/Resources/Art/DCSS/floor/sandstone2.png",uncategorized,png,1.2KB,1136,no
-"Assets/Resources/Art/DCSS/floor/sandstone3.png",uncategorized,png,1.2KB,1150,no
-"Assets/Resources/Art/DCSS/floor/sandstone4.png",uncategorized,png,1.2KB,1133,no
-"Assets/Resources/Art/DCSS/floor/tomb0.png",uncategorized,png,459B,459,no
-"Assets/Resources/Art/DCSS/floor/tomb1.png",uncategorized,png,478B,478,no
-"Assets/Resources/Art/DCSS/floor/tomb2.png",uncategorized,png,472B,472,no
-"Assets/Resources/Art/DCSS/floor/tomb3.png",uncategorized,png,469B,469,no
-"Assets/Resources/Art/DCSS/item/amulet.png",uncategorized,png,331B,331,no
-"Assets/Resources/Art/DCSS/item/book.png",uncategorized,png,295B,295,no
-"Assets/Resources/Art/DCSS/item/chain_mail.png",uncategorized,png,973B,973,no
-"Assets/Resources/Art/DCSS/item/dagger.png",uncategorized,png,442B,442,no
-"Assets/Resources/Art/DCSS/item/longsword.png",uncategorized,png,621B,621,no
-"Assets/Resources/Art/DCSS/item/mace.png",uncategorized,png,490B,490,no
-"Assets/Resources/Art/DCSS/item/potion.png",uncategorized,png,670B,670,no
-"Assets/Resources/Art/DCSS/item/quarterstaff.png",uncategorized,png,515B,515,no
-"Assets/Resources/Art/DCSS/item/robe.png",uncategorized,png,1.1KB,1078,no
-"Assets/Resources/Art/DCSS/item/scroll.png",uncategorized,png,324B,324,no
-"Assets/Resources/Art/DCSS/item/shield.png",uncategorized,png,421B,421,no
-"Assets/Resources/Art/DCSS/item/shortbow.png",uncategorized,png,750B,750,no
-"Assets/Resources/Art/DCSS/mon/arcane_sentinel.png",uncategorized,png,19KB,18670,no
-"Assets/Resources/Art/DCSS/mon/bladesinger.png",uncategorized,png,629B,629,no
-"Assets/Resources/Art/DCSS/mon/bone_avatar.png",uncategorized,png,23KB,23462,no
-"Assets/Resources/Art/DCSS/mon/bone_dragon.png",uncategorized,png,546B,546,no
-"Assets/Resources/Art/DCSS/mon/choir_shade.png",uncategorized,png,682B,682,no
-"Assets/Resources/Art/DCSS/mon/cinder_hound.png",uncategorized,png,506B,506,no
-"Assets/Resources/Art/DCSS/mon/clay_sentinel.png",uncategorized,png,541B,541,no
-"Assets/Resources/Art/DCSS/mon/cold_wraith.png",uncategorized,png,3.7KB,3700,no
-"Assets/Resources/Art/DCSS/mon/contract_devil.png",uncategorized,png,382B,382,no
-"Assets/Resources/Art/DCSS/mon/doomguide.png",uncategorized,png,23KB,23227,no
-"Assets/Resources/Art/DCSS/mon/eidolon.png",uncategorized,png,1.9KB,1845,no
-"Assets/Resources/Art/DCSS/mon/elf_annihilator.png",uncategorized,png,968B,968,no
-"Assets/Resources/Art/DCSS/mon/elf_archer.png",uncategorized,png,544B,544,no
-"Assets/Resources/Art/DCSS/mon/elf_deathmage.png",uncategorized,png,23KB,23539,no
-"Assets/Resources/Art/DCSS/mon/elf_knight.png",uncategorized,png,843B,843,no
-"Assets/Resources/Art/DCSS/mon/elf_sorcerer.png",uncategorized,png,818B,818,no
-"Assets/Resources/Art/DCSS/mon/flying_skull.png",uncategorized,png,23KB,23462,no
-"Assets/Resources/Art/DCSS/mon/herald_unmade.png",uncategorized,png,1.6KB,1632,no
-"Assets/Resources/Art/DCSS/mon/hero_human.png",uncategorized,png,1.3KB,1315,no
-"Assets/Resources/Art/DCSS/mon/hero_knight.png",uncategorized,png,460B,460,no
-"Assets/Resources/Art/DCSS/mon/hero_mage.png",uncategorized,png,23KB,23515,no
-"Assets/Resources/Art/DCSS/mon/hero_priestess.png",uncategorized,png,481B,481,no
-"Assets/Resources/Art/DCSS/mon/hero_warden.png",uncategorized,png,635B,635,no
-"Assets/Resources/Art/DCSS/mon/hero_warlock.png",uncategorized,png,23KB,23544,no
-"Assets/Resources/Art/DCSS/mon/hollow_cantor.png",uncategorized,png,538B,538,no
-"Assets/Resources/Art/DCSS/mon/imp.png",uncategorized,png,715B,715,no
-"Assets/Resources/Art/DCSS/mon/inquisitor.png",uncategorized,png,527B,527,no
-"Assets/Resources/Art/DCSS/mon/mythallar_colossus.png",uncategorized,png,597B,597,no
-"Assets/Resources/Art/DCSS/mon/pale_cantor.png",uncategorized,png,1.1KB,1066,no
-"Assets/Resources/Art/DCSS/mon/restless_dead.png",uncategorized,png,436B,436,no
-"Assets/Resources/Art/DCSS/mon/returned_ghoul.png",uncategorized,png,1.4KB,1376,no
-"Assets/Resources/Art/DCSS/mon/returned_wight.png",uncategorized,png,590B,590,no
-"Assets/Resources/Art/DCSS/mon/returned_zombie.png",uncategorized,png,625B,625,no
-"Assets/Resources/Art/DCSS/mon/sorrow_wraith.png",uncategorized,png,3.1KB,3147,no
-"Assets/Resources/Art/DCSS/mon/templar.png",uncategorized,png,433B,433,no
-"Assets/Resources/Art/DCSS/mon/unmade_aberration.png",uncategorized,png,520B,520,no
-"Assets/Resources/Art/DCSS/mon/unmade_small.png",uncategorized,png,23KB,23333,no
-"Assets/Resources/Art/DCSS/mon/wall_wraith.png",uncategorized,png,1.3KB,1301,no
-"Assets/Resources/Art/DCSS/mon/war_construct.png",uncategorized,png,17KB,16406,no
-"Assets/Resources/Art/DCSS/mon/war_gargoyle.png",uncategorized,png,2.9KB,2950,no
-"Assets/Resources/Art/DCSS/mon/weave_construct.png",uncategorized,png,2.1KB,2097,no
-"Assets/Resources/Art/DCSS/mon/zealot.png",uncategorized,png,868B,868,no
-"Assets/Resources/Art/DCSS/wall/brick_brown0.png",uncategorized,png,462B,462,no
-"Assets/Resources/Art/DCSS/wall/brick_brown1.png",uncategorized,png,442B,442,no
-"Assets/Resources/Art/DCSS/wall/brick_brown2.png",uncategorized,png,478B,478,no
-"Assets/Resources/Art/DCSS/wall/brick_brown3.png",uncategorized,png,454B,454,no
-"Assets/Resources/Art/DCSS/wall/brick_dark0.png",uncategorized,png,2.0KB,2017,no
-"Assets/Resources/Art/DCSS/wall/brick_dark1.png",uncategorized,png,2.0KB,1963,no
-"Assets/Resources/Art/DCSS/wall/brick_dark2.png",uncategorized,png,2.1KB,2091,no
-"Assets/Resources/Art/DCSS/wall/brick_dark3.png",uncategorized,png,2.2KB,2157,no
-"Assets/Resources/Art/DCSS/wall/brick_dark4.png",uncategorized,png,1.8KB,1791,no
-"Assets/Resources/Art/DCSS/wall/brick_dark5.png",uncategorized,png,2.3KB,2286,no
-"Assets/Resources/Art/DCSS/wall/brick_dark6.png",uncategorized,png,2.3KB,2323,no
-"Assets/Resources/Art/DCSS/wall/brick_dark7.png",uncategorized,png,2.4KB,2413,no
-"Assets/Resources/Art/DCSS/wall/marble_wall1.png",uncategorized,png,813B,813,no
-"Assets/Resources/Art/DCSS/wall/marble_wall2.png",uncategorized,png,409B,409,no
-"Assets/Resources/Art/DCSS/wall/marble_wall3.png",uncategorized,png,387B,387,no
-"Assets/Resources/Art/DCSS/wall/marble_wall4.png",uncategorized,png,415B,415,no
-"Assets/Resources/Art/DCSS/wall/stone_dark0.png",uncategorized,png,960B,960,no
-"Assets/Resources/Art/DCSS/wall/stone_dark1.png",uncategorized,png,989B,989,no
-"Assets/Resources/Art/DCSS/wall/stone_dark2.png",uncategorized,png,966B,966,no
-"Assets/Resources/Art/DCSS/wall/stone_dark3.png",uncategorized,png,976B,976,no
-"Assets/Resources/Art/DCSS/wall/tomb_wall0.png",uncategorized,png,462B,462,no
-"Assets/Resources/Art/DCSS/wall/tomb_wall1.png",uncategorized,png,494B,494,no
-"Assets/Resources/Art/DCSS/wall/tomb_wall2.png",uncategorized,png,504B,504,no
-"Assets/Resources/Art/DCSS/wall/tomb_wall3.png",uncategorized,png,511B,511,no
-"Assets/Resources/FX/heal/0.png",uncategorized,png,391B,391,no
-"Assets/Resources/FX/heal/1.png",uncategorized,png,384B,384,no
-"Assets/Resources/FX/heal/2.png",uncategorized,png,385B,385,no
-"Assets/Resources/FX/heal/3.png",uncategorized,png,370B,370,no
-"Assets/Resources/FX/heal/4.png",uncategorized,png,377B,377,no
-"Assets/Resources/FX/heal/5.png",uncategorized,png,422B,422,no
-"Assets/Resources/FX/impact/0.png",uncategorized,png,318B,318,no
-"Assets/Resources/FX/impact/1.png",uncategorized,png,338B,338,no
-"Assets/Resources/FX/impact/2.png",uncategorized,png,427B,427,no
-"Assets/Resources/FX/impact/3.png",uncategorized,png,496B,496,no
-"Assets/Resources/FX/impact/4.png",uncategorized,png,470B,470,no
-"Assets/Resources/FX/impact/5.png",uncategorized,png,483B,483,no
-"Assets/Resources/FX/impact_acid/0.png",uncategorized,png,314B,314,no
-"Assets/Resources/FX/impact_acid/1.png",uncategorized,png,332B,332,no
-"Assets/Resources/FX/impact_acid/2.png",uncategorized,png,464B,464,no
-"Assets/Resources/FX/impact_acid/3.png",uncategorized,png,490B,490,no
-"Assets/Resources/FX/impact_acid/4.png",uncategorized,png,504B,504,no
-"Assets/Resources/FX/impact_acid/5.png",uncategorized,png,535B,535,no
-"Assets/Resources/FX/impact_dark/0.png",uncategorized,png,328B,328,no
-"Assets/Resources/FX/impact_dark/1.png",uncategorized,png,325B,325,no
-"Assets/Resources/FX/impact_dark/2.png",uncategorized,png,460B,460,no
-"Assets/Resources/FX/impact_dark/3.png",uncategorized,png,478B,478,no
-"Assets/Resources/FX/impact_dark/4.png",uncategorized,png,555B,555,no
-"Assets/Resources/FX/impact_dark/5.png",uncategorized,png,502B,502,no
-"Assets/Resources/FX/impact_fire/0.png",uncategorized,png,320B,320,no
-"Assets/Resources/FX/impact_fire/1.png",uncategorized,png,345B,345,no
-"Assets/Resources/FX/impact_fire/2.png",uncategorized,png,468B,468,no
-"Assets/Resources/FX/impact_fire/3.png",uncategorized,png,482B,482,no
-"Assets/Resources/FX/impact_fire/4.png",uncategorized,png,510B,510,no
-"Assets/Resources/FX/impact_fire/5.png",uncategorized,png,546B,546,no
-"Assets/Resources/FX/impact_holy/0.png",uncategorized,png,318B,318,no
-"Assets/Resources/FX/impact_holy/1.png",uncategorized,png,295B,295,no
-"Assets/Resources/FX/impact_holy/2.png",uncategorized,png,460B,460,no
-"Assets/Resources/FX/impact_holy/3.png",uncategorized,png,500B,500,no
-"Assets/Resources/FX/impact_holy/4.png",uncategorized,png,512B,512,no
-"Assets/Resources/FX/impact_holy/5.png",uncategorized,png,551B,551,no
-"Assets/Resources/FX/impact_ice/0.png",uncategorized,png,314B,314,no
-"Assets/Resources/FX/impact_ice/1.png",uncategorized,png,316B,316,no
-"Assets/Resources/FX/impact_ice/2.png",uncategorized,png,435B,435,no
-"Assets/Resources/FX/impact_ice/3.png",uncategorized,png,465B,465,no
-"Assets/Resources/FX/impact_ice/4.png",uncategorized,png,505B,505,no
-"Assets/Resources/FX/impact_ice/5.png",uncategorized,png,522B,522,no
-"Assets/Resources/FX/impact_lightning/0.png",uncategorized,png,322B,322,no
-"Assets/Resources/FX/impact_lightning/1.png",uncategorized,png,313B,313,no
-"Assets/Resources/FX/impact_lightning/2.png",uncategorized,png,461B,461,no
-"Assets/Resources/FX/impact_lightning/3.png",uncategorized,png,473B,473,no
-"Assets/Resources/FX/impact_lightning/4.png",uncategorized,png,553B,553,no
-"Assets/Resources/FX/impact_lightning/5.png",uncategorized,png,524B,524,no
-"Assets/Resources/FX/impact_poison/0.png",uncategorized,png,330B,330,no
-"Assets/Resources/FX/impact_poison/1.png",uncategorized,png,334B,334,no
-"Assets/Resources/FX/impact_poison/2.png",uncategorized,png,450B,450,no
-"Assets/Resources/FX/impact_poison/3.png",uncategorized,png,484B,484,no
-"Assets/Resources/FX/impact_poison/4.png",uncategorized,png,503B,503,no
-"Assets/Resources/FX/impact_poison/5.png",uncategorized,png,494B,494,no
-"Assets/Resources/Music/Camp.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Combat.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Court.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Explore.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Fugue.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Hub.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Music/Vault.wav",uncategorized,wav,517KB,529244,no
-"Assets/Resources/Portraits/A Faithless soul.png",uncategorized,png,58KB,59354,no
-"Assets/Resources/Portraits/A Grey Gravedigger.png",uncategorized,png,76KB,77799,no
-"Assets/Resources/Portraits/A Half-Unmade Voice.png",uncategorized,png,80KB,81002,no
-"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",uncategorized,png,81KB,82310,no
-"Assets/Resources/Portraits/A girl in the Wall.png",uncategorized,png,58KB,58657,no
-"Assets/Resources/Portraits/Aldric Morn.png",uncategorized,png,86KB,87743,no
-"Assets/Resources/Portraits/Brother Sere.png",uncategorized,png,87KB,88128,no
-"Assets/Resources/Portraits/Collector Vane.png",uncategorized,png,80KB,81764,no
-"Assets/Resources/Portraits/Ferryman.png",uncategorized,png,84KB,85885,no
-"Assets/Resources/Portraits/Flaming Fist.png",uncategorized,png,83KB,84842,no
-"Assets/Resources/Portraits/Garrow.png",uncategorized,png,84KB,85036,no
-"Assets/Resources/Portraits/Harper Handler.png",uncategorized,png,81KB,82505,no
-"Assets/Resources/Portraits/Hensley, dying.png",uncategorized,png,83KB,84241,no
-"Assets/Resources/Portraits/Herald of the Gate.png",uncategorized,png,81KB,82477,no
-"Assets/Resources/Portraits/High Lord Aelryth.png",uncategorized,png,80KB,81429,no
-"Assets/Resources/Portraits/Ilfaeril.png",uncategorized,png,82KB,83956,no
-"Assets/Resources/Portraits/Justiciar Veld.png",uncategorized,png,86KB,87168,no
-"Assets/Resources/Portraits/Maerin.png",uncategorized,png,78KB,79150,no
-"Assets/Resources/Portraits/Mhaere.png",uncategorized,png,83KB,84810,no
-"Assets/Resources/Portraits/Mother Cass.png",uncategorized,png,86KB,87563,no
-"Assets/Resources/Portraits/NPC.png",uncategorized,png,80KB,81477,no
-"Assets/Resources/Portraits/Naeve.png",uncategorized,png,90KB,91419,no
-"Assets/Resources/Portraits/Old Davyn.png",uncategorized,png,80KB,81890,no
-"Assets/Resources/Portraits/Quill.png",uncategorized,png,77KB,78794,no
-"Assets/Resources/Portraits/Roen Alleywind.png",uncategorized,png,81KB,82758,no
-"Assets/Resources/Portraits/Roen.png",uncategorized,png,82KB,83224,no
-"Assets/Resources/Portraits/Sable.png",uncategorized,png,80KB,81332,no
-"Assets/Resources/Portraits/Sergeant Kallia.png",uncategorized,png,85KB,86955,no
-"Assets/Resources/Portraits/Sister Garrow.png",uncategorized,png,81KB,82842,no
-"Assets/Resources/Portraits/Tally.png",uncategorized,png,79KB,80779,no
-"Assets/Resources/Portraits/Tamsin.png",uncategorized,png,79KB,79915,no
-"Assets/Resources/Portraits/The Pale Cantor.png",uncategorized,png,74KB,75288,no
-"Assets/Resources/Portraits/The Returned.png",uncategorized,png,71KB,72219,no
-"Assets/Resources/Portraits/The unclaimed.png",uncategorized,png,57KB,58264,no
-"Assets/Resources/Portraits/Vaelin (an echo).png",uncategorized,png,82KB,83207,no
-"Assets/Resources/Portraits/Varra.png",uncategorized,png,83KB,84432,no
-"Assets/Resources/Portraits/Wrenna Alleywind.png",uncategorized,png,80KB,81286,no
-"Assets/Resources/SFX/crit.wav",uncategorized,wav,13KB,12392,no
-"Assets/Resources/SFX/deed.wav",uncategorized,wav,15KB,15038,no
-"Assets/Resources/SFX/heal.wav",uncategorized,wav,20KB,19888,no
-"Assets/Resources/SFX/hit.wav",uncategorized,wav,7.0KB,7100,no
-"Assets/Resources/SFX/hit_acid.wav",uncategorized,wav,11KB,11068,no
-"Assets/Resources/SFX/hit_dark.wav",uncategorized,wav,13KB,13274,no
-"Assets/Resources/SFX/hit_fire.wav",uncategorized,wav,9.6KB,9746,no
-"Assets/Resources/SFX/hit_holy.wav",uncategorized,wav,13KB,13274,no
-"Assets/Resources/SFX/hit_ice.wav",uncategorized,wav,7.8KB,7982,no
-"Assets/Resources/SFX/hit_lightning.wav",uncategorized,wav,5.3KB,5336,no
-"Assets/Resources/SFX/hit_physical.wav",uncategorized,wav,7.0KB,7100,no
-"Assets/Resources/SFX/hit_poison.wav",uncategorized,wav,13KB,13274,no
-"Assets/Resources/SFX/levelup.wav",uncategorized,wav,23KB,22972,no
-"Assets/Resources/SFX/miss.wav",uncategorized,wav,9.6KB,9746,no
-"Assets/Resources/Sprites/A Sorrow of the Unmade.png",uncategorized,png,6.0KB,6053,no
-"Assets/Resources/Sprites/Ally.png",uncategorized,png,3.5KB,3563,no
-"Assets/Resources/Sprites/Arcane Sentinel.png",uncategorized,png,5.6KB,5691,no
-"Assets/Resources/Sprites/Arcanist Revenant.png",uncategorized,png,5.7KB,5738,no
-"Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",uncategorized,png,5.9KB,5958,no
-"Assets/Resources/Sprites/Choir Herald.png",uncategorized,png,5.4KB,5522,no
-"Assets/Resources/Sprites/Cinder-Hound.png",uncategorized,png,5.3KB,5338,no
-"Assets/Resources/Sprites/Contract-Devil.png",uncategorized,png,6.6KB,6683,no
-"Assets/Resources/Sprites/Crown-War Revenant.png",uncategorized,png,6.2KB,6302,no
-"Assets/Resources/Sprites/Damned Shade.png",uncategorized,png,6.3KB,6380,no
-"Assets/Resources/Sprites/Doomguide Enforcer.png",uncategorized,png,5.2KB,5315,no
-"Assets/Resources/Sprites/Doomguide Interrogator.png",uncategorized,png,5.0KB,5096,no
-"Assets/Resources/Sprites/Doomguide Knight.png",uncategorized,png,5.6KB,5665,no
-"Assets/Resources/Sprites/Echo of the Verdict.png",uncategorized,png,5.0KB,5072,no
-"Assets/Resources/Sprites/Enemy.png",uncategorized,png,4.1KB,4157,no
-"Assets/Resources/Sprites/Garrow.png",uncategorized,png,5.1KB,5194,no
-"Assets/Resources/Sprites/God-Touched Horror.png",uncategorized,png,5.1KB,5166,no
-"Assets/Resources/Sprites/Ilfaeril.png",uncategorized,png,3.1KB,3140,no
-"Assets/Resources/Sprites/Imp of the Fine Print.png",uncategorized,png,4.1KB,4136,no
-"Assets/Resources/Sprites/Justiciar Veld.png",uncategorized,png,6.1KB,6155,no
-"Assets/Resources/Sprites/Kelemvorite Zealot.png",uncategorized,png,5.3KB,5425,no
-"Assets/Resources/Sprites/Maerin.png",uncategorized,png,4.6KB,4612,no
-"Assets/Resources/Sprites/Mhaere.png",uncategorized,png,4.2KB,4296,no
-"Assets/Resources/Sprites/Mythallar Ward.png",uncategorized,png,6.2KB,6314,no
-"Assets/Resources/Sprites/Naeve.png",uncategorized,png,4.4KB,4455,no
-"Assets/Resources/Sprites/Netherese War-Construct.png",uncategorized,png,6.1KB,6160,no
-"Assets/Resources/Sprites/Neutral.png",uncategorized,png,4.5KB,4565,no
-"Assets/Resources/Sprites/Player.png",uncategorized,png,3.9KB,3986,no
-"Assets/Resources/Sprites/Quill, the Broker.png",uncategorized,png,4.8KB,4912,no
-"Assets/Resources/Sprites/Quill.png",uncategorized,png,4.2KB,4230,no
-"Assets/Resources/Sprites/Roen Alleywind.png",uncategorized,png,8.8KB,8991,no
-"Assets/Resources/Sprites/Sable.png",uncategorized,png,5.0KB,5046,no
-"Assets/Resources/Sprites/Shadow-Bound Sentinel.png",uncategorized,png,5.5KB,5630,no
-"Assets/Resources/Sprites/Sister Garrow.png",uncategorized,png,5.1KB,5194,no
-"Assets/Resources/Sprites/Sorrow-wraith.png",uncategorized,png,6.1KB,6239,no
-"Assets/Resources/Sprites/Spellplague Aberration.png",uncategorized,png,6.1KB,6236,no
-"Assets/Resources/Sprites/Tamsin.png",uncategorized,png,4.0KB,4020,no
-"Assets/Resources/Sprites/Templar Inquisitor.png",uncategorized,png,4.6KB,4704,no
-"Assets/Resources/Sprites/The Avatar of Bone.png",uncategorized,png,5.7KB,5741,no
-"Assets/Resources/Sprites/The First Unmade.png",uncategorized,png,4.7KB,4761,no
-"Assets/Resources/Sprites/The Herald of the Unmade.png",uncategorized,png,4.7KB,4748,no
-"Assets/Resources/Sprites/The Hollow Cantor.png",uncategorized,png,5.1KB,5196,no
-"Assets/Resources/Sprites/The Mythallar Colossus.png",uncategorized,png,6.0KB,6090,no
-"Assets/Resources/Sprites/The Pale Cantor.png",uncategorized,png,5.2KB,5251,no
-"Assets/Resources/Sprites/The Unbound Maw.png",uncategorized,png,5.4KB,5493,no
-"Assets/Resources/Sprites/The Unbound.png",uncategorized,png,5.2KB,5278,no
-"Assets/Resources/Sprites/Unmade Aberration.png",uncategorized,png,5.5KB,5604,no
-"Assets/Resources/Sprites/Unmaking Acolyte.png",uncategorized,png,5.9KB,5966,no
-"Assets/Resources/Sprites/Unmaking Zealot.png",uncategorized,png,5.2KB,5255,no
-"Assets/Resources/Sprites/Varra.png",uncategorized,png,4.3KB,4323,no
-"Assets/Resources/Sprites/Vengeful Shade.png",uncategorized,png,6.8KB,6962,no
-"Assets/Resources/Sprites/Weave-wraith.png",uncategorized,png,6.5KB,6645,no
+"Assets/Resources/Art/DCSS/feat/altar_dark.png",area-art,png,20KB,19632,no
+"Assets/Resources/Art/DCSS/feat/altar_stone.png",area-art,png,1.2KB,1223,no
+"Assets/Resources/Art/DCSS/feat/door_closed.png",area-art,png,19KB,19266,no
+"Assets/Resources/Art/DCSS/feat/door_open.png",area-art,png,19KB,19008,no
+"Assets/Resources/Art/DCSS/feat/statue_archer.png",area-art,png,376B,376,no
+"Assets/Resources/Art/DCSS/feat/statue_dwarf.png",area-art,png,373B,373,no
+"Assets/Resources/Art/DCSS/feat/statue_metal.png",area-art,png,6.9KB,7024,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt0.png",area-art,png,672B,672,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt1.png",area-art,png,653B,653,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt2.png",area-art,png,623B,623,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt3.png",area-art,png,634B,634,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt4.png",area-art,png,676B,676,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt5.png",area-art,png,870B,870,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt6.png",area-art,png,913B,913,no
+"Assets/Resources/Art/DCSS/floor/grey_dirt7.png",area-art,png,772B,772,no
+"Assets/Resources/Art/DCSS/floor/infernal0.png",area-art,png,1.8KB,1771,no
+"Assets/Resources/Art/DCSS/floor/infernal1.png",area-art,png,1.8KB,1785,no
+"Assets/Resources/Art/DCSS/floor/infernal2.png",area-art,png,1.8KB,1799,no
+"Assets/Resources/Art/DCSS/floor/infernal3.png",area-art,png,1.4KB,1431,no
+"Assets/Resources/Art/DCSS/floor/marble1.png",area-art,png,434B,434,no
+"Assets/Resources/Art/DCSS/floor/marble2.png",area-art,png,437B,437,no
+"Assets/Resources/Art/DCSS/floor/marble3.png",area-art,png,833B,833,no
+"Assets/Resources/Art/DCSS/floor/marble4.png",area-art,png,440B,440,no
+"Assets/Resources/Art/DCSS/floor/pebble0.png",area-art,png,436B,436,no
+"Assets/Resources/Art/DCSS/floor/pebble1.png",area-art,png,447B,447,no
+"Assets/Resources/Art/DCSS/floor/pebble2.png",area-art,png,434B,434,no
+"Assets/Resources/Art/DCSS/floor/pebble3.png",area-art,png,435B,435,no
+"Assets/Resources/Art/DCSS/floor/sandstone0.png",area-art,png,1.2KB,1143,no
+"Assets/Resources/Art/DCSS/floor/sandstone1.png",area-art,png,1.2KB,1141,no
+"Assets/Resources/Art/DCSS/floor/sandstone2.png",area-art,png,1.2KB,1136,no
+"Assets/Resources/Art/DCSS/floor/sandstone3.png",area-art,png,1.2KB,1150,no
+"Assets/Resources/Art/DCSS/floor/sandstone4.png",area-art,png,1.2KB,1133,no
+"Assets/Resources/Art/DCSS/floor/tomb0.png",area-art,png,459B,459,no
+"Assets/Resources/Art/DCSS/floor/tomb1.png",area-art,png,478B,478,no
+"Assets/Resources/Art/DCSS/floor/tomb2.png",area-art,png,472B,472,no
+"Assets/Resources/Art/DCSS/floor/tomb3.png",area-art,png,469B,469,no
+"Assets/Resources/Art/DCSS/item/amulet.png",area-art,png,331B,331,no
+"Assets/Resources/Art/DCSS/item/book.png",area-art,png,295B,295,no
+"Assets/Resources/Art/DCSS/item/chain_mail.png",area-art,png,973B,973,no
+"Assets/Resources/Art/DCSS/item/dagger.png",area-art,png,442B,442,no
+"Assets/Resources/Art/DCSS/item/longsword.png",area-art,png,621B,621,no
+"Assets/Resources/Art/DCSS/item/mace.png",area-art,png,490B,490,no
+"Assets/Resources/Art/DCSS/item/potion.png",area-art,png,670B,670,no
+"Assets/Resources/Art/DCSS/item/quarterstaff.png",area-art,png,515B,515,no
+"Assets/Resources/Art/DCSS/item/robe.png",area-art,png,1.1KB,1078,no
+"Assets/Resources/Art/DCSS/item/scroll.png",area-art,png,324B,324,no
+"Assets/Resources/Art/DCSS/item/shield.png",area-art,png,421B,421,no
+"Assets/Resources/Art/DCSS/item/shortbow.png",area-art,png,750B,750,no
+"Assets/Resources/Art/DCSS/mon/arcane_sentinel.png",area-art,png,19KB,18670,no
+"Assets/Resources/Art/DCSS/mon/bladesinger.png",area-art,png,629B,629,no
+"Assets/Resources/Art/DCSS/mon/bone_avatar.png",area-art,png,23KB,23462,no
+"Assets/Resources/Art/DCSS/mon/bone_dragon.png",area-art,png,546B,546,no
+"Assets/Resources/Art/DCSS/mon/choir_shade.png",area-art,png,682B,682,no
+"Assets/Resources/Art/DCSS/mon/cinder_hound.png",area-art,png,506B,506,no
+"Assets/Resources/Art/DCSS/mon/clay_sentinel.png",area-art,png,541B,541,no
+"Assets/Resources/Art/DCSS/mon/cold_wraith.png",area-art,png,3.7KB,3700,no
+"Assets/Resources/Art/DCSS/mon/contract_devil.png",area-art,png,382B,382,no
+"Assets/Resources/Art/DCSS/mon/doomguide.png",area-art,png,23KB,23227,no
+"Assets/Resources/Art/DCSS/mon/eidolon.png",area-art,png,1.9KB,1845,no
+"Assets/Resources/Art/DCSS/mon/elf_annihilator.png",area-art,png,968B,968,no
+"Assets/Resources/Art/DCSS/mon/elf_archer.png",area-art,png,544B,544,no
+"Assets/Resources/Art/DCSS/mon/elf_deathmage.png",area-art,png,23KB,23539,no
+"Assets/Resources/Art/DCSS/mon/elf_knight.png",area-art,png,843B,843,no
+"Assets/Resources/Art/DCSS/mon/elf_sorcerer.png",area-art,png,818B,818,no
+"Assets/Resources/Art/DCSS/mon/flying_skull.png",area-art,png,23KB,23462,no
+"Assets/Resources/Art/DCSS/mon/herald_unmade.png",area-art,png,1.6KB,1632,no
+"Assets/Resources/Art/DCSS/mon/hero_human.png",area-art,png,1.3KB,1315,no
+"Assets/Resources/Art/DCSS/mon/hero_knight.png",area-art,png,460B,460,no
+"Assets/Resources/Art/DCSS/mon/hero_mage.png",area-art,png,23KB,23515,no
+"Assets/Resources/Art/DCSS/mon/hero_priestess.png",area-art,png,481B,481,no
+"Assets/Resources/Art/DCSS/mon/hero_warden.png",area-art,png,635B,635,no
+"Assets/Resources/Art/DCSS/mon/hero_warlock.png",area-art,png,23KB,23544,no
+"Assets/Resources/Art/DCSS/mon/hollow_cantor.png",area-art,png,538B,538,no
+"Assets/Resources/Art/DCSS/mon/imp.png",area-art,png,715B,715,no
+"Assets/Resources/Art/DCSS/mon/inquisitor.png",area-art,png,527B,527,no
+"Assets/Resources/Art/DCSS/mon/mythallar_colossus.png",area-art,png,597B,597,no
+"Assets/Resources/Art/DCSS/mon/pale_cantor.png",area-art,png,1.1KB,1066,no
+"Assets/Resources/Art/DCSS/mon/restless_dead.png",area-art,png,436B,436,no
+"Assets/Resources/Art/DCSS/mon/returned_ghoul.png",area-art,png,1.4KB,1376,no
+"Assets/Resources/Art/DCSS/mon/returned_wight.png",area-art,png,590B,590,no
+"Assets/Resources/Art/DCSS/mon/returned_zombie.png",area-art,png,625B,625,no
+"Assets/Resources/Art/DCSS/mon/sorrow_wraith.png",area-art,png,3.1KB,3147,no
+"Assets/Resources/Art/DCSS/mon/templar.png",area-art,png,433B,433,no
+"Assets/Resources/Art/DCSS/mon/unmade_aberration.png",area-art,png,520B,520,no
+"Assets/Resources/Art/DCSS/mon/unmade_small.png",area-art,png,23KB,23333,no
+"Assets/Resources/Art/DCSS/mon/wall_wraith.png",area-art,png,1.3KB,1301,no
+"Assets/Resources/Art/DCSS/mon/war_construct.png",area-art,png,17KB,16406,no
+"Assets/Resources/Art/DCSS/mon/war_gargoyle.png",area-art,png,2.9KB,2950,no
+"Assets/Resources/Art/DCSS/mon/weave_construct.png",area-art,png,2.1KB,2097,no
+"Assets/Resources/Art/DCSS/mon/zealot.png",area-art,png,868B,868,no
+"Assets/Resources/Art/DCSS/wall/brick_brown0.png",area-art,png,462B,462,no
+"Assets/Resources/Art/DCSS/wall/brick_brown1.png",area-art,png,442B,442,no
+"Assets/Resources/Art/DCSS/wall/brick_brown2.png",area-art,png,478B,478,no
+"Assets/Resources/Art/DCSS/wall/brick_brown3.png",area-art,png,454B,454,no
+"Assets/Resources/Art/DCSS/wall/brick_dark0.png",area-art,png,2.0KB,2017,no
+"Assets/Resources/Art/DCSS/wall/brick_dark1.png",area-art,png,2.0KB,1963,no
+"Assets/Resources/Art/DCSS/wall/brick_dark2.png",area-art,png,2.1KB,2091,no
+"Assets/Resources/Art/DCSS/wall/brick_dark3.png",area-art,png,2.2KB,2157,no
+"Assets/Resources/Art/DCSS/wall/brick_dark4.png",area-art,png,1.8KB,1791,no
+"Assets/Resources/Art/DCSS/wall/brick_dark5.png",area-art,png,2.3KB,2286,no
+"Assets/Resources/Art/DCSS/wall/brick_dark6.png",area-art,png,2.3KB,2323,no
+"Assets/Resources/Art/DCSS/wall/brick_dark7.png",area-art,png,2.4KB,2413,no
+"Assets/Resources/Art/DCSS/wall/marble_wall1.png",area-art,png,813B,813,no
+"Assets/Resources/Art/DCSS/wall/marble_wall2.png",area-art,png,409B,409,no
+"Assets/Resources/Art/DCSS/wall/marble_wall3.png",area-art,png,387B,387,no
+"Assets/Resources/Art/DCSS/wall/marble_wall4.png",area-art,png,415B,415,no
+"Assets/Resources/Art/DCSS/wall/stone_dark0.png",area-art,png,960B,960,no
+"Assets/Resources/Art/DCSS/wall/stone_dark1.png",area-art,png,989B,989,no
+"Assets/Resources/Art/DCSS/wall/stone_dark2.png",area-art,png,966B,966,no
+"Assets/Resources/Art/DCSS/wall/stone_dark3.png",area-art,png,976B,976,no
+"Assets/Resources/Art/DCSS/wall/tomb_wall0.png",area-art,png,462B,462,no
+"Assets/Resources/Art/DCSS/wall/tomb_wall1.png",area-art,png,494B,494,no
+"Assets/Resources/Art/DCSS/wall/tomb_wall2.png",area-art,png,504B,504,no
+"Assets/Resources/Art/DCSS/wall/tomb_wall3.png",area-art,png,511B,511,no
+"Assets/Resources/FX/heal/0.png",fx,png,391B,391,no
+"Assets/Resources/FX/heal/1.png",fx,png,384B,384,no
+"Assets/Resources/FX/heal/2.png",fx,png,385B,385,no
+"Assets/Resources/FX/heal/3.png",fx,png,370B,370,no
+"Assets/Resources/FX/heal/4.png",fx,png,377B,377,no
+"Assets/Resources/FX/heal/5.png",fx,png,422B,422,no
+"Assets/Resources/FX/impact/0.png",fx,png,318B,318,no
+"Assets/Resources/FX/impact/1.png",fx,png,338B,338,no
+"Assets/Resources/FX/impact/2.png",fx,png,427B,427,no
+"Assets/Resources/FX/impact/3.png",fx,png,496B,496,no
+"Assets/Resources/FX/impact/4.png",fx,png,470B,470,no
+"Assets/Resources/FX/impact/5.png",fx,png,483B,483,no
+"Assets/Resources/FX/impact_acid/0.png",fx,png,314B,314,no
+"Assets/Resources/FX/impact_acid/1.png",fx,png,332B,332,no
+"Assets/Resources/FX/impact_acid/2.png",fx,png,464B,464,no
+"Assets/Resources/FX/impact_acid/3.png",fx,png,490B,490,no
+"Assets/Resources/FX/impact_acid/4.png",fx,png,504B,504,no
+"Assets/Resources/FX/impact_acid/5.png",fx,png,535B,535,no
+"Assets/Resources/FX/impact_dark/0.png",fx,png,328B,328,no
+"Assets/Resources/FX/impact_dark/1.png",fx,png,325B,325,no
+"Assets/Resources/FX/impact_dark/2.png",fx,png,460B,460,no
+"Assets/Resources/FX/impact_dark/3.png",fx,png,478B,478,no
+"Assets/Resources/FX/impact_dark/4.png",fx,png,555B,555,no
+"Assets/Resources/FX/impact_dark/5.png",fx,png,502B,502,no
+"Assets/Resources/FX/impact_fire/0.png",fx,png,320B,320,no
+"Assets/Resources/FX/impact_fire/1.png",fx,png,345B,345,no
+"Assets/Resources/FX/impact_fire/2.png",fx,png,468B,468,no
+"Assets/Resources/FX/impact_fire/3.png",fx,png,482B,482,no
+"Assets/Resources/FX/impact_fire/4.png",fx,png,510B,510,no
+"Assets/Resources/FX/impact_fire/5.png",fx,png,546B,546,no
+"Assets/Resources/FX/impact_holy/0.png",fx,png,318B,318,no
+"Assets/Resources/FX/impact_holy/1.png",fx,png,295B,295,no
+"Assets/Resources/FX/impact_holy/2.png",fx,png,460B,460,no
+"Assets/Resources/FX/impact_holy/3.png",fx,png,500B,500,no
+"Assets/Resources/FX/impact_holy/4.png",fx,png,512B,512,no
+"Assets/Resources/FX/impact_holy/5.png",fx,png,551B,551,no
+"Assets/Resources/FX/impact_ice/0.png",fx,png,314B,314,no
+"Assets/Resources/FX/impact_ice/1.png",fx,png,316B,316,no
+"Assets/Resources/FX/impact_ice/2.png",fx,png,435B,435,no
+"Assets/Resources/FX/impact_ice/3.png",fx,png,465B,465,no
+"Assets/Resources/FX/impact_ice/4.png",fx,png,505B,505,no
+"Assets/Resources/FX/impact_ice/5.png",fx,png,522B,522,no
+"Assets/Resources/FX/impact_lightning/0.png",fx,png,322B,322,no
+"Assets/Resources/FX/impact_lightning/1.png",fx,png,313B,313,no
+"Assets/Resources/FX/impact_lightning/2.png",fx,png,461B,461,no
+"Assets/Resources/FX/impact_lightning/3.png",fx,png,473B,473,no
+"Assets/Resources/FX/impact_lightning/4.png",fx,png,553B,553,no
+"Assets/Resources/FX/impact_lightning/5.png",fx,png,524B,524,no
+"Assets/Resources/FX/impact_poison/0.png",fx,png,330B,330,no
+"Assets/Resources/FX/impact_poison/1.png",fx,png,334B,334,no
+"Assets/Resources/FX/impact_poison/2.png",fx,png,450B,450,no
+"Assets/Resources/FX/impact_poison/3.png",fx,png,484B,484,no
+"Assets/Resources/FX/impact_poison/4.png",fx,png,503B,503,no
+"Assets/Resources/FX/impact_poison/5.png",fx,png,494B,494,no
+"Assets/Resources/Music/Camp.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Combat.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Court.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Explore.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Fugue.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Hub.wav",music,wav,517KB,529244,no
+"Assets/Resources/Music/Vault.wav",music,wav,517KB,529244,no
+"Assets/Resources/Portraits/A Faithless soul.png",portrait,png,58KB,59354,no
+"Assets/Resources/Portraits/A Grey Gravedigger.png",portrait,png,76KB,77799,no
+"Assets/Resources/Portraits/A Half-Unmade Voice.png",portrait,png,80KB,81002,no
+"Assets/Resources/Portraits/A Keeper of the Bone Crown.png",portrait,png,81KB,82310,no
+"Assets/Resources/Portraits/A girl in the Wall.png",portrait,png,58KB,58657,no
+"Assets/Resources/Portraits/Acererak.png",portrait,png,50KB,50419,no
+"Assets/Resources/Portraits/Aelith.png",portrait,png,48KB,48784,no
+"Assets/Resources/Portraits/Aldric Morn.png",portrait,png,46KB,47057,no
+"Assets/Resources/Portraits/Ander.png",portrait,png,41KB,41887,no
+"Assets/Resources/Portraits/Ansel.png",portrait,png,45KB,45122,no
+"Assets/Resources/Portraits/Anwen.png",portrait,png,46KB,46751,no
+"Assets/Resources/Portraits/Baba Yelena.png",portrait,png,47KB,48054,no
+"Assets/Resources/Portraits/Big Sorrel.png",portrait,png,43KB,43708,no
+"Assets/Resources/Portraits/Brand.png",portrait,png,48KB,48776,no
+"Assets/Resources/Portraits/Bregan.png",portrait,png,44KB,44965,no
+"Assets/Resources/Portraits/Brenn.png",portrait,png,47KB,47560,no
+"Assets/Resources/Portraits/Brigid.png",portrait,png,49KB,49797,no
+"Assets/Resources/Portraits/Brother Calix.png",portrait,png,46KB,46267,no
+"Assets/Resources/Portraits/Brother Calwin.png",portrait,png,48KB,48504,no
+"Assets/Resources/Portraits/Brother Codex.png",portrait,png,45KB,45801,no
+"Assets/Resources/Portraits/Brother Hale.png",portrait,png,44KB,44935,no
+"Assets/Resources/Portraits/Brother Sere.png",portrait,png,87KB,88128,no
+"Assets/Resources/Portraits/Brother Sevard.png",portrait,png,48KB,48210,no
+"Assets/Resources/Portraits/Bruenor Battlehammer.png",portrait,png,49KB,49300,no
+"Assets/Resources/Portraits/Bryn.png",portrait,png,47KB,48035,no
+"Assets/Resources/Portraits/Cadderly Bonaduce.png",portrait,png,49KB,49666,no
+"Assets/Resources/Portraits/Cael.png",portrait,png,47KB,47956,no
+"Assets/Resources/Portraits/Cale.png",portrait,png,49KB,50029,no
+"Assets/Resources/Portraits/Calloway.png",portrait,png,43KB,43704,no
+"Assets/Resources/Portraits/Canon Mereth Vael.png",portrait,png,47KB,47926,no
+"Assets/Resources/Portraits/Captain Wystan.png",portrait,png,48KB,48264,no
+"Assets/Resources/Portraits/Caramon Majere.png",portrait,png,50KB,50350,no
+"Assets/Resources/Portraits/Catti-brie.png",portrait,png,45KB,45361,no
+"Assets/Resources/Portraits/Cipher.png",portrait,png,45KB,45253,no
+"Assets/Resources/Portraits/Coffer.png",portrait,png,49KB,49461,no
+"Assets/Resources/Portraits/Coll.png",portrait,png,46KB,46128,no
+"Assets/Resources/Portraits/Collector Vane.png",portrait,png,80KB,81764,no
+"Assets/Resources/Portraits/Coram.png",portrait,png,50KB,50537,no
+"Assets/Resources/Portraits/Corliss.png",portrait,png,45KB,45486,no
+"Assets/Resources/Portraits/Corwin.png",portrait,png,47KB,47735,no
+"Assets/Resources/Portraits/Cosmas.png",portrait,png,49KB,49681,no
+"Assets/Resources/Portraits/Dace Iron.png",portrait,png,47KB,47444,no
+"Assets/Resources/Portraits/Dalka.png",portrait,png,47KB,47722,no
+"Assets/Resources/Portraits/Doby.png",portrait,png,45KB,45876,no
+"Assets/Resources/Portraits/Dorn.png",portrait,png,46KB,46135,no
+"Assets/Resources/Portraits/Dot Marigold.png",portrait,png,49KB,49223,no
+"Assets/Resources/Portraits/Drizzt Do'Urden.png",portrait,png,45KB,45742,no
+"Assets/Resources/Portraits/Edran.png",portrait,png,46KB,46957,no
+"Assets/Resources/Portraits/Edrid.png",portrait,png,45KB,45984,no
+"Assets/Resources/Portraits/Edrin.png",portrait,png,45KB,45270,no
+"Assets/Resources/Portraits/Elga.png",portrait,png,47KB,47957,no
+"Assets/Resources/Portraits/Eli.png",portrait,png,48KB,48299,no
+"Assets/Resources/Portraits/Elminster.png",portrait,png,43KB,43672,no
+"Assets/Resources/Portraits/Esuele.png",portrait,png,46KB,46366,no
+"Assets/Resources/Portraits/Ferrin.png",portrait,png,45KB,45295,no
+"Assets/Resources/Portraits/Ferryman.png",portrait,png,84KB,85885,no
+"Assets/Resources/Portraits/Flaming Fist.png",portrait,png,83KB,84842,no
+"Assets/Resources/Portraits/Garrick.png",portrait,png,49KB,49195,no
+"Assets/Resources/Portraits/Garrow.png",portrait,png,84KB,85036,no
+"Assets/Resources/Portraits/Gethin.png",portrait,png,45KB,46045,no
+"Assets/Resources/Portraits/Goodman Doget.png",portrait,png,50KB,50346,no
+"Assets/Resources/Portraits/Goodman Harl.png",portrait,png,47KB,47705,no
+"Assets/Resources/Portraits/Goodman Tallow.png",portrait,png,45KB,45168,no
+"Assets/Resources/Portraits/Goodman Vael.png",portrait,png,47KB,47979,no
+"Assets/Resources/Portraits/Goodman Vance.png",portrait,png,47KB,47670,no
+"Assets/Resources/Portraits/Goodman Vell.png",portrait,png,47KB,47387,no
+"Assets/Resources/Portraits/Goodwife Annet.png",portrait,png,46KB,46581,no
+"Assets/Resources/Portraits/Goodwife Harl.png",portrait,png,46KB,46905,no
+"Assets/Resources/Portraits/Goodwife Hesper.png",portrait,png,46KB,46692,no
+"Assets/Resources/Portraits/Goodwife Orla.png",portrait,png,48KB,48891,no
+"Assets/Resources/Portraits/Goodwife Pell.png",portrait,png,46KB,46249,no
+"Assets/Resources/Portraits/Goodwife Sefa.png",portrait,png,47KB,48098,no
+"Assets/Resources/Portraits/Goodwife Tamsin.png",portrait,png,47KB,48008,no
+"Assets/Resources/Portraits/Goodwin.png",portrait,png,45KB,45839,no
+"Assets/Resources/Portraits/Gorion.png",portrait,png,47KB,47688,no
+"Assets/Resources/Portraits/Greaves.png",portrait,png,47KB,47180,no
+"Assets/Resources/Portraits/Grindle.png",portrait,png,45KB,45585,no
+"Assets/Resources/Portraits/Grist.png",portrait,png,48KB,48232,no
+"Assets/Resources/Portraits/Hadda.png",portrait,png,44KB,44838,no
+"Assets/Resources/Portraits/Halia.png",portrait,png,45KB,45691,no
+"Assets/Resources/Portraits/Harper Handler.png",portrait,png,81KB,82505,no
+"Assets/Resources/Portraits/Hensley, dying.png",portrait,png,83KB,84241,no
+"Assets/Resources/Portraits/Herald of the Gate.png",portrait,png,81KB,82477,no
+"Assets/Resources/Portraits/High Lord Aelryth.png",portrait,png,80KB,81429,no
+"Assets/Resources/Portraits/Hob.png",portrait,png,49KB,49480,no
+"Assets/Resources/Portraits/Hooting.png",portrait,png,48KB,48396,no
+"Assets/Resources/Portraits/Ilfaeril.png",portrait,png,44KB,44991,no
+"Assets/Resources/Portraits/Inquisitor Sahl.png",portrait,png,44KB,44643,no
+"Assets/Resources/Portraits/Iona.png",portrait,png,48KB,48817,no
+"Assets/Resources/Portraits/Jon Irenicus.png",portrait,png,44KB,44705,no
+"Assets/Resources/Portraits/Justiciar Orin.png",portrait,png,43KB,43517,no
+"Assets/Resources/Portraits/Justiciar Vane.png",portrait,png,45KB,46010,no
+"Assets/Resources/Portraits/Justiciar Veld.png",portrait,png,86KB,87168,no
+"Assets/Resources/Portraits/Kael.png",portrait,png,45KB,45058,no
+"Assets/Resources/Portraits/Kelemvor.png",portrait,png,46KB,46973,no
+"Assets/Resources/Portraits/Kesh of Tyr.png",portrait,png,46KB,46497,no
+"Assets/Resources/Portraits/Kessa.png",portrait,png,42KB,42061,no
+"Assets/Resources/Portraits/Linnet.png",portrait,png,45KB,46053,no
+"Assets/Resources/Portraits/Lio.png",portrait,png,47KB,47662,no
+"Assets/Resources/Portraits/Liss.png",portrait,png,45KB,45897,no
+"Assets/Resources/Portraits/Lucan.png",portrait,png,46KB,46797,no
+"Assets/Resources/Portraits/Lyssa.png",portrait,png,48KB,48287,no
+"Assets/Resources/Portraits/Mab.png",portrait,png,46KB,46170,no
+"Assets/Resources/Portraits/Mabblethwaite.png",portrait,png,44KB,44940,no
+"Assets/Resources/Portraits/Mad Joss.png",portrait,png,46KB,46677,no
+"Assets/Resources/Portraits/Maelis.png",portrait,png,49KB,49286,no
+"Assets/Resources/Portraits/Maerin.png",portrait,png,78KB,79150,no
+"Assets/Resources/Portraits/Makeb the Elder.png",portrait,png,47KB,47839,no
+"Assets/Resources/Portraits/Marek.png",portrait,png,45KB,45794,no
+"Assets/Resources/Portraits/Marenka.png",portrait,png,46KB,46280,no
+"Assets/Resources/Portraits/Marisa.png",portrait,png,46KB,47028,no
+"Assets/Resources/Portraits/Maru.png",portrait,png,46KB,46621,no
+"Assets/Resources/Portraits/Master Cobb.png",portrait,png,47KB,47260,no
+"Assets/Resources/Portraits/Master Orvel Vane.png",portrait,png,50KB,50715,no
+"Assets/Resources/Portraits/Mathias.png",portrait,png,45KB,45642,no
+"Assets/Resources/Portraits/Maître Crede.png",portrait,png,39KB,39591,no
+"Assets/Resources/Portraits/Mhaere.png",portrait,png,83KB,84810,no
+"Assets/Resources/Portraits/Mirae.png",portrait,png,48KB,48514,no
+"Assets/Resources/Portraits/Mireille.png",portrait,png,48KB,48371,no
+"Assets/Resources/Portraits/Mirren.png",portrait,png,46KB,46943,no
+"Assets/Resources/Portraits/Mote.png",portrait,png,45KB,45327,no
+"Assets/Resources/Portraits/Mother Cass.png",portrait,png,86KB,87563,no
+"Assets/Resources/Portraits/Mother Sable.png",portrait,png,48KB,48261,no
+"Assets/Resources/Portraits/Mother Sedge.png",portrait,png,47KB,47492,no
+"Assets/Resources/Portraits/NPC.png",portrait,png,80KB,81477,no
+"Assets/Resources/Portraits/Naeve.png",portrait,png,90KB,91419,no
+"Assets/Resources/Portraits/Nessa.png",portrait,png,51KB,51309,no
+"Assets/Resources/Portraits/Nettle.png",portrait,png,44KB,44755,no
+"Assets/Resources/Portraits/Neven.png",portrait,png,47KB,47236,no
+"Assets/Resources/Portraits/Nim.png",portrait,png,46KB,46121,no
+"Assets/Resources/Portraits/Odell.png",portrait,png,47KB,47221,no
+"Assets/Resources/Portraits/Odo the Dragoman.png",portrait,png,48KB,48480,no
+"Assets/Resources/Portraits/Old Berin.png",portrait,png,48KB,48647,no
+"Assets/Resources/Portraits/Old Bessa.png",portrait,png,47KB,47475,no
+"Assets/Resources/Portraits/Old Cassian.png",portrait,png,46KB,46439,no
+"Assets/Resources/Portraits/Old Crake.png",portrait,png,46KB,46097,no
+"Assets/Resources/Portraits/Old Davyn.png",portrait,png,80KB,81890,no
+"Assets/Resources/Portraits/Old Dorra.png",portrait,png,46KB,46373,no
+"Assets/Resources/Portraits/Old Ferd.png",portrait,png,44KB,44465,no
+"Assets/Resources/Portraits/Old Gantry.png",portrait,png,46KB,47032,no
+"Assets/Resources/Portraits/Old Mireth.png",portrait,png,46KB,46131,no
+"Assets/Resources/Portraits/Old Mother Wend.png",portrait,png,45KB,45696,no
+"Assets/Resources/Portraits/Old Tam.png",portrait,png,45KB,45652,no
+"Assets/Resources/Portraits/Oona.png",portrait,png,44KB,44824,no
+"Assets/Resources/Portraits/Ord.png",portrait,png,43KB,43691,no
+"Assets/Resources/Portraits/Orin.png",portrait,png,44KB,44057,no
+"Assets/Resources/Portraits/Oru.png",portrait,png,47KB,47526,no
+"Assets/Resources/Portraits/Pae.png",portrait,png,46KB,46878,no
+"Assets/Resources/Portraits/Pardoner Voss.png",portrait,png,48KB,48938,no
+"Assets/Resources/Portraits/Pell.png",portrait,png,49KB,49238,no
+"Assets/Resources/Portraits/Pen.png",portrait,png,43KB,43145,no
+"Assets/Resources/Portraits/Pim.png",portrait,png,44KB,45006,no
+"Assets/Resources/Portraits/Pip.png",portrait,png,45KB,45578,no
+"Assets/Resources/Portraits/Posset.png",portrait,png,48KB,48293,no
+"Assets/Resources/Portraits/Quill.png",portrait,png,77KB,78794,no
+"Assets/Resources/Portraits/Raistlin Majere.png",portrait,png,46KB,46991,no
+"Assets/Resources/Portraits/Reeve Oddleif.png",portrait,png,45KB,45232,no
+"Assets/Resources/Portraits/Regis.png",portrait,png,45KB,45255,no
+"Assets/Resources/Portraits/Rell.png",portrait,png,45KB,45830,no
+"Assets/Resources/Portraits/Renn.png",portrait,png,46KB,46422,no
+"Assets/Resources/Portraits/Roen Alleywind.png",portrait,png,81KB,82758,no
+"Assets/Resources/Portraits/Roen.png",portrait,png,82KB,83224,no
+"Assets/Resources/Portraits/Rook.png",portrait,png,46KB,46224,no
+"Assets/Resources/Portraits/Rue.png",portrait,png,45KB,45349,no
+"Assets/Resources/Portraits/Sable.png",portrait,png,80KB,81332,no
+"Assets/Resources/Portraits/Sefa.png",portrait,png,46KB,46649,no
+"Assets/Resources/Portraits/Sela.png",portrait,png,44KB,44483,no
+"Assets/Resources/Portraits/Sennet, at the last true bearing.png",portrait,png,47KB,47629,no
+"Assets/Resources/Portraits/Sennet.png",portrait,png,49KB,49748,no
+"Assets/Resources/Portraits/Sennia the Younger.png",portrait,png,48KB,48950,no
+"Assets/Resources/Portraits/Sergeant Bombast.png",portrait,png,47KB,47174,no
+"Assets/Resources/Portraits/Sergeant Bram Holloway.png",portrait,png,45KB,45865,no
+"Assets/Resources/Portraits/Sergeant Kallia.png",portrait,png,85KB,86955,no
+"Assets/Resources/Portraits/Sevenpence.png",portrait,png,42KB,42739,no
+"Assets/Resources/Portraits/Sevrin Vael.png",portrait,png,44KB,44516,no
+"Assets/Resources/Portraits/Shandril.png",portrait,png,47KB,47751,no
+"Assets/Resources/Portraits/Sift.png",portrait,png,47KB,47877,no
+"Assets/Resources/Portraits/Sir Garon of Solamnia.png",portrait,png,44KB,44093,no
+"Assets/Resources/Portraits/Sister Auria.png",portrait,png,47KB,47519,no
+"Assets/Resources/Portraits/Sister Garrow.png",portrait,png,81KB,82842,no
+"Assets/Resources/Portraits/Sister Maud.png",portrait,png,48KB,48209,no
+"Assets/Resources/Portraits/Sister Onora.png",portrait,png,45KB,46028,no
+"Assets/Resources/Portraits/Sister Vharn.png",portrait,png,50KB,50327,no
+"Assets/Resources/Portraits/Skritch.png",portrait,png,45KB,45137,no
+"Assets/Resources/Portraits/Sparrow.png",portrait,png,45KB,45212,no
+"Assets/Resources/Portraits/Sprat.png",portrait,png,47KB,47784,no
+"Assets/Resources/Portraits/Squik.png",portrait,png,46KB,46985,no
+"Assets/Resources/Portraits/Storm Silverhand.png",portrait,png,45KB,45585,no
+"Assets/Resources/Portraits/Sturm Brightblade.png",portrait,png,44KB,44219,no
+"Assets/Resources/Portraits/Symon.png",portrait,png,43KB,43405,no
+"Assets/Resources/Portraits/Tace.png",portrait,png,47KB,47318,no
+"Assets/Resources/Portraits/Talla.png",portrait,png,46KB,46240,no
+"Assets/Resources/Portraits/Tally.png",portrait,png,79KB,80779,no
+"Assets/Resources/Portraits/Tam.png",portrait,png,46KB,46704,no
+"Assets/Resources/Portraits/Tamar.png",portrait,png,44KB,44126,no
+"Assets/Resources/Portraits/Tamsin.png",portrait,png,47KB,47432,no
+"Assets/Resources/Portraits/Tatters.png",portrait,png,47KB,47982,no
+"Assets/Resources/Portraits/The Eye.png",portrait,png,49KB,49253,no
+"Assets/Resources/Portraits/The Forgotten.png",portrait,png,47KB,47833,no
+"Assets/Resources/Portraits/The Niche-Book.png",portrait,png,49KB,49604,no
+"Assets/Resources/Portraits/The Pale Cantor.png",portrait,png,74KB,75288,no
+"Assets/Resources/Portraits/The Returned.png",portrait,png,71KB,72219,no
+"Assets/Resources/Portraits/The Unmade.png",portrait,png,46KB,46846,no
+"Assets/Resources/Portraits/The unclaimed.png",portrait,png,57KB,58264,no
+"Assets/Resources/Portraits/Tib Garron.png",portrait,png,47KB,47508,no
+"Assets/Resources/Portraits/Tibb.png",portrait,png,44KB,44716,no
+"Assets/Resources/Portraits/Tilda.png",portrait,png,50KB,50395,no
+"Assets/Resources/Portraits/Tobb.png",portrait,png,46KB,47032,no
+"Assets/Resources/Portraits/Toller.png",portrait,png,44KB,44434,no
+"Assets/Resources/Portraits/Vaelin (an echo).png",portrait,png,82KB,83207,no
+"Assets/Resources/Portraits/Vaeris.png",portrait,png,46KB,46712,no
+"Assets/Resources/Portraits/Varra.png",portrait,png,83KB,84432,no
+"Assets/Resources/Portraits/Vayle.png",portrait,png,50KB,50361,no
+"Assets/Resources/Portraits/Verah.png",portrait,png,46KB,46491,no
+"Assets/Resources/Portraits/Vesper.png",portrait,png,43KB,43572,no
+"Assets/Resources/Portraits/Vidkun Holt.png",portrait,png,44KB,44747,no
+"Assets/Resources/Portraits/Volothamp Geddarm.png",portrait,png,48KB,48421,no
+"Assets/Resources/Portraits/Voss.png",portrait,png,47KB,47287,no
+"Assets/Resources/Portraits/Wenna.png",portrait,png,45KB,45140,no
+"Assets/Resources/Portraits/Wennick.png",portrait,png,47KB,47791,no
+"Assets/Resources/Portraits/Wessa.png",portrait,png,46KB,46976,no
+"Assets/Resources/Portraits/Wessel.png",portrait,png,48KB,48547,no
+"Assets/Resources/Portraits/Wick.png",portrait,png,43KB,43662,no
+"Assets/Resources/Portraits/Wisp.png",portrait,png,46KB,46796,no
+"Assets/Resources/Portraits/Wren the Younger.png",portrait,png,50KB,50812,no
+"Assets/Resources/Portraits/Wren.png",portrait,png,45KB,45150,no
+"Assets/Resources/Portraits/Wrenna Alleywind.png",portrait,png,80KB,81286,no
+"Assets/Resources/Portraits/Wulfgar.png",portrait,png,45KB,45341,no
+"Assets/Resources/Portraits/Wynn.png",portrait,png,45KB,45346,no
+"Assets/Resources/Portraits/Yorrel.png",portrait,png,47KB,47690,no
+"Assets/Resources/Portraits/Ysoreth.png",portrait,png,46KB,46933,no
+"Assets/Resources/Portraits/a Newly-Dead.png",portrait,png,47KB,48114,no
+"Assets/Resources/Portraits/a bearing you cannot yet take.png",portrait,png,46KB,47012,no
+"Assets/Resources/Portraits/a chill in the empty chair.png",portrait,png,50KB,50429,no
+"Assets/Resources/Portraits/a door the coin has not yet opened.png",portrait,png,48KB,48669,no
+"Assets/Resources/Portraits/a door with a docket nailed to it.png",portrait,png,46KB,46186,no
+"Assets/Resources/Portraits/a man with too many names.png",portrait,png,46KB,46584,no
+"Assets/Resources/Portraits/a nameless wisp.png",portrait,png,49KB,49859,no
+"Assets/Resources/Portraits/a scratch that keeps arguing.png",portrait,png,45KB,45296,no
+"Assets/Resources/Portraits/a soul on the roll.png",portrait,png,49KB,50079,no
+"Assets/Resources/Portraits/a soul with the sound worn off.png",portrait,png,43KB,43284,no
+"Assets/Resources/Portraits/a voice in the Wall.png",portrait,png,45KB,45311,no
+"Assets/Resources/Portraits/a voice in the stone.png",portrait,png,45KB,45251,no
+"Assets/Resources/Portraits/an unwitnessed mile.png",portrait,png,46KB,46346,no
+"Assets/Resources/Portraits/little Posy.png",portrait,png,46KB,46501,no
+"Assets/Resources/Portraits/the Accuser.png",portrait,png,43KB,44024,no
+"Assets/Resources/Portraits/the Arbiter.png",portrait,png,46KB,46780,no
+"Assets/Resources/Portraits/the Auditor.png",portrait,png,44KB,44062,no
+"Assets/Resources/Portraits/the Bench of Small Property.png",portrait,png,45KB,45187,no
+"Assets/Resources/Portraits/the Bereaved.png",portrait,png,45KB,45764,no
+"Assets/Resources/Portraits/the Blank.png",portrait,png,49KB,50050,no
+"Assets/Resources/Portraits/the Bonded.png",portrait,png,46KB,46452,no
+"Assets/Resources/Portraits/the Bone Scrivener.png",portrait,png,48KB,48864,no
+"Assets/Resources/Portraits/the Chronicler.png",portrait,png,49KB,49663,no
+"Assets/Resources/Portraits/the Crown of Horns.png",portrait,png,45KB,45239,no
+"Assets/Resources/Portraits/the Emptied.png",portrait,png,45KB,45645,no
+"Assets/Resources/Portraits/the Factor.png",portrait,png,41KB,41548,no
+"Assets/Resources/Portraits/the Frozen Woman.png",portrait,png,45KB,45879,no
+"Assets/Resources/Portraits/the Gnaw.png",portrait,png,45KB,45525,no
+"Assets/Resources/Portraits/the Great Tally.png",portrait,png,49KB,49473,no
+"Assets/Resources/Portraits/the Grey Harbinger.png",portrait,png,46KB,46993,no
+"Assets/Resources/Portraits/the Half-Taken.png",portrait,png,46KB,46881,no
+"Assets/Resources/Portraits/the House.png",portrait,png,50KB,50691,no
+"Assets/Resources/Portraits/the Keeper of the Table.png",portrait,png,48KB,48628,no
+"Assets/Resources/Portraits/the Kindly Dark.png",portrait,png,43KB,43525,no
+"Assets/Resources/Portraits/the Knotwife.png",portrait,png,46KB,46295,no
+"Assets/Resources/Portraits/the Lady of the House.png",portrait,png,45KB,45164,no
+"Assets/Resources/Portraits/the Last Returned.png",portrait,png,45KB,45405,no
+"Assets/Resources/Portraits/the Lost-and-Found.png",portrait,png,43KB,43919,no
+"Assets/Resources/Portraits/the Meridian.png",portrait,png,45KB,45942,no
+"Assets/Resources/Portraits/the Mortgaged Man.png",portrait,png,49KB,49361,no
+"Assets/Resources/Portraits/the One Who Left.png",portrait,png,45KB,45363,no
+"Assets/Resources/Portraits/the Pawn of Hours.png",portrait,png,43KB,43926,no
+"Assets/Resources/Portraits/the Penitent Baker.png",portrait,png,48KB,48489,no
+"Assets/Resources/Portraits/the Petrified Pedant.png",portrait,png,47KB,47351,no
+"Assets/Resources/Portraits/the Quiet Neighbor.png",portrait,png,48KB,48831,no
+"Assets/Resources/Portraits/the Reed-Knower.png",portrait,png,44KB,44095,no
+"Assets/Resources/Portraits/the Reed-Wife.png",portrait,png,44KB,44290,no
+"Assets/Resources/Portraits/the Regular.png",portrait,png,45KB,45755,no
+"Assets/Resources/Portraits/the Reigning Tongue.png",portrait,png,45KB,45718,no
+"Assets/Resources/Portraits/the Sheltered.png",portrait,png,47KB,47595,no
+"Assets/Resources/Portraits/the Sifter.png",portrait,png,42KB,42392,no
+"Assets/Resources/Portraits/the Silent Watchman.png",portrait,png,44KB,44634,no
+"Assets/Resources/Portraits/the Simbul.png",portrait,png,44KB,44299,no
+"Assets/Resources/Portraits/the Smallest Voice.png",portrait,png,46KB,46368,no
+"Assets/Resources/Portraits/the Sparrow.png",portrait,png,45KB,45978,no
+"Assets/Resources/Portraits/the Tenth.png",portrait,png,44KB,44138,no
+"Assets/Resources/Portraits/the Tide-Reader.png",portrait,png,44KB,44658,no
+"Assets/Resources/Portraits/the Unfinished One.png",portrait,png,44KB,44540,no
+"Assets/Resources/Portraits/the Uninvited.png",portrait,png,46KB,46173,no
+"Assets/Resources/Portraits/the Unsung.png",portrait,png,48KB,48401,no
+"Assets/Resources/Portraits/the Warden of Tens.png",portrait,png,47KB,47692,no
+"Assets/Resources/Portraits/the Way Out.png",portrait,png,46KB,46423,no
+"Assets/Resources/Portraits/the Wayward Mile.png",portrait,png,46KB,46215,no
+"Assets/Resources/Portraits/the Witness.png",portrait,png,48KB,49002,no
+"Assets/Resources/Portraits/the fire.png",portrait,png,46KB,46241,no
+"Assets/Resources/Portraits/the man the case is about.png",portrait,png,45KB,45610,no
+"Assets/Resources/Portraits/the man the coin belongs to.png",portrait,png,42KB,42745,no
+"Assets/Resources/Portraits/the new one.png",portrait,png,49KB,49550,no
+"Assets/Resources/Portraits/the reach of the one who owned him.png",portrait,png,42KB,42812,no
+"Assets/Resources/SFX/crit.wav",sfx,wav,13KB,12392,no
+"Assets/Resources/SFX/deed.wav",sfx,wav,15KB,15038,no
+"Assets/Resources/SFX/heal.wav",sfx,wav,20KB,19888,no
+"Assets/Resources/SFX/hit.wav",sfx,wav,7.0KB,7100,no
+"Assets/Resources/SFX/hit_acid.wav",sfx,wav,11KB,11068,no
+"Assets/Resources/SFX/hit_dark.wav",sfx,wav,13KB,13274,no
+"Assets/Resources/SFX/hit_fire.wav",sfx,wav,9.6KB,9746,no
+"Assets/Resources/SFX/hit_holy.wav",sfx,wav,13KB,13274,no
+"Assets/Resources/SFX/hit_ice.wav",sfx,wav,7.8KB,7982,no
+"Assets/Resources/SFX/hit_lightning.wav",sfx,wav,5.3KB,5336,no
+"Assets/Resources/SFX/hit_physical.wav",sfx,wav,7.0KB,7100,no
+"Assets/Resources/SFX/hit_poison.wav",sfx,wav,13KB,13274,no
+"Assets/Resources/SFX/levelup.wav",sfx,wav,23KB,22972,no
+"Assets/Resources/SFX/miss.wav",sfx,wav,9.6KB,9746,no
+"Assets/Resources/Sprites/A Sorrow of the Unmade.png",battle-token,png,9.8KB,10027,no
+"Assets/Resources/Sprites/Ally.png",battle-token,png,5.3KB,5346,no
+"Assets/Resources/Sprites/Arcane Sentinel.png",battle-token,png,9.1KB,9275,no
+"Assets/Resources/Sprites/Arcanist Revenant.png",battle-token,png,9.1KB,9233,no
+"Assets/Resources/Sprites/Ashfiend A.png",battle-token,png,9.4KB,9596,no
+"Assets/Resources/Sprites/Ashfiend B.png",battle-token,png,9.4KB,9540,no
+"Assets/Resources/Sprites/Avatar-Touched Horror.png",battle-token,png,11KB,10771,no
+"Assets/Resources/Sprites/Bone-Zealot of Myrkul.png",battle-token,png,11KB,11252,no
+"Assets/Resources/Sprites/Brother Oke.png",battle-token,png,8.4KB,8572,no
+"Assets/Resources/Sprites/Choir Herald.png",battle-token,png,8.2KB,8316,no
+"Assets/Resources/Sprites/Cinder-Hound.png",battle-token,png,8.7KB,8856,no
+"Assets/Resources/Sprites/Clip.png",battle-token,png,6.7KB,6812,no
+"Assets/Resources/Sprites/Contract-Devil.png",battle-token,png,11KB,10591,no
+"Assets/Resources/Sprites/Crown-War Revenant.png",battle-token,png,9.8KB,10017,no
+"Assets/Resources/Sprites/Damned Shade.png",battle-token,png,11KB,10358,no
+"Assets/Resources/Sprites/Doomguide Acolyte.png",battle-token,png,11KB,10497,no
+"Assets/Resources/Sprites/Doomguide Enforcer.png",battle-token,png,9.2KB,9355,no
+"Assets/Resources/Sprites/Doomguide Interrogator.png",battle-token,png,8.3KB,8447,no
+"Assets/Resources/Sprites/Doomguide Knight.png",battle-token,png,11KB,10539,no
+"Assets/Resources/Sprites/Echo of the Verdict.png",battle-token,png,8.8KB,8964,no
+"Assets/Resources/Sprites/Echo.png",battle-token,png,8.0KB,8120,no
+"Assets/Resources/Sprites/Enemy.png",battle-token,png,5.8KB,5891,no
+"Assets/Resources/Sprites/Garrow.png",battle-token,png,7.8KB,7941,no
+"Assets/Resources/Sprites/God-Touched Horror.png",battle-token,png,11KB,10865,no
+"Assets/Resources/Sprites/Ilfaeril.png",battle-token,png,5.3KB,5375,no
+"Assets/Resources/Sprites/Imp of the Fine Print.png",battle-token,png,8.0KB,8135,no
+"Assets/Resources/Sprites/Justiciar Veld.png",battle-token,png,11KB,10395,no
+"Assets/Resources/Sprites/Kelemvorite Zealot.png",battle-token,png,9.2KB,9367,no
+"Assets/Resources/Sprites/Lyra.png",battle-token,png,6.5KB,6628,no
+"Assets/Resources/Sprites/Maerin.png",battle-token,png,7.3KB,7413,no
+"Assets/Resources/Sprites/Mhaere.png",battle-token,png,6.9KB,7057,no
+"Assets/Resources/Sprites/Mythallar Ward.png",battle-token,png,9.4KB,9537,no
+"Assets/Resources/Sprites/Naeve.png",battle-token,png,7.9KB,8019,no
+"Assets/Resources/Sprites/Netherese War-Construct.png",battle-token,png,8.7KB,8869,no
+"Assets/Resources/Sprites/Neutral.png",battle-token,png,6.0KB,6066,no
+"Assets/Resources/Sprites/Player.png",battle-token,png,5.6KB,5713,no
+"Assets/Resources/Sprites/Quill, the Broker.png",battle-token,png,7.6KB,7768,no
+"Assets/Resources/Sprites/Quill.png",battle-token,png,7.2KB,7369,no
+"Assets/Resources/Sprites/Roen Alleywind.png",battle-token,png,10KB,10211,no
+"Assets/Resources/Sprites/Sable.png",battle-token,png,7.8KB,7904,no
+"Assets/Resources/Sprites/Shadow-Bound Sentinel.png",battle-token,png,9.8KB,9991,no
+"Assets/Resources/Sprites/Sister Garrow.png",battle-token,png,9.0KB,9170,no
+"Assets/Resources/Sprites/Sorrow-wraith.png",battle-token,png,10KB,10150,no
+"Assets/Resources/Sprites/Spellplague Aberration.png",battle-token,png,8.8KB,8915,no
+"Assets/Resources/Sprites/Tamsin.png",battle-token,png,6.9KB,6966,no
+"Assets/Resources/Sprites/Templar Inquisitor.png",battle-token,png,9.5KB,9668,no
+"Assets/Resources/Sprites/The Avatar of Bone.png",battle-token,png,11KB,11252,no
+"Assets/Resources/Sprites/The First Unmade.png",battle-token,png,9.7KB,9890,no
+"Assets/Resources/Sprites/The Herald of the Unmade.png",battle-token,png,8.9KB,9082,no
+"Assets/Resources/Sprites/The Hollow Cantor.png",battle-token,png,8.2KB,8350,no
+"Assets/Resources/Sprites/The Last Returned.png",battle-token,png,8.9KB,9058,no
+"Assets/Resources/Sprites/The Mythallar Colossus.png",battle-token,png,9.2KB,9355,no
+"Assets/Resources/Sprites/The Pale Cantor.png",battle-token,png,8.4KB,8575,no
+"Assets/Resources/Sprites/The Returned.png",battle-token,png,9.8KB,9957,no
+"Assets/Resources/Sprites/The Unbound Maw.png",battle-token,png,11KB,10549,no
+"Assets/Resources/Sprites/The Unbound.png",battle-token,png,9.6KB,9783,no
+"Assets/Resources/Sprites/Unmade Aberration.png",battle-token,png,11KB,10393,no
+"Assets/Resources/Sprites/Unmaking Acolyte.png",battle-token,png,11KB,11205,no
+"Assets/Resources/Sprites/Unmaking Zealot.png",battle-token,png,11KB,10459,no
+"Assets/Resources/Sprites/Varra.png",battle-token,png,7.8KB,7959,no
+"Assets/Resources/Sprites/Vengeful Shade.png",battle-token,png,11KB,10694,no
+"Assets/Resources/Sprites/Weave-wraith.png",battle-token,png,9.8KB,9959,no

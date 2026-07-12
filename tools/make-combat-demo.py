@@ -1,44 +1,72 @@
 #!/usr/bin/env python3
 """
-Embed the CC0 Dungeon Crawl Stone Soup sprites into the playable combat demo
-(play/crown_combat.html) as base64 data URIs, so the board renders real pixel art both
-standalone and inside the all-in-one bundle. Idempotent: replaces the map between the
-/*<SPR>*/ ... /*</SPR>*/ markers. Also renders play/combat_preview.png — a faithful
-raster of the exact opening board (same grid, walls, roster, sprites, lighting) so the
-look is verifiable without a browser.
+Embed the combat demo's sprites into play/crown_combat.html as base64 data URIs, so
+the board renders identically standalone and inside the all-in-one bundle. Idempotent:
+replaces the map between the /*<SPR>*/ ... /*</SPR>*/ markers. Also renders
+play/combat_preview.png — a faithful raster of the exact opening board (same grid,
+walls, roster, sprites, lighting) so the look is verifiable without a browser.
+
+Environment art (floor/wall/props) stays CC0 Dungeon Crawl Stone Soup pixel art; the
+UNIT sprites are the game's own v2 identity tokens (tools/gen-tokens-v2.py, compact
+disc form) so combat speaks the same visual language as the portraits, the walkable
+zones, and Unity's battle grid. The Returned's ghoul/zombie art variants keep their
+visual variety via deterministic palette shifts of the same blood-red identity.
 
   python3 tools/fetch-cc0-tiles.py && python3 tools/make-combat-demo.py
 """
-import base64, io, json, math, os, re
+import base64, importlib.util, io, json, math, os, re
 from PIL import Image, ImageDraw, ImageChops
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ART = os.path.join(ROOT, "Assets/Resources/Art/DCSS")
 HTML = os.path.join(ROOT, "play", "crown_combat.html")
 
-# sprite key -> source tile (these are the names referenced in crown_combat.html)
+_spec = importlib.util.spec_from_file_location(
+    "gentok", os.path.join(os.path.dirname(__file__), "gen-tokens-v2.py"))
+tok = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(tok)
+
+# environment sprite key -> DCSS source tile (names referenced in crown_combat.html)
 SPRITES = {
     "floor_tomb0": "floor/tomb0",   "floor_tomb1": "floor/tomb1",
     "floor_tomb2": "floor/tomb2",   "floor_tomb3": "floor/tomb3",
     "wall_brick0": "wall/brick_dark0", "wall_brick1": "wall/brick_dark1",
     "wall_brick2": "wall/brick_dark2", "wall_brick3": "wall/brick_dark3",
-    "spr_garrow": "mon/hero_priestess", "spr_roen": "mon/hero_human",
-    "spr_varra": "mon/hero_warlock",
-    "spr_returned": "mon/returned_wight", "spr_ghoul": "mon/returned_ghoul",
-    "spr_zombie": "mon/returned_zombie", "spr_boss": "mon/eidolon", "spr_naeve": "mon/hero_mage",
     "prop_altar": "feat/altar_dark", "prop_statue": "feat/statue_dwarf",
     "prop_statue2": "feat/statue_archer", "prop_door": "feat/door_closed",
+}
+# unit sprite key -> (identity token name, palette-shift variant)
+UNITS = {
+    "spr_garrow":   ("Sister Garrow", None),
+    "spr_roen":     ("Roen Alleywind", None),
+    "spr_varra":    ("Varra", None),
+    "spr_naeve":    ("Naeve", None),
+    "spr_clip":     ("Clip", None),
+    "spr_returned": ("The Returned", None),
+    "spr_ghoul":    ("The Returned", "ghoul"),
+    "spr_zombie":   ("The Returned", "zombie"),
+    "spr_boss":     ("The Last Returned", None),
 }
 
 def load(name):
     return Image.open(os.path.join(ART, name + ".png")).convert("RGBA")
+
+def unit_images():
+    return {k: tok.compact_token(nm, variant=var) for k, (nm, var) in UNITS.items()}
+
+def img_uri(img):
+    buf = io.BytesIO()
+    img.save(buf, "PNG", optimize=True)
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
 
 def data_uri(name):
     with open(os.path.join(ART, name + ".png"), "rb") as f:
         return "data:image/png;base64," + base64.b64encode(f.read()).decode()
 
 def inject():
-    blob = "{" + ",".join(f'"{k}":"{data_uri(v)}"' for k, v in SPRITES.items()) + "}"
+    entries = [f'"{k}":"{data_uri(v)}"' for k, v in SPRITES.items()]
+    entries += [f'"{k}":"{img_uri(im)}"' for k, im in unit_images().items()]
+    blob = "{" + ",".join(entries) + "}"
     src = open(HTML, encoding="utf-8").read()
     new, n = re.subn(r"/\*<SPR>\*/[\s\S]*?/\*</SPR>\*/", "/*<SPR>*/" + blob + "/*</SPR>*/", src)
     if n != 1:
@@ -53,6 +81,7 @@ HW, HH, WALL_H, OX, OY = 24, 12, 18, 262, 52
 BLOCKED = {(6,1),(7,1),(6,4),(7,5),(6,7),(7,7),(5,3),(8,2),(8,6),(6,8)}
 ROSTER = [  # (x, y, sprite, side)
     (1,2,"spr_garrow","hero"), (1,4,"spr_roen","hero"), (1,6,"spr_varra","hero"),
+    (2,7,"spr_clip","hero"),
     (10,1,"spr_returned","foe"), (11,3,"spr_ghoul","foe"),
     (11,6,"spr_returned","foe"), (10,8,"spr_zombie","foe"),
     (12,4,"spr_boss","foe"),
@@ -72,6 +101,7 @@ def dia(gx, gy, up=0):
 
 def preview():
     cache = {k: load(v) for k, v in SPRITES.items()}
+    cache.update(unit_images())
     img = Image.new("RGBA", (W, H), (11, 10, 16, 255))
     d = ImageDraw.Draw(img, "RGBA")
     # PASS 1 — floor diamonds, decals, the active hero's move overlay
@@ -130,7 +160,8 @@ def preview():
             if t==2:
                 side = e[3]; col = (231,200,115) if (x,y)==(1,2) else RING[side]
                 d.ellipse([cx-sz*0.36,cy-sz*0.18,cx+sz*0.36,cy+sz*0.18], outline=col, width=2)
-            img.alpha_composite(cache[sp].resize((sz,sz), Image.NEAREST), (int(cx-sz/2), int(cy-sz+6)))
+            resample = Image.LANCZOS if sp.startswith("spr_") else Image.NEAREST  # smooth tokens, crisp pixel props
+            img.alpha_composite(cache[sp].resize((sz,sz), resample), (int(cx-sz/2), int(cy-sz+6)))
             d = ImageDraw.Draw(img, "RGBA")
             if t==2:
                 w=30; bx=cx-w/2; by=cy-sz-2
@@ -155,8 +186,8 @@ def preview():
 def main():
     size = inject()
     preview()
-    print(f"injected {len(SPRITES)} sprites (~{size//1024} KB blob) into play/crown_combat.html; "
-          f"rendered play/combat_preview.png")
+    print(f"injected {len(SPRITES)} DCSS env sprites + {len(UNITS)} identity tokens "
+          f"(~{size//1024} KB blob) into play/crown_combat.html; rendered play/combat_preview.png")
 
 if __name__ == "__main__":
     main()

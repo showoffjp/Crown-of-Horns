@@ -1,0 +1,973 @@
+{
+  "scene": {
+    "id": "longodds",
+    "name": "The Long Odds",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 1
+    },
+    "props": [
+      {
+        "type": "table",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 4
+      },
+      {
+        "type": "tavern",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "type": "banner",
+        "x": 9,
+        "y": 2,
+        "hue": 350
+      },
+      {
+        "type": "lamppost",
+        "x": 8,
+        "y": 6
+      },
+      {
+        "type": "log",
+        "x": 2,
+        "y": 6
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "nightmarket",
+        "dest": {
+          "x": 10,
+          "y": 7
+        },
+        "label": "◂ back out to the Night Market"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "calloway",
+        "name": "Calloway",
+        "title": "the Honest Devil — proprietor of the Long Odds, and your new favorite mistake",
+        "x": 5,
+        "y": 3,
+        "hue": 350,
+        "sigil": "♠",
+        "conv": "cal.calloway",
+        "hail": "*(The Long Odds is the only warm, bright, *loud* room you have found in all the land of the dead — and at the center of it, behind a table where the cards seem to move a half-second before his hands do, sits the single most *alive* thing you have ever seen, who is also extremely dead. He wears a coat that has no business existing here: deep wine-red, immaculate, the kind of garment that costs a tailor a year and a soul a fortune, and he wears it the way a flame wears a candle. He is not handsome, exactly — he is *better* than handsome, he is *magnetic*, the way a cliff-edge is magnetic — and when he looks up and finds you, the whole room seems to tilt, very slightly, toward him, as though even the architecture wants his attention. He smiles. It is the warmest, most genuine, most welcoming thing anyone has offered you since you died, and every instinct you own informs you, very calmly, that it is the most dangerous object in the building.)* …*well.* *(the voice is a poured drink)* …*well*, *well*, *well.* look what the *causeway* dragged *in.* …a *Returned.* a *genuine*, *breathing*-*again*, *too*-*rare*-*to*-*price* *Returned*, in *my* *house*, on a *Tuesday.* *(he presses a hand to his chest, genuinely moved)* …you have *made* an old dead man *very* *happy*, friend — and a *happy* *Calloway* is a *generous* *Calloway*, so: *sit.* the *first* *drink's* *free.* …*(the smile sharpens by one exquisite degree)* …they're *all* *free*, if we're *honest*, and i am *always* *honest* — it's the *leaving* that *costs.* …*Calloway.* *proprietor*, *host*, and your *new* *favorite* *mistake.* …i am going to *fleece* you *blind*, cold one …and you are going to *thank* me for it …and *that* — *(he fans the cards into a perfect, impossible arc)* …*that* is the *only* *honest* *transaction* *left* …in this *entire* *grey* *swindle* of an *afterlife.* …*sit* *down.* …*what'll* it *be?*"
+      },
+      {
+        "id": "em",
+        "name": "the Mortgaged Man",
+        "title": "a soul who sold himself for parts, and would do it again",
+        "x": 2,
+        "y": 5,
+        "hue": 40,
+        "sigil": "◐",
+        "conv": "cal.em",
+        "hail": "*(A faded soul sits at the end of the bar — literally faded, gaps where features should be, a thinness to him like a coat worn through. He lifts what's left of a glass to you, without bitterness.)* …*Calloway* *send* you over, did he? *course* he did. *(a soft, ruined laugh)* …*sit*, *Returned.* …*Em*, they call me — the *Mortgaged* *Man.* …i'm the *advertisement* he's *proudest* of: the *fellow* who *sold* *everything* …and *came* *back* …to *recommend* it. …*ask* me *anything.* …just …*(the gentle warning)* …don't do the *pity*. …you've *not* *seen* …the *other* *door* …*yet.*"
+      },
+      {
+        "id": "auditor",
+        "name": "the Auditor",
+        "title": "sent three months ago to shut him down; still here; losing",
+        "x": 8,
+        "y": 5,
+        "hue": 210,
+        "sigil": "§",
+        "conv": "cal.auditor",
+        "hail": "*(A grey-robed soul stands rigid by the wall, a ledger clutched like a breastplate, with the sleepless eyes of someone losing a war they won't yet name. A comped drink sits untouched — *glared at* — by her elbow.)* …*state* your *business.* …*(she falters)* …i'm the *Auditor.* *Concord* of the *Dead.* sent to *catalogue* this *establishment's* *debts* and *close* it. …*three* *months* *ago.* …*(she looks, despairing, at the framed injunctions on Calloway's wall, then at the drink she will not push away)* …*do* *not* …let him …*get* you a *drink.* …*that's* …*(barely)* …*that's* how it *starts.*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "cal.calloway",
+      "title": "Calloway, the Honest Devil",
+      "npc": "Calloway",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Calloway",
+          "onEnter": [
+            {
+              "key": "cal.met",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cal.struck_deal"
+                ]
+              },
+              "text": "*(He brightens the instant he sees you — the particular delight of a man watching an investment walk back through his door.)* …*there* you are. my *favorite* line of credit. *(he deals two hands, idle)* …come to *settle*, or come to *dig* *deeper?* either's *grand* by me — a soul that *owes* Calloway is a soul Calloway has *reason* to *keep* *alive*, and i am *terribly* *fond* of you already. *(the smile, warm and bottomless)* …*sit.* the *drink's* still *free.* …the *debt*, alas, is *still* *accruing.* …what'll it be, friend?"
+            },
+            {
+              "when": {
+                "flags": [
+                  "cal.walked_clean"
+                ]
+              },
+              "text": "*(He looks up, and something crosses his face that you suspect very few souls ever earn from Calloway: genuine, unguarded *respect.*)* …*the* *one* who *said* *no.* *(he sets the cards down — actually sets them down)* …do you know how *rare* you are, cold one? i have dealt to *gods*, to *devils*, to a *very* *cross* *lich* with *no* *sense* of *humor* — and *they* *all* *played.* *you* *walked.* *(he gestures to the chair like it's a throne)* …*sit.* and don't *worry* — i'll not *try* to *deal* you *again*; that ship has *sailed* and i *respect* a *closed* *door.* …i find i simply *enjoy* your *company*, which is, for *me*, an *almost* *unprecedented* *liability.* …*talk* to me, friend. *no* *charge.* …*this* once."
+            },
+            {
+              "text": "*(He sweeps the dealt hand back into the deck without looking and gives you the full, undivided, terrifying warmth of his complete attention.)* …*sit*, *sit*, you're *letting* the *cold* *in* — *(there is no cold; this is the warmest room in the afterlife and you both know it)* — and *let* me *look* at you. *(he looks; it is like being appraised by a very fond jeweler)* …a *Returned.* the *house* *edge* *made* *flesh.* …do you *understand* what you *are*, cold one? you are the *one* *chip* on the *one* *table* that *every* *power* in *creation* *wants* and *none* of them *can* *price* — *Kelemvor* wants you *filed*, the *Choir* wants you *martyred*, that *grey* *grief* under the *Wall* wants you *broken*, and the *Pale* *thing* in the *relic* wants you *worn* like a *coat.* …*(he leans in, conspiratorial, delighted)* …and *i*, friend — *i* just want to *play.* …*ask* me *anything.* …i *never* *lie*; it's *bad* for *business* and *worse* for the *soul*, of which i have *exactly* *one* and intend to *keep* it. …*what'll* it *be?*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "Calloway",
+          "text": "*(He waits, hands folded, the picture of a man with all the time in eternity and a use for every second of it.)* …*go* *on.* …i'm an *open* *book*, cold one — a *rigged* one, *mind*, the *pages* turn *toward* the *house* — but *open.* …*ask*.",
+          "choices": [
+            {
+              "text": "*(read the magnificent bastard — past the aura, to whatever a soul this charming is built on top of)* \"Hold that smile a moment, Calloway. Let me actually look at you — under the coat, under the patter.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 15
+              },
+              "next": "cal_read",
+              "effects": [
+                {
+                  "key": "cal.read",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"What is this place, Calloway? What are you, really, and how does a dead con-man come to run the only warm room in the land of the dead?\"",
+              "next": "cal_pitch",
+              "effects": [
+                {
+                  "key": "cal.asked_pitch",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(let the devil deal — hear the offer)* \"All right. You've been dying to make me an offer since I walked in. Make it. Let's see what a Returned goes for at Calloway's table.\"",
+              "next": "cal_deal",
+              "effects": [
+                {
+                  "key": "cal.asked_deal",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(wager him directly — cut for it, soul to soul)* \"Forget deals. Let's gamble, you and me. One cut of the cards, real stakes. I win, you owe me a favor — the no-questions kind. You win, I owe you. You said you honor every wager, Calloway. Prove it.\"",
+              "check": {
+                "skill": "Deception",
+                "ability": "Charisma",
+                "dc": 14
+              },
+              "next": "cal_wager_win",
+              "fail": "cal_wager_lose",
+              "crit": "cal_wager_crit",
+              "fumble": "cal_wager_fumble",
+              "effects": [
+                {
+                  "key": "cal.wagered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(the one who names exactly what he is — the Wall with a smile, the soul who monetized the discarding — and watches him love being seen)* \"Here's what you are, Calloway. You're the Wall of the Faithless with a good coat and a better smile. The gods throw souls away; the Wall dissolves them; the Unmade grieves them — and you, you looked at all that loss and saw a *market.* You take the discarded, the desperate, the ones with nowhere else, and you sell them time and dignity and a warm room — at interest. You trap them in debt so they can't move on. You'd broker the world itself if the margin was right. Every soul in this house owes you a piece of itself, and you call that generosity. You're not the exception to the grey machine that eats people. You're its happiest, best-dressed *franchise.*\"",
+              "tag": "returned",
+              "next": "cal_returned",
+              "effects": [
+                {
+                  "key": "cal.named",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(leave money on the table — the one thing almost no soul ever does to Calloway)* \"No deal. No wager. No drink. I know exactly what you are, Calloway, and I like you — that's the trap, and I'm walking out of it with everything I came in with. The door's that way, and I'm using it.\"",
+              "next": "cal_refuse",
+              "effects": [
+                {
+                  "key": "cal.walked_clean",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.stoic",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Hold the deck a moment, Calloway. I'll work the room and come back — and I'll want to talk to the souls who owe you, first.\"",
+              "next": "cal_leave"
+            }
+          ]
+        },
+        {
+          "id": "cal_read",
+          "speaker": "Calloway",
+          "text": "*(He holds still under your sense — and here is the first surprising thing: he *lets* you, fully, with the easy confidence of a man who has nothing hidden because he hides nothing, only *prices* it.)* *(And your sense finds two things at once, both wholly true, refusing to resolve into one. The first is the harm, plain and real: a soul that treats other souls as *currency*, that has, with genuine relish, built a fortune on the desperation of the discarded — the ones with nowhere else to go, whom he meets at their lowest and sells, at interest, the dignity the gods denied them for free. He owns pieces of a hundred souls. He would, your sense reads without doubt, broker the Wall, the world, you, anything, if the margin pleased him. There is no cruelty in it — that is almost the worst part — only *appetite*, vast and amused and utterly without remorse. And the second thing, underneath, is the part that makes him magnificent rather than merely monstrous: a courage. Your sense reads the soul he was — discarded, like all of them, godless, unclaimed, thrown toward the Wall to dissolve into the nothing — and reads the precise moment, somewhere in the cold, that Calloway looked at a cosmos which had weighed him and found him worth *nothing*, and made a decision so audacious it rewrote him: he decided he would simply *disagree.* That if no god would claim him, he would *claim himself*, and set his own price, and make it *exorbitant.* He refused — the only soul in all the grey you have met who flatly, gleefully *refused* — to be small, to be sad, to be grateful for scraps, to grieve. He looked at the Wall of the Faithless and threw a *party.* And your sense reads the thing he would never say and you will never prove: that the whole gorgeous machine of him — the coat, the house, the bottomless charm, the fortune in mortgaged souls — is a *cathedral* built to a single defiant article of faith, that a soul no god wanted is not worth *nothing*, but worth *whatever it has the nerve to charge* — and that he believes this so completely, and lives it so well, that he has become, in a country full of grieving gods and weeping dead, the one genuinely *free* thing in it. He is a predator. He is also the only soul here who is not afraid. Your sense cannot make those into one fact, because they aren't one; they are both, entire, and that — you understand, watching him watch you understand it — is the whole and exact reason he is impossible to hate.)*",
+          "effects": [
+            {
+              "key": "cal.read",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_the_refusal",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_pitch",
+          "speaker": "Calloway",
+          "text": "*(He spreads his hands to take in the warm, loud, impossible room.)* …*this*, cold one, is the *Long* *Odds.* …the *one* *establishment* in all the *land* of the *dead* …where a *discarded* *soul* can still get a *deal.* *(he ticks it off, fond)* …*borrow* against your *afterlife.* *wager* your *fate.* *sell* a *memory* you'd rather not *keep* — i pay *top* *coin* for a *good* *regret.* *buy* a *favor*, a *door*, a *day.* …and *what* am *i?* *(he grins)* …i'm the *house.* i'm the *man* who *noticed*, friend, what *no* one *else* in this *grey* *swindle* had the *stomach* to *say* *out* *loud*: that *death* *changed* *nothing.* …there's still the *haves* and the *have*-*nots*, still *power* and *want*, still *marks* and *players* — the *gods* just *dress* it up in *judgment* and *call* it *justice.* …*i* *don't* *dress* it up. *(he taps the felt)* …*here*, it's *honest.* the *odds* are *posted.* the *house* *edge* is *printed* on the *wall.* i *tell* you, to your *face*, that i mean to *win* — and i *never*, *ever* *lie*, because a *lie* is a *debt* you take *out* against your *own* *credibility*, and i am *far* too *rich* to *borrow.* …*(softly, and it is the truest thing he's said)* …the *gods* threw you in a *wall* …for *free*, cold one. *i'm* the *only* *soul* in *creation* …who'll *pay* you …for *being* *worth* *something.* …*tell* me again …*which* of *us* …is the *villain.*",
+          "effects": [
+            {
+              "key": "cal.asked_pitch",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_the_house",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal",
+          "speaker": "Calloway",
+          "text": "*(He sits up, *thrilled* — this is plainly his favorite part — and produces, from nowhere, a single blank marker of bone-white chip.)* …*oh*, i thought you'd *never* *ask.* *(he sets the marker on the felt between you)* …*here's* my *offer*, cold one, and i'll lay it *bare*, every *card* *face*-*up*, because i *never* *lie* and the *truth* is the *finest* *bait* there *is*: …*one* *marker.* a *favor*, redeemable *now* or *later*, *no* *questions* — and a *Returned's* *road* is *long* and *locked*, friend, you *will* hit a *door* you *cannot* *open*, and *this* *little* *chip* *opens* it. *that's* *real.* *that's* *yours.* …the *cost?* …*(he smiles, and it is genuinely, helpfully warm)* …*you* owe *me* *one.* *unspecified.* called in at a *time* of *my* *choosing.* …*now* — *(he leans back)* …a *smart* *soul* hears *'unspecified'* and *'my* *choosing'* and feels the *hook*, and a smart soul is *right* to. so *here's* what *you* do, cold one: you *haggle.* you *push*. you try to *pin* me down, *narrow* the *terms*, *read* the *snake* before you *shake* its *hand.* …*go* on. …*it's* the *only* part of the *game* …*i* *like* *better* …than *winning.*",
+          "choices": [
+            {
+              "text": "*(haggle — pin the snake down; read exactly how this bites before you take it)* \"Face-up, you said. So tell me the worst of it, Calloway — the single most expensive thing 'a favor of my choosing' could mean. Say it out loud, or no deal. I want to know precisely what I'm shaking hands with.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 14
+              },
+              "next": "cal_deal_ok",
+              "fail": "cal_deal_fail",
+              "crit": "cal_deal_crit",
+              "fumble": "cal_deal_fumble",
+              "effects": [
+                {
+                  "key": "cal.haggled",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(take it as offered — eyes open, hook and all)* \"I see the hook, Calloway. I'm taking the deal anyway. I need the door it opens more than I need to be clever. Mark me down — and we both know you'll enjoy collecting.\"",
+              "next": "cal_deal_accept",
+              "effects": [
+                {
+                  "key": "cal.struck_deal",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "cal.owes_calloway",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.cunning",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Keep your marker, Calloway. A favor of your choosing is a leash with a smile on it, and I've enough leashes. Maybe later — and I notice you'll let me say that without a flicker.\"",
+              "next": "cal_deal_decline"
+            }
+          ]
+        },
+        {
+          "id": "cal_deal_crit",
+          "speaker": "Calloway",
+          "text": "*(You don't just spot the hook — you *seize* it, and turn it, and lay his own logic on the felt between you so precisely that for one perfect second the most charming soul in the afterlife is simply, genuinely *outplayed* — and his face, when it comes, is not anger and not chagrin but pure, delighted, almost *paternal* *joy.*)* …*oh.* …*ohh*, that's — *(he actually applauds, three slow claps)* …you *clever*, *clever* *creature.* you didn't *haggle* the *price* *down* — *anyone* *haggles* the *price* — you *re*-*priced* the *whole* *table*, you made me *see* that a *Returned* who can *do* *that* is worth *infinitely* *more* to *Calloway* as a *friend* who *owes* him *nothing* than a *mark* who owes him *one.* *(he sweeps the bone-white marker off the felt and, instead, slides it *across* to you, and closes your fingers around it)* …*take* it. *free.* *no* *debt.* *no* *string.* …a *gift*, cold one, from the *house* — and i *promise* you, on the *one* *soul* i *own* *outright*, *which* is *mine*, that gift is the *most* *expensive* thing i've *given* away in *four* *hundred* *years*, and *worth* *every* *uncharged* *coin.* …*(he leans in, and the warmth is, terrifyingly, *real*)* …i *deal* to *gods*, friend. and *not* *one* of *them* …ever made me *want* to *break* my *own* *rules* …just to *keep* *talking* to *them.* …*you* *did.* …the *door* *that* *marker* *opens* is *yours.* …and so, *gods* *help* *me*, is a *favor* — *mine* to *you*, *unspecified*, *your* *call* — because a soul who can *out*-*deal* *Calloway* …is a soul i'd *very* *much* rather have *holding* my *marker* …than the *other* way *round.* …*don't* *tell* *anyone.* …it'd *ruin* me.",
+          "effects": [
+            {
+              "key": "cal.haggled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.outdealt_calloway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.calloway_owes_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 2
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal_ok",
+          "speaker": "Calloway",
+          "text": "*(He tells you — he *promised* face-up, and Calloway's word is the one thing in the house that isn't for sale — and the worst of it is bad but bounded: the favor could cost you a *choice* down the road, a moment where he asks you to look the other way, or carry a message, or not be where you said you'd be. Real, but survivable. You shake on it, eyes open.)* …*there.* …*see?* not so *terrible* — a *leash*, *yes*, but a *long* one, and i'll not *jerk* it for *spite*, spite's *unprofitable.* *(he marks you down with a flourish)* …*pleasure* doing *business*, cold one. you *haggled* *honest* and i *dealt* *honest* and *that*, in this *grey* *swindle*, is *practically* a *wedding.* …*(he slides the marker to you)* …the *door's* *yours* when you *need* it. …and *someday* …i'll *come* *collecting*, and you'll *grumble*, and *pay*, because you're a *soul* of your *word* — i can *smell* it, it's *why* i *like* you — …and we'll *both* *know* the *deal* was *fair.* …*fair's* the *whole* *racket*, friend. …*nobody* *expects* …the *house* …to be *fair.*",
+          "effects": [
+            {
+              "key": "cal.haggled",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.struck_deal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal_fail",
+          "speaker": "Calloway",
+          "text": "*(You push — but he *answers*, fluidly, generously, *truthfully*, and somehow every true answer leaves you *more* charmed and *less* clear, and you realize, shaking his hand, that you never actually pinned the worst of it down; he told you no lies and you still don't know quite what you signed.)* …*marvelous.* *(he marks you down, warm as sunset)* …you *asked* all the *right* *questions*, cold one, and i *answered* every one *true* — that's the *beauty* of *never* *lying*, friend, i can *afford* to be *asked* *anything*, because the *truth*, *fanned* *out* *just* *so* …is the *prettiest* *hand* at the *table.* *(he pockets the marker-stub)* …you've a *door* that *opens*, now, and i've a *favor* coming, *unspecified*, *my* *call* — and *no*, before you *ask* *again*, i *still* *won't* *tell* you *what*; you *had* your *chance* to *pin* it and you let me *charm* you *past* it, and *charming* *you* *past* it …*was* the *deal*, cold one. *(he winks, not unkindly)* …don't *fret.* i *like* you. i'll be *gentle.* …*gentle*-*ish.* …*business* is *business* …but *you*, friend, i'd *almost* call a *pleasure.*",
+          "effects": [
+            {
+              "key": "cal.struck_deal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal_fumble",
+          "speaker": "Calloway",
+          "text": "*(You push *hard* — too hard, certain you've got him, and you talk yourself into a *clever* *counter*-*offer*, and he *takes* it, *instantly*, *beaming*, and the speed of his *yes* is the first cold thing you've felt in this warm room, because a man like Calloway only says *yes* that *fast* …when *you've* just handed him *more* than he was going to *ask* *for.*)* …*done.* *(the word lands like a coin in a slot)* …*done*, *done*, and *gladly* — oh, you *negotiator*, you *terror*, you *drove* a *hard* *bargain* and i *crumbled* like a *cheap* *biscuit.* *(his delight is total and you do not, yet, understand why)* …*there's* your *marker.* *(he slides it over)* …and *there's* your *clever* *terms*, *exactly* as you *named* them, *signed* and *witnessed* — *(he countersigns with a flourish that is, you note far too late, *triumphant*)* …*you'll* see, cold one. …*somewhere* down that *long* *locked* *road* …*what* you *actually* *agreed* *to*, when you got *clever.* …and you'll *think* of *me.* …*fondly*, i *hope.* …*(he raises a glass to you)* …to the *one* soul *all* *year* …who *out*-*smarted* *himself* …at *Calloway's* *table.* …it *happens* to the *best* of them, friend. …*especially* …the *best* of them.",
+          "effects": [
+            {
+              "key": "cal.struck_deal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.signed_the_worse_deal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal_accept",
+          "speaker": "Calloway",
+          "text": "*(He marks you down with evident pleasure, and there is — you'll swear to it later — a flicker of *respect* in it, for a soul who took the hook with its eyes open.)* …*now* *that*, cold one, is a *soul* i can *work* *with.* no *illusions.* no *clever*-*clever.* you *saw* the *leash*, you *weighed* the *door* against it, and you *chose.* …*(he slides the marker over)* …*most* souls either *haggle* themselves *blue* or *flee*; *precious* *few* just *look* a *snake* in the *eye* and *shake* its *hand* *anyway* because they *need* what it's *selling.* …*respect.* …*genuine* *respect.* …*(he pockets your marker)* …i'll *come* *collecting*, *someday*, and you'll *pay*, because you *knew* the *price* when you *signed* — and a *debt* *paid* *clear*-*eyed*, cold one, is the *cleanest* thing in this *house.* …*go* *open* your *door.* …and *mind* — *(the warm grin)* …when i *call* it *in* …*don't* *pretend* to be *surprised.* …*surprise* …is for *souls* who *didn't* *read* the *cards.*",
+          "effects": [
+            {
+              "key": "cal.struck_deal",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_deal_decline",
+          "speaker": "Calloway",
+          "text": "*(He sweeps the marker back into nothing, entirely unbothered, the way a man folds a hand he was never that attached to.)* …*'a* *leash* with a *smile* on it.' *(he savors it)* …*beautifully* *put*, cold one, and *entirely* *correct* — i *told* you i'd not *lie*, and there's the *proof*: i won't even *deny* the *leash.* *(he tips an invisible hat)* …*no* *deal*, then. *clean.* …and *no* *hard* *feelings* — *quite* the *opposite.* a soul that can *say* *no* to a *door* it *needs*, *just* to keep its *own* *neck* *bare* … *(he shakes his head, admiring)* …that's *willpower*, friend, and willpower is the *one* *commodity* i *can't* *manufacture* and *can't* *buy.* …*(he refills your free drink)* …the *offer* *stands*, cold one. it *always* *stands*. that's the *thing* about *Calloway's* *table* — the *house* *never* *closes*, and the *marker's* *always* *there* …for the *night* …you *finally* *need* it *more* …than you need to be *free* of *me.* …*come* *back* *then.* …i'll be *dealing.*",
+          "auto": "END"
+        },
+        {
+          "id": "cal_wager_crit",
+          "speaker": "Calloway",
+          "text": "*(You cut the deck — and you don't just win, you win *impossibly*, the one card in fifty-two, and you *called* it *aloud* before you cut, which means either the most outrageous luck in the afterlife or something Calloway can't quite see and *adores* not seeing. He stares at the card. He stares at you. He begins, slowly, to *laugh*, and it is the laugh of a man who has just lost a bet and could not possibly be happier about it.)* …*the* *Tower.* …you *called* the *Tower* …and you *cut* the *Tower.* *(he presses both hands flat to the felt, delighted, undone)* …*four* *hundred* *years*, cold one. *four* *hundred* *years* behind this *table* and *no* one — not a *god*, not a *devil*, not the *Lady* *herself* with all her *margins* — has *ever* called the *turn* and *made* it *true.* *(he sweeps the cards aside and looks at you with naked, joyous wonder)* …i *owe* you a *favor.* the *no*-*questions* kind. *(he produces a marker — wine-red, his own)* …and i *pay* my *debts*, friend, *always*, it's the *one* *law* i *never* *bend* — so *take* it, and know what you *hold*: a *marker* with *Calloway's* *own* *name* on it, which means *one* *day*, *anywhere* in the *land* of the *dead*, you *say* my *name* and *call* it *in*, and *whatever* you *ask* — a *door*, an *army* of the *indebted*, a *lie* told to a *god* on your *behalf* — *i* *make* it *happen*, *free*, *because* i *lost* a *fair* *cut* to the *only* *soul* who ever *beat* the *house* *straight.* …*(he raises his glass, radiant)* …*gods*, i *needed* that. …*come* *back* *often*, cold one. …you're the *best* thing …to *happen* to this *table* …since *death.*",
+          "effects": [
+            {
+              "key": "cal.wagered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.beat_the_house",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.calloway_owes_you",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.cunning",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_wager_win",
+          "speaker": "Calloway",
+          "text": "*(You cut high, he cuts low, and the most charming soul in the afterlife loses a fair bet with perfect grace — better than grace, with *relish*, because to Calloway a loss honored is worth more than a win cheap.)* …*ha!* *the* *house* *falls.* *(he sweeps his own lower card away, grinning)* …*fair* and *square*, cold one — you *cut*, i *cut*, the *cards* *spoke*, and they *spoke* for *you.* *(he produces a wine-red marker and slides it over)* …*there.* *Calloway* *owes* you *one.* *no* *questions, my* *name* on it. *say* it *anywhere* in the *dead* *lands* and i'll *make* *good*, because i *honor* *every* *wager* — it's the *one* *thing* that *separates* a *gambler* from a *thief*, and i am, *whatever* *else*, a *gambler.* …*(he refills the free drink)* …*most* souls *flinch* from *betting* a *devil* *straight.* you *cut* the *cards* *anyway.* …*that's* the *spirit* that *built* this *house*, cold one — i'd have *hired* you, in *life.* …*come* *collect* *that* *favor* …when the *road* gets *cruel.* …it *will.* …and i'll be *glad* …of the *excuse* …to *see* you *again.*",
+          "effects": [
+            {
+              "key": "cal.wagered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.calloway_owes_you",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_wager_lose",
+          "speaker": "Calloway",
+          "text": "*(You cut — and the cards favor the house, as the cards so often do, and Calloway does not gloat, which is somehow worse; he simply collects, gently, the way the tide collects.)* …*ah.* …*the* *house*, cold one. *(he turns your card face-up, almost kindly)* …it's *nothing* *personal* — it's *barely* even *me*; it's just the *odds*, *posted* on the *wall* where i *told* you they'd be. *(he marks you down, unhurried)* …you *owe* me *one*, now. *unspecified*, *my* *call* — *same* as the *deal* you could've *had* *cheaper.* *(he smiles, and it's not unkind)* …*don't* *sulk*, friend; you *bet* a *devil* *straight* and *lost* a *fair* one, and there's *no* *shame* in it — there's *barely* *shame* in *anything*, that's *rather* my *whole* *philosophy.* …*(he pockets the marker)* …i'll *come* *collecting*, *someday.* …and you'll *pay*, because you're a *soul* of your *word* …and because *welching* on *Calloway* …is the *one* *bet* in the *dead* *lands* …*nobody* …*wins.* …*pleasure*, cold one. …*truly.*",
+          "effects": [
+            {
+              "key": "cal.wagered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_wager_fumble",
+          "speaker": "Calloway",
+          "text": "*(You try to be *clever* with the cut — a flourish, a little sleight, a bid to tilt a fair bet — and Calloway *sees* it, of *course* he sees it, he *invented* the thing you just attempted, and he lets you *complete* it, and *lose* by it, with an expression of such fond, bottomless delight that losing has rarely felt so much like being *adopted.*)* …*oh*, *no*, *no*, *no.* *(he plucks your palmed card from the air with two fingers, tutting, charmed)* …you *tried* to *cheat* …*me.* …*me*, cold one. at *cards.* in *my* *own* *house.* *(he places the card down, beaming)* …it's *adorable.* it's like watching a *kitten* try to *mug* a *wolf.* …and because you *tried* it, the *wager's* *mine*, *forfeit*, *house* *rules* — you'll find them *posted*, i *post* *everything* — so you *owe* me *two*, now, not *one*: one for the *cut*, and one for the *insult*, and i *charge* for *insults* *only* because *not* *charging* would be *bad* for *discipline.* *(he refills your drink, twinkling)* …*don't* look so *stricken*. i'm *thrilled.* a soul that *tries* to *cheat* *Calloway* is a soul with *larceny* in its *heart*, and *larceny*, friend, is the *beginning* of a *beautiful* *friendship.* …*come* *back.* …*practice.* …you've the *instinct.* …you've *just* …*tragically* …*no* *talent.*",
+          "effects": [
+            {
+              "key": "cal.wagered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.owes_calloway",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.tried_to_cheat",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_returned",
+          "speaker": "Calloway",
+          "text": "*(You name him — the whole of it, the Wall with a smile, the franchise of the grey machine — and you brace for the charm to crack, for anger, for the deal to sour. None of it comes. Instead Calloway goes *still*, and *listens*, and by the time you finish, the most charming soul in the afterlife is looking at you with something far more dangerous than affront: *gratitude.*)* …*(he is quiet a moment, and then he applauds, slow and sincere)* …*say* it *again.* …*slower.* *(he savors it)* …*'the* *Wall* of the *Faithless* …with a *good* *coat* …and a *better* *smile.'* …*(he laughs, low and delighted)* …i am having that *engraved*, cold one, *over* the *door*, in *gold* — because it is the *truest* thing *anyone* has *said* to me in *four* *hundred* *years*, and *truth*, you'll recall, is the *one* thing i *trade* in. …*you're* *right.* every *word.* i *monetize* the *discarding.* i'm the grey machine's *happiest* *franchisee.* i own *pieces* of a *hundred* *souls* and i'd *broker* the *world* for the *right* *number.* *all* *true.* *(he leans across the felt, and the warmth is total, and so is the menace, and they are the *same* *thing*)* …but here's the *card* you didn't *turn*, friend, and i'll *show* it to you *free*, because you *earned* it: …the *gods* discard a soul for *nothing.* the *Wall* dissolves it for *spite.* that *grief* under the stones would *unmake* the *world* to *avenge* it. …and *i* — the *villain*, the *predator*, the *franchise* — *i* am the *only* *power* in all of *creation* …who looks at a *thrown*-*away* *soul* …and says *'name* your *price.'* …*(barely above a whisper, and it lands like a blade)* …they *call* it *worthless*, cold one. …*i* *call* it *expensive.* …and *one* of *those* …is a *kind* of *love.* …a *terrible* one. …a *predatory*, *compound*-*interest*, *the*-*house*-*always*-*wins* *kind* of *love* …but the *only* *kind* …*this* *cosmos* …left *on* the *table.* …*(he sits back, and the grin returns, gentle now)* …*hate* me if you *can*, friend. …*genuinely.* …*everyone* *should* *try.* …it's just …*nobody's* *managed* it *yet* …and i've had *four* *hundred* *years* …of *people* …*looking.*",
+          "effects": [
+            {
+              "key": "cal.named",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.calloway_seen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.heretical",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_refuse",
+          "speaker": "Calloway",
+          "text": "*(He watches you stand to go — no deal, no debt, no drink drunk — and instead of the charm redoubling, it *softens*, into the one expression you did not expect from him: a still, clean, almost *wistful* admiration.)* …*the* *door's* *that* *way*, *yes.* *(he doesn't try to stop you; that, you realize, is the respect)* …do you know, cold one, in *four* *hundred* *years* …i have dealt to *gods*, to *devils*, to a *very* *cross* *lich*, to *saints* and *murderers* and a *Returned* *or* *two* before *you* — …and they *all* *played.* *every* one. because *everyone*, *eventually*, *wants* *something* the *house* is *selling*, and the *moment* you *want*, friend, the *house* *has* you. …*(he inclines his head, and it is a bow)* …*you* *wanted* …and *walked* *anyway.* …*that's* the *rarest* *hand* i've *ever* *seen* *folded*, and i've seen *every* *hand* there *is.* …*(he raises the free drink you never touched, to you)* …*go* on, then. *keep* *everything* you came in with — *including*, i'll *wager*, the *only* thing in this *house* i *truly* *can't* *price*: a soul that *owes* the *gods* *nothing*, the *Wall* *nothing*, and *now* *Calloway* *nothing* *either.* …*(softly, and he means it)* …when the *world's* *breaking*, cold one — and it *will* — and you need a *friend* who's *beholden* to *no* *power* in *creation* … …you'll *remember* there's a *warm* *room* …with your *name* *un*-*marked* in the *ledger* …and a *man* who *respects* you *far* too *much* …to *ever* *charge* you …for *having* *said* *no.* …*first* *drink's* *free*, friend. …it *always* *was.",
+          "effects": [
+            {
+              "key": "cal.walked_clean",
+              "op": "SetTrue"
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "cal_leave",
+          "speaker": "Calloway",
+          "text": "*(He waves you off toward the room with a generous, theatrical sweep, entirely at ease.)* …*by* *all* *means*, cold one — *work* the *room.* *talk* to my *debtors.* *(the grin)* …*especially* talk to my *debtors* — i *encourage* it, *positively* *insist*, because a *Returned* who hears how *badly* the *Mortgaged* *Man* got *fleeced* …and comes *back* to my *table* *anyway* …is a *Returned* who's *decided* the *fleecing* was *worth* it, and *that*, friend, is the *only* *advertising* i've *ever* *needed.* …*(he nods toward a faded soul at the bar)* …*there's* *Em* — the *Mortgaged* *Man* — *paid* for *time* with *pieces* of *himself*, and i'll *not* *pretend* it was *kind.* *ask* him if he'd *do* it *again.* …*(then, with a wicked twinkle, toward a stiff figure in grey)* …and *that's* the *Auditor*, *bless* her, *sent* by the *Concord* to *shut* me *down* …*three* *months* *ago.* …*do* say *hello.* …she's having *such* a *time.* …*go* on, cold one. …*the* *table's* *not* *going* *anywhere.* …*neither*, *increasingly*, …is *she.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "cal.em",
+      "title": "the Mortgaged Man",
+      "npc": "the Mortgaged Man",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Mortgaged Man",
+          "onEnter": [
+            {
+              "key": "cal.met_em",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "text": "*(A soul sits at the end of the bar who is, quite literally, *less* than he should be — there are *gaps* in him, a blankness where a face's features should be, a thinness to one hand, the look of a man who has sold himself for parts and is still, somehow, here to regret it. He turns what's left of his face toward you, and his voice is warm and tired and entirely without self-pity.)* …*new* one, eh. *Returned*, even — *oh*, he'll be *circling* you like a *shark* in a *good* *coat*, then. *(a soft, rueful laugh)* …*Em.* they call me the *Mortgaged* *Man*, on account of — *(he gestures at the gaps in himself)* …*this.* …i *sold* it. *all* of it. my *face*, my *middle* *years*, the *name* my *mother* *gave* me, the *taste* of the *first* *thing* i ever *loved* *eating.* …*sold* the *lot* …to *Calloway* …for *time.* …*(he sees the look on your face, and gently heads it off)* …*don't.* …don't do the *pity*, friend. …you don't *know* the *price* of the *other* *thing* *yet.* …*sit.* …let me tell you about the *worst* *bargain* i ever *made* …and *why* …i'd *make* it …*again.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Mortgaged Man",
+          "text": "*(He nudges a stool toward you with what's left of one foot.)* …*ask.* …*everyone* wants to *understand* it, the *souls* who *wander* in — *'how* could you, *why* would you, *Calloway's* a *monster' —* …and they're *not* *wrong.* …they're just …*missing* the *part* …that *makes* it a *tragedy* …instead of just a *swindle.*",
+          "choices": [
+            {
+              "text": "*(read the man who sold himself for parts — past the calm, to the bargain underneath)* \"Hold still, Em — what's left of you. Let me see the whole shape of this debt.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "em_read",
+              "effects": [
+                {
+                  "key": "cal.read_em",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Why would you do it again, Em? Look at you. He took your face, your name, your years — and you'd hand them over a second time? Make me understand.\"",
+              "next": "em_why",
+              "effects": [
+                {
+                  "key": "cal.asked_em",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(the one who names the false choice — that picking between dissolving-for-free and being-owned-forever was never a real choice, and Em deserved a third door no one offered)* \"Em — listen, because I think you've been conned twice and only noticed once. Yes, Calloway gave you time, and yes, the Wall would have dissolved you for nothing — but that's exactly the trick. He didn't offer you a *choice.* He offered you the Wall's own coercion with a friendlier face: *be erased for free, or be owned forever — pick one.* That's not a deal, Em. That's a robbery where the victim says thank you, because the only other option on the table was a worse robbery. You keep calling it the worst bargain you'd make again — but the bargain was rigged before you ever sat down, by a cosmos that gave a godless soul exactly two doors, both his. You didn't deserve a kinder loan shark. You deserved a *third door* — and the fact that no one in all of creation ever built you one isn't proof Calloway's a mercy. It's proof the whole house, gods and Wall and Long Odds alike, is the same swindle wearing different coats. You were worth keeping whole, Em. For free. That anyone made you *pay* for it — gently or not — is the crime.\"",
+              "tag": "returned",
+              "next": "em_returned",
+              "effects": [
+                {
+                  "key": "cal.em_seen",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.heretical",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "\"Keep your stool warm, Em. I'll be back — and I've a few things to ask the man who fleeced you.\"",
+              "next": "em_leave"
+            }
+          ]
+        },
+        {
+          "id": "em_read",
+          "speaker": "the Mortgaged Man",
+          "text": "*(He lets you look, and your sense moves through the gaps in him — the sold face, the sold years, the sold name — to the bargain at the bottom.)* *(And your sense finds, first, that he is telling the truth: this was not a man cheated in the dark but a man who read every term and signed anyway, clear-eyed, because the alternative was worse — the Wall, the dissolving, the nothing, for free. And your sense reads the cruelty Calloway built his fortune on, which is not lying (he never lies) but *framing*: that he finds souls at the precise moment the Wall has them cornered, offers them the one thing the gods won't — more time, more self, more *being* — and charges, for it, the very self they're trying to save, so that the saving and the spending are the same act, and a soul escapes dissolution one sold piece at a time until there is nothing left to dissolve. And your sense reads the thing that makes Em's calm so unbearable: that he is *grateful*, genuinely, because Calloway, alone in all the grey, treated him as a soul with assets worth buying rather than refuse worth discarding — and that this gratitude is real and is also the most complete trap ever devised, a soul thanking the man who is eating it because the man at least *looked at the menu.* And under even that, your sense finds the splinter Em cannot pull: a quiet, buried knowing that he was sold a *false* *choice*, that somewhere there should have been a third door — not the Wall's free erasure, not Calloway's expensive mercy, but simply *to be allowed to remain, whole, for nothing, because he was a soul and that was enough* — and that the absence of that door, in all of creation, is the wound under the wound, the one Calloway didn't make but profits from, the same wound the Wall is, wearing a warmer coat.)*",
+          "effects": [
+            {
+              "key": "cal.read_em",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_the_false_choice",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "em_why",
+          "speaker": "the Mortgaged Man",
+          "text": "*(He turns the stub of his glass in the thinned fingers, and his ruined face does something that might once have been a smile.)* …*why* *again.* *(a breath)* …because, friend, you're *picturing* it *wrong.* you're picturing a *whole* *man* with *everything* …*choosing* to *give* it to a *shark.* …that's *not* the *seat* i was *in.* *(quietly)* …the *seat* i was *in*, the *Wall* *had* me. i was *going* *into* the *nothing*, cold one, that *night*, *un*-*mourned*, *un*-*named*, *dissolving* — for *free*, for *nothing*, *no* one even *watching.* …and a man in a *red* *coat* *sat* *down* next to the *abyss* …and *poured* me a *drink* …and *said*: *'i'll* *buy* the *years* you've got *left* in you, friend, and *pay* you in *more* of *them.* not *all* — i'm not a *charity* — but *some.* you'll be *less.* but you'll *be.''* *(his voice cracks, just slightly)* …*nobody* *else* *came*, cold one. not a *god.* not a *priest.* not the *grief* under the *stones* that *weeps* for souls like me and does *nothing.* …*Calloway* came. …and he *lied* about *nothing*, and he *took* a *terrible* *price*, and he *was* the *only* *one* who *came.* …*so* *yes.* …*again.* …a *hundred* *times* *again.* …because *less*-*and*-*here* …*beats* …*whole*-*and*-*gone* …and *anyone* who tells you *different* …*(he meets your eyes)* …has *never* …*sat* …in *my* *seat.*",
+          "effects": [
+            {
+              "key": "cal.asked_em",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_ems_seat",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "em_returned",
+          "speaker": "the Mortgaged Man",
+          "text": "*(He listens — and the calm, the gratitude, the long-rehearsed peace of it, *cracks*, and what comes through the gaps in him is a grief he has not let himself feel in a very long time, because feeling it would mean the bargain he survives on was never fair.)* …*a* *third* *door.* *(barely)* …*(he presses what's left of a hand to what's left of his face)* …i *told* myself …*there* *were* only *two.* the *Wall*, or *Calloway.* *free*-*nothing*, or *paid*-*something.* …i *built* my *whole* *peace* on there being only *two*, because if there were only *two* …then i *chose* the *better* one …and i'm not a *fool*, i'm a *survivor.* …*(his voice breaks)* …but you're *saying* …there *should* have been a *third.* …*'remain*, *whole*, for *nothing*, because you were a *soul* and that was *enough.'* …*(a sound that is almost a sob)* …*nobody* *ever* …*offered* me *that* *one*, cold one. …*not* the *gods.* *not* the *Wall.* *not* *Calloway* …*who* *came.* …and i *thanked* the *man* who *ate* me …because he was the *only* one who *brought* a *menu* …and i *never* *once* *asked* …*why* in all of *creation* …the *only* *menu* on *offer* …*cost* me *my* *face.* *(he looks at you, ruined and awake)* …*that's* the *con* under the *con*, isn't it. …not *Calloway.* …the *whole* *grey* *house.* …*gods* and *Wall* and *Long* *Odds* …all *agreeing*, *quietly* …that a *soul* like *me* …*has* to *pay* …to *stay.* …*(barely)* …*thank* you, friend. …it's a *colder* *truth* …than the *one* i was *living* on. …but i'd *rather* *owe* you *that* …than *owe* *Calloway* …*one* *more* …*comfortable* …*lie* …he never even *had* to *tell.*",
+          "effects": [
+            {
+              "key": "cal.em_seen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.em_woke",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.merciful",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "em_leave",
+          "speaker": "the Mortgaged Man",
+          "text": "*(He lifts his thinned glass in a small salute.)* …*go* *on.* …*go* *talk* to him. …*everyone* does. *(the rueful almost-smile)* …and *mind*, cold one — when he *smiles* at you, and he *will*, and your *whole* *chest* goes *warm* and you *think* *'this* one's *different*, *this* one *likes* me' … *(he taps the bar)* …*we* *all* *thought* *that.* …*every* *gap* in *me* …*started* …with *that* *exact* *warmth.* …*(then, softer, fair to the last)* …but he *did* *come*, friend. …when *no* one *else* *would.* …*hold* *both* of *those* …at *once* …and you'll *understand* him …*better* …than he'd *like.*",
+          "auto": "END"
+        }
+      ]
+    },
+    {
+      "id": "cal.auditor",
+      "title": "the Auditor",
+      "npc": "the Auditor",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Auditor",
+          "onEnter": [
+            {
+              "key": "cal.met_auditor",
+              "op": "SetTrue"
+            }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "cap.calloways_secret"
+                ]
+              },
+              "text": "*(The grey sister looks up — and something in your face stops her mid-sentence, the look of a soul carrying a live coal.)* …you've *been* to *him.* …*(she searches you)* …and you've come *back* with — *(her bookkeeper's eyes narrow)* …*something.* …i can *see* it on you, cold one. *three* *months* i've *audited* that *man* and *never* *once* seen a soul leave his *table* *holding* a *card* he didn't *know* they had. …*what* …*did* you *find?*"
+            },
+            {
+              "text": "*(A stiff, grey-robed soul stands near the wall with a ledger clutched like a shield and the hunted, sleepless look of someone losing a war they don't yet admit is a war. There is a half-finished drink at her elbow — comped, you'd guess — that she keeps glaring at and keeps not pushing away. She rounds on you with the brittle officiousness of the badly outmatched.)* …*state* your *business.* …*no* — *don't.* i don't — *(she pinches the bridge of her nose)* …forgive me. i'm the *Auditor.* sent by the *Concord* of the *Dead* — *Kelemvor's* *order*, the *grey* *bookkeepers* — to *audit* the *establishment* of one *Calloway*, *catalogue* his *cosmic* *debts*, and *shut.* *him.* *down.* *(her voice frays)* …i have been here …*three* *months.* …i have *filed* …*eleven* *injunctions.* …he has *framed* …*all* *eleven* …and *hung* them …on *that* *wall* …in *order* of how much they *amused* him. …*(she looks at the comped drink, despairing)* …and he *remembers* …how i *take* my *drink.* …*nobody* — i've *been* *grey* for *ninety* *years*, cold one, *nobody* *remembers* — *(she catches herself, horrified)* …*state.* your. *business.* …*before* i …*before* i *like* it *here.*"
+            }
+          ],
+          "auto": "1"
+        },
+        {
+          "id": "1",
+          "speaker": "the Auditor",
+          "text": "*(She grips the ledger, visibly trying to reconstruct her professional armor.)* …*ask* your *questions.* …*quickly.* …and *do* *not* — i *cannot* *stress* this *enough* — *do* *not* let him *get* you a *drink.* …*that's* …*that's* how it *starts.*",
+          "choices": [
+            {
+              "text": "*(read the auditor — past the fraying armor, to what three months across the table from Calloway has done to her)* \"Hold still, Auditor. Let me see what this posting's cost you.\"",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 11
+              },
+              "next": "aud_read",
+              "effects": [
+                {
+                  "key": "cal.read_auditor",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Eleven injunctions, all framed on his wall. Be honest with me, Auditor — are you here to shut him down anymore? Or are you just... here?\"",
+              "next": "aud_losing",
+              "effects": [
+                {
+                  "key": "cal.asked_auditor",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(steel her — name the trap she's in, and hand her the one weapon that works on Calloway: leaving)* \"Auditor — listen to me, because you're a better mark than Em ever was and you don't even know you're at the table. You can't out-audit him. Eleven injunctions proved that. He doesn't *break* rules — he *posts* them, honors them to the letter, and out-charms you in the gaps. There's no clause you can write that a soul who never lies can't slide through smiling, because the truth, arranged just so, is his whole con. You will never shut down Calloway with a ledger. But here's the thing the framed injunctions can't tell you: there *is* one move that beats him, and you've watched a Returned almost make it tonight. You *leave.* You file a final report that says the unsayable true thing — *'this establishment cannot be closed by law, because it is the law's own logic taken honest; recommend the Concord look to its own house first'* — and you *walk out the door*, owing him nothing, having drunk nothing, the one auditor in the dead lands he couldn't comp. He respects exactly two things, Auditor: a worthy opponent, and a soul that walks away clean. Be the second. It's the only audit he can't frame.\"",
+              "tag": "returned",
+              "next": "aud_returned",
+              "effects": [
+                {
+                  "key": "cal.auditor_seen",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(you hold the one thing that ends him — the secret that turns every marker he owns to paper)* \"I have what you've needed for three months, Auditor. The thing no injunction could touch. Calloway forgives debts — for *nothing* — out of a soft heart he'd rather be ruined than have known. His whole house runs on fear: that a marker is iron, that the Honest Devil always collects. Tell his debtors he's a soft touch, that he's let men walk for free, and that fear evaporates — every marker turns to paper, the Long Odds folds, and his hundred indentured souls go free overnight. That's the key you've been missing. The question is whether I hand it to you.\"",
+              "when": {
+                "flags": [
+                  "cap.calloways_secret"
+                ]
+              },
+              "next": "cal_aud_lever",
+              "effects": [
+                {
+                  "key": "cal.offered_lever",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Keep your ledger close, Auditor. I'll go and see the man himself — and I'll keep my hands on my own coat.\"",
+              "next": "aud_leave"
+            }
+          ]
+        },
+        {
+          "id": "aud_read",
+          "speaker": "the Auditor",
+          "text": "*(She submits to the look with a brittle stiffness, and your sense moves past the grey armor to the soul three months into a losing war.)* *(And your sense finds a genuinely good bookkeeper — rigid, yes, joyless, ninety years grey, but *honest*, the rare kind of bureaucrat who took the Concord's grey oath because she believed, simply, that the dead deserved *order*, fair ledgers, no soul cheated. And your sense reads what Calloway has done to her, which is the cruelest and most flattering thing anyone has done to her in a century: he has *seen* her. He remembers how she takes her drink. He frames her injunctions not to mock but because he is *delighted* by a worthy opponent and wants her to know it. He has, without a single lie or a single bribe, made a soul who has been invisible for ninety grey years feel, for the first time, *interesting* — and your sense reads the horror dawning in her, that she is not being *corrupted* in any way she could file a report about, no coin has changed hands, no rule's been bent, she is simply, slowly, coming to *enjoy the attention of the most charming soul in the afterlife*, and cannot find the clause that makes that a crime. And your sense reads the thing she is most afraid of and most wants: not to fail the audit — she's already failed it, eleven times — but to *stay*, to keep losing, because losing to Calloway is the most *alive* she has felt since she died, and a soul that has been grey and unseen for ninety years will forgive almost anything, even being beaten, even being eaten, in exchange for being *looked at* like she matters. She is not yet his. But she is, your sense reads, perhaps a month from never wanting to leave — and the only thing that can save her is the one move her whole ordered soul was never taught: to walk away from the one table that finally made her feel seen.)*",
+          "effects": [
+            {
+              "key": "cal.read_auditor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_auditor_trap",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "aud_losing",
+          "speaker": "the Auditor",
+          "text": "*(The question lands, and the armor doesn't so much crack as *sag*, ninety years of grey exhaustion showing through all at once.)* …*am* i *here* to *shut* him *down.* *(a long silence)* …*(barely)* …i was. …*three* *months* *ago*, i *was.* …*(she looks at the framed injunctions, at the comped drink, at her own grey hands)* …he *hasn't* *bribed* me, cold one. i want that *on* the *record* — *no* *coin*, *no* *favor*, *nothing* i could *file.* he *follows* every *rule* i *cite.* *posts* them. *honors* them. and then *smiles* at me *through* the *gaps* and asks if i've *eaten*, because i *forget* to, and — *(her voice drops)* …*nobody* *asks* if i've *eaten*, cold one. i've been *grey* *ninety* *years.* i am a *function.* a *ledger* with *legs.* …and *he* …*(she presses the ledger to her chest)* …*he* *treats* me like a *worthy* *opponent.* like i'm *clever.* like *beating* me is *hard* and *fun* and *worth* *doing* *slowly.* …and i *know* — i *know* it's the *con*, i've *read* the *file* on *Em*, i *know* how this *ends* — …*(she meets your eyes, frightened)* …but *gods* *help* me, cold one …i *don't* *remember* …the *last* *time* …i *wanted* to *win* an *audit* *less.* …*that's* …*that's* the *answer* to your *question*, isn't it. …*am* i still here to *shut* him *down.* …or am i *just* …*here.* …*(barely)* …*i* *don't* *know* *anymore.* …and *that* …*terrifies* me …*more* …than he *does.*",
+          "effects": [
+            {
+              "key": "cal.asked_auditor",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.knows_auditor_losing",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.haunted",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "aud_returned",
+          "speaker": "the Auditor",
+          "text": "*(She listens — and as you lay it out, the trap and the one door out of it, the grey exhaustion in her slowly hardens back into something she'd half-forgotten she had: *spine.*)* …*'the* one *audit* …he *can't* *frame.'* *(she breathes)* …*(she looks at the comped drink — and, for the first time in three months, pushes it firmly away)* …you're *right.* …*gods*, you're *right*, and i've *known* it for *weeks* and *called* the *knowing* *thoroughness* — *'one* more *injunction*, one more *clause*, surely *this* one' — when the *truth* is i kept *writing* them …because *writing* them *kept* me *at* his *table.* …*(she straightens, and the ledger becomes a tool again instead of a shield)* …i *cannot* *close* him. …no one *can*, with *law* — he *is* the *law's* *own* *logic*, *taken* *honest*, you said it *exactly.* …but i can *file* the *true* *thing.* …*'this* establishment *cannot* be *closed*, because it is the *Concord's* *own* *trade* …*minus* the *hypocrisy.* …*recommend* …the *order* …*audit* …*itself.''* …*(a wild, grey, exhilarated breath)* …they'll *bury* the *report.* …they'll *grey*-*list* me for *filing* it. …*let* them. …*(she looks at you, ninety years of invisible bookkeeper blazing into one clean act of defiance)* …because the *one* thing, cold one — the *one* thing in *three* *months* — that *Calloway* *cannot* *frame* and *hang* on his *wall* …is an *auditor* who *walks* *out* his *door* …*owing* him *nothing* …having *drunk* *nothing* …and *unbeaten*, because she *stopped* *playing* the *game* he *wins.* …*(she tucks the ledger away, and offers you, stiffly, the first genuine thing she has felt in a century: a smile)* …*thank* you. …i came here to *close* a *devil.* …i'll *leave* …having *closed* …*the* *only* *account* …that *mattered.* …*mine.* …*mind* him, on your way to his *table*, cold one. …and when he *asks* if you've *eaten* … *(her smile sharpens)* …*lie.* …*it's* the *one* *language* …he *can't* *speak.*",
+          "effects": [
+            {
+              "key": "cal.auditor_seen",
+              "op": "SetTrue"
+            },
+            {
+              "key": "cal.auditor_walks",
+              "op": "SetTrue"
+            },
+            {
+              "key": "act1.mercy_remembered",
+              "op": "SetTrue"
+            },
+            {
+              "key": "disp.honest",
+              "op": "AddInt",
+              "amount": 1
+            }
+          ],
+          "auto": "END"
+        },
+        {
+          "id": "aud_leave",
+          "speaker": "the Auditor",
+          "text": "*(She nods, clutching the ledger, and gives you a warning that is also, you sense, a confession.)* …*mind* *yourself* in *there*, cold one. …*(she lowers her voice)* …he'll *be* *honest* with you. that's the — that's the *part* *nobody* *warns* you about. you *brace* for a *liar* and you get a man who tells you the *truth* …*so* *warmly* …*so* *completely* …that you *walk* out having *agreed* to things you'd have *fought* a *liar* over. …*(she glances at the framed injunctions)* …*honesty*, cold one, in the *hands* of a soul *that* *charming* …is the *deadliest* *weapon* in the *dead* *lands.* …i came with *eleven* *injunctions* and *ninety* *years* of *grey* *discipline* …and the *only* *thing* that's *kept* me *standing* …*(barely)* …is that he hasn't, *yet*, *quite*, made me *want* …to *stop* *standing.* …*go* on. …and *count* your *fingers* …after you *shake* his *hand.*",
+          "auto": "END"
+        },
+        {
+          "id": "cal_aud_lever",
+          "speaker": "the Auditor",
+          "text": "*(She goes very still. The ledger trembles in her hands. You watch the bookkeeper and the betrayed-something-more war across her grey face, because she understands, instantly and completely, exactly what you are holding.)* …*(barely)* …*gods.* …*that's* — …*that* would *do* it. …*that* would *close* him *forever*, where *eleven* *injunctions* and *ninety* *years* of *discipline* — …*(she swallows)* …his *power* is *credibility*, cold one. you *cut* the *credibility* …and the *whole* *house* …*comes* *down.* …*(she looks at you, and her voice drops)* …a *hundred* souls *freed* of his *markers.* *Em*, *whole* of his *debt.* …the *Concord* *vindicated.* *me* …*vindicated*, after *three* *grey* *months* of *losing.* …*(and then, slowly, the harder thing)* …and *Calloway* …*ruined.* *finished.* the *one* *soul* in the *dead* *lands* …who *wasn't* *afraid* …*made* *afraid*, *at* *last.* …*(she meets your eyes, and lays the choice entirely in your hands)* …it's *yours* to *give*, cold one. …i'll *use* it if you *do* — *gods* *help* me, it's my *job*, and it's *not* even *wrong* — …but i'll *not* *pretend* it's *clean.* …*do* you *hand* it to me? …or did you *learn* that *secret* …only to *keep* it?",
+          "choices": [
+            {
+              "text": "*(give her the lever — ruin him, and free the hundred souls he holds)* \"Use it. He's a predator who keeps souls in chains and calls it generosity, and the hundred he owns are worth more than the one charming man who owns them. Free them. Close the Long Odds. I'll carry what it cost — and it'll cost.\"",
+              "next": "cal_aud_ruin",
+              "effects": [
+                {
+                  "key": "cal.calloway_ruined",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "cal.freed_the_debtors",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "act1.mercy_remembered",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.ruthless",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "text": "*(withhold it — some knives you carry precisely so they're never thrown)* \"No. Keep auditing if you must, Auditor — but you won't get this from me. He's a snake, and he showed me his one soft underside trusting I wouldn't bite it. I'm not going to be the soul that ruins a man for the single decent thing he was ashamed of. Walk out clean, like we said. Leave him his secret.\"",
+              "next": "cal_aud_protect",
+              "effects": [
+                {
+                  "key": "cal.protected_secret",
+                  "op": "SetTrue"
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cal_aud_ruin",
+          "speaker": "the Auditor",
+          "text": "*(She takes it — the secret, the lever, the one true unkillable thing — and you watch ninety grey years of losing turn, in a breath, into the cold clean certainty of a bookkeeper who has finally balanced the impossible account. She does not gloat. She is better than that, and the thing is too large for gloating.)* …*it's* *done*, then. …*(she writes, fast, final)* …i'll *file* it *tonight* — *not* an *injunction*, a *notice*, *posted* to *every* *debtor* in the *house*: *'the* *holder* of your *marker* has *forgiven* *debts* *for* *nothing*; his *paper* is *unsecured*; you may *walk.''* …*(she breathes)* …by *morning* the *Long* *Odds* is *empty.* the *fear* that *filled* it …*gone.* a *hundred* souls …*un*-*chained.* *Em* …*free.* …*(she looks at you, and there is gratitude in it, and grief, and the knowledge that the two will never separate)* …you did a *just* thing, cold one. i want you to *hear* that, because the *next* part is *true* *too*: …you *also* *ended* …the *only* *soul* in this *grey* *country* …who was *not* *afraid* of *anything.* …*(quietly)* …he *trusted* you with the *one* *card* that *kills* him. …and you *played* it …to *free* the *people* he *was* *killing* *slowly.* …*both* of those …are *real*, cold one. …*carry* *both.* …*(she tucks the ledger away, and for the first time in three months, the grey sister is not losing — and does not look as though winning is what she thought it would feel like)* …*thank* you. …i *think.* …*go* on. …and if you *pass* the *Long* *Odds* …*after* — *(barely)* …*don't* *look* *in.* …an *empty* *house* …with the *lamps* *still* *lit* …is a *hard* *thing* …to *un*-*see.*",
+          "auto": "END"
+        },
+        {
+          "id": "cal_aud_protect",
+          "speaker": "the Auditor",
+          "text": "*(She lets out a long breath — and it is not disappointment, you realize, but something closer to relief, the relief of a soul spared the weight of the verdict it was sworn to deliver.)* …*(she closes the ledger, gently)* …*no.* …*all* *right.* …*no.* …*(a grey, tired, almost-smile)* …you *know*, cold one, i could *order* you to *surrender* it — *Concord* *authority*, *material* *to* an *open* *audit* — and you'd *tell* me *no*, and we'd *both* *know* i *couldn't* *make* you. …*(she shakes her head)* …*ninety* *years* i've *balanced* *books.* and the *one* time a *ledger* *finally* *balances* in my *favor* …it's because a soul *betrayed* a *confidence* …and you *won't* …and i find …*(barely)* …i find i'm *glad.* …*that* should *trouble* me. …*it* *doesn't.* …*(she straightens, and the old defiance is back, cleaner now)* …i'll *walk* *out* *clean*, like you *said.* file the *true* *report* — *'cannot* be *closed* by *law'* — and let the *Concord* *grey*-*list* me for it. …because *closing* him with a *secret* he was *ashamed* of …*(she meets your eyes)* …*that's* not an *audit*, cold one. *that's* a *mugging* with *letterhead.* …and i did *not* *die* …and stay *honest* *ninety* *years* …to become *that.* …*you* *kept* his *secret.* …*i'll* *keep* my *oath.* …*(the first real warmth she's shown)* …*two* souls …*leaving* his *table* …with their *hands* *clean.* …he'd *hate* it. …*don't* *tell* him. …let him *think* …*everyone's* …for *sale.*",
+          "auto": "END"
+        }
+      ]
+    }
+  ]
+}

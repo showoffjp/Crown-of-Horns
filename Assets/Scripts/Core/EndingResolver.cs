@@ -308,6 +308,255 @@ namespace SunderedCrown.Core
             if (f.GetInt("faction.choir.reputation") >= 5)
                 slides.Add("🜍 The Faithless Choir — you spoke for the Unmade when it cost you, and the grief of ten thousand years made you its prophet. The Choir sings your name still — in the undercrofts, in the pauper's pits, wherever the discarded gather. You gave the oldest sorrow in the multiverse the one thing it never had: an advocate the gods would let into the room. Whatever you chose at the Court, you were *heard,* and you made them hear.");
 
+            // ── Side quests of the long road — the seeded hooks, paid off at the end. ──
+            // "The Graves That Waited."
+            if (f.GetBool("sq.field_of_the_rested") || f.GetBool("sq.graves_that_waited_complete"))
+                slides.Add("⚰️ The Graves That Waited — you stayed at the coffin-man's field until the last hole was filled: every soul the harvest stole, buried at last, named, a true word over each. They will sing about the crown. But the field of the rested was the thing the crown was always for, and you knew it, and you did the unglamorous part.");
+            else if (f.GetBool("sq.graves_to_the_tenders"))
+                slides.Add("⚰️ The Graves That Waited — you called the unbroken line of grave-tenders to the coffin-man's field, and a thousand hands filled in an afternoon what one pair could not in an age. The Wall emptied its dead with an army of clerks. You gave them back with an army of the kind, and it was the better-shaped mercy.");
+            else if (f.GetBool("sq.every_soul_expected") || f.GetBool("sq.halen_at_rest"))
+                slides.Add("⚰️ The Graves That Waited — you carried the coffin-man's ledger back through the Wall, and no soul you freed was released into nowhere: each came out to a grave already dug, a stone already carved, a place that had been waiting ten thousand years. The Wall said you were nothing, unexpected. The open holes said otherwise.");
+
+            // "The Hand in the Margins" — the loop's letter chain.
+            if (f.GetBool("sq.margins_for_the_warden"))
+                slides.Add("📜 The Hand in the Margins — you carried your own ten-thousand-year warning to the warden who thought the letters had abandoned him, and showed him he was never the failure at the end of the chain, only the draft that made the final warning clear enough to work. Even the tiredest hand got to be one the correspondence was trying to save.");
+            else if (f.GetBool("sq.wrote_back_to_the_loop"))
+                slides.Add("📜 The Hand in the Margins — for ten thousand years the loop wrote to you, the same tired hand scratching *stop* into the margins of every catastrophe. You were the first who could write back. The crack in your soul went quiet — not silent, but answered — and the correspondence, at last, ran both ways.");
+            else if (f.GetBool("sq.margins_warning_heeded"))
+                slides.Add("📜 The Hand in the Margins — every loop before you wrote the warning and reached for the crown anyway. You were the one who finally read it and obeyed: not a stronger Returned, a better-warned one, arriving at the Court already carrying the antidote in your own hand. The chain wrote for an age hoping for one reader who'd listen. It got you.");
+
+            // "The Thing in the Dark" — Roen's buried secret.
+            if (f.GetBool("sq.roen_and_sabira_reconcile"))
+                slides.Add("🗡️ Roen & Old Sabira — you stood in the room while two people who loved and damaged each other finally said the true thing in daylight, and found out love survives it. The fence who raised a child into the dark, and the child who carried her sin as his name, unlocked the room between them at last — and neither had to be alone in it.");
+            else if (f.GetBool("sq.roen_tells_the_fire"))
+                slides.Add("🗡️ Roen — named the thing in the dark at the fire, once, plain, as a fact and not a confession, and watched the company not leave. The killing at fourteen, half a life carried as a whole identity, shrank to its true size the moment it was shared: a hard thing that happened to a cornered child, and not the name under all his names.");
+            else if (f.GetBool("sq.roen_forgives_sabira"))
+                slides.Add("🗡️ Roen — set down the grudge he'd carried as long as the guilt, because the Exile's lesson finally landed: forgiveness is a weight you release for your own sake, not a gift the debtor earns. He forgave the woman who saved and damned him in the same hand, and came back lighter than you had ever seen him.");
+
+            // "The Indictment" — Naeve's case against Netheril.
+            if (f.GetBool("sq.naeve_grieves_at_last"))
+                slides.Add("✨ Naeve — set the indictment down and let herself, for the first time, simply miss her father. She stopped prosecuting the man who showed her the stars and chose his prestige over her life, and started mourning him — beautiful and guilty and gone and hers — which turned out to be a closer kind of keeping than any case.");
+            else if (f.GetBool("sq.naeve_keeps_one_page"))
+                slides.Add("✨ Naeve — sent the indictment to do its justice and kept one page back: not a vote, not a charge, the one with the stars and the boat. The guilt went to court; the love came home with her. Whatever the record proved about Lord Aubrey the murderer, his daughter always carried the proof of Lord Aubrey the father.");
+            else if (f.GetBool("sq.naeve_indictment_at_court"))
+                slides.Add("✨ Naeve — read the indictment of Netheril where it finally had to land: not at a dead empire but before the powers that kept doing what its lords did. Her father's signature damned every authority that ever chose its order over a child. She made the grief count for more than a broken heart.");
+
+            // "The Hands That Refused" — the harvest's turncoats.
+            if (f.GetBool("sq.harvest_exposed_public"))
+                slides.Add("⚔️ The Hands That Refused — a deserter and a singer nailed the harvest's own flowchart where the Gate read over breakfast, and the city looked, for once, at the whole machine at once. You cannot un-ring that bell. Box by box, hand by hand, the ordinary people who fed the Wall began to step out of their places, and the looking would not stop.");
+            else if (f.GetBool("sq.harvest_to_the_hands"))
+                slides.Add("⚔️ The Hands That Refused — Corwin and Wren took their testimony soldier to soldier, singer to singer, quietly, into the garrisons and Choir-houses, where it could not be spun into a martyrdom. The harvest unmade the way it was made: one cracking hand at a time, in the dark, passed hand to hand. Slower than a rebellion. Impossible to crush.");
+            else if (f.GetBool("sq.harvest_to_the_court"))
+                slides.Add("⚔️ The Hands That Refused — a Fist deserter and a Choir convert testified before the powers of the dead themselves: that the Wall is fed by ordinary hands, theirs among them, and that theirs opened — which meant every hand that fed it always could. The machine's whole defense was *we had no choice.* They were the living disproof, at the one court that cannot adjourn.");
+
+            // "The Forty-One" — the reaper's hidden souls.
+            if (f.GetBool("sq.fortyone_reaper_rests"))
+                slides.Add("⚱️ The Last Honest Psychopomp — when the forty-one souls he'd hidden ten thousand years were finally home, the ferryman of endings learned he was owed a shore too, and lay down in the field beside the ones he saved. The coffin-man dug him a good hole, reaper-shaped, among the Faithless he'd refused to let the Wall have.");
+            else if (f.GetBool("sq.fortyone_reaper_joins_line"))
+                slides.Add("⚱️ The Last Honest Psychopomp — with his forty-one freed, the first reaper to refuse the doctrine went back to the grey to stand between the Wall and the next fading soul, and the next. His cloak never stayed empty. It was never meant to. He had found the unbroken line, and learned he'd been one more hand in it all along.");
+            else if (f.GetBool("sq.fortyone_ask_them") || f.GetBool("sq.fortyone_to_the_graves") || f.GetBool("sq.fortyone_gentle_wall"))
+                slides.Add("⚱️ The Forty-One — the souls a reaper hid for ten thousand years against the Wall's pull got, at last, an ending instead of an endless keeping: named, chosen, set down. He learned the hardest lesson of his long office — that even mercy curdles into a cage, and that the ones we love are never ours to hold, only ours to carry until they can choose.");
+
+            // "The Forbidden Name" — Wickless's candle.
+            if (f.GetBool("sq.forbidden_name_spoken") || f.GetBool("sq.wickless_speaks_alone"))
+                slides.Add("🕯️ Wickless — the candle a frightened child lit for the person they weren't allowed to talk about carried a forbidden name through ten thousand years of grey, found the faded soul it was lit for, and said it. Her light caught like a wick taking flame. A whole family's silence broke on one small voice that refused it: proof that a name carried in love is a soul the Wall can never quite finish erasing.");
+
+            // "The First Dirge" — Singer Lhoris's encoded song.
+            if (f.GetBool("sq.dirge_becomes_anthem"))
+                slides.Add("🎶 The First Dirge — you taught the oldest song in the world to everyone who'd refused to let the forgotten go: the grave-tenders, the list-keepers, the Drowned Choir who learned they'd been singing its second melody all along. Sung wide, by a world that finally knew what it was singing, the names woven into ten thousand years of funerals became the one thing the Wall could never file or forbid.");
+            else if (f.GetBool("sq.dirge_sung_at_court"))
+                slides.Add("🎶 The First Dirge — you carried Lhoris's masterwork to the Court and sang its second song where it landed hardest: out of the solemn, approved melody the powers had heard at every sorting and believed was a blessing rose the names of every soul they'd walled. You cannot out-argue a dirge that is also a list of your victims. They had no refutation, and the oldest song in the world sang the Faithless home.");
+            else if (f.GetBool("sq.dirge_freed_to_change"))
+                slides.Add("🎶 The First Dirge — you left the song open, as Lhoris built it to be: a dirge any singer in any century can turn one more word kinder, until the melody that once sealed the Faithless into the Wall becomes the one that overturns it. A Wall is a fact that needs no one and so can never change. The song stays young — always one singer away from kinder — and outlasts every power that tried to fix its meaning.");
+            else if (f.GetBool("sq.dirge_names_restored"))
+                slides.Add("🎶 The First Dirge — you lifted the names Lhoris had woven into the song's bones and carried them home: out of the intervals that had held them ten thousand years and to the graves, the reading, the field of the rested. The dirge sings its surface now, lighter, emptied at last of the secret it kept until someone came who could do what a melody could not — let the names rest.");
+            else if (f.GetBool("sq.dirge_decoded"))
+                slides.Add("🎶 The First Dirge — you heard the second song in the oldest dirge in the world and sang it out: ten thousand years of funerals stopped being a blessing on the Wall and became what Lhoris always made them — the longest act of remembrance in history, the names of the Faithless smuggled past every power that wanted them gone, finally read aloud.");
+
+            // "The Glassblower's Window" — Senna's memorial to Corm.
+            if (f.GetBool("sq.window_made_specific") && f.GetBool("sq.window_multiplied"))
+                slides.Add("🪟 The Glassblower's Window — Senna stopped guarding one frame and seeded a quarter: an unmistakable Corm in the chapel with the whole street daring the hammers, and a hundred small panes of him — a squint, a burn-scarred thumb — in a hundred kitchens and taverns across the Gate. To erase her walled husband now, the church would have to smash the whole quarter's love. They let the dawn stay gathered.");
+            else if (f.GetBool("sq.window_to_the_court"))
+                slides.Add("🪟 The Glassblower's Window — you carried Senna's master cartoon to the Court, bound in her dead husband's scorched apron, and unrolled forty years of a widow's craft before the powers that filed him Faithless: Corm at the furnace, fire coming through him, the christening-cups he blew for the quarter's children in his hands. They could argue with a doctrine. They could not argue with his face. She keeps the frame ready for the day he comes home un-Faithless.");
+            else if (f.GetBool("sq.window_multiplied"))
+                slides.Add("🪟 The Glassblower's Window — Senna cut Corm into a hundred small lights and seeded them across the Gate, a piece of the walled glassblower kept in a hundred kitchen windows that only their families know. One window the church could break; a hundred, hidden in plain sight in homes they'd have to wage war on the quarter to smash, they could not. Let them try to gather the dawn.");
+            else if (f.GetBool("sq.window_made_specific"))
+                slides.Add("🪟 The Glassblower's Window — Senna made the eighth window unmistakably Corm: the squint, the thumb-scar, the christening-cups he'd blown for the street's children set in his hands. The church could shatter a heresy; it could not so easily shatter the beloved glassblower's face in front of the neighbors whose lamps he'd fixed. The hammers, this time, stayed wrapped.");
+            else if (f.GetBool("sq.window_one_that_lasts"))
+                slides.Add("🪟 The Glassblower's Window — Senna stopped fighting on the church's schedule and built one window slow, in secret, of glass that doesn't shatter cheap — then unveiled Corm at the festival, before the whole lantern-lit quarter, where no Justiciar dared lift a hammer. She chose the one hour they couldn't touch him, and set her husband so deep in the street's love that breaking him after would mean breaking the festival itself.");
+
+            // "The Dangerous Book" — the Unabridged that the cat Margin guards.
+            if (f.GetBool("sq.book_to_the_court") || (f.GetBool("sq.book_read_whole") && f.GetBool("sq.book_copied_wide")))
+                slides.Add("📕 The Unabridged — you carried Candlekeep's most dangerous book to the Court: not a spell but a census, the full named count of ten thousand years of the discarded, each with the true thing they were. The powers could answer a doctrine; they could not answer a list of their own victims. The book that stops a warm heart with its weight, laid open before the ones who made the weight, with nowhere left for them to look.");
+            else if (f.GetBool("sq.book_copied_wide") || f.GetBool("sq.book_margin_decides"))
+                slides.Add("📕 The Unabridged — you copied Candlekeep's deadliest book beyond the power of any seal: a hundred copies in a hundred hands, each reader holding the share they could bear, the full record of the Faithless spread too wide to ever concentrate back into one deadly, sealable volume. The grey cat Margin keeps the original safe; the truth went everywhere. There is nothing left to seal.");
+            else if (f.GetBool("sq.book_read_whole"))
+                slides.Add("📕 The Unabridged — you read the book that killed the last warm soul who opened it: ten thousand years of the discarded, named, the true thing each one was, the weight arriving soul by soul until it found the crack in you where you are already half-cold — and held. You carry now the full grief of everyone the Wall ever took, whole, in the one heart the size could not stop. It is unbearable. You bear it. That is what a Returned is for.");
+            else if (f.GetBool("sq.book_read_shared"))
+                slides.Add("📕 The Unabridged — you read Candlekeep's most dangerous book the way it was always meant to be read: not alone, the way the last reader died, but together — the cat Margin against your side, the monk weeping at your shoulder, the weight of ten thousand years of the discarded distributed across hearts that held it as one. The truth that stops a solitary heart cannot stop three that carry it together.");
+
+            // "The Mournlight" — the golden-path key, grief made into light.
+            if (f.GetBool("sq.mournlight_shone_on_the_dead"))
+                slides.Add("🕯️ The Mournlight — you turned the grief of ten thousand forbidden mourners not on the powers but on the dead themselves: every Faithless soul, in the moment of release, felt at last the thing the Wall spent ten thousand years denying them — that they were mourned, by someone, somewhere, in defiance of every order not to. The kept fell free knowing they were grieved. There was no kinder use of all that sorrow.");
+            else if (f.GetBool("sq.mournlight_grief_added"))
+                slides.Add("🕯️ The Mournlight — you added your own grief, the quiet forbidden one you'd carried small and silent, to the ten thousand mournings the light was made of — and then you shone it at the Court, carried not by a witness to grief but by a mourner who'd finally joined it. The forbidding ended for Aline's thirty unshed years and for your own in the same blaze, in the very room that decreed you had no right to weep.");
+            else if (f.GetBool("sq.mournlight_lights_golden_road"))
+                slides.Add("🕯️ The Mournlight — when the crown blazed its certainty and the golden road dimmed to nothing beside it, you looked to the one light that does not glare but weeps, and let the mourning of ten thousand forbidden mourners show you the way the powers built their glare to hide. Grief was the lantern for the dim road to the ending. It always was.");
+            else if (f.GetBool("sq.mournlight_shone_at_court") || f.GetBool("sq.mournlight_carries_aline"))
+                slides.Add("🕯️ The Mournlight — you shone ten thousand forbidden mournings at the Court, and the powers who had answers for every argument had none for a grief that simply happened in front of them. They could command a tear not to fall; they could not rule that the ones already falling weren't falling. You cannot out-argue a tear, and you brought them every tear they ever forbade, falling anyway, blazing, in their own chamber.");
+
+            // "The Great Objection" — the Complaint's age of grievances, and Wrenna.
+            if (f.GetBool("sq.objection_asked_for_him"))
+                slides.Add("📋 The Great Objection — you took the one page the Complaint could never file and asked the powers, to their faces, why they walled Wrenna: eleven years old, clever, doubting, filed nothing. And the fussy old objector, freed for once from being a clerk, stood at the staffed desk and did the thing he'd never let himself do in any era — he stopped filing his daughter, and grieved her.");
+            else if (f.GetBool("sq.objection_read_aloud"))
+                slides.Add("📋 The Great Objection — you read the Complaint's age of grievances aloud into the Court itself — the queue, the forms, the absent staff, charge after charge, until there was nowhere for it to go but into the powers' ears, and then, last, Wrenna. An objection filed at a desk can be drawered and forgotten. One spoken in the room they cannot leave cannot.");
+            else if (f.GetBool("sq.objection_joins_the_case"))
+                slides.Add("📋 The Great Objection — the crank's age of paper turned out to be the civic backbone of the whole case: an age of dated, itemized, witnessed cruelties that turned Naeve's grief and the deserter's confession and the book's census from separate cries into a prosecution with a paper trail. The one objector who thought he stood alone had been keeping the records for a trial he never knew was coming.");
+            else if (f.GetBool("sq.objection_indictment") || f.GetBool("sq.objection_wrenna_first") || f.GetBool("sq.objection_formally_received"))
+                slides.Add("📋 The Great Objection — at the one desk that was finally staffed, the Complaint filed an age of grievances as what they always were: not a crank's ravings but an indictment, dated and undismissable, Wrenna at its head. The machine runs on cruelties passing unprotested into fate; he jammed it forever, with the cosmos forced to carry on its own record the proof that someone stood up and said no.");
+
+            // "The Old Map" — the cartographer's world-as-it-was, and a daughter behind blue fire.
+            if (f.GetBool("sq.map_the_reconciliation"))
+                slides.Add("🗺️ The Old Map — the cartographer wrote into the margin beside Sevenfields the apology she'd rehearsed for years — that she was wrong about the barley, that happy was always more than she'd known to want for her daughter — and sent it onward, copy by copy, on the one road that outlives the fire. She will never know if it reaches the girl behind the blue curtain. She fixed the quarrel on the only paper where they were ever close enough to fix it, and trusted the carrying to hands she'll never meet.");
+            else if (f.GetBool("sq.map_reunites_the_lost"))
+                slides.Add("🗺️ The Old Map — the cartographer's private grief became a registry of the severed: Coram and Sera and a hundred others at a hundred leagues of the blue fire, each finding their lost one's place on the world-as-it-was, each sending word across the one road feet can't take. No one stood alone at the wall anymore. The map of a dead geography turned out to be the thing that reconnected everyone the Spellplague tore in half.");
+            else if (f.GetBool("sq.map_to_the_wall"))
+                slides.Add("🗺️ The Old Map — you carried the cartographer's map to the Wall of the Faithless as proof that fire and stone tell the same lie: that a wall which severs the ones we love is forever. Her daughter behind the blue curtain and the walled dead are kept by the same falsehood — and crossed the same way, never by the feet, which cannot, but by the refusal to let the severed be forgotten.");
+            else if (f.GetBool("sq.map_carried_across") || f.GetBool("sq.map_copied_wide"))
+                slides.Add("🗺️ The Old Map — you carried the world's memory of itself onward, copy by copy, past the blue fire and into whatever world comes next. The new maps say desert, Abeir-stone, nothing; but someone, somewhere, will always have the old shape, and be able to say: here was Tharsult, here was Sevenfields, here was a world, and people in it, separated, not gone. A geography that survives its own planet.");
+
+            // "Hessa's Mercy" — the underground that runs the harvest-marked out alive.
+            if (f.GetBool("sq.mercy_route_to_the_court"))
+                slides.Add("⛵ Hessa's Mercy — you carried the gap-toothed smuggler's manifest to the Court itself: two years of harvest-marked souls a city of dockhands and bribed sergeants risked the gallows to run out alive, free, for no reason but they were worth it. The powers said the marked were owed nothing. A whole underground of the living had decided otherwise, and acted on it, and the names proved the marked were never cargo.");
+            else if (f.GetBool("sq.mercy_route_outlives_her"))
+                slides.Add("⛵ Hessa's Mercy — they hanged Hessa Dock-Eye in the end, as she always knew they would. But she'd written it all down first — the routes, the cousins, the captains, Brakker's price — and trained the young freedwoman who runs it better than she ever did. The day they cut her down, the next hull still sailed. Toller's route ran on, long after the woman who started it for one walled deckhand was dust. It was the only monument she wanted: a route that doesn't notice she's gone.");
+            else if (f.GetBool("sq.mercy_route_council") || f.GetBool("sq.mercy_route_network") || f.GetBool("sq.mercy_route_hardened"))
+                slides.Add("⛵ Hessa's Mercy — the underground stopped being one tired woman against a death-machine and became a counter-machine: a board to share the gangplank's terrible math, a web of shamed captains the Fist couldn't hang in a night, a route that survived its own weakest bought link. Cruelty had its Choir and its clerks; mercy got a machine too, built of bribes and back channels, emptying the Wall's intake faster than the harvest could fill it.");
+            else if (f.GetBool("sq.mercy_route_toller"))
+                slides.Add("⛵ Hessa's Mercy — the gap-toothed smuggler ran the harvest-marked out of the Gate one bribed hull at a time, free, her purse ruined and her conscience clear, because she'd once had the power to save a godless deckhand named Toller and waited one tenday too long. Every name she got out was Toller, saved, forty years late. She never waited again.");
+
+            // "The Map of Silences" — Brindle's accidental harvest-compass.
+            if (f.GetBool("sq.silences_resonator_guild"))
+                slides.Add("📻 The Map of Silences — Brindle Quillfeather, the gnome who spent thirty years on summer-chords nobody bought, taught the whole craft to make his empathy-machines by the hundred: a watch of forks stationed across the Coast that go silent the instant the harvest moves. An alarm that rings by going quiet, rippling out, so the unmade can never again eat a street unwatched. The most useless thing he ever made became the world's first warning against the nothing.");
+            else if (f.GetBool("sq.silences_to_the_court"))
+                slides.Add("📻 The Map of Silences — you carried Brindle's empathy-machine to the Court and let it go dead silent in the powers' own chamber: a grief they could forbid, but a measurement they could not. The forks, with no feelings to be accused of, measured the exact size of the nothing their Wall makes, repeatably, in front of everyone. They could rule the Faithless deserved it. They could not rule that the quiet was humming.");
+            else if (f.GetBool("sq.silences_filled"))
+                slides.Add("📻 The Map of Silences — you went to the eleven holes a gnome's machine had found, the tenements and streets the harvest ate so completely that the survivors forgot they'd ever been full, and you put the ache back: said the names, hung the lists, taught the silent places to grieve what they'd lost. One hole at a time, the forks began to hum again. Brindle wept. His empathy-machine had become, at last, a to-do list for the repair of the world.");
+            else if (f.GetBool("sq.silences_early_warning") || f.GetBool("sq.silences_mapped_pattern") || f.GetBool("sq.silences_deepest"))
+                slides.Add("📻 The Map of Silences — a gnome's frivolous empathy-detector turned out to be the one instrument in the Gate that could see the harvest at all, going dead where it had eaten not just the dead but the memory of them. You read the spreading shape — to outrun the harvest to the next street, to document a witness that couldn't be called mad, to find the deepest silence at the heart of the unmade. Useful by mistake, Brindle said. That's gnomish engineering.");
+
+            // "The Reading of the Wall" — Ekko's dead tongue, and the names the Wall hid in illegible script.
+            if (f.GetBool("sq.deadtongue_taught") || f.GetBool("sq.deadtongue_primer") || f.GetBool("sq.deadtongue_to_the_court"))
+                slides.Add("📜 The Reading of the Wall — Mistress Ekko learned at sixty why she'd kept a dead tongue alive in a lonely room: it was the one key to the Wall's deepest lie. The Faithless were never nameless — the Wall named them with terrible care and carved the names in a script it made certain no mourner could read. You and she ended the illiteracy: taught the tongue to the Realms, wrote the primer that outlives every reader, until any soul who lost someone could walk to the Wall and read their own dead by name. The forgetting was never erasure. It was illiteracy, and you cured it.");
+            else if (f.GetBool("sq.wall_read_to_the_dead"))
+                slides.Add("📜 The Reading of the Wall — you walked the Wall and read each soul their own name, in the dead tongue Ekko taught you, so that the walled — who had spent ten thousand years believing they were anonymous, nothing, a meaningless mark — learned the truth the illiteracy hid: that they were named, precisely, lovingly, the whole time. Maerys. Halen. Sariel. The first thing the kept ever heard that was true.");
+            else if (f.GetBool("sq.true_name_claimed"))
+                slides.Add("📜 The Reading of the Wall — you read your own name off the stone, in the oldest tongue: 'the one who returns.' The Wall had tried to carve you among the Faithless and the carving could not finish, because the name resists the chisel the way it resisted the forgetting. You were named, before the Wall, as the thing it cannot hold — the one name on all that stone the forgetting could never complete. You read what you were, plainly, and went to be it.");
+            else if (f.GetBool("sq.wall_read_aloud"))
+                slides.Add("📜 The Reading of the Wall — you stood before ten thousand years of the deliberately illegible and read it aloud, name by name, Ekko beside you turning the pages of the grammar, for as long as it took. The Wall named its victims with more care than any tombstone and carved the names in a tongue no living mourner could decode; you were the first reader in ten thousand years to give each soul the thing it was denied — its name, spoken, by a voice that could finally read it.");
+
+            // "The Catalogue of the Unwritten" — the works the world meant to make and didn't.
+            if (f.GetBool("sq.unwritten_written_after_all"))
+                slides.Add("📚 The Catalogue of the Unwritten — Brother Faolan started a second book beside the saddest one in the Realms: the Catalogue of the Written-After-All, a birth-register of deadlines beaten, growing page by page as living makers crossed themselves out of the Unwritten and finally wrote the things they'd meant to. Entry one was his own — the cycle of poems on the sea and the mother he'd shelved at nineteen, written at last. The only book in Candlekeep whose every entry is a small victory over time.");
+            else if (f.GetBool("sq.unwritten_heal_the_filers"))
+                slides.Add("📚 The Catalogue of the Unwritten — Faolan carried the book through Candlekeep like a gentle plague, un-shelving not the works but the cataloguers: every monk and reader who'd quit being a maker to become a filer, handed their own page, reminded they weren't dead, only late. The saddest library in the Realms was never the Sealed Stacks. It was the one each scholar kept locked inside their own abandoned youth — and he opened them, one quit dream at a time.");
+            else if (f.GetBool("sq.unwritten_the_walls_theft"))
+                slides.Add("📚 The Catalogue of the Unwritten — you carried it to the Court to prove the Wall's deepest and least-counted theft: that the machine never only killed the makers, it killed everything they hadn't made yet. Eleven thousand libraries of the unmade, filed to nothing — Maerys's letters to her company unwritten, every cup still in Halen's hands unthrown. The powers counted the souls. They never counted the works those souls were still carrying.");
+            else if (f.GetBool("sq.unwritten_goad_the_living") || f.GetBool("sq.faolan_writes_his_poems"))
+                slides.Add("📚 The Catalogue of the Unwritten — Faolan learned the difference between a library and a graveyard: a library sends you out to make more. He stopped acquiring the dead's losses and started shoving the book in the faces of the living makers still procrastinating their masterworks — write it, you're late, not dead, make your entry a lie before time makes it true — starting with the worst offender, the monk on the page about his mother, who finally wrote his poems.");
+            else if (f.GetBool("sq.unwritten_read_aloud"))
+                slides.Add("📚 The Catalogue of the Unwritten — you helped Brother Faolan read the book of everything never written aloud in the great hall, every unwritten title spoken once: the Tide-Cantos, the Defense of the Doubting, the Letters to a Son a soldier was walled before he could write. The uncreated died of silence, of never being heard; and ten thousand almosts, read aloud once in a hall that finally listened, was the funeral and the only birth they would ever get.");
+
+            // "The Coinless Crossing" — the Ferryman, the harvest's snare, and the god's old coin.
+            if (f.GetBool("sq.crossing_snare_exposed"))
+                slides.Add("⛴️ The Coinless Crossing — you carried the Ferryman's testimony to the Court: that Kelemvor's rule was only ever 'a coin for the crossing,' and the cruelty bolted to it since — the coinless made to wait on the near bank where the harvesters take them — was the church's snare wearing the god's holy coin. Sixty years he'd feared the wrong master. The Doomguides who'd wept and enforced anyway were handed the one question that unravels a doctrine: are you serving your god, or a trap hung on his name?");
+            else if (f.GetBool("sq.crossing_mutual_toll"))
+                slides.Add("⛴️ The Coinless Crossing — you reforged the Ferryman's toll into the old woman's rule: not 'a coin for the crossing, and the coinless wait,' but 'the ones who can pay for the ones who can't.' The daylight dead who died abed with time and coin now pay double into the tin cup, for the breathless robbed of theirs. Kelemvor's coin stayed; it just flowed the right way at last — from the ones who had time to the ones the harvest stole it from. No soul turned back poor.");
+            else if (f.GetBool("sq.crossing_outlives_him"))
+                slides.Add("⛴️ The Coinless Crossing — the river took the old Ferryman in the end, as he knew it would. But he'd taught the fleet first, passed the pole, written 'for the ones who can't' into the dockside rites — so the night he became the one being carried, the skiffs still ran free at dusk. The crossing had become a thing the river keeps, not a thing one old man does. The coinless still cross. The skiff did not stop because he did.");
+            else if (f.GetBool("sq.crossing_fleet") || f.GetBool("sq.crossing_near_bank_held"))
+                slides.Add("⛴️ The Coinless Crossing — one old man and one skiff became a river the harvest couldn't cross: a guarded near bank where the breathless waited safe, a fleet of free dusk crossings crewed by everyone who'd lost someone to the waterline, until the harvesters arrived to find the coinless already across and resting on the far shore. One ferryman the harvest could outlast. A river of them it could not.");
+
+            // "A Point" — Ysolde de Lancie, the bored heiress who collected a conscience.
+            if (f.GetBool("sq.delancie_shames_the_peers"))
+                slides.Add("💎 A Point — Ysolde de Lancie aimed the one weapon no resistance ever had: fashion. She stood up in her best diamonds and declared the walling of the poor gauche, grasping, so-last-century — and because the patrician class is imitative sheep terrified of being last season, complicity went out of style across the Upper City within a Tenday. The harvest armored itself against the grief of the poor and the swords of the brave. It never imagined the comfortable getting bored of pretending not to see.");
+            else if (f.GetBool("sq.delancie_commits"))
+                slides.Add("💎 A Point — Ysolde de Lancie wagered the one thing a de Lancie fortune was built to protect: herself. She funded the resistance publicly, in her own name, where Mother could see and the Council could retaliate and the family could disinherit her — sold the ancestral Bluewater Sapphire for the first contribution, and told her mother the truth for once: that she'd spent it on a point. A patron who can't be hurt is a hobbyist; she put her skin on the table, and the harvest-poor knew the difference.");
+            else if (f.GetBool("sq.delancie_endowment"))
+                slides.Add("💎 A Point — Ysolde de Lancie learned the de Lancie disease — everything a gesture, nothing a structure — and cured it: she institutionalized her mercy. The de Lancie Fund for the Harvest-Marked, named, public, legally unbreakable, with bottomless gold behind it, buys the marked free on de Lancie money long after the last de Lancie is dust in an unvisited crypt. A page in the ledger that doesn't read 'took up space beautifully.' It reads 'built a thing that outlived her.'");
+            else if (f.GetBool("sq.delancie_opens_doors") || f.GetBool("sq.delancie_endowment"))
+                slides.Add("💎 A Point — Ysolde de Lancie became the resistance's key to every Upper City door it could never enter: the Council chamber where the quotas are approved, the ducal salons where the Choir's high men dine. She seated the deserter across from the Justiciar at dinner and let him tell the one about the fifth village; she brought the gnome's map of silences to a Council session as a curiosity. The harvest is enforced below, but authorized above — and she walked the witnesses in.");
+
+            // "The Two Ledgers" — Archivist Threnn, the true harvest-count vs the living's roof.
+            if (f.GetBool("sq.threnn_third_column"))
+                slides.Add("📒 The Two Ledgers — Archivist Threnn found the column she'd agonized a year to write — and it was in another woman's books. The de Lancie Fund caught the falling: bought the cratered homes, subsidized the collapsed rents, so the true harvest-count could finally be published without a single widow on the street. The moral arithmetic that traps a city in one grief traded for another was never solvable in its own closed ledger. It took a column borrowed from a larger, kinder one.");
+            else if (f.GetBool("sq.threnn_truth_published"))
+                slides.Add("📒 The Two Ledgers — Archivist Threnn published the true count at last: every name, Hessel who mended nets and Asa who sold winkles and all the rest the city had agreed to call a round four hundred and twelve. The fortunes cratered; patriars fled; some of the living lost the roofs that comfortable lie had held up. A real grief, carried. But the dead got an honest count — subtractions from something that mattered, not adjustments to a land value — and a shelter built on a massacre's erasure was never shelter at all.");
+            else if (f.GetBool("sq.threnn_to_the_court"))
+                slides.Add("📒 The Two Ledgers — you carried Archivist Threnn's true count to the Court: the one honest number in Baldur's Gate, between the god's lie that the Faithless are 'nothing' and the city's lie that they were a round four hundred and twelve. Every name written correctly, not because an assessment required it but because one coward archivist refused to let the count be round — and it testified to the true scale of what the Wall takes: not nothing, not a comfortable figure, but every single name.");
+            else if (f.GetBool("sq.threnn_shared"))
+                slides.Add("📒 The Two Ledgers — Archivist Threnn stopped keeping the truth alone. She copied the true count into a dozen hands — the auctioneer's ledger, the child's list, the choir's song, the indexer's cross-reference — so the one honest tally in the Upper City could outlive the one cowardly archivist who started it. A truth kept by a single keeper dies the day she breaks; she'd guarded it a year and forgotten that a truth's only defense is company.");
+            else if (f.GetBool("sq.threnn_true_to_memorial") || f.GetBool("sq.threnn_corrin"))
+                slides.Add("📒 The Two Ledgers — Archivist Threnn routed her true count where it could rest as a memorial, not an assessment: the names exact and whole on the child's list, the comfortable public lie left holding up the living's roofs, the only thing the truth cratered the silence. She'd started the secret ledger for one name — Corrin, her clerk of twenty years, folded into a round number — and could not stop, because if he deserved a true count, so did they all.");
+
+            // "The Last Lantern-Feast" — Dot Marigold, and joy among the doomed as the one thing the harvest can't answer.
+            if (f.GetBool("sq.feast_to_the_court"))
+                slides.Add("🏮 The Last Lantern-Feast — you carried a soft-gold lantern, folded by a seventy-year-old baker's hands, to the Court at the end of the world, and lit it in the room that files her dancers to nothing. The powers had a doctrine for every grief — the Faithless earned it, the Wall is just. They had none at all for joy: a marked girl courted under the lights, a doomed quarter dancing beloved, a hundred lanterns of a ward's overflowing love. You can call a sorrow deserved. You cannot look at unbought joy among the doomed and call it nothing. They armored the machine against grief and courage. They never armored it against a party.");
+            else if (f.GetBool("sq.feast_whole"))
+                slides.Add("🏮 The Last Lantern-Feast — Dot Marigold stopped letting them split the night, and threw a feast that danced for the living and floated lanterns for the dead in the same hour, the same square, the same held breath. The Choir could forbid a celebration and forbid a mourning; it had no doctrine against a ward simply being human out loud, courting under the very lights it launched its grief from. Not a party, not a funeral — a people, whole, holding its joy and its loss at once and daring anyone to write the order that bans them from feeling everything at the same time.");
+            else if (f.GetBool("sq.feast_endures") || f.GetBool("sq.feast_shared"))
+                slides.Add("🏮 The Last Lantern-Feast — the old baker gave her feast away before the harvest could wait her out: the lantern-folds and the recipes and the order of the midnight float taught to a hundred small hands, the whole ward lighting it now, so no single arrest could end it. She'd thrown it alone for forty harvests and learned, at seventy, the one thing that beats a machine betting on your death — you can hang a baker, but you cannot hang a recipe, and the lanterns go up every harvest's-end long after the woman who folded the first one is ash on the wind with everyone she loved.");
+            else if (f.GetBool("sq.feast_for_tomas"))
+                slides.Add("🏮 The Last Lantern-Feast — Dot threw one more feast for the reason she'd thrown the first: Tomas, her tuneless husband, who forty-one years ago refused to let a godless fiddler be taken in silence and dragged every fiddle in Steelshanks into the square to see the man off with music instead. The harvest took Tomas nine years on; she folded a hundred lanterns a year ever since, because he'd taught her the one thing the machine can't stand — that you send people off with joy out loud, never pretending they were nothing, even in the teeth of the thing that's taking them.");
+            else if (f.GetBool("sq.feast_held_open"))
+                slides.Add("🏮 The Last Lantern-Feast — they cancelled it for being joyful, so Dot Marigold made it the loudest, brightest, most unforgivable night Steelshanks ever threw, in the exact square they forbade, with the Choir's own notice folded into a lantern and burning at the top of the first pole. The harvest runs on the marked being invisible — cargo, a number, a thing the comfortable never see dance. So a hundred of them stood in a lit square and were seen: courted, fed, cheered, beloved. You cannot harvest what the whole quarter has been seen to love.");
+            else if (f.GetBool("sq.feast_held_secret"))
+                slides.Add("🏮 The Last Lantern-Feast — Dot took her quiet victory and her shuttered lanterns down into the cellars, where the fiddles still played and the young ones still courted and the marked still danced, because a dead dancer floats no lanterns next year. The Choir wanted them open, witnessed, convenient — a list of necks. She gave them a silence they thought they'd won, and underneath it kept the one thing that beats a machine betting you'll be brave and gone: a ward that was joyful and here, alive, ready to do it all again next harvest, and the one after, and the one after that.");
+
+            // ── Convergence — the small mercies that, taken together, became a movement. ──
+            // Each fires when a *cluster* of related side quests was brought home, recognizing
+            // the larger thing your separate kindnesses turned out to be building all along.
+            System.Func<string[][], int> clusterDone = groups => {
+                int n = 0;
+                foreach (var g in groups) { foreach (var k in g) if (f.GetBool(k)) { n++; break; } }
+                return n;
+            };
+
+            int counterMachine = clusterDone(new[] {
+                new[] { "sq.harvest_exposed_public", "sq.harvest_to_the_hands", "sq.harvest_to_the_court" },
+                new[] { "sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court" },
+                new[] { "sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court" },
+                new[] { "sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him" },
+                new[] { "sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits" },
+            });
+            if (counterMachine >= 3)
+                slides.Add("⚙️ The Counter-Machine — you never set out to build a thing; you only kept helping one tired person at a time. But the smuggler's routes and the gnome's silent forks and the ferryman's free dusk crossings and the heiress's bottomless purse and the harvest dragged into daylight were, it turns out, the same machine seen from five doorways — an underground that empties the Wall's intake faster than the harvest can fill it. Cruelty had its Choir and its clerks and its quotas. You gave mercy a logistics. The powers built a death-engine and never once imagined the godless poor would answer it with an org chart.");
+
+            int caseComplete = clusterDone(new[] {
+                new[] { "sq.naeve_grieves_at_last", "sq.naeve_keeps_one_page", "sq.naeve_indictment_at_court", "sq.naeve_read_together" },
+                new[] { "sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud" },
+                new[] { "sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides" },
+                new[] { "sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers" },
+                new[] { "sq.threnn_third_column", "sq.threnn_truth_published", "sq.threnn_true_to_memorial", "sq.threnn_corrin", "sq.threnn_shared", "sq.threnn_to_the_court" },
+            });
+            if (caseComplete >= 3)
+                slides.Add("📚 The Case Was Complete — separately they were a grandmother's grief, a crank's filing, a cat's dangerous book, a monk's catalogue of the never-written, an archivist's honest count. You were the only one who saw them stacked: Naeve's one mourned name and the Complaint's dated indictment and the census of ten thousand discarded and the libraries the Wall murdered before they were made and the true tally that the dead were never a round number — and stacked, they stopped being five cries and became a brief. The Wall could outlast any single accusation. It had no answer at all for a prosecution that arrived with its evidence already filed, witnessed, cross-referenced, and read aloud.");
+
+            int everyNameKept = clusterDone(new[] {
+                new[] { "sq.field_of_the_rested", "sq.graves_to_the_tenders", "sq.every_soul_expected", "sq.halen_at_rest" },
+                new[] { "sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded" },
+                new[] { "sq.forbidden_name_spoken", "sq.wickless_speaks_alone" },
+                new[] { "sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory" },
+                new[] { "sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead" },
+                new[] { "sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court" },
+            });
+            if (everyNameKept >= 3)
+                slides.Add("🕯️ Every Name Kept — the graves with the dead's true names, the dirge turned anthem, the wickless name finally spoken, the reaper's forty-one laid to rest, the mournlight made of ten thousand forbidden griefs, the Wall itself read aloud in the tongue that decodes it. Each was one small refusal to let a person become a number. Together they are the thing the Wall was built to make impossible: a Realm that remembers its discarded by name. The machine runs on forgetting — on the comfortable lie that the Faithless were no one. You spent the long road proving, name by name, grave by grave, song by song, that there was never any such thing as no one.");
+
+            // The capstone: all three movements carried home at once — breadth rewarded.
+            if (counterMachine >= 3 && caseComplete >= 3 && everyNameKept >= 3)
+                slides.Add("👑 The Long Road — you ran the marked out alive, you built the case that damns the Wall, and you kept every name it tried to erase: rescue, prosecution, and remembrance, all three, carried the whole length of the world. No god planned for this. The Wall was designed against grief and against courage and it had answers for both — but it was never designed against a person who would simply do all of it, patiently, quest after small quest, until the rescue and the indictment and the memorial turned out to be one work wearing three coats. They called the Faithless nothing. You spent a lifetime making that the one word in the cosmos nobody could say with a straight face again.");
+
             // The Lady.
             if (f.GetBool("readers_boon"))
                 slides.Add("🎭 The Lady in the Margins — you read her, after all. Whatever else the ending took, she remembers it — keeps it, in the white space, in a hand you almost know — so that, this once, your story was *witnessed.* The margin smiled.");
@@ -375,6 +624,45 @@ namespace SunderedCrown.Core
             foreach (var id in new[] { "roen", "varra", "garrow", "naeve", "ilfaeril" })
                 if (f.GetBool($"quest.{id}.resolved")) quests++;
             lines.Add($"📜 Companion quests resolved: {quests}/5");
+
+            // Side quests of the long road brought home (one per quest, any resolution counts).
+            var sideQuestFlags = new[] {
+                new[] { "sq.field_of_the_rested", "sq.graves_to_the_tenders", "sq.every_soul_expected", "sq.halen_at_rest" },
+                new[] { "sq.margins_for_the_warden", "sq.wrote_back_to_the_loop", "sq.margins_warning_heeded", "sq.margins_back_to_ynn" },
+                new[] { "sq.roen_and_sabira_reconcile", "sq.roen_tells_the_fire", "sq.roen_forgives_sabira", "sq.roen_darkthing_rests" },
+                new[] { "sq.naeve_grieves_at_last", "sq.naeve_keeps_one_page", "sq.naeve_indictment_at_court", "sq.naeve_read_together" },
+                new[] { "sq.harvest_exposed_public", "sq.harvest_to_the_hands", "sq.harvest_to_the_court" },
+                new[] { "sq.fortyone_reaper_rests", "sq.fortyone_reaper_joins_line", "sq.fortyone_ask_them", "sq.fortyone_to_the_graves", "sq.fortyone_gentle_wall", "sq.fortyone_victory" },
+                new[] { "sq.forbidden_name_spoken", "sq.wickless_speaks_alone" },
+                new[] { "sq.dirge_becomes_anthem", "sq.dirge_sung_at_court", "sq.dirge_freed_to_change", "sq.dirge_names_restored", "sq.dirge_decoded" },
+                new[] { "sq.window_made_specific", "sq.window_multiplied", "sq.window_to_the_court", "sq.window_one_that_lasts" },
+                new[] { "sq.book_read_whole", "sq.book_read_shared", "sq.book_copied_wide", "sq.book_to_the_court", "sq.book_margin_decides" },
+                new[] { "sq.mournlight_shone_at_court", "sq.mournlight_lights_golden_road", "sq.mournlight_grief_added", "sq.mournlight_carries_aline", "sq.mournlight_shone_on_the_dead" },
+                new[] { "sq.objection_indictment", "sq.objection_wrenna_first", "sq.objection_formally_received", "sq.objection_asked_for_him", "sq.objection_joins_the_case", "sq.objection_read_aloud" },
+                new[] { "sq.map_carried_across", "sq.map_the_reconciliation", "sq.map_reunites_the_lost", "sq.map_copied_wide", "sq.map_to_the_wall" },
+                new[] { "sq.mercy_route_toller", "sq.mercy_route_council", "sq.mercy_route_network", "sq.mercy_route_hardened", "sq.mercy_route_outlives_her", "sq.mercy_route_to_the_court" },
+                new[] { "sq.silences_early_warning", "sq.silences_mapped_pattern", "sq.silences_deepest", "sq.silences_filled", "sq.silences_resonator_guild", "sq.silences_to_the_court" },
+                new[] { "sq.wall_read_aloud", "sq.true_name_claimed", "sq.wall_read_to_the_dead", "sq.deadtongue_taught", "sq.deadtongue_primer", "sq.deadtongue_to_the_court" },
+                new[] { "sq.unwritten_read_aloud", "sq.unwritten_goad_the_living", "sq.faolan_writes_his_poems", "sq.unwritten_the_walls_theft", "sq.unwritten_written_after_all", "sq.unwritten_heal_the_filers" },
+                new[] { "sq.crossing_near_bank_held", "sq.crossing_fleet", "sq.crossing_snare_exposed", "sq.crossing_mutual_toll", "sq.crossing_outlives_him" },
+                new[] { "sq.delancie_shames_the_peers", "sq.delancie_opens_doors", "sq.delancie_endowment", "sq.delancie_commits" },
+                new[] { "sq.threnn_third_column", "sq.threnn_truth_published", "sq.threnn_true_to_memorial", "sq.threnn_corrin", "sq.threnn_shared", "sq.threnn_to_the_court" },
+                new[] { "sq.feast_held_open", "sq.feast_held_secret", "sq.feast_whole", "sq.feast_endures", "sq.feast_shared", "sq.feast_for_tomas", "sq.feast_to_the_court" },
+            };
+            int sideDone = 0;
+            foreach (var group in sideQuestFlags) { foreach (var k in group) if (f.GetBool(k)) { sideDone++; break; } }
+            if (sideDone > 0) lines.Add($"🪙 Side quests of the long road: {sideDone}/21 brought home");
+
+            // Movements coalesced — the epilogue's convergence clusters, recognized spoiler-free in the tally.
+            System.Func<int, bool> sqDone = i => { foreach (var k in sideQuestFlags[i]) if (f.GetBool(k)) return true; return false; };
+            var movements = new (string name, int[] idxs)[] {
+                ("⚙️ The Counter-Machine", new[] { 4, 13, 14, 17, 18 }),
+                ("📚 The Case Was Complete", new[] { 3, 11, 9, 16, 19 }),
+                ("🕯️ Every Name Kept", new[] { 0, 7, 6, 5, 10, 15 }),
+            };
+            var coalesced = new System.Collections.Generic.List<string>();
+            foreach (var m in movements) { int c = 0; foreach (var i in m.idxs) if (sqDone(i)) c++; if (c >= 3) coalesced.Add(m.name); }
+            if (coalesced.Count > 0) lines.Add($"🎖️ Movements coalesced: {coalesced.Count}/3 — {string.Join(", ", coalesced)}");
 
             // Bonds.
             var loves = new List<string>();

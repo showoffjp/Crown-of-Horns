@@ -1,0 +1,138 @@
+# ACT II — "The Book and the Wall"  (Candlekeep → the Fugue / City of Judgment)
+# Find the truth of the Crown, then descend, alive, into the afterlife. Scholarly mystery to cosmic vertigo.
+class: ActTwoMainContent
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: act2.candlekeep.gate | Act II — The Price of Entry
+node: 0 | Gatewarden Khelben's Heir
+  *(The doors of Candlekeep are taller than the church you were sealed under. The Gatewarden does not look up from her ledger.)* The toll is not coin. It never was. One book the library does not hold — yours to give, ours to keep, forever. That is the price of every page behind me. *(Now she looks up.)* You have the smell of someone who's read a page they shouldn't have. The Wall's page. So. What do you bring that ten thousand years of scholars did not?
+  enter: SET act2.candlekeep_gate
+  auto: 1
+node: 1 | Gatewarden Khelben's Heir
+  Choose carefully. We have heard every lie a desperate traveler can carry, and the Wall behind your eyes does not buy you mercy here. It buys you scrutiny.
+  * [HISTORY 16] "A firsthand account of the Wall of the Faithless, dictated by a soul that walked out of it." -> firsthand ?? rejected
+  * "Sister Garrow's funeral rites — forty years of the dead, named, that the church wanted forgotten." -> garrow_book | fx appr.garrow +6, SET act2.garrow_gave_book
+  * [PERSUADE 17] "The book you don't have is the one I haven't written yet — my own. Let me in and it ends here, on your shelves." -> wager ?? rejected
+  * "I'll find another way in." -> refuse
+node: firsthand | Gatewarden Khelben's Heir
+  *(For the first time in what is plainly a very long career, the Gatewarden sets down her pen.)* ...A primary source on the Faithless. From the inside. *(She is already gesturing the doors open, hungry as any scholar.)* No one has ever brought us *that*. Go down to the Sealed Stacks. What you seek about the Crown is there — and gods keep you, so is what you are. We have wondered, here, for an age. You may be the footnote that rewrites the spine.
+  enter: SET act2.candlekeep_entered, SET act2.entry_firsthand
+  auto: stacks
+node: garrow_book | Gatewarden Khelben's Heir
+  *(She takes the rites-book from Garrow with both hands, the way one accepts something holy or something terrible.)* Forty years of the unremembered, named. *(to Garrow)* Your church will hate that this exists. *(to you)* Which is precisely why it belongs here, where nothing is unremembered. The doors are yours. The Sealed Stacks hold your Crown — and your reflection. Mind which one you came for.
+  enter: SET act2.candlekeep_entered, SET act2.entry_garrow_rites
+  auto: stacks
+node: wager | Gatewarden Khelben's Heir
+  *(A slow, scholar's smile — the first genuine thing in her face.)* ...A book not yet written, promised to a library that outlasts authors. That is either the cleverest toll I have been offered in a century or the most arrogant. *(She opens the doors.)* I will find out which when you come back to write it. If you come back. The Sealed Stacks are below. So, I am told, is something that has been waiting for an author.
+  enter: SET act2.candlekeep_entered, SET act2.entry_wager
+  auto: stacks
+node: rejected | Gatewarden Khelben's Heir
+  *(She returns to her ledger.)* A poor offering for the greatest library in the world. Come back when you carry something the world cannot already read. The doors will still be here. We are very patient with the dead.
+  enter: SET act2.candlekeep_refused
+  auto: stacks
+node: refuse | Gatewarden Khelben's Heir
+  *(She does not look up again.)* There is no other way in. There is only the toll, and the cliffs, and the sea. Scholars have tried the cliffs. The sea keeps them now. When you tire of the long way, the price is the same.
+  enter: SET act2.candlekeep_refused
+  auto: stacks
+node: stacks | Sister Garrow
+  *(at the head of the descending stair, lantern raised)* Whatever waits in the Sealed Stacks, Returned — I have a grave-warden's certainty that it has waited specifically for you. *(quietly)* I find I am no longer sure whether I am protecting you, or delivering you. Down we go regardless. The truth is the only thing in this world I have never been afraid of. Let us test that.
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: act2.sealed_stacks | Act II — The Two Truths
+node: 0 | The Sealed Stacks
+  *(A reading-room sealed for an age. Two books on one lectern, both warm to the touch. The first opens itself.)* THE CROWN OF HORNS — a relic? No. A *who*. The dead god of the dead, **Myrkul**, unmade and folded into a circle of bone, waiting for a vessel arrogant enough to wear him and call it salvation.
+  enter: SET act2.stacks_entered, SET crown.is_myrkul
+  auto: 1
+node: 1 | The Sealed Stacks
+  *(The second book will not open. Your hand finds it anyway, and the title burns up through your fingers before your eyes can reach it.)* The second truth is about the reader. About the crack in the world that walked in here on two legs and asked for tea.
+  * "Show me." -> reveal
+  * [ARCANA 18] "I already know. I'm not reading about the crack. I AM the crack." -> iam ?? flinch
+  * "I'm not ready." -> notready
+node: reveal | The Sealed Stacks
+  *(The book opens to a single line, in a hand you have never learned and somehow own.)* "The Wall is breached not from without but from within — by the one soul filed under nothing, who is the flaw in the law of the dead, and always has been." *(The lectern goes cold.)* You are not a person who saw the Wall. You are the place where the Wall fails. You always were.
+  enter: SET act2.you_are_the_crack, SET act2.stacks_revealed
+  auto: garrow
+node: iam | The Sealed Stacks
+  *(The book opens of its own accord, as if relieved to be read by the one it is about.)* Yes. The flaw in the law of the dead, wearing a face. Not a key Aldric found — a *door*, that has been opening since before Aldric was born, since before the Wall had your name to file. You did not come here to learn what the Crown is. You came to remember what you are.
+  enter: SET act2.you_are_the_crack, SET act2.stacks_revealed, SET act2.crack_self_known
+  auto: garrow
+node: flinch | The Sealed Stacks
+  *(The truth is too large to take in one reading, and slides off the way your own name once did. But it leaves a residue: a certainty that you are not the visitor to this mystery. You are its subject.)*
+  enter: SET act2.you_are_the_crack, SET act2.stacks_revealed
+  auto: garrow
+node: notready | The Sealed Stacks
+  *(You close the second book. It lets you. But a closed book in Candlekeep is only a delayed one — the truth waits on the lectern, patient as the Wall, certain you will return to read what you are.)*
+  enter: SET act2.stacks_truth_deferred
+  auto: garrow
+node: garrow | Sister Garrow
+  *(She has read over your shoulder, and the grave-warden's calm is gone.)* The Crown is Myrkul. And you are the breach in my god's own Wall. *(She closes her eyes.)* Forty years I kept the law of the dead. And the law has a hole in it shaped like you, and it has had that hole all along. *(She opens them, and there is something new there — not faith, but resolve.)* Then we go to the one who keeps the law, and we make him answer for the hole. We go down to Kelemvor.
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: act2.audience | Act II — The Audience
+node: 0 | Kelemvor
+  *(The Lord of the Dead is not terrible. He is *tired* — a judge at the end of an eternal docket, just and weary and, you realize with vertigo, bound.)* You came down alive. Few do. Fewer still are the hole in my own jurisdiction, walking and warm. Ask. I find, lately, that I would rather answer than pretend I have not heard the question.
+  enter: SET act2.audience_begun
+  auto: 1
+node: 1 | Kelemvor
+  Yes — before you spend your courage on it: the Wall of the Faithless. I know what you would have of me. Hear me first, because the truth is worse than tyranny. The Wall is not my law. It is older than my office. I inherited it, as one inherits a debt, and I have never once been able to find its author or its end.
+  * "A god who can't end the Wall. Then what are you for?" -> for
+  * [INSIGHT 18] "You're not bound by a stronger god. You're bound by a grief. Something under your own city." -> grief ?? weary
+  * "Aldric wants to tear it down. Help us, and he won't have to." -> aldric
+  * "Then we end it without you." -> without | fx faction.kelemvor -5
+node: for | Kelemvor
+  *(He does not flinch from it; he has clearly asked himself the same thing across centuries.)* For mercy where I can reach it, and honesty where I cannot. I sort the dead I am allowed to sort. The Faithless were walled before my throne was cold, by a hand I cannot name, for a grief I cannot soothe. I am for telling you that — instead of letting you die thinking a god simply chose to be cruel. That is the only gift in my power. I am sorry it is so small.
+  enter: SET act2.kelemvor_honest
+  auto: thin
+node: grief | Kelemvor
+  *(For a long moment the eternal judge is silent, and the City of Judgment holds its breath with him.)* ...You see clearly, for a flaw. Yes. Beneath this city, beneath my court, there is a grief older than my godhood — the accreted sorrow of every soul ever thrown away, and it is *waking*, and the Wall is the lid I cannot lift and dare not leave. I have never said that aloud. To anyone. *(quietly)* You are the first thing in an age I have envied. You can still be surprised.
+  enter: SET act2.kelemvor_unmade_hinted, SET unmade.foreshadowed, faction.kelemvor +5
+  auto: thin
+node: weary | Kelemvor
+  Do not read a god, child. We are mostly grief in a robe. *(He sighs, and it is the sound of an age.)* I cannot end the Wall. I can only tell you, truthfully, that I wish I could — and warn you that the thing which built it is not done building. Go carefully. The floor of even my world is thin.
+  auto: thin
+node: aldric | Kelemvor
+  *(Something crosses the weary face — not hope, exactly, but its memory.)* Aldric Morn. Yes — I knew him, when he still served. The best of my Doomguides, and the only one who ever wept at a sorting. *(slowly)* If he means to tear down the Wall, he means to crack the lid on the thing beneath it. Tell him — tell him from the god he abandoned — that there is a difference between freeing the drowning and breaking the dam. I fear he has stopped being able to feel it.
+  enter: SET act2.kelemvor_warns_of_aldric
+  auto: thin
+node: without | Kelemvor
+  *(He inclines his head, neither offended nor surprised.)* Many have. The Wall is still here, and they are behind it. *(a beat)* But you are not many, and the law has a hole in it shaped like you, so perhaps. Perhaps. Only — when you reach for the lid, remember a tired god told you it was holding something down, not merely shut.
+  enter: SET act2.kelemvor_warned_unmade, faction.kelemvor +2
+  auto: thin
+node: thin | Sister Garrow
+  *(as you climb back toward the grey light, both of you smaller than you were)* A god told us he is not in charge. *(She laughs, once, without humor.)* Forty years, Returned. And the floor of the world is thin, and there is something under it that even Kelemvor speaks of in a lowered voice. *(She steadies herself on your arm.)* I think we are about to meet it.
+
+# ───────────────────────────────────────────────────────────────────────────
+conversation: act2.unmade | Act II — The Offer
+node: 0 | The Unmade
+  *(The voice comes from the Wall itself, from every niche at once, a million discarded souls speaking as one and failing to find the word "I.")* We have wanted to speak with you for longer than you can hold in a thought. Be still. You, of all that lives, will understand us — because you were thrown away too, and walked out, and that is the only thing any of us have ever had in common. It turns out to be enough to make a self from.
+  enter: SET act2.unmade_speaks, SET unmade.contacted
+  auto: 1
+node: 1 | The Unmade
+  We are not your enemy. We are the *bill.* Every soul your gods filed under nothing, gathered at last into one grief large enough to be heard. And we have found a door — you. Through you, the law that threw us away can be unmade at its root, in the past, before the first injustice set. We can make it so the Wall was never built. So no one was ever thrown away. *(softer, and somehow worse)* So Maerin never died. So none of them did. Would that not be mercy?
+  * "Your grievance is just. Your offer terrifies me. Both are true." -> both | fx SET unmade.grievance_acknowledged
+  * [INSIGHT 18] "You don't want justice. You want the ending — for everything to stop hurting by stopping." -> ending ?? tempted
+  * "I won't rewrite the dead to spare myself the present." -> refuse | fx appr.garrow +8, appr.maerin +6
+  * "Show me the road." -> road
+node: both | The Unmade
+  *(A sound like a million held breaths, exhaling at once.)* You are honest. We had forgotten honesty; it was filed under nothing with the rest of us. Yes — both true. Hold them both, little door, all the way to the end of time. It is more than your gods managed. *(The Wall begins to *open*.)* And now hold THIS: we cannot wait for you to decide. The grief has waited ten thousand years. It will not wait ten thousand more.
+  enter: SET unmade.respects_you
+  auto: tear
+node: ending | The Unmade
+  *(For the first time the chorus falters — a million voices catching on a truth they had not let themselves speak.)* ...Yes. The ending. Not justice — *rest.* To stop being the sorrow no one wanted by ceasing to be at all, and to take the cruel machine of the living down into the quiet with us. You see us more clearly than we see ourselves, door. *(The Wall trembles.)* It changes nothing. The offer is the same. Rest is still mercy, to the tired enough.
+  enter: SET unmade.true_nature_seen, SET act2.unmade_is_oblivion
+  auto: tear
+node: tempted | The Unmade
+  *(The chorus presses closer, and for a moment the offer is the most beautiful thing you have ever heard — an end to all ending.)* You feel it. Of course you feel it. You were thrown away; rest is the only thing the discarded ever truly want. Keep that feeling. You will need to have felt it, to understand the choice when it comes for true.
+  enter: SET unmade.felt_the_pull
+  auto: tear
+node: refuse | The Unmade
+  *(No anger. The discarded have no anger left — only a vast, patient certainty.)* You refuse now. You always refuse now. *(and there it is again, that impossible recognition)* You will refuse a great many times, across a great many ages, little door, and each refusal will seed the grief a little larger, until one of you, tired enough, finally says yes — and is us. We are not asking you to agree. We are asking you to *witness*. Come. See where it began.
+  enter: SET unmade.refused_first, SET unmade.loop_hinted
+  auto: tear
+node: road | The Unmade
+  *(The Wall opens like a throat.)* Then walk it. Back, and back, and back — to the hinge-points where the law was written, where it could still be unwritten. We will scatter you across them. Survive them. Learn us. And when you have seen it all, choose — knowing, for once, exactly what you are choosing.
+  enter: SET unmade.road_accepted
+  auto: tear
+node: tear | The Unmade
+  *(And then the floor of 1486 is gone. The pull behind your navel — the one that dragged you off the slab — seizes you whole, and the grey court tears away, and Garrow's hand closes on empty air where you were. You fall up the years. You fall ten thousand of them. And somewhere below, getting larger, is a city in the sky on the worst day in the history of magic.)*
+  enter: SET act2.complete, SET act3.thrown_to_netheril
