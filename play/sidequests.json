@@ -1117,6 +1117,46 @@
       ],
       "completionFlag": "clip.lien_cured",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_blank_quarter",
+      "title": "The Blank Quarter",
+      "region": "Past the Mapmaker's Wagon, where the map runs out",
+      "giver": "Sennet, at the last true bearing (requires his recruitment at the wagon)",
+      "premise": "Thirty years of edges, and at the center of the Cartographer of the Dead's master atlas there is still a hole: the deep country no surveyor returns from. Sennet cannot cross — one step past the last milestone and the country starts unwriting a living map. But nothing in there knows how to erase the Returned; you've been erased by professionals. So the strangest survey in the history of the grey is commissioned: walk, look, come back, SAY TRUE — and a dying man will ink his life's work blind, from testimony, trusting your word the way sailors trust stars.",
+      "theme": "Witness as instrument. Three fixes want three different honesties: the Meridian settles only for a soul that admits it is lost; the unwitnessed mile wants to be complete in someone's keeping, even once, even only in the memory of feet; and the center of the map is not unknown country but UNWRITTEN country — the grey's own draft-space, where every unfinished ending is held soft and possible, kept blank not by failure but by mercy. The only true map of an undecided place is a legend: HERE, EVERYTHING IS STILL POSSIBLE. And closing a life's work well doesn't end the life — it frees the years left from being a countdown.",
+      "reward": "The master atlas of the dead, complete — bq.atlas_finished — with the finest line the Cartographer ever inked: a legend across the whole quarter. His hands steady for the first time; Tibb's arithmetic retired; a full cartographic survey of Dot's bread imminent (the crumb structure alone). disp.honest; disp.merciful with the deeper read.",
+      "objectives": [
+        {
+          "objectiveId": "cross",
+          "desc": "Stand with Sennet at the last true bearing",
+          "completionFlag": "bq.crossed"
+        },
+        {
+          "objectiveId": "meridian",
+          "desc": "Fix the Meridian — admit the one true bearing",
+          "completionFlag": "bq.fixed_meridian",
+          "optional": true
+        },
+        {
+          "objectiveId": "mile",
+          "desc": "Walk the unwitnessed mile, end to end, without looking back",
+          "completionFlag": "bq.walked_mile",
+          "optional": true
+        },
+        {
+          "objectiveId": "center",
+          "desc": "Listen to the center of the map",
+          "completionFlag": "bq.heard_blank"
+        },
+        {
+          "objectiveId": "saytrue",
+          "desc": "Come back and say true — the dictation",
+          "completionFlag": "bq.atlas_finished"
+        }
+      ],
+      "completionFlag": "bq.atlas_finished",
+      "failureFlag": ""
     }
   ]
 }

@@ -2045,6 +2045,62 @@
           "text": "*(flip. catch. …no joke arrives, which is how you know it landed)* …aye, Sister. First light."
         }
       ]
+    },
+    {
+      "id": "bant.sennet_clip_exits",
+      "category": "comedy",
+      "requires": {
+        "companions": [
+          "sennet",
+          "clip"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sennet",
+          "text": "*(sketching the camp, muttering)* …bedrolls, fire, ration crates — and MARGINS, everywhere, why does this camp have so much unaccounted *margin*—"
+        },
+        {
+          "speaker": "Clip",
+          "text": "Those are exits, mapmaker. Three of them mine. A camp needs one way in and — *(counting on his fingers)* — between four and nine ways out, depending on who's asking."
+        },
+        {
+          "speaker": "Sennet",
+          "text": "*(delighted, re-inking furiously)* EGRESS CARTOGRAPHY. A whole sub-discipline! Friend — show me ALL of them. For the survey. I'll cross-hatch them 'CLIP'S' in a nice discreet grey—"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(pained)* You want to put my escape routes… on a MAP. A document. That EXISTS. *(beat)* …make the grey discreeter and I want co-author credit."
+        }
+      ]
+    },
+    {
+      "id": "bant.sennet_naeve_worlds",
+      "category": "philosophy",
+      "requires": {
+        "companions": [
+          "sennet",
+          "naeve"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Naeve",
+          "text": "Your coastlines. You ink them from the outside in — edge first, always the edge first. I derive from first principles outward. I have been watching you work for a week and it is making my teeth itch."
+        },
+        {
+          "speaker": "Sennet",
+          "text": "*(not looking up)* That's because you map a world you LOST, arcanist. You start from the center because the center is what you're trying to keep. I map a world nobody's FINISHED. Edges first — you fence the unknown before it wanders off."
+        },
+        {
+          "speaker": "Naeve",
+          "text": "*(a long pause; the sound of a proof being reluctantly updated)* …ten thousand years, and I have never once heard the difference between grief and hope stated as a survey methodology."
+        },
+        {
+          "speaker": "Sennet",
+          "text": "*(grinning, still inking)* Cartography, friend. It's all cartography. Yours just has more crying in it."
+        }
+      ]
     }
   ]
 }

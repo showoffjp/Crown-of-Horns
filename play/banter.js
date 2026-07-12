@@ -19,6 +19,7 @@ const PRESENT_FLAG = {
   dot: "lf.dot_joined",
   mournlight: "sq.carry_the_mournlight",
   clip: "clip.recruited",
+  sennet: "party.sennet_recruited",
 };
 
 function companionPresent(state, id) {

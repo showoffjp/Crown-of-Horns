@@ -1,0 +1,284 @@
+{
+  "scene": {
+    "id": "blankquarter",
+    "name": "The Blank Quarter",
+    "w": 12,
+    "h": 9,
+    "playerStart": { "x": 6, "y": 7 },
+    "props": [
+      { "type": "milestone", "x": 3, "y": 6 },
+      { "type": "cairn", "x": 2, "y": 7 },
+      { "type": "candle", "x": 5, "y": 6 },
+      { "type": "candle", "x": 7, "y": 6 },
+      { "type": "log", "x": 9, "y": 7 },
+      { "type": "deadtree", "x": 1, "y": 5 }
+    ],
+    "exits": [
+      { "x": 6, "y": 8, "to": "cartographer", "dest": { "x": 5, "y": 7 }, "label": "◂ back to the Mapmaker's Wagon, and the mapped world" }
+    ],
+    "npcs": [
+      {
+        "id": "sennetbq",
+        "name": "Sennet, at the last true bearing",
+        "title": "the Cartographer of the Dead, where his map runs out",
+        "x": 6, "y": 6, "hue": 40, "sigil": "S",
+        "when": { "flag": "party.sennet_recruited" },
+        "conv": "bq.sennet",
+        "hail": "*(The cartographer stands at a milestone with no far side, pens laid out like surgeon's tools, and does not step past it. Beyond the candles the grey simply — stops being anywhere. Not dark. Not far. UNDRAWN.)* This is it, friend. Thirty years of edges, and this is the edge of the edges: the last bearing a living surveyor can take. One more step and my map starts unwriting ME. *(the grin, bright and terrified and alive)* …but not you. Nothing in there knows how to erase you. You've been erased by PROFESSIONALS."
+      },
+      {
+        "id": "meridian",
+        "name": "the Meridian",
+        "title": "the line every bearing argues about",
+        "x": 3, "y": 2, "hue": 210, "sigil": "✜",
+        "when": { "flag": "party.sennet_recruited" },
+        "conv": "bq.meridian",
+        "hail": "*(A line lies across the undrawn ground — not drawn on it, UNDER it, the way a keel is under a ship. It is exactly where you are not looking. Every time you fix your eye on it, it is slightly to the left of that.)*"
+      },
+      {
+        "id": "unmile",
+        "name": "an unwitnessed mile",
+        "title": "a road that exists only while walked",
+        "x": 9, "y": 2, "hue": 260, "sigil": "∻",
+        "when": { "flag": "party.sennet_recruited" },
+        "conv": "bq.mile",
+        "hail": "*(A mile of road stands in the blank, paved and cambered and kept — but only the stretch your feet are on. Ahead it is not yet; behind it is not anymore. It is the loneliest well-made thing you have ever seen.)*"
+      },
+      {
+        "id": "theblank",
+        "name": "the Blank",
+        "title": "the center of the map, which is not empty",
+        "x": 6, "y": 0, "hue": 45, "sigil": "✧",
+        "when": { "flag": "party.sennet_recruited" },
+        "conv": "bq.blank",
+        "hail": "*(At the center of the unmapped country there is no monster and no throne and no wall. There is a stillness like held breath — like parchment before the first line — and it is not empty. It is WAITING. It has been waiting for thirty years of one man's inkwork to arrive at its edge and stop, respectfully, and now it is looking at you the way a page looks at a pen.)*"
+      },
+      {
+        "id": "nobearing",
+        "name": "a bearing you cannot yet take",
+        "title": "the edge of somebody's unfinished life-work",
+        "x": 6, "y": 6, "hue": 220, "sigil": "◌",
+        "when": { "flagsNot": ["party.sennet_recruited"] },
+        "conv": "bq.dormant",
+        "hail": "*(The grey runs out here, into a country that is not dark and not far, only undrawn — and at the last milestone someone has laid out survey-pins and a wind-shielded candle and gone home again, the way you leave tools by a job you mean to come back to with help.)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "bq.sennet",
+      "title": "The Last True Bearing",
+      "npc": "Sennet, at the last true bearing",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Sennet, at the last true bearing",
+          "onEnter": [ { "key": "bq.crossed", "op": "SetTrue" } ],
+          "variants": [
+            {
+              "when": { "flags": ["bq.atlas_finished"] },
+              "text": "*(The atlas is closed on the milestone, finished, and the cartographer is sketching something SMALL for the first time since you met them — hands steady as a bench, laughing at their own linework.)* Crumb structure, friend. Dot's bread. Forty years of coastlines nobody living will ever sail, and it turns out the most demanding survey of my career is a LOAF. *(they hold it up; it is perfect)* …thank you. For the dictation. For the legend. For — *(the pen gestures at everything, at the blank, at the years)* — the rest of the map."
+            },
+            {
+              "text": "*(They kneel and unroll the master atlas across the undrawn ground — thirty years of it, every coast and causeway of the dead's country inked true — and at its center, the hole in their life's work: the Blank Quarter, untouched, immaculate.)* Here is the survey, friend, and here is the oath, same as I'd give any instrument I trusted: WALK. LOOK. COME BACK. SAY TRUE. *(they press the spare pen into your hand — not to write with; to hold; a surveyor's handshake)* Three fixes and the quarter is chartable: the Meridian, that every bearing argues about. The mile that no one has ever witnessed. And the center. *(quietly)* Nobody has ever looked at the center and come back to say. You will be the first testimony in the history of the grey. …say true, and I will ink whatever you say."
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(the one who crosses)* \"I've been in once, Sennet — further in than your map has edges. It didn't erase me then. Give me the pen and the oath. I'll bring you the country.\"",
+              "tag": "returned",
+              "next": "brief"
+            },
+            {
+              "text": "\"Walk. Look. Come back. Say true. …I can do that.\"",
+              "next": "brief"
+            }
+          ]
+        },
+        {
+          "id": "brief",
+          "speaker": "Sennet, at the last true bearing",
+          "text": "*(They stand at the milestone like a harbormaster watching the one ship that can sail the impossible water.)* The fixes, then. The MERIDIAN first — it will be exactly where you are not looking; that is its whole nature. The MILE next — you will know it because it is the only finished thing in there; walk it and do not look back, it hates that. And then — *(the voice drops; thirty years live in the pause)* — the CENTER. I do not know what it is. I have theories the way other souls have nightmares. Look at it for me. …look at it for everyone who ever stopped at this stone.",
+          "choices": [
+            {
+              "text": "*(the three fixes are taken — give him the country)* \"Sennet. Ready your pen. Say-true starts now.\"",
+              "when": { "flags": ["bq.fixed_meridian", "bq.walked_mile", "bq.heard_blank"] },
+              "next": "dictate",
+              "effects": [ { "key": "bq.dictation_begun", "op": "SetTrue" } ]
+            },
+            {
+              "text": "*(you haven't the fixes yet — go walk the blank)*",
+              "next": "waits"
+            }
+          ]
+        },
+        {
+          "id": "waits",
+          "speaker": "Sennet, at the last true bearing",
+          "text": "*(They settle against the milestone with the enormous patience of a man who has waited thirty years and can therefore wait an afternoon, pens aligned, inkwell open, eyes on the undrawn country like a lover watching a door.)* I'll be here. I am EXTREMELY here. Take the bearings, friend — all three. The quarter has waited out three of my decades; it can extort one more walk out of you."
+        },
+        {
+          "id": "dictate",
+          "speaker": "Sennet, at the last true bearing",
+          "text": "*(And so it happens, the strangest survey ever conducted in the country of the dead: you talk, and the Cartographer inks BLIND — eyes closed, pen flying, trusting your testimony the way sailors trust stars they cannot touch. You give him the Meridian, and how it is fixed only by a soul that admits it is lost. You give him the mile, and how it exists only while walked, and he weeps once, quietly, and does not stop drawing. And then you give him the center, and the pen stops, because you say: it is not unknown country, Sennet. It is UNWRITTEN country. The Blank is where the grey keeps everything not yet decided — every unfinished business, every unmade choice, every soul's undetermined ending, held as unformed geography. It is not the map's failure. It is the world's DRAFT. …and the pen hovers over thirty years of longing, and the Cartographer of the Dead asks you, steady as a bench: then what do I draw?)*",
+          "choices": [
+            {
+              "text": "*(read him first — what does finishing a life's work do to the two years left in the body holding the pen?)*",
+              "check": { "skill": "Insight", "ability": "Wisdom", "dc": 13 },
+              "next": "readfinish",
+              "effects": [ { "key": "bq.read_finish", "op": "SetTrue" } ]
+            },
+            {
+              "text": "\"Draw nothing. Write the legend, Sennet: HERE, EVERYTHING IS STILL POSSIBLE. It's the only true map of an undecided place.\"",
+              "next": "legend",
+              "effects": [ { "key": "disp.honest", "op": "AddInt", "amount": 1 } ]
+            }
+          ]
+        },
+        {
+          "id": "readfinish",
+          "speaker": "Sennet, at the last true bearing",
+          "text": "*(You turn your sense on the man holding the pen, and read what the blank quarter has actually been all these years: not a gap in his map — a REASON. The unfinished thing that got him up every morning of a dying body's borrowed time; the door he could keep walking toward. And you read the fear under the steady hand, the one he has never let Tibb see: that the day the map is done, the body will notice it is finished too — that completion is a kind of permission. And under THAT, deeper, where he keeps it — the truth: he is not afraid of dying. He is afraid of dying with the quarter still blank and being filed, forever, as the man who ALMOST. What the last legend says matters less to him than that there IS one — that the work closes WELL. Close it well, and the years left stop being a countdown and start being a gift.)*",
+          "choices": [
+            {
+              "text": "\"Draw nothing. Write the legend: HERE, EVERYTHING IS STILL POSSIBLE. Close it well, Sennet.\"",
+              "next": "legend",
+              "effects": [ { "key": "disp.honest", "op": "AddInt", "amount": 1 }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 } ]
+            }
+          ]
+        },
+        {
+          "id": "legend",
+          "speaker": "Sennet, at the last true bearing",
+          "onEnter": [ { "key": "bq.atlas_finished", "op": "SetTrue" } ],
+          "text": "*(The pen comes down. Not a coastline; not a contour. Letters — the Cartographer's finest hand, the hand he has been saving for thirty years without knowing it — across the whole of the Blank Quarter, where every soul who ever consults the master atlas of the dead will read it until the atlas itself wears out: HERE, EVERYTHING IS STILL POSSIBLE. He sits back. He looks at his life's work, complete. And his hands — you notice it before he does — his hands are STEADY, for the first time since you met him, as though the shaking had been the map's unfinishedness all along, living in his fingers. When he finally speaks, it is very small and completely happy.)* …done. *(a breath)* Done, and closed WELL, and the legend is TRUE, which is the only oath a map ever swears. *(he begins to laugh, wiping his eyes with an ink-stained sleeve)* Do you know what this means, friend? It means tomorrow I map something SMALL. It means I have YEARS, and no blank left to owe them to. Tibb can stop doing arithmetic. I'm going to survey the camp. I'm going to chart the bench of that ridiculous court. I'm going to do a FULL CARTOGRAPHIC SURVEY of Dot's bread — the crumb structure alone, friend, the CRUMB STRUCTURE — *(and the Cartographer of the Dead folds his atlas, shoulder-slings his pens, and walks back toward the fires of the living absolutely aglow, a man with everything left to draw and nothing left to prove)*"
+        }
+      ]
+    },
+    {
+      "id": "bq.meridian",
+      "title": "The Line Every Bearing Argues About",
+      "npc": "the Meridian",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Meridian",
+          "text": "*(You try to fix it by eye and it slides. You try instruments — Sennet's pins, the pen, your own shadow — and it is always slightly to the left of every measurement, patient as a cat that does not wish to be pointed at. It is not hiding. It is simply not agreeing. Whatever this line is, it has never once been where any soul DECIDED it was.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses — stop measuring; admit the one true bearing)* \"I don't know where I am. I have never known where I am. I died lost and came back lost, and I am lost NOW.\"",
+              "tag": "returned",
+              "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 },
+              "next": "fixed",
+              "effects": [ { "key": "bq.fixed_meridian", "op": "SetTrue" } ]
+            },
+            { "text": "*(leave the line to its arguing)*", "next": "argues" }
+          ]
+        },
+        {
+          "id": "fixed",
+          "speaker": "the Meridian",
+          "text": "*(And the line comes to YOU. Quietly, like something that has waited a very long age for anyone to say it: the Meridian is the average of every soul's certainty about where it stands, and certainty is always wrong, and so the line always moves. But a soul that admits it is lost has no error to average in — and against your honest nowhere, the line settles, grateful as a compass finally allowed to point. You hold still. You are, for one measured minute, the fixed point of the whole undrawn country: the only bearing in the grey that told the truth. Sennet's first fix, taken. The instrument was never the pin. It was the admission.)*"
+        },
+        {
+          "id": "argues",
+          "speaker": "the Meridian",
+          "text": "*(The line slides gently out from under your attention and resumes being slightly to the left of everything, and you have the sense — not unkind — of a question that will keep. Lines are patient. It is most of what they are.)*"
+        }
+      ]
+    },
+    {
+      "id": "bq.mile",
+      "title": "The Unwitnessed Mile",
+      "npc": "an unwitnessed mile",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "an unwitnessed mile",
+          "text": "*(The road builds itself under your leading foot and unbuilds behind your trailing one — good stone, true camber, a mile of honest work that has never once existed all at the same time. No one made it. No one walks it. It is a road the way an unsung song is a song: perfectly, and not at all.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses — walk it, all of it, and do not look back)*",
+              "tag": "returned",
+              "check": { "skill": "Perception", "ability": "Wisdom", "dc": 12 },
+              "next": "walked",
+              "effects": [ { "key": "bq.walked_mile", "op": "SetTrue" } ]
+            },
+            { "text": "*(step off the stones — some roads are not yours)*", "next": "unwalked" }
+          ]
+        },
+        {
+          "id": "walked",
+          "speaker": "an unwitnessed mile",
+          "text": "*(You walk it whole — the first soul ever to take the mile end to end — and because you do not look back, it does not have to erase itself in front of you, which you understand, somewhere past the halfway stone, is all it ever wanted: to be COMPLETE in someone's keeping, even once, even only in the memory of feet. At the far end you turn, and the mile is gone, and it is not gone at all: it is in you now, surveyed, every stone of it, the way a song is in the singer after the sound stops. Sennet's second fix. When you tell him, he will draw it as a solid line — the only road in the atlas drawn from testimony instead of sight — and it will be the truest line on the map.)*"
+        },
+        {
+          "id": "unwalked",
+          "speaker": "an unwitnessed mile",
+          "text": "*(The stones do not reproach you. The mile has not been walked in the whole history of the grey; it has a talent for waiting that borders on the miraculous. Behind you, very faintly, you hear it keep being perfect for nobody.)*"
+        }
+      ]
+    },
+    {
+      "id": "bq.blank",
+      "title": "The Center of the Map",
+      "npc": "the Blank",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Blank",
+          "text": "*(There is nothing to fight and nothing to read and nothing to measure. There is a stillness with the exact texture of a page before the first line — and it is aware of you, unhurried, the way paper is aware of a pen: not afraid, not eager. Ready. Thirty years of Sennet's inkwork has walked its coastlines closer and closer, and the Blank has never once moved away. It was never hiding. It was WAITING TO BE SAID.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses — don't measure it; LISTEN to it, the way you listened at the Wall)*",
+              "tag": "returned",
+              "next": "heard",
+              "effects": [ { "key": "bq.heard_blank", "op": "SetTrue" } ]
+            },
+            { "text": "*(withdraw — some centers keep)*", "next": "keeps" }
+          ]
+        },
+        {
+          "id": "heard",
+          "speaker": "the Blank",
+          "text": "*(So you stop surveying, and you listen, and the center of the map tells you what it is. It is not unknown country. It is UNWRITTEN country. Every unfinished business of every soul in the grey is here — not as ghosts, as GEOGRAPHY: unmade choices lying like unraised hills, unspoken words pooled like unnamed lakes, every undecided ending held soft and possible, the world's own draft-space, kept blank not by failure but by MERCY, because a thing not yet written can still be written WELL. And it knows you. Of course it knows you. Half the map of your own life was inked in this country — the Wall filed you as finished, and the Blank kept your ending in DRAFT, and you walked out of here rewritten once already. You are not its stranger, cold one. You are its favorite pen. …take that back to the man at the milestone. Say true. It has been waiting thirty years to be said.)*"
+        },
+        {
+          "id": "keeps",
+          "speaker": "the Blank",
+          "text": "*(The stillness does not follow you. It settles back into itself, patient as parchment, and you carry away the peculiar certainty that it will still be exactly this possible whenever anyone returns. Blankness, alone of all things in the grey, loses nothing by waiting.)*"
+        }
+      ]
+    },
+    {
+      "id": "bq.dormant",
+      "title": "A Bearing Not Yet Taken",
+      "npc": "a bearing you cannot yet take",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "a bearing you cannot yet take",
+          "onEnter": [ { "key": "bq.dormant_seen", "op": "SetTrue" } ],
+          "text": "*(Survey-pins. A wind-shielded candle. A coil of measuring-line, weighted, waiting. Someone has been coming to this milestone for years — you can read the patience in how the tools are laid, each one aligned to a bearing that was never taken. Whoever they are, they stop HERE, every time, at the exact edge of their whole life's question — and go home, and come back, and stop here again. The undrawn country beyond does not mock them. It waits with them. It is, you suspect, the most faithful appointment in the grey.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses)* \"Whoever keeps this vigil — when they're ready to ask, I'm the answer. I've been past every edge there is.\"",
+              "tag": "returned",
+              "next": "noted"
+            }
+          ]
+        },
+        {
+          "id": "noted",
+          "speaker": "a bearing you cannot yet take",
+          "text": "*(The candle-flame leans toward you, very slightly, in air that is not moving — the way a question leans toward the first person who ever looked like an answer. The tools keep their alignment. The bearing keeps its patience. Somewhere down the road, in a wagon sewn with map-margins, a dying man is inking coastlines and does not yet know his instrument has arrived.)*"
+          }
+      ]
+    }
+  ]
+}

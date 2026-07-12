@@ -11,6 +11,32 @@
 
 ---
 
+## 🗺️ v6.104.0 — *"The Blank Quarter"* — Sennet's life-work closes well (content · zone · payoff)
+
+> The Cartographer of the Dead finally gets his journal entry, his banter seat, and his ending. A new zone
+> past the Mapmaker's Wagon where the master atlas runs out — and the strangest survey in the history of
+> the grey: Sennet cannot cross (the deep country unwrites living maps), but *nothing in there knows how to
+> erase the Returned. You've been erased by professionals.* Walk. Look. Come back. **Say true.**
+- 🧭 **Three fixes, three honesties** — the **Meridian** is the average of every soul's certainty about
+  where it stands, and certainty is always wrong; it settles only against a soul that admits it is lost.
+  The **unwitnessed mile** exists only while walked — a perfect road that has never existed all at once —
+  and wants one thing so small it aches: *to be complete in someone's keeping, even once, even only in the
+  memory of feet.* And the **center of the map** is not unknown country but UNWRITTEN country — the grey's
+  own draft-space, every unfinished ending held soft and possible, *kept blank not by failure but by
+  mercy.* It knows the Returned: your ending was drafted here. *You are its favorite pen.*
+- 🖋️ **The dictation** — Sennet inks his life's work blind, from testimony, weeping once at the mile and
+  not stopping. And when he asks what to draw at the center, the answer is the game in one line:
+  *"Draw nothing. Write the legend: HERE, EVERYTHING IS STILL POSSIBLE."* His hands go steady for the
+  first time — the shaking was the map's unfinishedness all along. Tibb's arithmetic retires. Next
+  project: a full cartographic survey of Dot's bread. *The crumb structure alone.*
+- 🪶 **Sennet joins the banter registry** (`party.sennet_recruited`) with two openers: *egress
+  cartography* with Clip (mapping the escape routes of a man whose exits must not EXIST on documents), and
+  survey methodology with Naeve — *"the difference between grief and hope stated as a survey methodology.
+  …Yours just has more crying in it."*
+- `sq.the_blank_quarter` (quest #41) finally puts his arc in the journal; five sense-reads; wagon→quarter
+  exit; dormant survey-camp before recruitment. Gate **801/0**; 42/42; **96 zones, 301 souls, 41 quests,
+  68 banters.**
+
 ## 🃏 v6.103.0 — *"The Wildcard's Kit"* — Clip fights (combat · roster · payoff)
 
 > He banters, he's painted, he's legally self-possessed — now he *fights*. The combat sim's hero roster
