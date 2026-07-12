@@ -41,6 +41,7 @@ UNITS = {
     "spr_roen":     ("Roen Alleywind", None),
     "spr_varra":    ("Varra", None),
     "spr_naeve":    ("Naeve", None),
+    "spr_clip":     ("Clip", None),
     "spr_returned": ("The Returned", None),
     "spr_ghoul":    ("The Returned", "ghoul"),
     "spr_zombie":   ("The Returned", "zombie"),
@@ -80,6 +81,7 @@ HW, HH, WALL_H, OX, OY = 24, 12, 18, 262, 52
 BLOCKED = {(6,1),(7,1),(6,4),(7,5),(6,7),(7,7),(5,3),(8,2),(8,6),(6,8)}
 ROSTER = [  # (x, y, sprite, side)
     (1,2,"spr_garrow","hero"), (1,4,"spr_roen","hero"), (1,6,"spr_varra","hero"),
+    (2,7,"spr_clip","hero"),
     (10,1,"spr_returned","foe"), (11,3,"spr_ghoul","foe"),
     (11,6,"spr_returned","foe"), (10,8,"spr_zombie","foe"),
     (12,4,"spr_boss","foe"),

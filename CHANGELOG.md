@@ -11,6 +11,22 @@
 
 ---
 
+## 🃏 v6.103.0 — *"The Wildcard's Kit"* — Clip fights (combat · roster · payoff)
+
+> He banters, he's painted, he's legally self-possessed — now he *fights*. The combat sim's hero roster
+> grows to five: **Clip joins the line** in his zone-authored rose (#d06fb0, ❖), with a con man's kit built
+> entirely from the engine's existing vocabulary:
+- 🃏 **The Dip** — melee, 1d6 piercing, *Slowed*: he takes something on the way past. Usually your footing.
+- 🪙 **Clipped Coin** — Dex save at range 5, 1d4 bludgeoning, *Slowed*: it comes back. The target's dignity
+  doesn't.
+- 👁️ **Cold Read** — Wis save at range 6, 1d6 psychic, *Frightened*: being truly *seen* by a con man is
+  worse than any blade — he says what you are, out loud, accurately.
+- 🚪 **Escape Route** — self-buff, *Obscured*: he is suddenly somewhere slightly else. He built the
+  loophole years ago; now the crew gets to stand inside it.
+- Identity token painted (`Clip.png`, 62 total — hero, no threat rim), compact disc embedded in the sim
+  (9 identity tokens + 12 DCSS env sprites), preview raster updated, verified live in Chromium with zero
+  page errors. Asset coverage holds at **100%**; gallery 335 cards; 42/42 suites.
+
 ## 📖 v6.102.0 — *"The Matter, Continued"* — the lien has a cure, and the price is a line (content · quest · payoff)
 
 > v6.101's failure path stops being a dead end. The claim you left unanswered can be reopened — and the

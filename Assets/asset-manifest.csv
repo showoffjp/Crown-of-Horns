@@ -1565,6 +1565,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Sprites/Brother Oke.png",battle-token,png,8.4KB,8572,no
 "Assets/Resources/Sprites/Choir Herald.png",battle-token,png,8.2KB,8316,no
 "Assets/Resources/Sprites/Cinder-Hound.png",battle-token,png,8.7KB,8856,no
+"Assets/Resources/Sprites/Clip.png",battle-token,png,6.7KB,6812,no
 "Assets/Resources/Sprites/Contract-Devil.png",battle-token,png,11KB,10591,no
 "Assets/Resources/Sprites/Crown-War Revenant.png",battle-token,png,9.8KB,10017,no
 "Assets/Resources/Sprites/Damned Shade.png",battle-token,png,11KB,10358,no

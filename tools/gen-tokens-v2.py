@@ -46,6 +46,7 @@ WEB = {
     "Roen Alleywind":    (hexrgb("#7fd0a0"), "⚔"),   # ⚔
     "Varra":             (hexrgb("#6fa8dc"), "⛏"),   # ⛏
     "Naeve":             (hexrgb("#c79bf0"), "✶"),   # ✶
+    "Clip":              (hexrgb("#d06fb0"), "❖"),   # ❖ — the wildcard, zone hue 320
     "The Returned":      (hexrgb("#9b2d2d"), "☠"),   # ☠
     "The Last Returned": (hexrgb("#b06fd0"), "♛"),   # ♛
 }
@@ -135,12 +136,12 @@ def safe_glyph(g, name):
 # fallback + gallery continuity), plus "Echo" for dynamic mirror-clones.
 NEW_UNITS = ["The Returned", "The Last Returned", "Avatar-Touched Horror",
              "Doomguide Acolyte", "Ashfiend A", "Ashfiend B", "Lyra",
-             "Brother Oke", "Echo", "Sister Garrow", "Roen Alleywind"]
+             "Brother Oke", "Echo", "Sister Garrow", "Roen Alleywind", "Clip"]
 # NOTE: "Echo" is NOT a hero — Echo.png exists to catch the dynamic
 # "Echo of <name>" mirror-clones, and every one of those spawns Faction.Enemy
 # (MirrorEncounterDemo.cs:64), so the fallback token keeps the threat rim.
 HEROES = {"The Returned", "Sister Garrow", "Roen Alleywind", "Varra", "Naeve",
-          "Ilfaeril", "Maerin", "Sable", "Lyra", "Brother Oke",
+          "Ilfaeril", "Maerin", "Sable", "Lyra", "Brother Oke", "Clip",
           *v1.COMPANIONS}
 # v1 crowned two trash adds: God-Touched Horror (180-HP adds in the Avatar
 # fight, CampaignBootstrap.cs:957) and The Unbound (50-HP adds; the dungeon's
