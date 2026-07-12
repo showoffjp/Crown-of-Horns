@@ -11,6 +11,21 @@
 
 ---
 
+## 🍞 v6.105.0 — *"The Dead Arithmetic"* — Tibb forgives you (content · reactivity · warmth)
+
+> The reactivity beat v6.104 earned: the apprentice who ground ink and **counted their master's remaining
+> days** notices the atlas is finished.
+- 🧮 **Tibb's arithmetic dies** — return to the Mapmaker's Wagon after the dictation and the apprentice is
+  crying over the completed atlas *"the way you cry when a number you have been carrying for years is
+  suddenly, permanently WRONG."* Two field trips a season, each worth a month of his lungs, all
+  arithmetic'd — and he comes back *steady-handed* and says tomorrow we survey BREAD. *"You killed my
+  arithmetic. I've decided to forgive you."*
+- 🍞 **Survey the First: LOAF, MORNING, DOT'S** — the promised banter (69 total, gated on the finished
+  atlas): calipers, a loupe, a wobbling-baseline complaint, and the verdict — *"irregular alveolation with
+  a load-bearing crust. Madam, this loaf is ARCHITECTURE."* The atlas of the dead got a legend; Dot's
+  bread is getting **contour lines**. She presses a second loaf on him, *for the archive.*
+- Gate **801/0**; 42/42 suites.
+
 ## 🗺️ v6.104.0 — *"The Blank Quarter"* — Sennet's life-work closes well (content · zone · payoff)
 
 > The Cartographer of the Dead finally gets his journal entry, his banter seat, and his ending. A new zone

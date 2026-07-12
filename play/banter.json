@@ -2101,6 +2101,37 @@
           "text": "*(grinning, still inking)* Cartography, friend. It's all cartography. Yours just has more crying in it."
         }
       ]
+    },
+    {
+      "id": "bant.sennet_dot_crumb",
+      "category": "comedy",
+      "requires": {
+        "companions": [
+          "sennet",
+          "dot"
+        ],
+        "flags": [
+          "bq.atlas_finished"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sennet",
+          "text": "*(calipers. a loupe. a fresh plate titled 'LOAF, MORNING, DOT'S — SURVEY THE FIRST.')* Hold the loaf still, please. The crumb structure is EXTRAORDINARY and I will not have thirty years of surveying dishonored by a wobbling baseline."
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(holding the loaf still, delighted beyond all reason)* love, no one's ever measured my bread with INSTRUMENTS before. what's the verdict?"
+        },
+        {
+          "speaker": "Sennet",
+          "text": "*(peering; reverent)* …irregular alveolation with a load-bearing crust. Madam, this loaf is ARCHITECTURE. The atlas of the dead got a LEGEND — your bread is getting CONTOUR LINES."
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(to the camp at large, misty)* …he's mapping the bread. the man mapped the whole country of the dead and he's finishing with my BREAD. *(pressing a second loaf on him)* for the archive, love. for the archive."
+        }
+      ]
     }
   ]
 }

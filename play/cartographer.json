@@ -131,6 +131,14 @@
           ],
           "variants": [
             {
+              "when": {
+                "flags": [
+                  "bq.atlas_finished"
+                ]
+              },
+              "text": "*(The apprentice is not grinding ink. The apprentice is sitting on an upturned crate with the master atlas of the dead open across their knees — COMPLETE, every coast, every causeway, and across the center quarter, in the finest hand their master ever pulled, the legend — and Tibb is crying the way you cry when a number you have been carrying for years is suddenly, permanently WRONG.)* …I used to count, you know. Field trips to the edge. Two a season, each one worth a month of his lungs — I had it all arithmetic'd, when the map would kill him, give or take a winter. *(they wipe their face with an inky sleeve and laugh, wet and disbelieving)* And he comes back STEADY-handed, hands me thirty years of the most important cartography in the grey like it's a finished CHORE, and says — he says, Tibb, tomorrow we survey BREAD. *(the laugh breaks fully loose)* The arithmetic's dead, road-walker. You killed my arithmetic. I've decided to forgive you."
+            },
+            {
               "text": "*(The apprentice abandons the ink-stone the moment they see your face, and there is naked relief in it, and naked fear.)* …You're *cold.* *(quietly, urgent)* No — *good*, that's — I *mean* it as a *good* thing, hold *still* — *(they study you)* — you've the look of a soul that's *been* somewhere it shouldn't come *back* from. *(they glance at their master, then back, dropping their voice)* That's *exactly* the sort that's going to get me into *trouble*, but it's also the *only* sort that might *help*, so. *(a shaky breath)* Listen. Before you talk to *Sennet* — before you get *swept up* in the *coastlines* and the *coordinates* and the *brilliance* of it all — you should know what you'd be *signing on to.* Because Sennet's going to *want* you. The *instant* they work out what you are, they're going to want you *badly.* And I need *one* soul in this *story* to know what *wanting* you is going to *cost* them."
             }
           ],
