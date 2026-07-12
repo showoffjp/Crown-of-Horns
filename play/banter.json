@@ -1941,6 +1941,110 @@
           "text": "*(flipping the clipped coin; catching it)* …'Clip.' *(trying it on like a coat)* …yeah. *(quieter, to the dark)* Yeah. Keep the change."
         }
       ]
+    },
+    {
+      "id": "bant.clip_roen_geese",
+      "category": "comedy",
+      "requires": {
+        "companions": [
+          "clip",
+          "roen"
+        ],
+        "flags": [
+          "clip.owner_settled"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Roen",
+          "text": "So how did the *geese* case land? You never said. I've had money on the geese for a week."
+        },
+        {
+          "speaker": "Clip",
+          "text": "The geese *won*, Harper. Full title, costs awarded, the works. The gander gave a victim statement. There wasn't a dry eye at the small bench."
+        },
+        {
+          "speaker": "Roen",
+          "text": "*(delighted)* So legally speaking, you and the geese are—"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*Peers.* We are legal *peers*. Self-possessed souls of the grey, the four of us, and I'll thank you to know my verdict was entered FIRST, which means — and I have checked this — the geese are cited under *me*. I am *precedent* to waterfowl. Carve it on my cairn."
+        },
+        {
+          "speaker": "Roen",
+          "text": "…and the kettle?"
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(grave)* The kettle appealed. Nobody's seen the kettle since. You want my read, the kettle *knew something*."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_dot_nail",
+      "category": "warmth",
+      "requires": {
+        "companions": [
+          "clip",
+          "dot"
+        ],
+        "flags": [
+          "clip.owner_settled"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(producing, from her apron, one iron nail)* …promised you a nail, love. For the framing. Best spot's over the oven — everything worth reading in this camp ends up over the oven."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(taking it like it's made of glass)* Madam, this docket stamp says 'one soul, self-possessed' in the oldest legal hand in the grey, and you want it hung next to the *bread prices*."
+        },
+        {
+          "speaker": "Dot Marigold",
+          "text": "*(patting his cheek)* love. the bread prices are the *other* list of what things are worth around here. it'll be in good company."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(a long pause; the nail disappears into his coat, next to the coin, which is where he keeps things that matter)* …over the oven, then. *(quieter)* Never had a wall to hang anything on before. Don't tell the geese I cried."
+        }
+      ]
+    },
+    {
+      "id": "bant.clip_garrow_lien",
+      "category": "worry",
+      "requires": {
+        "companions": [
+          "clip",
+          "garrow"
+        ],
+        "flags": [
+          "clip.owner_lien"
+        ],
+        "flagsNot": [
+          "clip.lien_cured"
+        ]
+      },
+      "lines": [
+        {
+          "speaker": "Sister Garrow",
+          "text": "*(not looking up from her grave-ledger)* Your coin is going cold again. By degrees. I keep the books of the dead, con man — I know what a *lien* smells like."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(flip. catch. the grin, thin)* It's nothing, Sister. It's *paper*. I've outrun paper my whole—"
+        },
+        {
+          "speaker": "Sister Garrow",
+          "text": "You have outrun paper *alone*. You are not alone, and the paper knows where you sleep, because where you sleep is *with us*. *(she closes the ledger; the sound is a door)* There is a court. There is a motion. There is a clerk who owes this crew a kindness. GO. The dead file interest, Clip — and so, I am given to understand, do the living."
+        },
+        {
+          "speaker": "Clip",
+          "text": "*(flip. catch. …no joke arrives, which is how you know it landed)* …aye, Sister. First light."
+        }
+      ]
     }
   ]
 }

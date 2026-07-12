@@ -11,6 +11,33 @@
 
 ---
 
+## 📖 v6.102.0 — *"The Matter, Continued"* — the lien has a cure, and the price is a line (content · quest · payoff)
+
+> v6.101's failure path stops being a dead end. The claim you left unanswered can be reopened — and the
+> price of a silence is answering it, *with interest.*
+- 📖 **Surety** — the Bench will strike the lien on one condition: a soul with standing must enter itself
+  on the record — name, nature, liability — as his **keeper**. And everyone in the courtroom knows what
+  books mean to *you*: the Returned has walked five ages as the gap in every ledger, and the gap was armor.
+  The Insight read lays the cost out exactly: *to be reachable is to be holdable, and to be holdable is the
+  whole gamble of love. He let himself be named. This is you, letting yourself be WRITTEN.* The mirror of
+  Clip's entire arc, performed by the player, at a desk, sober.
+- ⚖️ **The strike** — the lien struck, the silence answered; and the magistrate does a thing eleven
+  thousand years of kettles never earned: *it stands. Briefly. For the length of one held breath, the small
+  court stands for you.* Then Clip tries three jokes, watches each one fall over, and says the thing with
+  his face first: *"…keeper, huh. Best line of credit in the grey, and I intend to be worth the interest."*
+- 🧾 **Honest bookkeeping** — the original quest stays *Failed* in the journal (failure wins over
+  completion in the quest engine, and that's kept): the grey does not erase, it **amends**. The cure is its
+  own quest, `sq.the_matter_continued` (#40), completing on `clip.lien_cured`.
+- 🪶 **Three verdict banters** (66 total) — *the geese* (they won their case too; Clip is legal **precedent
+  to waterfowl**, and the kettle appealed and hasn't been seen since — *"the kettle KNEW something"*);
+  *the nail* (Dot hangs his "one soul, self-possessed" docket stamp over the oven, next to the bread prices
+  — *"the other list of what things are worth around here"*); and *the lien* (worry, on the failure path:
+  Garrow smells the lien in her grave-ledger and sends him to the clerk — *"You have outrun paper ALONE.
+  You are not alone."*).
+- Replay coherence: the hearing's opening now carries settled/liened variants (*"…unless you have views on
+  GEESE. The court is always accepting views on the geese."*). Gate **801/0**; 42/42 suites;
+  **40 quests, 66 banters.**
+
 ## ⚖️ v6.101.0 — *"The Counting of One"* — the Owner comes back with paperwork (content · zone · villain)
 
 > The hook failed, so the power of inventory does what inventory does: **it files.** A new walkable zone

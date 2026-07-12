@@ -1089,6 +1089,34 @@
       ],
       "completionFlag": "clip.owner_settled",
       "failureFlag": "clip.owner_lien"
+    },
+    {
+      "questId": "sq.the_matter_continued",
+      "title": "The Matter, Continued",
+      "region": "The Bench of Small Property — the same small court, the same patient docket",
+      "giver": "a lien that did not go away (requires a failed Counting of One)",
+      "premise": "You walked out of the small court — or watched him try to sell himself and offered no counter — and the Bench, being exactly as fair as it is, entered a lien: the claim continues, sine die, and the hook is lawful now, waiting on a hearing nobody has asked for. The coin has started going cold by degrees. The court does not advise parties; it never has. But it observes, for no procedural reason whatsoever, that its clerk accepts motions. The price of reopening a silence is answering it — with interest: SURETY. A soul with standing must enter itself on the record, name and nature and liability, as his keeper. And everyone in the courtroom knows what books mean to you.",
+      "theme": "The cure for an unanswered claim is not a better argument — it is standing. The Returned has walked five ages as the gap in every ledger, and the gap was armor: unfiled is unfindable, unfindable is untouchable. This quest asks the player to pay the exact coin Clip paid at the threshold — to be reachable is to be holdable, and to be holdable is the whole gamble of love. He let himself be named. You let yourself be WRITTEN. The original failure stays on the journal, because it happened; the grey does not erase, it amends.",
+      "reward": "The lien struck, the silence answered with interest: clip.lien_cured, clip.surety_filed — the soul the Wall couldn't file, self-registered in the smallest court in the grey as KEEPER. The magistrate stands for you, once, for the length of one held breath. Clip's newest grin has no fray in it anywhere. disp.merciful, disp.honest.",
+      "objectives": [
+        {
+          "objectiveId": "motion",
+          "desc": "Ask the clerk what reopening a continued matter takes",
+          "completionFlag": "clip.motion_filed"
+        },
+        {
+          "objectiveId": "surety",
+          "desc": "Enter yourself on the record — one line: keeper",
+          "completionFlag": "clip.surety_filed"
+        },
+        {
+          "objectiveId": "struck",
+          "desc": "Hear the lien struck and the silence answered",
+          "completionFlag": "clip.lien_cured"
+        }
+      ],
+      "completionFlag": "clip.lien_cured",
+      "failureFlag": ""
     }
   ]
 }

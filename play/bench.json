@@ -230,6 +230,30 @@
                 }
               ]
             }
+          ],
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_settled"
+                ]
+              },
+              "text": "*(The magistrate looks up, and the grey eyes hold something the small court almost never gets to keep: a concluded matter that concluded WELL.)* The matter of the unregistered soul is CONCLUDED, counsel. Entered, sanded, and shelved — one (1) soul, self-possessed, and the Bench does not reopen its good days. *(the page turns, contented)* …unless you have views on GEESE. The court is always accepting views on the geese."
+            },
+            {
+              "when": {
+                "flags": [
+                  "clip.owner_lien"
+                ],
+                "flagsNot": [
+                  "clip.lien_cured"
+                ]
+              },
+              "text": "*(The magistrate does not look up. The docket between you is open to a line that has not moved since you last stood here, and the line is a LIEN, and it is patient.)* The matter of the unregistered soul stands CONTINUED, sine die. The claim was not answered; the encumbrance holds. *(the page does not turn)* …the Bench does not advise parties. It never has. But the Bench observes, for no procedural reason whatsoever, that its clerk accepts MOTIONS. At the desk. Where he has always been."
+            },
+            {
+              "text": "*(The magistrate reads without inflection, which is somehow worse than cruelty.)* In the matter of the claimant — designation withheld, a power of the walled dead — versus one (1) soul, male, unregistered, no lawful name of record. Claim: recovery of mislaid property. Relief sought: return of the property to the claimant's books. *(the page turns)* Exhibit the first: ash. Of a name. *(it looks up for the first time; its eyes are the grey of every small unfairness ever suffered patiently)* This Bench has heard eleven thousand years of kettles and geese. It has never once dismissed a claim unheard, and it will not begin with yours. Who answers for the respondent?"
+            }
           ]
         },
         {
@@ -532,6 +556,24 @@
           ],
           "choices": [
             {
+              "text": "*(the lien)* \"I want the matter of the unregistered soul reopened. What does it take?\"",
+              "when": {
+                "flags": [
+                  "clip.owner_lien"
+                ],
+                "flagsNot": [
+                  "clip.lien_cured"
+                ]
+              },
+              "next": "motion",
+              "effects": [
+                {
+                  "key": "clip.motion_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
               "text": "*(the one who crosses)* \"And when you served papers on me just by my standing here — what did the stamp say?\"",
               "tag": "returned",
               "next": "ink"
@@ -542,6 +584,103 @@
           "id": "ink",
           "speaker": "Sevenpence",
           "text": "*(He turns the stamp so you can read its face. One word, in the oldest abbreviation the court owns: RET'D.)* Addressee unfiled. Delivery refused by the WALL, if you can believe the cheek of it. So the record just says… returned. *(he looks at the stamp, then up at you, and the little clerk's voice goes quiet and precise)* …the stamp has had that word longer than you have, friend. Eleven thousand years of things that came back marked undeliverable. You're the first one the word fits like a NAME.)"
+        },
+        {
+          "id": "motion",
+          "speaker": "Sevenpence",
+          "text": "*(The little clerk sets down the stamp — actually sets it DOWN, which you have never once seen — and pulls a form so old its ruled lines have gone soft.)* Motion to reopen a continued matter. It can be done. It has been done TWICE in eleven thousand years, and I know because I checked the day the lien was entered, in case you came back. *(he slides the form across; his voice drops to clerk-quiet)* Here's the cost, friend, and it isn't coin. Last time, the claim went unanswered — that's what a lien IS, a silence with interest. The Bench will strike it on one condition only: SURETY. A soul with standing must enter itself on the record as his keeper. Name, nature, and liability — on the books. Forever. *(he looks up, and the look knows exactly what it is asking)* …and everyone in this courtroom knows what books mean to YOU.",
+          "choices": [
+            {
+              "text": "*(the one who crosses — read the form: what does a ledger line actually take from the soul the Wall never managed to file?)*",
+              "tag": "returned",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 12
+              },
+              "next": "weigh",
+              "effects": [
+                {
+                  "key": "clip.read_surety",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "*(sign)* \"Enter it. The soul the Wall couldn't keep, on the record, as his keeper. One line. He's worth a line.\"",
+              "next": "surety",
+              "effects": [
+                {
+                  "key": "clip.surety_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"…not yet.\"",
+              "next": "notyet"
+            }
+          ]
+        },
+        {
+          "id": "weigh",
+          "speaker": "Sevenpence",
+          "text": "*(You read the form, and your crossing-sense reads what the form IS. Every power that ever reached for you slid off the same fact: unfiled. The Wall could not hold you because there was no line to hold you BY — you have walked five ages as the gap in every ledger, and the gap was armor. This form is a door in that armor, cut by your own hand: one line, in one small court, naming you KEEPER of one soul. Nothing in the grey could ever summon you by it — a surety is not a title, and no one owns the keeper. But it is a place where you can be FOUND, forever, by anyone who reads. Your sense turns the cost over and finds the shape of it exactly: it is the same coin Clip paid at the threshold. To be reachable is to be holdable. To be holdable is the whole gamble of love. He let himself be named. This is you, letting yourself be WRITTEN.)*",
+          "choices": [
+            {
+              "text": "*(sign)* \"Enter it. One line. He's worth a line.\"",
+              "next": "surety",
+              "effects": [
+                {
+                  "key": "clip.surety_filed",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"…not yet.\"",
+              "next": "notyet"
+            }
+          ]
+        },
+        {
+          "id": "notyet",
+          "speaker": "Sevenpence",
+          "text": "*(He nods, without judgment, and files the blank form where he can reach it fast.)* It keeps. Forms are patient — it's the whole of what they are. *(he picks the stamp back up; quietly, to the inkwell)* …so are liens, friend. So are liens."
+        },
+        {
+          "id": "surety",
+          "speaker": "the Bench of Small Property",
+          "onEnter": [
+            {
+              "key": "clip.lien_cured",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(The clerk carries the form up; the magistrate reads it once, then once again, and when it speaks, the voice is a page turning in a book you cannot see the edges of.)* Let the record show: surety entered. The soul the Wall of the Faithless failed to file — self-registered, this day, in the smallest court in the grey, as KEEPER of the soul answering to Clip. *(the gavel; one small, absolute sound)* The lien is STRUCK. The silence is answered — with interest. *(and the magistrate does a thing eleven thousand years of kettles never earned: it stands. Briefly. For the length of one held breath, the small court stands for you.)* The Bench notes that it has now seen everything. It thanks the parties. It is CERTAIN it will not have to say so a third time. *(seated again; the page turns)* …next matter. *(beneath the gavel's echo, from the gallery, unsteady, the sound of a man in his only coat learning what a line in a book can be FOR)*",
+          "choices": [
+            {
+              "text": "*(find him — he'll be trying to joke and failing)*",
+              "next": "kept",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                },
+                {
+                  "key": "disp.honest",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kept",
+          "speaker": "the man the case is about",
+          "text": "*(He starts three different jokes. You watch each one assemble, wobble, and fall over. What's left when the last one goes down is just his face, which he has spent an age making sure nobody ever saw, and which says, before he does:)* …you put yourself in a BOOK. You. The — cold one, do you understand what you — there are powers that have spent five AGES trying to get one line on you, ONE, and you walked into the pettiest court in creation and gave it away for a con man with a lien on his coat. *(flip. catch. his hand is not steady, and he doesn't hide it, which is the largest thing you have ever seen him do)* …I know what it costs to be findable. I paid it at a threshold with a hook in my ribs. You just paid it at a DESK. On PURPOSE. Sober. *(quieter)* …keeper, huh. *(the grin, when it finally lands, is brand new — no fray anywhere in it)* Best line of credit in the grey, and I intend to be worth the interest."
         }
       ]
     },
