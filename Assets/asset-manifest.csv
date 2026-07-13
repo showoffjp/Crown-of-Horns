@@ -1526,26 +1526,28 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Portraits/the Reed-Wife.png",portrait,png,44KB,44290,no
 "Assets/Resources/Portraits/the Regular.png",portrait,png,45KB,45755,no
 "Assets/Resources/Portraits/the Reigning Tongue.png",portrait,png,45KB,45718,no
-"Assets/Resources/Portraits/the Sheltered.png",portrait,png,47KB,47595,no
-"Assets/Resources/Portraits/the Sifter.png",portrait,png,42KB,42392,no
-"Assets/Resources/Portraits/the Silent Watchman.png",portrait,png,44KB,44634,no
-"Assets/Resources/Portraits/the Simbul.png",portrait,png,44KB,44299,no
-"Assets/Resources/Portraits/the Smallest Voice.png",portrait,png,46KB,46368,no
-"Assets/Resources/Portraits/the Sparrow.png",portrait,png,45KB,45978,no
-"Assets/Resources/Portraits/the Tenth.png",portrait,png,44KB,44138,no
-"Assets/Resources/Portraits/the Tide-Reader.png",portrait,png,44KB,44658,no
-"Assets/Resources/Portraits/the Unfinished One.png",portrait,png,44KB,44540,no
-"Assets/Resources/Portraits/the Uninvited.png",portrait,png,46KB,46173,no
-"Assets/Resources/Portraits/the Unsung.png",portrait,png,48KB,48401,no
-"Assets/Resources/Portraits/the Warden of Tens.png",portrait,png,47KB,47692,no
-"Assets/Resources/Portraits/the Way Out.png",portrait,png,46KB,46423,no
-"Assets/Resources/Portraits/the Wayward Mile.png",portrait,png,46KB,46215,no
-"Assets/Resources/Portraits/the Witness.png",portrait,png,48KB,49002,no
-"Assets/Resources/Portraits/the fire.png",portrait,png,46KB,46241,no
-"Assets/Resources/Portraits/the man the case is about.png",portrait,png,45KB,45610,no
-"Assets/Resources/Portraits/the man the coin belongs to.png",portrait,png,42KB,42745,no
-"Assets/Resources/Portraits/the new one.png",portrait,png,49KB,49550,no
-"Assets/Resources/Portraits/the reach of the one who owned him.png",portrait,png,42KB,42812,no
+"Assets/Resources/Portraits/the Sender.png",portrait,png,45KB,46041,no
+"Assets/Resources/Portraits/the Sheltered.png",portrait,png,46KB,46993,no
+"Assets/Resources/Portraits/the Sifter.png",portrait,png,42KB,43007,no
+"Assets/Resources/Portraits/the Silent Watchman.png",portrait,png,45KB,45240,no
+"Assets/Resources/Portraits/the Simbul.png",portrait,png,43KB,43820,no
+"Assets/Resources/Portraits/the Smallest Voice.png",portrait,png,46KB,47068,no
+"Assets/Resources/Portraits/the Sparrow.png",portrait,png,46KB,46288,no
+"Assets/Resources/Portraits/the Tenth.png",portrait,png,44KB,44218,no
+"Assets/Resources/Portraits/the Tide-Reader.png",portrait,png,45KB,45260,no
+"Assets/Resources/Portraits/the Unfinished One.png",portrait,png,45KB,45176,no
+"Assets/Resources/Portraits/the Uninvited.png",portrait,png,44KB,44384,no
+"Assets/Resources/Portraits/the Unsung.png",portrait,png,48KB,49017,no
+"Assets/Resources/Portraits/the Warden of Tens.png",portrait,png,47KB,47647,no
+"Assets/Resources/Portraits/the Way Out.png",portrait,png,46KB,46852,no
+"Assets/Resources/Portraits/the Wayward Mile.png",portrait,png,45KB,45860,no
+"Assets/Resources/Portraits/the Witness.png",portrait,png,49KB,49275,no
+"Assets/Resources/Portraits/the almost-soured.png",portrait,png,47KB,47220,no
+"Assets/Resources/Portraits/the fire.png",portrait,png,46KB,46857,no
+"Assets/Resources/Portraits/the man the case is about.png",portrait,png,45KB,45122,no
+"Assets/Resources/Portraits/the man the coin belongs to.png",portrait,png,42KB,42149,no
+"Assets/Resources/Portraits/the new one.png",portrait,png,48KB,49014,no
+"Assets/Resources/Portraits/the reach of the one who owned him.png",portrait,png,42KB,42556,no
 "Assets/Resources/SFX/crit.wav",sfx,wav,13KB,12392,no
 "Assets/Resources/SFX/deed.wav",sfx,wav,15KB,15038,no
 "Assets/Resources/SFX/heal.wav",sfx,wav,20KB,19888,no

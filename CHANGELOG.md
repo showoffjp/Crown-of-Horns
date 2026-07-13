@@ -11,6 +11,29 @@
 
 ---
 
+## 💃 v6.108.0 — *"The Sending"* — a dance for the dead (content · zone · FFX)
+
+> FFX's most beautiful idea, given the home this cosmology always had waiting for it: a new zone off the
+> Reed-Walk where **the Sender** dances the lingering dead onward before they sour — because the grey
+> cannot metabolize *staying*, and a soul held too long stops being a WHO and becomes a WEIGHT, and weights
+> that remember hunger become hunger. *This is where the Gnaw came from.*
+- 💃 **The Sender** — a woman dancing on a candle-ringed stage at the water's edge, soul-light rising off
+  her heel-turns like pyreflies off struck flint. The Insight read finds the mechanism under the grace:
+  *not magic — GRIEF, spent deliberately.* To send a stranger she must love the stranger first, entirely,
+  in the space of a dance, then let them go as if they were hers — *because for eight steps, they were.*
+  Face composed through all of it, since a frightened soul will not walk through a weeping door. Her vow:
+  *somebody has to be glad for them.*
+- 🪢 **The knot in the reeds** — the almost-soured: a fisher, a father, a child, tangling into each other,
+  forgetting they are several people. She has danced at them four nights; a tangle has no eyes to watch
+  with. But the Returned is *the one argument against staying the grey has ever produced* — stand in the
+  reeds, be the proof, and she dances the door: the rite un-knots them, the light rises, and at the end
+  *they watched the dance, not the dark.* *"That is the entire art."*
+- 🕯️ **The promise** — come back when the grey gets heavy; and when it is *your* turn, at the end of all
+  your errands: *"I will dance you a door so wide you will laugh going through it."*
+- New zone `sending` (97 total, on the world map), 2 souls, 2 sense-reads, [RETURNED] lines throughout;
+  the gate caught a dangling node and a walled-in exit tile mid-build — both fixed. Gate **801/0**;
+  42/42 suites; **303 souls.**
+
 ## 🗺️ v6.107.0 — *"Roads & Pyreflies"* — world map, minimap, and the FFX heart (systems · atmosphere · music)
 
 > Two map systems and the first pass of Final Fantasy X's soul folded into the grey.
