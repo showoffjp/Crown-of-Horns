@@ -612,8 +612,62 @@ ALL_SCENES = {MKT["scene"]["id"]: MKT["scene"], REED["scene"]["id"]: REED["scene
               LASTCON["scene"]["id"]: LASTCON["scene"],
               BENCH["scene"]["id"]: BENCH["scene"],
               BLANKQ["scene"]["id"]: BLANKQ["scene"]}
+# ---- world map: deterministic force-directed layout of the zone travel graph.
+# Seeded from zone ids (md5), ~200 iterations of spring embedding; hubs center
+# themselves naturally. Positions normalized to a 1000x640 chart.
+def world_layout():
+    import hashlib as _h, math as _m
+    ids = sorted(ALL_SCENES.keys())
+    edges = set()
+    for sid, sc in ALL_SCENES.items():
+        for e in sc.get("exits", []):
+            if e.get("to") in ALL_SCENES:
+                edges.add(tuple(sorted((sid, e["to"]))))
+    pos = {}
+    for i in ids:
+        hh = int(_h.md5(i.encode()).hexdigest(), 16)
+        pos[i] = [((hh & 0xffff) / 65535.0) * 2 - 1, (((hh >> 16) & 0xffff) / 65535.0) * 2 - 1]
+    K = 0.16
+    for it in range(200):
+        t = 0.10 * (1 - it / 200)
+        disp = {i: [0.0, 0.0] for i in ids}
+        for a in ids:
+            for b in ids:
+                if a >= b: continue
+                dx = pos[a][0] - pos[b][0]; dy = pos[a][1] - pos[b][1]
+                d2 = dx * dx + dy * dy + 1e-6; f = K * K / d2
+                disp[a][0] += dx * f; disp[a][1] += dy * f
+                disp[b][0] -= dx * f; disp[b][1] -= dy * f
+        for a, b in edges:
+            dx = pos[a][0] - pos[b][0]; dy = pos[a][1] - pos[b][1]
+            d = _m.sqrt(dx * dx + dy * dy) + 1e-6; f = d / K * 0.02
+            disp[a][0] -= dx * f; disp[a][1] -= dy * f
+            disp[b][0] += dx * f; disp[b][1] += dy * f
+        for i in ids:
+            dx, dy = disp[i]; d = _m.sqrt(dx * dx + dy * dy) + 1e-9
+            s = min(d, t) / d
+            pos[i][0] = max(-1, min(1, pos[i][0] + dx * s))
+            pos[i][1] = max(-1, min(1, pos[i][1] + dy * s))
+    xs = [p[0] for p in pos.values()]; ys = [p[1] for p in pos.values()]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    out = {}
+    for i in ids:
+        # zone identity hue = circular mean of its npc hues (portrait convention)
+        hues = [n.get("hue") for n in ALL_SCENES[i].get("npcs", []) if n.get("hue") is not None]
+        if hues:
+            sx = sum(_m.cos(_m.radians(h)) for h in hues); sy = sum(_m.sin(_m.radians(h)) for h in hues)
+            hue = int(_m.degrees(_m.atan2(sy, sx)) % 360) if (abs(sx) > 1e-6 or abs(sy) > 1e-6) else 258
+        else:
+            hue = 258
+        out[i] = {"x": round(30 + (pos[i][0] - x0) / (x1 - x0 + 1e-9) * 940),
+                  "y": round(30 + (pos[i][1] - y0) / (y1 - y0 + 1e-9) * 580),
+                  "name": ALL_SCENES[i].get("name", i), "hue": hue,
+                  "to": sorted({e["to"] for e in ALL_SCENES[i].get("exits", []) if e.get("to") in ALL_SCENES})}
+    return out
+
 EMBED = {"scene": MKT["scene"], "scenes": ALL_SCENES,
-         "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY}
+         "conversations": ALL_CONVS, "model": MODEL, "glossary": GLOSSARY,
+         "worldmap": world_layout()}
 BLOB = json.dumps(EMBED, ensure_ascii=False, separators=(",", ":"))
 
 HTML = r"""<!DOCTYPE html>
@@ -1022,6 +1076,7 @@ let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, 
 function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
 // ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
 function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow(); ensureBackdrop(id);
+  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[];
   const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
   hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
   const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
@@ -1045,6 +1100,10 @@ cv.addEventListener("mousemove",e=>{ const r=cv.getBoundingClientRect(), sx=e.cl
   cv.style.cursor = (hoverNpc||hoverExit) ? "pointer" : (hoverTile && BLOCKED[tileKey(hoverTile.tx,hoverTile.ty)] ? "not-allowed" : "default");
 });
 cv.addEventListener("click",e=>{ if(document.getElementById("overlay").classList.contains("show")||traveling) return;
+  if(WMAP_OPEN){ const r=cv.getBoundingClientRect(), mx=(e.clientX-r.left)*(cv.width/r.width), my=(e.clientY-r.top)*(cv.height/r.height);
+    for(const id in WMAP){ const n=WMAP[id], nx=n.x*cv.width/1000, ny=n.y*cv.height/640;
+      if(st.bools["visited."+id]&&(mx-nx)*(mx-nx)+(my-ny)*(my-ny)<110){ if(id!==SCENE.id) loadScene(id); WMAP_OPEN=false; return; } }
+    return; }
   const r=cv.getBoundingClientRect(), sx=e.clientX-r.left, sy=e.clientY-r.top;
   if(hoverExit){ // a causeway tile — walk to it, then the world changes
     if(curTile()[0]===hoverExit.tx && curTile()[1]===hoverExit.ty){ travelTo(hoverExit); return; }
@@ -1151,8 +1210,63 @@ function drawToken(tx,ty,hue,label,opts){ opts=opts||{}; const s=iso(tx,ty); dra
     ctx.fillStyle="rgba(12,11,16,.78)"; ctx.fillRect(s.x-w/2-6,s.y-58,w+12,18); ctx.fillStyle=opts.player?"#e7c873":"#e8e2d2"; ctx.textAlign="center"; ctx.fillText(label,s.x,s.y-45); }
   if(opts.prompt){ ctx.font="600 12px Iowan Old Style, Georgia, serif"; ctx.fillStyle="#e7c873"; ctx.textAlign="center"; ctx.fillText("▶ talk (E)",s.x,s.y-63); }
 }
+// ---- world map (M) & local minimap (N): the exit graph IS the world --------
+const WMAP=DATA.worldmap||{}; let WMAP_OPEN=false, MINIMAP=true;
+st.bools["visited."+SCENE.id]=true;
+document.addEventListener("keydown",e=>{ if(document.getElementById("overlay").classList.contains("show")) return;
+  if(e.key==="m"||e.key==="M") WMAP_OPEN=!WMAP_OPEN; if(e.key==="n"||e.key==="N") MINIMAP=!MINIMAP; });
+function wmVisible(id){ if(st.bools["visited."+id]) return 2;
+  return (WMAP[id]&&WMAP[id].to.some(t=>st.bools["visited."+t]))||Object.keys(WMAP).some(k=>st.bools["visited."+k]&&WMAP[k].to.includes(id))?1:0; }
+function drawWorldMap(){
+  ctx.fillStyle="rgba(8,7,12,.96)"; ctx.fillRect(0,0,cv.width,cv.height);
+  const SX=cv.width/1000, SY=cv.height/640;
+  ctx.strokeStyle="rgba(120,110,150,.25)"; ctx.lineWidth=1;
+  for(const id in WMAP){ if(!st.bools["visited."+id]) continue; const a=WMAP[id];
+    for(const t of a.to){ if(wmVisible(t)<1) continue; const b=WMAP[t]; if(!b) continue;
+      ctx.beginPath(); ctx.moveTo(a.x*SX,a.y*SY); ctx.lineTo(b.x*SX,b.y*SY); ctx.stroke(); } }
+  for(const id in WMAP){ const v=wmVisible(id); if(!v) continue; const n=WMAP[id], x=n.x*SX, y=n.y*SY;
+    if(id===SCENE.id){ const p=0.5+0.4*Math.sin(lastT/300); ctx.beginPath(); ctx.arc(x,y,11,0,7);
+      ctx.strokeStyle=`rgba(231,200,115,${p})`; ctx.lineWidth=2; ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(x,y,v===2?5:3.5,0,7);
+    ctx.fillStyle=v===2?`hsl(${n.hue} 52% 62%)`:"rgba(110,102,128,.7)"; ctx.fill();
+    if(v===2){ ctx.fillStyle=id===SCENE.id?"#e7c873":"#b9b2c8"; ctx.font="10px Iowan Old Style, Georgia, serif";
+      ctx.textAlign="center"; ctx.fillText(n.name.length>26?n.name.slice(0,24)+"…":n.name, x, y-9); }
+    else { ctx.fillStyle="rgba(140,132,158,.8)"; ctx.font="10px Georgia, serif"; ctx.textAlign="center"; ctx.fillText("?", x, y-7); } }
+  ctx.fillStyle="#c9a24b"; ctx.font="600 13px Iowan Old Style, Georgia, serif"; ctx.textAlign="left";
+  ctx.fillText("THE GREY — the roads you have walked", 14, 20);
+  ctx.fillStyle="#8a8198"; ctx.font="11px Georgia, serif";
+  ctx.fillText("M closes · click a known place to travel · ? = somewhere adjacent, unvisited", 14, 36);
+}
+function drawMinimap(){
+  const MW=140, MH=96, MX=cv.width-MW-8, MY=8, cw=MW/SCENE.w, ch2=MH/SCENE.h;
+  ctx.fillStyle="rgba(10,9,15,.72)"; ctx.fillRect(MX-4,MY-4,MW+8,MH+8);
+  ctx.strokeStyle="rgba(120,110,150,.4)"; ctx.strokeRect(MX-4,MY-4,MW+8,MH+8);
+  for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){
+    ctx.fillStyle=BLOCKED[tileKey(tx,ty)]?"rgba(50,44,66,.9)":"rgba(28,25,38,.9)";
+    ctx.fillRect(MX+tx*cw,MY+ty*ch2,cw-0.5,ch2-0.5); }
+  (SCENE.exits||[]).forEach(x=>{ const p=0.5+0.4*Math.sin(lastT/380);
+    ctx.fillStyle=`rgba(110,168,200,${0.4+0.4*p})`; ctx.fillRect(MX+x.tx*cw,MY+x.ty*ch2,cw-0.5,ch2-0.5); });
+  activeNpcs().forEach(n=>{ ctx.fillStyle=`hsl(${n.hue||260} 52% 62%)`;
+    ctx.beginPath(); ctx.arc(MX+(n.tx+0.5)*cw,MY+(n.ty+0.5)*ch2,2,0,7); ctx.fill(); });
+  ctx.fillStyle="#e7c873"; ctx.beginPath(); ctx.arc(MX+(player.tx+0.5)*cw,MY+(player.ty+0.5)*ch2,2.6,0,7); ctx.fill();
+}
+// pyreflies: slow-drifting soul-motes, denser where the dead are thickest
+let PYRE=[];
+function seedPyreflies(){ const spirits=activeNpcs().length; PYRE=[];
+  const n=6+Math.min(14,spirits*2);
+  for(let i=0;i<n;i++) PYRE.push({x:Math.random()*cv.width,y:Math.random()*cv.height*0.8+30,
+    a:Math.random()*6.28, s:0.12+Math.random()*0.22, r:1.2+Math.random()*2.2,
+    hue:(SCENE.npcs&&SCENE.npcs.length?SCENE.npcs[i%SCENE.npcs.length].hue||260:260)});}
+function drawPyreflies(){ if(!PYRE.length) seedPyreflies();
+  for(const p of PYRE){ p.a+=0.004+p.s*0.004; p.x+=Math.cos(p.a)*p.s; p.y+=Math.sin(p.a*0.7)*p.s*0.6-0.05;
+    if(p.y<-6){p.y=cv.height*0.85;p.x=Math.random()*cv.width;}
+    if(p.x<-6)p.x=cv.width+4; if(p.x>cv.width+6)p.x=-4;
+    const tw=0.35+0.3*Math.sin(lastT/700+p.a*3);
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r*2.6,0,7); ctx.fillStyle=`hsla(${p.hue} 60% 70% / ${tw*0.10})`; ctx.fill();
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fillStyle=`hsla(${p.hue} 65% 80% / ${tw})`; ctx.fill(); } }
 function render(){
   ctx.clearRect(0,0,cv.width,cv.height);
+  if(WMAP_OPEN){ drawWorldMap(); return; }
   // floor — painted backdrop when the zone has one (blocked/hover become overlays),
   // else the classic flat shading (blocked tiles read darker; hover lights unless blocked)
   const bg=BACKDROPS[SCENE.id];
@@ -1185,6 +1299,8 @@ function render(){
   // exit label on hover — tells you where the causeway goes
   if(hoverExit&&hoverExit.label){ const s=iso(hoverExit.tx,hoverExit.ty); ctx.font="600 12px Iowan Old Style, Georgia, serif"; const w=ctx.measureText(hoverExit.label).width;
     ctx.fillStyle="rgba(12,16,22,.86)"; ctx.fillRect(s.x-w/2-7,s.y-44,w+14,18); ctx.fillStyle="#bcd6ec"; ctx.textAlign="center"; ctx.fillText(hoverExit.label,s.x,s.y-31); }
+  drawPyreflies();                       // souls drift over everything
+  if(MINIMAP) drawMinimap();
   // travel fade — the world dissolves and reforms as you cross
   if(fade>0){ ctx.fillStyle=`rgba(7,9,14,${fade})`; ctx.fillRect(0,0,cv.width,cv.height); }
 }

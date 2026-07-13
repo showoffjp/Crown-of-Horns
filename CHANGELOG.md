@@ -11,6 +11,24 @@
 
 ---
 
+## 🗺️ v6.107.0 — *"Roads & Pyreflies"* — world map, minimap, and the FFX heart (systems · atmosphere · music)
+
+> Two map systems and the first pass of Final Fantasy X's soul folded into the grey.
+- 🗺️ **The world map (M)** — the zone exit-graph IS the world: 96 zones laid out by a deterministic
+  force-directed embedding computed at build time, each node tinted by its zone's cast-hue. **Fog of war**:
+  places reveal as you visit them (`visited.<id>`), adjacent unvisited places show as *"?"*, the current
+  zone breathes gold — and clicking a known place **fast-travels** there. *"THE GREY — the roads you have
+  walked."*
+- 🧭 **The local minimap (N)** — a corner chart of the current zone: blocked tiles dark, souls as their
+  authored hue-dots, exits pulsing causeway blue, you in gold.
+- ✨ **Pyreflies** — FFX's soul-motes come to the grey: slow-drifting, twinkling particles over every zone,
+  tinted by the local souls' hues and denser where the dead are thickest, reseeded on every crossing.
+- 🎹 **"Pilgrimage"** — an eighth music loop: a soft Bm add9 voicing, one slow breath per loop — the *To
+  Zanarkand* feeling for the long grey roads. (Queued next: a **Sender** — a dancer who sends the dead so
+  they do not sour into fiends, the sending as a rite of the grey.)
+- Verified live in Chromium (fog-of-war fresh-save state correct, zero page errors). Gate **801/0**;
+  42/42 suites; asset coverage 100% (8/8 music).
+
 ## 🫖 v6.106.0 — *"Kettle, Whereabouts Of"* — the appeal is still pending (content · banter · payoff)
 
 > One banter (70 total), gated on both the verdict and the finished atlas, tying three releases into one
