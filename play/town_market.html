@@ -404,7 +404,7 @@ let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, 
 function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
 // ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
 function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow(); ensureBackdrop(id);
-  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[];
+  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[]; sndTravel();
   const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
   hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
   const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
@@ -453,7 +453,7 @@ window.addEventListener("keydown",e=>{
 function update(dt){
   if(player.path && player.pathIdx<player.path.length){ const wp=player.path[player.pathIdx];
     const dx=wp[0]-player.tx, dy=wp[1]-player.ty, d=Math.hypot(dx,dy);
-    if(d<0.08){ player.tx=wp[0]; player.ty=wp[1]; player.pathIdx++; if(player.pathIdx>=player.path.length) player.path=null; }
+    if(d<0.08){ player.tx=wp[0]; player.ty=wp[1]; player.pathIdx++; sndStep(); if(player.pathIdx>=player.path.length) player.path=null; }
     else { const sp=4.6*dt; player.tx+=dx/d*Math.min(sp,d); player.ty+=dy/d*Math.min(sp,d); if(Math.abs(dx)>0.01) player.facing=dx>=0?1:-1; } }
   // nearest NPC for the talk prompt + auto-talk once you've arrived beside your target
   nearNpc=null; let best=1.7;
@@ -578,6 +578,37 @@ function drawMinimap(){
     ctx.beginPath(); ctx.arc(MX+(n.tx+0.5)*cw,MY+(n.ty+0.5)*ch2,2,0,7); ctx.fill(); });
   ctx.fillStyle="#e7c873"; ctx.beginPath(); ctx.arc(MX+(player.tx+0.5)*cw,MY+(player.ty+0.5)*ch2,2.6,0,7); ctx.fill();
 }
+// ---- sound in the grey: a tiny WebAudio synth — ambient Bm add9 pad (the
+// Pilgrimage voicing), pyrefly chimes, step ticks, travel gliss. No assets;
+// unlocks on first gesture (browser rule). S toggles.
+let AC=null, SND=true, sndMaster=null, sndPad=[];
+function sndInit(){ if(AC||!SND) return; try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ return; }
+  sndMaster=AC.createGain(); sndMaster.gain.value=0.045; sndMaster.connect(AC.destination);
+  const lp=AC.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=900; lp.connect(sndMaster);
+  [123.47,146.83,185.0,277.18].forEach((f,i)=>{ const o=AC.createOscillator(), g=AC.createGain();
+    o.type=i<2?"triangle":"sine"; o.frequency.value=f; o.detune.value=(i%2?4:-3);
+    g.gain.value=0.0; o.connect(g); g.connect(lp); o.start(); sndPad.push({o,g});
+    const lfo=AC.createOscillator(), lg=AC.createGain(); lfo.frequency.value=0.05+i*0.013;
+    lg.gain.value=0.11; lfo.connect(lg); lg.connect(g.gain); lfo.start();
+    g.gain.setTargetAtTime(0.16,AC.currentTime,3+i); });
+  sndChimeLoop(); }
+function sndChimeLoop(){ if(!AC) return;
+  if(SND){ const pent=[493.9,554.4,659.3,740.0,987.8], f=pent[Math.floor(Math.random()*pent.length)];
+    const o=AC.createOscillator(), g=AC.createGain(); o.type="sine"; o.frequency.value=f;
+    g.gain.setValueAtTime(0.0,AC.currentTime); g.gain.linearRampToValueAtTime(0.05,AC.currentTime+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+2.2);
+    o.connect(g); g.connect(sndMaster); o.start(); o.stop(AC.currentTime+2.3); }
+  setTimeout(sndChimeLoop, 4000+Math.random()*6000); }
+function sndBlip(f0,f1,dur,vol){ if(!AC||!SND) return; const o=AC.createOscillator(), g=AC.createGain();
+  o.type="sine"; o.frequency.setValueAtTime(f0,AC.currentTime); o.frequency.exponentialRampToValueAtTime(f1,AC.currentTime+dur);
+  g.gain.setValueAtTime(vol,AC.currentTime); g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+dur);
+  o.connect(g); g.connect(sndMaster); o.start(); o.stop(AC.currentTime+dur+0.05); }
+function sndStep(){ sndBlip(180,120,0.06,0.05); }
+function sndTravel(){ sndBlip(660,180,0.5,0.06); }
+function sndTalk(){ sndBlip(440,520,0.09,0.05); }
+document.addEventListener("pointerdown",sndInit,{once:false});
+document.addEventListener("keydown",e=>{ sndInit(); if(e.key==="s"||e.key==="S"){ SND=!SND;
+  if(sndMaster) sndMaster.gain.setTargetAtTime(SND?0.045:0.0,AC?AC.currentTime:0,0.2); } });
 // pyreflies: slow-drifting soul-motes, denser where the dead are thickest
 let PYRE=[];
 function seedPyreflies(){ const spirits=activeNpcs().length; PYRE=[];
@@ -636,7 +667,7 @@ function loop(t){ const dt=Math.min(0.05,(t-lastT)/1000||0); lastT=t; update(dt)
 
 // ====================== the dialogue overlay ======================
 let curConv=null, curNpc=null, pendingOpts=null, loreSeen={}, sensed=false;
-function talk(npc){
+function talk(npc){ sndTalk();
   curNpc=npc; curConv=CONVS.find(c=>c.id===npc.conv); if(!curConv) return;
   player.path=null; autoTalk=null; loreSeen={}; sensed=false;
   document.getElementById("dsig").textContent=npc.sigil; document.getElementById("dsig").style.background=`hsl(${npc.hue} 52% 62%)`;

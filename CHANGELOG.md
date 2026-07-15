@@ -11,6 +11,22 @@
 
 ---
 
+## 🔊 v6.109.0 — *"A Sound in the Grey"* — the web game hears itself (sfx · gfx · water)
+
+> The walkable game has been silent since the day it was born. No longer — a tiny WebAudio synth, zero
+> assets, unlocked on first gesture (**S** toggles):
+- 🎹 **The Pilgrimage pad** — four detuned oscillators on the Bm add9 voicing, each breathing on its own
+  slow LFO through a lowpass — the *To Zanarkand* melancholy, now actually audible under the game.
+- ✨ **Pyrefly chimes** — soft pentatonic sines, one every few seconds, fading over two seconds — the sound
+  of the motes you can already see.
+- 👣 **Interaction sound** — step ticks as you walk, a soft blip when a soul turns to speak, a falling
+  gliss when the world dissolves and reforms at a causeway crossing.
+- 🌊 **Water in the backdrops** — zones with reeds, pilings, or boats (the Reed-Walk, the Sending) get
+  still water beyond the grid: horizontal sheen bands and a vertical mirror-smear under every candle and
+  torch — the flame reflected in the lake it stands beside.
+- Verified live in Chromium (zero page errors; Sending renders water + candles + pyreflies + minimap
+  composing together). Gate **801/0**; 42/42 suites.
+
 ## 💃 v6.108.0 — *"The Sending"* — a dance for the dead (content · zone · FFX)
 
 > FFX's most beautiful idea, given the home this cosmology always had waiting for it: a new zone off the
