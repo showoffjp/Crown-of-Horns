@@ -11,6 +11,31 @@
 
 ---
 
+## 📕 v6.110.0 — *"The Shepherd's Ledger"* — the companion who betrayed us all along (content · twist · timelines)
+
+> The answer was in the banters the whole time: *"(not looking up from her grave-ledger)."* **Sister
+> Garrow** is the only companion with no recruit flag. She was simply THERE, from the first road. Nobody
+> ever asked why.
+- 📕 **Seven entries** — a cell behind the wayshrine you were never shown, and her ledger open on the desk:
+  your name, written seven times, **six crossed out**. The Doom does not leave a crack in its Wall
+  unattended: when a Returned walks, a Doomguide walks *with* it — to be believed by it, and to deliver it,
+  filed and quiet, at the Court's own door. *The love is how the office works.* Six times the love was
+  real, and canon won anyway. The crossings-out are not corrections; they are **graves**, tended nightly by
+  their own digger, for seven ages, alone.
+- 🗝️ **The twist under the twist** — the seventh entry has no disposition, because the seventh time she
+  *couldn't*: she opened the postern with her own key. The untraced breach that has been widening for an
+  age. The crack that made YOU possible. **The reason you are hunted and the reason you exist, in the same
+  pair of hands** — and the ledger was left open *on purpose*, because she would rather be executed by
+  your judgment than promoted by her own silence.
+- ⚖️ **Three reckonings** — answer FOR her as you answered for Clip (*she unpins the clasp: "the eighth
+  entry will read: HELD"*); turn her **double** against the Doom (*"the first lie I have ever inked went
+  down smooth as a coffin lid… understand what you have made of me: a weapon that files paperwork"*); or
+  make her walk **watched** — more chance than she gave the six, and she thanks you for not pretending it
+  was nothing. *"It was never nothing. It was YOU."*
+- Every prior scene recontextualized at zero retcon cost: every fire she wrote at was a field report. New
+  zone (98th), quest #42 (`sq.the_shepherds_ledger`), two of the deepest sense-reads in the game. Gate
+  **801/0**; 42/42 suites; **305 souls.**
+
 ## 🔊 v6.109.0 — *"A Sound in the Grey"* — the web game hears itself (sfx · gfx · water)
 
 > The walkable game has been silent since the day it was born. No longer — a tiny WebAudio synth, zero

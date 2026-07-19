@@ -1157,6 +1157,34 @@
       ],
       "completionFlag": "bq.atlas_finished",
       "failureFlag": ""
+    },
+    {
+      "questId": "sq.the_shepherds_ledger",
+      "title": "The Shepherd's Ledger",
+      "region": "A cell behind the Grey Wayshrine, never shown to you",
+      "giver": "a grave-ledger, left open — as if she meant it to be found",
+      "premise": "Sister Garrow has no recruitment flag. She was simply THERE, from the first road, and nobody ever asked why. The answer is in the cell behind the wayshrine: her grave-ledger, open on the desk, with your name written seven times — six crossed out. The Doom does not leave a crack in its Wall unattended: when a Returned walks, a Doomguide walks WITH it, to be believed by it and to deliver it, filed and quiet, at the Court's own door. She has been the office seven times. Six times the love was real and canon won anyway. The seventh time she opened the postern with her own key — the untraced breach that has been widening for an age, the crack that made YOU possible. The reason you are hunted and the reason you exist, in the same pair of hands.",
+      "theme": "The betrayal that was never cold. Kindness as procedure that kept becoming love, and love that kept losing to canon — six graves kept in the only cemetery she was permitted, a line through a name in her own hand. And the twist under the twist: the traitor is also the founder; the office is also the crack. Three reckonings: answer FOR her as you answered for Clip (she unpins the clasp — the eighth entry will read HELD); turn her double against the Doom (the first lie she ever inked went down smooth as a coffin lid); or make her walk watched — more chance than she gave the six, and she thanks you for not pretending it was nothing.",
+      "reward": "The timeline recontextualized: every fire she wrote at, every banter's grave-ledger, retroactively a field report. sl.garrow_turned / sl.garrow_doubled / sl.garrow_watched decide what the shepherd is at the Court's door. disp.merciful / disp.cunning / disp.haunted.",
+      "objectives": [
+        {
+          "objectiveId": "find",
+          "desc": "Find the cell behind the wayshrine",
+          "completionFlag": "sl.found_ledger"
+        },
+        {
+          "objectiveId": "read",
+          "desc": "Read the seven entries",
+          "completionFlag": "sl.read_ledger"
+        },
+        {
+          "objectiveId": "reckon",
+          "desc": "Decide what the shepherd is now",
+          "completionFlag": "sl.reckoned"
+        }
+      ],
+      "completionFlag": "sl.reckoned",
+      "failureFlag": ""
     }
   ]
 }
