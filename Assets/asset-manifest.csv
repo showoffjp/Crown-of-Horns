@@ -1425,131 +1425,135 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Portraits/Sift.png",portrait,png,47KB,47877,no
 "Assets/Resources/Portraits/Sir Garon of Solamnia.png",portrait,png,44KB,44093,no
 "Assets/Resources/Portraits/Sister Auria.png",portrait,png,47KB,47519,no
-"Assets/Resources/Portraits/Sister Garrow, in the doorway.png",portrait,png,51KB,51691,no
+"Assets/Resources/Portraits/Sister Garrow, at the door.png",portrait,png,49KB,49941,no
+"Assets/Resources/Portraits/Sister Garrow, in the doorway.png",portrait,png,51KB,51885,no
 "Assets/Resources/Portraits/Sister Garrow.png",portrait,png,81KB,82842,no
-"Assets/Resources/Portraits/Sister Maud.png",portrait,png,47KB,48031,no
-"Assets/Resources/Portraits/Sister Onora.png",portrait,png,45KB,45196,no
-"Assets/Resources/Portraits/Sister Vharn.png",portrait,png,50KB,51001,no
-"Assets/Resources/Portraits/Skritch.png",portrait,png,45KB,45310,no
-"Assets/Resources/Portraits/Sparrow.png",portrait,png,45KB,45655,no
-"Assets/Resources/Portraits/Sprat.png",portrait,png,47KB,47864,no
-"Assets/Resources/Portraits/Squik.png",portrait,png,46KB,46228,no
-"Assets/Resources/Portraits/Storm Silverhand.png",portrait,png,45KB,45559,no
-"Assets/Resources/Portraits/Sturm Brightblade.png",portrait,png,44KB,44255,no
-"Assets/Resources/Portraits/Symon.png",portrait,png,43KB,43417,no
-"Assets/Resources/Portraits/Tace.png",portrait,png,47KB,47390,no
-"Assets/Resources/Portraits/Talla.png",portrait,png,46KB,46452,no
+"Assets/Resources/Portraits/Sister Maud.png",portrait,png,48KB,48420,no
+"Assets/Resources/Portraits/Sister Onora.png",portrait,png,46KB,46331,no
+"Assets/Resources/Portraits/Sister Vharn.png",portrait,png,50KB,50455,no
+"Assets/Resources/Portraits/Skritch.png",portrait,png,45KB,45417,no
+"Assets/Resources/Portraits/Sparrow.png",portrait,png,44KB,44895,no
+"Assets/Resources/Portraits/Sprat.png",portrait,png,47KB,47980,no
+"Assets/Resources/Portraits/Squik.png",portrait,png,46KB,46399,no
+"Assets/Resources/Portraits/Storm Silverhand.png",portrait,png,45KB,45503,no
+"Assets/Resources/Portraits/Sturm Brightblade.png",portrait,png,44KB,44345,no
+"Assets/Resources/Portraits/Symon.png",portrait,png,43KB,43369,no
+"Assets/Resources/Portraits/Tace.png",portrait,png,46KB,46929,no
+"Assets/Resources/Portraits/Talla.png",portrait,png,46KB,46461,no
 "Assets/Resources/Portraits/Tally.png",portrait,png,79KB,80779,no
-"Assets/Resources/Portraits/Tam.png",portrait,png,46KB,46911,no
-"Assets/Resources/Portraits/Tamar.png",portrait,png,44KB,44520,no
-"Assets/Resources/Portraits/Tamsin.png",portrait,png,47KB,47174,no
-"Assets/Resources/Portraits/Tatters.png",portrait,png,48KB,48226,no
-"Assets/Resources/Portraits/The Eye.png",portrait,png,49KB,49756,no
-"Assets/Resources/Portraits/The Forgotten.png",portrait,png,46KB,47036,no
-"Assets/Resources/Portraits/The Niche-Book.png",portrait,png,49KB,49898,no
+"Assets/Resources/Portraits/Tam.png",portrait,png,46KB,46662,no
+"Assets/Resources/Portraits/Tamar.png",portrait,png,44KB,44190,no
+"Assets/Resources/Portraits/Tamsin.png",portrait,png,46KB,46921,no
+"Assets/Resources/Portraits/Tatters.png",portrait,png,48KB,48437,no
+"Assets/Resources/Portraits/The Eye.png",portrait,png,49KB,49565,no
+"Assets/Resources/Portraits/The Forgotten.png",portrait,png,46KB,46941,no
+"Assets/Resources/Portraits/The Niche-Book.png",portrait,png,49KB,49788,no
 "Assets/Resources/Portraits/The Pale Cantor.png",portrait,png,74KB,75288,no
 "Assets/Resources/Portraits/The Returned.png",portrait,png,71KB,72219,no
-"Assets/Resources/Portraits/The Unmade.png",portrait,png,46KB,47104,no
+"Assets/Resources/Portraits/The Unmade.png",portrait,png,47KB,47357,no
 "Assets/Resources/Portraits/The unclaimed.png",portrait,png,57KB,58264,no
-"Assets/Resources/Portraits/Tib Garron.png",portrait,png,47KB,47568,no
-"Assets/Resources/Portraits/Tibb.png",portrait,png,44KB,44366,no
-"Assets/Resources/Portraits/Tilda.png",portrait,png,50KB,50417,no
-"Assets/Resources/Portraits/Tobb.png",portrait,png,47KB,47410,no
-"Assets/Resources/Portraits/Toller.png",portrait,png,44KB,44337,no
+"Assets/Resources/Portraits/Tib Garron.png",portrait,png,47KB,47119,no
+"Assets/Resources/Portraits/Tibb.png",portrait,png,43KB,43813,no
+"Assets/Resources/Portraits/Tilda.png",portrait,png,50KB,50691,no
+"Assets/Resources/Portraits/Tobb.png",portrait,png,47KB,47126,no
+"Assets/Resources/Portraits/Toller.png",portrait,png,44KB,44083,no
 "Assets/Resources/Portraits/Vaelin (an echo).png",portrait,png,82KB,83207,no
-"Assets/Resources/Portraits/Vaeris.png",portrait,png,46KB,46497,no
+"Assets/Resources/Portraits/Vaeris.png",portrait,png,46KB,46245,no
 "Assets/Resources/Portraits/Varra.png",portrait,png,83KB,84432,no
-"Assets/Resources/Portraits/Vayle.png",portrait,png,50KB,50323,no
-"Assets/Resources/Portraits/Verah.png",portrait,png,46KB,46474,no
-"Assets/Resources/Portraits/Vesper.png",portrait,png,44KB,44206,no
-"Assets/Resources/Portraits/Vidkun Holt.png",portrait,png,44KB,44213,no
-"Assets/Resources/Portraits/Volothamp Geddarm.png",portrait,png,47KB,47862,no
-"Assets/Resources/Portraits/Voss.png",portrait,png,46KB,46707,no
-"Assets/Resources/Portraits/Wenna.png",portrait,png,44KB,44445,no
-"Assets/Resources/Portraits/Wennick.png",portrait,png,47KB,47355,no
-"Assets/Resources/Portraits/Wessa.png",portrait,png,46KB,46545,no
-"Assets/Resources/Portraits/Wessel.png",portrait,png,48KB,48628,no
-"Assets/Resources/Portraits/Wick.png",portrait,png,43KB,43749,no
-"Assets/Resources/Portraits/Wisp.png",portrait,png,46KB,46793,no
-"Assets/Resources/Portraits/Wren the Younger.png",portrait,png,50KB,51024,no
-"Assets/Resources/Portraits/Wren.png",portrait,png,44KB,45046,no
+"Assets/Resources/Portraits/Vayle.png",portrait,png,50KB,50310,no
+"Assets/Resources/Portraits/Verah.png",portrait,png,46KB,46364,no
+"Assets/Resources/Portraits/Vesper.png",portrait,png,44KB,44495,no
+"Assets/Resources/Portraits/Vidkun Holt.png",portrait,png,45KB,45677,no
+"Assets/Resources/Portraits/Volothamp Geddarm.png",portrait,png,47KB,47605,no
+"Assets/Resources/Portraits/Voss.png",portrait,png,47KB,47352,no
+"Assets/Resources/Portraits/Wenna.png",portrait,png,45KB,45095,no
+"Assets/Resources/Portraits/Wennick.png",portrait,png,47KB,47288,no
+"Assets/Resources/Portraits/Wessa.png",portrait,png,46KB,46809,no
+"Assets/Resources/Portraits/Wessel.png",portrait,png,48KB,49053,no
+"Assets/Resources/Portraits/Wick.png",portrait,png,43KB,43678,no
+"Assets/Resources/Portraits/Wisp.png",portrait,png,46KB,47028,no
+"Assets/Resources/Portraits/Wren the Younger.png",portrait,png,50KB,50655,no
+"Assets/Resources/Portraits/Wren.png",portrait,png,45KB,45545,no
 "Assets/Resources/Portraits/Wrenna Alleywind.png",portrait,png,80KB,81286,no
-"Assets/Resources/Portraits/Wulfgar.png",portrait,png,45KB,45234,no
-"Assets/Resources/Portraits/Wynn.png",portrait,png,45KB,45315,no
-"Assets/Resources/Portraits/Yorrel.png",portrait,png,47KB,47688,no
-"Assets/Resources/Portraits/Ysoreth.png",portrait,png,47KB,47383,no
-"Assets/Resources/Portraits/a Newly-Dead.png",portrait,png,48KB,48250,no
-"Assets/Resources/Portraits/a bearing you cannot yet take.png",portrait,png,46KB,47103,no
-"Assets/Resources/Portraits/a chill in the empty chair.png",portrait,png,50KB,50273,no
-"Assets/Resources/Portraits/a door the coin has not yet opened.png",portrait,png,47KB,47971,no
-"Assets/Resources/Portraits/a door with a docket nailed to it.png",portrait,png,46KB,46497,no
-"Assets/Resources/Portraits/a man with too many names.png",portrait,png,46KB,46704,no
-"Assets/Resources/Portraits/a nameless wisp.png",portrait,png,50KB,50190,no
-"Assets/Resources/Portraits/a scratch that keeps arguing.png",portrait,png,45KB,45837,no
-"Assets/Resources/Portraits/a soul on the roll.png",portrait,png,49KB,49902,no
-"Assets/Resources/Portraits/a soul with the sound worn off.png",portrait,png,42KB,42661,no
-"Assets/Resources/Portraits/a voice in the Wall.png",portrait,png,45KB,45113,no
-"Assets/Resources/Portraits/a voice in the stone.png",portrait,png,45KB,45162,no
-"Assets/Resources/Portraits/an unwitnessed mile.png",portrait,png,45KB,45879,no
-"Assets/Resources/Portraits/little Posy.png",portrait,png,46KB,47008,no
-"Assets/Resources/Portraits/the Accuser.png",portrait,png,44KB,44584,no
-"Assets/Resources/Portraits/the Arbiter.png",portrait,png,46KB,46743,no
-"Assets/Resources/Portraits/the Auditor.png",portrait,png,44KB,44097,no
-"Assets/Resources/Portraits/the Bench of Small Property.png",portrait,png,44KB,44244,no
-"Assets/Resources/Portraits/the Bereaved.png",portrait,png,46KB,46100,no
-"Assets/Resources/Portraits/the Blank.png",portrait,png,50KB,50304,no
-"Assets/Resources/Portraits/the Bonded.png",portrait,png,46KB,46397,no
-"Assets/Resources/Portraits/the Bone Scrivener.png",portrait,png,47KB,48109,no
-"Assets/Resources/Portraits/the Chronicler.png",portrait,png,49KB,49246,no
-"Assets/Resources/Portraits/the Crown of Horns.png",portrait,png,45KB,45374,no
-"Assets/Resources/Portraits/the Emptied.png",portrait,png,45KB,45492,no
-"Assets/Resources/Portraits/the Factor.png",portrait,png,41KB,41405,no
-"Assets/Resources/Portraits/the Frozen Woman.png",portrait,png,45KB,45700,no
-"Assets/Resources/Portraits/the Gnaw.png",portrait,png,44KB,44815,no
-"Assets/Resources/Portraits/the Great Tally.png",portrait,png,48KB,49042,no
-"Assets/Resources/Portraits/the Grey Harbinger.png",portrait,png,46KB,47000,no
-"Assets/Resources/Portraits/the Half-Taken.png",portrait,png,46KB,46473,no
-"Assets/Resources/Portraits/the House.png",portrait,png,50KB,50661,no
-"Assets/Resources/Portraits/the Keeper of the Table.png",portrait,png,47KB,47337,no
-"Assets/Resources/Portraits/the Kindly Dark.png",portrait,png,45KB,45113,no
-"Assets/Resources/Portraits/the Knotwife.png",portrait,png,46KB,46316,no
-"Assets/Resources/Portraits/the Lady of the House.png",portrait,png,44KB,44268,no
-"Assets/Resources/Portraits/the Last Returned.png",portrait,png,45KB,45427,no
-"Assets/Resources/Portraits/the Lost-and-Found.png",portrait,png,43KB,43755,no
-"Assets/Resources/Portraits/the Meridian.png",portrait,png,45KB,45942,no
-"Assets/Resources/Portraits/the Mortgaged Man.png",portrait,png,48KB,49091,no
-"Assets/Resources/Portraits/the One Who Left.png",portrait,png,44KB,44662,no
-"Assets/Resources/Portraits/the Pawn of Hours.png",portrait,png,44KB,44097,no
-"Assets/Resources/Portraits/the Penitent Baker.png",portrait,png,48KB,48414,no
-"Assets/Resources/Portraits/the Petrified Pedant.png",portrait,png,47KB,47474,no
-"Assets/Resources/Portraits/the Quiet Neighbor.png",portrait,png,48KB,48892,no
-"Assets/Resources/Portraits/the Reed-Knower.png",portrait,png,43KB,43298,no
-"Assets/Resources/Portraits/the Reed-Wife.png",portrait,png,43KB,43699,no
-"Assets/Resources/Portraits/the Regular.png",portrait,png,46KB,46358,no
-"Assets/Resources/Portraits/the Reigning Tongue.png",portrait,png,45KB,45720,no
-"Assets/Resources/Portraits/the Sender.png",portrait,png,45KB,45548,no
-"Assets/Resources/Portraits/the Sheltered.png",portrait,png,47KB,47175,no
-"Assets/Resources/Portraits/the Sifter.png",portrait,png,42KB,42136,no
-"Assets/Resources/Portraits/the Silent Watchman.png",portrait,png,44KB,44317,no
-"Assets/Resources/Portraits/the Simbul.png",portrait,png,44KB,44218,no
-"Assets/Resources/Portraits/the Smallest Voice.png",portrait,png,46KB,47084,no
-"Assets/Resources/Portraits/the Sparrow.png",portrait,png,45KB,45992,no
-"Assets/Resources/Portraits/the Tenth.png",portrait,png,45KB,45082,no
-"Assets/Resources/Portraits/the Tide-Reader.png",portrait,png,45KB,45567,no
-"Assets/Resources/Portraits/the Unfinished One.png",portrait,png,43KB,43417,no
-"Assets/Resources/Portraits/the Uninvited.png",portrait,png,45KB,45193,no
-"Assets/Resources/Portraits/the Unsung.png",portrait,png,47KB,47941,no
-"Assets/Resources/Portraits/the Warden of Tens.png",portrait,png,47KB,47560,no
-"Assets/Resources/Portraits/the Way Out.png",portrait,png,46KB,46589,no
-"Assets/Resources/Portraits/the Wayward Mile.png",portrait,png,45KB,46024,no
-"Assets/Resources/Portraits/the Witness.png",portrait,png,49KB,49475,no
-"Assets/Resources/Portraits/the almost-soured.png",portrait,png,47KB,47728,no
-"Assets/Resources/Portraits/the fire.png",portrait,png,46KB,46699,no
-"Assets/Resources/Portraits/the grave-ledger, open.png",portrait,png,45KB,45386,no
-"Assets/Resources/Portraits/the man the case is about.png",portrait,png,44KB,44990,no
-"Assets/Resources/Portraits/the man the coin belongs to.png",portrait,png,42KB,42384,no
-"Assets/Resources/Portraits/the new one.png",portrait,png,48KB,48360,no
-"Assets/Resources/Portraits/the reach of the one who owned him.png",portrait,png,42KB,42498,no
+"Assets/Resources/Portraits/Wulfgar.png",portrait,png,45KB,46044,no
+"Assets/Resources/Portraits/Wynn.png",portrait,png,45KB,45666,no
+"Assets/Resources/Portraits/Yorrel.png",portrait,png,47KB,47748,no
+"Assets/Resources/Portraits/Ysoreth.png",portrait,png,47KB,47273,no
+"Assets/Resources/Portraits/a Newly-Dead.png",portrait,png,48KB,48373,no
+"Assets/Resources/Portraits/a bearing you cannot yet take.png",portrait,png,46KB,46952,no
+"Assets/Resources/Portraits/a chill in the empty chair.png",portrait,png,49KB,49837,no
+"Assets/Resources/Portraits/a door that is not yet asking.png",portrait,png,46KB,47001,no
+"Assets/Resources/Portraits/a door the coin has not yet opened.png",portrait,png,48KB,48381,no
+"Assets/Resources/Portraits/a door with a docket nailed to it.png",portrait,png,46KB,46360,no
+"Assets/Resources/Portraits/a man with too many names.png",portrait,png,46KB,46408,no
+"Assets/Resources/Portraits/a nameless wisp.png",portrait,png,49KB,49905,no
+"Assets/Resources/Portraits/a scratch that keeps arguing.png",portrait,png,45KB,45468,no
+"Assets/Resources/Portraits/a soul on the roll.png",portrait,png,49KB,49911,no
+"Assets/Resources/Portraits/a soul with the sound worn off.png",portrait,png,42KB,42531,no
+"Assets/Resources/Portraits/a voice in the Wall.png",portrait,png,45KB,45489,no
+"Assets/Resources/Portraits/a voice in the stone.png",portrait,png,44KB,45018,no
+"Assets/Resources/Portraits/an unwitnessed mile.png",portrait,png,47KB,47239,no
+"Assets/Resources/Portraits/little Posy.png",portrait,png,46KB,46261,no
+"Assets/Resources/Portraits/six marks on the doorframe.png",portrait,png,45KB,45614,no
+"Assets/Resources/Portraits/the Accuser.png",portrait,png,45KB,45494,no
+"Assets/Resources/Portraits/the Arbiter.png",portrait,png,46KB,46882,no
+"Assets/Resources/Portraits/the Auditor.png",portrait,png,43KB,43797,no
+"Assets/Resources/Portraits/the Bench of Small Property.png",portrait,png,44KB,44728,no
+"Assets/Resources/Portraits/the Bereaved.png",portrait,png,45KB,45661,no
+"Assets/Resources/Portraits/the Blank.png",portrait,png,50KB,51178,no
+"Assets/Resources/Portraits/the Bonded.png",portrait,png,46KB,46737,no
+"Assets/Resources/Portraits/the Bone Scrivener.png",portrait,png,48KB,48945,no
+"Assets/Resources/Portraits/the Chronicler.png",portrait,png,48KB,48691,no
+"Assets/Resources/Portraits/the Court's outer door.png",portrait,png,47KB,48093,no
+"Assets/Resources/Portraits/the Crown of Horns.png",portrait,png,45KB,45664,no
+"Assets/Resources/Portraits/the Emptied.png",portrait,png,45KB,45762,no
+"Assets/Resources/Portraits/the Factor.png",portrait,png,42KB,42119,no
+"Assets/Resources/Portraits/the Frozen Woman.png",portrait,png,45KB,45603,no
+"Assets/Resources/Portraits/the Gnaw.png",portrait,png,44KB,44965,no
+"Assets/Resources/Portraits/the Great Tally.png",portrait,png,49KB,49393,no
+"Assets/Resources/Portraits/the Grey Harbinger.png",portrait,png,46KB,46765,no
+"Assets/Resources/Portraits/the Half-Taken.png",portrait,png,46KB,46861,no
+"Assets/Resources/Portraits/the House.png",portrait,png,50KB,50376,no
+"Assets/Resources/Portraits/the Keeper of the Table.png",portrait,png,48KB,48280,no
+"Assets/Resources/Portraits/the Kindly Dark.png",portrait,png,44KB,44300,no
+"Assets/Resources/Portraits/the Knotwife.png",portrait,png,46KB,46141,no
+"Assets/Resources/Portraits/the Lady of the House.png",portrait,png,45KB,45278,no
+"Assets/Resources/Portraits/the Last Returned.png",portrait,png,45KB,45735,no
+"Assets/Resources/Portraits/the Lost-and-Found.png",portrait,png,43KB,43587,no
+"Assets/Resources/Portraits/the Meridian.png",portrait,png,46KB,46138,no
+"Assets/Resources/Portraits/the Mortgaged Man.png",portrait,png,49KB,49472,no
+"Assets/Resources/Portraits/the One Who Left.png",portrait,png,45KB,45564,no
+"Assets/Resources/Portraits/the Pawn of Hours.png",portrait,png,43KB,43912,no
+"Assets/Resources/Portraits/the Penitent Baker.png",portrait,png,48KB,48458,no
+"Assets/Resources/Portraits/the Petrified Pedant.png",portrait,png,47KB,47526,no
+"Assets/Resources/Portraits/the Quiet Neighbor.png",portrait,png,47KB,47904,no
+"Assets/Resources/Portraits/the Reed-Knower.png",portrait,png,43KB,43550,no
+"Assets/Resources/Portraits/the Reed-Wife.png",portrait,png,44KB,44303,no
+"Assets/Resources/Portraits/the Regular.png",portrait,png,46KB,46377,no
+"Assets/Resources/Portraits/the Reigning Tongue.png",portrait,png,45KB,45661,no
+"Assets/Resources/Portraits/the Sender.png",portrait,png,46KB,46555,no
+"Assets/Resources/Portraits/the Sheltered.png",portrait,png,47KB,47364,no
+"Assets/Resources/Portraits/the Sifter.png",portrait,png,42KB,42676,no
+"Assets/Resources/Portraits/the Silent Watchman.png",portrait,png,44KB,44472,no
+"Assets/Resources/Portraits/the Simbul.png",portrait,png,44KB,44333,no
+"Assets/Resources/Portraits/the Smallest Voice.png",portrait,png,46KB,46385,no
+"Assets/Resources/Portraits/the Sparrow.png",portrait,png,46KB,46547,no
+"Assets/Resources/Portraits/the Tenth.png",portrait,png,44KB,44929,no
+"Assets/Resources/Portraits/the Tide-Reader.png",portrait,png,44KB,44882,no
+"Assets/Resources/Portraits/the Unfinished One.png",portrait,png,44KB,44349,no
+"Assets/Resources/Portraits/the Uninvited.png",portrait,png,45KB,45250,no
+"Assets/Resources/Portraits/the Unsung.png",portrait,png,48KB,48294,no
+"Assets/Resources/Portraits/the Warden of Tens.png",portrait,png,47KB,47830,no
+"Assets/Resources/Portraits/the Way Out.png",portrait,png,46KB,46729,no
+"Assets/Resources/Portraits/the Wayward Mile.png",portrait,png,45KB,46037,no
+"Assets/Resources/Portraits/the Witness.png",portrait,png,48KB,49090,no
+"Assets/Resources/Portraits/the almost-soured.png",portrait,png,47KB,47504,no
+"Assets/Resources/Portraits/the fire.png",portrait,png,46KB,46342,no
+"Assets/Resources/Portraits/the grave-ledger, open.png",portrait,png,45KB,45282,no
+"Assets/Resources/Portraits/the man the case is about.png",portrait,png,44KB,44612,no
+"Assets/Resources/Portraits/the man the coin belongs to.png",portrait,png,42KB,42457,no
+"Assets/Resources/Portraits/the new one.png",portrait,png,48KB,48880,no
+"Assets/Resources/Portraits/the reach of the one who owned him.png",portrait,png,42KB,42396,no
 "Assets/Resources/SFX/crit.wav",sfx,wav,13KB,12392,no
 "Assets/Resources/SFX/deed.wav",sfx,wav,15KB,15038,no
 "Assets/Resources/SFX/heal.wav",sfx,wav,20KB,19888,no

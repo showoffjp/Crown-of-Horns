@@ -11,6 +11,28 @@
 
 ---
 
+## 🚪 v6.111.0 — *"The Eighth Entry"* — the shepherd at the door that ate six (content · zone · payoff)
+
+> The betrayal arc's door-test: a new zone at the Court's outer wall, where whichever Garrow you chose
+> proves it. The door that ate six of you is **small** — a postern worn smooth at the latch by one woman's
+> hand, asking the only two words of its liturgy: *SHEPHERD. DELIVERING?*
+- 🚪 **A habit, wearing a wall** — the read finds no malice anywhere: *NO is not in the door's liturgy;
+  repetition is what a mechanism has instead of hope.* And a door that does not know is just a wall with a
+  seam in it — *which is where the whole story of you began.*
+- ⚖️ **Three answers, one per shepherd** — *turned*: she reads the eighth entry aloud into the record —
+  *"NOT FILED. HELD. Signed: no office. Signed: Garrow. Just Garrow."* *Doubled*: the perfect forgery —
+  seven ages of credibility spent in one breath to open the Doom's door with the Doom's own trust
+  (*"do try to be worth the exchange rate"*). *Watched*: she stops a full stride short, both hands visible,
+  and holds the ledger OUT — *"the only page of my life I have ever let anyone else hold the pen for."*
+- 🕯️ **Six marks on the doorframe** — cut small and low, at kneeling height, where the machinery cannot
+  see: not the Doom's format, *just a line and a line and a line, the way prisoners count and mourners
+  can't.* The read runs them oldest to newest — duty, thinning, anger cross-grain, the scratch of the year
+  she almost couldn't return, grief doing paperwork's handwriting, and the sixth cut deep as a vow —
+  *not a record of six deliveries: a FUSE, six graves long, lit kneeling.* The seventh space stays smooth.
+- The ending refuses the door entirely: she turns her back on it and it costs her nothing, *which is the
+  whole victory* — the Court remains ahead, to be come for properly. New zone (99th), quest #43, four
+  sense-reads. Gate **801/0**; 42/42 suites; **99 zones, 309 souls, 43 quests.**
+
 ## 📕 v6.110.0 — *"The Shepherd's Ledger"* — the companion who betrayed us all along (content · twist · timelines)
 
 > The answer was in the banters the whole time: *"(not looking up from her grave-ledger)."* **Sister
