@@ -94,7 +94,7 @@
           "flag": "sl.reckoned"
         },
         "conv": "pn.garrow",
-        "hail": "*(She stands where she has stood six times before, at the worn latch, and her hand does what it has always done — rises toward the clasp at her throat, the office's answer, the shepherd's yes. And then it stops, because the clasp is not there, or the hand is not the office's anymore, or seven ages finally weigh what they weigh. The door waits. The door has always been willing to wait. It has never once had to.)*"
+        "hail": "*(She stands where she has stood six times before, at the worn latch, and her hand does what it has always done — rises toward the clasp at her throat, the office's answer, the shepherd's yes. And then it stops, because the clasp is not there, or the hand is not the office's anymore, or seven lifetimes finally weigh what they weigh. The door waits. The door has always been willing to wait. It has never once had to.)*"
       },
       {
         "id": "sixmarks",
@@ -144,7 +144,7 @@
               "op": "SetTrue"
             }
           ],
-          "text": "*(The question hangs in the grey like a held gavel: SHEPHERD. DELIVERING? — the same two words, the door's whole liturgy, spoken to her six times across seven ages, answered six times the same way. The machinery behind the door does not gloat and does not doubt. Doors that have never been told no do not develop imagination. It waits for the yes the way winter waits for snow.)*",
+          "text": "*(The question hangs in the grey like a held gavel: SHEPHERD. DELIVERING? — the same two words, the door's whole liturgy, spoken to her six times across seven lifetimes, answered six times the same way. The machinery behind the door does not gloat and does not doubt. Doors that have never been told no do not develop imagination. It waits for the yes the way winter waits for snow.)*",
           "choices": [
             {
               "text": "*(the one who crosses — answer the door before she can)* \"No. Nothing is being delivered today. The shepherd walks with ME now — and I've made a habit of teaching doors new words.\"",
@@ -197,7 +197,7 @@
                   "sl.garrow_turned"
                 ]
               },
-              "text": "*(She steps up to the latch — and does not touch it. Instead she opens the grave-ledger, in full view of the door, of the wall, of the machinery of seven ages, and reads the eighth entry aloud in her dry graveside voice, the voice that has buried ten thousand and been believed by every one:)* 'Entry the eighth. Subject: the Returned, seventh of designation. Disposition —' *(and here she looks at you, and the word comes out like a stone laid on the right grave at last)* '— WALKED TO THE COURT. NOT FILED. HELD. Signed: no office. Signed: Garrow. Just Garrow.' *(she closes the book; to the door, flatly)* You heard it. Enter THAT in your records, you patient grey hinge — and when your Doom asks who un-taught the shepherd, tell it: the lamb did. And the lamb is standing RIGHT HERE, and the shepherd is not moving.",
+              "text": "*(She steps up to the latch — and does not touch it. Instead she opens the grave-ledger, in full view of the door, of the wall, of the machinery of seven lifetimes, and reads the eighth entry aloud in her dry graveside voice, the voice that has buried ten thousand and been believed by every one:)* 'Entry the eighth. Subject: the Returned, seventh of designation. Disposition —' *(and here she looks at you, and the word comes out like a stone laid on the right grave at last)* '— WALKED TO THE COURT. NOT FILED. HELD. Signed: no office. Signed: Garrow. Just Garrow.' *(she closes the book; to the door, flatly)* You heard it. Enter THAT in your records, you patient grey hinge — and when your Doom asks who un-taught the shepherd, tell it: the lamb did. And the lamb is standing RIGHT HERE, and the shepherd is not moving.",
               "effects": []
             },
             {
@@ -206,7 +206,7 @@
                   "sl.garrow_doubled"
                 ]
               },
-              "text": "*(She steps up to the latch, and she is magnificent, and it is terrible to watch: the office's own posture, the office's own voice, seven ages of credibility spent in one perfect forgery.)* Delivering. *(the word drops like a filed page; the latch begins, slowly, gladly, to turn)* Subject compliant. Subject suspects nothing. The Wall holds. *(and as the door swings inward on the deep country — open, unguarded, TRUSTING — she steps back beside you and murmurs, in the voice under the voice, the one only the crew gets)* …the Doom's own door, opened by the Doom's own faith in me. Walk in armed, cold one. I have just spent everything I was for seven ages to buy you this doorway — *(the dry smile, cold at the edges)* — do try to be worth the exchange rate."
+              "text": "*(She steps up to the latch, and she is magnificent, and it is terrible to watch: the office's own posture, the office's own voice, seven lifetimes of credibility spent in one perfect forgery.)* Delivering. *(the word drops like a filed page; the latch begins, slowly, gladly, to turn)* Subject compliant. Subject suspects nothing. The Wall holds. *(and as the door swings inward on the deep country — open, unguarded, TRUSTING — she steps back beside you and murmurs, in the voice under the voice, the one only the crew gets)* …the Doom's own door, opened by the Doom's own faith in me. Walk in armed, cold one. I have just spent everything I was for seven lifetimes to buy you this doorway — *(the dry smile, cold at the edges)* — do try to be worth the exchange rate."
             },
             {
               "when": {
@@ -214,7 +214,7 @@
                   "sl.garrow_watched"
                 ]
               },
-              "text": "*(She stops short of the latch — a full stride short, measured, deliberate, where you can see both her hands — and then she does the thing that six deliveries and seven ages never saw: she takes the grave-ledger from under her arm and holds it OUT. To you.)* You file me, cold one. *(steady; only the knuckles are white)* That is the arrangement, and it was the right arrangement, and I am keeping it at the one door where keeping it costs. Whatever you write in that book at this threshold — delivered, held, turned, ended — I will answer to it. The six were never given a shepherd they could watch. You were. So watch: both hands, empty, a stride from the latch. *(quietly)* …write well. It is the only page of my life I have ever let anyone else hold the pen for."
+              "text": "*(She stops short of the latch — a full stride short, measured, deliberate, where you can see both her hands — and then she does the thing that six deliveries and seven lifetimes never saw: she takes the grave-ledger from under her arm and holds it OUT. To you.)* You file me, cold one. *(steady; only the knuckles are white)* That is the arrangement, and it was the right arrangement, and I am keeping it at the one door where keeping it costs. Whatever you write in that book at this threshold — delivered, held, turned, ended — I will answer to it. The six were never given a shepherd they could watch. You were. So watch: both hands, empty, a stride from the latch. *(quietly)* …write well. It is the only page of my life I have ever let anyone else hold the pen for."
             },
             {
               "text": "*(She stands at the worn latch, and the door waits, and the reckoning you have not finished hangs between all three of you like unset ink. Whatever the shepherd is now — that is what the door will meet.)*"
@@ -222,7 +222,7 @@
           ],
           "choices": [
             {
-              "text": "*(the one who crosses — stand beside her at the latch, the deep cold of you against seven ages of liturgy)* \"For the record, door: I've been through you once without asking. Whatever she writes — the eighth entry stands, and I'm staying on THIS side of it until it does.\"",
+              "text": "*(the one who crosses — stand beside her at the latch, the deep cold of you against seven lifetimes of liturgy)* \"For the record, door: I've been through you once without asking. Whatever she writes — the eighth entry stands, and I'm staying on THIS side of it until it does.\"",
               "tag": "returned",
               "next": "sealed",
               "effects": [
@@ -263,7 +263,7 @@
               "op": "SetTrue"
             }
           ],
-          "text": "*(And the door — the small grey postern that ate six of you, the habit seven ages old wearing a wall — does the only thing a mechanism can do when its liturgy runs out: it stands there, latch half-worked, question spent, while the eighth entry settles into the record of the grey like a keel finding water. It does not open in surrender. It does not close in refusal. It simply, for the first time in its existence, DOES NOT KNOW — and a door that does not know is just a wall with a seam in it, and walls with seams are where the whole story of you began. The shepherd looks at the door she fed six lambs to. The door does not look back. Doors never do. But the frame remembers kneeling, and the seventh space on it is still smooth, and tonight — because of what was said at this threshold — it is going to STAY smooth.)* …come on, cold one. *(she turns her back on the door, and it costs her nothing, and that is the whole victory)* The Court will still be there when we come for it properly — and we WILL come for it properly. But we come as ourselves, in our own order, on our own page. The office is closed. The road is open. And the fire, if the con man hasn't burned the camp down showing off, is still lit.",
+          "text": "*(And the door — the small grey postern that ate six of you, the habit seven lifetimes old wearing a wall — does the only thing a mechanism can do when its liturgy runs out: it stands there, latch half-worked, question spent, while the eighth entry settles into the record of the grey like a keel finding water. It does not open in surrender. It does not close in refusal. It simply, for the first time in its existence, DOES NOT KNOW — and a door that does not know is just a wall with a seam in it, and walls with seams are where the whole story of you began. The shepherd looks at the door she fed six lambs to. The door does not look back. Doors never do. But the frame remembers kneeling, and the seventh space on it is still smooth, and tonight — because of what was said at this threshold — it is going to STAY smooth.)* …come on, cold one. *(she turns her back on the door, and it costs her nothing, and that is the whole victory)* The Court will still be there when we come for it properly — and we WILL come for it properly. But we come as ourselves, in our own order, on our own page. The office is closed. The road is open. And the fire, if the con man hasn't burned the camp down showing off, is still lit.",
           "choices": []
         }
       ]
@@ -280,7 +280,7 @@
           "text": "*(Six lines, cut small and low, at kneeling height. The stone of the Court's own doorframe — the most surveilled threshold in the grey — and she found the one patch of it the machinery cannot see, because the machinery has never knelt. You run a thumb across them, oldest to newest: the first is shallow, hesitant, almost apologetic. The sixth is cut so deep the chisel must have been driven with both hands.)*",
           "choices": [
             {
-              "text": "*(the one who crosses — read the marks: what six graves cut in secret say that seven ages of filed reports never could)*",
+              "text": "*(the one who crosses — read the marks: what six graves cut in secret say that seven lifetimes of filed reports never could)*",
               "tag": "returned",
               "check": {
                 "skill": "Insight",
@@ -300,7 +300,7 @@
         {
           "id": "readmarks",
           "speaker": "six marks on the doorframe",
-          "text": "*(You turn your sense on the six lines and they read like core samples of a soul under load. The first mark: duty, grief-lined but intact — the office believed in, the cost paid, the mourning done properly and small. The second: the same, thinner. The third is where the angle changes — cut cross-grain, angry, the chisel fighting the stone — and the fourth is barely a mark at all, a scratch, the year she almost could not make herself come back to this frame. The fifth is precise again, but wrong, TOO precise, grief doing paperwork's handwriting. And the sixth — the sixth is cut deep as a vow, because by the sixth she knew. Your sense reads what she knew, kneeling here with both hands on the chisel: that she was not going to be able to do it a seventh time. The postern key was already in her mind before the seventh walk ever began. The marks are not a record of six deliveries, cold one. They are the fuse, burning toward the breach that made you — six graves long, seven ages slow, and lit by the first apologetic scratch the way all revolts are lit: quietly, kneeling, where the machinery cannot see.)*"
+          "text": "*(You turn your sense on the six lines and they read like core samples of a soul under load. The first mark: duty, grief-lined but intact — the office believed in, the cost paid, the mourning done properly and small. The second: the same, thinner. The third is where the angle changes — cut cross-grain, angry, the chisel fighting the stone — and the fourth is barely a mark at all, a scratch, the year she almost could not make herself come back to this frame. The fifth is precise again, but wrong, TOO precise, grief doing paperwork's handwriting. And the sixth — the sixth is cut deep as a vow, because by the sixth she knew. Your sense reads what she knew, kneeling here with both hands on the chisel: that she was not going to be able to do it a seventh time. The postern key was already in her mind before the seventh walk ever began. The marks are not a record of six deliveries, cold one. They are the fuse, burning toward the breach that made you — six graves long, seven lifetimes slow, and lit by the first apologetic scratch the way all revolts are lit: quietly, kneeling, where the machinery cannot see.)*"
         }
       ]
     },
@@ -331,7 +331,7 @@
         {
           "id": "braced",
           "speaker": "a door that is not yet asking",
-          "text": "*(The door does not answer. Doors never do. But somewhere deep in the wall, faint as settling stone, something that has run smoothly for seven ages makes a sound it has never made before — the sound of a mechanism, for the first time, wondering.)*"
+          "text": "*(The door does not answer. Doors never do. But somewhere deep in the wall, faint as settling stone, something that has run smoothly for seven lifetimes makes a sound it has never made before — the sound of a mechanism, for the first time, wondering.)*"
         }
       ]
     }
