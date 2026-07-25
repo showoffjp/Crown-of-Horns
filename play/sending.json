@@ -1,0 +1,276 @@
+{
+  "scene": {
+    "id": "sending",
+    "name": "The Sending",
+    "w": 11,
+    "h": 9,
+    "playerStart": {
+      "x": 5,
+      "y": 7
+    },
+    "props": [
+      {
+        "type": "reeds",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "type": "reeds",
+        "x": 2,
+        "y": 1
+      },
+      {
+        "type": "reeds",
+        "x": 9,
+        "y": 2
+      },
+      {
+        "type": "reeds",
+        "x": 10,
+        "y": 3
+      },
+      {
+        "type": "piling",
+        "x": 3,
+        "y": 2
+      },
+      {
+        "type": "piling",
+        "x": 7,
+        "y": 2
+      },
+      {
+        "type": "boat",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 3,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 5,
+        "y": 4
+      },
+      {
+        "type": "candle",
+        "x": 7,
+        "y": 5
+      },
+      {
+        "type": "candle",
+        "x": 4,
+        "y": 6
+      },
+      {
+        "type": "candle",
+        "x": 6,
+        "y": 6
+      },
+      {
+        "type": "cairn",
+        "x": 1,
+        "y": 6
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 8,
+        "to": "reedwalk",
+        "dest": {
+          "x": 8,
+          "y": 4
+        },
+        "label": "◂ back along the Reed-Walk"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "sender",
+        "name": "the Sender",
+        "title": "who dances the dead onward, so they do not sour",
+        "x": 5,
+        "y": 2,
+        "hue": 190,
+        "sigil": "❋",
+        "conv": "snd.sender",
+        "hail": "*(At the water's edge, on a stage of candle-ringed stillness, a woman is dancing. No music. No audience she acknowledges. Her steps are slow and exact, a written thing, older than any court in the grey — and where her heels turn, the water shivers, and motes of soul-light rise off it like sparks off struck flint, spiraling up and OUT, going somewhere, going gladly. She dances with her eyes open and her face composed and wet.)*"
+      },
+      {
+        "id": "unsent",
+        "name": "the almost-soured",
+        "title": "a knot of the lingering dead, going wrong slowly",
+        "x": 8,
+        "y": 3,
+        "hue": 265,
+        "sigil": "☽",
+        "conv": "snd.unsent",
+        "hail": "*(Off the stage, in the reeds, the lingering dead have knotted together — souls that would not cross, tangling into each other like wet rope, and the tangle has begun, at its edges, to FORGET IT IS SEVERAL PEOPLE. You have seen where this ends. It ends as a thing with a hunger and no name. It ends as a Gnaw.)*"
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "snd.sender",
+      "title": "The Dance for the Dead",
+      "npc": "the Sender",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the Sender",
+          "onEnter": [
+            {
+              "key": "snd.met_sender",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(She finishes the figure before she speaks to you — the dead being sent do not deserve a dancer who stops mid-word — and when she turns, her face is the strangest thing you have seen in an age: grief and gladness worn at once, without contradiction, like weather.)* You're watching the wrong thing, cold one. Everyone watches the dance. *(she gestures, gently, at the rising light)* Watch THEM. The dance is only a door held open with the body. They do the leaving themselves — they just cannot start until somebody shows them, with every step, that staying is not needed. That they are not abandoning anything by going. That the living — *(the composed face does its work)* — that the living will hold.",
+          "choices": [
+            {
+              "text": "*(the one who crosses — read the dancer: what does it cost, to be the door?)*",
+              "tag": "returned",
+              "check": {
+                "skill": "Insight",
+                "ability": "Wisdom",
+                "dc": 13
+              },
+              "next": "read",
+              "effects": [
+                {
+                  "key": "snd.read_sender",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"There's a knot of them in the reeds, going wrong. Will the dance reach them in time?\"",
+              "next": "knot"
+            },
+            {
+              "text": "*(watch the light go up, and say nothing)*",
+              "next": "watch"
+            }
+          ]
+        },
+        {
+          "id": "watch",
+          "speaker": "the Sender",
+          "text": "*(So you stand at the candle-ring and watch the light go up, and she dances, and neither of you says anything, because nothing is missing. When the last mote clears the reeds she holds the final figure a moment — then nods to you, once, dancer to witness, as between two professionals of the same quiet trade.)*"
+        },
+        {
+          "id": "read",
+          "speaker": "the Sender",
+          "text": "*(You turn your sense on the dancer and read the mechanism under the grace, and it is not magic. It is GRIEF, spent deliberately. Every figure of the dance is a farewell she means — she cannot fake it; the dead know fake the way water knows a hole — so to send a stranger she must first LOVE the stranger, quickly, entirely, in the space of a dance, and then let them go as if they were hers. Because for eight steps, they were. Your sense counts what that costs and stops counting: she has loved and lost more souls than most gods have kept, one dance at a time, and she has kept her face composed through every single one because a frightened soul will not walk through a weeping door. And under it all, the read finds the vow that holds her up, simple as a keel: SOMEBODY has to be glad for them. Everyone else at a death is losing something. The dead deserve one person, just one, whose whole task is being glad they get to go.)*",
+          "choices": [
+            {
+              "text": "\"There's a knot in the reeds. Going wrong. Can you reach them?\"",
+              "next": "knot"
+            }
+          ]
+        },
+        {
+          "id": "knot",
+          "speaker": "the Sender",
+          "text": "*(She looks at the reeds, and the composed face admits one crack of tiredness.)* I know. I have danced at them four nights. They will not watch — a tangle has no eyes to watch WITH; that is what makes it a tangle. *(she studies you, and something in her straightens)* …but they might listen. Not to me. To something that went further down than they are and came BACK. You are the one argument against staying that the grey has ever produced, cold one: proof that leaving is not the end of being held. Stand where they can feel the cold of you — the deep cold, the crossing cold — and I will dance the door. Between us, we may un-knot them before they finish becoming a hunger.",
+          "choices": [
+            {
+              "text": "*(stand in the reeds; be the proof; let her dance)*",
+              "next": "rite",
+              "effects": [
+                {
+                  "key": "snd.rite_joined",
+                  "op": "SetTrue"
+                }
+              ]
+            },
+            {
+              "text": "\"Not tonight. Keep the candles lit.\"",
+              "next": "waits"
+            }
+          ]
+        },
+        {
+          "id": "waits",
+          "speaker": "the Sender",
+          "text": "*(She nods, without judgment — a person who has kept a vigil measures no one else's — and returns to the stage, and the slow exact steps resume.)* The candles stay lit, cold one. That is the whole of what candles are for."
+        },
+        {
+          "id": "rite",
+          "speaker": "the Sender",
+          "onEnter": [
+            {
+              "key": "snd.rite_done",
+              "op": "SetTrue"
+            }
+          ],
+          "text": "*(So you wade into the reeds and stand among the lingering dead with your interior cold uncovered, and she dances. And it works the way she said it would: the tangle feels the crossing-cold on you and remembers, knot by knot, that the deep country is a PLACE — that souls go there and are still themselves, because here is one, standing in the shallows, rude with proof. One by one the knot loosens. One by one they turn to watch the dance. And then the water is shivering and the light is rising — dozens of motes, spiraling up past your shoulders, brushing you on the way like gratitude with no hands — and at the very end, when the reeds are empty and the stage is dark, the Sender finishes the last figure, holds it, and lets her face do, at last, in private, in front of only you, the thing it has not done in four nights of dancing. …then she straightens, composed again, and bows to the water.)* …they watched. *(quietly, wet, glad)* Did you see? At the end — they watched the dance, not the dark. That is all a sending is, cold one. That is the entire art. You get them to watch the DANCE.",
+          "choices": [
+            {
+              "text": "*(bow to the water with her)*",
+              "next": "after",
+              "effects": [
+                {
+                  "key": "disp.merciful",
+                  "op": "AddInt",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "after",
+          "speaker": "the Sender",
+          "text": "*(She takes up the candles one by one, thumb and forefinger, unhurried — a woman closing a room where something good happened.)* Come back whenever the grey gets heavy, cold one. There is always a dance owed somewhere. *(and, at the last candle, without turning)* …and when it is YOUR turn, at the very end of all your errands — come here first. I will dance you a door so wide you will laugh going through it. It is already promised. It has been promised since you stood in my reeds and were glad for the dead with me."
+        }
+      ]
+    },
+    {
+      "id": "snd.unsent",
+      "title": "The Knot in the Reeds",
+      "npc": "the almost-soured",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the almost-soured",
+          "variants": [
+            {
+              "when": {
+                "flags": [
+                  "snd.rite_done"
+                ]
+              },
+              "text": "*(The reeds are only reeds now. Water, and candle-smoke, and the particular clean silence of a room the dead have properly left. Where the knot was, the water holds the last of the light-motes like an afterimage — and then it does not, and that is right too.)*"
+            },
+            {
+              "text": "*(This close, you can hear it: not voices — the MEMORY of voices, rubbing together, wearing smooth. A fisher who would not leave her nets. A father who would not leave the road his son took. A child who would not leave, full stop. None of them wrong. All of them staying, and staying is the one thing the grey cannot metabolize — held too long, a soul stops being a WHO and starts being a WEIGHT, and weights that remember hunger become hunger. The edges of the knot have already begun. It is not evil. It is just LATE.)*"
+            }
+          ],
+          "choices": [
+            {
+              "text": "*(the one who crosses — let them feel the deep cold: proof the far country returns its guests)*",
+              "tag": "returned",
+              "next": "felt",
+              "effects": [
+                {
+                  "key": "snd.knot_touched",
+                  "op": "SetTrue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "felt",
+          "speaker": "the almost-soured",
+          "text": "*(The tangle goes still at the cold of you — the whole knot, all at once, like a crowd when a door opens — and for one clear moment the several people it almost stopped being surface separately: the fisher, the father, the child, each one LOOKING at the impossible fact of you, each one doing the arithmetic that has no numbers: it went in; it came back; it is still itself; it is still LOVED. The knot does not loosen. Not yet. But it stops tightening — and in the reeds behind you, you hear the dancer take her opening position, because she felt it too: tonight, at last, they might watch.)*"
+        }
+      ]
+    }
+  ]
+}

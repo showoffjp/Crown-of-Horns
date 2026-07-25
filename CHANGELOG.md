@@ -11,6 +11,131 @@
 
 ---
 
+## 👑 v6.112.0 — *"The Shepherd at Court"* — the trilogy reaches the endgame (content · reactivity · finale)
+
+> Not a new zone — deeper: the Garrow trilogy now lands **inside the authored endgame**. Gated on the
+> eighth entry, she stands in the Court of the Dead itself — the room she delivered six souls to and never
+> once entered, *because shepherds hand the lamb through the door and go home.* Standing at REST.
+- 👑 **Three shepherds before the Judge** — *turned*: she resigns to Kelemvor's face, holding up the
+  eighth entry in his own format — *"the crack in your Wall is not a wound, lord. It is a DOOR, and I cut
+  it… I filed myself under H. For HELD."* *Doubled*: the Judge of the Dead reads her forged report — reads
+  it, *knows* it — and files it anyway, and you begin to suspect **the Wall has more quiet traitors than
+  the two of you.** *Watched*: she hands you the pen in the open, before the Doom and the Crown —
+  *"the six were filed in private. Let me be judged in the OPEN."*
+- 📖 **The deepest read yet** — she has finally sorted the only two piles her faith ever needed: what the
+  Doom can take, and what it cannot. *"Some things, once written in love, are beyond recall. She taught you
+  that. She learned it last."*
+- Closes with the record made: shepherd and lamb, in the Doom's own room, on the same side of the book —
+  and her first un-officed smile: *"for the first time in seven lifetimes I genuinely do not know how it
+  ends. Isn't it MARVELOUS."* Sets `court.shepherd_stood` for the ending resolvers to color.
+- Verification wave completed inline (agent pool was rate-limited): canon ages fixed (v6.111.1), key
+  handlers input-guarded, flag graph verified programmatically, all 99 backdrops pass the brightness band.
+  Gate **801/0**; 42/42 suites; **310 souls.**
+
+## 🚪 v6.111.0 — *"The Eighth Entry"* — the shepherd at the door that ate six (content · zone · payoff)
+
+> The betrayal arc's door-test: a new zone at the Court's outer wall, where whichever Garrow you chose
+> proves it. The door that ate six of you is **small** — a postern worn smooth at the latch by one woman's
+> hand, asking the only two words of its liturgy: *SHEPHERD. DELIVERING?*
+- 🚪 **A habit, wearing a wall** — the read finds no malice anywhere: *NO is not in the door's liturgy;
+  repetition is what a mechanism has instead of hope.* And a door that does not know is just a wall with a
+  seam in it — *which is where the whole story of you began.*
+- ⚖️ **Three answers, one per shepherd** — *turned*: she reads the eighth entry aloud into the record —
+  *"NOT FILED. HELD. Signed: no office. Signed: Garrow. Just Garrow."* *Doubled*: the perfect forgery —
+  seven ages of credibility spent in one breath to open the Doom's door with the Doom's own trust
+  (*"do try to be worth the exchange rate"*). *Watched*: she stops a full stride short, both hands visible,
+  and holds the ledger OUT — *"the only page of my life I have ever let anyone else hold the pen for."*
+- 🕯️ **Six marks on the doorframe** — cut small and low, at kneeling height, where the machinery cannot
+  see: not the Doom's format, *just a line and a line and a line, the way prisoners count and mourners
+  can't.* The read runs them oldest to newest — duty, thinning, anger cross-grain, the scratch of the year
+  she almost couldn't return, grief doing paperwork's handwriting, and the sixth cut deep as a vow —
+  *not a record of six deliveries: a FUSE, six graves long, lit kneeling.* The seventh space stays smooth.
+- The ending refuses the door entirely: she turns her back on it and it costs her nothing, *which is the
+  whole victory* — the Court remains ahead, to be come for properly. New zone (99th), quest #43, four
+  sense-reads. Gate **801/0**; 42/42 suites; **99 zones, 309 souls, 43 quests.**
+
+## 📕 v6.110.0 — *"The Shepherd's Ledger"* — the companion who betrayed us all along (content · twist · timelines)
+
+> The answer was in the banters the whole time: *"(not looking up from her grave-ledger)."* **Sister
+> Garrow** is the only companion with no recruit flag. She was simply THERE, from the first road. Nobody
+> ever asked why.
+- 📕 **Seven entries** — a cell behind the wayshrine you were never shown, and her ledger open on the desk:
+  your name, written seven times, **six crossed out**. The Doom does not leave a crack in its Wall
+  unattended: when a Returned walks, a Doomguide walks *with* it — to be believed by it, and to deliver it,
+  filed and quiet, at the Court's own door. *The love is how the office works.* Six times the love was
+  real, and canon won anyway. The crossings-out are not corrections; they are **graves**, tended nightly by
+  their own digger, for seven ages, alone.
+- 🗝️ **The twist under the twist** — the seventh entry has no disposition, because the seventh time she
+  *couldn't*: she opened the postern with her own key. The untraced breach that has been widening for an
+  age. The crack that made YOU possible. **The reason you are hunted and the reason you exist, in the same
+  pair of hands** — and the ledger was left open *on purpose*, because she would rather be executed by
+  your judgment than promoted by her own silence.
+- ⚖️ **Three reckonings** — answer FOR her as you answered for Clip (*she unpins the clasp: "the eighth
+  entry will read: HELD"*); turn her **double** against the Doom (*"the first lie I have ever inked went
+  down smooth as a coffin lid… understand what you have made of me: a weapon that files paperwork"*); or
+  make her walk **watched** — more chance than she gave the six, and she thanks you for not pretending it
+  was nothing. *"It was never nothing. It was YOU."*
+- Every prior scene recontextualized at zero retcon cost: every fire she wrote at was a field report. New
+  zone (98th), quest #42 (`sq.the_shepherds_ledger`), two of the deepest sense-reads in the game. Gate
+  **801/0**; 42/42 suites; **305 souls.**
+
+## 🔊 v6.109.0 — *"A Sound in the Grey"* — the web game hears itself (sfx · gfx · water)
+
+> The walkable game has been silent since the day it was born. No longer — a tiny WebAudio synth, zero
+> assets, unlocked on first gesture (**S** toggles):
+- 🎹 **The Pilgrimage pad** — four detuned oscillators on the Bm add9 voicing, each breathing on its own
+  slow LFO through a lowpass — the *To Zanarkand* melancholy, now actually audible under the game.
+- ✨ **Pyrefly chimes** — soft pentatonic sines, one every few seconds, fading over two seconds — the sound
+  of the motes you can already see.
+- 👣 **Interaction sound** — step ticks as you walk, a soft blip when a soul turns to speak, a falling
+  gliss when the world dissolves and reforms at a causeway crossing.
+- 🌊 **Water in the backdrops** — zones with reeds, pilings, or boats (the Reed-Walk, the Sending) get
+  still water beyond the grid: horizontal sheen bands and a vertical mirror-smear under every candle and
+  torch — the flame reflected in the lake it stands beside.
+- Verified live in Chromium (zero page errors; Sending renders water + candles + pyreflies + minimap
+  composing together). Gate **801/0**; 42/42 suites.
+
+## 💃 v6.108.0 — *"The Sending"* — a dance for the dead (content · zone · FFX)
+
+> FFX's most beautiful idea, given the home this cosmology always had waiting for it: a new zone off the
+> Reed-Walk where **the Sender** dances the lingering dead onward before they sour — because the grey
+> cannot metabolize *staying*, and a soul held too long stops being a WHO and becomes a WEIGHT, and weights
+> that remember hunger become hunger. *This is where the Gnaw came from.*
+- 💃 **The Sender** — a woman dancing on a candle-ringed stage at the water's edge, soul-light rising off
+  her heel-turns like pyreflies off struck flint. The Insight read finds the mechanism under the grace:
+  *not magic — GRIEF, spent deliberately.* To send a stranger she must love the stranger first, entirely,
+  in the space of a dance, then let them go as if they were hers — *because for eight steps, they were.*
+  Face composed through all of it, since a frightened soul will not walk through a weeping door. Her vow:
+  *somebody has to be glad for them.*
+- 🪢 **The knot in the reeds** — the almost-soured: a fisher, a father, a child, tangling into each other,
+  forgetting they are several people. She has danced at them four nights; a tangle has no eyes to watch
+  with. But the Returned is *the one argument against staying the grey has ever produced* — stand in the
+  reeds, be the proof, and she dances the door: the rite un-knots them, the light rises, and at the end
+  *they watched the dance, not the dark.* *"That is the entire art."*
+- 🕯️ **The promise** — come back when the grey gets heavy; and when it is *your* turn, at the end of all
+  your errands: *"I will dance you a door so wide you will laugh going through it."*
+- New zone `sending` (97 total, on the world map), 2 souls, 2 sense-reads, [RETURNED] lines throughout;
+  the gate caught a dangling node and a walled-in exit tile mid-build — both fixed. Gate **801/0**;
+  42/42 suites; **303 souls.**
+
+## 🗺️ v6.107.0 — *"Roads & Pyreflies"* — world map, minimap, and the FFX heart (systems · atmosphere · music)
+
+> Two map systems and the first pass of Final Fantasy X's soul folded into the grey.
+- 🗺️ **The world map (M)** — the zone exit-graph IS the world: 96 zones laid out by a deterministic
+  force-directed embedding computed at build time, each node tinted by its zone's cast-hue. **Fog of war**:
+  places reveal as you visit them (`visited.<id>`), adjacent unvisited places show as *"?"*, the current
+  zone breathes gold — and clicking a known place **fast-travels** there. *"THE GREY — the roads you have
+  walked."*
+- 🧭 **The local minimap (N)** — a corner chart of the current zone: blocked tiles dark, souls as their
+  authored hue-dots, exits pulsing causeway blue, you in gold.
+- ✨ **Pyreflies** — FFX's soul-motes come to the grey: slow-drifting, twinkling particles over every zone,
+  tinted by the local souls' hues and denser where the dead are thickest, reseeded on every crossing.
+- 🎹 **"Pilgrimage"** — an eighth music loop: a soft Bm add9 voicing, one slow breath per loop — the *To
+  Zanarkand* feeling for the long grey roads. (Queued next: a **Sender** — a dancer who sends the dead so
+  they do not sour into fiends, the sending as a rite of the grey.)
+- Verified live in Chromium (fog-of-war fresh-save state correct, zero page errors). Gate **801/0**;
+  42/42 suites; asset coverage 100% (8/8 music).
+
 ## 🫖 v6.106.0 — *"Kettle, Whereabouts Of"* — the appeal is still pending (content · banter · payoff)
 
 > One banter (70 total), gated on both the verdict and the finished atlas, tying three releases into one
