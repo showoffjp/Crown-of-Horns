@@ -11,6 +11,27 @@
 
 ---
 
+## 👑 v6.112.0 — *"The Shepherd at Court"* — the trilogy reaches the endgame (content · reactivity · finale)
+
+> Not a new zone — deeper: the Garrow trilogy now lands **inside the authored endgame**. Gated on the
+> eighth entry, she stands in the Court of the Dead itself — the room she delivered six souls to and never
+> once entered, *because shepherds hand the lamb through the door and go home.* Standing at REST.
+- 👑 **Three shepherds before the Judge** — *turned*: she resigns to Kelemvor's face, holding up the
+  eighth entry in his own format — *"the crack in your Wall is not a wound, lord. It is a DOOR, and I cut
+  it… I filed myself under H. For HELD."* *Doubled*: the Judge of the Dead reads her forged report — reads
+  it, *knows* it — and files it anyway, and you begin to suspect **the Wall has more quiet traitors than
+  the two of you.** *Watched*: she hands you the pen in the open, before the Doom and the Crown —
+  *"the six were filed in private. Let me be judged in the OPEN."*
+- 📖 **The deepest read yet** — she has finally sorted the only two piles her faith ever needed: what the
+  Doom can take, and what it cannot. *"Some things, once written in love, are beyond recall. She taught you
+  that. She learned it last."*
+- Closes with the record made: shepherd and lamb, in the Doom's own room, on the same side of the book —
+  and her first un-officed smile: *"for the first time in seven lifetimes I genuinely do not know how it
+  ends. Isn't it MARVELOUS."* Sets `court.shepherd_stood` for the ending resolvers to color.
+- Verification wave completed inline (agent pool was rate-limited): canon ages fixed (v6.111.1), key
+  handlers input-guarded, flag graph verified programmatically, all 99 backdrops pass the brightness band.
+  Gate **801/0**; 42/42 suites; **310 souls.**
+
 ## 🚪 v6.111.0 — *"The Eighth Entry"* — the shepherd at the door that ate six (content · zone · payoff)
 
 > The betrayal arc's door-test: a new zone at the Court's outer wall, where whichever Garrow you chose
