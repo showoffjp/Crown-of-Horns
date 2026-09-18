@@ -28,10 +28,11 @@ namespace SunderedCrown.Content
             var gridGO = new GameObject("DocksGrid"); gridGO.transform.SetParent(transform);
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = 16; grid.height = 12; grid.tileWidth = 1f; grid.tileHeight = 0.5f; grid.Build();
-            gridGO.AddComponent<TileFloorRenderer>();
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "pebble"; _floor.wallFamily = "stone_dark";
 
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7f;
             cam.transform.position = grid.GridToWorld(8, 6) + new Vector3(0, 0, -10);
             cam.backgroundColor = new Color(0.09f, 0.12f, 0.14f);

@@ -127,3 +127,76 @@ delete `Library/` and reopen:
 Get-ChildItem Packages -Force | Where-Object { $_.LinkType } | ForEach-Object { $_.Delete() }
 Remove-Item -Recurse -Force Library
 ```
+
+## Running the game in Unity
+
+`Assets/Scenes/Boot.unity` is the only scene in Build Settings and it ships
+**empty** (zero GameObjects). Pressing Play worked only because
+`Assets/Scripts/Core/AutoBoot.cs` spawns `CampaignBootstrap` via
+`[RuntimeInitializeOnLoadMethod]` when the active scene is named `Boot`.
+
+It is done at runtime rather than saved into the scene because **script .meta
+files are largely uncommitted** (38 of 231), so script GUIDs are generated per
+machine — a MonoBehaviour reference stored in the scene would load as "missing
+script" on any other clone. `CampaignBootstrap` has no serialized fields, so
+nothing needs Inspector wiring.
+
+If you want scene-stored references to survive across machines, commit the
+`.cs.meta` files Unity generates on import (they are already un-ignored by
+`.gitignore`). Do that from **one** machine and let the others pull, so the
+GUIDs agree.
+
+## Two builds, very different fidelity
+
+This repo contains **two games sharing one body of content**:
+
+* **The web build** — `play/crown_of_horns.html` (and `play/town_market.html`).
+  This is the polished one: painted zone backdrops, weather, pyreflies, portrait
+  cards in dialogue, world map with fog of war, WebAudio ambience. Open it in a
+  browser; it needs no build step.
+* **The Unity project** — a **greybox skeleton**. It shares the zone/dialogue/
+  quest data and uses the generated portraits and battle tokens, but renders the
+  world with untextured primitives. There is no floor art, no backdrop, and no
+  scene lighting.
+
+Screenshots of "the game looking good" are the web build. Do not expect the
+Unity Game view to resemble them until the renderer is actually wired to art.
+
+Known Unity-side gaps, roughly in order of payoff:
+
+1. Floor/props render as tinted primitives — no tile art (`Assets/Resources/Art/DCSS`
+   holds 114 CC0 tiles that nothing in Unity currently loads).
+2. No scene lighting; the Boot scene is empty and cameras are built in code.
+3. `play/maps/*.jpg` (the painted zone floors) are web-only and have no Unity path.
+
+### Unity art wiring
+
+Two central hooks give the Unity world its look; prefer extending them over
+adding art code to individual content files.
+
+* **`Rendering/MarkerArt.cs`** — called from `Interactable.Place()`, so it reaches
+  every NPC, door and object in every scene. It looks the marker's `label` up via
+  `WorldArt.Portrait` (portrait → first word → battle token), hides the
+  placeholder cube's mesh while keeping its collider, and adds a billboarded
+  SpriteRenderer normalised to a common world height. No art for that name means
+  the tinted cube simply stays.
+* **`Rendering/TileFloorRenderer.cs`** — textures walkable cells from
+  `Resources/Art/DCSS/floor/<family>N` and blocked cells from `wall/<family>N`,
+  with a deterministic per-cell variant so rooms do not visibly repeat. Scenes set
+  `floorFamily` / `wallFamily` right after `AddComponent` to pick their era:
+  marble for the Crown Wars court, grey_dirt for the Fugue, infernal for
+  Cinderhaunt, tomb for crypts. A missing texture falls back to the old tint.
+
+Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
+tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.
+
+Families are **sparse**: `marble` and `marble_wall` start at index 1, `grey_dirt`
+and `brick_dark` run to 7, the rest have 0–3. The loader scans 0..8 and keeps
+whatever exists, so gaps are fine.
+
+The renderer loads from `Art/DCSS/lit/…`, not the raw tiles. The originals
+average **~20 of 255** — Crawl draws them small, on black, with its own contrast
+— so on lit 3D geometry they render as solid black. `tools/gen-lit-tiles.py`
+writes brightness-corrected copies (floors to mean 92, walls to 112, gamma 0.85
+so dark detail survives) and must be re-run if the source tiles change. The
+loader still falls back to the raw path if a lit copy is missing.

@@ -92,7 +92,7 @@ namespace SunderedCrown.Core
 
             // Camera.
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7f;
             cam.transform.position = _grid.GridToWorld(8, 8) + new Vector3(0, 0, -10);
             if (cam.GetComponent<SunderedCrown.CameraRig.IsometricCameraController>() == null)

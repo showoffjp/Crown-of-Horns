@@ -11,7 +11,9 @@ const TABS = ["combat", "dialogue", "play", "market", "endings", "compendium", "
 
 check("bundle: outer shell present", h.includes('id="frame"') && h.includes('class="tabs"'));
 check("bundle: a tab button per page", TABS.every(k => h.includes(`data-k="${k}"`)));
-check("bundle: lazy srcdoc loader", h.includes("frame.srcdoc = PAGES"));
+check("bundle: lazy srcdoc loader + blob fallback",
+  h.includes("PAGES[key]") && h.includes("frame.srcdoc = html") &&
+  h.includes("createObjectURL") && h.includes("frameIsEmpty"));
 check("bundle: cross-link rewiring", h.includes("function rewire(") && h.includes("FILE_TO_TAB"));
 check("bundle: hash deep-linking + tab switch", h.includes("bootFromHash") && h.includes("applyHash"));
 

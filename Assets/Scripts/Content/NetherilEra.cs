@@ -38,11 +38,12 @@ namespace SunderedCrown.Content
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = 18; grid.height = 14; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
-            gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "sandstone"; _floor.wallFamily = "marble_wall";
 
             // Camera.
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7.5f;
             cam.transform.position = grid.GridToWorld(9, 7) + new Vector3(0, 0, -10);
             cam.backgroundColor = new Color(0.12f, 0.14f, 0.28f); // impossible blue sky

@@ -46,7 +46,8 @@ namespace SunderedCrown.Combat
             gridGO.transform.SetParent(transform);
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = gridWidth; grid.height = gridHeight; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
-            gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>(); // isometric tiled floor
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "tomb"; _floor.wallFamily = "brick_dark"; // isometric tiled floor
 
             // Managers + uGUI HUD.
             var cm = new GameObject("CombatManager");
@@ -59,7 +60,7 @@ namespace SunderedCrown.Combat
 
             // Camera (persistent: not parented, reused across modes).
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7f;
             cam.transform.position = grid.GridToWorld(gridWidth / 2, gridHeight / 2) + new Vector3(0, 0, -10);
             if (cam.GetComponent<SunderedCrown.CameraRig.IsometricCameraController>() == null)

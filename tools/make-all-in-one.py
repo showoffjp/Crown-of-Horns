@@ -65,6 +65,9 @@ def main():
  .tab:hover{border-color:#5a4f74;color:#e7c873}
  .tab.on{background:linear-gradient(#2c2638,#201a2c);border-color:#e7c873;color:#e7c873}
  .stage{flex:1;position:relative;background:#0a0910}
+ #fallback{display:none;position:absolute;left:0;right:0;top:0;z-index:5;margin:18px 22px;padding:14px 16px;
+  border:1px solid #6a4a4a;border-radius:8px;background:#241a1a;color:#e8d8d8;font:14px/1.6 Georgia,serif;max-width:900px}
+ #fallback code{color:#e7c873;background:#140f0f;padding:1px 5px;border-radius:3px}
  iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#0a0910}
  .load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#6e6680;font-style:italic}
 </style></head><body>
@@ -75,7 +78,8 @@ def main():
 <div class="tabs">__TABS__</div>
 <div class="stage">
  <div class="load" id="load">loading…</div>
- <iframe id="frame" title="Crown of Horns"></iframe>
+ <div id="fallback"></div>
+<iframe id="frame" title="Crown of Horns"></iframe>
 </div>
 <script>
 const PAGES = __BLOB__;
@@ -84,12 +88,46 @@ const frame = document.getElementById("frame");
 const loadEl = document.getElementById("load");
 let curHash = "";
 
+// Some browsers refuse to render a large `srcdoc` from a file:// origin, leaving
+// the tab bar over an empty pane. Fall back to a Blob URL, which is a real
+// document load and is not subject to the same restriction; if even that yields
+// an empty frame, say so plainly instead of showing the user a black rectangle.
+let blobUrl = null;
 function show(key, hash){
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on", t.dataset.k===key));
   curHash = hash || "";
   loadEl.style.display = "flex";
+  const html = PAGES[key] || "<body style='color:#999;background:#111'>missing</body>";
   frame.onload = ()=>{ loadEl.style.display="none"; rewire(); if(curHash) applyHash(curHash); };
-  frame.srcdoc = PAGES[key] || "<body style='color:#999;background:#111'>missing</body>";
+  frame.removeAttribute("src");
+  frame.srcdoc = html;
+  setTimeout(()=>verify(key, html), 600);
+}
+function frameIsEmpty(){
+  try{
+    const d = frame.contentDocument;
+    return !d || !d.body || d.body.children.length === 0;
+  }catch(e){ return true; }   // cross-origin means a real document loaded: fine
+}
+function verify(key, html){
+  if(!frameIsEmpty()) return;
+  if(blobUrl){ URL.revokeObjectURL(blobUrl); blobUrl = null; }
+  try{
+    blobUrl = URL.createObjectURL(new Blob([html], {type:"text/html"}));
+    frame.removeAttribute("srcdoc");
+    frame.src = blobUrl;
+    setTimeout(()=>{ if(frameIsEmpty()) giveUp(key); }, 900);
+  }catch(e){ giveUp(key); }
+}
+function giveUp(key){
+  loadEl.style.display = "none";
+  const file = (TABS.find(t=>t[0]===key)||[])[1] || (key + ".html");
+  document.getElementById("fallback").innerHTML =
+    "<b>Your browser blocked the embedded page.</b><br>" +
+    "This bundle inlines each page in an iframe, which some browsers refuse to " +
+    "render from a <code>file://</code> path.<br>Open the standalone file instead — " +
+    "same content, no iframe: <code>play/" + file + "</code>";
+  document.getElementById("fallback").style.display = "block";
 }
 function applyHash(h){
   try{ frame.contentWindow.location.hash = h; }catch(e){}

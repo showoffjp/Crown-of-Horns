@@ -37,10 +37,11 @@ namespace SunderedCrown.Content
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = 18; grid.height = 14; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
-            gridGO.AddComponent<TileFloorRenderer>(); // tiled elven-hall floor
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "marble"; _floor.wallFamily = "marble_wall"; // tiled elven-hall floor
 
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7.5f;
             cam.transform.position = grid.GridToWorld(9, 7) + new Vector3(0, 0, -10);
             cam.backgroundColor = new Color(0.10f, 0.14f, 0.14f); // silver-shadow elven court

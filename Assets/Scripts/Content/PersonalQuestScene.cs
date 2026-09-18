@@ -34,10 +34,11 @@ namespace SunderedCrown.Content
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = 18; grid.height = 14; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
-            gridGO.AddComponent<TileFloorRenderer>();
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "tomb"; _floor.wallFamily = "tomb_wall";
 
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7.5f;
             cam.transform.position = grid.GridToWorld(9, 7) + new Vector3(0, 0, -10);
             cam.backgroundColor = quest.background;
