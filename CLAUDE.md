@@ -189,3 +189,14 @@ adding art code to individual content files.
 
 Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
 tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.
+
+Families are **sparse**: `marble` and `marble_wall` start at index 1, `grey_dirt`
+and `brick_dark` run to 7, the rest have 0–3. The loader scans 0..8 and keeps
+whatever exists, so gaps are fine.
+
+The renderer loads from `Art/DCSS/lit/…`, not the raw tiles. The originals
+average **~20 of 255** — Crawl draws them small, on black, with its own contrast
+— so on lit 3D geometry they render as solid black. `tools/gen-lit-tiles.py`
+writes brightness-corrected copies (floors to mean 92, walls to 112, gamma 0.85
+so dark detail survives) and must be re-run if the source tiles change. The
+loader still falls back to the raw path if a lit copy is missing.

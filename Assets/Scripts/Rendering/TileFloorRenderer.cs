@@ -27,8 +27,8 @@ namespace SunderedCrown.Rendering
         public string floorFamily = "tomb";
         [Tooltip("brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall")]
         public string wallFamily = "brick_dark";
-        [Tooltip("How many numbered variants to look for in each family.")]
-        public int variants = 4;
+        [Tooltip("Highest variant index to look for. Families are sparse — grey_dirt and\n        brick_dark have 8, marble starts at 1 — so scan wide and keep what exists.")]
+        public int variants = 8;
 
         [Header("Fallback tints (used when a texture is missing)")]
         public Color tileA = new Color(0.16f, 0.16f, 0.20f);
@@ -85,14 +85,18 @@ namespace SunderedCrown.Rendering
         {
             if (string.IsNullOrEmpty(family)) return null;
             var found = new System.Collections.Generic.List<Texture2D>();
-            for (int i = 0; i < Mathf.Max(1, variants); i++)
+            // "lit/" holds brightness-corrected copies (tools/gen-lit-tiles.py). The raw
+            // Crawl tiles average ~20 of 255 and render as solid black on lit geometry.
+            for (int i = 0; i <= Mathf.Max(1, variants); i++)
             {
-                var t = Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}{i}");
-                if (t != null) found.Add(t);
+                var t = Resources.Load<Texture2D>($"Art/DCSS/lit/{group}/{family}{i}")
+                     ?? Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}{i}");
+                if (t != null) found.Add(t);            // families are sparse; skip the gaps
             }
             if (found.Count == 0)                       // some families are unnumbered
             {
-                var single = Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}");
+                var single = Resources.Load<Texture2D>($"Art/DCSS/lit/{group}/{family}")
+                          ?? Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}");
                 if (single != null) found.Add(single);
             }
             return found.Count > 0 ? found.ToArray() : null;
