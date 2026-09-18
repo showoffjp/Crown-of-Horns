@@ -11,6 +11,19 @@
 
 ---
 
+## 🔥 v6.115.0 — *"The Painted Floor Comes Alive"* — shimmer and flicker (gfx · polish)
+
+> The backdrops bake water sheen and pools of candlelight, but paint doesn't move. Now it does — two live
+> layers over the painted floor, both reading the zone's own props so nothing is hand-placed twice.
+- 🔥 **Flicker** — every authored flame (candle, torch, brazier, campfire, hearthfire, lamppost, tavern)
+  gets a warm pool that breathes on **its own clock**, seeded from the prop's own coordinates, so a room
+  of five candles flickers five different ways instead of pulsing in unison. Additive, squashed to the
+  floor plane, tinted per flame type.
+- 🌊 **Shimmer** — water zones get nine slow bands drifting through the dark beyond the grid, riding over
+  the baked sheen, so the lake the Sending stands beside actually moves.
+- Verified live in Chromium: the Sending reads `water:true, fires:5`; the Hearth `water:false, fires:1`;
+  zero page errors. **Gate: ALL GATES PASSED** (`node run-all.js`, the real runner).
+
 ## 🌫️ v6.114.0 — *"Weather in the Grey"* — mist that reads the zone, and a drone under the fight (gfx · sfx · atmosphere)
 
 > Two atmosphere layers, both data-driven, neither costing an asset.

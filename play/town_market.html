@@ -405,7 +405,7 @@ let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, 
 function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
 // ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
 function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow(); ensureBackdrop(id);
-  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[]; if(typeof MISTCFG!=="undefined") MISTCFG=null; sndTravel();
+  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[]; if(typeof MISTCFG!=="undefined") MISTCFG=null; if(typeof LIVE!=="undefined") LIVE=null; sndTravel();
   const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
   hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
   const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
@@ -610,6 +610,47 @@ function sndTalk(){ sndBlip(440,520,0.09,0.05); }
 document.addEventListener("pointerdown",sndInit,{once:false});
 document.addEventListener("keydown",e=>{ if(e.target&&(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")) return; sndInit(); if(e.key==="s"||e.key==="S"){ SND=!SND;
   if(sndMaster) sndMaster.gain.setTargetAtTime(SND?0.045:0.0,AC?AC.currentTime:0,0.2); } });
+// the painted floor comes alive: the baked water sheen gets a moving shimmer,
+// and every authored flame gets a flicker over its baked pool of light. Both read
+// the zone's own props, so nothing is hand-placed twice.
+let LIVE=null;
+const FIRE_T={candle:[36,13],torch:[32,26],brazier:[28,30],campfire:[26,34],hearthfire:[24,36],lamppost:[40,30],tavern:[30,24]};
+function seedLive(){
+  const props=SCENE.props||[];
+  const t=new Set(props.map(p=>p.type));
+  LIVE={ water: t.has("reeds")||t.has("piling")||t.has("boat"),
+         fires: props.filter(p=>FIRE_T[p.type]).map(p=>({p, seed:(p.x*31+p.y*17)%997})) };
+}
+function drawLive(){
+  if(!LIVE) seedLive();
+  if(LIVE.water){                        // slow shimmer bands in the dark beyond the grid
+    ctx.save(); ctx.globalCompositeOperation="lighter";
+    for(let i=0;i<9;i++){
+      const ph=lastT/2200+i*0.7;
+      const y=cv.height*(0.30+0.065*i)+Math.sin(ph)*4;
+      const w=cv.width*(0.34+0.10*Math.sin(ph*0.6+i));
+      const x=cv.width*0.5+Math.cos(ph*0.4+i*1.3)*cv.width*0.22;
+      const g=ctx.createLinearGradient(x-w/2,0,x+w/2,0);
+      const a=0.020+0.014*Math.sin(ph*1.7);
+      g.addColorStop(0,"rgba(120,170,200,0)");
+      g.addColorStop(0.5,`rgba(140,185,215,${Math.max(0,a)})`);
+      g.addColorStop(1,"rgba(120,170,200,0)");
+      ctx.fillStyle=g; ctx.fillRect(x-w/2,y,w,1.6);
+    }
+    ctx.restore();
+  }
+  for(const f of LIVE.fires){             // flicker: a warm pool that breathes on its own clock
+    const [hue,rad]=FIRE_T[f.p.type], s0=iso(f.p.tx,f.p.ty), k=f.seed;
+    const fl=0.72+0.28*Math.sin(lastT/(120+k%90)+k)+0.10*Math.sin(lastT/47+k*1.7);
+    const r=rad*(0.9+0.16*fl);
+    const g=ctx.createRadialGradient(s0.x,s0.y,0,s0.x,s0.y,r);
+    g.addColorStop(0,`hsla(${hue} 85% 66% / ${0.10*fl})`);
+    g.addColorStop(1,`hsla(${hue} 85% 60% / 0)`);
+    ctx.save(); ctx.globalCompositeOperation="lighter";
+    ctx.translate(s0.x,s0.y); ctx.scale(1,0.55); ctx.translate(-s0.x,-s0.y);
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(s0.x,s0.y,r,0,7); ctx.fill(); ctx.restore();
+  }
+}
 // weather: low mist that drifts across the grey. Density and tint are read from
 // the zone itself — water zones fog thick and cold, fire-lit zones haze warm and
 // thin, the unwritten country barely breathes at all.
@@ -670,6 +711,7 @@ function render(){
     let shade=((tx+ty)%2)?"#181620":"#1c1a26"; if(bl) shade=((tx+ty)%2)?"#141019":"#16121f";
     if(hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty) shade=bl?"#2a1620":"#2a2740";
     drawDiamond(s.x,s.y, shade, "#13111a"); } }
+  drawLive();                            // water shimmer + flame flicker over the painted floor
   // zone exits — a glowing causeway tile you can walk onto to cross to the next scene
   (SCENE.exits||[]).forEach(x=>{ const s=iso(x.tx,x.ty), pulse=0.5+0.32*Math.sin(lastT/380);
     drawDiamond(s.x,s.y,`rgba(110,168,200,${0.12+0.10*pulse})`,`rgba(150,200,230,${0.5+0.4*pulse})`);
