@@ -693,8 +693,10 @@ function droneStart(){
 }
 function droneSet(on){ if(!_drone)return; const ac=AC(); if(!ac)return;
   _drone.master.gain.setTargetAtTime(on?0.05:0.0,ac.currentTime,0.4); }
-document.addEventListener("pointerdown",droneStart);
-document.addEventListener("keydown",droneStart);
+if(typeof document!=="undefined"&&document.addEventListener){
+  document.addEventListener("pointerdown",droneStart);
+  document.addEventListener("keydown",droneStart);
+}
 
 function newGame(){
   units=roster();
