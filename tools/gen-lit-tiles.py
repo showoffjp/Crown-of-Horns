@@ -13,30 +13,66 @@ instead of crushing. Deterministic; re-run any time:
 
   python3 tools/gen-lit-tiles.py
 """
-import os
+import colorsys, math, os
 from PIL import Image
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SRC = os.path.join(ROOT, "Assets", "Resources", "Art", "DCSS")
 OUT = os.path.join(SRC, "lit")
 
-TARGET = {"floor": 92, "wall": 112}   # mean brightness to aim for
+TARGET = {"floor": 70, "wall": 78}    # mean brightness to aim for — dim enough to stay "the grey"
 GAMMA = 0.85                          # <1 lifts midtones without clipping
-MAX_GAIN = 6.0
+MAX_GAIN = 3.4                        # beyond this a tile stops being terrain and starts glowing
+SHOULDER = 1.7                        # exponential roll-off: bright pixels compress, never clip
+SAT_CAP = {"floor": 0.34, "wall": 0.28}   # hard ceiling on chroma after the lift
+SAT_FALLOFF = 0.80                    # how strongly brightening desaturates (1.0 = fully)
 
 def mean_of(im):
     px = list(im.convert("RGB").getdata())
     return sum(sum(p) for p in px) / (3 * len(px)) or 1.0
 
-def lift(im, target):
-    """Gamma-lift first, then scale to the target mean — applying the gain before
-    the gamma compounds the two and badly overshoots."""
+def _tone_lut(gain):
+    """Gamma lift, then a gain rolled off exponentially instead of clipped."""
+    norm = 1.0 - math.exp(-SHOULDER)
+    lut = []
+    for i in range(256):
+        v = ((i / 255.0) ** GAMMA) * gain
+        lut.append((1.0 - math.exp(-SHOULDER * min(1.0, v))) / norm)
+    return lut
+
+def lift(im, target, sat_cap):
+    """Brighten a Crawl tile into something that can be terrain.
+
+    The tone curve is applied to *value only*, in HSV. A straight RGB multiply
+    raises every channel by the same factor, which preserves the ratio between
+    them and therefore preserves saturation — so a dark, saturated brick became a
+    bright, equally saturated brick, i.e. fluorescent orange. Real light does the
+    opposite: brightening a surface washes its chroma out. So saturation is scaled
+    down in proportion to how far the pixel was lifted, then capped outright, and
+    the tiles come back as stone instead of candy.
+    """
     im = im.convert("RGB")
-    gamma_lut = [min(255, round(((i / 255.0) ** GAMMA) * 255)) for i in range(256)]
-    lifted = im.point(gamma_lut * 3)
-    gain = min(MAX_GAIN, target / mean_of(lifted))
-    gain_lut = [min(255, round(i * gain)) for i in range(256)]
-    return lifted.point(gain_lut * 3)
+    gain = min(MAX_GAIN, target / (mean_of(im.point([min(255, round(((i / 255.0) ** GAMMA) * 255))
+                                                     for i in range(256)] * 3))))
+    lut = _tone_lut(gain)
+    cache = {}
+    out = Image.new("RGB", im.size)
+    src = list(im.getdata())
+    dst = []
+    for rgb in src:
+        hit = cache.get(rgb)
+        if hit is None:
+            h, sat, v = colorsys.rgb_to_hsv(rgb[0] / 255.0, rgb[1] / 255.0, rgb[2] / 255.0)
+            nv = lut[int(v * 255)]
+            if nv > 1e-6 and v > 1e-6:
+                sat *= (v / nv) ** SAT_FALLOFF
+            sat = min(sat, sat_cap)
+            r, g, b = colorsys.hsv_to_rgb(h, sat, nv)
+            hit = (int(r * 255 + 0.5), int(g * 255 + 0.5), int(b * 255 + 0.5))
+            cache[rgb] = hit
+        dst.append(hit)
+    out.putdata(dst)
+    return out
 
 def main():
     total = 0
@@ -48,7 +84,7 @@ def main():
         for f in sorted(os.listdir(srcdir)):
             if not f.endswith(".png"):
                 continue
-            lift(Image.open(os.path.join(srcdir, f)), target).save(
+            lift(Image.open(os.path.join(srcdir, f)), target, SAT_CAP.get(group, 0.4)).save(
                 os.path.join(outdir, f), optimize=True)
             total += 1
     print(f"Wrote {total} lit tiles into Assets/Resources/Art/DCSS/lit/")

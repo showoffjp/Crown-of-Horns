@@ -285,17 +285,28 @@ namespace SunderedCrown.UI
 
                 var card = MakeChildPanel(_portraitRow, new Vector2(0, 1), new Vector2(1, 1),
                     new Vector2(6, y), new Vector2(-12, 46));
-                card.GetComponent<Image>().color = new Color(0.15f, 0.15f, 0.18f, 0.9f);
+                Dress(card.GetComponent<Image>(), UiTheme.PanelSprite);
+
+                // The face itself. The whole cast is painted; the row was showing only
+                // a name and a bar, which is the one place in the game that still had
+                // no art at all.
+                // 30x38 — near the portraits' own 4:5, so faces are not squashed.
+                var face = MakeChildPanel(card, new Vector2(0, 0), new Vector2(0, 1),
+                    new Vector2(5, 4), new Vector2(35, -4));
+                var img = face.GetComponent<Image>();
+                var art = Rendering.WorldArt.Portrait(u.Sheet.displayName);
+                if (art != null) { img.sprite = art; img.preserveAspect = false; img.color = Color.white; }
+                else img.color = new Color(0.10f, 0.09f, 0.13f, 1f);
 
                 var label = MakeText(card, u.Sheet.displayName, 18, TextAnchor.MiddleLeft);
-                label.rectTransform.offsetMin = new Vector2(8, 0);
+                label.rectTransform.offsetMin = new Vector2(44, 0);
 
                 // HP bar background + fill.
                 var barBg = MakeChildPanel(card, new Vector2(0, 0), new Vector2(1, 0),
-                    new Vector2(8, 4), new Vector2(-16, 10));
-                barBg.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 1f);
+                    new Vector2(44, 4), new Vector2(-10, 10));
+                barBg.GetComponent<Image>().color = new Color(0.04f, 0.03f, 0.06f, 1f);
                 var fill = MakeChildPanel(barBg, new Vector2(0, 0), new Vector2(1, 1), Vector2.zero, Vector2.zero);
-                fill.GetComponent<Image>().color = new Color(0.2f, 0.7f, 0.25f, 1f);
+                fill.GetComponent<Image>().color = UiTheme.Health(1f);
 
                 _portraits.Add((u, fill, label));
                 y -= 52;
@@ -312,7 +323,7 @@ namespace SunderedCrown.UI
                 fill.anchorMax = new Vector2(pct, 1);
                 fill.offsetMin = Vector2.zero; fill.offsetMax = Vector2.zero;
                 fill.GetComponent<Image>().color = unit.Sheet.IsAlive
-                    ? new Color(0.2f, 0.7f, 0.25f, 1f) : new Color(0.4f, 0.4f, 0.4f, 1f);
+                    ? UiTheme.Health(pct) : new Color(0.32f, 0.30f, 0.34f, 1f);
                 label.text = $"{unit.Sheet.displayName}  {unit.Sheet.currentHitPoints}/{unit.Sheet.maxHitPoints}";
             }
         }
@@ -388,7 +399,7 @@ namespace SunderedCrown.UI
             var rt = go.GetComponent<RectTransform>();
             rt.anchorMin = aMin; rt.anchorMax = aMax; rt.pivot = new Vector2(aMin.x, aMax.y);
             rt.sizeDelta = size; rt.anchoredPosition = pos;
-            go.GetComponent<Image>().color = Panel;
+            Dress(go.GetComponent<Image>(), UiTheme.PanelSprite);
             return rt;
         }
 
@@ -399,8 +410,37 @@ namespace SunderedCrown.UI
             var rt = go.GetComponent<RectTransform>();
             rt.anchorMin = aMin; rt.anchorMax = aMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
+            // Flat by default: most child panels are HP bars and fills, which want a
+            // solid colour. Callers that want a framed card set the sprite themselves.
             go.GetComponent<Image>().color = Panel;
             return rt;
+        }
+
+        /// <summary>Put the shared panel art on a uGUI Image. CombatHUD is the only
+        /// uGUI screen in the game; everything else is IMGUI and picks the same look up
+        /// from the shared skin, so without this combat would be the one screen that
+        /// still looked like flat grey debug boxes.</summary>
+        private static void Dress(Image img, Sprite sprite)
+        {
+            if (img == null) return;
+            img.sprite = sprite;
+            img.type = Image.Type.Sliced;
+            img.color = Color.white;
+        }
+
+        private static void DressButton(Button btn, Image img)
+        {
+            if (btn == null || img == null) return;
+            Dress(img, UiTheme.ButtonSprite);
+            btn.targetGraphic = img;
+            btn.transition = Selectable.Transition.SpriteSwap;
+            btn.spriteState = new SpriteState
+            {
+                highlightedSprite = UiTheme.ButtonHoverSprite,
+                pressedSprite = UiTheme.ButtonActiveSprite,
+                selectedSprite = UiTheme.ButtonHoverSprite,
+                disabledSprite = UiTheme.ButtonActiveSprite,
+            };
         }
 
         private Text MakeText(RectTransform parent, string content, int size, TextAnchor anchor)
@@ -412,7 +452,7 @@ namespace SunderedCrown.UI
             rt.offsetMin = new Vector2(8, 8); rt.offsetMax = new Vector2(-8, -8);
             var t = go.GetComponent<Text>();
             t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            t.fontSize = size; t.color = Color.white; t.alignment = anchor;
+            t.fontSize = size; t.color = UiTheme.Parchment; t.alignment = anchor;
             t.supportRichText = true; t.text = content;
             t.horizontalOverflow = HorizontalWrapMode.Wrap; t.verticalOverflow = VerticalWrapMode.Overflow;
             return t;
@@ -422,8 +462,8 @@ namespace SunderedCrown.UI
             Vector2 pos, Vector2 size, UnityEngine.Events.UnityAction onClick)
         {
             var rt = MakePanel(name, aMin, aMax, pos, size);
-            rt.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.25f, 0.95f);
             var btn = rt.gameObject.AddComponent<Button>();
+            DressButton(btn, rt.GetComponent<Image>());
             btn.onClick.AddListener(onClick);
             var t = MakeText(rt, label, 20, TextAnchor.MiddleCenter);
             t.alignment = TextAnchor.MiddleCenter;
@@ -434,8 +474,8 @@ namespace SunderedCrown.UI
         {
             var go = new GameObject("AbilityBtn", typeof(Image), typeof(Button), typeof(LayoutElement));
             go.transform.SetParent(parent, false);
-            go.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.25f, 0.95f);
             go.GetComponent<LayoutElement>().minWidth = 108;
+            DressButton(go.GetComponent<Button>(), go.GetComponent<Image>());
             go.GetComponent<Button>().onClick.AddListener(onClick);
             var t = MakeText(go.GetComponent<RectTransform>(), label, 17, TextAnchor.MiddleCenter);
             t.alignment = TextAnchor.MiddleCenter;

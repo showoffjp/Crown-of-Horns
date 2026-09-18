@@ -14,13 +14,41 @@ namespace SunderedCrown.Rendering
     {
         private static readonly Dictionary<string, Sprite> _cache = new Dictionary<string, Sprite>();
 
-        public static Sprite Sprite(string name)
+        public static Sprite Sprite(string name) => FromFolder("Sprites", name);
+
+        /// <summary>Loads <c>Resources/&lt;folder&gt;/&lt;name&gt;</c> as a Sprite, caching
+        /// misses too so a name with no art doesn't hit Resources every frame.</summary>
+        public static Sprite FromFolder(string folder, string name)
         {
-            if (string.IsNullOrEmpty(name)) return null;
-            if (_cache.TryGetValue(name, out var cached)) return cached;
-            var sp = Resources.Load<Sprite>("Sprites/" + name);
-            _cache[name] = sp; // cache the miss too, so we don't hit Resources every frame
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(folder)) return null;
+            string key = folder + "/" + name;
+            if (_cache.TryGetValue(key, out var cached)) return cached;
+            var sp = Resources.Load<Sprite>(key);
+            _cache[key] = sp;
             return sp;
+        }
+
+        /// <summary>A world standee for a soul: the portrait's figure, cut out on
+        /// transparency, with a bottom-centre pivot (tools/gen-standees.py). Falls
+        /// back to the speaker's first word so "Doomguide Knight" finds "Doomguide".
+        /// <para>
+        /// This is what world markers should use. A dialogue portrait is a 320x400
+        /// opaque card with a painted backdrop; stood on a floor tile it reads as a
+        /// framed picture hovering over the ground rather than a person.
+        /// </para></summary>
+        public static Sprite Standee(string speaker)
+        {
+            if (string.IsNullOrEmpty(speaker)) return null;
+            string key = "standee:" + speaker;
+            if (_cache.TryGetValue(key, out var cached)) return cached;
+
+            string first = speaker;
+            int sp = speaker.IndexOf(' ');
+            if (sp > 0) first = speaker.Substring(0, sp);
+
+            var art = FromFolder("Standees", speaker) ?? FromFolder("Standees", first);
+            _cache[key] = art;
+            return art;
         }
 
         /// <summary>A dialogue portrait for a speaker: <c>Resources/Portraits/&lt;name&gt;</c> first, then

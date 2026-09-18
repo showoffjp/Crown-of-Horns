@@ -4,20 +4,27 @@ using SunderedCrown.Grid;
 namespace SunderedCrown.Rendering
 {
     /// <summary>
-    /// Paints an isometric tiled floor for a GridSystem — now with real terrain.
+    /// Paints an isometric floor for a GridSystem.
     /// <para>
-    /// The 114 CC0 Dungeon Crawl tiles under <c>Resources/Art/DCSS</c> shipped with
-    /// the project but nothing ever loaded them, so this drew flat tinted cubes and
-    /// the world read as grey rectangles. Walkable cells now take a floor texture
-    /// and blocked cells a wall texture, both varied per tile so large rooms do not
-    /// visibly repeat.
+    /// The grid projects to a 2:1 diamond lattice (<see cref="GridSystem.GridToWorld"/>),
+    /// but this used to drop an axis-aligned square quad on each diamond centre.
+    /// Neighbouring squares then overlapped by half a tile in both directions, so
+    /// the floor came out as a dense mat of overlapping rectangles with a
+    /// staircased edge — it read as a brick wall laid flat, not as a floor.
     /// </para>
     /// <para>
-    /// Scenes pick their own palette by setting <see cref="floorFamily"/> and
-    /// <see cref="wallFamily"/> before the component starts — "tomb" for the grey,
-    /// "marble" for the elven court, "infernal" for Cinderhaunt, and so on. If a
-    /// texture is missing the tile falls back to its original tint, so a partial
-    /// art set degrades instead of breaking.
+    /// It now draws diamond sprites from <c>Resources/Art/DCSS/iso</c>
+    /// (tools/gen-iso-tiles.py), which tessellate the lattice exactly: each is
+    /// 128x64 at 128 pixels per unit, i.e. precisely one tile, so no scaling is
+    /// involved and no seams can open up. Blocked cells are drawn as raised blocks
+    /// — a stack of darkened copies for the side, a lit cap on top — so walls read
+    /// as walls rather than as differently-coloured floor.
+    /// </para>
+    /// <para>
+    /// Scenes pick their palette by setting <see cref="floorFamily"/> and
+    /// <see cref="wallFamily"/> before the component starts. If the iso sprites are
+    /// missing the old textured-cube path still runs, and if the textures are
+    /// missing too the tiles fall back to flat tints.
     /// </para>
     /// </summary>
     public class TileFloorRenderer : MonoBehaviour
@@ -29,6 +36,12 @@ namespace SunderedCrown.Rendering
         public string wallFamily = "brick_dark";
         [Tooltip("Highest variant index to look for. Families are sparse — grey_dirt and\n        brick_dark have 8, marble starts at 1 — so scan wide and keep what exists.")]
         public int variants = 8;
+
+        [Header("Walls")]
+        [Tooltip("How far a blocked cell is raised above the floor, in world units.")]
+        public float wallRise = 0.34f;
+        [Tooltip("Copies stacked to fill the side of a raised block.")]
+        public int wallLayers = 5;
 
         [Header("Fallback tints (used when a texture is missing)")]
         public Color tileA = new Color(0.16f, 0.16f, 0.20f);
@@ -43,6 +56,66 @@ namespace SunderedCrown.Rendering
             var grid = GridSystem.Instance;
             if (grid == null) return;
 
+            var isoFloors = LoadSprites("floor", floorFamily);
+            var isoWalls = LoadSprites("wall", wallFamily);
+            if (isoFloors != null)
+            {
+                BuildIso(grid, isoFloors, isoWalls);
+                return;
+            }
+            BuildQuads(grid);
+        }
+
+        // ---- the isometric path -------------------------------------------------
+
+        private void BuildIso(GridSystem grid, Sprite[] floors, Sprite[] walls)
+        {
+            for (int x = 0; x < grid.width; x++)
+                for (int y = 0; y < grid.height; y++)
+                {
+                    var cell = grid.GetCell(x, y);
+                    if (cell == null) continue;
+
+                    Vector3 w = grid.GridToWorld(x, y);
+                    // Sorting runs off the tile's own row, so a wall one row nearer
+                    // the camera occludes what stands behind it.
+                    int row = Mathf.RoundToInt(-w.y * 100f);
+
+                    if (cell.walkable || walls == null)
+                    {
+                        var set = cell.walkable ? floors : (walls ?? floors);
+                        Tile(set, x, y, new Vector3(w.x, w.y, depth), row - 20, Color.white);
+                        continue;
+                    }
+
+                    // Side of the block: darkened copies stacked from the floor up,
+                    // so the rise reads as stone rather than as a floating cap.
+                    int layers = Mathf.Max(1, wallLayers);
+                    for (int i = 0; i < layers; i++)
+                    {
+                        float t = i / (float)layers;
+                        Tile(walls, x, y, new Vector3(w.x, w.y + wallRise * t, depth),
+                             row - 12 + i, new Color(0.34f + t * 0.16f, 0.34f + t * 0.16f, 0.38f + t * 0.16f));
+                    }
+                    Tile(walls, x, y, new Vector3(w.x, w.y + wallRise, depth), row - 6, Color.white);
+                }
+        }
+
+        private void Tile(Sprite[] set, int x, int y, Vector3 pos, int order, Color tint)
+        {
+            var go = new GameObject($"Tile_{x}_{y}");
+            go.transform.SetParent(transform);
+            go.transform.position = pos;
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sprite = Pick(set, x, y);
+            sr.color = tint;
+            sr.sortingOrder = order;
+        }
+
+        // ---- the original textured-cube path, kept as a fallback -----------------
+
+        private void BuildQuads(GridSystem grid)
+        {
             var floors = LoadFamily("floor", floorFamily);
             var walls = LoadFamily("wall", wallFamily);
 
@@ -69,7 +142,6 @@ namespace SunderedCrown.Rendering
                     if (tex != null)
                     {
                         mat.mainTexture = tex;
-                        // Keep a touch of the checker so the grid still reads at a glance.
                         mat.color = cell.walkable && ((x + y) & 1) == 0
                             ? Color.white : new Color(0.88f, 0.88f, 0.92f);
                     }
@@ -78,6 +150,26 @@ namespace SunderedCrown.Rendering
                         mat.color = !cell.walkable ? blocked : (((x + y) & 1) == 0 ? tileA : tileB);
                     }
                 }
+        }
+
+        // ---- loading ---------------------------------------------------------------
+
+        /// Loads the diamond sprites "<family>0..N" from Resources/Art/DCSS/iso/<group>.
+        private Sprite[] LoadSprites(string group, string family)
+        {
+            if (string.IsNullOrEmpty(family)) return null;
+            var found = new System.Collections.Generic.List<Sprite>();
+            for (int i = 0; i <= Mathf.Max(1, variants); i++)
+            {
+                var s = Resources.Load<Sprite>($"Art/DCSS/iso/{group}/{family}{i}");
+                if (s != null) found.Add(s);            // families are sparse; skip the gaps
+            }
+            if (found.Count == 0)
+            {
+                var single = Resources.Load<Sprite>($"Art/DCSS/iso/{group}/{family}");
+                if (single != null) found.Add(single);
+            }
+            return found.Count > 0 ? found.ToArray() : null;
         }
 
         /// Loads "<family>0..N" from Resources/Art/DCSS/<group>, skipping gaps.
@@ -91,9 +183,9 @@ namespace SunderedCrown.Rendering
             {
                 var t = Resources.Load<Texture2D>($"Art/DCSS/lit/{group}/{family}{i}")
                      ?? Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}{i}");
-                if (t != null) found.Add(t);            // families are sparse; skip the gaps
+                if (t != null) found.Add(t);
             }
-            if (found.Count == 0)                       // some families are unnumbered
+            if (found.Count == 0)
             {
                 var single = Resources.Load<Texture2D>($"Art/DCSS/lit/{group}/{family}")
                           ?? Resources.Load<Texture2D>($"Art/DCSS/{group}/{family}");
@@ -103,7 +195,7 @@ namespace SunderedCrown.Rendering
         }
 
         /// Deterministic per-cell variant: the same tile every run, no visible tiling.
-        private static Texture2D Pick(Texture2D[] set, int x, int y)
+        private static T Pick<T>(T[] set, int x, int y) where T : Object
         {
             if (set == null || set.Length == 0) return null;
             int h = (x * 73856093) ^ (y * 19349663);

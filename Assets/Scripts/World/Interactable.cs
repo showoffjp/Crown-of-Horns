@@ -46,8 +46,27 @@ namespace SunderedCrown.World
             Cell = grid.GetCell(coord);
             if (Cell != null) Cell.walkable = false; // route the party to an adjacent tile
             transform.position = grid.GridToWorld(coord.x, coord.y);
-            // Swap the placeholder cube for painted art when this marker has any.
-            SunderedCrown.Rendering.MarkerArt.Apply(gameObject, label);
         }
+
+        void Start()
+        {
+            // A container whose flag is already set was emptied on an earlier visit.
+            // Restoring that here is what makes looting stick: every scene rebuilds
+            // its markers from scratch when the party walks back in, so a chest that
+            // only ever recorded `looted` in memory came back full each time.
+            if (kind == InteractionKind.Container && !string.IsNullOrEmpty(lootFlag) &&
+                Core.GameFlags.Current != null && Core.GameFlags.Current.GetBool(lootFlag))
+                looted = true;
+
+            // Art is chosen here, not in Place: the marker factories call Place before
+            // they have set kind/lootFlag, so art picked there could not tell a chest
+            // from a door, nor an emptied chest from a full one.
+            SunderedCrown.Rendering.MarkerArt.Apply(gameObject, label, kind, looted);
+        }
+
+        /// <summary>Re-pick this marker's art — called when its state changes, e.g. a
+        /// chest that has just been emptied swapping to its open lid.</summary>
+        public void RefreshArt() =>
+            SunderedCrown.Rendering.MarkerArt.Apply(gameObject, label, kind, looted);
     }
 }

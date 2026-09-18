@@ -21,7 +21,7 @@ this paints alongside them. Honest placeholders still: for *real* paintings,
 allowlist commons.wikimedia.org and run tools/fetch-portraits.py.
 Re-run: python3 tools/gen-portraits-v3.py
 """
-import colorsys, glob, hashlib, json, math, os, random
+import colorsys, glob, hashlib, json, math, os, random, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -44,6 +44,87 @@ EXTRAS = {
               "hue": 45, "sigil": "⚖", "zone": "engine"},
 }
 
+def unity_souls():
+    """NPCs that exist only in the Unity content files.
+
+    roster() reads play/*.json, which covers the web build's cast. The Unity
+    scenes place a further ~19 souls of their own — the Lower City's storyteller,
+    the almshouse keeper, the Harper handler, the girl in the Wall — and those had
+    no portrait at all, so they stayed tinted cubes in the world and blank cards in
+    dialogue. Their display label doubles as the title, which is what the archetype
+    classifier reads ("a tiefling warlock" → mage, "a weary dockhand" → commoner),
+    and the hue is seeded off the name so each is distinct and stable."""
+    out = {}
+    pat = re.compile(r'MakeNpc\(grid,\s*"([^"]+)"|displayName\s*=\s*"([^"]+)"')
+    for path in sorted(glob.glob(os.path.join(ROOT, "Assets", "Scripts", "**", "*.cs"), recursive=True)):
+        try:
+            text = open(path, encoding="utf-8", errors="replace").read()
+        except OSError:
+            continue
+        for groups in pat.findall(text):
+            nm = next((g for g in groups if g), "").strip()
+            if nm and nm not in out:
+                out[nm] = {"title": nm, "zone": "unity", "sigil": "\u2022", "fill_only": True,
+                           "hue": int(hashlib.md5(nm.encode()).hexdigest()[:4], 16) % 360}
+    return out
+
+def speaker_souls():
+    """Everyone who *speaks* in play/*.json but never stands in a scene.
+
+    roster() reads scene.npcs, which is who you can walk up to. It misses ~180
+    named voices that only appear inside conversations — Naeve, Varra, Roen and
+    Maerin among them, i.e. most of the companions, plus antagonists like The Last
+    Returned. They showed a blank card in dialogue and, in Unity, a coloured cube.
+
+    Their palette comes from the zone whose conversations they appear in rather
+    than from a hash of the name, so a Cinderhaunt voice is lit like Cinderhaunt
+    instead of arriving in an arbitrary colour.
+    """
+    out = {}
+    for path in sorted(glob.glob(os.path.join(ROOT, "play", "*.json"))):
+        try:
+            z = json.load(open(path))
+        except Exception:
+            continue
+        if not isinstance(z, dict):
+            continue
+        sc = z.get("scene") if isinstance(z.get("scene"), dict) else {}
+        npcs = [n for n in sc.get("npcs", []) if isinstance(n, dict)]
+        hues = [n.get("hue") for n in npcs if isinstance(n.get("hue"), (int, float))]
+        hue = int(sum(hues) / len(hues)) if hues else 40
+        sigil = next((n.get("sigil") for n in npcs if n.get("sigil")), "\u2022")
+        zone = sc.get("id", os.path.splitext(os.path.basename(path))[0])
+
+        seen = set()
+        def walk(node):
+            if isinstance(node, dict):
+                sp = node.get("speaker")
+                if isinstance(sp, str) and sp.strip():
+                    seen.add(sp.strip())
+                for v in node.values():
+                    walk(v)
+            elif isinstance(node, list):
+                for v in node:
+                    walk(v)
+        walk(z)   # not just z["conversations"]: banter and camp files nest differently
+
+        for nm in seen:
+            out.setdefault(nm, {"title": "", "hue": hue, "sigil": sigil, "zone": zone,
+                                "fill_only": True})
+    return out
+
+def legacy_names():
+    """Portraits that predate this generator and must be preserved as painted.
+
+    Read from tools/legacy-portraits.txt rather than inferred from what happens to
+    be on disk, so a run produces the same art whether or not Assets/Resources/
+    Portraits is already populated."""
+    path = os.path.join(os.path.dirname(__file__), "legacy-portraits.txt")
+    if not os.path.exists(path):
+        return set()
+    return {l.strip() for l in open(path, encoding="utf-8")
+            if l.strip() and not l.startswith("#")}
+
 def roster():
     souls = dict(EXTRAS)
     for p in sorted(glob.glob(os.path.join(ROOT, "play", "*.json"))):
@@ -61,6 +142,10 @@ def roster():
             if nm and nm not in souls:
                 souls[nm] = {"title": n.get("title", ""), "hue": n.get("hue", 40),
                              "sigil": n.get("sigil", "?"), "zone": sc.get("id", "")}
+    for nm, meta in unity_souls().items():     # zone-authored data wins on a clash
+        souls.setdefault(nm, meta)
+    for nm, meta in speaker_souls().items():
+        souls.setdefault(nm, meta)
     return souls
 
 # ---- classification ----------------------------------------------------------
@@ -179,7 +264,7 @@ def medallion(d, cx, cy, sigil, era):
     draw_sigil(d, cx, cy - 1, sigil, 20, shade(era["glow"], 1.5))
 
 # ---- the two painters ----------------------------------------------------------
-def paint_icon(name, sigil, era, rnd):
+def paint_icon(name, sigil, era, rnd, standee=False):
     """non-person souls: the sigil held in a ring of its own light"""
     img = vgrad((W, H), shade(era["bg"], 1.5), shade(era["bg"], 0.5))
     cx, cy = W // 2, int(H * 0.44)
@@ -187,6 +272,10 @@ def paint_icon(name, sigil, era, rnd):
         rgl(img, rnd.randint(40, W - 40), rnd.randint(40, H - 60), rnd.randint(50, 130),
             era["glow"], rnd.randint(12, 26))
     rgl(img, cx, cy, 150, era["glow"], 60)
+    if standee:
+        # Same RNG draws, no backdrop: the figure alone, on transparency, for use
+        # as a world standee. The portrait path is byte-for-byte unaffected.
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img, "RGBA")
     # ring
     for rr, wd, f in ((96, 6, 1.2), (112, 2, 0.7)):
@@ -202,12 +291,14 @@ def paint_icon(name, sigil, era, rnd):
               fill=(*shade(era["glow"], 0.35), 120))
     return img
 
-def paint_bust(name, sigil, era, arch, dark, rnd):
+def paint_bust(name, sigil, era, arch, dark, rnd, standee=False):
     spirit = arch == "spirit"
     img = vgrad((W, H), shade(era["bg"], 1.4), shade(era["bg"], 0.55))
     for _ in range(4):
         rgl(img, rnd.randint(0, W), rnd.randint(0, H // 2), rnd.randint(60, 150),
             era["glow"], rnd.randint(14, 30))
+    if standee:
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))   # see paint_icon
     d = ImageDraw.Draw(img, "RGBA")
 
     cx, cy = W // 2, int(H * 0.42)
@@ -304,9 +395,22 @@ def paint_bust(name, sigil, era, arch, dark, rnd):
     medallion(d, cx + lit * 44, sh_top + 42, sigil, era)
     return img
 
-def finish(img, era, dark):
+def grain(rnd, sigma=18):
+    """Gaussian grain from OUR seeded RNG.
+
+    Image.effect_noise() draws on PIL's own global generator, which nothing here
+    seeds — so every regeneration produced a different grain and rewrote all ~478
+    committed portraits, whatever else had changed. The docstring above promised
+    stable re-runs; this is what makes that true."""
+    px = bytearray(W * H)
+    for i in range(W * H):
+        v = int(128 + rnd.gauss(0, sigma))
+        px[i] = 0 if v < 0 else 255 if v > 255 else v
+    return Image.frombytes("L", (W, H), bytes(px))
+
+def finish(img, era, dark, rnd):
     """painterly grain + vignette + soft bloom (menace = harder vignette)"""
-    noise = Image.effect_noise((W, H), 18).convert("L")
+    noise = grain(rnd)
     img = Image.composite(img, Image.new("RGB", (W, H), (0, 0, 0)), noise.point(lambda v: 255 - (255 - v) // 6))
     vmask = Image.new("L", (W, H), 0); vd = ImageDraw.Draw(vmask)
     inset = 0.30 if not dark else 0.22
@@ -315,17 +419,23 @@ def finish(img, era, dark):
     img = Image.composite(img, Image.new("RGB", (W, H), shade(era["bg"], 0.35)), vmask)
     return Image.blend(img, img.filter(ImageFilter.GaussianBlur(2)), 0.22)
 
-def make_portrait(name, meta):
+def make_portrait(name, meta, standee=False):
     seed = int(hashlib.md5(name.encode()).hexdigest(), 16)
     rnd = random.Random(seed)
-    arch = archetype(name, meta["title"])
-    dark = menace(name, meta["title"])
+    # "arch"/"dark" let a caller name the archetype outright instead of hoping the
+    # keyword classifier guesses it. Used for the class archetypes in
+    # tools/gen-standees.py, whose names ("Fighter", "Rogue") are not the sort of
+    # phrase the classifier reads.
+    arch = meta.get("arch") or archetype(name, meta["title"])
+    dark = meta["dark"] if "dark" in meta else menace(name, meta["title"])
     era = palette(meta.get("hue", 40), dark)
     if arch == "icon":
-        img = paint_icon(name, meta["sigil"], era, rnd)
+        img = paint_icon(name, meta["sigil"], era, rnd, standee)
     else:
-        img = paint_bust(name, meta["sigil"], era, arch, dark, rnd)
-    return finish(img, era, dark)
+        img = paint_bust(name, meta["sigil"], era, arch, dark, rnd, standee)
+    # finish() is grain + vignette + bloom against an opaque backdrop; a standee
+    # has no backdrop to vignette, so it keeps the flat paint.
+    return img if standee else finish(img, era, dark, rnd)
 
 # ---- .meta (same convention as v2) ---------------------------------------------
 META = """fileFormatVersion: 2
@@ -370,20 +480,31 @@ TextureImporter:
 def main():
     os.makedirs(OUT, exist_ok=True)
     souls = roster()
+    legacy = legacy_names()
     counts = {}
+    skipped = 0
     for name, meta in sorted(souls.items()):
+        path = os.path.join(OUT, name + ".png")
+        # Souls harvested as a fallback — Unity-only NPCs and dialogue-only voices —
+        # are painted to FILL a gap, never to replace art that already exists. The
+        # companions' portraits predate this generator and are the better paintings;
+        # repainting them from a hashed hue would trade them for arbitrary colours.
+        if name in legacy:
+            skipped += 1
+            continue
         img = make_portrait(name, meta)
         # quantize: keeps the whole 257-face fleet a fraction of truecolor weight
         img = img.convert("P", palette=Image.ADAPTIVE, colors=128)
-        path = os.path.join(OUT, name + ".png")
         img.save(path, optimize=True)
         rel = "Assets/Resources/Portraits/" + name + ".png"
         with open(path + ".meta", "w") as f:
             f.write(META.format(guid=hashlib.md5(rel.encode()).hexdigest()))
         counts[archetype(name, meta["title"])] = counts.get(archetype(name, meta["title"]), 0) + 1
-    total_kb = sum(os.path.getsize(os.path.join(OUT, n + ".png")) for n in souls) // 1024
+    total_kb = sum(os.path.getsize(os.path.join(OUT, n + ".png"))
+                   for n in souls if os.path.exists(os.path.join(OUT, n + ".png"))) // 1024
     by = ", ".join(f"{k}:{v}" for k, v in sorted(counts.items()))
-    print(f"Painted {len(souls)} zone-soul portraits ({total_kb} KB total) into Assets/Resources/Portraits/")
+    print(f"Painted {len(souls) - skipped} of {len(souls)} souls ({total_kb} KB total) into "
+          f"Assets/Resources/Portraits/ — {skipped} already had art and were left alone")
     print(f"archetypes — {by}")
 
 if __name__ == "__main__":

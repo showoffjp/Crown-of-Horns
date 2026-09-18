@@ -34,6 +34,10 @@ rebuild before the gate:
 
 ```bash
 python3 tools/gen-portraits-v3.py       # Assets/Resources/Portraits (Unity PNGs)
+python3 tools/gen-standees.py           # Assets/Resources/Standees (world cut-outs)   [after portraits]
+python3 tools/gen-props.py              # Assets/Resources/Props (chests, doors, …)
+python3 tools/gen-lit-tiles.py          # Art/DCSS/lit  (brightness-corrected tiles)
+python3 tools/gen-iso-tiles.py          # Art/DCSS/iso  (diamond floor sprites)
 python3 tools/gen-portrait-thumbs.py    # play/portraits (web dialogue faces)
 python3 tools/gen-tokens-v2.py          # Assets/Resources/Sprites (battle tokens)
 python3 tools/gen-zone-backdrops.py     # play/maps (painted zone floors)
@@ -186,18 +190,75 @@ Known Unity-side gaps, roughly in order of payoff:
 Two central hooks give the Unity world its look; prefer extending them over
 adding art code to individual content files.
 
-* **`Rendering/MarkerArt.cs`** — called from `Interactable.Place()`, so it reaches
-  every NPC, door and object in every scene. It looks the marker's `label` up via
-  `WorldArt.Portrait` (portrait → first word → battle token), hides the
-  placeholder cube's mesh while keeping its collider, and adds a billboarded
-  SpriteRenderer normalised to a common world height. No art for that name means
-  the tinted cube simply stays.
-* **`Rendering/TileFloorRenderer.cs`** — textures walkable cells from
-  `Resources/Art/DCSS/floor/<family>N` and blocked cells from `wall/<family>N`,
-  with a deterministic per-cell variant so rooms do not visibly repeat. Scenes set
+* **`Rendering/MarkerArt.cs`** — called from `Interactable.Start()`, so it reaches
+  every NPC, door and object in every scene. It picks art by what the marker *is*:
+  a talkable marker gets its `WorldArt.Standee`, a container gets a chest (open
+  once emptied), anything else is matched against `PropArt`'s keyword table using
+  the marker's own player-facing label. It hides the placeholder cube's mesh while
+  keeping its collider, normalises the art to a world height (and clamps its
+  width), and adds a painted contact shadow. No art for that name means the tinted
+  cube simply stays.
+
+  It runs from `Start`, not `Place`: the `MakeMarker` factories call `Place`
+  *before* setting `kind`, `lootFlag` or the dialogue, so art chosen there cannot
+  tell a chest from a door.
+
+* **`Rendering/PropArt.cs`** — the label → prop keyword table. Rules are checked in
+  order and the first hit wins, so narrow rules come first ("The Stilled Maw" has
+  to reach `brazier_cold` before the battle rule claims every "maw"). Extending the
+  game with a new kind of object means adding a painter to `tools/gen-props.py` and
+  a rule here — not touching any content file.
+
+* **`Rendering/WorldArt.Standee`** — `Resources/Standees/<name>`, the portrait's
+  figure cut out on transparency with a bottom-centre pivot. World markers and
+  `UnitSpriteSkinner` both use it. Do **not** put a dialogue portrait in the world:
+  those are 320x400 opaque cards with a painted backdrop, and stood on a floor tile
+  they read as framed pictures hovering in mid-air. Battle tokens
+  (`Resources/Sprites`) are worse — circular UI chips with the unit's name printed
+  across the bottom.
+
+### Who gets a face
+
+`roster()` in `gen-portraits-v3.py` reads three sources, each only filling gaps
+the previous one left:
+
+1. **zone `scene.npcs`** in `play/*.json` — souls you can walk up to, with their
+   authored hue, sigil and title. These the generator owns outright.
+2. **Unity content files** — `MakeNpc(grid, "…")` labels and unit `displayName`s.
+   The Unity scenes place souls the web zones never do.
+3. **dialogue speakers** — every `speaker` string anywhere in `play/*.json`. This
+   is where most of the cast lives: the companions (Naeve, Varra, Roen, Maerin,
+   Sister Garrow) and antagonists like The Last Returned never stand in a scene,
+   so before this they had no face in either build. Their palette comes from the
+   zone whose conversations they appear in, not from a hash of the name.
+
+`gen-standees.py` also paints an **archetype** standee per class (Fighter,
+Barbarian, Cleric, Ranger, Rogue, Wizard) and per faction (Player, Ally, Enemy,
+Neutral). `UnitSpriteSkinner` walks name → class → faction → battle token, which
+is the only way to give the **player character** a body: their display name is
+whatever was typed at character creation, so no portrait can ever exist for it,
+and they were the last cube left on screen. `MarkerArt` ends the same way for a
+talkable marker — an unrecognised label is still somebody.
+
+Names in **`tools/legacy-portraits.txt`** are never repainted — their art predates
+this generator and is better than what a fallback hue would produce. Their
+standees are cut out of the existing painting instead (a border flood-fill that
+follows the backdrop's gradient but cannot cross the figure's hard edge; keep the
+tolerance low or it walks straight through a near-black robe). Add a name there to
+protect a portrait you have replaced by hand.
+
+Both generators are **reproducible**: two runs write byte-identical files, so
+`git status` after a regeneration shows only what actually changed. That was not
+true before — `finish()` grained every portrait with `Image.effect_noise`, which
+draws on PIL's own unseeded generator, so every run rewrote all ~478 files.
+* **`Rendering/TileFloorRenderer.cs`** — draws the floor from the **diamond**
+  sprites in `Resources/Art/DCSS/iso/<group>/<family>N`, with a deterministic
+  per-cell variant so rooms do not visibly repeat. Blocked cells become raised
+  blocks: darkened copies stacked for the side, a lit cap on top. Scenes set
   `floorFamily` / `wallFamily` right after `AddComponent` to pick their era:
   marble for the Crown Wars court, grey_dirt for the Fugue, infernal for
-  Cinderhaunt, tomb for crypts. A missing texture falls back to the old tint.
+  Cinderhaunt, tomb for crypts. Missing iso sprites fall back to the old textured
+  cubes, and missing textures to flat tints.
 
 Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
 tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.
@@ -206,9 +267,66 @@ Families are **sparse**: `marble` and `marble_wall` start at index 1, `grey_dirt
 and `brick_dark` run to 7, the rest have 0–3. The loader scans 0..8 and keeps
 whatever exists, so gaps are fine.
 
-The renderer loads from `Art/DCSS/lit/…`, not the raw tiles. The originals
-average **~20 of 255** — Crawl draws them small, on black, with its own contrast
-— so on lit 3D geometry they render as solid black. `tools/gen-lit-tiles.py`
-writes brightness-corrected copies (floors to mean 92, walls to 112, gamma 0.85
-so dark detail survives) and must be re-run if the source tiles change. The
-loader still falls back to the raw path if a lit copy is missing.
+Tiles pass through two generators before Unity sees them, and both must be re-run
+(in this order) if the source tiles change:
+
+1. `tools/gen-lit-tiles.py` → `Art/DCSS/lit/`. The raw Crawl tiles average **~20
+   of 255** — Crawl draws them small, on black, with its own contrast — so they
+   render as solid black. The lift runs on **value only, in HSV**: an RGB multiply
+   preserves the ratio between channels and therefore preserves saturation, so a
+   dark saturated brick came back as a bright *equally saturated* brick, i.e.
+   fluorescent orange. Saturation is scaled down in proportion to how far a pixel
+   was lifted and then capped, and the gain is rolled off exponentially rather
+   than clipped.
+2. `tools/gen-iso-tiles.py` → `Art/DCSS/iso/`. Warps each lit tile into a 128x64
+   rhombus with transparent corners, imported at 128 px/unit so one sprite is
+   exactly one `tileWidth` x `tileHeight` tile.
+
+Why the diamonds matter: `GridToWorld` projects to a 2:1 diamond lattice, so
+axis-aligned square tiles dropped on those centres overlap their neighbours by
+half a tile in both axes. That is what made the floor read as a brick *wall* laid
+flat with a staircased edge.
+
+### The IMGUI theme
+
+All ~25 screens draw with `OnGUI` against Unity's built-in skin — the flat grey
+editor chrome — so the HUD, menu and dialogue read as a debug overlay. Rather
+than restyle twenty-five files, `UI/UiTheme.cs` repaints **the shared skin
+object**: `GUI.skin` is global, so mutating its styles carries to every component
+that draws afterwards. That is the same mechanism `UiScaler` uses for text size,
+and the reason a new screen needs no opt-in.
+
+`AutoBoot` puts a `UiThemeApplier` on a DontDestroyOnLoad object, because the
+theme has to exist before the title screen and `UiScaler` is only added by
+`CampaignBootstrap`. `UiTheme` touches colour, background and padding only —
+font sizes stay with the accessibility scale.
+
+**`UI/CombatHUD.cs` is the only uGUI screen in the game** (which is why the
+asmdef needs `UnityEngine.UI` at all). It cannot inherit the skin, so it dresses
+itself from the same source: `UiTheme.PanelSprite` / `ButtonSprite` are the same
+generated art 9-sliced for `Image`, and `UiTheme.Health(frac)` is the one HP
+ramp. Style combat through those, not with fresh literals, or combat drifts into
+being the one screen that still looks like grey debug boxes.
+
+### Everything is 2D
+
+`GridToWorld` fakes the isometry in the **XY plane** and leaves Z for sorting, so
+despite the cubes there is no 3D scene here. Consequences worth knowing:
+
+* `CameraBillboard` is a no-op — the camera looks straight down −Z.
+* A steeply angled `Light` lights the camera-facing quads at a glancing angle and
+  smears every marker's shadow into a long streak across the floor. `AutoBoot`
+  therefore rakes its key light only slightly and casts **no** shadows; markers
+  get a painted contact blob from `MarkerArt` instead.
+* Depth is world **Y alone** (`IsoDepthSorter`). The old `-(x + y)` let a marker's
+  horizontal position change its depth, so a near-right sprite could draw behind a
+  far-left one. Art lifted off the ground passes `basis` so it still sorts by the
+  tile it stands on.
+
+### Containers must carry a lootFlag
+
+A scene rebuilds all its markers from scratch every time the party walks back in,
+so a container whose emptied state lives only in `Interactable.looted` refills
+itself on every return trip. `BaldursGateHub`'s Strongbox did exactly that, handing
+out its gold, potion and the Cinderhaunt key again and again. Every `MakeContainer`
+now takes a `lootFlag`, and `Interactable.Start` restores `looted` from it.
