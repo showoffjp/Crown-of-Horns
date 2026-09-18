@@ -11,6 +11,21 @@
 
 ---
 
+## 🌫️ v6.114.0 — *"Weather in the Grey"* — mist that reads the zone, and a drone under the fight (gfx · sfx · atmosphere)
+
+> Two atmosphere layers, both data-driven, neither costing an asset.
+- 🌫️ **Weather** — low mist banks drift across every zone, and the zone itself decides the forecast: water
+  zones (reeds, pilings, boats) fog **thick and cold** — eight banks over the Sending; fire-lit camps haze
+  **warm and thin**; and the Blank Quarter, having almost nothing in it, barely breathes — three faint
+  banks. Tinted by the local souls' hues, like everything else in the identity system; drawn between the
+  world and the souls so pyreflies still float on top; reseeded at every crossing.
+- 🥁 **A drone under the fight** — the combat sim already had a full one-shot kit (hit, crit, miss, heal,
+  condition, fall) but no ambience. It gets the D-minor voicing of the *Combat* music track as a slow
+  three-voice drone, each voice breathing on its own LFO through a lowpass, faded in on the first gesture
+  and ducked by the existing 🔊 SFX toggle.
+- Verified live in Chromium (per-zone mist configs confirmed by inspection: Sending 8 banks @ .105,
+  Blank Quarter 3 @ .080; zero page errors). Gate **801/0**; 42/42 suites.
+
 ## 🖼️ v6.113.0 — *"Faces at the Fire"* — the web game shows its portraits at last (gfx · dialogue · polish)
 
 > 309 painted faces have existed since v6.98 and the walkable game never showed one of them. Now every

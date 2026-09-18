@@ -674,6 +674,28 @@ function sfx(kind){
   else if(kind==="fall"){tone(180,55,0.5,"triangle",0.3);}
 }
 
+// combat ambience: a low D-minor drone under the fight (the Music/Combat voicing),
+// started on the first real gesture and ducked whenever SFX are toggled off.
+let _drone=null;
+function droneStart(){
+  if(_drone||!sfxOn)return; const ac=AC(); if(!ac)return;
+  const master=ac.createGain(); master.gain.value=0.0; master.connect(ac.destination);
+  const lp=ac.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=520; lp.connect(master);
+  const voices=[146.83,174.61,220.0].map((f,i)=>{
+    const o=ac.createOscillator(), g=ac.createGain();
+    o.type=i?"sine":"triangle"; o.frequency.value=f; o.detune.value=i%2?5:-4;
+    g.gain.value=0.16; o.connect(g); g.connect(lp); o.start();
+    const lfo=ac.createOscillator(), lg=ac.createGain();
+    lfo.frequency.value=0.07+i*0.017; lg.gain.value=0.10; lfo.connect(lg); lg.connect(g.gain); lfo.start();
+    return o;});
+  master.gain.setTargetAtTime(0.05,ac.currentTime,4);
+  _drone={master,voices};
+}
+function droneSet(on){ if(!_drone)return; const ac=AC(); if(!ac)return;
+  _drone.master.gain.setTargetAtTime(on?0.05:0.0,ac.currentTime,0.4); }
+document.addEventListener("pointerdown",droneStart);
+document.addEventListener("keydown",droneStart);
+
 function newGame(){
   units=roster();
   blocked=new Set(["6,1","7,1","6,4","7,5","6,7","7,7","5,3","8,2","8,6","6,8"]);
@@ -958,7 +980,7 @@ $("undo").onclick=()=>{const u=order&&order[turnIdx];if(!_undo||!u||u.side!=="he
   u.x=_undo.x;u.y=_undo.y;u.hasMoved=false;_undo=null;reachable=computeReachable(u);armed=u.kit[0];
   log(`${u.name} steps back to where they began.`,"sys");renderSide();};
 $("fcToggle").onclick=()=>{showForecast=!showForecast;$("fcToggle").textContent="ⓘ Forecast: "+(showForecast?"on":"off");};
-$("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");};
+$("sfxToggle").onclick=()=>{sfxOn=!sfxOn;$("sfxToggle").textContent="🔊 SFX: "+(sfxOn?"on":"off");if(sfxOn)droneStart();droneSet(sfxOn);};
 function renderStances(){
   const dim=v=>v&&reactionsOn?"":"opacity:.5";
   $("stOA").textContent="⚔ OA: "+(stances.oa?"on":"off");$("stOA").style.cssText=dim(stances.oa);

@@ -405,7 +405,7 @@ let hoverTile=null, hoverNpc=null, nearNpc=null, hoverExit=null, autoTalk=null, 
 function exitAt(tx,ty){ return (SCENE.exits||[]).find(x=>x.tx===tx&&x.ty===ty)||null; }
 // ---- zone travel: walk onto a glowing causeway tile and the world changes around you ----
 function loadScene(id, dest){ const s=SCENES[id]; if(!s) return; SCENE=normScene(s); BLOCKED=blockedNow(); ensureBackdrop(id);
-  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[]; sndTravel();
+  st.bools["visited."+id]=true; if(typeof PYRE!=="undefined") PYRE=[]; if(typeof MISTCFG!=="undefined") MISTCFG=null; sndTravel();
   const d=dest||SCENE.playerStart; player.tx=d.x; player.ty=d.y; player.path=null; player.pathIdx=0;
   hoverTile=hoverNpc=hoverExit=nearNpc=autoTalk=null;
   const zb=document.getElementById("zonename"); if(zb) zb.textContent=SCENE.name||"";
@@ -610,6 +610,35 @@ function sndTalk(){ sndBlip(440,520,0.09,0.05); }
 document.addEventListener("pointerdown",sndInit,{once:false});
 document.addEventListener("keydown",e=>{ if(e.target&&(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")) return; sndInit(); if(e.key==="s"||e.key==="S"){ SND=!SND;
   if(sndMaster) sndMaster.gain.setTargetAtTime(SND?0.045:0.0,AC?AC.currentTime:0,0.2); } });
+// weather: low mist that drifts across the grey. Density and tint are read from
+// the zone itself — water zones fog thick and cold, fire-lit zones haze warm and
+// thin, the unwritten country barely breathes at all.
+let MIST=[], MISTCFG=null;
+function seedMist(){
+  const t=new Set((SCENE.props||[]).map(p=>p.type));
+  const water=t.has("reeds")||t.has("piling")||t.has("boat");
+  const warm=t.has("hearthfire")||t.has("campfire")||t.has("brazier")||t.has("tavern");
+  const bare=(SCENE.props||[]).length<=6;
+  const hues=(SCENE.npcs||[]).map(n=>n.hue).filter(h=>h!=null);
+  const hue=hues.length?Math.round(Math.atan2(hues.reduce((s,h)=>s+Math.sin(h*Math.PI/180),0),
+                                              hues.reduce((s,h)=>s+Math.cos(h*Math.PI/180),0))*180/Math.PI+360)%360:258;
+  MISTCFG={n:bare?3:(water?8:(warm?5:6)), a:water?0.105:(warm?0.062:0.080), hue:warm?(hue+20)%360:hue};
+  MIST=[];
+  for(let i=0;i<MISTCFG.n;i++) MIST.push({x:Math.random()*cv.width, y:cv.height*(0.26+Math.random()*0.56),
+    w:190+Math.random()*300, h:38+Math.random()*52, v:0.06+Math.random()*0.16, p:Math.random()*6.28});
+}
+function drawMist(){
+  if(!MISTCFG) seedMist();
+  for(const m of MIST){
+    m.x+=m.v; if(m.x-m.w>cv.width) m.x=-m.w;
+    const breathe=0.72+0.28*Math.sin(lastT/2600+m.p);
+    const g=ctx.createRadialGradient(m.x,m.y,0,m.x,m.y,m.w);
+    g.addColorStop(0,`hsla(${MISTCFG.hue} 30% 74% / ${MISTCFG.a*breathe})`);
+    g.addColorStop(1,"hsla(0 0% 0% / 0)");
+    ctx.save(); ctx.translate(m.x,m.y); ctx.scale(1,m.h/m.w); ctx.translate(-m.x,-m.y);
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(m.x,m.y,m.w,0,7); ctx.fill(); ctx.restore();
+  }
+}
 // pyreflies: slow-drifting soul-motes, denser where the dead are thickest
 let PYRE=[];
 function seedPyreflies(){ const spirits=activeNpcs().length; PYRE=[];
@@ -659,6 +688,7 @@ function render(){
   // exit label on hover — tells you where the causeway goes
   if(hoverExit&&hoverExit.label){ const s=iso(hoverExit.tx,hoverExit.ty); ctx.font="600 12px Iowan Old Style, Georgia, serif"; const w=ctx.measureText(hoverExit.label).width;
     ctx.fillStyle="rgba(12,16,22,.86)"; ctx.fillRect(s.x-w/2-7,s.y-44,w+14,18); ctx.fillStyle="#bcd6ec"; ctx.textAlign="center"; ctx.fillText(hoverExit.label,s.x,s.y-31); }
+  drawMist();                            // weather sits between the world and the souls
   drawPyreflies();                       // souls drift over everything
   if(MINIMAP) drawMinimap();
   // travel fade — the world dissolves and reforms as you cross
