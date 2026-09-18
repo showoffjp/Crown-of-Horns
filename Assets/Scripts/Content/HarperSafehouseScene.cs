@@ -31,7 +31,7 @@ namespace SunderedCrown.Content
             gridGO.AddComponent<TileFloorRenderer>();
 
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 6.5f;
             cam.transform.position = grid.GridToWorld(7, 5) + new Vector3(0, 0, -10);
             cam.backgroundColor = new Color(0.10f, 0.10f, 0.13f);

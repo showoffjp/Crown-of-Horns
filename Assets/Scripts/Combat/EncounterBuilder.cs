@@ -59,7 +59,7 @@ namespace SunderedCrown.Combat
 
             // Camera (persistent: not parented, reused across modes).
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 7f;
             cam.transform.position = grid.GridToWorld(gridWidth / 2, gridHeight / 2) + new Vector3(0, 0, -10);
             if (cam.GetComponent<SunderedCrown.CameraRig.IsometricCameraController>() == null)

@@ -145,3 +145,26 @@ If you want scene-stored references to survive across machines, commit the
 `.cs.meta` files Unity generates on import (they are already un-ignored by
 `.gitignore`). Do that from **one** machine and let the others pull, so the
 GUIDs agree.
+
+## Two builds, very different fidelity
+
+This repo contains **two games sharing one body of content**:
+
+* **The web build** — `play/crown_of_horns.html` (and `play/town_market.html`).
+  This is the polished one: painted zone backdrops, weather, pyreflies, portrait
+  cards in dialogue, world map with fog of war, WebAudio ambience. Open it in a
+  browser; it needs no build step.
+* **The Unity project** — a **greybox skeleton**. It shares the zone/dialogue/
+  quest data and uses the generated portraits and battle tokens, but renders the
+  world with untextured primitives. There is no floor art, no backdrop, and no
+  scene lighting.
+
+Screenshots of "the game looking good" are the web build. Do not expect the
+Unity Game view to resemble them until the renderer is actually wired to art.
+
+Known Unity-side gaps, roughly in order of payoff:
+
+1. Floor/props render as tinted primitives — no tile art (`Assets/Resources/Art/DCSS`
+   holds 114 CC0 tiles that nothing in Unity currently loads).
+2. No scene lighting; the Boot scene is empty and cameras are built in code.
+3. `play/maps/*.jpg` (the painted zone floors) are web-only and have no Unity path.

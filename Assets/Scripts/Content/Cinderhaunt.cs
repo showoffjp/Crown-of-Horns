@@ -49,7 +49,7 @@ namespace SunderedCrown.Content
 
             // Camera.
             var cam = Camera.main;
-            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); }
+            if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }
             cam.orthographic = true; cam.orthographicSize = 8f;
             cam.transform.position = grid.GridToWorld(W / 2, H / 2) + new Vector3(0, 0, -10);
             if (cam.GetComponent<SunderedCrown.CameraRig.IsometricCameraController>() == null)
