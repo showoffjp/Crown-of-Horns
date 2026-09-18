@@ -127,3 +127,21 @@ delete `Library/` and reopen:
 Get-ChildItem Packages -Force | Where-Object { $_.LinkType } | ForEach-Object { $_.Delete() }
 Remove-Item -Recurse -Force Library
 ```
+
+## Running the game in Unity
+
+`Assets/Scenes/Boot.unity` is the only scene in Build Settings and it ships
+**empty** (zero GameObjects). Pressing Play worked only because
+`Assets/Scripts/Core/AutoBoot.cs` spawns `CampaignBootstrap` via
+`[RuntimeInitializeOnLoadMethod]` when the active scene is named `Boot`.
+
+It is done at runtime rather than saved into the scene because **script .meta
+files are largely uncommitted** (38 of 231), so script GUIDs are generated per
+machine — a MonoBehaviour reference stored in the scene would load as "missing
+script" on any other clone. `CampaignBootstrap` has no serialized fields, so
+nothing needs Inspector wiring.
+
+If you want scene-stored references to survive across machines, commit the
+`.cs.meta` files Unity generates on import (they are already un-ignored by
+`.gitignore`). Do that from **one** machine and let the others pull, so the
+GUIDs agree.
