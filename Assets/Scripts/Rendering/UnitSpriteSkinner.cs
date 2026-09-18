@@ -38,12 +38,21 @@ namespace SunderedCrown.Rendering
         private static Sprite Resolve(GridUnit u)
         {
             string name = u.Sheet != null ? u.Sheet.displayName : null;
+            string cls = u.Sheet != null && u.Sheet.classDef != null ? u.Sheet.classDef.className : null;
+
             // A standee first. Resources/Sprites holds *battle tokens*: circular UI
             // chips with the unit's initials and its name printed across the bottom.
             // Stood in the world those read as poker counters with captions, which is
             // what the party looked like. They stay as the last-resort fallback so a
             // unit with no painted soul still gets something.
+            //
+            // Class and faction come before the tokens because the player character
+            // can never have a portrait of their own: their name is whatever was typed
+            // at character creation. Without this the one unit the player looks at
+            // most was the last cube left on screen.
             return WorldArt.Standee(name)
+                ?? WorldArt.Standee(cls)
+                ?? WorldArt.Standee(u.faction.ToString())
                 ?? WorldArt.Sprite(name)
                 ?? WorldArt.Sprite(FirstWord(name))
                 ?? WorldArt.Sprite(u.faction.ToString());

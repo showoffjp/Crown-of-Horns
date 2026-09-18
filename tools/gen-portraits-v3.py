@@ -422,8 +422,12 @@ def finish(img, era, dark, rnd):
 def make_portrait(name, meta, standee=False):
     seed = int(hashlib.md5(name.encode()).hexdigest(), 16)
     rnd = random.Random(seed)
-    arch = archetype(name, meta["title"])
-    dark = menace(name, meta["title"])
+    # "arch"/"dark" let a caller name the archetype outright instead of hoping the
+    # keyword classifier guesses it. Used for the class archetypes in
+    # tools/gen-standees.py, whose names ("Fighter", "Rogue") are not the sort of
+    # phrase the classifier reads.
+    arch = meta.get("arch") or archetype(name, meta["title"])
+    dark = meta["dark"] if "dark" in meta else menace(name, meta["title"])
     era = palette(meta.get("hue", 40), dark)
     if arch == "icon":
         img = paint_icon(name, meta["sigil"], era, rnd, standee)

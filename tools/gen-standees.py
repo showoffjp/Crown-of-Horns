@@ -180,6 +180,25 @@ def write(name, img):
         f.write(META.format(guid=hashlib.md5(rel.encode()).hexdigest()))
     return os.path.getsize(path)
 
+# A standee for a class and for a faction, so a unit with no painted soul still
+# gets a person. The player character is the case that matters: their name is
+# whatever was typed at character creation, so no portrait can ever exist for them,
+# and they were rendering as the one thing the whole branch set out to remove — a
+# coloured cube, or a UI token chip with "Player" printed under it.
+ARCHETYPES = {
+    "Fighter":   dict(arch="warrior",  hue=28,  dark=False, sigil="\u2694"),
+    "Barbarian": dict(arch="warrior",  hue=8,   dark=False, sigil="\u2694"),
+    "Cleric":    dict(arch="priest",   hue=46,  dark=False, sigil="\u2696"),
+    "Ranger":    dict(arch="elf",      hue=118, dark=False, sigil="\u27b3"),
+    "Rogue":     dict(arch="rogue",    hue=264, dark=False, sigil="\u25c6"),
+    "Wizard":    dict(arch="mage",     hue=212, dark=False, sigil="\u2726"),
+    # Faction fallbacks, coloured like the battle tokens they replace.
+    "Player":    dict(arch="warrior",  hue=212, dark=False, sigil="\u2726"),
+    "Ally":      dict(arch="commoner", hue=138, dark=False, sigil="\u25cf"),
+    "Enemy":     dict(arch="spirit",   hue=2,   dark=True,  sigil="\u2620"),
+    "Neutral":   dict(arch="commoner", hue=44,  dark=False, sigil="\u25cb"),
+}
+
 def main():
     gp = _painter()
     os.makedirs(OUT, exist_ok=True)
@@ -199,6 +218,12 @@ def main():
         else:
             total += write(name, gp.make_portrait(name, meta, standee=True))
             painted += 1
+
+    for name, spec in sorted(ARCHETYPES.items()):
+        meta = {"title": "", "sigil": spec["sigil"], "hue": spec["hue"],
+                "arch": spec["arch"], "dark": spec["dark"], "zone": "archetype"}
+        total += write(name, gp.make_portrait(name, meta, standee=True))
+        painted += 1
 
     # Anything else with a portrait on disk gets a standee too.
     for path in sorted(glob.glob(os.path.join(PORTRAITS, "*.png"))):

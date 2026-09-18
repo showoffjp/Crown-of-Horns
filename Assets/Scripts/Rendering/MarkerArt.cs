@@ -133,6 +133,12 @@ namespace SunderedCrown.Rendering
             var fallback = WorldArt.Standee(label);
             if (fallback != null) return fallback;
 
+            // Last resort for someone you can talk to: a person-shaped standee beats
+            // a coloured cube, and a marker whose label this does not recognise is
+            // still, definitionally, somebody.
+            if (kind == InteractionKind.Talk)
+                return WorldArt.Standee("Neutral") ?? PropArt.Load("figure");
+
             return null;
         }
 

@@ -232,6 +232,14 @@ the previous one left:
    so before this they had no face in either build. Their palette comes from the
    zone whose conversations they appear in, not from a hash of the name.
 
+`gen-standees.py` also paints an **archetype** standee per class (Fighter,
+Barbarian, Cleric, Ranger, Rogue, Wizard) and per faction (Player, Ally, Enemy,
+Neutral). `UnitSpriteSkinner` walks name → class → faction → battle token, which
+is the only way to give the **player character** a body: their display name is
+whatever was typed at character creation, so no portrait can ever exist for it,
+and they were the last cube left on screen. `MarkerArt` ends the same way for a
+talkable marker — an unrecognised label is still somebody.
+
 Names in **`tools/legacy-portraits.txt`** are never repainted — their art predates
 this generator and is better than what a fallback hue would produce. Their
 standees are cut out of the existing painting instead (a border flood-fill that

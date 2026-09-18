@@ -1979,12 +1979,14 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Aelith.png",uncategorized,png,4.4KB,4476,no
 "Assets/Resources/Standees/Aldric Morn (the tea is on).png",uncategorized,png,33KB,32951,no
 "Assets/Resources/Standees/Aldric Morn.png",uncategorized,png,4.7KB,4777,no
+"Assets/Resources/Standees/Ally.png",uncategorized,png,4.1KB,4143,no
 "Assets/Resources/Standees/An Old Elf Outside the Walls.png",uncategorized,png,4.3KB,4403,no
 "Assets/Resources/Standees/Ander.png",uncategorized,png,4.5KB,4519,no
 "Assets/Resources/Standees/Ansel.png",uncategorized,png,4.2KB,4299,no
 "Assets/Resources/Standees/Anwen.png",uncategorized,png,4.6KB,4609,no
 "Assets/Resources/Standees/Archivist Threnn.png",uncategorized,png,4.2KB,4269,no
 "Assets/Resources/Standees/Baba Yelena.png",uncategorized,png,4.3KB,4343,no
+"Assets/Resources/Standees/Barbarian.png",uncategorized,png,4.8KB,4847,no
 "Assets/Resources/Standees/Big Sorrel.png",uncategorized,png,4.2KB,4271,no
 "Assets/Resources/Standees/Bink.png",uncategorized,png,3.9KB,3980,no
 "Assets/Resources/Standees/Brand.png",uncategorized,png,4.2KB,4283,no
@@ -2014,6 +2016,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Choir Streetpreacher.png",uncategorized,png,4.0KB,3996,no
 "Assets/Resources/Standees/Cinder.png",uncategorized,png,4.7KB,4751,no
 "Assets/Resources/Standees/Cipher.png",uncategorized,png,4.8KB,4866,no
+"Assets/Resources/Standees/Cleric.png",uncategorized,png,5.0KB,5065,no
 "Assets/Resources/Standees/Clip.png",uncategorized,png,4.1KB,4105,no
 "Assets/Resources/Standees/Coffer.png",uncategorized,png,4.2KB,4253,no
 "Assets/Resources/Standees/Coll.png",uncategorized,png,4.8KB,4895,no
@@ -2041,10 +2044,12 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Elga.png",uncategorized,png,4.5KB,4586,no
 "Assets/Resources/Standees/Eli.png",uncategorized,png,13KB,12860,no
 "Assets/Resources/Standees/Elminster.png",uncategorized,png,4.2KB,4253,no
+"Assets/Resources/Standees/Enemy.png",uncategorized,png,6.6KB,6744,no
 "Assets/Resources/Standees/Esuele.png",uncategorized,png,3.8KB,3847,no
 "Assets/Resources/Standees/Father Brisk.png",uncategorized,png,3.9KB,3963,no
 "Assets/Resources/Standees/Ferrin.png",uncategorized,png,4.4KB,4417,no
 "Assets/Resources/Standees/Ferryman.png",uncategorized,png,44KB,44957,no
+"Assets/Resources/Standees/Fighter.png",uncategorized,png,4.7KB,4788,no
 "Assets/Resources/Standees/First Reader Ovid.png",uncategorized,png,3.9KB,3980,no
 "Assets/Resources/Standees/Flaming Fist Sergeant.png",uncategorized,png,4.3KB,4391,no
 "Assets/Resources/Standees/Flaming Fist.png",uncategorized,png,44KB,45011,no
@@ -2145,6 +2150,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Naeve.png",uncategorized,png,44KB,44430,no
 "Assets/Resources/Standees/Nessa.png",uncategorized,png,3.9KB,3936,no
 "Assets/Resources/Standees/Nettle.png",uncategorized,png,4.1KB,4181,no
+"Assets/Resources/Standees/Neutral.png",uncategorized,png,4.3KB,4379,no
 "Assets/Resources/Standees/Neven.png",uncategorized,png,4.5KB,4528,no
 "Assets/Resources/Standees/Nim.png",uncategorized,png,4.2KB,4266,no
 "Assets/Resources/Standees/Odell.png",uncategorized,png,4.2KB,4242,no
@@ -2179,12 +2185,14 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Pib.png",uncategorized,png,4.1KB,4175,no
 "Assets/Resources/Standees/Pim.png",uncategorized,png,4.3KB,4346,no
 "Assets/Resources/Standees/Pip.png",uncategorized,png,4.2KB,4207,no
+"Assets/Resources/Standees/Player.png",uncategorized,png,4.5KB,4536,no
 "Assets/Resources/Standees/Posset.png",uncategorized,png,4.5KB,4568,no
 "Assets/Resources/Standees/Proctor Ynn.png",uncategorized,png,4.1KB,4129,no
 "Assets/Resources/Standees/Quietknife Senna.png",uncategorized,png,4.1KB,4191,no
 "Assets/Resources/Standees/Quill-and-Ledger Mas.png",uncategorized,png,7.5KB,7628,no
 "Assets/Resources/Standees/Quill.png",uncategorized,png,38KB,37894,no
 "Assets/Resources/Standees/Raistlin Majere.png",uncategorized,png,4.5KB,4603,no
+"Assets/Resources/Standees/Ranger.png",uncategorized,png,4.6KB,4709,no
 "Assets/Resources/Standees/Reeve Oddleif.png",uncategorized,png,4.2KB,4294,no
 "Assets/Resources/Standees/Regis.png",uncategorized,png,4.2KB,4278,no
 "Assets/Resources/Standees/Rell.png",uncategorized,png,4.1KB,4143,no
@@ -2192,6 +2200,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Roen Alleywind.png",uncategorized,png,33KB,33271,no
 "Assets/Resources/Standees/Roen — back in the gutter that made him.png",uncategorized,png,4.0KB,4006,no
 "Assets/Resources/Standees/Roen.png",uncategorized,png,40KB,40466,no
+"Assets/Resources/Standees/Rogue.png",uncategorized,png,4.3KB,4340,no
 "Assets/Resources/Standees/Rook.png",uncategorized,png,4.5KB,4581,no
 "Assets/Resources/Standees/Rue.png",uncategorized,png,3.9KB,3990,no
 "Assets/Resources/Standees/Sable, of Hollowmere.png",uncategorized,png,6.0KB,6099,no
@@ -2321,6 +2330,7 @@ path,category,type,size,size_bytes,lfs
 "Assets/Resources/Standees/Wick.png",uncategorized,png,4.7KB,4729,no
 "Assets/Resources/Standees/Wickless.png",uncategorized,png,4.1KB,4111,no
 "Assets/Resources/Standees/Wisp.png",uncategorized,png,6.3KB,6361,no
+"Assets/Resources/Standees/Wizard.png",uncategorized,png,4.3KB,4303,no
 "Assets/Resources/Standees/Wren the Younger.png",uncategorized,png,3.9KB,3990,no
 "Assets/Resources/Standees/Wren.png",uncategorized,png,4.3KB,4347,no
 "Assets/Resources/Standees/Wrenna Alleywind.png",uncategorized,png,39KB,39402,no
