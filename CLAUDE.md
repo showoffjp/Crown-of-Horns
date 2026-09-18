@@ -80,9 +80,50 @@ then reopen the project and let it reimport.
 The only static C# guards are:
 
 ```bash
-bash tools/check-cs-structure.sh     # brace balance + one namespace per file
-python3 tools/check-asmdef-refs.py   # asmdef references vs. what scripts `using`
+bash tools/check-cs-structure.sh      # brace balance + one namespace per file
+python3 tools/check-asmdef-refs.py    # asmdef references vs. what scripts `using`
+python3 tools/check-package-lock.py   # lock file vs. manifest dependencies
 ```
 
 Both run in the `Repo hygiene` job. Treat a green CI as saying nothing about
 whether the Unity project actually compiles.
+
+### packages-lock.json
+
+Unity resolves packages **from the lock file** when one exists, so a lock that
+omits a manifest dependency half-wires that package: its source extracts into
+`Library/PackageCache` but its assembly references are never established, and it
+fails to compile its own files. That is what produced
+
+    Library/PackageCache/com.unity.ugui@.../UI/Core/Dropdown.cs:
+    error CS0246: The type or namespace name 'Image' could not be found
+
+The committed lock held 37 builtin modules and **no registry packages**, while
+the manifest required `com.unity.ugui` and `com.unity.test-framework`. Deleting
+`Library/` never helped, because the lock lives in `Packages/` and was tracked.
+
+Having no lock file is fine — Unity regenerates one on open. If you commit a
+regenerated lock, `tools/check-package-lock.py` will verify it stays consistent.
+
+### Packages/ must contain only manifest.json
+
+Unity treats **any folder inside `Packages/`** as an *embedded* package that
+overrides the registry version `manifest.json` asks for. Symlinked package
+folders there (`Packages/com.unity.ugui -> ...`) make Unity load uGUI from a
+path it does not manage, so the `UnityEngine.UI` assembly never exists and
+every script using it fails with
+
+    CS0234: The type or namespace name 'UI' does not exist in the namespace
+    'UnityEngine'
+
+alongside editor warnings that "assets located in immutable packages were
+unexpectedly altered". `tools/check-package-lock.py` fails on any stray entry.
+
+To recover, with Unity closed, delete the **links** (never their targets), then
+delete `Library/` and reopen:
+
+```powershell
+# Windows PowerShell, from the project root
+Get-ChildItem Packages -Force | Where-Object { $_.LinkType } | ForEach-Object { $_.Delete() }
+Remove-Item -Recurse -Force Library
+```

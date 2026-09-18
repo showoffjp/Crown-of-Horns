@@ -57,6 +57,11 @@ jobs:
       - name: Assembly definition references
         run: python3 tools/check-asmdef-refs.py
 
+      # A lock file missing a manifest dependency makes Unity half-wire that
+      # package, so it fails to compile its own source (the 'Image' CS0246).
+      - name: Package lock consistency
+        run: python3 tools/check-package-lock.py
+
   unity-tests:
     name: Unity EditMode tests
     runs-on: ubuntu-latest
