@@ -54,3 +54,23 @@ wired from an existing zone onto a walkable tile, `NPC_SENSE` entries for any
 sense-reads, and — per the house contract the gate enforces — a `[RETURNED]`
 tagged choice on every NPC conversation, terminal nodes with no `choices` key,
 and exhaustive `variants` (the last one unconditioned).
+
+## Unity import / Safe Mode
+
+`Assets/Scripts/SunderedCrown.asmdef` governs all scripts under `Assets/Scripts`.
+An assembly definition replaces the default auto-references, so **every Unity
+assembly a script uses must be listed in its `references`**. `CombatHUD.cs` uses
+`UnityEngine.UI` and `UnityEngine.EventSystems` (both live in the
+`UnityEngine.UI` assembly from `com.unity.ugui`), so that reference is required —
+omitting it yields `CS0246: The type or namespace name 'Image' could not be
+found`.
+
+Errors reported against files under `Library/PackageCache/...` are **not** fixable
+from this repo: they mean the local package cache is stale or half-extracted.
+Recover with Unity closed:
+
+```bash
+rm -rf Library/PackageCache Library/ScriptAssemblies    # safe: both are regenerated
+```
+
+then reopen the project and let it reimport.
