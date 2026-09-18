@@ -34,7 +34,7 @@ rebuild before the gate:
 
 ```bash
 python3 tools/gen-portraits-v3.py       # Assets/Resources/Portraits (Unity PNGs)
-python3 tools/gen-standees.py           # Assets/Resources/Standees (world cut-outs)
+python3 tools/gen-standees.py           # Assets/Resources/Standees (world cut-outs)   [after portraits]
 python3 tools/gen-props.py              # Assets/Resources/Props (chests, doors, …)
 python3 tools/gen-lit-tiles.py          # Art/DCSS/lit  (brightness-corrected tiles)
 python3 tools/gen-iso-tiles.py          # Art/DCSS/iso  (diamond floor sprites)
@@ -216,6 +216,33 @@ adding art code to individual content files.
   they read as framed pictures hovering in mid-air. Battle tokens
   (`Resources/Sprites`) are worse — circular UI chips with the unit's name printed
   across the bottom.
+
+### Who gets a face
+
+`roster()` in `gen-portraits-v3.py` reads three sources, each only filling gaps
+the previous one left:
+
+1. **zone `scene.npcs`** in `play/*.json` — souls you can walk up to, with their
+   authored hue, sigil and title. These the generator owns outright.
+2. **Unity content files** — `MakeNpc(grid, "…")` labels and unit `displayName`s.
+   The Unity scenes place souls the web zones never do.
+3. **dialogue speakers** — every `speaker` string anywhere in `play/*.json`. This
+   is where most of the cast lives: the companions (Naeve, Varra, Roen, Maerin,
+   Sister Garrow) and antagonists like The Last Returned never stand in a scene,
+   so before this they had no face in either build. Their palette comes from the
+   zone whose conversations they appear in, not from a hash of the name.
+
+Names in **`tools/legacy-portraits.txt`** are never repainted — their art predates
+this generator and is better than what a fallback hue would produce. Their
+standees are cut out of the existing painting instead (a border flood-fill that
+follows the backdrop's gradient but cannot cross the figure's hard edge; keep the
+tolerance low or it walks straight through a near-black robe). Add a name there to
+protect a portrait you have replaced by hand.
+
+Both generators are **reproducible**: two runs write byte-identical files, so
+`git status` after a regeneration shows only what actually changed. That was not
+true before — `finish()` grained every portrait with `Image.effect_noise`, which
+draws on PIL's own unseeded generator, so every run rewrote all ~478 files.
 * **`Rendering/TileFloorRenderer.cs`** — draws the floor from the **diamond**
   sprites in `Resources/Art/DCSS/iso/<group>/<family>N`, with a deterministic
   per-cell variant so rooms do not visibly repeat. Blocked cells become raised

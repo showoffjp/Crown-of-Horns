@@ -17,11 +17,15 @@ pivot so it stands on its tile instead of hovering over it.
 Deterministic, and it does not touch Assets/Resources/Portraits.
 Re-run: python3 tools/gen-standees.py
 """
-import hashlib, importlib.util, os
+import glob, hashlib, importlib.util, os
+from collections import deque
 from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = os.path.join(ROOT, "Assets", "Resources", "Standees")
+PORTRAITS = os.path.join(ROOT, "Assets", "Resources", "Portraits")
+
+CUT_TOL = 6      # per-channel step tolerance while following the backdrop gradient
 
 def _painter():
     """gen-portraits-v3.py has dashes in its name, so import it by path."""
@@ -32,6 +36,60 @@ def _painter():
     return mod
 
 KEY = (12, 10, 16, 225)
+
+def cutout(im, tol=CUT_TOL):
+    """Separate a painted portrait's figure from its backdrop.
+
+    Needed for the portraits the v3 roster does not own: roughly thirty faces
+    painted by the earlier generator, among them Naeve, Varra, Sister Garrow, Roen
+    and Maerin — i.e. the main companions. Re-running the v3 painter on them would
+    work, but it would also repaint them, and their v2 art is the better art.
+
+    The backdrop is a smooth gradient with soft glows and a vignette; the figure is
+    flat-shaded with hard edges. So flood from the border, stepping only between
+    neighbouring pixels of near-identical colour: the gradient chains together,
+    while the figure's edge is a cliff the flood cannot cross. The tolerance has to
+    stay low — at 16 the flood walks straight through Roen's near-black robe and
+    leaves a floating head.
+    """
+    im = im.convert("RGB")
+    w, h = im.size
+    px = im.load()
+    bg = bytearray(w * h)
+    q = deque()
+
+    def seed(x, y):
+        i = y * w + x
+        if not bg[i]:
+            bg[i] = 1
+            q.append((x, y))
+
+    for x in range(w):
+        seed(x, 0)                      # the top edge is always backdrop
+    for y in range(int(h * 0.55)):      # the sides, down to about the shoulders
+        seed(0, y); seed(w - 1, y)
+
+    while q:
+        x, y = q.popleft()
+        c = px[x, y]
+        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                continue
+            i = ny * w + nx
+            if bg[i]:
+                continue
+            d = px[nx, ny]
+            if abs(d[0] - c[0]) <= tol and abs(d[1] - c[1]) <= tol and abs(d[2] - c[2]) <= tol:
+                bg[i] = 1
+                q.append((nx, ny))
+
+    alpha = Image.frombytes("L", (w, h), bytes(255 if not v else 0 for v in bg))
+    # Drop the grain specks the backdrop's noise pass strands, then grow back to the
+    # original edge so the figure does not come out shrunken.
+    alpha = alpha.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
+    out = im.convert("RGBA")
+    out.putalpha(alpha)
+    return out
 
 def keyline(img, width=3):
     """Lay a dilated dark silhouette under the figure. Without it a robe in the
@@ -114,20 +172,44 @@ TextureImporter:
   assetBundleVariant:\x20
 """
 
+def write(name, img):
+    path = os.path.join(OUT, name + ".png")
+    crop_centred(keyline(taper(img))).save(path, optimize=True)
+    rel = "Assets/Resources/Standees/" + name + ".png"
+    with open(path + ".meta", "w") as f:
+        f.write(META.format(guid=hashlib.md5(rel.encode()).hexdigest()))
+    return os.path.getsize(path)
+
 def main():
     gp = _painter()
     os.makedirs(OUT, exist_ok=True)
     souls = gp.roster()
-    total = 0
+    legacy = gp.legacy_names()
+    total = painted = cut = 0
+
     for name, meta in sorted(souls.items()):
-        img = crop_centred(keyline(taper(gp.make_portrait(name, meta, standee=True))))
-        path = os.path.join(OUT, name + ".png")
-        img.save(path, optimize=True)
-        rel = "Assets/Resources/Standees/" + name + ".png"
-        with open(path + ".meta", "w") as f:
-            f.write(META.format(guid=hashlib.md5(rel.encode()).hexdigest()))
-        total += os.path.getsize(path)
-    print(f"Cut {len(souls)} world standees ({total // 1024} KB) into Assets/Resources/Standees/")
+        art = os.path.join(PORTRAITS, name + ".png")
+        # Mirror the portrait generator: a soul it only fills a gap for keeps the art
+        # it already has, so the standee is cut from that painting rather than
+        # repainted into a different one. Otherwise a companion would walk around the
+        # world in colours their own dialogue portrait never uses.
+        if name in legacy and os.path.exists(art):
+            total += write(name, cutout(Image.open(art)))
+            cut += 1
+        else:
+            total += write(name, gp.make_portrait(name, meta, standee=True))
+            painted += 1
+
+    # Anything else with a portrait on disk gets a standee too.
+    for path in sorted(glob.glob(os.path.join(PORTRAITS, "*.png"))):
+        name = os.path.splitext(os.path.basename(path))[0]
+        if name in souls:
+            continue
+        total += write(name, cutout(Image.open(path)))
+        cut += 1
+
+    print(f"Wrote {painted + cut} world standees ({total // 1024} KB) into "
+          f"Assets/Resources/Standees/ — {painted} repainted, {cut} cut from legacy portraits")
 
 if __name__ == "__main__":
     main()

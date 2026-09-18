@@ -176,7 +176,13 @@ namespace SunderedCrown.Rendering
             if (_shadow != null) return _shadow;
 
             const int N = 64;
-            var tex = new Texture2D(N, N, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+            // DontSave keeps it alive across scene loads; every mode transition in this
+            // game loads a scene, and a destroyed texture would take the shadows with it.
+            var tex = new Texture2D(N, N, TextureFormat.RGBA32, false)
+            {
+                wrapMode = TextureWrapMode.Clamp,
+                hideFlags = HideFlags.DontSave,
+            };
             var px = new Color32[N * N];
             float r = N * 0.5f;
             for (int y = 0; y < N; y++)
@@ -191,6 +197,7 @@ namespace SunderedCrown.Rendering
             tex.Apply();
 
             _shadow = Sprite.Create(tex, new Rect(0, 0, N, N), new Vector2(0.5f, 0.5f), N);
+            _shadow.hideFlags = HideFlags.DontSave;
             return _shadow;
         }
     }

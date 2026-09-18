@@ -1,0 +1,58 @@
+# Portraits that predate tools/gen-portraits-v3.py and must not be repainted.
+# These souls are not scene NPCs, so the v3 roster only reaches them through its
+# fallback harvest (Unity content files, dialogue speakers). Painting them from a
+# hashed hue would replace hand-checked art with arbitrary colours, so both
+# gen-portraits-v3.py and gen-standees.py leave these files alone and cut their
+# standees out of the existing painting instead.
+#
+# Regenerate with: git ls-tree -r --name-only <rev> Assets/Resources/Portraits
+# minus the souls the v3 roster owns. Adding a name here preserves that portrait.
+A Faithless soul
+A Faithless soul, half-dissolved
+A Grey Gravedigger
+A Half-Unmade Voice
+A Keeper of the Bone Crown
+A bored Flaming Fist picket
+A girl in the Wall
+A girl in the Wall (Maerin)
+A huddle of the unclaimed
+A smuggler keeping to the shadows
+A wary Harper handler
+A weary dockhand
+Aldric Morn (the tea is on)
+Brother Sere
+Collector Vane
+Ferryman
+Flaming Fist
+Garrow
+Harper Handler
+Hensley, dying
+Herald of the Gate
+High Lord Aelryth
+Ilfaeril (of the High Court)
+Justiciar Veld
+Maerin
+Mhaere
+Mhaere's sister, a fishwife
+Mother Cass
+Mother Cass, the almshouse keeper
+NPC
+Naeve
+Naeve (trapped in rubble)
+Old Davyn
+Quill
+Roen
+Roen Alleywind
+Sable
+Sergeant Kallia
+Sister Garrow
+Tally
+Tally (a one-eyed storyteller)
+Tally (between the pages)
+The Pale Cantor
+The Returned
+The unclaimed
+Vaelin (an echo)
+Varra
+Varra (a tiefling warlock)
+Wrenna Alleywind

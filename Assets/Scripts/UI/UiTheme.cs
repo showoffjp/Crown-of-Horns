@@ -69,9 +69,13 @@ namespace SunderedCrown.UI
         /// so it is safe to call from every frame's GUI pass.</summary>
         public static void Apply()
         {
-            if (_applied) return;
             var s = GUI.skin;
             if (s == null) return;
+            // The generated textures are destroyed when play mode exits, but the flag
+            // only resets on a domain reload — and "Enter Play Mode Options" can turn
+            // that off. Re-check the skin itself rather than trusting the flag alone,
+            // or a second play session draws every panel with a destroyed background.
+            if (_applied && s.box != null && s.box.normal.background != null) return;
 
             var panel  = Panel(Ink, InkLift, Gilt);
             var button = Panel(BtnFill, Lift(BtnFill), Gilt);
