@@ -74,3 +74,15 @@ rm -rf Library/PackageCache Library/ScriptAssemblies    # safe: both are regener
 ```
 
 then reopen the project and let it reimport.
+
+**CI does not compile C#.** The `Unity EditMode tests` job self-skips unless a
+`UNITY_LICENSE` secret exists, so it reports green without building anything.
+The only static C# guards are:
+
+```bash
+bash tools/check-cs-structure.sh     # brace balance + one namespace per file
+python3 tools/check-asmdef-refs.py   # asmdef references vs. what scripts `using`
+```
+
+Both run in the `Repo hygiene` job. Treat a green CI as saying nothing about
+whether the Unity project actually compiles.
