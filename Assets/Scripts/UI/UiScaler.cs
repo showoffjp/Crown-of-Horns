@@ -21,6 +21,11 @@ namespace SunderedCrown.UI
             var s = GUI.skin;
             if (s == null) return;
 
+            // The theme repaints the same shared skin object; it self-guards after the
+            // first call. Doing it here means every screen the campaign puts up is
+            // styled without each one opting in.
+            UiTheme.Apply();
+
             if (!_cached)
             {
                 _label     = Fallback(s.label.fontSize, 12);

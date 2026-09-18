@@ -252,6 +252,20 @@ axis-aligned square tiles dropped on those centres overlap their neighbours by
 half a tile in both axes. That is what made the floor read as a brick *wall* laid
 flat with a staircased edge.
 
+### The IMGUI theme
+
+All ~25 screens draw with `OnGUI` against Unity's built-in skin — the flat grey
+editor chrome — so the HUD, menu and dialogue read as a debug overlay. Rather
+than restyle twenty-five files, `UI/UiTheme.cs` repaints **the shared skin
+object**: `GUI.skin` is global, so mutating its styles carries to every component
+that draws afterwards. That is the same mechanism `UiScaler` uses for text size,
+and the reason a new screen needs no opt-in.
+
+`AutoBoot` puts a `UiThemeApplier` on a DontDestroyOnLoad object, because the
+theme has to exist before the title screen and `UiScaler` is only added by
+`CampaignBootstrap`. `UiTheme` touches colour, background and padding only —
+font sizes stay with the accessibility scale.
+
 ### Everything is 2D
 
 `GridToWorld` fakes the isometry in the **XY plane** and leaves Z for sorting, so

@@ -39,6 +39,7 @@ namespace SunderedCrown.Core
 
             EnsureCamera();
             EnsureLighting();
+            EnsureTheme();
             // Spawning the campaign is NOT this class's job: GameEntryPoint already
             // boots the front-end, and doing it here would race it. Whichever ran
             // first would win, and if this one did, GameEntryPoint would see a live
@@ -70,6 +71,18 @@ namespace SunderedCrown.Core
             cam.backgroundColor = Void;
             cam.transform.position = new Vector3(0f, 0f, -10f);
             go.AddComponent<AudioListener>();     // hand-built cameras need this explicitly
+        }
+
+        /// Repaints Unity's built-in IMGUI skin, which every screen in this game draws
+        /// against. It has to start here rather than with the campaign: the title screen
+        /// is the first thing on screen, and CampaignBootstrap's UiScaler does not exist
+        /// yet. The object survives scene loads so the theme holds across modes.
+        private static void EnsureTheme()
+        {
+            if (Object.FindAnyObjectByType<UI.UiThemeApplier>() != null) return;
+            var go = new GameObject("UI Theme");
+            go.AddComponent<UI.UiThemeApplier>();
+            Object.DontDestroyOnLoad(go);
         }
 
         /// One key light, over a low violet ambient so shadowed faces keep colour.
