@@ -45,3 +45,7 @@ tools/unity-export/
 
 # Generated serial-numbers-filed build (regenerate with: node tools/reskin.js)
 tools/reskin-build/
+
+# Unity regenerates this on open, and a corrupt one silently half-wires packages
+# (see CLAUDE.md). Tracking it also makes every pull abort after Unity rewrites it.
+/Packages/packages-lock.json

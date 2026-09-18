@@ -102,8 +102,12 @@ The committed lock held 37 builtin modules and **no registry packages**, while
 the manifest required `com.unity.ugui` and `com.unity.test-framework`. Deleting
 `Library/` never helped, because the lock lives in `Packages/` and was tracked.
 
-Having no lock file is fine — Unity regenerates one on open. If you commit a
-regenerated lock, `tools/check-package-lock.py` will verify it stays consistent.
+Having no lock file is fine — Unity regenerates one on open, so
+`/Packages/packages-lock.json` is now **gitignored**. Tracking it caused a second
+failure mode beyond the corrupt-lock one: Unity rewrites the file on every open,
+so `git pull` aborts with "Your local changes would be overwritten by merge" and
+the user silently keeps running old code. Recover with
+`git restore Packages/packages-lock.json` then pull.
 
 ### Packages/ must contain only manifest.json
 
@@ -131,9 +135,17 @@ Remove-Item -Recurse -Force Library
 ## Running the game in Unity
 
 `Assets/Scenes/Boot.unity` is the only scene in Build Settings and it ships
-**empty** (zero GameObjects). Pressing Play worked only because
-`Assets/Scripts/Core/AutoBoot.cs` spawns `CampaignBootstrap` via
-`[RuntimeInitializeOnLoadMethod]` when the active scene is named `Boot`.
+**empty** (zero GameObjects). Two runtime hooks furnish it, and they must not
+overlap:
+
+* **`Core/GameEntryPoint.cs`** — the original, and the one that *boots the game*:
+  it spawns the `MainMenu` front-end unless a menu or campaign already exists.
+* **`Core/AutoBoot.cs`** — supplies only the scene furniture nothing else creates
+  early enough: the camera (without one the menu draws over an unrendered scene,
+  "Display 1 — No cameras rendering"), an `AudioListener`, and the project's only
+  `Light`. It must **never** spawn `CampaignBootstrap`: both hooks are
+  `AfterSceneLoad` with undefined order, and if AutoBoot won the race
+  GameEntryPoint would see a live campaign and skip the title screen.
 
 It is done at runtime rather than saved into the scene because **script .meta
 files are largely uncommitted** (38 of 231), so script GUIDs are generated per
