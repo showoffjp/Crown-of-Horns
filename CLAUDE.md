@@ -168,3 +168,24 @@ Known Unity-side gaps, roughly in order of payoff:
    holds 114 CC0 tiles that nothing in Unity currently loads).
 2. No scene lighting; the Boot scene is empty and cameras are built in code.
 3. `play/maps/*.jpg` (the painted zone floors) are web-only and have no Unity path.
+
+### Unity art wiring
+
+Two central hooks give the Unity world its look; prefer extending them over
+adding art code to individual content files.
+
+* **`Rendering/MarkerArt.cs`** — called from `Interactable.Place()`, so it reaches
+  every NPC, door and object in every scene. It looks the marker's `label` up via
+  `WorldArt.Portrait` (portrait → first word → battle token), hides the
+  placeholder cube's mesh while keeping its collider, and adds a billboarded
+  SpriteRenderer normalised to a common world height. No art for that name means
+  the tinted cube simply stays.
+* **`Rendering/TileFloorRenderer.cs`** — textures walkable cells from
+  `Resources/Art/DCSS/floor/<family>N` and blocked cells from `wall/<family>N`,
+  with a deterministic per-cell variant so rooms do not visibly repeat. Scenes set
+  `floorFamily` / `wallFamily` right after `AddComponent` to pick their era:
+  marble for the Crown Wars court, grey_dirt for the Fugue, infernal for
+  Cinderhaunt, tomb for crypts. A missing texture falls back to the old tint.
+
+Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
+tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.

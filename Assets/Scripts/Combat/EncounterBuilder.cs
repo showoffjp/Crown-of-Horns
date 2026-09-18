@@ -46,7 +46,8 @@ namespace SunderedCrown.Combat
             gridGO.transform.SetParent(transform);
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = gridWidth; grid.height = gridHeight; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
-            gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>(); // isometric tiled floor
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "tomb"; _floor.wallFamily = "brick_dark"; // isometric tiled floor
 
             // Managers + uGUI HUD.
             var cm = new GameObject("CombatManager");

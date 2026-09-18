@@ -32,7 +32,8 @@ namespace SunderedCrown.Content
             var grid = gridGO.AddComponent<GridSystem>();
             grid.width = 18; grid.height = 14; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
-            gridGO.AddComponent<TileFloorRenderer>();
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "grey_dirt"; _floor.wallFamily = "stone_dark";
 
             var cam = Camera.main;
             if (cam == null) { var g = new GameObject("Main Camera"); g.tag = "MainCamera"; cam = g.AddComponent<Camera>(); g.AddComponent<AudioListener>(); }

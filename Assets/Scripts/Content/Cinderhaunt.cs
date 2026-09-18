@@ -45,7 +45,8 @@ namespace SunderedCrown.Content
             grid.width = W; grid.height = H; grid.tileWidth = 1f; grid.tileHeight = 0.5f;
             grid.Build();
             BuildWalls(grid, doorOpen);
-            gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            var _floor = gridGO.AddComponent<SunderedCrown.Rendering.TileFloorRenderer>();
+            _floor.floorFamily = "infernal"; _floor.wallFamily = "brick_brown";
 
             // Camera.
             var cam = Camera.main;

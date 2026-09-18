@@ -46,6 +46,8 @@ namespace SunderedCrown.World
             Cell = grid.GetCell(coord);
             if (Cell != null) Cell.walkable = false; // route the party to an adjacent tile
             transform.position = grid.GridToWorld(coord.x, coord.y);
+            // Swap the placeholder cube for painted art when this marker has any.
+            SunderedCrown.Rendering.MarkerArt.Apply(gameObject, label);
         }
     }
 }
