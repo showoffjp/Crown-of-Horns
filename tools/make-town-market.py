@@ -829,7 +829,7 @@ HTML = r"""<!DOCTYPE html>
 </style></head><body>
 <header>
  <h1>👑 The Market of the Causeway</h1>
- <span class="sub">seventy-six walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
+ <span class="sub">__ZONECOUNT__ walkable zones · a whole saga + side quests · the way they answer depends on who you are — and what you did</span>
  <a class="home" href="index.html">← all previews</a>
 </header>
 <div class="wrap">
@@ -1386,8 +1386,14 @@ function render(){
   if(WMAP_OPEN){ drawWorldMap(); return; }
   // floor — painted backdrop when the zone has one (blocked/hover become overlays),
   // else the classic flat shading (blocked tiles read darker; hover lights unless blocked)
-  const bg=BACKDROPS[SCENE.id];
-  if(bg){ ctx.drawImage(bg,0,0,cv.width,cv.height);
+  let bg=BACKDROPS[SCENE.id];
+  // A painted floor is decoration, never a dependency. Loading it from a file://
+  // path taints the canvas, and a strict browser can throw outright on drawImage —
+  // which, unguarded, would kill this frame and every frame after it, leaving a
+  // blank board. On any failure drop the backdrop for good and use flat shading.
+  if(bg){ try{ ctx.drawImage(bg,0,0,cv.width,cv.height); }
+          catch(e){ BACKDROPS[SCENE.id]=null; bg=null; } }
+  if(bg){
     for(let ty=0;ty<SCENE.h;ty++) for(let tx=0;tx<SCENE.w;tx++){ const bl=BLOCKED[tileKey(tx,ty)];
       const hov=hoverTile&&hoverTile.tx===tx&&hoverTile.ty===ty;
       if(!bl&&!hov) continue; const s=iso(tx,ty);
@@ -1646,7 +1652,8 @@ renderBuilds(); renderState(); requestAnimationFrame(loop);
 out = (HTML.replace("__BLOB__", BLOB)
        .replace("__BUILDS__", json.dumps(BUILDS, ensure_ascii=False))
        .replace("__INTLABELS__", json.dumps(INT_LABELS, ensure_ascii=False))
-       .replace("__BANTER__", json.dumps(BANTER_DATA, ensure_ascii=False)))
+       .replace("__BANTER__", json.dumps(BANTER_DATA, ensure_ascii=False))
+       .replace("__ZONECOUNT__", str(len(ALL_SCENES))))
 dst = os.path.join(ROOT, "play", "town_market.html")
 open(dst, "w", encoding="utf-8").write(out)
 _npcs = sum(len(s['npcs']) for s in ALL_SCENES.values())
