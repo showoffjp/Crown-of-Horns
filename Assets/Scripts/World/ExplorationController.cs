@@ -153,9 +153,11 @@ namespace SunderedCrown.World
                 foreach (var item in it.contents)
                     if (item != null) { party.inventory.Add(item); msg += $"· {item.displayName} "; }
             }
-            // Dim the looted container so it reads as opened.
+            // Show it as opened: painted art swaps to the open lid, and a marker
+            // still wearing its placeholder cube just dims.
+            it.RefreshArt();
             var rend = it.GetComponent<Renderer>();
-            if (rend != null) rend.material.color = new Color(0.25f, 0.25f, 0.25f);
+            if (rend != null && rend.enabled) rend.material.color = new Color(0.25f, 0.25f, 0.25f);
             Flash(msg);
         }
 

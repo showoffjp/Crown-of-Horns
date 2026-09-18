@@ -21,7 +21,7 @@ this paints alongside them. Honest placeholders still: for *real* paintings,
 allowlist commons.wikimedia.org and run tools/fetch-portraits.py.
 Re-run: python3 tools/gen-portraits-v3.py
 """
-import colorsys, glob, hashlib, json, math, os, random
+import colorsys, glob, hashlib, json, math, os, random, re
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -44,6 +44,30 @@ EXTRAS = {
               "hue": 45, "sigil": "⚖", "zone": "engine"},
 }
 
+def unity_souls():
+    """NPCs that exist only in the Unity content files.
+
+    roster() reads play/*.json, which covers the web build's cast. The Unity
+    scenes place a further ~19 souls of their own — the Lower City's storyteller,
+    the almshouse keeper, the Harper handler, the girl in the Wall — and those had
+    no portrait at all, so they stayed tinted cubes in the world and blank cards in
+    dialogue. Their display label doubles as the title, which is what the archetype
+    classifier reads ("a tiefling warlock" → mage, "a weary dockhand" → commoner),
+    and the hue is seeded off the name so each is distinct and stable."""
+    out = {}
+    pat = re.compile(r'MakeNpc\(grid,\s*"([^"]+)"')
+    for path in sorted(glob.glob(os.path.join(ROOT, "Assets", "Scripts", "**", "*.cs"), recursive=True)):
+        try:
+            text = open(path, encoding="utf-8", errors="replace").read()
+        except OSError:
+            continue
+        for nm in pat.findall(text):
+            nm = nm.strip()
+            if nm and nm not in out:
+                out[nm] = {"title": nm, "zone": "unity", "sigil": "\u2022",
+                           "hue": int(hashlib.md5(nm.encode()).hexdigest()[:4], 16) % 360}
+    return out
+
 def roster():
     souls = dict(EXTRAS)
     for p in sorted(glob.glob(os.path.join(ROOT, "play", "*.json"))):
@@ -61,6 +85,8 @@ def roster():
             if nm and nm not in souls:
                 souls[nm] = {"title": n.get("title", ""), "hue": n.get("hue", 40),
                              "sigil": n.get("sigil", "?"), "zone": sc.get("id", "")}
+    for nm, meta in unity_souls().items():     # zone-authored data wins on a clash
+        souls.setdefault(nm, meta)
     return souls
 
 # ---- classification ----------------------------------------------------------
@@ -179,7 +205,7 @@ def medallion(d, cx, cy, sigil, era):
     draw_sigil(d, cx, cy - 1, sigil, 20, shade(era["glow"], 1.5))
 
 # ---- the two painters ----------------------------------------------------------
-def paint_icon(name, sigil, era, rnd):
+def paint_icon(name, sigil, era, rnd, standee=False):
     """non-person souls: the sigil held in a ring of its own light"""
     img = vgrad((W, H), shade(era["bg"], 1.5), shade(era["bg"], 0.5))
     cx, cy = W // 2, int(H * 0.44)
@@ -187,6 +213,10 @@ def paint_icon(name, sigil, era, rnd):
         rgl(img, rnd.randint(40, W - 40), rnd.randint(40, H - 60), rnd.randint(50, 130),
             era["glow"], rnd.randint(12, 26))
     rgl(img, cx, cy, 150, era["glow"], 60)
+    if standee:
+        # Same RNG draws, no backdrop: the figure alone, on transparency, for use
+        # as a world standee. The portrait path is byte-for-byte unaffected.
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img, "RGBA")
     # ring
     for rr, wd, f in ((96, 6, 1.2), (112, 2, 0.7)):
@@ -202,12 +232,14 @@ def paint_icon(name, sigil, era, rnd):
               fill=(*shade(era["glow"], 0.35), 120))
     return img
 
-def paint_bust(name, sigil, era, arch, dark, rnd):
+def paint_bust(name, sigil, era, arch, dark, rnd, standee=False):
     spirit = arch == "spirit"
     img = vgrad((W, H), shade(era["bg"], 1.4), shade(era["bg"], 0.55))
     for _ in range(4):
         rgl(img, rnd.randint(0, W), rnd.randint(0, H // 2), rnd.randint(60, 150),
             era["glow"], rnd.randint(14, 30))
+    if standee:
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))   # see paint_icon
     d = ImageDraw.Draw(img, "RGBA")
 
     cx, cy = W // 2, int(H * 0.42)
@@ -315,17 +347,19 @@ def finish(img, era, dark):
     img = Image.composite(img, Image.new("RGB", (W, H), shade(era["bg"], 0.35)), vmask)
     return Image.blend(img, img.filter(ImageFilter.GaussianBlur(2)), 0.22)
 
-def make_portrait(name, meta):
+def make_portrait(name, meta, standee=False):
     seed = int(hashlib.md5(name.encode()).hexdigest(), 16)
     rnd = random.Random(seed)
     arch = archetype(name, meta["title"])
     dark = menace(name, meta["title"])
     era = palette(meta.get("hue", 40), dark)
     if arch == "icon":
-        img = paint_icon(name, meta["sigil"], era, rnd)
+        img = paint_icon(name, meta["sigil"], era, rnd, standee)
     else:
-        img = paint_bust(name, meta["sigil"], era, arch, dark, rnd)
-    return finish(img, era, dark)
+        img = paint_bust(name, meta["sigil"], era, arch, dark, rnd, standee)
+    # finish() is grain + vignette + bloom against an opaque backdrop; a standee
+    # has no backdrop to vignette, so it keeps the flat paint.
+    return img if standee else finish(img, era, dark)
 
 # ---- .meta (same convention as v2) ---------------------------------------------
 META = """fileFormatVersion: 2

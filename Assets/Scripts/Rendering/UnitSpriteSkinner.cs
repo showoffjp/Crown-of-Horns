@@ -38,10 +38,22 @@ namespace SunderedCrown.Rendering
         private static Sprite Resolve(GridUnit u)
         {
             string name = u.Sheet != null ? u.Sheet.displayName : null;
-            return WorldArt.Sprite(name)
+            // A standee first. Resources/Sprites holds *battle tokens*: circular UI
+            // chips with the unit's initials and its name printed across the bottom.
+            // Stood in the world those read as poker counters with captions, which is
+            // what the party looked like. They stay as the last-resort fallback so a
+            // unit with no painted soul still gets something.
+            return WorldArt.Standee(name)
+                ?? WorldArt.Sprite(name)
                 ?? WorldArt.Sprite(FirstWord(name))
                 ?? WorldArt.Sprite(u.faction.ToString());
         }
+
+        /// World height, in units, for a unit — matched to MarkerArt so the party
+        /// and the NPCs they walk past are the same size as each other.
+        private const float UnitHeight = 1.02f;
+        private const float MaxWidth = 1.15f;
+        private const float FootDrop = -0.12f;
 
         private static void Apply(GridUnit u, Sprite sprite)
         {
@@ -51,12 +63,26 @@ namespace SunderedCrown.Rendering
 
             var go = new GameObject("Sprite");
             go.transform.SetParent(u.transform, false);
-            go.transform.localPosition = new Vector3(0f, 0.4f, 0f);
+            go.transform.localPosition = new Vector3(0f, FootDrop, -0.02f);
             var sr = go.AddComponent<SpriteRenderer>();
             sr.sprite = sprite;
             sr.sortingOrder = 10;
+            sr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            sr.receiveShadows = false;
+
+            // Standees are tall and tokens are square; normalise both, and never let
+            // anything grow wider than a tile and a bit.
+            float h = sprite.bounds.size.y, w = sprite.bounds.size.x;
+            if (h > 0.0001f && w > 0.0001f)
+            {
+                float k = Mathf.Min(UnitHeight / h, MaxWidth / w);
+                go.transform.localScale = new Vector3(k, k, k);
+            }
+
             go.AddComponent<CameraBillboard>();
-            go.AddComponent<IsoDepthSorter>().target = sr; // nearer units draw in front, even as they move
+            var depth = go.AddComponent<IsoDepthSorter>(); // nearer units draw in front, even as they move
+            depth.target = sr;
+            depth.basis = u.transform;
         }
 
         private static string FirstWord(string s)
@@ -77,17 +103,29 @@ namespace SunderedCrown.Rendering
         }
     }
 
-    /// <summary>Isometric depth sort: a unit lower/closer on the diamond (greater x+y in world space) draws
-    /// in front. Updates each frame so moving units re-sort correctly. Pairs with the sprite skinner.</summary>
+    /// <summary>Isometric depth sort: a thing lower on screen is nearer the camera and
+    /// draws in front. Updates each frame so moving units re-sort correctly.
+    /// <para>
+    /// Depth is world Y alone. GridToWorld maps the grid to a diamond where Y is
+    /// screen height and X is screen left/right, so the old <c>-(x + y)</c> let a
+    /// marker's horizontal position change its depth: two things standing on the
+    /// same screen row sorted by which was further left, and a near-right sprite
+    /// could draw behind a far-left one.
+    /// </para>
+    /// <para><c>offset</c> separates parts of one marker — a ground shadow rides one
+    /// step behind the art it belongs to.</para></summary>
     public class IsoDepthSorter : MonoBehaviour
     {
         public SpriteRenderer target;
+        public int offset;
+        [Tooltip("Whose position sets the depth. Defaults to this object; set it to the\n        marker root so art lifted off the ground still sorts by the tile it stands on.")]
+        public Transform basis;
 
         void LateUpdate()
         {
             if (target == null) return;
-            var p = transform.position;
-            target.sortingOrder = Mathf.RoundToInt(-(p.x + p.y) * 100f);
+            var t = basis != null ? basis : transform;
+            target.sortingOrder = Mathf.RoundToInt(-t.position.y * 100f) + offset;
         }
     }
 }
