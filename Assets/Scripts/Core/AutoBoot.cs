@@ -1,33 +1,77 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 namespace SunderedCrown.Core
 {
     /// <summary>
-    /// Starts the campaign when the Boot scene plays.
+    /// Brings the Boot scene to life: a camera, a key light, and the campaign.
     /// <para>
-    /// Boot.unity ships with no GameObjects, and this project does not commit
-    /// script .meta files (38 of 231), so script GUIDs are generated per machine.
-    /// A MonoBehaviour reference saved into the scene would therefore resolve as
-    /// "missing script" on any other clone. Spawning the entry point at runtime
-    /// sidesteps GUIDs entirely and works on a fresh checkout.
+    /// Boot.unity ships with no GameObjects, and this project does not commit most
+    /// script .meta files, so script GUIDs differ per machine and a MonoBehaviour
+    /// saved into the scene would load as "missing script" on another clone.
+    /// Everything is therefore built at runtime.
     /// </para>
     /// <para>
-    /// CampaignBootstrap has no serialized fields — its Start() builds the whole
-    /// game via AddComponent — so nothing here needs Inspector wiring.
+    /// The world is drawn with <c>GameObject.CreatePrimitive</c> cubes carrying
+    /// Unity's default <em>lit</em> material. With no light in the scene those
+    /// render black, which is why the game read as flat darkness. A single
+    /// directional key light plus tinted ambient is all the geometry needs.
     /// </para>
     /// </summary>
     public static class AutoBoot
     {
+        // The grey's palette, shared with the web build's backdrops.
+        private static readonly Color Void = new Color(0.047f, 0.043f, 0.063f); // #0c0b10
+        private static readonly Color Ambient = new Color(0.20f, 0.18f, 0.26f);
+        private static readonly Color KeyLight = new Color(1.00f, 0.95f, 0.86f);
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Launch()
         {
-            // Only the Boot scene; the 29 demo scenes bring their own entry points.
+            // Only the Boot scene; the demo scenes bring their own entry points.
             if (SceneManager.GetActiveScene().name != "Boot") return;
-            if (Object.FindAnyObjectByType<CampaignBootstrap>() != null) return;
 
-            var go = new GameObject("CampaignBootstrap");
-            go.AddComponent<CampaignBootstrap>();
+            EnsureCamera();
+            EnsureLighting();
+
+            if (Object.FindAnyObjectByType<CampaignBootstrap>() != null) return;
+            new GameObject("CampaignBootstrap").AddComponent<CampaignBootstrap>();
+        }
+
+        /// A camera must exist from the menu onward, or Unity renders nothing at
+        /// all ("Display 1 — No cameras rendering") while the IMGUI menu floats
+        /// over the void. Mode builders look up Camera.main and reframe this one.
+        private static void EnsureCamera()
+        {
+            if (Camera.main != null) return;
+
+            var go = new GameObject("Main Camera") { tag = "MainCamera" };
+            var cam = go.AddComponent<Camera>();
+            cam.orthographic = true;              // matches EncounterBuilder's framing
+            cam.orthographicSize = 7f;
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = Void;
+            cam.transform.position = new Vector3(0f, 0f, -10f);
+            go.AddComponent<AudioListener>();     // hand-built cameras need this explicitly
+        }
+
+        /// One key light, angled so the cubes read as solids rather than
+        /// silhouettes, over a low violet ambient so shadowed faces keep colour.
+        private static void EnsureLighting()
+        {
+            RenderSettings.ambientMode = AmbientMode.Flat;
+            RenderSettings.ambientLight = Ambient;
+
+            if (Object.FindAnyObjectByType<Light>() != null) return;
+
+            var go = new GameObject("Key Light");
+            var light = go.AddComponent<Light>();
+            light.type = LightType.Directional;
+            light.color = KeyLight;
+            light.intensity = 1.15f;
+            light.shadows = LightShadows.Soft;
+            go.transform.rotation = Quaternion.Euler(50f, -35f, 0f);
         }
     }
 }
