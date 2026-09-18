@@ -85,6 +85,16 @@
           "y": 7
         },
         "label": "▸ a door that should not be here — the crack in your soul is a crack in the Wheel — step through to Sigil, the City of Doors"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "to": "postern",
+        "dest": {
+          "x": 5,
+          "y": 6
+        },
+        "label": "▸ along the wall, to the small grey door — the Eighth Entry"
       }
     ],
     "npcs": [

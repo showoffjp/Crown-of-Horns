@@ -26,6 +26,9 @@ TRACKS = {
     "Court":   ([164.8, 196.0, 246.9], 0.4, 1),    # E minor — solemn
     "Vault":   ([110.0, 155.6, 220.0], 0.45, 3),   # tritone-ish — mysterious
     "Fugue":   ([110.0, 110.6, 164.5], 0.3, 1),    # detuned drone — hollow absence
+    # FFX "To Zanarkand" vibe — Bm add9 voicing, soft, one slow breath per loop:
+    # the pilgrimage theme for the long grey roads
+    "Pilgrimage": ([123.5, 146.8, 185.0, 277.2], 0.35, 1),
 }
 
 def snap(f):  # snap to an integer number of cycles per loop → seamless

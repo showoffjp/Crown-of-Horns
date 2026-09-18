@@ -25,7 +25,7 @@ them opportunistically and falls back to flat shading when absent, so the
 all-in-one build degrades gracefully. Deterministic. Honest placeholders.
 Re-run: python3 tools/gen-zone-backdrops.py
 """
-import colorsys, glob, hashlib, json, math, os
+import colorsys, glob, hashlib, json, math, os, random
 from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -118,12 +118,31 @@ def paint(scene):
         cx, cy = iso(x.get("x", 0), x.get("y", 0))
         glow(img, cx, cy, 46 * SS, (110, 168, 200), 70)
 
+    # water zones (reeds/pilings/boats): the void beyond the grid becomes still
+    # water — horizontal sheen bands + a vertical mirror-smear under each light
+    types = {p.get("type") for p in scene.get("props", [])}
+    if types & {"reeds", "piling", "boat"}:
+        wd = ImageDraw.Draw(img, "RGBA")
+        rw = random.Random(int(hashlib.md5((zid + ":water").encode()).hexdigest(), 16))
+        for _ in range(90):
+            yy = rw.randint(int(H * 0.10) * SS, (H - 8) * SS)
+            xx = rw.randint(0, W * SS); ln = rw.randint(20, 90) * SS
+            wd.line([(xx, yy), (xx + ln, yy)], fill=(150, 190, 210, rw.randint(4, 12)), width=SS)
+        for p in scene.get("props", []):
+            if p.get("type") not in WARM: continue
+            ph, _pr = WARM[p["type"]]
+            cx, cy = iso(p.get("x", 0), p.get("y", 0))
+            col = hsv(ph, 0.5, 0.5)
+            for k in range(10):
+                a = max(4, 26 - k * 2)
+                wd.line([(cx - SS, cy + (8 + k * 7) * SS), (cx + SS, cy + (8 + k * 7) * SS)],
+                        fill=(*col, a), width=3 * SS)
+
     # painterly finish. Grain is seeded per zone id — PIL's effect_noise pulls
     # from an unseeded process-global rand(), which makes output depend on
     # paint order and libc; md5-seeded randbytes is stable everywhere.
     img = img.resize((W, H), Image.LANCZOS)
     img = Image.blend(img, img.filter(ImageFilter.GaussianBlur(1.4)), 0.30)
-    import random
     rnd = random.Random(int(hashlib.md5(zid.encode()).hexdigest(), 16))
     noise = Image.frombytes("L", (W, H), rnd.randbytes(W * H)).point(lambda v: 255 - (255 - v) // 16)
     img = Image.composite(img, Image.new("RGB", (W, H), (0, 0, 0)), noise)

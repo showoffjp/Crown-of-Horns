@@ -1,0 +1,133 @@
+{
+  "scene": {
+    "id": "shepherd",
+    "name": "The Shepherd's Ledger",
+    "w": 10,
+    "h": 8,
+    "playerStart": { "x": 5, "y": 6 },
+    "props": [
+      { "type": "ledgershelf", "x": 2, "y": 1 },
+      { "type": "ledgershelf", "x": 3, "y": 1 },
+      { "type": "ledgershelf", "x": 7, "y": 1 },
+      { "type": "desk", "x": 5, "y": 2 },
+      { "type": "candle", "x": 4, "y": 3 },
+      { "type": "candle", "x": 6, "y": 3 },
+      { "type": "greyshrine", "x": 1, "y": 4 },
+      { "type": "cairn", "x": 8, "y": 5 },
+      { "type": "bedroll", "x": 8, "y": 2 }
+    ],
+    "exits": [
+      { "x": 5, "y": 7, "to": "wayshrine", "dest": { "x": 6, "y": 7 }, "label": "◂ back to the Grey Wayshrine" }
+    ],
+    "npcs": [
+      {
+        "id": "openledger",
+        "name": "the grave-ledger, open",
+        "title": "left on the desk, as if she meant it to be found",
+        "x": 5, "y": 3, "hue": 210, "sigil": "▤",
+        "conv": "sl.ledger",
+        "hail": "*(Behind the wayshrine, a cell you were never shown: a cot, a shrine, and shelves of grave-ledgers going back further than the shelves should hold. On the desk, one lies open. You know the hand — you have watched it write at a hundred fires, never looking up. And on the open page, in that hand, is a name. It is yours. It has been written seven times. Six are crossed out.)*"
+      },
+      {
+        "id": "garrowcaught",
+        "name": "Sister Garrow, in the doorway",
+        "title": "the shepherd, caught between her crook and her canon",
+        "x": 2, "y": 6, "hue": 45, "sigil": "✛",
+        "when": { "flag": "sl.read_ledger" },
+        "conv": "sl.garrow",
+        "hail": "*(She does not startle. She stands in the doorway with her arms folded, watching you read your own name six-times-dead, and the dry Doomguide face does the hardest work of its long life: it does not look away.)* …I was going to tell you at the Court. I have said that seven times now. *(a breath)* It has never once been true."
+      }
+    ]
+  },
+  "conversations": [
+    {
+      "id": "sl.ledger",
+      "title": "Seven Entries",
+      "npc": "the grave-ledger, open",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "the grave-ledger, open",
+          "onEnter": [ { "key": "sl.found_ledger", "op": "SetTrue" } ],
+          "text": "*(The page is ruled in the Doom's own format — you have seen it at the Bench, at the Assize, on every writ in the grey: subject, disposition, DELIVERED. Your name, seven times. The first six entries end the same way, in careful, unhurried ink: 'Walked to the Court. Filed. The Wall holds.' Each is signed with a small grey clasp-mark. Each signature is slightly heavier than the last, as if the hand had to push through something that was not paper. The seventh entry — yours — has a subject and no disposition. The ink of the last column has been mixed, and set down, and mixed again, and set down. For a very long time, by the crust on the well.)*",
+          "choices": [
+            {
+              "text": "*(the one who crosses — read what the crossings-out are: not corrections. GRAVES.)*",
+              "tag": "returned",
+              "check": { "skill": "Insight", "ability": "Wisdom", "dc": 12 },
+              "next": "graves",
+              "effects": [ { "key": "sl.read_ledger", "op": "SetTrue" } ]
+            },
+            {
+              "text": "*(close the book and turn around — she is already in the doorway)*",
+              "next": "turn",
+              "effects": [ { "key": "sl.read_ledger", "op": "SetTrue" } ]
+            }
+          ]
+        },
+        {
+          "id": "graves",
+          "speaker": "the grave-ledger, open",
+          "text": "*(You turn your sense on the six crossed names — your name, in six other hands of fate — and the page opens under your cold like ground under a spade. They were REAL. Six other souls the Wall failed to keep, one an age, walked out of the grey exactly as you did — and each one was met, on the first road, by a grey-robed sister who buried the unclaimed and kept the Doom by hand, who fell in beside them like the first mercy of their second life. She was. That is the unbearable part your sense will not let you put down: the kindness was never the lie. She loved every one of them the way she loves you — dryly, fiercely, in the arithmetic of a woman who has buried everything she ever kept — and at the threshold of the Court, six times, canon asked her for the soul, and canon received it. The crossings-out are not corrections. They are graves, kept in the only cemetery she was ever permitted: a line, through a name, in her own hand. …and the seventh entry, the one before yours with no crossing — your sense reads what it is. Not filed. Not delivered. HELPED. Helped out a postern door of the Court with the shepherd's own key, an age ago — the breach the Wall never traced, the crack that has been letting the impossible happen ever since. She is not the reason you are hunted, cold one. She is the reason you EXIST.)*",
+          "choices": [ { "text": "*(turn around — she is already in the doorway)*", "next": "turn" } ]
+        },
+        {
+          "id": "turn",
+          "speaker": "the grave-ledger, open",
+          "text": "*(The book lies open between you and the doorway like a thing neither of you can step over. Seven entries. Six graves. One blank disposition, and the woman who has been mixing that ink for the whole of your second life, standing very still, waiting to find out which of you she is.)*"
+        }
+      ]
+    },
+    {
+      "id": "sl.garrow",
+      "title": "The Shepherd's Choice",
+      "npc": "Sister Garrow, in the doorway",
+      "start": "0",
+      "nodes": [
+        {
+          "id": "0",
+          "speaker": "Sister Garrow, in the doorway",
+          "onEnter": [ { "key": "sl.confronted", "op": "SetTrue" } ],
+          "text": "*(She comes in and sits on the cot, because the truth is heavy and she has carried it standing for seven lifetimes, and she tells it plainly, the way she does everything.)* The Doom does not leave a crack in its Wall unattended, cold one. When a Returned walks, a Doomguide walks WITH it — to learn what it is, to be believed by it, and to deliver it, filed and quiet, at the Court's own door. That is the office. I am the office. I have been the office seven times. *(she looks at her hands)* Six times I did it. Do not imagine it was cold — it would be so much easier if it had been cold. I loved them. I love YOU. The love is how the office WORKS — a Returned cannot be dragged, only accompanied. And every time, at the threshold, I chose the Wall over the walker, because I believed — I still half believe — that the alternative is every soul in the grey unravelling at once. *(she meets your eyes)* The seventh time, I couldn't. I opened the postern. I broke the Doom with my own key, and the crack has been widening for an age, and it is why you were possible. So now you know what I am: the reason you are hunted, and the reason you are HERE, in the same pair of hands. …the Court is still ahead of us. Ask me what I intend to do at the door. I genuinely do not know. For the first time in seven lifetimes, sister-of-the-clasp does not know — and you get to decide whether that frightens you, or whether it is the only honest thing a shepherd ever offered a lamb.",
+          "choices": [
+            {
+              "text": "*(the one who crosses)* \"Then I'll answer for you, Sister — like I answered for Clip. You're not the office anymore. Walk with me as YOU, and at the door, we break the canon together — or it breaks us both.\"",
+              "tag": "returned",
+              "next": "turned",
+              "effects": [ { "key": "sl.garrow_turned", "op": "SetTrue" }, { "key": "disp.merciful", "op": "AddInt", "amount": 1 } ]
+            },
+            {
+              "text": "*(cold, and clever)* \"Keep filing your reports. Exactly as before — except now I write them with you. Let the Doom believe its shepherd, right up until the door.\"",
+              "next": "doubled",
+              "effects": [ { "key": "sl.garrow_doubled", "op": "SetTrue" }, { "key": "disp.cunning", "op": "AddInt", "amount": 1 } ]
+            },
+            {
+              "text": "\"Six graves, Sister. You'll understand if I walk the rest of this road where I can see you.\"",
+              "next": "watched",
+              "effects": [ { "key": "sl.garrow_watched", "op": "SetTrue" }, { "key": "disp.haunted", "op": "AddInt", "amount": 1 } ]
+            }
+          ]
+        },
+        {
+          "id": "turned",
+          "speaker": "Sister Garrow, in the doorway",
+          "onEnter": [ { "key": "sl.reckoned", "op": "SetTrue" } ],
+          "text": "*(She is quiet for a long time. Then she reaches up, and unpins the small grey clasp she has worn at her throat every day you have known her — the office, the ledger, the Doom's own seal — and sets it on the open page, on the six crossed names, like a stone on a grave.)* …seven lifetimes of walking other people's roads, and the first time anyone offers to answer FOR me, it is the lamb. *(the dry voice does something it has never done; it wavers, and she lets it)* Very well, cold one. No more office. The eighth entry in that book will read: 'Walked to the Court. Not filed. HELD.' — and if the Wall wants my lamb, it will have to come through the shepherd, and I have buried ten thousand of its dead, and I know EXACTLY where it is soft. *(she stands, and picks the ledger up, and tucks it under her arm — hers now, not the Doom's)* …come on, then. The fire's gone down, and the others will talk. They always talk. Let them — for once, the grave-ledger has GOOD news in it."
+        },
+        {
+          "id": "doubled",
+          "speaker": "Sister Garrow, in the doorway",
+          "onEnter": [ { "key": "sl.reckoned", "op": "SetTrue" } ],
+          "text": "*(She looks at you for a long moment — and then, slowly, the driest smile in the grey arrives, the one she keeps for canon lawyers and honest graves.)* …the Doom's own shepherd, running a double ledger against the Doom. Kelemvor keep me, you have been spending too much time with the con man. *(she opens the book to a fresh page and writes, in the careful office hand, while you watch: 'Subject compliant. Suspects nothing. The Wall holds.')* …there. The first lie I have ever inked in seven lifetimes of this book, and it went down smooth as a coffin lid. *(she caps the well; the look she gives you is complicated, and cold, and not entirely unhappy about it)* Understand what you have made of me, cold one: a weapon that files paperwork. Pray you never read an entry about yourself you were not meant to see. …again."
+        },
+        {
+          "id": "watched",
+          "speaker": "Sister Garrow, in the doorway",
+          "onEnter": [ { "key": "sl.reckoned", "op": "SetTrue" } ],
+          "text": "*(She nods — once, slowly, the way she accepts every grief she has ever been handed: without argument, because argument is for things that can be changed.)* …that is fair. Six graves is six graves, and no postern door un-digs them. *(she stands, and folds her hands, and for the first time since the market road she looks like exactly what she is: a woman who buried everything she ever kept, asking to be kept anyway)* Walk where you can see me, then. Watch my hands at every threshold. I will surrender the ledger to the fire's keeping each night and take it back each dawn, in front of witnesses, and when we reach the Court's door you may put me on whichever side of it you trust. It is more chance than I gave the six. *(quietly, at the doorway)* …thank you for not pretending it is nothing. They always pretended it was nothing. It was never nothing. It was YOU.)"
+        }
+      ]
+    }
+  ]
+}

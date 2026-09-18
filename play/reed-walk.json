@@ -130,6 +130,16 @@
           "y": 2
         },
         "label": "▸ an old soul in a chair at the water, keeping a lap warm for a cat that hasnt come"
+      },
+      {
+        "x": 0,
+        "y": 8,
+        "to": "sending",
+        "dest": {
+          "x": 5,
+          "y": 7
+        },
+        "label": "▸ candle-light on the water — the Sending"
       }
     ],
     "npcs": [
