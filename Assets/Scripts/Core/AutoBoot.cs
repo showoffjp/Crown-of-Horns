@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 namespace SunderedCrown.Core
 {
     /// <summary>
-    /// Brings the Boot scene to life: a camera, a key light, and the campaign.
+    /// Gives the Boot scene the two things it has never had: a camera and a light.
+    /// <para>
+    /// Booting the game itself belongs to <see cref="GameEntryPoint"/>, which spawns
+    /// the main menu; this only supplies the scene furniture that neither it nor the
+    /// mode builders provide early enough.
+    /// </para>
     /// <para>
     /// Boot.unity ships with no GameObjects, and this project does not commit most
     /// script .meta files, so script GUIDs differ per machine and a MonoBehaviour
@@ -34,9 +39,11 @@ namespace SunderedCrown.Core
 
             EnsureCamera();
             EnsureLighting();
-
-            if (Object.FindAnyObjectByType<CampaignBootstrap>() != null) return;
-            new GameObject("CampaignBootstrap").AddComponent<CampaignBootstrap>();
+            // Spawning the campaign is NOT this class's job: GameEntryPoint already
+            // boots the front-end, and doing it here would race it. Whichever ran
+            // first would win, and if this one did, GameEntryPoint would see a live
+            // CampaignBootstrap and skip the main menu entirely — the player would
+            // drop straight into the game with no title screen.
         }
 
         /// A camera must exist from the menu onward, or Unity renders nothing at
@@ -44,7 +51,16 @@ namespace SunderedCrown.Core
         /// over the void. Mode builders look up Camera.main and reframe this one.
         private static void EnsureCamera()
         {
-            if (Camera.main != null) return;
+            // A camera built elsewhere still needs a listener: every hand-built camera
+            // in this project was created with AddComponent<Camera>() alone.
+            var existing = Camera.main;
+            if (existing != null)
+            {
+                if (existing.GetComponent<AudioListener>() == null &&
+                    Object.FindAnyObjectByType<AudioListener>() == null)
+                    existing.gameObject.AddComponent<AudioListener>();
+                return;
+            }
 
             var go = new GameObject("Main Camera") { tag = "MainCamera" };
             var cam = go.AddComponent<Camera>();
