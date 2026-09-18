@@ -24,13 +24,22 @@ namespace SunderedCrown.UI
     /// </summary>
     public static class UiTheme
     {
-        // The grey's palette, shared with the web build.
-        private static readonly Color Ink       = new Color(0.086f, 0.075f, 0.110f, 0.94f); // panel fill
-        private static readonly Color InkLift   = new Color(0.133f, 0.118f, 0.165f, 0.94f); // panel fill, top
-        private static readonly Color Edge      = new Color(0.039f, 0.031f, 0.055f, 1.00f); // outer keyline
-        private static readonly Color Gilt      = new Color(0.545f, 0.451f, 0.243f, 1.00f); // dull gold rule
-        private static readonly Color GiltBright= new Color(0.788f, 0.663f, 0.376f, 1.00f);
-        private static readonly Color Parchment = new Color(0.898f, 0.875f, 0.816f, 1.00f);
+        // The grey's palette, shared with the web build. Public so the one uGUI
+        // screen (CombatHUD) can dress itself from the same values.
+        public static readonly Color Ink        = new Color(0.086f, 0.075f, 0.110f, 0.94f); // panel fill
+        public static readonly Color InkLift    = new Color(0.133f, 0.118f, 0.165f, 0.94f); // panel fill, top
+        public static readonly Color Edge       = new Color(0.039f, 0.031f, 0.055f, 1.00f); // outer keyline
+        public static readonly Color Gilt       = new Color(0.545f, 0.451f, 0.243f, 1.00f); // dull gold rule
+        public static readonly Color GiltBright = new Color(0.788f, 0.663f, 0.376f, 1.00f);
+        public static readonly Color Parchment  = new Color(0.898f, 0.875f, 0.816f, 1.00f);
+        public static readonly Color Muted      = new Color(0.596f, 0.573f, 0.541f, 1.00f);
+
+        /// <summary>HP-bar fill: green down to amber down to red. One ramp, so the
+        /// exploration HUD, the combat portraits and the nameplates agree.</summary>
+        public static Color Health(float frac) =>
+            frac < 0.34f ? new Color(0.73f, 0.24f, 0.24f)
+          : frac < 0.67f ? new Color(0.78f, 0.60f, 0.25f)
+                         : new Color(0.36f, 0.58f, 0.34f);
 
         private static readonly Color BtnFill   = new Color(0.141f, 0.122f, 0.176f, 0.96f);
         private static readonly Color BtnHover  = new Color(0.208f, 0.180f, 0.251f, 0.98f);
@@ -38,6 +47,23 @@ namespace SunderedCrown.UI
 
         private const int Slice = 8;     // 9-slice border, in pixels
         private static bool _applied;
+
+        private static Sprite _panelSprite, _buttonSprite, _buttonHoverSprite, _buttonActiveSprite;
+
+        /// <summary>The panel background as a 9-sliced Sprite, for uGUI Images.
+        /// Same art as the IMGUI skin uses, so the two HUDs cannot drift apart.</summary>
+        public static Sprite PanelSprite => _panelSprite ??= Slice9(Panel(Ink, InkLift, Gilt));
+        public static Sprite ButtonSprite => _buttonSprite ??= Slice9(Panel(BtnFill, Lift(BtnFill), Gilt));
+        public static Sprite ButtonHoverSprite => _buttonHoverSprite ??= Slice9(Panel(BtnHover, Lift(BtnHover), GiltBright));
+        public static Sprite ButtonActiveSprite => _buttonActiveSprite ??= Slice9(Panel(BtnActive, BtnActive, Gilt));
+
+        private static Sprite Slice9(Texture2D tex)
+        {
+            var sp = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100f, 0,
+                                   SpriteMeshType.FullRect, new Vector4(Slice, Slice, Slice, Slice));
+            sp.hideFlags = HideFlags.DontSave;
+            return sp;
+        }
 
         /// <summary>Repaint the shared skin. Idempotent and cheap after the first call,
         /// so it is safe to call from every frame's GUI pass.</summary>

@@ -266,6 +266,13 @@ theme has to exist before the title screen and `UiScaler` is only added by
 `CampaignBootstrap`. `UiTheme` touches colour, background and padding only —
 font sizes stay with the accessibility scale.
 
+**`UI/CombatHUD.cs` is the only uGUI screen in the game** (which is why the
+asmdef needs `UnityEngine.UI` at all). It cannot inherit the skin, so it dresses
+itself from the same source: `UiTheme.PanelSprite` / `ButtonSprite` are the same
+generated art 9-sliced for `Image`, and `UiTheme.Health(frac)` is the one HP
+ramp. Style combat through those, not with fresh literals, or combat drifts into
+being the one screen that still looks like grey debug boxes.
+
 ### Everything is 2D
 
 `GridToWorld` fakes the isometry in the **XY plane** and leaves Z for sorting, so
