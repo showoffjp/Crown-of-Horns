@@ -738,6 +738,7 @@ HTML = r"""<!DOCTYPE html>
    border-radius:14px 14px 0 0;box-shadow:0 -10px 50px #000a;display:flex;flex-direction:column;overflow:hidden}
  .dhead{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid #2a2636;background:#181421}
  .dhead .sig{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0c0b10}
+ .dhead .dface{display:none;width:44px;height:55px;object-fit:cover;border-radius:5px;border:1px solid #3a3550;box-shadow:0 2px 8px #0008;background:#14121b}
  .dhead .nm{font-size:17px;color:#e7c873;font-weight:600}.dhead .ti{font-size:12px;color:#9a90a8;font-style:italic}
  .dhead .x{margin-left:auto;background:none;border:1px solid #2a2636;color:#9a90a8;border-radius:7px;padding:5px 10px;cursor:pointer;font:inherit;font-size:12px}
  .dhead .x:hover{border-color:#c9a24b;color:#e7c873}
@@ -867,7 +868,7 @@ HTML = r"""<!DOCTYPE html>
  </div>
 </div>
 <div class="overlay" id="overlay"><div class="dbox">
-  <div class="dhead"><div class="sig" id="dsig"></div><div><div class="nm" id="dname"></div><div class="ti" id="dtitle"></div></div>
+  <div class="dhead"><div class="sig" id="dsig"></div><img class="dface" id="dface" alt=""><div><div class="nm" id="dname"></div><div class="ti" id="dtitle"></div></div>
     <button class="x" onclick="closeDialogue()">✕ step back</button></div>
   <div class="dscript" id="dscript"></div>
 </div></div>
@@ -1354,10 +1355,27 @@ function loop(t){ const dt=Math.min(0.05,(t-lastT)/1000||0); lastT=t; update(dt)
 
 // ====================== the dialogue overlay ======================
 let curConv=null, curNpc=null, pendingOpts=null, loreSeen={}, sensed=false;
+// painted faces (tools/gen-portrait-thumbs.py) — loaded lazily, per soul you actually
+// speak to; the sigil chip stands in whenever a face is missing or still in flight.
+const FACES=Object.create(null);
+function showFace(npc){
+  const img=document.getElementById("dface"), sig=document.getElementById("dsig");
+  const cached=FACES[npc.name];
+  const show=ok=>{ if(ok){ img.src=cached&&cached.src||img.src; img.style.display="block"; sig.style.display="none"; }
+                   else { img.style.display="none"; sig.style.display="flex"; } };
+  if(cached===null){ show(false); return; }
+  if(cached){ img.src=cached.src; show(true); return; }
+  show(false);
+  const im=new Image();
+  im.onload=()=>{ FACES[npc.name]=im; if(curNpc===npc){ img.src=im.src; img.style.display="block"; sig.style.display="none"; } };
+  im.onerror=()=>{ FACES[npc.name]=null; };
+  im.src="portraits/"+encodeURIComponent(npc.name)+".jpg";
+}
 function talk(npc){ sndTalk();
   curNpc=npc; curConv=CONVS.find(c=>c.id===npc.conv); if(!curConv) return;
   player.path=null; autoTalk=null; loreSeen={}; sensed=false;
   document.getElementById("dsig").textContent=npc.sigil; document.getElementById("dsig").style.background=`hsl(${npc.hue} 52% 62%)`;
+  showFace(npc);
   document.getElementById("dname").textContent=npc.name; document.getElementById("dtitle").textContent=npc.title;
   document.getElementById("dscript").innerHTML=""; document.getElementById("overlay").classList.add("show");
   sfx('talk');

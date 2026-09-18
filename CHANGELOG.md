@@ -11,6 +11,21 @@
 
 ---
 
+## 🖼️ v6.113.0 — *"Faces at the Fire"* — the web game shows its portraits at last (gfx · dialogue · polish)
+
+> 309 painted faces have existed since v6.98 and the walkable game never showed one of them. Now every
+> soul you speak to looks back at you.
+- 🖼️ **Portrait cards in dialogue** — the conversation header carries the speaker's painted face beside
+  their name and title, in place of the sigil chip. Mother Sable in her violet, Garrow in her grey-gold,
+  the Sender in her water-blue.
+- 🪶 **Costing almost nothing** — `tools/gen-portrait-thumbs.py` emits a 132×165 JPEG per soul into
+  `play/portraits/` (**309 faces, 670 KB total** — the Unity PNGs are 45 KB *each*), cover-cropped toward
+  the head. The page loads them **lazily, only for souls you actually speak to**, exactly like the painted
+  floors, and falls back to the sigil chip whenever a face is missing or still in flight — so the
+  all-in-one single file degrades gracefully with no portraits folder beside it.
+- Verified live in Chromium (face loads at full resolution, zero page errors). Gate **801/0**; 42/42
+  suites.
+
 ## 👑 v6.112.0 — *"The Shepherd at Court"* — the trilogy reaches the endgame (content · reactivity · finale)
 
 > Not a new zone — deeper: the Garrow trilogy now lands **inside the authored endgame**. Gated on the
