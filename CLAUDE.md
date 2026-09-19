@@ -191,6 +191,8 @@ Known Unity-side gaps, roughly in order of payoff:
    holds 114 CC0 tiles that nothing in Unity currently loads).
 2. No scene lighting; the Boot scene is empty and cameras are built in code.
 3. `play/maps/*.jpg` (the painted zone floors) are web-only and have no Unity path.
+   `Rendering/SceneBackdrop` is the cheap stand-in: a generated era-tinted gradient
+   rather than painted art.
 
 ### Unity art wiring
 
@@ -291,6 +293,16 @@ draws on PIL's own unseeded generator, so every run rewrote all ~478 files.
   marble for the Crown Wars court, grey_dirt for the Fugue, infernal for
   Cinderhaunt, tomb for crypts. Missing iso sprites fall back to the old textured
   cubes, and missing textures to flat tints.
+
+* **`Rendering/SceneBackdrop.cs`** — one generated sprite behind everything: a
+  radial falloff from an era-tinted glow down to the void, squashed to the floor's
+  2:1 projection. `TileFloorRenderer` creates it and passes its own `floorFamily`,
+  so a scene picks its era once and the backdrop follows. It is parented to the
+  **camera**, not the grid: every mode reframes the camera, so a sheet big enough
+  to cover the widest scene is many times the view in the narrowest and all that
+  shows is the flat middle of the gradient. Riding the camera keeps the falloff a
+  constant size on screen and makes it impossible for the sheet's edge to enter
+  frame — which is the one way a backdrop looks worse than none at all.
 
 Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
 tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.

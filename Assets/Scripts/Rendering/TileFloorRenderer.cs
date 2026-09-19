@@ -56,6 +56,9 @@ namespace SunderedCrown.Rendering
             var grid = GridSystem.Instance;
             if (grid == null) return;
 
+            // Something behind the room, tinted to this scene's era.
+            SceneBackdrop.Create(transform, grid, floorFamily);
+
             var isoFloors = LoadSprites("floor", floorFamily);
             var isoWalls = LoadSprites("wall", wallFamily);
             if (isoFloors != null)
