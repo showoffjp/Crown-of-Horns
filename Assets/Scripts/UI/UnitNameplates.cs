@@ -15,6 +15,9 @@ namespace SunderedCrown.UI
         public KeyCode toggleKey = KeyCode.N;
         public bool show = true;
 
+        [Tooltip("How far above a unit's tile the plate is anchored, in world units.\n        Units are drawn as standees 1.02 tall from a pivot 0.12 below the tile\n        centre, so their heads reach +0.90; anchoring below that prints the name\n        across the face.")]
+        public float anchorHeight = 1.06f;
+
         private GridUnit[] _units = new GridUnit[0];
         private static Texture2D _white;
 
@@ -38,7 +41,7 @@ namespace SunderedCrown.UI
             {
                 if (u == null || u.Sheet == null) continue;
 
-                Vector3 sp = cam.WorldToScreenPoint(u.transform.position + Vector3.up * 0.8f);
+                Vector3 sp = cam.WorldToScreenPoint(u.transform.position + Vector3.up * anchorHeight);
                 if (sp.z < 0) continue; // behind the camera
                 float x = sp.x, y = Screen.height - sp.y;
 

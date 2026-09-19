@@ -87,9 +87,16 @@ The only static C# guards are:
 bash tools/check-cs-structure.sh      # brace balance + one namespace per file
 python3 tools/check-asmdef-refs.py    # asmdef references vs. what scripts `using`
 python3 tools/check-package-lock.py   # lock file vs. manifest dependencies
+python3 tools/check-world-art.py      # nothing in the world renders as a cube
 ```
 
-Both run in the `Repo hygiene` job. Treat a green CI as saying nothing about
+All four run in the `Repo hygiene` job. `check-world-art.py` mirrors the C#
+resolution order (`MarkerArt.Resolve`, `UnitSpriteSkinner.Resolve`,
+`WorldArt.Standee`) in Python and fails if any marker label or unit name falls
+through it — CI never runs Unity, so otherwise an NPC with no portrait, or a
+marker renamed out of its `PropArt` rule, silently goes back to being a box. It
+also warns (without failing) when a named NPC lands on the generic `Neutral`
+standee, which is not a cube but is a character wearing a stranger's face. Treat a green CI as saying nothing about
 whether the Unity project actually compiles.
 
 ### packages-lock.json
