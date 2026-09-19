@@ -152,11 +152,26 @@ def roster():
 def has(text, *keys):
     return any(k in text for k in keys)
 
+# A soul whose NAME says "person", however object-like the rest of it reads. The
+# icon test below matches words like "door" and "ledger", and a great many people
+# in this game are described by the thing they stand beside or keep: "Sister
+# Garrow, at the door", "Tobias Ledgerwhite", "A Boy at a Threshold", "The
+# Doorman". They were all being painted as floating sigils instead of faces.
+PERSONS = ("sister ", "brother ", "mother ", "father ", "goodwife", "goodman",
+           "justiciar", "a boy", "a girl", "the boy", "the girl", "doorman",
+           "keeper", "clerk", "-wife", "widow", "the soul ", "warden", "tender")
+
 def archetype(name, title):
     # NOTE: in the Fugue *everyone* is "a soul" — that word means nothing here.
     # Professions classify first; only genuine dissolution reads as spirit.
     t = (name + " " + title).lower()
-    if has(t, "door", "threshold", "the fire", "ledger", "tally", "bell,", " bell", "kettle",
+    n = name.lower()
+    # The icon test reads the NAME only. A title is what a soul is *near* or
+    # *does* — "keeps the door", "burned in the fire" — and a person with an
+    # object in their job description is still a person.
+    if not has(n, *PERSONS) and \
+       has(n, "door", "threshold", "the fire", "the ledger", "grave-ledger",
+           "the great tally", "bell,", " bell", "kettle",
            "archive itself", "a quiet hour", "the wall itself", "loom", "the road itself",
            "milestone", "crown of horns", "became its walls"): return "icon"
     if has(t, "thief", "sparrow", "broker", "fence", "snitch", "smuggler", "con ", "grifter",

@@ -241,11 +241,36 @@ and they were the last cube left on screen. `MarkerArt` ends the same way for a
 talkable marker — an unrecognised label is still somebody.
 
 Names in **`tools/legacy-portraits.txt`** are never repainted — their art predates
-this generator and is better than what a fallback hue would produce. Their
-standees are cut out of the existing painting instead (a border flood-fill that
-follows the backdrop's gradient but cannot cross the figure's hard edge; keep the
-tolerance low or it walks straight through a near-black robe). Add a name there to
-protect a portrait you have replaced by hand.
+this work and is better than what a fallback hue would produce. Their standees are
+cut out of the existing painting instead (a border flood-fill that follows the
+backdrop's gradient but cannot cross the figure's hard edge; keep the tolerance
+low or it walks straight through a near-black robe). Add a name there to protect a
+portrait you have replaced by hand.
+
+Build that list from the **merge-base**, never from the current HEAD:
+
+```bash
+BASE=$(git merge-base HEAD origin/main)
+git ls-tree -r --name-only "$BASE" Assets/Resources/Portraits
+```
+
+minus the souls the roster owns outright. Building it from HEAD pins art the
+branch has just generated, freezing it against later fixes to the archetype
+classifier — which is what happened the first time and left three characters
+permanently painted as floating sigils.
+
+### The archetype classifier reads the name, not the job
+
+`archetype()` decides whether a soul is a warrior, a priest, a spirit or an
+**icon** — a non-person drawn as its sigil held in a ring of light rather than as
+a face. The icon test matches the **name only**, and bails on a name carrying a
+person marker (`PERSONS`). A title says what a soul is *near* or *does*, and a
+great many people here are described by the thing they keep: with the old
+name-plus-title test, "Sister Garrow, at the door", "Tobias Ledgerwhite", "A Boy
+at a Threshold" and "The Doorman" were all painted as floating sigils. The
+keywords must stay narrow for the same reason — bare `ledger` catches
+Ledgerwhite, bare `tally` catches Tally the storyteller. 37 souls classified as
+icons before this; 10 do now, and all ten are objects.
 
 Both generators are **reproducible**: two runs write byte-identical files, so
 `git status` after a regeneration shows only what actually changed. That was not
