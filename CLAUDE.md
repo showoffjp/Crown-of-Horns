@@ -304,6 +304,23 @@ draws on PIL's own unseeded generator, so every run rewrote all ~478 files.
   constant size on screen and makes it impossible for the sheet's edge to enter
   frame — which is the one way a backdrop looks worse than none at all.
 
+* **`Rendering/AmbientMotes.cs`** — pyreflies: a small field of drifting
+  soul-motes, ported from `drawPyreflies` in `make-town-market.py` with its motion
+  kept (orbital phase, lateral cosine drift, a vertical wander that nets upward, a
+  twinkle on a slower period so the field never pulses in unison). Also created by
+  `TileFloorRenderer` from the scene's `floorFamily`.
+
+  Motes are seeded and respawned **from grid cells**, never from a bounding
+  rectangle: the room is a diamond, so a rectangle around it is mostly void and
+  motes seeded there drift outside the floor and read as dust on the lens. There
+  is no lateral wrap for the same reason — the drift is a cosine and swings back
+  on its own. They re-sort by their own `y` every frame, which is what lets them
+  pass in front of someone and then behind them.
+
+  **This is a motion effect and cannot be judged from a still render.** `count`,
+  `speed`, `sizeMin`/`sizeMax` and `opacity` are all serialized so it can be tuned
+  against the Game view without a rebuild.
+
 Available families — floor: `grey_dirt · infernal · marble · pebble · sandstone ·
 tomb`; wall: `brick_brown · brick_dark · marble_wall · stone_dark · tomb_wall`.
 
