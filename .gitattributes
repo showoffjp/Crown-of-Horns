@@ -32,6 +32,8 @@ play/*.png                        -filter -diff -merge -text
 play/maps/*.jpg                   -filter -diff -merge -text
 play/portraits/*.jpg              -filter -diff -merge -text
 Assets/Resources/Art/**/*.png     -filter -diff -merge -text
+Assets/Resources/Props/*.png      -filter -diff -merge -text
+Assets/Resources/Standees/*.png   -filter -diff -merge -text
 
 # Treat Unity YAML assets as text (better merges)
 *.unity   text

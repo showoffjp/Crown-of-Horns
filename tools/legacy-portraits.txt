@@ -1,0 +1,51 @@
+# Portraits that predate this branch and must not be repainted.
+#
+# These souls are not scene NPCs, so the v3 roster only reaches them through its
+# fallback harvest (Unity content files, dialogue speakers). Painting them from a
+# fallback hue would replace hand-checked art with arbitrary colours, so both
+# gen-portraits-v3.py and gen-standees.py leave these files alone and cut their
+# standees out of the existing painting instead.
+#
+# The list is the portraits committed at this branch's MERGE-BASE minus the souls
+# the v3 roster owns outright. Building it from the current HEAD instead would pin
+# art this branch had just generated, freezing it against later fixes to the
+# archetype classifier — which is exactly what happened the first time.
+#
+#   BASE=$(git merge-base HEAD origin/main)
+#   git ls-tree -r --name-only "$BASE" Assets/Resources/Portraits
+#
+# Add a name here to protect a portrait you have replaced by hand.
+A Faithless soul
+A Grey Gravedigger
+A Half-Unmade Voice
+A Keeper of the Bone Crown
+A girl in the Wall
+Brother Sere
+Collector Vane
+Ferryman
+Flaming Fist
+Garrow
+Harper Handler
+Hensley, dying
+Herald of the Gate
+High Lord Aelryth
+Justiciar Veld
+Maerin
+Mhaere
+Mother Cass
+NPC
+Naeve
+Old Davyn
+Quill
+Roen
+Roen Alleywind
+Sable
+Sergeant Kallia
+Sister Garrow
+Tally
+The Pale Cantor
+The Returned
+The unclaimed
+Vaelin (an echo)
+Varra
+Wrenna Alleywind

@@ -39,6 +39,7 @@ namespace SunderedCrown.Core
 
             EnsureCamera();
             EnsureLighting();
+            EnsureTheme();
             // Spawning the campaign is NOT this class's job: GameEntryPoint already
             // boots the front-end, and doing it here would race it. Whichever ran
             // first would win, and if this one did, GameEntryPoint would see a live
@@ -72,8 +73,28 @@ namespace SunderedCrown.Core
             go.AddComponent<AudioListener>();     // hand-built cameras need this explicitly
         }
 
-        /// One key light, angled so the cubes read as solids rather than
-        /// silhouettes, over a low violet ambient so shadowed faces keep colour.
+        /// Repaints Unity's built-in IMGUI skin, which every screen in this game draws
+        /// against. It has to start here rather than with the campaign: the title screen
+        /// is the first thing on screen, and CampaignBootstrap's UiScaler does not exist
+        /// yet. The object survives scene loads so the theme holds across modes.
+        private static void EnsureTheme()
+        {
+            if (Object.FindAnyObjectByType<UI.UiThemeApplier>() != null) return;
+            var go = new GameObject("UI Theme");
+            go.AddComponent<UI.UiThemeApplier>();
+            Object.DontDestroyOnLoad(go);
+        }
+
+        /// One key light, over a low violet ambient so shadowed faces keep colour.
+        /// <para>
+        /// The light is raked only slightly, and casts no shadows. The world is a
+        /// flat XY plane seen head-on — <c>GridSystem.GridToWorld</c> fakes the
+        /// isometry in 2D and leaves Z for sorting — so a steeply angled light lit
+        /// the camera-facing quads at a glancing dot product and smeared every
+        /// marker's shadow into a long streak clear across the floor. Facing the
+        /// plane puts the terrain's own painted brightness on screen unaltered, and
+        /// markers get a painted contact shadow instead (Rendering/MarkerArt).
+        /// </para>
         private static void EnsureLighting()
         {
             RenderSettings.ambientMode = AmbientMode.Flat;
@@ -85,9 +106,9 @@ namespace SunderedCrown.Core
             var light = go.AddComponent<Light>();
             light.type = LightType.Directional;
             light.color = KeyLight;
-            light.intensity = 1.15f;
-            light.shadows = LightShadows.Soft;
-            go.transform.rotation = Quaternion.Euler(50f, -35f, 0f);
+            light.intensity = 1.0f;
+            light.shadows = LightShadows.None;
+            go.transform.rotation = Quaternion.Euler(18f, -14f, 0f);
         }
     }
 }

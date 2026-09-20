@@ -155,7 +155,8 @@ namespace SunderedCrown.Content
             // Lootable strongbox (gold + a potion + the dungeon key).
             if (content != null)
                 MakeContainer(grid, "Strongbox", new Vector2Int(5, 9), 20,
-                    new List<ItemDefinition> { content.Items["healing_potion"], content.Items["cinderhaunt_key"] });
+                    new List<ItemDefinition> { content.Items["healing_potion"], content.Items["cinderhaunt_key"] },
+                    "hub.bg.strongbox");
 
             // Exit: stairs into the Cinderhaunt dungeon.
             MakeExit(grid, "Cinderhaunt Stairs", new Vector2Int(16, 7), onEnterDungeon);
@@ -283,10 +284,17 @@ namespace SunderedCrown.Content
             }
         }
 
-        private void MakeContainer(GridSystem grid, string name, Vector2Int coord, int gold, List<ItemDefinition> items)
+        /// <param name="lootFlag">GameFlags key recording that this container has been
+        /// emptied. It is not optional: the hub is rebuilt from scratch every time the
+        /// party walks back in from another map, so a container without a flag refills
+        /// itself — which is exactly what the Lower City strongbox used to do, handing
+        /// out its gold, potion and dungeon key again on every return trip.</param>
+        private void MakeContainer(GridSystem grid, string name, Vector2Int coord, int gold,
+            List<ItemDefinition> items, string lootFlag)
         {
             var it = MakeMarker(grid, name, coord, new Color(0.6f, 0.45f, 0.2f));
             it.kind = InteractionKind.Container; it.gold = gold; it.contents = items;
+            it.lootFlag = lootFlag;
         }
 
         // ---- spawn helpers ----
